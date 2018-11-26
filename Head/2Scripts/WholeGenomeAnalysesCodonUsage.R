@@ -13,7 +13,7 @@ for (step in 1:nrow(WholeGenomes))
   ############ translate codons to aminoacids
   ### make triplets 
   Codons = as.character(WholeGenomes$Codons[step])
-  AminoSeq = as.character(WholeGenomes$AminoSeq[step])
+  AminoSeq = as.character(WholeGenomes$ModifiedAmino[step])
   AminoSeqVec = unlist(strsplit(AminoSeq,''))
   length(Codons)
   length(AminoSeq)
@@ -117,7 +117,29 @@ table(Final$Class)
 
 write.table(Final, "../../Body/3Results/AllGenesCodonUsage.txt", sep = '\t')  
 
+#### how many species has all 13 genes with high quality?
+test = data.frame(table(Final$Species))
+nrow(test[test$Freq == 13,]) # 3834
+nrow(test[test$Freq != 13,]) # 43
+nrow(test[test$Freq < 13,]) # 22
+nrow(test[test$Freq > 13,]) # 21
 
-  
+#### who are they?
+less = test[test$Freq < 13,]$Var1 
+# Aplidium_conicum          Asymmetron_inferum        Asymmetron_lucayanum      Botrylloides_leachii      Botrylloides_pizoni       Branchiostoma_belcheri    Branchiostoma_floridae    Branchiostoma_japonicum  
+#[9] Branchiostoma_lanceolatum Chionodraco_myersi        Ciona_intestinalis        Datnioides_microlepis     Epigonichthys_cultellus   Epigonichthys_maldivensis Herdmania_momus           Myrichthys_maculosus     
+#[17] Pelomedusa_subrufa        Podiceps_cristatus        Prioniturus_luconensis    Psittacus_erithacus       Sphenodon_punctatus       Styela_plicata           
 
+table(Final[Final$Species %in% less,]$Class)
+#Actinopterygii    AncientFish           Aves       Reptilia 
+# 36             48             36             23 
+
+more = test[test$Freq > 13,]$Var1 
+#Aceros_waldeni             Ardeola_bacchus            Botaurus_stellaris         Butorides_striata          Champsocephalus_gunnari    Egretta_sacra              Gorsachius_magnificus     
+#[8] Heteronotia_binoei         Hoplobatrachus_rugulosus   Ixobrychus_eurhythmus      Ixobrychus_sinensis        Nannopterum_brasilianus    Notiomystis_cincta         Penelopides_panini        
+#[15] Phalacrocorax_carbo        Phoebastria_albatrus       Phoebastria_immutabilis    Phoebastria_nigripes       Thalassarche_melanophrys   Tropiocolotes_tripolitanus Turdus_philomelos 
+
+table(Final[Final$Species %in% more,]$Class)  
+#Actinopterygii       Amphibia           Aves       Reptilia 
+#16             14            262             33 
 

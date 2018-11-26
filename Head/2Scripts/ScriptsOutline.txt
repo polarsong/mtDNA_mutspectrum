@@ -1,0 +1,52 @@
+
+###############################
+# PURPOSE		: To check correct translation of nucleotides to aminoacids, to count codon usage (64 columns) and derive A T G C frequencies in synonymous fourfold sites. finally we have 13 tranlsated genes for 3834 chordata species (plus 43 strange species with more than 13 or less than 13 protein-coding genes)
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalysesCodonUsage.R
+# INPUT FILE 1	: ../../Body/2Derived/AllGenesCodons.csv 		# aminoacids and nucleotides
+# INPUT FILE 2 	: ../../Body/2Derived/full_table.txt     		# source of taxonomy
+# OUTPUT FILE   : ../../Body/3Results/AllGenesCodonUsage.txt 	# species / gene / class / whole taxonomy + codons usage + A T G C frequencies in synonymous fourfold sites
+
+###############################
+# PURPOSE		: To draw A T G C fractions in neutral sites along mtDNA for different species
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.AtgcAlongGenomes.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.AtgcAlongGenomes.R.01.pdf
+
+###############################
+# PURPOSE		: To draw A T G C fractions between taxa
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.AtgcBetweenTaxa.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.AtgcBetweenTaxa.R.01.pdf
+
+###############################
+# PURPOSE		: Fraction of nucleotides versus generation time of mammals
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.MutagensWithinMammals.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# INPUT FILE 	: ../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.MutagensWithinMammals.R.01.pdf
+
+###############################
+# PURPOSE		: Fraction of nucleotides versus ecology (GT = female maturity days, MLS) of chordata
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.EcologyAndMutSpecChordata.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# INPUT FILE 	: ../../Body/1Raw/anage_data.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.R.01.pdf
+
+###############################
+# PURPOSE		: Coefficient of variation in A T G C along genome of all chordata classes
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.AtgcCoeffVarTaxaGenes.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.AtgcCoeffVarTaxaGenes.R.01.pdf
+
+
+
+
+
+
+
