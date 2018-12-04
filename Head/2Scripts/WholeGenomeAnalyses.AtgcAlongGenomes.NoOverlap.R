@@ -32,17 +32,16 @@ SynNucAll = SynNuc
 pdf("../../Body/4Figures/WholeGenomeAnalyses.AtgcAlongGenomesNoOverlap.R.01.pdf", height = 10, width = 15)
 par(mfrow=c(2,1))
 
-
 for (taxa in 1:length(VecOfTaxa))
 { # taxa = 1
-  ColG = rgb(0.1,0.1,0.1,0.1)
-  ColT = rgb(0.1,0.1,1,0.1)
-  ColC = rgb(0.1,1,0.1,0.1)
-  ColA = rgb(1,0.1,0.1,0.1)
-  
   TAX = as.character(VecOfTaxa[taxa])
   SynNuc = SynNucAll
-    
+  ColG = rainbow(4, alpha = 0.1)[4]
+  ColT = rainbow(4, alpha = 0.1)[2]
+  ColC = rainbow(4, alpha = 0.1)[1]
+  ColA = rainbow(4, alpha = 0.1)[3]
+  
+
   Gene = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2') # ATP6 and ND4 
   Timing = seq(1:13)
   NewData = data.frame(Gene,Timing)
@@ -67,11 +66,12 @@ for (taxa in 1:length(VecOfTaxa))
         }
       }
     }
-  ColG = rgb(0.1,0.1,0.1,0.5)
-  ColT = rgb(0.1,0.1,1,0.5)
-  ColC = rgb(0.1,1,0.1,0.5)
-  ColA = rgb(1,0.1,0.1,0.5)
-  legend(13,0.6,legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch = 16, horiz = FALSE)
+  ColG = rainbow(4, alpha = 0.6)[4]
+  ColT = rainbow(4, alpha = 0.6)[2]
+  ColC = rainbow(4, alpha = 0.6)[1]
+  ColA = rainbow(4, alpha = 0.6)[3]
+  
+  legend("topright",legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch = 16, horiz = FALSE)
 }
 
 dev.off()

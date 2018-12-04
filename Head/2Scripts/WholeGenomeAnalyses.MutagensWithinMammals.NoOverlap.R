@@ -64,10 +64,10 @@ A <- lm(log2(AGG$GenerationLength_d) ~ scale(AGG$FrT) + scale(AGG$FrC)); summary
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.MutagensWithinMammalsNoOverlap.R.01.pdf", width = 50, height = 30)
 
-ColG = rgb(0.1,0.1,0.1,0.3)
-ColT = rgb(0.1,0.1,1,0.3)
-ColC = rgb(0.1,1,0.1,0.3)
-ColA = rgb(1,0.1,0.1,0.3)
+ColG = rainbow(4)[1]
+ColT = rainbow(4)[2]
+ColC = rainbow(4)[3]
+ColA = rainbow(4)[4]
 
 par(oma = c(2, 2, 0, 0), cex.main = 2, cex.lab = 1.5, cex = 6, pch =16)
 plot(log2(AGG$GenerationLength_d),AGG$FrA, col = ColA, ylim = c(0,0.6), xlab = '', ylab = '', main = ''); par(new=TRUE);
