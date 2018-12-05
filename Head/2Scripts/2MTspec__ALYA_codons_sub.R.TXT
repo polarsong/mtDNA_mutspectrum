@@ -2,7 +2,7 @@ this script takes SPECIESNAME.GENE.POLARISED.txt file
 
 finds substitutions between ancestal-descendant pairs 
 
-extracts them into table with a header 
+extracts them into table with a colnames
 Species Gene AncestralSeqName DescendantSeqName Branch CodonPosition PreviousAncCodon AncestorCodon NextAncCodon PreviousDesCodon DescendantCodon NextDesCodon AncestralAA DescendantAA
 
 
