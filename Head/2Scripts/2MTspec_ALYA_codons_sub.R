@@ -2,15 +2,14 @@ detach("package:Biostrings", unload=TRUE)
 library(seqinr)
 rm(list=ls(all=TRUE))  # remove everything from R memory (old variables, datasets...) 
 
-#USER = 'KOSTYA';
-USER = 'ALYA';
-#USER = 'TOY'
-WDA_TOY <- normalizePath("C:\\Users\\polar\\Documents\\spectres\\TOY", winslash = "\\")
-WDA_IN <- normalizePath("C:\\Users\\polar\\Documents\\BODY\\POLARIZEDBR_DATA\\sp", winslash = "\\")
-WDA_OUT <- normalizePath("C:\\Users\\polar\\Documents\\BODY\\POLARIZEDBR_DATA\\CodonTable", winslash = "\\")
-if (USER == 'KOSTYA') {setwd('/home/kostya/konstantin/SCIENCE_PROJECTS_HEAD/MITOCHONDRIA/MutSpectrum/Results/re/');}  
-if (USER == 'ALYA') {setwd (WDA_IN);} 
-if (USER == 'TOY') {setwd (WDA_TOY);}
+wd <- getwd()
+wd_in = gsub('Head/2Scripts','Body/2Derived/POLARIZEDBR_DATA_ML', wd)  #SWITCH to MP-prefix if MPanalysis data
+wd_out = gsub('Head/2Scripts','Body/2Derived/TOTAL_SUBS_ML', wd) #SWITCH to MP-prefix if MPanalysis data
+dir.create (wd_out)
+setwd(wd_in)
+wd_in
+
+
 
 
 polardata <- list.files(pattern=".*\\.txt")
@@ -55,9 +54,9 @@ for (pfiles in polardata){
         da <- data.frame(final)
         colnames(da) <- c("Species", "Gene", "AncestralSeqName", "DescendantSeqName", "Branch", "CodonPosition", "PreviousAncCodon", "AncestorCodon", "NextAncCodon", "PreviousDesCodon", "DescendantCodon", "NextDesCodon", "AncestralAA", "DescendantAA")
         str(da)
-        if (USER == 'ALYA') {setwd (WDA_OUT);} 
+        setwd(wd_out) 
         write.table(da, file=paste(gsub("POLARISED.txt", "", pfiles), node1, ".", node2, ".SUBS.txt", sep = ""), quote = FALSE, row.names = FALSE)
-        if (USER == 'ALYA') {setwd (WDA_IN);} 
+        setwd(wd_in)
         }
       }
   }

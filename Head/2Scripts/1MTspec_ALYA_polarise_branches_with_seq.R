@@ -11,9 +11,11 @@ rm(list=ls(all=TRUE))  # remove everything from R memory (old variables, dataset
 
 
 wd <- getwd()
-wd = gsub('Head/2Scripts','Body/1Raw/pipeline_trees', wd)
-setwd(wd)
-wd
+wd_in = gsub('Head/2Scripts','Body/1Raw/pipeline_trees', wd)
+wd_out = gsub('Head/2Scripts','Body/2Derived/POLARIZEDBR_DATA_ML', wd) #SWITCH to MP-prefix if MPanalysis data
+dir.create (wd_out)
+setwd(wd_in)
+wd_in
 
 ### READ THREE FILES FOR EACH GENE-SPECIES:
 
@@ -86,10 +88,10 @@ for (f in filelist) {
     
   }  
   
-  if (USER == 'ALYA') {setwd (WDA_OUT);} 
+  setwd(wd_out)
   write.table(Final, file=paste(f, ".POLARISED.txt", sep = ""), quote = FALSE, row.names = FALSE)
   
-  if (USER == 'ALYA') {setwd (WDA_IN);} 
+  setwd(wd_in)
 }
 
 
