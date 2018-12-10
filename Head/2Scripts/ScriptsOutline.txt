@@ -68,7 +68,33 @@ Abalistes_stellaris	CytB	14395	15536	0	0	MASLRKTHPLLKIANDALVDLPTPSNISAWWNFGSLLGM
 # INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
 # OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.AtgcCoeffVarTaxaGenes.R.01.pdf
 
+###############################
+# PURPOSE		: To polarise branches reconstructed by PIPELINE making ancestal-descendant pairs
+# AUTHOR, DATE	: Alya, 15 Nov 2017 (modified May 2018) 
+# SCRIPT		: Head/2Scripts/1MTspec_ALYA_polarise_branches_with_seq.R
+# INPUT FILE 	: ../../Body/1Raw/pipeline_trees/.. (3 types of files:SPECIESNAME.GENE.tree.matrix;SPECIESNAME.GENE.ancestors.fa;SPECIESNAME.GENE.terminals.nuc.fa)
+# OUTPUT FILE   : ../../Body/2Derived/POLARIZEDBR_DATA/SPECIESNAME.GENE.POLARISED.txt (a lot of files)
 
+###############################
+# PURPOSE		: To find substitutions between ancestal-descendant pairs and extract them into table
+# AUTHOR, DATE	: Alya, 18 Nov 2017 (modified May 2018) 
+# SCRIPT		: Head/2Scripts/2MTspec_ALYA_codons_sub.R
+# INPUT FILE 	: ../../Body/2Derived/POLARIZEDBR_DATA/SPECIESNAME.GENE.POLARISED.txt (a lot of files)
+# OUTPUT FILE   : ../../Body/2Derived/TOTAL_SUBS_ML/SPECIESNAME.GENE.ANCESTRALSEQUENCENAME.DESCENDANTSEQUENCENAME.SUBS.txt (a lot of files)
+
+###############################
+# PURPOSE		: To create pre-final table
+# AUTHOR, DATE	: Alya, 20 Nov 2017 (modified May 2018) 
+# SCRIPT		: Head/2Scripts/3MTspec_ALYA_create_table.R
+# INPUT FILE 	: ../../Body/2Derived/TOTAL_SUBS_ML/SPECIESNAME.GENE.ANCESTRALSEQUENCENAME.DESCENDANTSEQUENCENAME.SUBS.txt (a lot of files)
+# OUTPUT FILE   : ../../Body/2Derived/1.txt
+
+###############################
+# PURPOSE		: To filter pre-final table deleting more than one subs in one codone
+# AUTHOR, DATE	: Alya, 20 Nov 2017 (modified May 2018) 
+# SCRIPT		: Head/2Scripts/4MTspec_ALYA_fix_table.R
+# INPUT FILE 	: ../../Body/2Derived/1.txt
+# OUTPUT FILE   : ../../Body/3Results/Mutational_spectra_in_Chordata.txt
 
 
 
