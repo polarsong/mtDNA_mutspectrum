@@ -1,1 +1,0 @@
-this script deletes codons with more than two sustitutions from final table

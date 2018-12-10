@@ -49,4 +49,4 @@ table$Subs = data$Subst
 table = table[table$Subs != 'MoreThanOne_SUBST',]
 data = data[data$Subst != 'MoreThanOne_SUBST',]
 
-write.table(table, file="Table_fixed.txt", quote = FALSE, row.names = FALSE)
+write.table(table, file="Mutational_spectra_in_Chordata.txt", quote = FALSE, row.names = FALSE)
