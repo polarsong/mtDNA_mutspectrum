@@ -1,11 +1,21 @@
 
+
+
+#######
+####### WHOLE-GENOME ANALYSES:
+#######
+
 ###############################
-# PURPOSE		: To check correct translation of nucleotides to aminoacids, to count codon usage (64 columns) and derive A T G C frequencies in synonymous fourfold sites. finally we have 13 tranlsated genes for 3834 chordata species (plus 43 strange species with more than 13 or less than 13 protein-coding genes)
+# PURPOSE		: To check correct translation of nucleotides to aminoacids; to trim overlapped regions; print out trimmed AmioAcids and Codons; 
+# PURPOSE		: To count codon usage for the trimmed codons (64 columns); derive A T G C numbers in their synonymous fourfold sites; 
+# PURPOSE		: To add Class and Full taxonomy; print out only chordata species with 13 well translated prot cod genes (N = 3453)
 # AUTHOR, DATE	: Kostya, 26 Nov 2018  
-# SCRIPT		: Head/2Scripts/WholeGenomeAnalysesCodonUsage.R
-# INPUT FILE 1	: ../../Body/2Derived/AllGenesCodons.csv 		# aminoacids and nucleotides
-# INPUT FILE 2 	: ../../Body/2Derived/full_table.txt     		# source of taxonomy
-# OUTPUT FILE   : ../../Body/3Results/AllGenesCodonUsage.txt 	# species / gene / class / whole taxonomy + codons usage + A T G C frequencies in synonymous fourfold sites
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalysesCodonUsageNoOverlap.R
+# INPUT FILE 1	: ../../Body/2Derived/AllGenesCodons.zip 		 			# aminoacids and nucleotides (Alina's python script), work only with genes with quality = 1 (translation is correct)
+# INPUT FILE 2	: ../../Body/2Derived/cds_coords.csv             			# coordinates of all prot cod genes (Kristina's python script), work only with species where exactly 13 prot cod genes are annotated.  
+# INPUT FILE 3 	: ../../Body/2Derived/full_table.zip     		 			# source of taxonomy
+# OUTPUT FILE   : ../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip 	# species / gene / start/ end / overlaps / class / whole taxonomy / 64 codon usage / A T G C frequencies in synonymous fourfold sites / 
+
 
 ###############################
 # PURPOSE		: To draw A T G C fractions in neutral sites along mtDNA for different species
