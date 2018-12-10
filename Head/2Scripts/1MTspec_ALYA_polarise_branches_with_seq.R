@@ -9,20 +9,16 @@ library("Biostrings")
 library("seqinr")
 rm(list=ls(all=TRUE))  # remove everything from R memory (old variables, datasets...) 
 
-#USER = 'KOSTYA';
-USER = 'ALYA';         # C:\Users\polar\Documents\BODY
-#USER = 'TOY'
-WDA_TOY <- normalizePath("C:\\Users\\polar\\Documents\\spectres\\TOY", winslash = "\\")
-WDA_IN <- normalizePath("C:\\Users\\polar\\Documents\\BODY\\TREES", winslash = "\\")
-WDA_OUT <- normalizePath("C:\\Users\\polar\\Documents\\BODY\\POLARIZEDBR_DATA", winslash = "\\")
-if (USER == 'KOSTYA') {setwd('/home/kostya/konstantin/SCIENCE_PROJECTS_HEAD/MITOCHONDRIA/MutSpectrum/Results/re/');}  
-if (USER == 'ALYA') {setwd (WDA_IN);} 
-if (USER == 'TOY') {setwd (WDA_TOY);} 
+
+wd <- getwd()
+wd = gsub('Head/2Scripts','Body/1Raw/pipeline_trees', wd)
+setwd(wd)
+wd
 
 ### READ THREE FILES FOR EACH GENE-SPECIES:
 
-filelist <- list.files(pattern=".*\\.MLancestors\\.fa")
-filelist = gsub('.MLancestors.fa','',filelist)
+filelist <- list.files(pattern=".*\\.MLancestors\\.fa")           #SWITCH to MP-prefix if MPanalysis data
+filelist = gsub('.MLancestors.fa','',filelist)                   #SWITCH to MP-prefix if MPanalysis data
 for (f in filelist) {
   #f = 'Abbottina_rivularis.ATP6';
   matrixname <- paste(f, ".tree.matrix", sep = "")
