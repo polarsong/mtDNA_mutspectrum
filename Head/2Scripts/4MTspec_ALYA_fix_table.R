@@ -1,14 +1,11 @@
 rm(list=ls(all=TRUE))  # remove everything from R memory (old variables, datasets...) 
 
-#USER = 'KOSTYA';
-USER = 'ALYA';
-#USER = 'TOY'
-WDA_TOY <- normalizePath("C:\\Users\\polar\\Documents\\spectres\\TOY", winslash = "\\")
-WDA_IN <- normalizePath("C:\\Users\\polar\\Documents\\BODY\\POLARIZEDBR_DATA\\CodonTable", winslash = "\\")
+wd <- getwd()
+wd_in = gsub('Head/2Scripts','Body/2Derived/', wd)  #SWITCH to MP-prefix if MPanalysis data
+wd_out = gsub('Head/2Scripts','Body/3Results/', wd) 
+setwd(wd_in)
+wd_in
 
-if (USER == 'KOSTYA') {setwd('/home/kostya/konstantin/SCIENCE_PROJECTS_HEAD/MITOCHONDRIA/MutSpectrum/Results/re/');}  
-if (USER == 'ALYA') {setwd (WDA_IN);} 
-if (USER == 'TOY') {setwd (WDA_TOY);} 
 
 
 table <- read.table("1.txt", header=TRUE, colClasses=c('character'))
@@ -49,4 +46,5 @@ table$Subs = data$Subst
 table = table[table$Subs != 'MoreThanOne_SUBST',]
 data = data[data$Subst != 'MoreThanOne_SUBST',]
 
+setwd(wd_out)
 write.table(table, file="Mutational_spectra_in_Chordata.txt", quote = FALSE, row.names = FALSE)
