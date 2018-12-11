@@ -4,23 +4,36 @@
 
 rm(list=ls(all=TRUE))
 
+############
+
+library(gridExtra) # install.packages("gridExtra")
+library(grid)
+
 ############ Syn mut
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE)
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+
+names(SynNuc)
 
 ### make ND6 complementary:
 NotND6 = SynNuc[SynNuc$Gene != 'ND6',]
-NotND6$FrA = NotND6$NeutralA / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC)
-NotND6$FrT = NotND6$NeutralT / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-NotND6$FrG = NotND6$NeutralG / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-NotND6$FrC = NotND6$NeutralC / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-
 ND6 = SynNuc[SynNuc$Gene == 'ND6',]
-ND6$FrA = ND6$NeutralT / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC)
-ND6$FrT = ND6$NeutralA / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-ND6$FrG = ND6$NeutralC / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-ND6$FrC = ND6$NeutralG / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-
+A = ND6$NeutralT
+T = ND6$NeutralA
+G = ND6$NeutralC
+C = ND6$NeutralG
+ND6$NeutralA = A
+ND6$NeutralT = T
+ND6$NeutralG = G
+ND6$NeutralC = C
 SynNuc = rbind(NotND6,ND6)
+
+### count fraction of nucleotides
+SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 
 SynNuc$TAXON = SynNuc$Class
 VecOfTaxa = unique(SynNuc$TAXON)
@@ -37,7 +50,7 @@ summary(GT$GenerationLength_d)
 
 ############ merge (work only with mammals since GT is only for mammals)
 SynNucGT = merge(GT,SynNuc)
-length(unique(SynNucGT$Species))  # 705 species
+length(unique(SynNucGT$Species))  # 649 species
 table(SynNucGT$TAXON)
 
 ########### question 1: which nucleotides better correlate with GT: log2(GT) = 11 - 0.29*scale(FrT) + 0.33*scale(FrC) (in line with our mutational spectrum result that T->C correlates with generation time)
@@ -46,10 +59,18 @@ names(AGG) = c('Species','GenerationLength_d','FrA','FrT','FrG','FrC')
 
 ### start from pairwise correlations and go to multiple linear model:
 
-cor.test(log2(AGG$GenerationLength_d),AGG$FrA, method = 'spearman') # rho -0.2506844; p = 1.434e-10
-cor.test(log2(AGG$GenerationLength_d),AGG$FrT, method = 'spearman') # rho -0.3034538; p = 5.159e-15
-cor.test(log2(AGG$GenerationLength_d),AGG$FrG, method = 'spearman') # rho 0.1437445;  p = 0.000276
-cor.test(log2(AGG$GenerationLength_d),AGG$FrC, method = 'spearman') # rho 0.4741843;  p < 2.2e-16
+A = cor.test(log2(AGG$GenerationLength_d),AGG$FrA, method = 'spearman') # rho -0.2506844; p = 1.434e-10
+T = cor.test(log2(AGG$GenerationLength_d),AGG$FrT, method = 'spearman') # rho -0.3034538; p = 5.159e-15
+G = cor.test(log2(AGG$GenerationLength_d),AGG$FrG, method = 'spearman') # rho 0.1437445;  p = 0.000276
+C = cor.test(log2(AGG$GenerationLength_d),AGG$FrC, method = 'spearman') # rho 0.4741843;  p < 2.2e-16
+
+res = as.data.frame(rbind(
+c('A', round(as.numeric(A[4]),3), as.numeric(A[3])), 
+c('T', round(as.numeric(T[4]),3), as.numeric(T[3])), 
+c('G', round(as.numeric(G[4]),3), as.numeric(G[3])), 
+c('C', round(as.numeric(C[4]),3), as.numeric(C[3]))
+))
+names(res)=c('Nucleotide','Spearman Rho', 'P value')
 
 ### for multiple linear backward model we choosed A,T & C, on the second step we delete A from the model and the final model is just with T and C
 
@@ -76,6 +97,10 @@ plot(log2(AGG$GenerationLength_d),AGG$FrG, col = ColG, ylim = c(0,0.6), xlab = '
 plot(log2(AGG$GenerationLength_d),AGG$FrC, col = ColC, ylim = c(0,0.6), xlab = 'log2(Generation Time in days)', ylab = 'Nucleotide Content', main = ''); par(new=TRUE);
 abline(h =0.25, lt = 1, col = 'red');
 legend("topright",legend=c('A','C','T','G'), col = c(ColA,ColC,ColT,ColG), pch = 16, horiz = FALSE)
+
+grid.newpage()
+grid.rect(width=unit(50,"cm"),height=unit(30,"cm"))
+grid.table(res)
 
 par(mfrow=c(2,2), oma = c(0, 0, 2, 0),cex.main = 2, cex.lab = 2, cex = 2, pch = 16)
 plot(log2(AGG$GenerationLength_d),AGG$FrA, col = ColA, ylim = c(0,0.6), xlab = 'log2(GT)', main = 'FrA', cex = 2); abline(h =0.25, lt = 2, col = 'red')

@@ -5,11 +5,15 @@
 rm(list=ls(all=TRUE))
 
 ############ Syn mut
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE)
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+
+# SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE)
+names(SynNuc)
 
 ### make ND6 complementary:
 NotND6 = SynNuc[SynNuc$Gene != 'ND6',]
-
 ND6 = SynNuc[SynNuc$Gene == 'ND6',]
 A = ND6$NeutralT
 T = ND6$NeutralA
@@ -19,8 +23,9 @@ ND6$NeutralA = A
 ND6$NeutralT = T
 ND6$NeutralG = G
 ND6$NeutralC = C
-
 SynNuc = rbind(NotND6,ND6)
+
+### count fraction of nucleotides
 SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
 SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
@@ -30,18 +35,17 @@ SynNuc$TAXON = SynNuc$Class
 VecOfTaxa = unique(SynNuc$TAXON)
 table(SynNuc$TAXON)/13
 
-### want to use only species with 13 genes:
+### want to use only species with 13 genes (all of them should be already with 13 genes):
 SynNuc$Number = 1
 AGG = aggregate(SynNuc$Number, by = list(SynNuc$Species), FUN = sum)
 VecOfGoodSpecies = AGG[AGG$x == 13,]$Group.1
 length(VecOfGoodSpecies)
-nrow(SynNuc) # 50310
+nrow(SynNuc) # 46670
 SynNuc = SynNuc[SynNuc$Species %in% VecOfGoodSpecies,]
-nrow(SynNuc) # 49842
-
+nrow(SynNuc) # 46670
 table(SynNuc$TAXON)/13
 # Actinopterygii       Amphibia    AncientFish           Aves       Mammalia       Reptilia 
-# 1866                   215            132              501          840            280 
+# 1770                   205            126              432          788            269
 
 SynNuc$TAXON = ordered(SynNuc$TAXON, levels = c('AncientFish','Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
 SynNuc$Gene =  ordered(SynNuc$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2'))
@@ -81,9 +85,8 @@ boxplot(SYN[SYN$TAXON == 'Amphibia',]$FrG, SYN[SYN$TAXON == 'Amphibia',]$FrT, SY
 boxplot(SYN[SYN$TAXON == 'Reptilia',]$FrG, SYN[SYN$TAXON == 'Reptilia',]$FrT, SYN[SYN$TAXON == 'Reptilia',]$FrC, SYN[SYN$TAXON == 'Reptilia',]$FrA, notch = TRUE, outline = FALSE, las = 1, col = c(ColG, ColT, ColC, ColA), main = TitleReptilia, ylim = c(0,0.65), names = c('G','T','C','A'));                               abline(h=0.25, col = 'red', lt = 2)
 boxplot(SYN[SYN$TAXON == 'Mammalia',]$FrG, SYN[SYN$TAXON == 'Mammalia',]$FrT, SYN[SYN$TAXON == 'Mammalia',]$FrC, SYN[SYN$TAXON == 'Mammalia',]$FrA, notch = TRUE, outline = FALSE, las = 1, col = c(ColG, ColT, ColC, ColA), main = TitleMammalia, ylim = c(0,0.65), names = c('G','T','C','A'));                               abline(h=0.25, col = 'red', lt = 2)
 boxplot(SYN[SYN$TAXON == 'Aves',]$FrG, SYN[SYN$TAXON == 'Aves',]$FrT, SYN[SYN$TAXON == 'Aves',]$FrC, SYN[SYN$TAXON == 'Aves',]$FrA, notch = TRUE, outline = FALSE, las = 1, col = c(ColG, ColT, ColC, ColA), main = TitleAves, ylim = c(0,0.65), names = c('G','T','C','A'));                                                   abline(h=0.25, col = 'red', lt = 2)
-wilcox.test(SYN[SYN$TAXON == 'Amphibia',]$FrT, SYN[SYN$TAXON == 'Amphibia',]$FrC) # 0.04
-wilcox.test(SYN[SYN$TAXON == 'Aves',]$FrC, SYN[SYN$TAXON == 'Aves',]$FrA) # 
- 
+wilcox.test(SYN[SYN$TAXON == 'Amphibia',]$FrT, SYN[SYN$TAXON == 'Amphibia',]$FrC) # 0.008962 PAPER DEC 2018
+wilcox.test(SYN[SYN$TAXON == 'Aves',]$FrC, SYN[SYN$TAXON == 'Aves',]$FrA)         # 5.602e-09 PAPER DEC 2018
 
 par(mfrow=c(1,4))
 par(oma = c(14, 3, 0, 0)) 
@@ -91,11 +94,11 @@ boxplot(SYN[SYN$TAXON == 'Actinopterygii' | SYN$TAXON == 'Amphibia' | SYN$TAXON 
 boxplot(SYN[SYN$TAXON == 'Actinopterygii',]$FrG,  SYN[SYN$TAXON == 'Amphibia',]$FrG, SYN[SYN$TAXON == 'Reptilia',]$FrG,SYN[SYN$TAXON == 'Mammalia',]$FrG,SYN[SYN$TAXON == 'Aves',]$FrG, notch = TRUE, outline = FALSE, las = 2, col = c(ColG), main = 'Fraction of G in vertebrate classes', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), ylim = c(0,0.15)); abline(h=0.25, col = 'red', lt = 2)
 # boxplot(SYN[grepl('Monotremata',SYN$Taxonomy),]$FrG,  SYN[grepl('Eutheria',SYN$Taxonomy),]$FrG, notch = TRUE, outline = FALSE, las = 2, col = c(ColG), main = 'Fraction of G in mammals', ylim = c(0,0.15), names = c('Monotremata','Eutheria')); abline(h=0.25, col = 'red', lt = 2)
 # wilcox.test(SYN[grepl('Monotremata',SYN$Taxonomy),]$FrG,SYN[grepl('Eutheria',SYN$Taxonomy),]$FrG, alternative =  'greater')
-wilcox.test(SYN[SYN$TAXON == 'Actinopterygii' | SYN$TAXON == 'Amphibia' | SYN$TAXON == 'Reptilia',]$FrG,SYN[SYN$TAXON == 'Mammalia' | SYN$TAXON == 'Aves',]$FrG) # 2.2e-16
-wilcox.test(SYN[SYN$TAXON == 'Actinopterygii',]$FrG,  SYN[SYN$TAXON == 'Amphibia',]$FrG) # 1.431e-13
-wilcox.test(SYN[SYN$TAXON == 'Amphibia',]$FrG,  SYN[SYN$TAXON == 'Reptilia',]$FrG)       # 6.518e-05
-wilcox.test(SYN[SYN$TAXON == 'Reptilia',]$FrG,  SYN[SYN$TAXON == 'Mammalia',]$FrG)       # 0.003575
-wilcox.test(SYN[SYN$TAXON == 'Mammalia',]$FrG,  SYN[SYN$TAXON == 'Aves',]$FrG)           # 0.1997
+wilcox.test(SYN[SYN$TAXON == 'Actinopterygii' | SYN$TAXON == 'Amphibia' | SYN$TAXON == 'Reptilia',]$FrG,SYN[SYN$TAXON == 'Mammalia' | SYN$TAXON == 'Aves',]$FrG) # 2.2e-16 PAPER DEC 2018
+wilcox.test(SYN[SYN$TAXON == 'Actinopterygii',]$FrG,  SYN[SYN$TAXON == 'Amphibia',]$FrG) # 7.18e-13 PAPER DEC 2018
+wilcox.test(SYN[SYN$TAXON == 'Amphibia',]$FrG,  SYN[SYN$TAXON == 'Reptilia',]$FrG)       # 3.845e-05 PAPER DEC 2018
+wilcox.test(SYN[SYN$TAXON == 'Reptilia',]$FrG,  SYN[SYN$TAXON == 'Mammalia',]$FrG)       # 6.9e-05 PAPER DEC 2018
+wilcox.test(SYN[SYN$TAXON == 'Mammalia',]$FrG,  SYN[SYN$TAXON == 'Aves',]$FrG)           # 0.3084 PAPER DEC 2018
 
 par(mfrow=c(2,2))
 par(cex.main = 4)
@@ -121,5 +124,3 @@ boxplot(FrC ~ TAXON*Gene, data = SynNuc,  notch = TRUE, outline = FALSE, las = 2
 dev.off()
 
 ## 
-
-

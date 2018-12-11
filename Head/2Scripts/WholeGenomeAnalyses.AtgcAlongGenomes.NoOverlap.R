@@ -8,7 +8,11 @@
 rm(list=ls(all=TRUE))
 
 ############ Syn mut
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE)
+
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("../../Body/2Derived/AllGenesCodons.csv", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+
 
 ### make ND6 complementary:
 NotND6 = SynNuc[SynNuc$Gene != 'ND6',]
