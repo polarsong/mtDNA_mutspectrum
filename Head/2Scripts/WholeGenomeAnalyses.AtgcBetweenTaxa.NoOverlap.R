@@ -4,6 +4,14 @@
 
 rm(list=ls(all=TRUE))
 
+############ read AnAge
+AnAge = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
+names(AnAge)
+AnAge = AnAge[!is.na(AnAge$Temperature..K.),] # 494
+table(AnAge$Class)
+boxplot(AnAge[AnAge$Class == 'Amphibia',]$Temperature..K.,AnAge[AnAge$Class == 'Reptilia',]$Temperature..K.,AnAge[AnAge$Class == 'Mammalia',]$Temperature..K.,AnAge[AnAge$Class == 'Aves',]$Temperature..K., names = c('Amphibia','Reptilia','Mammalia','Aves'), ylab = 'temperature')
+
+
 ############ Syn mut
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
@@ -99,6 +107,8 @@ wilcox.test(SYN[SYN$TAXON == 'Actinopterygii',]$FrG,  SYN[SYN$TAXON == 'Amphibia
 wilcox.test(SYN[SYN$TAXON == 'Amphibia',]$FrG,  SYN[SYN$TAXON == 'Reptilia',]$FrG)       # 3.845e-05 PAPER DEC 2018
 wilcox.test(SYN[SYN$TAXON == 'Reptilia',]$FrG,  SYN[SYN$TAXON == 'Mammalia',]$FrG)       # 6.9e-05 PAPER DEC 2018
 wilcox.test(SYN[SYN$TAXON == 'Mammalia',]$FrG,  SYN[SYN$TAXON == 'Aves',]$FrG)           # 0.3084 PAPER DEC 2018
+
+boxplot(AnAge[AnAge$Class == 'Amphibia',]$Temperature..K.,AnAge[AnAge$Class == 'Reptilia',]$Temperature..K.,AnAge[AnAge$Class == 'Mammalia',]$Temperature..K.,AnAge[AnAge$Class == 'Aves',]$Temperature..K., names = c('Amphibia','Reptilia','Mammalia','Aves'), ylab = 'temperature (Kelvin)', notch = TRUE)
 
 par(mfrow=c(2,2))
 par(cex.main = 4)

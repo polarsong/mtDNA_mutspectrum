@@ -59,18 +59,10 @@ names(AGG) = c('Species','GenerationLength_d','FrA','FrT','FrG','FrC')
 
 ### start from pairwise correlations and go to multiple linear model:
 
-A = cor.test(log2(AGG$GenerationLength_d),AGG$FrA, method = 'spearman') # rho -0.2506844; p = 1.434e-10
-T = cor.test(log2(AGG$GenerationLength_d),AGG$FrT, method = 'spearman') # rho -0.3034538; p = 5.159e-15
-G = cor.test(log2(AGG$GenerationLength_d),AGG$FrG, method = 'spearman') # rho 0.1437445;  p = 0.000276
-C = cor.test(log2(AGG$GenerationLength_d),AGG$FrC, method = 'spearman') # rho 0.4741843;  p < 2.2e-16
-
-res = as.data.frame(rbind(
-c('A', round(as.numeric(A[4]),3), as.numeric(A[3])), 
-c('T', round(as.numeric(T[4]),3), as.numeric(T[3])), 
-c('G', round(as.numeric(G[4]),3), as.numeric(G[3])), 
-c('C', round(as.numeric(C[4]),3), as.numeric(C[3]))
-))
-names(res)=c('Nucleotide','Spearman Rho', 'P value')
+cor.test(log2(AGG$GenerationLength_d),AGG$FrA, method = 'spearman') # rho -0.2681362; p = 3.635e-12
+cor.test(log2(AGG$GenerationLength_d),AGG$FrT, method = 'spearman') # rho -0.3066279; p = 1.287e-15
+cor.test(log2(AGG$GenerationLength_d),AGG$FrG, method = 'spearman') # rho  0.1804395; p = 3.665e-06
+cor.test(log2(AGG$GenerationLength_d),AGG$FrC, method = 'spearman') # rho  0.4717114;  p < 2.2e-16
 
 ### for multiple linear backward model we choosed A,T & C, on the second step we delete A from the model and the final model is just with T and C
 
@@ -99,7 +91,7 @@ abline(h =0.25, lt = 1, col = 'red');
 legend("topright",legend=c('A','C','T','G'), col = c(ColA,ColC,ColT,ColG), pch = 16, horiz = FALSE)
 
 grid.newpage()
-grid.rect(width=unit(50,"cm"),height=unit(30,"cm"))
+par(mfrow=c(2,2))
 grid.table(res)
 
 par(mfrow=c(2,2), oma = c(0, 0, 2, 0),cex.main = 2, cex.lab = 2, cex = 2, pch = 16)
