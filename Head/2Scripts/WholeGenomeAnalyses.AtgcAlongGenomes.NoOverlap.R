@@ -10,24 +10,27 @@ rm(list=ls(all=TRUE))
 ############ Syn mut
 
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
-SynNuc = read.table("../../Body/2Derived/AllGenesCodons.csv", header = TRUE, sep = '\t')
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
-
 
 ### make ND6 complementary:
 NotND6 = SynNuc[SynNuc$Gene != 'ND6',]
-NotND6$FrA = NotND6$NeutralA / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC)
-NotND6$FrT = NotND6$NeutralT / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-NotND6$FrG = NotND6$NeutralG / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-NotND6$FrC = NotND6$NeutralC / (NotND6$NeutralA + NotND6$NeutralT + NotND6$NeutralG + NotND6$NeutralC) 
-
 ND6 = SynNuc[SynNuc$Gene == 'ND6',]
-ND6$FrA = ND6$NeutralT / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC)
-ND6$FrT = ND6$NeutralA / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-ND6$FrG = ND6$NeutralC / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-ND6$FrC = ND6$NeutralG / (ND6$NeutralA + ND6$NeutralT + ND6$NeutralG + ND6$NeutralC) 
-
+A = ND6$NeutralT
+T = ND6$NeutralA
+G = ND6$NeutralC
+C = ND6$NeutralG
+ND6$NeutralA = A
+ND6$NeutralT = T
+ND6$NeutralG = G
+ND6$NeutralC = C
 SynNuc = rbind(NotND6,ND6)
+
+### count fraction of nucleotides
+SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 
 SynNuc$TAXON = SynNuc$Class
 VecOfTaxa = unique(SynNuc$TAXON)
@@ -40,16 +43,53 @@ for (taxa in 1:length(VecOfTaxa))
 { # taxa = 1
   TAX = as.character(VecOfTaxa[taxa])
   SynNuc = SynNucAll
-  ColG = rainbow(4, alpha = 0.1)[4]
-  ColT = rainbow(4, alpha = 0.1)[2]
-  ColC = rainbow(4, alpha = 0.1)[1]
-  ColA = rainbow(4, alpha = 0.1)[3]
+  #ColG = rainbow(4, alpha = 0.1)[4]
+  #ColT = rainbow(4, alpha = 0.1)[2]
+  #ColC = rainbow(4, alpha = 0.1)[1]
+  #ColA = rainbow(4, alpha = 0.1)[3]
   
+  ColG = rgb(0.1,0.1,0.1,0.2)
+  ColT = rgb(0.1,0.1,1,0.2)
+  ColC = rgb(0.1,1,0.1,0.2)
+  ColA = rgb(1,0.1,0.1,0.2)
 
   Gene = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2') # ATP6 and ND4 
   Timing = seq(1:13)
   NewData = data.frame(Gene,Timing)
   SynNuc = merge(SynNuc,NewData)
+  SynNuc = SynNuc[SynNuc$Gene != 'ND6' & SynNuc$Gene != 'ATP8' ,] # !!!!!!!!!!! - in this case it is similar
+  
+  AGG = aggregate(list(SynNuc$FrA,SynNuc$FrT,SynNuc$FrG,SynNuc$FrC), by = list(SynNuc$Class,SynNuc$Timing), FUN = mean)
+  names(AGG)=c('Class','Timing','FrA','FrT','FrG','FrC')
+  
+  cor.test(AGG[AGG$Class == 'Actinopterygii',]$FrA,AGG[AGG$Class == 'Actinopterygii',]$Timing, method = 'spearman') # -0.5769231, p = 0.04
+  cor.test(AGG[AGG$Class == 'Actinopterygii',]$FrT,AGG[AGG$Class == 'Actinopterygii',]$Timing, method = 'spearman') # -0.2142857, p = 0.4819
+  cor.test(AGG[AGG$Class == 'Actinopterygii',]$FrG,AGG[AGG$Class == 'Actinopterygii',]$Timing, method = 'spearman') #  0.2802198, p = 0.3534
+  cor.test(AGG[AGG$Class == 'Actinopterygii',]$FrC,AGG[AGG$Class == 'Actinopterygii',]$Timing, method = 'spearman') #  0.7802198, p = 0.002621
+  
+  cor.test(AGG[AGG$Class == 'Mammalia',]$FrA,AGG[AGG$Class == 'Mammalia',]$Timing, method = 'spearman') # -0.1483516, p = 0.6298
+  cor.test(AGG[AGG$Class == 'Mammalia',]$FrT,AGG[AGG$Class == 'Mammalia',]$Timing, method = 'spearman') # -0.3736264, p = 0.2094
+  cor.test(AGG[AGG$Class == 'Mammalia',]$FrG,AGG[AGG$Class == 'Mammalia',]$Timing, method = 'spearman') # -0.5714286, p = 0.04489
+  cor.test(AGG[AGG$Class == 'Mammalia',]$FrC,AGG[AGG$Class == 'Mammalia',]$Timing, method = 'spearman') #  0.6153846, p = 0.02854
+  
+  cor.test(AGG[AGG$Class == 'Aves',]$FrA,AGG[AGG$Class == 'Aves',]$Timing, method = 'spearman') # -0.6208791, p = 0.02687
+  cor.test(AGG[AGG$Class == 'Aves',]$FrT,AGG[AGG$Class == 'Aves',]$Timing, method = 'spearman') # 0.01648352, p = 0.9639
+  cor.test(AGG[AGG$Class == 'Aves',]$FrG,AGG[AGG$Class == 'Aves',]$Timing, method = 'spearman') # 0.1538462, p = 0.6168
+  cor.test(AGG[AGG$Class == 'Aves',]$FrC,AGG[AGG$Class == 'Aves',]$Timing, method = 'spearman') #  0.6318681, p = 0.02374
+  
+  cor.test(AGG[AGG$Class == 'Amphibia',]$FrA,AGG[AGG$Class == 'Amphibia',]$Timing, method = 'spearman') # -0.2087912, p = 0.4935
+  cor.test(AGG[AGG$Class == 'Amphibia',]$FrT,AGG[AGG$Class == 'Amphibia',]$Timing, method = 'spearman') # -0.1703297, p = 0.5785
+  cor.test(AGG[AGG$Class == 'Amphibia',]$FrG,AGG[AGG$Class == 'Amphibia',]$Timing, method = 'spearman') # 0.08241758, p = 0.7925
+  cor.test(AGG[AGG$Class == 'Amphibia',]$FrC,AGG[AGG$Class == 'Amphibia',]$Timing, method = 'spearman') #  0.7307692, p = 0.006323
+  
+  cor.test(AGG[AGG$Class == 'Reptilia',]$FrA,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') # -0.3241758 , p = 0.2799
+  cor.test(AGG[AGG$Class == 'Reptilia',]$FrT,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') # -0.08791209, p = 0.7785
+  cor.test(AGG[AGG$Class == 'Reptilia',]$FrG,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') # -0.3571429, p = 0.2315
+  cor.test(AGG[AGG$Class == 'Reptilia',]$FrC,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') #  0.6593407, p = 0.01713
+  
+  
+  
+  
   
   VecOfSpecies  = as.character(unique(SynNuc[SynNuc$TAXON == TAX,]$Species))
   
