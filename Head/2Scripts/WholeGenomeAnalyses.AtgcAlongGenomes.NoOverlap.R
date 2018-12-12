@@ -34,10 +34,12 @@ SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 
 SynNuc$TAXON = SynNuc$Class
 VecOfTaxa = unique(SynNuc$TAXON)
+VecOfTaxa = c('Mammalia', 'Actinopterygii', 'Aves', 'Reptilia', 'Amphibia')
 SynNucAll = SynNuc
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.AtgcAlongGenomesNoOverlap.R.01.pdf", height = 10, width = 15)
-par(mfrow=c(2,1))
+pdf("../../Body/4Figures/WholeGenomeAnalyses.AtgcAlongGenomesNoOverlap.R.01.pdf", height = 20, width = 40)
+#par(mfrow=c(2,1))
+par(cex = 3) # par(mfrow=c(2,2),oma = c(0, 0, 2, 0),cex.main = 2, cex.lab = 2)
 
 for (taxa in 1:length(VecOfTaxa))
 { # taxa = 1
@@ -48,16 +50,16 @@ for (taxa in 1:length(VecOfTaxa))
   #ColC = rainbow(4, alpha = 0.1)[1]
   #ColA = rainbow(4, alpha = 0.1)[3]
   
-  ColG = rgb(0.1,0.1,0.1,0.2)
-  ColT = rgb(0.1,0.1,1,0.2)
-  ColC = rgb(0.1,1,0.1,0.2)
-  ColA = rgb(1,0.1,0.1,0.2)
+  ColG = rgb(0.1,0.1,0.1,0.1)
+  ColT = rgb(0.1,0.1,1,0.1)
+  ColC = rgb(0.1,1,0.1,0.1)
+  ColA = rgb(1,0.1,0.1,0.1)
 
   Gene = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2') # ATP6 and ND4 
   Timing = seq(1:13)
   NewData = data.frame(Gene,Timing)
   SynNuc = merge(SynNuc,NewData)
-  SynNuc = SynNuc[SynNuc$Gene != 'ND6' & SynNuc$Gene != 'ATP8' ,] # !!!!!!!!!!! - in this case it is similar
+  # SynNuc = SynNuc[SynNuc$Gene != 'ND6' & SynNuc$Gene != 'ATP8' ,] # !!!!!!!!!!! - in this case it is similar
   
   AGG = aggregate(list(SynNuc$FrA,SynNuc$FrT,SynNuc$FrG,SynNuc$FrC), by = list(SynNuc$Class,SynNuc$Timing), FUN = mean)
   names(AGG)=c('Class','Timing','FrA','FrT','FrG','FrC')
@@ -87,10 +89,6 @@ for (taxa in 1:length(VecOfTaxa))
   cor.test(AGG[AGG$Class == 'Reptilia',]$FrG,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') # -0.3571429, p = 0.2315
   cor.test(AGG[AGG$Class == 'Reptilia',]$FrC,AGG[AGG$Class == 'Reptilia',]$Timing, method = 'spearman') #  0.6593407, p = 0.01713
   
-  
-  
-  
-  
   VecOfSpecies  = as.character(unique(SynNuc[SynNuc$TAXON == TAX,]$Species))
   
   plot(NA, xlim=c(1,13), ylim=c(0,0.7), xlab='', ylab="Nucleotide Fractions", main = TAX, xaxt="n")
@@ -110,10 +108,11 @@ for (taxa in 1:length(VecOfTaxa))
         }
       }
     }
-  ColG = rainbow(4, alpha = 0.6)[4]
-  ColT = rainbow(4, alpha = 0.6)[2]
-  ColC = rainbow(4, alpha = 0.6)[1]
-  ColA = rainbow(4, alpha = 0.6)[3]
+  
+  ColG = rgb(0.1,0.1,0.1,0.5)
+  ColT = rgb(0.1,0.1,1,0.5)
+  ColC = rgb(0.1,1,0.1,0.5)
+  ColA = rgb(1,0.1,0.1,0.5)
   
   legend("topright",legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch = 16, horiz = FALSE)
 }
