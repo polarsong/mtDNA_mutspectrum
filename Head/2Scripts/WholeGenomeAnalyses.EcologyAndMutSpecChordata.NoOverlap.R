@@ -51,7 +51,8 @@ for (i in 1:length(VecOfTaxaShort))
   length(unique(SynNucAA$Species))  # 192 species
 
   ########### question 1: which nucleotides better correlate with GT
-  AGG = aggregate(list(SynNucAA$FrA,SynNucAA$FrT,SynNucAA$FrG,SynNucAA$FrC), by = list(SynNucAA$Species,SynNucAA$Female.maturity..days.), FUN = mean)
+  # AGG = aggregate(list(SynNucAA$FrA,SynNucAA$FrT,SynNucAA$FrG,SynNucAA$FrC), by = list(SynNucAA$Species,SynNucAA$Female.maturity..days.), FUN = mean)
+  AGG = aggregate(list(SynNucAA$FrA,SynNucAA$FrT,SynNucAA$FrG,SynNucAA$FrC), by = list(SynNucAA$Species,SynNucAA$Maximum.longevity..yrs.), FUN = mean)
   names(AGG) = c('Species','FemaleMaturityDays','FrA','FrT','FrG','FrC')
   nrow(AGG)
   
@@ -61,7 +62,7 @@ for (i in 1:length(VecOfTaxaShort))
   cor.test(log2(AGG$FemaleMaturityDays),AGG$FrC)
   
   A = lm(log2(AGG$FemaleMaturityDays) ~  scale(AGG$FrA) + scale(AGG$FrT) + scale(AGG$FrC));   summary(A)
-  A = lm(log2(AGG$FemaleMaturityDays) ~  scale(AGG$FrT));   summary(A)
+  A = lm(log2(AGG$FemaleMaturityDays) ~  scale(AGG$FrT) + scale(AGG$FrC));   summary(A)
 
   ###### start from pairwise correlations and go to multiple linear model:
   ## it is opposite s compared to mammals
