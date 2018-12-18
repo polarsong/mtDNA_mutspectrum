@@ -211,6 +211,10 @@ C = nrow(Mammals[Mammals$FrC.Rho > 0 & Mammals$FrC.P >= 0.01 & Mammals$Generatio
 D = nrow(Mammals[Mammals$FrC.Rho > 0 & Mammals$FrC.P >= 0.01 & Mammals$GenerationLength_d <= quantile(Mammals$GenerationLength_d,0.5),])
 A/(A+B) # 57% of longlived mammals among significant
 C/(C+D) # 45%% of longlived mammals among non significant 
+A # 142
+B # 105
+C # 180
+D # 215
 # A/B = 1.35; C/D = 0.84; 1.35/0.84 =  1.6
 X = cbind(c(A,B),c(C,D))
 fisher.test(X) # 1.61, p = 0.003521
@@ -246,7 +250,12 @@ B = nrow(Mammals[Mammals$Gc.Rho < 0 & Mammals$Gc.P <0.01 & Mammals$GenerationLen
 C = nrow(Mammals[Mammals$Gc.Rho < 0 & Mammals$Gc.P >= 0.01 & Mammals$GenerationLength_d > quantile(Mammals$GenerationLength_d,0.5),])
 D = nrow(Mammals[Mammals$Gc.Rho < 0 & Mammals$Gc.P >= 0.01 & Mammals$GenerationLength_d <= quantile(Mammals$GenerationLength_d,0.5),])
 X = cbind(c(A,B),c(C,D))
+A # 92
+B # 58
+C # 218
+D # 241
 fisher.test(X) # odds = 1.751909; p = 0.003534
+mosaicplot(X)
 
 par(mfrow=c(5,4), cex = 1)
 hist(Mammals$FrA.Rho, breaks = 50, xlim = c(-0.8,0.8), col = ColA); abline(v=0, col='red', lwd = 3)
