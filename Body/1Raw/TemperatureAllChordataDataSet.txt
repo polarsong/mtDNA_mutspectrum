@@ -1,0 +1,899 @@
+Species	Body mass (gram)	T (oC)	Basal metabolic rate (watts)	Tax
+Acris crepitans	1.59	15	2.66E-04	amphibia
+Agalychnis callidryas	5.65	20	0.00187	amphibia
+Ambystoma gracile	30.39	15	0.00353	amphibia
+Ambystoma jeffersonianum	8.92	15	1.76E-03	amphibia
+Ambystoma macrodactylum	3.414	15	6.11E-04	amphibia
+Ambystoma maculatum	15.83	15	0.00201	amphibia
+Ambystoma mexicanum	21.3	22	1.77E-03	amphibia
+Ambystoma opacum	4.65	14	4.79E-04	amphibia
+Ambystoma talpoideum	7	15	3.11E-03	amphibia
+Ambystoma tigrinum	10.78	15	7.65E-04	amphibia
+Amphiuma means	352	5	0.00493	amphibia
+Amphiuma tridactylum	652	15	1.37E-02	amphibia
+Aneides ferreus	2.73	15	4.12E-04	amphibia
+Aneides flavipunctatus	4.57	15	6.67E-04	amphibia
+Aneides hardii	0.97	20	2.85E-04	amphibia
+Aneides lugubris	5.58	15	8.31E-04	amphibia
+Batrachoseps attenuatus	0.93	25	4.45E-04	amphibia
+Bolitoglossa franklini	3.18	15	3.05E-04	amphibia
+Bolitoglossa morio	2.09	15	2.47E-04	amphibia
+Bolitoglossa occidentalis	0.97	15	1.13E-04	amphibia
+Bolitoglossa subpalmata	1.63	5	8.80E-05	amphibia
+Bombina orientalis	2.6	20	8.09E-04	amphibia
+Boulengerula taitanus	5	35	0.00478	amphibia
+Bufo alvaris	150.8	15	0.0659	amphibia
+Bufo americanus	50	20	0.0077	amphibia
+Bufo boreas	57.8	20	0.00584	amphibia
+Bufo bufo	76.13	15	0.01584	amphibia
+Bufo calamita	8.7	20	0.0028	amphibia
+Bufo cognatus	40.2	25	1.64E-02	amphibia
+Bufo debilus	0.66	15	4.69E-04	amphibia
+Bufo marinus	145	15	0.00855	amphibia
+Bufo terrestris	19.8	25	0.01245	amphibia
+Bufo viridis	35	20	4.87E-03	amphibia
+Bufo woodhousii	56.3	25	1.24E-02	amphibia
+Ceratophrys calcarata	55.5	25	1.65E-02	amphibia
+Chiromantis petersi	11.2	25	4.41E-03	amphibia
+Chiropterotriton bromeliacia	0.59	15	8.02E-05	amphibia
+Colostethus inguinalis	1.57	20	7.58E-04	amphibia
+Colostethus nubicola	0.27	25	2.42E-04	amphibia
+Colostethus trinitatus	1	25	0.00112	amphibia
+Conraua goliath	251	25	1.05E-01	amphibia
+Crinia parinsignifera	0.452	30	9.50E-04	amphibia
+Crinia signifera	0.621	25	8.28E-04	amphibia
+Cryptobranchus alleganiensis	423	25	7.28E-02	amphibia
+Cyclorana platycephala	11	15	3.28E-03	amphibia
+Dendrobates auratus	1.77	25	8.85E-04	amphibia
+Desmognathus fuscus	2.09	20	4.97E-04	amphibia
+Desmognathus monticola	3.43	20	8.09E-04	amphibia
+Desmognathus ochrophaes	1.6	17.5	2.37E-04	amphibia
+Desmognathus quadramaculatus	23.41	5	9.13E-04	amphibia
+Dicamptodon ensatus	101.25	15	0.00729	amphibia
+Discoglossus pictus	30.7	20	6.32E-03	amphibia
+Eleutherodactylus coqui	4.06	20	9.30E-04	amphibia
+Eleutherodactylus portoricensis	3.7	15	1.42E-03	amphibia
+Ensatina eschscholtzi	5.3	25	1.98E-03	amphibia
+Eurycea bislineata	1.14	5	8.78E-05	amphibia
+Eurycea longicauda	1.57	15	2.79E-04	amphibia
+Eurycea multiplicata	0.71	15	8.59E-05	amphibia
+Eurycea nana	0.154	25	7.33E-05	amphibia
+Eurycea neotenes	0.243	25	1.43E-04	amphibia
+Eurycea pterophila?	0.196	25	9.78E-05	amphibia
+Gastrophryne carolinesis	1.9	20	5.49E-04	amphibia
+Geotrypetes seraphini	1.93	20	3.98E-04	amphibia
+Gyrinophilus danielsi	14.44	15	0.00179	amphibia
+Gyrinophilus porphyrictus	12.4	15.5	1.04E-03	amphibia
+Hydromantes sp.	3.23	15	6.88E-04	amphibia
+Hyla arborea	7.78	18.5	0.01358	amphibia
+Hyla arenicolor	3.37	20	1.67E-03	amphibia
+Hyla chrysoscelis	3.9	10	8.23E-04	amphibia
+Hyla cinerea	4.5	25	0.00255	amphibia
+Hyla crepitans	9.9	25	6.38E-03	amphibia
+Hyla crucifer	1.15	20	7.03E-04	amphibia
+Hyla gratiosa	13.9	29	0.00734	amphibia
+Hyla maxima	41.4	25	2.19E-02	amphibia
+Hyla regilla	2.27	21	4.95E-04	amphibia
+Hyla squirella	2.2	27	2.02E-03	amphibia
+Hyla versicolor	8.62	19	3.73E-03	amphibia
+Hyperolius marmoratus	1	20	3.73E-04	amphibia
+Hyperolius parallelus	1	20	4.25E-04	amphibia
+Hyperolius tuberilinguis	1	20	3.77E-04	amphibia
+Hyperolius viridiflavus	0.9	20	4.70E-04	amphibia
+Kaloula pulchra	30.7	20	0.00442	amphibia
+Kassina senegalensis	3.02	20	0.00127	amphibia
+Kassina weali	6.25	20	0.00177	amphibia
+Lepidobatrachus llanensis	88.5	25	0.0477	amphibia
+Leptodactylus typhonius	5.1	25	3.26E-03	amphibia
+Microhyla carolinensis	3.5	15	0.00128	amphibia
+Molga torosa?	17.5	18.5	0.01517	amphibia
+Necturus maculosus	125	25	1.38E-02	amphibia
+Notophthalmus viridescens	3	20	7.50E-04	amphibia
+Occidozyga martensii	9.3	35	0.00599	amphibia
+Odontophrynus americanus	15.24	20	3.05E-03	amphibia
+Osteopilus septentrionalis	5	20	1.84E-03	amphibia
+Phyllomedusa sauvagei	17.5	10	2.82E-03	amphibia
+Physalaemus pustulosus	2.9	25	1.89E-03	amphibia
+Plethodon cinereus	0.6	17.5	9.36E-05	amphibia
+Plethodon dorsalis	0.69	25	1.32E-04	amphibia
+Plethodon glutinosus	5.01	20	9.27E-04	amphibia
+Plethodon jordani	3.1	5	1.49E-04	amphibia
+Plethodon neomexicanus	2.47	25	8.37E-04	amphibia
+Plethodon spp.	3.25	22	1.03E-03	amphibia
+Pseudacris nigrita	1	25	9.00E-04	amphibia
+Pseudacris triseriata	0.94	5	7.80E-05	amphibia
+Pseudobranchus striatus	2.19	25	6.20E-04	amphibia
+Pseudoeurycea belli	24.45	25	3.99E-03	amphibia
+Pseudoeurycea brunnata	3.33	15	3.65E-03	amphibia
+Pseudoeurycea cephalica	1.45	15	1.97E-04	amphibia
+Pseudoeurycea cochranae	2.23	15	2.54E-04	amphibia
+Pseudoeurycea gadovii	2.88	15	4.72E-04	amphibia
+Pseudoeurycea goebeli	3.78	5	2.00E-04	amphibia
+Pseudoeurycea leprosa	2.46	15	3.10E-04	amphibia
+Pseudoeurycea rex	1.86	15	2.18E-04	amphibia
+Pseudoeurycea smithii	6.66	15	6.59E-04	amphibia
+Pseudotriton ruber	10.81	5	3.78E-04	amphibia
+Pternohyla fodiens	15.1	20	0.00269	amphibia
+Pyxicephalus adspersus	562.3	20	0.07928	amphibia
+Rana arvalis	17	5	0.00235	amphibia
+Rana aspersa	563	18.5	1.76E-01	amphibia
+Rana berlandieri	70	29	0.03906	amphibia
+Rana blythi	88.7	25	0.0243	amphibia
+Rana cancrivora	20.45	30	1.26E-02	amphibia
+Rana catesbeiana	262	5	7.34E-03	amphibia
+Rana chalconota	4.1	25	0.00217	amphibia
+Rana clamitans	32.5	25	0.01502	amphibia
+Rana cyanophlyctis	0.294	29	1.20E-03	amphibia
+Rana erythraea	19	15	9.88E-04	amphibia
+Rana esculenta	15.2	23	0.0014	amphibia
+Rana hexadactyla	51.9	29	0.06659	amphibia
+Rana magna	34.2	30	1.58E-02	amphibia
+Rana muscosa	13.5	4	5.54E-04	amphibia
+Rana nicobariensis	2.6	25	0.00142	amphibia
+Rana palustris	36	21.5	2.04E-02	amphibia
+Rana pipiens	34.8	10	0.00271	amphibia
+Rana ridibunda	35	20	0.00623	amphibia
+Rana sylvatica	6	25	0.0036	amphibia
+Rana temporaria	39	15	1.56E-03	amphibia
+Rana virgatipes	7	5	7.77E-04	amphibia
+Rhyacotriton olympicus	2.6	15	0.00139	amphibia
+Salamandra maculosa	28.32	18.5	0.02025	amphibia
+Salamandra salamandra	75	16	6.30E-03	amphibia
+Scaphiopus bombifrons	13.3	15	0.01028	amphibia
+Scaphiopus couchii	24.6	21	1.01E-02	amphibia
+Scaphiopus hammondii	12.74	21	6.37E-03	amphibia
+Scaphiopus holbrooki	14	15	0.00651	amphibia
+Siren intermedia	13.7	25	2.51E-03	amphibia
+Siren lacertina	269	25	0.01695	amphibia
+Smilisca baudinii	23.7	15	8.79E-03	amphibia
+Taricha granulosa	6.56	15	8.92E-04	amphibia
+Taricha rivularis	10.83	15	1.67E-03	amphibia
+Taricha torosa	9.87	10	4.94E-04	amphibia
+Telmatobius culeus	122.3	10	0.00954	amphibia
+Telmatobius marmoratus	18.4	10	5.12E-03	amphibia
+Thorius sp.	0.31	15	4.43E-05	amphibia
+Triturus cristatus	7	10	0.00214	amphibia
+Triturus vulgaris	8.75	25	0.00904	amphibia
+Typhlonectes compressicauda	30.62	25	0.00802	amphibia
+Xenopus laevis	139	20	0.02127	amphibia
+Xenopus mulleri	24	17	0.01394	amphibia
+Acabthodactylus boskianus	7.8	40	0.013	reptilia
+Acanthodactylus erythrurus	9	35	0.01751	reptilia
+Acanthodactylus opheodurus	3.8	30	0.00439	reptilia
+Acanthodactylus pardalis	9.7	40	0.03772	reptilia
+Acanthodactylus schmidti	14.5	35	0.01788	reptilia
+Acanthodactylus schreiberi	10.9	40	0.0169	reptilia
+Acanthodactylus scutellatus	6.6	40	0.01687	reptilia
+Acanthophis praelongus	105.5	30	0.02754	reptilia
+Acontias meleagris	7.3	33	0.00377	reptilia
+Acrantophis dumerili	2548.5	20	0.10704	reptilia
+Acrochordus aradurae	1047.7	30	0.13725	reptilia
+Aligator mississippiensis	1287	10	0.0399	reptilia
+Amblyrhynchus cristatus	747.5	25	0.15174	reptilia
+Amphibolurus barbatus	373	37	0.29019	reptilia
+Amphibolurus nuchalis	24.65	40	0.03301	reptilia
+Anarbylus switaki	9.48	25	0.00389	reptilia
+Anguis fragilis	12.067	30	0.00395	reptilia
+Anniella pulchra	4.8466	25	0.00176	reptilia
+Anolis acutus	4.3	30	0.00693	reptilia
+Anolis bonariensis	12	27	0.00433	reptilia
+Anolis carolinensis	4.5	30	4.70E-03	reptilia
+Anolis limifrons	1.5	20	6.66E-04	reptilia
+Antaresia childreni	331.7	24	0.06435	reptilia
+Antaresia stimsoni	349.9	30	0.11092	reptilia
+Aspidites melanocephalus	1027.5	24	0.20961	reptilia
+Blanus cinereus	2.4	30	0.00235	reptilia
+Boa constrictor	7815.5	30	0.70339	reptilia
+Bunopus tuberculatus	2.5	35	0.01421	reptilia
+Candoia carinatus	521.9	20	0.0214	reptilia
+Chalcides ocellatus	22.06	33	0.01152	reptilia
+Chelydra serpentina	3473	10	0.06599	reptilia
+Chironius quadricarinatus	61	20	0.01153	reptilia
+Cnemidophorus murinus	85	40	0.08644	reptilia
+Cnemidophorus tigris	18	30	0.014	reptilia
+Coleonyx variegatus	3.43	25	0.00279	reptilia
+Coluber constrictor	262	35	0.09327	reptilia
+Corallus caninus	556	20	0.02724	reptilia
+Corallus enhydris	802	30	0.10426	reptilia
+Cosymbotus platyurus	3.5	27	0.00195	reptilia
+Crotalus viridis	301	35	0.10716	reptilia
+Crotaphytus collaris	30	37	0.04668	reptilia
+Ctenotus labillardieri	2.8	20	0.00111	reptilia
+Cyclagras gigas	2680	20	0.47704	reptilia
+Diadophis punctatus	4.4	30	0.00323	reptilia
+Diplometopon zarudnyi	6.34	35	0.00539	reptilia
+Dipsas albifrons	22	20	0.0044	reptilia
+Dipsosaurus dorsalis	40.36	45	0.05606	reptilia
+Egernia cunninghami	261	20	0.04933	reptilia
+Elaphe guttata	800	25	0.5024	reptilia
+Epicrates cenchria	416	30	0.06739	reptilia
+Eryx colubrinus	85.85	20	0.00704	reptilia
+Eumeces fasciatus	7	30	0.00933	reptilia
+Eumeces inexpectatus	9.6	30	0.00816	reptilia
+Eumeces obsoletus	30	20	0.00834	reptilia
+Eunectes murinus	1130	20	0.13221	reptilia
+Eunectes notaeus	14400	20	1.20E+00	reptilia
+Garthia gaudichaudi	0.805	25	4.27E-04	reptilia
+Gekko gecko	61.5	30	0.03296	reptilia
+Gerrhonotus multicarinatus	29	20	0.00916	reptilia
+Gonotodes antillensis	1.8	34	0.00166	reptilia
+Helicops modestus	196	30	0.05998	reptilia
+Hemidactylus frenatus	2	27	0.00117	reptilia
+Iguana iguana	795	37	0.66224	reptilia
+Klauberina riversiana	19	35	0.00211	reptilia
+Lacerta agilis	8.4	35	0.02273	reptilia
+Lacerta sicula	9	20	0.00272	reptilia
+Lacerta trilineata	71	20	0.00902	reptilia
+Lacerta viridis	31	20	0.00465	reptilia
+Lacerta vivipara	3.95	30	0.0052	reptilia
+Lampropeltis getulus	1217	26	0.18985	reptilia
+Lampropeltis miliaris	401	25	0.10707	reptilia
+Leimadophis poecilogyrus	42	20	9.32E-03	reptilia
+Lepidophyma gaigeae	5	15	7.50E-04	reptilia
+Lepidophyma smithi	25	30	0.00973	reptilia
+Liasis fuscus	1306.9	30	0.15944	reptilia
+Liasis olivaceus	3000.7	24	0.24906	reptilia
+Lichanura roseofusca	314	32	0.12215	reptilia
+Lichanura trivirgata	182	20	0.01329	reptilia
+Masticodryas bifossatus	735	20	0.17566	reptilia
+Masticophis flagellum	262	35	1.23743	reptilia
+Morelia spilota variegata	2173.5	30	3.13E-01	reptilia
+Natrix maura	22.5	5	8.10E-04	reptilia
+Natrix natrix helretica	82.5	5	0.00182	reptilia
+Nerodia rhombifera	238	30	0.12566	reptilia
+Ophisaurus ventralis	32.185	25	0.00689	reptilia
+Oxyrhopus trigeminus	98	20	0.01901	reptilia
+Pelamis platurus	116	30	0.03863	reptilia
+Philodryas olfersii	176	20	0.03819	reptilia
+Philodryas patagoniensis	388	20	0.1098	reptilia
+Philodryas serra	135	20	0.02619	reptilia
+Phrynosoma cornutum	35	35	0.03227	reptilia
+Phrynosoma douglassi	28	35	0.0266	reptilia
+Phrynosoma mcalli	16	37	0.02445	reptilia
+Physignathus lesueurii	504	37	0.39211	reptilia
+Pituophis melanolecus	548	20	0.05809	reptilia
+Pitupophis catenifer affinis	548	30	1.22E-01	reptilia
+Podarcis hispanica	3.43	10	3.81E-04	reptilia
+Podarcis lilfordi brauni	7.4	20	0.003	reptilia
+Podarcis muralis	5.5	35	0.01305	reptilia
+Psammodromus algirus	5.2	20	0.00355	reptilia
+Pseudemys scripta	305	10	0.00641	reptilia
+Pseudonaja nuchalis	214.1	33	0.088	reptilia
+Ptyodactylus hasselquistii	8.5	30	0.00689	reptilia
+Python curtis	2373.5	20	0.09731	reptilia
+Python molurus	NA	20	0.83376	reptilia
+Python regius	787	20	0.03856	reptilia
+Python reticulatus	14326	20	0.7163	reptilia
+Python sebae	16140	20	0.62946	reptilia
+Salvadora hexalepis	65	30	0.03861	reptilia
+Sauromalus hispidus	574	20	0.05683	reptilia
+Sauromalus obesus	150	20	0.02415	reptilia
+Sceloporus graciosus	5	25	0.00245	reptilia
+Sceloporus occidentalis	10.105	25	0.00606	reptilia
+Sceloporus olivaceus	24	20	8.78E-03	reptilia
+Sceloporus undulatus	3.8	20	8.25E-04	reptilia
+Sceloporus variabilis	12.215	10	0.0112	reptilia
+Scelotes gronovii	1.1	33	1.39E-03	reptilia
+Scincella lateralis	1	20	6.67E-04	reptilia
+Scinus mitranus	14.6	35	0.01216	reptilia
+Sibynomorphis mikanii	11	20	0.00751	reptilia
+Spalerosophis cliffordi	300	35	3.17E-01	reptilia
+Sphaerodactylus beattyi	0.4	30	5.00E-04	reptilia
+Sphaerodactylus cinereus	0.4	27	2.22E-04	reptilia
+Sphaerodactylus macrolepis	0.5	30	7.23E-04	reptilia
+Sphenodon punctatum	430	25	0.07396	reptilia
+Sphenops sepsoides	7.4	30	0.00325	reptilia
+Storeria dekayi	7.2	30	0.00648	reptilia
+Tarentola mauritanica	6.6	35	0.00667	reptilia
+Terrapene ornata ornata	354	10	0.00142	reptilia
+Thamnodyastes strigatus	55	20	0.01254	reptilia
+Thamnophis butleri	19.02	25	0.0065	reptilia
+Thamnophis proximus	31	30	0.02582	reptilia
+Thamnophis sirtalis	200	29	0.0366	reptilia
+Tiliqua rugosa	508.6	35	0.40688	reptilia
+Tiliqua scincoides	493	20	0.07395	reptilia
+Trachydosaurus rugosus	461	20	0.07699	reptilia
+Trogonophis weigmanni	4.985	25	0.00107	reptilia
+Uromastyx microlepis	289.84	20	0.01942	reptilia
+Uta mearnsi	14	20	0.00304	reptilia
+Uta stansburiana	3.625	37	0.00604	reptilia
+Varanus albigularis	963	35	0.82914	reptilia
+Varanus bengalensis	3440	30	0.97352	reptilia
+Varanus exanthematicus	3836	25	10.52215	reptilia
+Varanus giganteus	2496	25.9	0.59405	reptilia
+Varanus gilleni	27.5	37	0.02978	reptilia
+Varanus gouldi	674	20	0.08964	reptilia
+Varanus mertensi	904	35	0.39143	reptilia
+Varanus panoptes	2005	20.5	0.30476	reptilia
+Varanus varius	4410	30	1.22598	reptilia
+Varnus rosenbergi	1269.3	35	0.9304	reptilia
+Vipera berus	63	25	3.15E-02	reptilia
+Xantusia henshawi	3.5	15	7.21E-04	reptilia
+Xantusia vigilis	1.5	30	0.00144	reptilia
+Xenodon guentheri	50	20	0.0097	reptilia
+Xenodon merremii	502	20	0.11998	reptilia
+Abramis brama	102.9	18	0.05404	fishes
+Acanthopagrus schlegelii schlegelii	254	25	0.02964	fishes
+Acipenser gueldenstaedtii	208	18	0.05664	fishes
+Acipenser nudiventris	89	19	0.04708	fishes
+Acipenser ruthenus	258	20	0.03514	fishes
+Acipenser stellatus	6500	20	1.7446	fishes
+Acipenser transmontanus	950	15	0.01112	fishes
+Aequidens pulcher	5	25	0.00237	fishes
+Alburnus alburnus	9	8	0.0028	fishes
+Ambassis interrupta	5	25	0.00158	fishes
+Ameiurus melas	50	17	0.0142	fishes
+Ameiurus natalis	20	15	0.00405	fishes
+Ameiurus nebulosus	116	10	0.00902	fishes
+Anabas testudineus	27.62	28	5.39E-04	fishes
+Anarhichas minor	27.5	1.35	0.00385	fishes
+Anguilla anguilla	71.1	14	0.00525	fishes
+Anguilla australis australis	700	20	0.05992	fishes
+Anguilla japonica	325	14.5	0.02528	fishes
+Anguilla rostrata	315	15	0.02574	fishes
+Anoplogaster cornuta	36.7	5	4.29E-04	fishes
+Aphanius dispar dispar	0.56	17	7.28E-04	fishes
+Arapaima gigas	2300	28	0.22379	fishes
+Aristostomias lunifer	21.1	5	0.00123	fishes
+Bajacalifornia burragei	24.9	5	7.74E-04	fishes
+Balistes capriscus	320	17.5	0.10458	fishes
+Bathylagus antarcticus	27.15	0.25	0.00274	fishes
+Bathylagus stilbius	8.55	5	0.00116	fishes
+Bathylagus wesethi	1.5	10	7.94E-04	fishes
+Benthalbella elongata	35.3	0.25	0.00728	fishes
+Boreogadus saida	110	1	0.0077	fishes
+Borostomias panamensis	110.25	5	0.01073	fishes
+Brevoortia tyrannus	78.4	10	0.03111	fishes
+Callionymus lyra	105	11.5	0.00858	fishes
+Campostoma anomalum	19.25	17.9	0.014	fishes
+Caranx hippos	38.3	14.7	0.03352	fishes
+Carassius auratus auratus	3.8	5	1.77E-04	fishes
+Carassius carassius	12.5	5	4.86E-04	fishes
+Catostomus commersonii	100	10	0.01362	fishes
+Catostomus tahoensis	43.73	8	0.01072	fishes
+Centropristis striata	84	25	0.03268	fishes
+Chaenocephalus aceratus	1130	2	0.0791	fishes
+Channa marulius	93	30	0.01447	fishes
+Channa orientalis	30	30	0.0063	fishes
+Channa punctata	12.5	26	8.75E-04	fishes
+Channa striata	82	30	0.01372	fishes
+Channichthys rhinoceratus	200	5.5	0.05368	fishes
+Chanos chanos	0.7	25	0.00188	fishes
+Chiasmodon niger	76.6	2.5	0.01162	fishes
+Chiloscyllium plagiosum	880	23	0.16086	fishes
+Chromis chromis	10.4	16	0.00538	fishes
+Cichlasoma bimaculatum	11	22	0.00252	fishes
+Cirrhinus cirrhosus	1821	21.5	0.32578	fishes
+Citharichthys stigmaeus	15	15	0.00467	fishes
+Clarias batrachus	77	26	0.01648	fishes
+Clinocottus analis	37	20	0.01756	fishes
+Colisa fasciata	0.92	28	3.72E-04	fishes
+Colossoma macropomum	1760	25	0.34232	fishes
+Conger conger	545	13	0.1823	fishes
+Coregonus autumnalis	234	7.2	0.12561	fishes
+Coregonus fera	0.11	14	2.57E-04	fishes
+Coregonus sardinella	365	9.2	0.15476	fishes
+Coryphaena equiselis	0.03	23	1.66E-04	fishes
+Coryphaena hippurus	0.9	13.5	0.00158	fishes
+Coryphaenoides armatus	1200	3	0.01872	fishes
+Cottus gobio	2.9	18	0.004	fishes
+Ctenopharyngodon idella	16.05	22	0.00687	fishes
+Cyclothone acclinidens	0.87	3	8.13E-05	fishes
+Cyclothone microdon	0.78	0.25	6.98E-05	fishes
+Cyprinodon variegatus variegatus	2.4	25	0.00159	fishes
+Cyprinus carpio carpio	174	10	0.0115	fishes
+Dactylopterus volitans	0.02	23	2.59E-04	fishes
+Dasyatis sabina	503	22.2	0.12329	fishes
+Diaphus theta	2.65	5	0.00158	fishes
+Diplodus sargus sargus	25.75	14	0.01893	fishes
+Dorosoma cepedianum	87.7	13.4	0.02047	fishes
+Echiichthys vipera	10.5	18.5	0.00939	fishes
+Electrona antarctica	7.9	0.25	0.00184	fishes
+Embiotoca lateralis	599	15	0.2493	fishes
+Encheliophis homei	7.5	30	0.00251	fishes
+Engraulis japonicus	628.79	16.2	0.51121	fishes
+Epinephelus akaara	281	25	0.0492	fishes
+Erimyzon oblongus	25.8	18.5	0.01536	fishes
+Erpetoichthys calabaricus	27.4	27	0.01226	fishes
+Esomus danricus	0.62	27.5	0.00117	fishes
+Esox lucius	600	5	0.04668	fishes
+Esox masquinongy	12.2	5	0.00479	fishes
+Etheostoma blennioides	12.35	17.5	0.01009	fishes
+Euthynnus affinis	2260	24	4.42214	fishes
+Exodon paradoxus	3.85	20	5.69E-04	fishes
+Fundulus grandis	31.5	25	0.0011	fishes
+Fundulus heteroclitus heteroclitus	9	5	4.55E-04	fishes
+Fundulus parvipinnis	6	20	1.40E-04	fishes
+Fundulus similis	21	25	6.53E-04	fishes
+Gadus morhua	6650	3	0.72418	fishes
+Gadus ogac	180	0	0.04482	fishes
+Gambusia affinis	0.24	10	1.56E-04	fishes
+Gambusia holbrooki	0.3	27	1.00E-04	fishes
+Gasterosteus aculeatus aculeatus	1.95	10	8.34E-04	fishes
+Genyagnus monopterygius	164	17	0.00638	fishes
+Gilchristella aestuaria	1.44	15	9.13E-04	fishes
+Gillichthys mirabilis	16.7	20	3.89E-04	fishes
+Girella nigricans	210	18	0.07025	fishes
+Glossogobius giuris	15	26	0.00198	fishes
+Gnathonemus petersii	5.85	26	0.00232	fishes
+Gobio gobio gobio	17	12	0.00972	fishes
+Gobionotothen gibberifrons	470	0.25	0.04206	fishes
+Gobius paganellus	10.5	23.1	0.00894	fishes
+Gymnocephalus cernuus	64.8	17	0.0358	fishes
+Gymnodraco acuticeps	87.2	-0.3	0.01188	fishes
+Gymnoscopelus braueri	11.4	0.25	0.00168	fishes
+Gymnoscopelus opisthopterus	23.55	0.25	0.00293	fishes
+Harpagifer georgianus	4.13	1.5	3.22E-05	fishes
+Hemichromis bimaculatus	3	25	0.00225	fishes
+Heteropneustes fossilis	45	18	0.00648	fishes
+Hippocampus hippocampus	10	18	0.00502	fishes
+Hippoglossoides platessoides	390	3.5	0.02578	fishes
+Hoplerythrinus unitaeniatus	243	28.5	0.03686	fishes
+Ichthyomyzon fossor	3.78	18	0.00225	fishes
+Ictalurus punctatus	825	18	0.13481	fishes
+Katsuwonus pelamis	632	23.5	0.51628	fishes
+Kuhlia sandvicensis	55.97	23	0.01285	fishes
+Labeo calbasu	0.3	27.5	6.65E-05	fishes
+Labeo capensis	357.96	8	0.0543	fishes
+Labeo rohita	5	29	0.00467	fishes
+Labeobarbus aeneus	325.5	10	0.02152	fishes
+Labrus bergylta	125	18	0.04134	fishes
+Lagodon rhomboides	13.5	25	0.00305	fishes
+Lampetra fluviatilis	1.43	4.4	9.45E-05	fishes
+Lampetra planeri	2.79	5.3	1.52E-04	fishes
+Leiostomus xanthurus	11.1	25	0.00242	fishes
+Lepidocephalichthys guntea	1.27	24	6.92E-04	fishes
+Lepidogalaxias salamandroides	0.62	20	1.30E-04	fishes
+Lepomis cyanellus	10	15	0.00506	fishes
+Lepomis gibbosus	30	5	0.00268	fishes
+Lepomis macrochirus	133	30	0.02587	fishes
+Leporinus fasciatus	3.95	25	0.00214	fishes
+Leucaspius delineatus	1.52	20	0.0026	fishes
+Leuciscus cephalus	14	15	0.0061	fishes
+Leuciscus idus	600	5	0.04668	fishes
+Leuciscus leuciscus	9.95	16.5	0.01393	fishes
+Limanda limanda	400	5	0.02336	fishes
+Lipolagus ochotensis	3.4	10	0.00159	fishes
+Lipophrys pholis	20.2	16	0.00707	fishes
+Liza dumerili	42.5	18	0.01157	fishes
+Liza macrolepis	8	29	0.00467	fishes
+Liza richardsonii	39.2	13	0.01967	fishes
+Lota lota	213	11.3	0.06132	fishes
+Lutjanus campechanus	365.5	15	0.1038	fishes
+Lycodichthys dearborni	44.61	-1.5	0.00139	fishes
+Macrognathus aculeatus	53	21	0.0101	fishes
+Melamphaes acanthomus	17.4	5	0.00122	fishes
+Melanocetus johnsonii	50.55	2.5	0.00472	fishes
+Melanogrammus aeglefinus	155.9	10	0.02063	fishes
+Melanonus zugmayeri	31.5	5	0.00306	fishes
+Melanostigma gelatinosum	47.2	0.25	0.00551	fishes
+Melanostigma pammelas	10	3	3.89E-04	fishes
+Micropterus salmoides	178	15	0.01315	fishes
+Microstomus kitt	229	5	0.02583	fishes
+Misgurnus fossilis	28.5	18	0.01364	fishes
+Monopterus cuchia	172.88	25	0.0195	fishes
+Mugil cephalus	221	14.5	0.04471	fishes
+Mugil curema	140	20	0.05446	fishes
+Myoxocephalus octodecemspinosus	200	10	0.03112	fishes
+Myoxocephalus scorpius	87.5	2.4	0.01464	fishes
+Mystus armatus	9.2	30	0.00555	fishes
+Mystus cavasius	45	29	0.03168	fishes
+Mystus gulio	12	27	0.00728	fishes
+Mystus vittatus	7.4	20	0.00314	fishes
+Myxine glutinosa	38.4	7	0.00717	fishes
+Nannobrachium regale	2.9	5	1.80E-04	fishes
+Nannobrachium ritteri	1.8	5	4.13E-04	fishes
+Naucrates ductor	0.07	23	5.63E-04	fishes
+Notothenia coriiceps	1000	0.25	0.1128	fishes
+Notothenia cyanobrancha	200	4.5	0.08558	fishes
+Notothenia rossii	159.7	3	0.01615	fishes
+Oligolepis acutipennis	6.3	26	7.60E-04	fishes
+Oncorhynchus mykiss	450	5	0.06827	fishes
+Oncorhynchus nerka	36.7	5	0.00585	fishes
+Oncorhynchus tshawytscha	26	16	0.0174	fishes
+Oneirodes acanthias	4.2	5	1.96E-04	fishes
+Ophiodon elongatus	1591	12.1	0.1548	fishes
+Opsanus tau	325	20	0.5057	fishes
+Oreochromis aureus	697	26	0.17892	fishes
+Oreochromis mossambicus	144.3	16	0.02076	fishes
+Oreochromis niloticus niloticus	310	26	0.06873	fishes
+Orthodon microlepidotus	650	12	0.08092	fishes
+Oryzias latipes	0.27	25	1.94E-04	fishes
+Osphronemus goramy	12.5	28	0.00433	fishes
+Pagetopsis macropterus	76	0	0.0071	fishes
+Pagothenia borchgrevinki	90.15	0.5	0.01052	fishes
+Paranotothenia magellanica	200	5.25	0.07314	fishes
+Parophrys vetulus	70	15	0.02723	fishes
+Parvilux ingens	9.4	5	6.58E-04	fishes
+Perca fluviatilis	11	16	9.85E-04	fishes
+Petromyzon marinus	22.8	5	0.0047	fishes
+Pimephales promelas	2	15	8.87E-04	fishes
+Platichthys flesus	350	9	0.01635	fishes
+Platichthys stellatus	1290	9	0.08024	fishes
+Plecoglossus altivelis altivelis	10.7	19	0.03334	fishes
+Pleuronectes platessa	288.6	5	0.02245	fishes
+Poecilia latipinna	5.6	25	7.41E-04	fishes
+Pollachius pollachius	870	18.5	0.81223	fishes
+Pomadasys commersonnii	2627	15	0.45999	fishes
+Pomoxis annularis	11.5	17.4	0.00407	fishes
+Poromitra crassiceps	17.1	5	0.00106	fishes
+Protopterus annectens annectens	368	30	0.11452	fishes
+Psenes whiteleggii	1.3	13.5	0.00329	fishes
+Psetta maxima	320	15	0.14192	fishes
+Pseudobathylagus milleri	41.1	5	0.00256	fishes
+Pseudochaenichthys georgianus	35.7	0.5	0.00555	fishes
+Pseudopleuronectes americanus	26.15	12	4.08E-04	fishes
+Pterophyllum scalare	19.03	25	0.00585	fishes
+Rhinogobiops nicholsii	4.04	15	4.87E-04	fishes
+Rhodeus amarus	0.71	16	5.36E-04	fishes
+Rhodeus sericeus	3	12	0.00214	fishes
+Rutilus rutilus	27	8	0.00788	fishes
+Sagamichthys abei	5.7	5	5.10E-04	fishes
+Salmo salar	25	7	0.00564	fishes
+Salmo trutta fario	350	10	0.07896	fishes
+Salmo trutta trutta	575	10	0.09844	fishes
+Salvelinus alpinus alpinus	210	15	0.06535	fishes
+Salvelinus fontinalis	690	10	0.05906	fishes
+Salvelinus namaycush	82.8	9.2	0.00741	fishes
+Sander lucioperca	600	5	0.07002	fishes
+Sander vitreus	291	20	0.07359	fishes
+Sarda chiliensis lineolata	2530	22	16.96719	fishes
+Sarotherodon galilaeus galilaeus	283	26	0.07706	fishes
+Scardinius erythrophthalmus	53	20	0.04474	fishes
+Scopelengys tristis	49.8	5	0.00252	fishes
+Scopelogadus mizolepis mizolepis	3.6	5	2.80E-04	fishes
+Scophthalmus rhombus	145	18.5	0.07333	fishes
+Scorpaena porcus	50	20	0.01283	fishes
+Scyliorhinus canicula	857	7	0.07336	fishes
+Scyliorhinus stellaris	2530	18.3	0.03947	fishes
+Sebastes diploproa	2	10	9.10E-04	fishes
+Sebastolobus altivelis	198	5.7	0.00309	fishes
+Seriola quinqueradiata	989	19.2	0.56937	fishes
+Serranus scriba	4.1	16	0.00265	fishes
+Solea solea	185	14	0.07557	fishes
+Sparus aurata	78	18	0.0616	fishes
+Spinachia spinachia	0.3	18	4.13E-04	fishes
+Squalus acanthias	1812	9	0.14804	fishes
+Stenobrachius leucopsarus	4.3	5	0.001	fishes
+Stomias atriventer	9.3	10	0.0021	fishes
+Stomias danae	13.8	2.5	0.00225	fishes
+Symbolophorus californiensis	0.8	5	2.68E-04	fishes
+Synbranchus marmoratus	151	25	0.02114	fishes
+Syngnathus acus	7.6	18.5	0.00574	fishes
+Tarletonbeania crenularis	3.29	8	0.00175	fishes
+Tautogolabrus adspersus	50	20	0.02762	fishes
+Theragra chalcogramma	70	1	0.00899	fishes
+Thorichthys meeki	15	25	0.00479	fishes
+Thymallus arcticus arcticus	283	4	0.07485	fishes
+Tilapia rendalli	50	17	0.01634	fishes
+Tilapia zillii	315	26	0.07229	fishes
+Tinca tinca	541	16	0.13049	fishes
+Torpedo marmorata	448	16	0.03835	fishes
+Torpedo torpedo	315	15	0.07966	fishes
+Trematomus bernacchii	55.2	0.1	0.00279	fishes
+Trematomus hansoni	145	-0.9	0.03722	fishes
+Trematomus pennellii	183	-0.9	0.03133	fishes
+Trichogaster trichopterus	7.97	27	0.00518	fishes
+Triphoturus mexicanus	1.15	5	1.61E-04	fishes
+Typhlogobius californiensis	3.54	15	2.76E-05	fishes
+Xiphophorus hellerii	2	25	0.00167	fishes
+ Acanthis cannabina  	 20.1  	 16.9  	0.33969	birds
+ Acanthis flammea  	 20.4  	 14.0  	0.2856	birds
+ Acanthorhynchus tenuirostris  	 25.7  	 9.7  	0.24929	birds
+ Accipiter nisus  	 7.0  	 135  	0.945	birds
+ Acrcocephalus palustris  	 18.9  	 10.8  	0.20412	birds
+ Acridotheres cristatellus  	 11.0  	 109.4  	1.2034	birds
+ Acrocephalus arundinaceus  	 11.7  	 21.9  	0.25623	birds
+ Acrocephalus bistrigiceps  	 16.6  	 7.9  	0.13114	birds
+ Acrocephalus palustris  	 18.8  	 10.8  	0.20304	birds
+ Acrocephalus schoenobaenus  	 18.9  	 11.5  	0.21735	birds
+ Aegithalos caudatus  	 22.4  	 8.9  	0.19936	birds
+ Aegolius acadicus  	 5.3  	 124  	0.6572	birds
+ Aethopyga christinae  	 22.7  	 5.2  	0.11804	birds
+ Agapornis fisheri  	 9.3  	 56.7  	0.52731	birds
+ Agapornis roseicollis  	 9.6  	 48.4  	0.46464	birds
+ Agelaius phoeniceus  	 14.7  	 56.7  	0.83349	birds
+ Agleactis cupripennis  	 35.0  	 7.2  	0.252	birds
+ Aix sponsa  	 5.0  	 448  	2.24	birds
+ Alaemon alaudipes  	 11.3  	 37.7  	0.42601	birds
+ Alauda arvensis  	 22.8  	 31.7  	0.72276	birds
+ Alcedo atthis  	 11.0  	 34.3  	0.3773	birds
+ Alectoris graeca  	 4.0  	 633  	2.532	birds
+ Alophoixus bres  	 10.1  	 35  	0.3535	birds
+ Amadina erythrocephala  	 9.5  	 22.4  	0.2128	birds
+ Amadina fasciata  	 12.4  	 17.2  	0.21328	birds
+ Ammodramus savannarum  	 12.9  	 13.8  	0.17802	birds
+ Amphispiza bilineata  	 17.0  	 11.6  	0.1972	birds
+ Anas acuta  	 6.1  	 721  	4.3981	birds
+ Anas penelope  	 3.9  	 723  	2.8197	birds
+ Anas platyrhynchos  	 4.0  	 1020  	4.08	birds
+ Anas strepera  	 7.8  	 791  	6.1698	birds
+ Anhinga rufa (anhinga)  	 3.1  	 1040  	3.224	birds
+ Anser anser  	 3.3  	 3250  	10.725	birds
+ Anthracothorax nigricollis  	 39.6  	 7.7  	0.30492	birds
+ Anthus campestris  	 17.6  	 21.8  	0.38368	birds
+ Anthus pratensis  	 15.9  	 18.9  	0.30051	birds
+ Anthus trivialis  	 17.2  	 19.7  	0.33884	birds
+ Aptenodytes patagonica  	 2.0  	 11080  	22.16	birds
+ Apteryx australis  	 1.7  	 2380  	4.046	birds
+ Apteryx haasti  	 1.7  	 2450  	4.165	birds
+ Apteryx owenii  	 1.9  	 1096  	2.0824	birds
+ Apus apus  	 9.7  	 44.9  	0.43553	birds
+ Arachnothera longirostra  	 14.5  	 13  	0.1885	birds
+ Ardea herodias  	 3.3  	 1870  	6.171	birds
+ Arenaria interpres  	 10.2  	 90  	0.918	birds
+ Asio flammeus  	 3.2  	 406  	1.2992	birds
+ Asio otus  	 3.8  	 252  	0.9576	birds
+ Authus pratensis  	 15.9  	 18.9  	0.30051	birds
+ Barnardius zonarius  	 5.2  	 137  	0.7124	birds
+ Bombycilla garrulus  	 13.2  	 72.5  	0.957	birds
+ Bonasa umbellus  	 3.7  	 644  	2.3828	birds
+ Botaurus lentigosus  	 4.5  	 600  	2.7	birds
+ Bubo virginianus  	 3.6  	 1450  	5.22	birds
+ Buteo buteo  	 3.7  	 1012  	3.7444	birds
+ Buteo lineatus  	 3.2  	 658  	2.1056	birds
+ Cacactua tenuirostris  	 5.8  	 549.9  	3.18942	birds
+ Cacatua galerita  	 4.4  	 776.1  	3.41484	birds
+ Cacomantis variolosus  	 5.1  	 23.8  	0.12138	birds
+ Calidris canutus  	 6.8  	 130  	0.884	birds
+ Callipepla gambelii  	 6.0  	 126.1  	0.7566	birds
+ Caprimulgus europeus  	 8.3  	 77.4  	0.64242	birds
+ Cardinalis cardinalis  	 12.3  	 41  	0.5043	birds
+ Cardinalis sinuata  	 12.3  	 32  	0.3936	birds
+ Carduelis carduelis  	 21.1  	 16.5  	0.34815	birds
+ Carduelis pinus  	 20.8  	 14  	0.2912	birds
+ Carduelis tristis  	 24.6  	 13.6  	0.33456	birds
+ Carpodacus cassinii  	 12.4  	 27.4  	0.33976	birds
+ Carpodacus erythrinus  	 16.6  	 21.6  	0.35856	birds
+ Carpodacus mexicanus  	 15.2  	 20.4  	0.31008	birds
+ Casurarius bennetti  	 1.4  	 17600  	24.64	birds
+ Catharactus skua  	 4.9  	 970  	4.753	birds
+ Centropus senegalensis  	 8.6  	 175  	1.505	birds
+ Certhilauda erythrochlamys  	 15.1  	 27.3  	0.41223	birds
+ Chalcophaps inidica  	 6.4  	 124  	0.7936	birds
+ Charadius dubius  	 10.9  	 44  	0.4796	birds
+ Chauna chavaria  	 2.6  	 2620  	6.812	birds
+ Chloris chloris  	 16.8  	 28.2  	0.47376	birds
+ Chloropsis sonnerati  	 9.5  	 39.7  	0.37715	birds
+ Chlorostilbon mellisugus  	 50.0  	 2.9  	0.145	birds
+ Chordeiles minor  	 6.1  	 72  	0.4392	birds
+ Cinclus mexicanus  	 9.2  	 50.2  	0.46184	birds
+ Coccothraustes coccothraustes  	 14.5  	 48.3  	0.70035	birds
+ Coereba flaveola  	 21.5  	 10  	0.215	birds
+ Coleus monedula  	 7.3  	 209.0  	1.5257	birds
+ Colinus virginianus  	 5.7  	 194  	1.1058	birds
+ Colius castanotus  	 15.0  	 69  	1.035	birds
+ Colius colius  	 5.0  	 35.1  	0.1755	birds
+ Colius striatus  	 4.6  	 51  	0.2346	birds
+ Columba leucomela  	 5.3  	 456  	2.4168	birds
+ Columba livia  	 4.5  	 368  	1.656	birds
+ Columba palumbus  	 4.0  	 493  	1.972	birds
+ Columba unicincta  	 5.4  	 318  	1.7172	birds
+ Contopus virens  	 18.5  	 13.9  	0.25715	birds
+ Copsychus saularis  	 6.9  	 33.5  	0.23115	birds
+ Cornus ruficollis  	 5.1  	 660.0  	3.366	birds
+ Corvus brachyrhynchos  	 8.5  	 384.8  	3.2708	birds
+ Corvus corax  	 4.6  	 1203.0  	5.5338	birds
+ Corvus corone cornix  	 6.4  	 518.0  	3.3152	birds
+ Corvus frugilegus  	 6.7  	 390.0  	2.613	birds
+ Coturnix chinensis  	 8.2  	 44.9  	0.36818	birds
+ Coturnix coturnix  	 7.6  	 109  	0.8284	birds
+ Coturnix japonica  	 8.5  	 115  	0.9775	birds
+ Coturnix pectoralis  	 6.6  	 95.8  	0.63228	birds
+ Crax alberti  	 2.4  	 2800  	6.72	birds
+ Crax daubentoni  	 2.6  	 2800  	7.28	birds
+ Crex crex  	 8.2  	 96  	0.7872	birds
+ Cuculus canorus  	 7.5  	 111.6  	0.837	birds
+ Cyanocitta cristata  	 10.3  	 80.8  	0.83224	birds
+ Cygnus buccinator  	 2.3  	 8800  	20.24	birds
+ Dendragapus obscurus  	 4.4  	 1131  	4.9764	birds
+ Dendrocopus major  	 8.9  	 117.0  	1.0413	birds
+ Dendroica coronata  	 16.4  	 11.5  	0.1886	birds
+ Dendroica dominica  	 16.3  	 9.8  	0.15974	birds
+ Dendroica palmarum  	 15.8  	 9.8  	0.15484	birds
+ Dendroica pinus  	 14.9  	 12  	0.1788	birds
+ Diomedea chrysostoma  	 2.3  	 3753  	8.6319	birds
+Diomedea exulans	2.5	8130	20.325	birds
+Diomedea immutabilis	3	2522	7.566	birds
+Emberiza citrinella	16.3	26.8	0.43684	birds
+Emberiza hortulana	15.1	27	0.4077	birds
+Emberiza schoeniclus	17.1	17.6	0.30096	birds
+Empidonax virescens	14.6	12.3	0.17958	birds
+Eolophus roseicapillus	4.6	268.7	1.23602	birds
+Eremalauda dunni	13.5	20.6	0.2781	birds
+Eremophila alpestris	11.9	26	0.3094	birds
+Erithacus rubecula	16	17.6	0.2816	birds
+Estrilda melpoda	17.5	7.5	0.13125	birds
+Estrilda troglodytes	20.1	7.5	0.15075	birds
+Eudocimus albus (Guara alba)	4.4	940	4.136	birds
+Eudynamys scolopacea	8.8	188	1.6544	birds
+Eudyptes chrysolophus	2.2	3870	8.514	birds
+Eudyptes cristatus	2.5	2330	5.825	birds
+Eudyptula minor	3.9	960	3.744	birds
+Eurostopodus argus 	4.6	88	0.4048	birds
+Excalfactoria chinensis	9.2	44	0.4048	birds
+Falco sparverius	7.2	117	0.8424	birds
+Falco subbuteo	6.2	208	1.2896	birds
+Falco tinnunculus	5.9	131	0.7729	birds
+Ficedula hypoleuca	19.9	11.7	0.23283	birds
+Fregata magnificens	2.6	1078	2.8028	birds
+Fringilla coelebs	17.7	21	0.3717	birds
+Fringilla montifringilla	18.2	21	0.3822	birds
+Fulica atra	5	412	2.06	birds
+Gallus gallus	2.2	2710	5.962	birds
+Garrulus glandarius	9.1	153	1.3923	birds
+Geococcyx californianus	5.1	284.7	1.45197	birds
+Geopelia cuneata	6.8	39	0.2652	birds
+Geopelia placida	6.8	52	0.3536	birds
+Geophaps plumifera	4.9	81	0.3969	birds
+Geophaps smithii	4.4	198	0.8712	birds
+Glaucidium cuculoides	5.3	163	0.8639	birds
+Glaucidium gnoma	8.2	54	0.4428	birds
+Grus canadensis	2.1	3890	8.169	birds
+Grus paradisea	2.6	4030	10.478	birds
+Gypaetus barbatus	2.2	5070	11.154	birds
+Haematopus ostralegus	5.3	554	2.9362	birds
+Himatione sanguinea	22.2	13.5	0.2997	birds
+Hippolais icterina	20.2	12.5	0.2525	birds
+Hirundo rustica	16.4	18.4	0.30176	birds
+Hirundo tahitica	12.7	14.1	0.17907	birds
+Icterus galbula	13.4	37.5	0.5025	birds
+Jabiru mycteria	2.4	5470	13.128	birds
+Junco hyemalis	16.4	18	0.2952	birds
+Lagopus lagopus	5.1	567	2.8917	birds
+Lagopus leucurus	7.2	326	2.3472	birds
+Lanius collurio	14.2	27	0.3834	birds
+Lanius excubitor	11.2	72.4	0.81088	birds
+Larus argentatus	4.8	1000	4.8	birds
+Larus atricilla	6.8	275.6	1.87408	birds
+Larus canus	5.2	431	2.2412	birds
+Larus ridibundus	6.1	306	1.8666	birds
+Leptoptilos javanicus	2.6	5710	14.846	birds
+Leptotila verreauxi	6.8	131	0.8908	birds
+Leucosarcia melanoleuca	3.8	445	1.691	birds
+Lichenostomus virescens	14.2	25	0.355	birds
+Lichmera indistincta	23.1	9	0.2079	birds
+Lonchura fuscans	10.2	9.5	0.0969	birds
+Lonchura maja	11.7	12.8	0.14976	birds
+Lonchura malacca	11.9	11.8	0.14042	birds
+Lonchura striata	19.7	10.1	0.19897	birds
+Loxia curvirostra	15.2	39.4	0.59888	birds
+Loxia pytiopsittacus	14.9	53.7	0.80013	birds
+Loxoides baileui	12.9	36	0.4644	birds
+Lullula arborea	14.7	33.2	0.48804	birds
+Luscinia svecica	17.3	20.8	0.35984	birds
+Macronectes giganteus	2.8	4780	13.384	birds
+Malacopteron cinereum	13.5	15.8	0.2133	birds
+Manacus vitellinus	15	15.5	0.2325	birds
+Megadyptes antipodes	2.4	4800	11.52	birds
+Meitihreptus lunatus	17.4	14.3	0.24882	birds
+Melanerpes formicivorus	10.1	73	0.7373	birds
+Melopsittacus undulatus	9.8	33.6	0.32928	birds
+Melospiza georgiana	14.2	14.9	0.21158	birds
+Melospiza melodia	13.1	19.1	0.25021	birds
+Merops viridis	8.7	33.8	0.29406	birds
+Motacilla alba	15.5	18.2	0.2821	birds
+Motacilla flava	17.5	14.7	0.25725	birds
+Muscicapa striata	17.1	14.4	0.24624	birds
+Myiarchus crinitus	11.3	33.9	0.38307	birds
+Nectarinia venusta	19.7	7.1	0.13987	birds
+Neophema petrophila	13.1	48.4	0.63404	birds
+Nucifraga caryocatactes	9.2	147	1.3524	birds
+Nyctea scandiaca	2.1	2026	4.2546	birds
+Nymphicus hollandicus	8	85.6	0.6848	birds
+Oceanodroma furcata	10.1	44.6	0.45046	birds
+Ocyphaps lophotes	5.8	187	1.0846	birds
+Oreotrochilus estella	22.9	8.4	0.19236	birds
+Oriolus oriolus	10	64.9	0.649	birds
+Otus asio	3.5	166	0.581	birds
+Otus trichopsis	3.7	120	0.444	birds
+Padda oryzivora	12.1	25.4	0.30734	birds
+Parus ater	22	10.8	0.2376	birds
+Parus atricapillus	24.5	10.3	0.25235	birds
+Parus major	20.1	16.4	0.32964	birds
+Parus varius	20.3	17.7	0.35931	birds
+Passer domesticus bactrianus	15.9	23.2	0.36888	birds
+Passer montanus	17.9	22	0.3938	birds
+Passerculus sandwichensis	13.9	15.9	0.22101	birds
+Patagona gigas	15	19.1	0.2865	birds
+Pelacanoides urinatrix	10.3	136	1.4008	birds
+Pelecanus conspicullatus	3.6	5090	18.324	birds
+Pelecanus occidentalis	3.4	3038	10.3292	birds
+Penelope purpurescens	2.7	2040	5.508	birds
+Perdix perdix	4.3	501	2.1543	birds
+Perisoreus canadensis	9.5	71.2	0.6764	birds
+Pernis apivorus	3.6	652	2.3472	birds
+Phalacrocorax auritus	4.1	1330	5.453	birds
+Phalaenoptilus nuttalli	4.4	35	0.154	birds
+Phaps chalcoptera	5	304	1.52	birds
+Phaps elegans	6.5	190	1.235	birds
+Phaps histrionica	5	257	1.285	birds
+Philidonyris novaehollandiae	18.3	17.3	0.31659	birds
+Phoenicopterus ruber	5	3040	15.2	birds
+Phoeniculus purpureus	2.3	74.07	0.17036	birds
+Phoenicurus ochruros	17.4	13.9	0.24186	birds
+Phoenicurus phoenicurus	17.9	13	0.2327	birds
+Phylidonyris melanops	15.6	18.8	0.29328	birds
+Phylloscopus collybita	20	8.2	0.164	birds
+Phylloscopus sibilatrix	19	9.2	0.1748	birds
+Phylloscopus trochilus	19.5	10.7	0.20865	birds
+Pica nuttalli	9.7	151.9	1.47343	birds
+Pica pica	7.5	158.9	1.19175	birds
+Picoides major	8.9	117	1.0413	birds
+Picoides pubescens	17.7	21.7	0.38409	birds
+Pinicola enucleator	13.8	78.4	1.08192	birds
+Pipra mentalis	15.8	12.3	0.19434	birds
+Pluvialis dominica	5.5	118	0.649	birds
+Pluvialis squatarola	7.9	226	1.7854	birds
+Podargus ocellatus	3.9	145	0.5655	birds
+Podargus strigoides	2.7	380.3	1.02681	birds
+Pooectes gramineus	12.6	21.5	0.2709	birds
+Protonotaria citrea	15.5	12.8	0.1984	birds
+Prunella modularls	19.4	16.8	0.32592	birds
+Psaltriparus minimus	22	5.5	0.121	birds
+Pterocles orientalis	5	386.4	1.932	birds
+Pterodroma phaeopygia	12.4	425	5.27	birds
+Ptilinopus melanospila	5	98	0.49	birds
+Ptilinopus superbus	6.3	120.4	0.75852	birds
+Puffinus griseus	3.9	740	2.886	birds
+Pycnonotus finlaysoni	8.4	26.3	0.22092	birds
+Pycnonotus goiavier	8.6	28.6	0.24596	birds
+Pygoscelis adeliae	3.1	3970	12.307	birds
+Pygoscelis papua	3	6290	18.87	birds
+Pyrrhula pyrrhula	18.2	30.4	0.55328	birds
+Regulus regulus	26.5	5.5	0.14575	birds
+Riparia riparia	17.1	13.6	0.23256	birds
+Saxicola rubetra	16.9	14.3	0.24167	birds
+Sayornis phoebe	15.9	21.6	0.34344	birds
+Scardefella inca	6.2	40.5	0.2511	birds
+Scolopax minor	6.8	156.7	1.06556	birds
+Scolopax rusticola	5	430	2.15	birds
+Sephanoides sephaniodes	17.8	5.74	0.10217	birds
+Serinus canaria	17.1	13.3	0.22743	birds
+Sialia mexicana	15.4	27.5	0.4235	birds
+Spermestes cucullatus	7.3	10.62	0.07753	birds
+Spheniscus humboldti	2.5	3870	9.675	birds
+Spinus spinus	20.8	14	0.2912	birds
+Spizella arborea	19.8	16.6	0.32868	birds
+Spizella passerina	16.3	11.9	0.19397	birds
+Sterna maxima	6.7	373	2.4991	birds
+Streptopelia senegalensis	7.9	108	0.8532	birds
+Streptopelia turtur	7.4	154	1.1396	birds
+Strix aluco	4	520	2.08	birds
+Strix occidentalis	4.7	571	2.6837	birds
+Struthio camelus	0.6	100000	60	birds
+Sturnus vulgaris	12	75	0.9	birds
+Sula dactylatra	4.3	1289	5.5427	birds
+Sylvia atricapilla	19	21.9	0.4161	birds
+Sylvia borin	16.8	24.8	0.41664	birds
+Sylvia curruca	18.8	10.6	0.19928	birds
+Sylvia nisoria	15.1	21.4	0.32314	birds
+Taeniopygia castanotis	19.5	11.7	0.22815	birds
+Tarsiger cyanurus	16	14.8	0.2368	birds
+Tetrao urogallus	2.9	4010	11.629	birds
+Thamnophilus punctatus	16.4	21	0.3444	birds
+Thinocorus rumicivorus	5.6	55.5	0.3108	birds
+Tiaris canora	19.9	7.8	0.15522	birds
+Tringa ochropus	10.2	90	0.918	birds
+Troglodytes troglodytes	23.7	9	0.2133	birds
+Trogon rufus	8.1	53	0.4293	birds
+Tudus viscivorus	10.2	108.2	1.10364	birds
+Turdus iliacus	12.5	58	0.725	birds
+Turdus merula	11.3	82.6	0.93338	birds
+Turdus philomelos	11.6	62.8	0.72848	birds
+Turdus viscivorus	10.2	108.2	1.10364	birds
+Turnix suscitator	6.7	58.1	0.38927	birds
+Tyrannus tyrannus	12.2	35.7	0.43554	birds
+Upupa epops	8.2	67	0.5494	birds
+Uraeginthus bengalis	17	9.1	0.1547	birds
+Uria aalge	7.1	956	6.7876	birds
+Uria lomvia	6.9	989	6.8241	birds
+Vermivora pinus	19.2	7.8	0.14976	birds
+Vidua paradisaea	18.5	10.5	0.19425	birds
+Vultur gryphus	1.6	10320	16.512	birds
+Xiphorhynchus guttatus	9.9	45.2	0.44748	birds
+Yynx torquilla	11.3	31.8	0.35934	birds
+Zenaida macroura	6	123	0.738	birds
+Zonotricha querula	13.4	33.3	0.44622	birds
+Zonotrichia albicollis	13.8	20.2	0.27876	birds
+Zonotrichia leucophrys	12.9	26.1	0.33669	birds
