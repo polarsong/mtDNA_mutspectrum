@@ -40,19 +40,17 @@ SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 SynNucAll = SynNuc
 
 ####### GenLength
-min_gl = GenLength[GenLength$GenerationLength_d < quantile(GenLength$GenerationLength_d, 0.25),]
-max_gl = GenLength[GenLength$GenerationLength_d > quantile(GenLength$GenerationLength_d, 0.75),]
-MaxMinGL = rbind(max_gl, min_gl)
+SynNucAll = merge(SynNucAll, GenLength, by='Species')
 
-syn_max = SynNucAll[SynNucAll$Species %in% max_gl$Species,]
-syn_min = SynNucAll[SynNucAll$Species %in% min_gl$Species,]
+min_gl = SynNucAll[SynNucAll$GenerationLength_d < quantile(SynNucAll$GenerationLength_d, 0.25),]
+max_gl = SynNucAll[SynNucAll$GenerationLength_d > quantile(SynNucAll$GenerationLength_d, 0.75),]
 
 
 Gene = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2') # ATP6 and ND4 
 Timing = seq(1:13)
 NewData = data.frame(Gene,Timing)
-SynNuc_max = merge(syn_max,NewData)
-SynNuc_min = merge(syn_min, NewData)
+SynNuc_max = merge(max_gl, NewData)
+SynNuc_min = merge(min_gl, NewData)
   # SynNuc = SynNuc[SynNuc$Gene != 'ND6' & SynNuc$Gene != 'ATP8' ,] # !!!!!!!!!!! - in this case it is similar
 
 VecOfSpecies_max  = as.character(unique(SynNuc_max$Species))
@@ -116,3 +114,15 @@ legend("topright",legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch =
 
 dev.off()
 
+NeutralMinGL = SynNuc_min[, c("Species", "Gene", "NeutralA", "NeutralT", "NeutralG", "NeutralC",
+                              "GenerationLength_d")]
+NeutralMaxGL = SynNuc_max[, c("Species", "Gene", "NeutralA", "NeutralT", "NeutralG", "NeutralC",
+                              "GenerationLength_d")]
+
+summary(NeutralMinGL)
+summary(NeutralMaxGL)
+
+write.table(NeutralMaxGL, '../../Body/3Results/ATGCinHighGLspecies.txt', sep='\t',
+            row.names = FALSE, quote = FALSE)
+write.table(NeutralMinGL, '../../Body/3Results/ATGCinLowGLspecies.txt', sep='\t',
+            row.names = FALSE, quote = FALSE)
