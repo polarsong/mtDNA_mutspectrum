@@ -37,9 +37,6 @@ SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 
-SynNuc$TAXON = SynNuc$Class
-VecOfTaxa = unique(SynNuc$TAXON)
-VecOfTaxa = c('Mammalia', 'Actinopterygii', 'Aves', 'Reptilia', 'Amphibia')
 SynNucAll = SynNuc
 
 ####### GenLength
