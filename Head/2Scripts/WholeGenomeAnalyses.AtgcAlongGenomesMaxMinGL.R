@@ -42,8 +42,8 @@ SynNucAll = SynNuc
 ####### GenLength
 SynNucAll = merge(SynNucAll, GenLength, by='Species')
 
-min_gl = SynNucAll[SynNucAll$GenerationLength_d < quantile(SynNucAll$GenerationLength_d, 0.25),]
-max_gl = SynNucAll[SynNucAll$GenerationLength_d > quantile(SynNucAll$GenerationLength_d, 0.75),]
+min_gl = SynNucAll[SynNucAll$GenerationLength_d < quantile(SynNucAll$GenerationLength_d, 0.125),]
+max_gl = SynNucAll[SynNucAll$GenerationLength_d > quantile(SynNucAll$GenerationLength_d, 0.875),]
 
 
 Gene = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2') # ATP6 and ND4 
@@ -62,12 +62,13 @@ pdf("../../Body/4Figures/WholeGenomeAnalyses.AtgcAlongGenomesMaxMinGL.R.01.pdf",
 par(cex = 2)
 
 ###### q1 GL
-ColG = rgb(0.1,0.1,0.1,0.1)
-ColT = rgb(0.1,0.1,1,0.1)
-ColC = rgb(0.1,1,0.1,0.1)
-ColA = rgb(1,0.1,0.1,0.1)
 
-plot(NA, xlim=c(1,13), ylim=c(0,0.8), xlab='', ylab="Nucleotide Fractions", main = 'Q1 generation length', xaxt="n")
+ColG = rgb(0.1,0.1,0.1,0.3)
+ColT = rgb(0.1,0.1,1,0.3)
+ColC = rgb(0.1,1,0.1,0.3)
+ColA = rgb(1,0.1,0.1,0.3)
+
+plot(NA, xlim=c(1,13), ylim=c(0,0.8), xlab='', ylab="Nucleotide Fractions", main = 'min generation length (81 sp.)', xaxt="n")
 axis(side = 1, at=c(1:13), labels=c(Gene), las = 2) 
 
 for (i in 1:length(VecOfSpecies_min))
@@ -90,7 +91,7 @@ legend("topright",legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch =
 
 ####### q4 GL
 
-plot(NA, xlim=c(1,13), ylim=c(0,0.8), xlab='', ylab="Nucleotide Fractions", main = 'Q4 generation length', xaxt="n")
+plot(NA, xlim=c(1,13), ylim=c(0,0.8), xlab='', ylab="Nucleotide Fractions", main = 'max generation length (80 sp.)', xaxt="n")
 axis(side = 1, at=c(1:13), labels=c(Gene), las = 2) 
 
 for (i in 1:length(VecOfSpecies_max))
