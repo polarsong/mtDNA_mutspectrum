@@ -1,2107 +1,1054 @@
-Species	Gene	NeutralA	NeutralT	NeutralG	NeutralC	GenerationLength_d
-Dremomys_rufigenis	ATP6	55	18	3	33	1384.1212625
-Acomys_cahirinus	ATP6	44	17	3	41	650.0125
-Leopoldamys_edwardsi	ATP6	55	23	6	23	639.631831820818
-Urotrichus_talpoides	ATP6	48	27	6	22	680.5528
-Rattus_sordidus	ATP6	61	15	2	29	534.7590666715
-Cynopterus_brachyotis	ATP6	56	20	9	34	1287.664
-Bandicota_indica	ATP6	60	17	5	25	639.631831820818
-Microtus_kikuchii	ATP6	50	16	5	40	373.623802083937
-Phascogale_tapoatafa	ATP6	45	31	9	32	878.35415
-Lepus_americanus	ATP6	53	28	5	31	1105.95
-Tamiops_swinhoei	ATP6	59	24	3	23	1239.29886944283
-Echinosorex_gymnura	ATP6	59	30	2	13	1202.9252375
-Eothenomys_chinensis	ATP6	52	18	5	40	589.388299099621
-Lepus_sinensis	ATP6	53	21	6	37	1047.27668
-Lepus_capensis	ATP6	55	24	6	30	1047.27668
-Meriones_libycus	ATP6	56	25	4	28	649.48035
-Leggadina_lakedownensis	ATP6	67	16	1	21	624.399640909091
-Rattus_rattus	ATP6	57	27	2	22	546.1994
-Spermophilus_dauricus	ATP6	50	40	2	25	1053.68290714286
-Crocidura_beatus	ATP6	49	36	3	23	427.67965
-Myrmecobius_fasciatus	ATP6	57	26	5	27	886.2761
-Crocidura_palawanensis	ATP6	47	34	5	25	409.171225
-Glis_glis	ATP6	47	31	4	17	1152.9402
-Apodemus_latronum	ATP6	64	25	0	19	554.1929125
-Onychomys_leucogaster	ATP6	62	18	6	27	671.9993
-Nectogale_elegans	ATP6	57	37	3	15	379.29295625
-Vulpes_ferrilata	ATP6	48	21	9	37	1427.3028
-Myodes_regulus	ATP6	49	23	3	34	433.359922223833
-Leopardus_jacobita	ATP6	47	16	6	37	1392.97
-Didelphis_virginiana	ATP6	60	40	1	7	745.99
-Myodes_glareolus	ATP6	52	22	5	33	577.7512
-Distoechurus_pennatus	ATP6	57	29	1	30	997.9661
-Mus_terricolor	ATP6	51	24	5	26	435.665
-Rattus_lutreolus	ATP6	62	16	5	28	440.292083343
-Myodes_rufocanus	ATP6	49	19	2	37	433.359922223833
-Eremitalpa_granti	ATP6	48	34	6	22	1036.5575833285
-Dipus_sagitta	ATP6	51	27	6	33	726.1971375
-Ochotona_princeps	ATP6	47	18	6	50	1045.7507
-Uropsilus_soricipes	ATP6	52	30	5	19	759.185721428571
-Thryonomys_swinderianus	ATP6	63	32	2	12	837.31
-Eothenomys_miletus	ATP6	56	23	7	31	589.388299099621
-Galemys_pyrenaicus	ATP6	58	25	4	15	730
-Wiedomys_cerradensis	ATP6	44	29	6	36	589.388299099621
-Suncus_murinus	ATP6	49	40	2	18	363.52745
-Lasiopodomys_mandarinus	ATP6	53	26	7	35	589.388299099621
-Niviventer_confucianus	ATP6	59	23	3	22	624.399640909091
-Tscherskia_triton	ATP6	43	17	9	45	589.388299099621
-Blarinella_quadraticauda	ATP6	54	38	1	16	379.29295625
-Tamiops_maritimus	ATP6	58	28	5	22	1239.29886944283
-Euchoreutes_naso	ATP6	41	29	10	35	726.1971375
-Sminthopsis_douglasi	ATP6	46	29	4	32	546.026466666667
-Cephalophus_spadix	ATP6	60	13	8	33	962.787
-Spilogale_putorius	ATP6	45	28	9	26	1257.256816657
-Lepus_tolai	ATP6	55	24	6	30	1047.27668
-Neomys_fodiens	ATP6	52	36	4	21	576.8888
-Macroscelides_proboscideus	ATP6	59	22	2	21	995.97395
-Isoodon_macrourus	ATP6	53	33	0	25	623.745
-Microtus_ochrogaster	ATP6	55	21	1	36	615.4024
-Crocidura_shantungensis	ATP6	49	35	3	22	409.171225
-Scapanulus_oweni	ATP6	52	29	6	24	759.185721428571
-Sorex_araneus	ATP6	54	30	5	21	524.7815
-Cricetulus_longicaudatus	ATP6	57	32	4	18	589.388299099621
-Mus_cervicolor	ATP6	63	23	3	19	628.295
-Tarsipes_rostratus	ATP6	52	29	3	24	341.275
-Tlacuatzin_canescens	ATP6	66	26	2	11	642.840025
-Cephalophus_adersi	ATP6	58	15	6	36	703.088
-Episoriculus_macrurus	ATP6	57	30	2	24	426.91011944525
-Tamias_sibiricus	ATP6	58	34	2	15	1311.5224
-Rhizomys_sinensis	ATP6	55	29	0	28	717.776243621518
-Macrotis_lagotis	ATP6	63	26	7	9	1183.8648
-Crocidura_orientalis	ATP6	48	36	3	25	427.67965
-Cephalophus_leucogaster	ATP6	54	22	10	28	836.8205
-Episoriculus_fumidus	ATP6	59	24	4	26	426.91011944525
-Crocidura_negrina	ATP6	49	37	3	22	427.67965
-Mesocricetus_auratus	ATP6	53	27	4	25	787.9135
-Akodon_montensis	ATP6	42	27	5	38	589.388299099621
-Neodon_irene	ATP6	49	20	6	39	589.388299099621
-Condylura_cristata	ATP6	56	30	5	14	558.6411
-Notoryctes_typhlops	ATP6	55	19	3	27	998.676563583815
-Rattus_praetor	ATP6	57	15	7	29	534.7590666715
-Mogera_wogura	ATP6	58	21	2	23	759.185721428571
-Apodemus_agrarius	ATP6	58	32	3	19	504.40745
-Ochotona_collaris	ATP6	42	20	9	50	894.25
-Mustela_erminea	ATP6	50	21	6	30	1078.777858343
-Crocidura_mindorus	ATP6	49	31	3	27	427.67965
-Mus_musculus	ATP6	64	22	1	20	628.295
-Mus_famulus	ATP6	55	27	4	23	628.295
-Sorex_tundrensis	ATP6	53	27	7	21	422.884597917875
-Eozapus_setchuanus	ATP6	42	33	2	32	726.1971375
-Microtus_levis	ATP6	50	26	4	35	373.623802083937
-Hylopetes_phayrei	ATP6	51	30	1	29	1384.1212625
-Caenolestes_fuliginosus	ATP6	59	25	0	23	998.676563583815
-Niviventer_fulvescens	ATP6	57	26	5	18	624.399640909091
-Rattus_exulans	ATP6	57	21	4	25	534.7590666715
-Hemiechinus_auritus	ATP6	52	33	0	13	940.3939
-Ochotona_curzoniae	ATP6	39	30	3	49	751.47417
-Rattus_leucopus	ATP6	59	16	4	26	534.7590666715
-Sorex_unguiculatus	ATP6	56	32	4	17	392.4667
-Pseudocheirus_peregrinus	ATP6	56	19	9	21	1217.0925
-Pseudomys_chapmani	ATP6	63	23	4	17	884.68295
-Rattus_tiomanicus	ATP6	59	22	2	23	534.7590666715
-Laonastes_aenigmamus	ATP6	50	16	10	44	1032.92357373767
-Apodemus_chevrieri	ATP6	61	22	2	25	554.1929125
-Rattus_tunneyi	ATP6	61	13	4	29	534.7590666715
-Eospalax_rothschildi	ATP6	56	30	0	18	1032.92357373767
-Crocidura_attenuata	ATP6	50	28	6	24	427.67965
-Mus_fragilicauda	ATP6	60	18	5	27	628.295
-Rattus_niobe	ATP6	59	18	7	26	534.7590666715
-Chrysochloris_asiatica	ATP6	54	28	3	22	1036.5575833285
-Hylomys_suillus	ATP6	54	40	4	20	1202.9252375
-Sorex_cylindricauda	ATP6	58	22	1	25	422.884597917875
-Lepus_coreanus	ATP6	54	22	9	32	1047.27668
-Pteromys_volans	ATP6	44	36	4	32	1384.1212625
-Stylodipus_telum	ATP6	48	31	8	35	726.1971375
-Sminthopsis_crassicaudata	ATP6	42	37	6	29	594.4425
-Mus_caroli	ATP6	54	26	6	20	628.295
-Meriones_meridianus	ATP6	55	28	8	20	608.148016666667
-Anourosorex_squamipes	ATP6	61	27	0	19	379.29295625
-Monodelphis_domestica	ATP6	57	24	2	22	717.0425
-Dactylomys_dactylinus	ATP6	48	32	2	26	739.009588885667
-Spalacopus_cyanus	ATP6	45	31	3	27	1310.04695
-Proechimys_longicaudatus	ATP6	49	38	6	19	631.7859833285
-Lepus_europaeus	ATP6	56	22	5	29	730
-Niviventer_excelsior	ATP6	57	20	4	26	639.631831820818
-Micromys_minutus	ATP6	53	25	3	26	502.66
-Trinomys_dimidiatus	ATP6	48	29	7	31	739.009588885667
-Lepus_timidus	ATP6	55	22	8	32	1047.27668
-Cricetulus_kamensis	ATP6	45	18	8	42	589.388299099621
-Eothenomys_melanogaster	ATP6	58	25	7	27	589.388299099621
-Mustela_frenata	ATP6	48	25	7	28	986.110483343
-Lagorchestes_hirsutus	ATP6	54	20	5	35	1100.21785
-Lariscus_insignis	ATP6	52	24	8	27	1384.1212625
-Jaculus_jaculus	ATP6	40	33	14	34	919.8561
-Mogera_robusta	ATP6	56	23	4	21	759.185721428571
-Meriones_unguiculatus	ATP6	55	25	8	22	503.8875
-Crocidura_grayi	ATP6	52	34	3	23	427.67965
-Tolypeutes_tricinctus	ATP6	61	9	6	34	1095
-Rattus_fuscipes	ATP6	61	17	4	27	558.507283343
-Lepus_townsendii	ATP6	59	26	2	27	1097.83525
-Crocidura_lasiura	ATP6	48	36	2	23	427.67965
-Neotetracus_sinensis	ATP6	62	34	5	17	1202.9252375
-Lepus_hainanus	ATP6	53	16	8	35	1047.27668
-Myospalax_aspalax	ATP6	58	27	3	21	1032.92357373767
-Rattus_villosissimus	ATP6	61	14	3	28	534.7590666715
-Thylamys_elegans	ATP6	49	28	8	30	642.840025
-Rattus_tanezumi	ATP6	58	27	3	22	534.7590666715
-Rhyncholestes_raphanurus	ATP6	53	27	3	22	998.676563583815
-Sicista_concolor	ATP6	39	31	8	45	731.7872
-Dromiciops_gliroides	ATP6	58	25	4	25	998.676563583815
-Myospalax_psilurus	ATP6	55	28	2	25	1032.92357373767
-Proedromys_liangshanensis	ATP6	57	16	8	31	589.388299099621
-Mustela_nivalis	ATP6	43	24	10	34	1194.19395
-Apodemus_peninsulae	ATP6	63	31	0	16	554.1929125
-Mustela_kathiah	ATP6	49	20	5	28	1253.04
-Metachirus_nudicaudatus	ATP6	55	35	1	17	843.373422219
-Talpa_europaea	ATP6	53	21	9	24	1000.1
-Mus_cookii	ATP6	60	24	3	22	628.295
-Perameles_gunnii	ATP6	53	29	0	23	706.1569
-Ctenomys_leucodon	ATP6	49	25	5	24	600.93415
-Episoriculus_caudatus	ATP6	56	33	5	18	426.91011944525
-Mus_spretus	ATP6	61	19	4	23	628.295
-Apodemus_draco	ATP6	65	18	3	23	554.1929125
-Cephalophus_adersi	ATP8	26	4	0	3	703.088
-Lepus_capensis	ATP8	27	8	1	5	1047.27668
-Proedromys_liangshanensis	ATP8	27	7	3	4	589.388299099621
-Rattus_niobe	ATP8	26	4	1	7	534.7590666715
-Caenolestes_fuliginosus	ATP8	18	4	0	3	998.676563583815
-Mus_fragilicauda	ATP8	29	2	2	6	628.295
-Macrotis_lagotis	ATP8	27	5	0	1	1183.8648
-Scapanulus_oweni	ATP8	25	3	2	3	759.185721428571
-Pseudomys_chapmani	ATP8	30	1	2	4	884.68295
-Myodes_regulus	ATP8	25	4	1	7	433.359922223833
-Distoechurus_pennatus	ATP8	23	3	0	6	997.9661
-Isoodon_macrourus	ATP8	25	4	0	1	623.745
-Trinomys_dimidiatus	ATP8	23	4	0	7	739.009588885667
-Leggadina_lakedownensis	ATP8	31	3	2	5	624.399640909091
-Lagorchestes_hirsutus	ATP8	26	5	0	4	1100.21785
-Lasiopodomys_mandarinus	ATP8	28	8	0	4	589.388299099621
-Spilogale_putorius	ATP8	25	7	2	3	1257.256816657
-Crocidura_orientalis	ATP8	22	6	0	4	427.67965
-Eospalax_rothschildi	ATP8	24	4	0	3	1032.92357373767
-Glis_glis	ATP8	25	8	1	3	1152.9402
-Niviventer_excelsior	ATP8	27	6	2	6	639.631831820818
-Mus_musculus	ATP8	33	2	1	4	628.295
-Mus_terricolor	ATP8	29	2	1	6	435.665
-Proechimys_longicaudatus	ATP8	25	6	0	6	631.7859833285
-Suncus_murinus	ATP8	23	8	2	2	363.52745
-Mus_famulus	ATP8	31	1	0	9	628.295
-Nectogale_elegans	ATP8	21	4	1	6	379.29295625
-Apodemus_peninsulae	ATP8	25	11	0	5	554.1929125
-Cephalophus_spadix	ATP8	26	3	1	2	962.787
-Lepus_hainanus	ATP8	25	8	1	7	1047.27668
-Sorex_cylindricauda	ATP8	22	9	0	3	422.884597917875
-Stylodipus_telum	ATP8	20	11	1	8	726.1971375
-Leopardus_jacobita	ATP8	29	3	0	4	1392.97
-Galemys_pyrenaicus	ATP8	27	3	1	2	730
-Rattus_tanezumi	ATP8	28	3	1	8	534.7590666715
-Myrmecobius_fasciatus	ATP8	26	4	2	4	886.2761
-Macroscelides_proboscideus	ATP8	26	7	1	3	995.97395
-Lepus_timidus	ATP8	27	7	0	6	1047.27668
-Rattus_tunneyi	ATP8	25	5	0	9	534.7590666715
-Spermophilus_dauricus	ATP8	22	8	1	3	1053.68290714286
-Lepus_sinensis	ATP8	25	8	1	6	1047.27668
-Lepus_tolai	ATP8	27	8	1	5	1047.27668
-Rattus_fuscipes	ATP8	25	7	0	8	558.507283343
-Myospalax_psilurus	ATP8	24	5	0	1	1032.92357373767
-Sminthopsis_douglasi	ATP8	22	7	3	4	546.026466666667
-Eremitalpa_granti	ATP8	23	7	0	1	1036.5575833285
-Dromiciops_gliroides	ATP8	22	7	0	3	998.676563583815
-Apodemus_chevrieri	ATP8	27	7	0	6	554.1929125
-Cynopterus_brachyotis	ATP8	25	6	0	6	1287.664
-Mogera_robusta	ATP8	27	5	0	3	759.185721428571
-Tscherskia_triton	ATP8	22	6	1	8	589.388299099621
-Apodemus_latronum	ATP8	28	6	0	4	554.1929125
-Crocidura_beatus	ATP8	23	9	0	1	427.67965
-Akodon_montensis	ATP8	25	7	0	7	589.388299099621
-Laonastes_aenigmamus	ATP8	19	9	0	12	1032.92357373767
-Rattus_praetor	ATP8	26	4	0	8	534.7590666715
-Ochotona_curzoniae	ATP8	25	5	1	6	751.47417
-Myodes_rufocanus	ATP8	25	4	1	8	433.359922223833
-Rattus_leucopus	ATP8	25	3	1	9	534.7590666715
-Mus_cookii	ATP8	30	3	0	8	628.295
-Neotetracus_sinensis	ATP8	22	7	0	4	1202.9252375
-Jaculus_jaculus	ATP8	22	11	0	6	919.8561
-Mustela_frenata	ATP8	28	5	1	1	986.110483343
-Microtus_kikuchii	ATP8	27	6	1	4	373.623802083937
-Dremomys_rufigenis	ATP8	24	8	0	6	1384.1212625
-Mustela_kathiah	ATP8	25	6	4	2	1253.04
-Ctenomys_leucodon	ATP8	22	6	0	2	600.93415
-Episoriculus_fumidus	ATP8	24	6	1	3	426.91011944525
-Chrysochloris_asiatica	ATP8	24	5	0	2	1036.5575833285
-Myodes_glareolus	ATP8	27	6	1	6	577.7512
-Tarsipes_rostratus	ATP8	22	11	0	3	341.275
-Anourosorex_squamipes	ATP8	24	4	0	6	379.29295625
-Tlacuatzin_canescens	ATP8	23	4	0	3	642.840025
-Niviventer_confucianus	ATP8	27	7	3	3	624.399640909091
-Talpa_europaea	ATP8	24	4	4	3	1000.1
-Tamiops_maritimus	ATP8	23	5	0	8	1239.29886944283
-Crocidura_palawanensis	ATP8	23	9	0	1	409.171225
-Spalacopus_cyanus	ATP8	26	4	0	4	1310.04695
-Rhyncholestes_raphanurus	ATP8	21	5	0	3	998.676563583815
-Crocidura_attenuata	ATP8	22	6	0	4	427.67965
-Cephalophus_leucogaster	ATP8	27	3	0	2	836.8205
-Episoriculus_macrurus	ATP8	24	4	0	3	426.91011944525
-Wiedomys_cerradensis	ATP8	24	5	1	4	589.388299099621
-Sorex_tundrensis	ATP8	23	7	1	4	422.884597917875
-Eozapus_setchuanus	ATP8	24	8	0	6	726.1971375
-Hylopetes_phayrei	ATP8	22	7	0	5	1384.1212625
-Acomys_cahirinus	ATP8	25	3	0	10	650.0125
-Eothenomys_miletus	ATP8	26	5	2	7	589.388299099621
-Crocidura_mindorus	ATP8	23	9	0	1	427.67965
-Notoryctes_typhlops	ATP8	24	9	0	5	998.676563583815
-Mogera_wogura	ATP8	26	4	0	5	759.185721428571
-Apodemus_agrarius	ATP8	27	7	0	6	504.40745
-Rattus_rattus	ATP8	26	3	0	8	546.1994
-Lepus_americanus	ATP8	26	8	1	4	1105.95
-Ochotona_collaris	ATP8	23	5	0	10	894.25
-Vulpes_ferrilata	ATP8	24	5	2	6	1427.3028
-Crocidura_grayi	ATP8	23	8	0	2	427.67965
-Lepus_europaeus	ATP8	27	8	1	4	730
-Microtus_ochrogaster	ATP8	29	5	1	5	615.4024
-Sicista_concolor	ATP8	20	4	0	13	731.7872
-Perameles_gunnii	ATP8	24	6	0	1	706.1569
-Hemiechinus_auritus	ATP8	22	7	0	2	940.3939
-Microtus_levis	ATP8	27	7	2	4	373.623802083937
-Crocidura_shantungensis	ATP8	24	7	0	4	409.171225
-Bandicota_indica	ATP8	27	9	0	5	639.631831820818
-Condylura_cristata	ATP8	28	3	1	1	558.6411
-Micromys_minutus	ATP8	26	8	1	5	502.66
-Mus_caroli	ATP8	31	5	0	1	628.295
-Neodon_irene	ATP8	27	4	4	6	589.388299099621
-Myospalax_aspalax	ATP8	24	2	0	3	1032.92357373767
-Cricetulus_longicaudatus	ATP8	22	9	2	4	589.388299099621
-Apodemus_draco	ATP8	26	11	3	3	554.1929125
-Rattus_lutreolus	ATP8	24	4	1	8	440.292083343
-Rattus_exulans	ATP8	27	5	0	7	534.7590666715
-Rattus_sordidus	ATP8	24	5	0	8	534.7590666715
-Lepus_townsendii	ATP8	27	7	0	6	1097.83525
-Lepus_coreanus	ATP8	27	6	0	6	1047.27668
-Tolypeutes_tricinctus	ATP8	26	3	2	7	1095
-Niviventer_fulvescens	ATP8	27	2	1	7	624.399640909091
-Ochotona_princeps	ATP8	23	6	1	8	1045.7507
-Onychomys_leucogaster	ATP8	29	4	0	6	671.9993
-Metachirus_nudicaudatus	ATP8	22	9	0	4	843.373422219
-Mustela_erminea	ATP8	27	7	1	2	1078.777858343
-Leopoldamys_edwardsi	ATP8	27	5	1	7	639.631831820818
-Eothenomys_chinensis	ATP8	25	10	2	5	589.388299099621
-Rattus_tiomanicus	ATP8	27	6	0	6	534.7590666715
-Rhizomys_sinensis	ATP8	20	10	0	8	717.776243621518
-Neomys_fodiens	ATP8	21	7	0	2	576.8888
-Pteromys_volans	ATP8	23	9	1	5	1384.1212625
-Mus_spretus	ATP8	32	2	1	4	628.295
-Dipus_sagitta	ATP8	19	13	2	4	726.1971375
-Meriones_libycus	ATP8	22	6	0	8	649.48035
-Monodelphis_domestica	ATP8	23	5	0	6	717.0425
-Meriones_meridianus	ATP8	22	8	0	7	608.148016666667
-Pseudocheirus_peregrinus	ATP8	20	6	0	4	1217.0925
-Mus_cervicolor	ATP8	31	4	0	4	628.295
-Lariscus_insignis	ATP8	24	4	2	8	1384.1212625
-Cricetulus_kamensis	ATP8	23	7	0	6	589.388299099621
-Meriones_unguiculatus	ATP8	22	10	1	4	503.8875
-Thylamys_elegans	ATP8	23	5	0	9	642.840025
-Dactylomys_dactylinus	ATP8	24	4	0	5	739.009588885667
-Euchoreutes_naso	ATP8	20	9	0	8	726.1971375
-Blarinella_quadraticauda	ATP8	23	5	0	5	379.29295625
-Crocidura_negrina	ATP8	23	9	0	1	427.67965
-Echinosorex_gymnura	ATP8	28	3	0	2	1202.9252375
-Thryonomys_swinderianus	ATP8	24	2	0	8	837.31
-Tamias_sibiricus	ATP8	26	2	0	4	1311.5224
-Sorex_unguiculatus	ATP8	23	4	0	5	392.4667
-Episoriculus_caudatus	ATP8	24	8	1	3	426.91011944525
-Mustela_nivalis	ATP8	25	7	2	1	1194.19395
-Crocidura_lasiura	ATP8	23	7	0	2	427.67965
-Urotrichus_talpoides	ATP8	27	5	1	0	680.5528
-Didelphis_virginiana	ATP8	23	7	0	4	745.99
-Sorex_araneus	ATP8	22	7	2	4	524.7815
-Hylomys_suillus	ATP8	20	9	0	1	1202.9252375
-Phascogale_tapoatafa	ATP8	21	7	1	5	878.35415
-Eothenomys_melanogaster	ATP8	28	8	2	7	589.388299099621
-Uropsilus_soricipes	ATP8	25	6	0	3	759.185721428571
-Sminthopsis_crassicaudata	ATP8	21	5	3	7	594.4425
-Rattus_villosissimus	ATP8	25	5	1	7	534.7590666715
-Tamiops_swinhoei	ATP8	22	8	1	4	1239.29886944283
-Mesocricetus_auratus	ATP8	23	10	0	2	787.9135
-Crocidura_orientalis	COX1	104	90	11	56	427.67965
-Crocidura_mindorus	COX1	104	96	9	53	427.67965
-Microtus_levis	COX1	124	66	18	58	373.623802083937
-Onychomys_leucogaster	COX1	138	61	12	52	671.9993
-Mogera_wogura	COX1	139	61	11	48	759.185721428571
-Sorex_cylindricauda	COX1	121	90	10	50	422.884597917875
-Episoriculus_macrurus	COX1	112	83	6	66	426.91011944525
-Mustela_frenata	COX1	131	71	19	43	986.110483343
-Laonastes_aenigmamus	COX1	104	50	22	86	1032.92357373767
-Macrotis_lagotis	COX1	132	84	5	32	1183.8648
-Mus_musculus	COX1	143	58	12	55	628.295
-Ochotona_collaris	COX1	93	53	23	101	894.25
-Lepus_sinensis	COX1	107	82	19	62	1047.27668
-Rattus_fuscipes	COX1	136	67	8	61	558.507283343
-Tamiops_maritimus	COX1	122	73	14	62	1239.29886944283
-Apodemus_latronum	COX1	153	70	6	34	554.1929125
-Microtus_ochrogaster	COX1	119	57	17	74	615.4024
-Isoodon_macrourus	COX1	133	78	9	35	623.745
-Glis_glis	COX1	126	81	8	50	1152.9402
-Apodemus_peninsulae	COX1	150	61	7	44	554.1929125
-Sorex_unguiculatus	COX1	126	66	15	70	392.4667
-Sorex_tundrensis	COX1	131	83	9	51	422.884597917875
-Acomys_cahirinus	COX1	109	51	23	84	650.0125
-Mus_spretus	COX1	138	60	10	63	628.295
-Lepus_capensis	COX1	109	82	19	60	1047.27668
-Akodon_montensis	COX1	112	60	20	80	589.388299099621
-Leggadina_lakedownensis	COX1	139	75	8	47	624.399640909091
-Spilogale_putorius	COX1	144	62	17	37	1257.256816657
-Notoryctes_typhlops	COX1	114	66	18	66	998.676563583815
-Condylura_cristata	COX1	144	61	8	42	558.6411
-Jaculus_jaculus	COX1	108	67	15	81	919.8561
-Mogera_robusta	COX1	135	68	11	42	759.185721428571
-Lariscus_insignis	COX1	114	70	16	59	1384.1212625
-Cephalophus_leucogaster	COX1	115	67	16	62	836.8205
-Phascogale_tapoatafa	COX1	111	67	14	71	878.35415
-Apodemus_draco	COX1	155	59	2	48	554.1929125
-Chrysochloris_asiatica	COX1	127	83	6	40	1036.5575833285
-Tamias_sibiricus	COX1	137	84	8	31	1311.5224
-Didelphis_virginiana	COX1	120	75	9	44	745.99
-Mus_cervicolor	COX1	145	73	3	47	628.295
-Mustela_nivalis	COX1	125	69	22	51	1194.19395
-Hylopetes_phayrei	COX1	122	79	17	46	1384.1212625
-Dipus_sagitta	COX1	115	58	15	79	726.1971375
-Leopoldamys_edwardsi	COX1	133	74	13	53	639.631831820818
-Rattus_niobe	COX1	136	61	9	63	534.7590666715
-Lasiopodomys_mandarinus	COX1	124	53	25	67	589.388299099621
-Thylamys_elegans	COX1	99	81	19	57	642.840025
-Lepus_europaeus	COX1	106	92	17	54	730
-Leopardus_jacobita	COX1	107	78	22	57	1392.97
-Rattus_praetor	COX1	135	60	6	70	534.7590666715
-Proedromys_liangshanensis	COX1	124	54	26	64	589.388299099621
-Scapanulus_oweni	COX1	133	70	11	50	759.185721428571
-Distoechurus_pennatus	COX1	111	75	3	71	997.9661
-Cephalophus_spadix	COX1	116	70	16	58	962.787
-Perameles_gunnii	COX1	140	75	9	33	706.1569
-Myodes_rufocanus	COX1	121	49	20	77	433.359922223833
-Apodemus_chevrieri	COX1	139	76	12	42	554.1929125
-Episoriculus_caudatus	COX1	122	74	12	59	426.91011944525
-Dactylomys_dactylinus	COX1	116	80	13	46	739.009588885667
-Hemiechinus_auritus	COX1	129	81	6	43	940.3939
-Niviventer_fulvescens	COX1	140	73	14	43	624.399640909091
-Spermophilus_dauricus	COX1	121	91	15	37	1053.68290714286
-Crocidura_negrina	COX1	99	99	12	50	427.67965
-Sicista_concolor	COX1	96	64	17	103	731.7872
-Stylodipus_telum	COX1	110	69	16	75	726.1971375
-Tlacuatzin_canescens	COX1	142	75	2	32	642.840025
-Myospalax_aspalax	COX1	119	86	11	53	1032.92357373767
-Ctenomys_leucodon	COX1	132	69	11	41	600.93415
-Mustela_kathiah	COX1	127	61	26	52	1253.04
-Rattus_exulans	COX1	134	68	9	61	534.7590666715
-Spalacopus_cyanus	COX1	136	56	16	47	1310.04695
-Anourosorex_squamipes	COX1	130	82	7	51	379.29295625
-Pseudocheirus_peregrinus	COX1	132	55	18	57	1217.0925
-Myospalax_psilurus	COX1	125	83	10	47	1032.92357373767
-Sminthopsis_crassicaudata	COX1	115	90	19	46	594.4425
-Tolypeutes_tricinctus	COX1	142	30	13	71	1095
-Pseudomys_chapmani	COX1	156	60	5	46	884.68295
-Hylomys_suillus	COX1	128	91	9	42	1202.9252375
-Mus_fragilicauda	COX1	147	62	8	51	628.295
-Thryonomys_swinderianus	COX1	132	64	15	40	837.31
-Niviventer_excelsior	COX1	130	74	14	51	639.631831820818
-Dromiciops_gliroides	COX1	113	80	15	54	998.676563583815
-Mustela_erminea	COX1	135	59	22	52	1078.777858343
-Suncus_murinus	COX1	104	99	11	45	363.52745
-Myrmecobius_fasciatus	COX1	133	70	20	40	886.2761
-Sminthopsis_douglasi	COX1	105	87	27	45	546.026466666667
-Lepus_coreanus	COX1	108	84	20	58	1047.27668
-Proechimys_longicaudatus	COX1	115	90	18	32	631.7859833285
-Trinomys_dimidiatus	COX1	96	72	37	58	739.009588885667
-Meriones_meridianus	COX1	127	60	17	55	608.148016666667
-Rattus_tanezumi	COX1	131	72	5	64	534.7590666715
-Pteromys_volans	COX1	123	85	13	39	1384.1212625
-Talpa_europaea	COX1	141	50	22	44	1000.1
-Monodelphis_domestica	COX1	123	79	15	40	717.0425
-Ochotona_curzoniae	COX1	106	57	12	101	751.47417
-Cricetulus_kamensis	COX1	125	56	19	66	589.388299099621
-Eremitalpa_granti	COX1	126	85	8	42	1036.5575833285
-Echinosorex_gymnura	COX1	136	81	9	31	1202.9252375
-Lepus_americanus	COX1	97	86	32	61	1105.95
-Eothenomys_miletus	COX1	118	46	22	80	589.388299099621
-Crocidura_shantungensis	COX1	90	101	13	57	409.171225
-Meriones_unguiculatus	COX1	131	65	15	49	503.8875
-Tscherskia_triton	COX1	100	67	33	79	589.388299099621
-Sorex_araneus	COX1	125	85	16	48	524.7815
-Eospalax_rothschildi	COX1	128	102	8	32	1032.92357373767
-Cricetulus_longicaudatus	COX1	130	89	16	31	589.388299099621
-Rattus_tiomanicus	COX1	131	59	9	72	534.7590666715
-Rattus_rattus	COX1	126	64	14	68	546.1994
-Lepus_hainanus	COX1	104	87	19	62	1047.27668
-Episoriculus_fumidus	COX1	123	81	9	53	426.91011944525
-Dremomys_rufigenis	COX1	124	62	14	67	1384.1212625
-Rattus_sordidus	COX1	126	65	12	63	534.7590666715
-Bandicota_indica	COX1	127	72	16	56	639.631831820818
-Meriones_libycus	COX1	128	58	19	55	649.48035
-Eothenomys_chinensis	COX1	126	51	18	73	589.388299099621
-Blarinella_quadraticauda	COX1	118	96	5	46	379.29295625
-Rattus_tunneyi	COX1	131	70	9	64	534.7590666715
-Apodemus_agrarius	COX1	139	68	12	48	504.40745
-Mesocricetus_auratus	COX1	125	83	16	37	787.9135
-Lagorchestes_hirsutus	COX1	120	75	10	56	1100.21785
-Crocidura_palawanensis	COX1	97	94	15	55	409.171225
-Galemys_pyrenaicus	COX1	130	69	19	43	730
-Uropsilus_soricipes	COX1	120	83	17	48	759.185721428571
-Rattus_villosissimus	COX1	126	62	12	68	534.7590666715
-Cynopterus_brachyotis	COX1	109	60	27	83	1287.664
-Macroscelides_proboscideus	COX1	116	69	14	69	995.97395
-Metachirus_nudicaudatus	COX1	115	83	7	46	843.373422219
-Urotrichus_talpoides	COX1	138	60	16	52	680.5528
-Crocidura_beatus	COX1	99	105	13	45	427.67965
-Caenolestes_fuliginosus	COX1	123	82	12	37	998.676563583815
-Lepus_timidus	COX1	109	84	19	57	1047.27668
-Rattus_leucopus	COX1	136	60	8	67	534.7590666715
-Eothenomys_melanogaster	COX1	119	51	20	79	589.388299099621
-Mus_cookii	COX1	150	72	4	37	628.295
-Mus_terricolor	COX1	146	57	7	57	435.665
-Neomys_fodiens	COX1	114	93	12	53	576.8888
-Vulpes_ferrilata	COX1	95	77	35	54	1427.3028
-Tamiops_swinhoei	COX1	129	68	9	65	1239.29886944283
-Euchoreutes_naso	COX1	118	63	13	77	726.1971375
-Nectogale_elegans	COX1	103	103	11	49	379.29295625
-Cephalophus_adersi	COX1	121	63	18	60	703.088
-Myodes_glareolus	COX1	132	46	11	78	577.7512
-Micromys_minutus	COX1	112	90	11	53	502.66
-Rhizomys_sinensis	COX1	119	89	8	48	717.776243621518
-Mus_famulus	COX1	139	68	10	48	628.295
-Rattus_lutreolus	COX1	133	67	8	63	440.292083343
-Crocidura_grayi	COX1	98	99	16	49	427.67965
-Mus_caroli	COX1	143	78	7	39	628.295
-Neotetracus_sinensis	COX1	135	87	11	31	1202.9252375
-Crocidura_attenuata	COX1	101	102	6	48	427.67965
-Neodon_irene	COX1	124	57	19	70	589.388299099621
-Tarsipes_rostratus	COX1	109	88	6	58	341.275
-Lepus_tolai	COX1	109	82	19	60	1047.27668
-Ochotona_princeps	COX1	104	51	12	96	1045.7507
-Rhyncholestes_raphanurus	COX1	123	87	12	42	998.676563583815
-Myodes_regulus	COX1	127	55	11	73	433.359922223833
-Lepus_townsendii	COX1	108	89	17	56	1097.83525
-Eozapus_setchuanus	COX1	117	73	18	63	726.1971375
-Niviventer_confucianus	COX1	138	69	9	56	624.399640909091
-Microtus_kikuchii	COX1	116	58	29	69	373.623802083937
-Wiedomys_cerradensis	COX1	113	79	17	61	589.388299099621
-Crocidura_lasiura	COX1	93	99	17	53	427.67965
-Mus_cookii	COX2	54	32	0	21	628.295
-Sminthopsis_crassicaudata	COX2	46	28	3	29	594.4425
-Microtus_ochrogaster	COX2	50	26	5	30	615.4024
-Pteromys_volans	COX2	50	32	2	26	1384.1212625
-Cephalophus_spadix	COX2	66	14	8	17	962.787
-Lepus_europaeus	COX2	47	38	7	24	730
-Apodemus_latronum	COX2	59	26	2	18	554.1929125
-Meriones_meridianus	COX2	55	26	6	18	608.148016666667
-Dipus_sagitta	COX2	51	26	3	33	726.1971375
-Mus_famulus	COX2	53	32	2	22	628.295
-Cynopterus_brachyotis	COX2	49	9	5	43	1287.664
-Tamiops_swinhoei	COX2	55	29	3	25	1239.29886944283
-Mus_musculus	COX2	51	26	5	24	628.295
-Crocidura_shantungensis	COX2	45	47	3	18	409.171225
-Eothenomys_chinensis	COX2	48	24	7	29	589.388299099621
-Lepus_coreanus	COX2	45	37	6	26	1047.27668
-Didelphis_virginiana	COX2	53	32	6	14	745.99
-Lepus_americanus	COX2	44	34	9	29	1105.95
-Talpa_europaea	COX2	65	23	11	11	1000.1
-Sicista_concolor	COX2	43	29	9	39	731.7872
-Lasiopodomys_mandarinus	COX2	46	24	6	34	589.388299099621
-Ochotona_princeps	COX2	61	22	2	27	1045.7507
-Macroscelides_proboscideus	COX2	54	18	10	34	995.97395
-Myodes_rufocanus	COX2	50	34	7	23	433.359922223833
-Micromys_minutus	COX2	62	18	2	27	502.66
-Proedromys_liangshanensis	COX2	51	21	5	31	589.388299099621
-Mogera_wogura	COX2	66	21	5	14	759.185721428571
-Sorex_araneus	COX2	51	30	5	25	524.7815
-Leggadina_lakedownensis	COX2	60	24	4	22	624.399640909091
-Akodon_montensis	COX2	49	21	4	38	589.388299099621
-Myodes_glareolus	COX2	56	23	4	32	577.7512
-Notoryctes_typhlops	COX2	52	24	2	32	998.676563583815
-Cephalophus_adersi	COX2	65	19	6	14	703.088
-Rattus_lutreolus	COX2	50	21	5	34	440.292083343
-Urotrichus_talpoides	COX2	62	24	4	13	680.5528
-Pseudomys_chapmani	COX2	65	28	3	15	884.68295
-Lepus_timidus	COX2	44	35	7	28	1047.27668
-Crocidura_palawanensis	COX2	45	42	2	22	409.171225
-Rhyncholestes_raphanurus	COX2	48	23	6	27	998.676563583815
-Eothenomys_melanogaster	COX2	51	19	5	37	589.388299099621
-Rattus_tiomanicus	COX2	55	30	2	18	534.7590666715
-Condylura_cristata	COX2	66	24	4	11	558.6411
-Episoriculus_macrurus	COX2	59	35	1	18	426.91011944525
-Scapanulus_oweni	COX2	53	30	9	12	759.185721428571
-Spermophilus_dauricus	COX2	53	33	2	18	1053.68290714286
-Meriones_libycus	COX2	52	21	8	24	649.48035
-Cricetulus_kamensis	COX2	56	31	4	21	589.388299099621
-Crocidura_attenuata	COX2	46	47	5	13	427.67965
-Sorex_tundrensis	COX2	49	31	6	25	422.884597917875
-Sorex_cylindricauda	COX2	54	38	7	17	422.884597917875
-Mus_spretus	COX2	54	18	4	30	628.295
-Thylamys_elegans	COX2	53	27	9	20	642.840025
-Sminthopsis_douglasi	COX2	44	30	7	27	546.026466666667
-Lepus_sinensis	COX2	42	40	5	27	1047.27668
-Caenolestes_fuliginosus	COX2	55	26	4	19	998.676563583815
-Myrmecobius_fasciatus	COX2	42	33	13	22	886.2761
-Apodemus_chevrieri	COX2	53	32	7	15	554.1929125
-Crocidura_beatus	COX2	44	40	4	22	427.67965
-Sorex_unguiculatus	COX2	49	30	5	29	392.4667
-Tscherskia_triton	COX2	45	16	16	37	589.388299099621
-Monodelphis_domestica	COX2	46	29	7	29	717.0425
-Perameles_gunnii	COX2	61	32	2	16	706.1569
-Metachirus_nudicaudatus	COX2	49	38	8	11	843.373422219
-Lepus_townsendii	COX2	45	38	6	25	1097.83525
-Tamias_sibiricus	COX2	56	36	1	19	1311.5224
-Mustela_frenata	COX2	46	24	4	32	986.110483343
-Microtus_levis	COX2	52	27	6	23	373.623802083937
-Phascogale_tapoatafa	COX2	46	29	7	31	878.35415
-Mogera_robusta	COX2	66	23	4	12	759.185721428571
-Dremomys_rufigenis	COX2	54	30	4	22	1384.1212625
-Lepus_capensis	COX2	42	38	7	26	1047.27668
-Lariscus_insignis	COX2	47	37	3	26	1384.1212625
-Pseudocheirus_peregrinus	COX2	55	17	8	23	1217.0925
-Mus_caroli	COX2	46	39	7	16	628.295
-Tamiops_maritimus	COX2	54	30	5	23	1239.29886944283
-Mesocricetus_auratus	COX2	55	33	7	14	787.9135
-Apodemus_agrarius	COX2	58	36	3	11	504.40745
-Anourosorex_squamipes	COX2	64	31	0	15	379.29295625
-Mustela_nivalis	COX2	49	27	5	27	1194.19395
-Crocidura_orientalis	COX2	46	42	5	18	427.67965
-Eozapus_setchuanus	COX2	53	27	6	31	726.1971375
-Rattus_fuscipes	COX2	54	25	2	27	558.507283343
-Mus_cervicolor	COX2	51	32	1	23	628.295
-Cephalophus_leucogaster	COX2	58	14	12	20	836.8205
-Thryonomys_swinderianus	COX2	57	20	2	23	837.31
-Crocidura_negrina	COX2	46	38	1	25	427.67965
-Neotetracus_sinensis	COX2	52	33	4	19	1202.9252375
-Onychomys_leucogaster	COX2	63	22	6	20	671.9993
-Niviventer_excelsior	COX2	49	24	4	33	639.631831820818
-Jaculus_jaculus	COX2	48	26	7	31	919.8561
-Suncus_murinus	COX2	57	39	2	12	363.52745
-Macrotis_lagotis	COX2	59	27	1	18	1183.8648
-Meriones_unguiculatus	COX2	54	26	7	23	503.8875
-Tarsipes_rostratus	COX2	44	34	4	27	341.275
-Rattus_exulans	COX2	62	19	3	26	534.7590666715
-Episoriculus_caudatus	COX2	58	31	4	22	426.91011944525
-Echinosorex_gymnura	COX2	59	34	0	11	1202.9252375
-Trinomys_dimidiatus	COX2	53	24	7	25	739.009588885667
-Niviventer_confucianus	COX2	52	34	4	20	624.399640909091
-Rattus_praetor	COX2	57	26	3	22	534.7590666715
-Dactylomys_dactylinus	COX2	54	33	3	18	739.009588885667
-Chrysochloris_asiatica	COX2	54	30	0	23	1036.5575833285
-Proechimys_longicaudatus	COX2	61	27	3	16	631.7859833285
-Nectogale_elegans	COX2	57	26	6	20	379.29295625
-Rattus_sordidus	COX2	52	23	1	31	534.7590666715
-Hylomys_suillus	COX2	48	37	2	19	1202.9252375
-Galemys_pyrenaicus	COX2	63	29	8	8	730
-Lepus_hainanus	COX2	46	35	7	25	1047.27668
-Eothenomys_miletus	COX2	45	24	6	33	589.388299099621
-Eospalax_rothschildi	COX2	56	32	4	14	1032.92357373767
-Bandicota_indica	COX2	52	20	5	29	639.631831820818
-Myospalax_psilurus	COX2	58	32	2	20	1032.92357373767
-Rattus_tanezumi	COX2	59	27	2	18	534.7590666715
-Crocidura_lasiura	COX2	49	41	3	18	427.67965
-Spalacopus_cyanus	COX2	53	32	2	13	1310.04695
-Mustela_erminea	COX2	51	25	4	25	1078.777858343
-Apodemus_draco	COX2	47	21	4	34	554.1929125
-Rattus_villosissimus	COX2	51	20	3	33	534.7590666715
-Leopardus_jacobita	COX2	43	24	8	31	1392.97
-Tlacuatzin_canescens	COX2	65	22	1	15	642.840025
-Myospalax_aspalax	COX2	58	29	4	20	1032.92357373767
-Dromiciops_gliroides	COX2	47	34	5	20	998.676563583815
-Eremitalpa_granti	COX2	53	32	0	24	1036.5575833285
-Ochotona_collaris	COX2	56	17	8	34	894.25
-Lepus_tolai	COX2	42	38	7	26	1047.27668
-Uropsilus_soricipes	COX2	54	25	7	19	759.185721428571
-Hylopetes_phayrei	COX2	51	33	6	23	1384.1212625
-Acomys_cahirinus	COX2	58	19	6	32	650.0125
-Glis_glis	COX2	54	36	2	24	1152.9402
-Rattus_leucopus	COX2	60	20	1	27	534.7590666715
-Stylodipus_telum	COX2	46	29	7	32	726.1971375
-Rattus_niobe	COX2	57	24	4	24	534.7590666715
-Microtus_kikuchii	COX2	48	24	7	33	373.623802083937
-Ochotona_curzoniae	COX2	54	16	7	37	751.47417
-Rhizomys_sinensis	COX2	56	30	3	20	717.776243621518
-Mustela_kathiah	COX2	49	23	8	25	1253.04
-Isoodon_macrourus	COX2	57	33	3	21	623.745
-Tolypeutes_tricinctus	COX2	62	19	2	26	1095
-Laonastes_aenigmamus	COX2	46	23	6	31	1032.92357373767
-Mus_terricolor	COX2	53	30	1	22	435.665
-Spilogale_putorius	COX2	53	33	4	13	1257.256816657
-Cricetulus_longicaudatus	COX2	55	36	9	14	589.388299099621
-Crocidura_mindorus	COX2	45	38	1	26	427.67965
-Rattus_tunneyi	COX2	49	26	5	27	534.7590666715
-Episoriculus_fumidus	COX2	55	24	3	30	426.91011944525
-Niviventer_fulvescens	COX2	52	31	6	21	624.399640909091
-Leopoldamys_edwardsi	COX2	53	25	10	22	639.631831820818
-Rattus_rattus	COX2	54	26	5	21	546.1994
-Wiedomys_cerradensis	COX2	54	35	3	22	589.388299099621
-Crocidura_grayi	COX2	43	37	5	27	427.67965
-Ctenomys_leucodon	COX2	57	27	2	15	600.93415
-Neodon_irene	COX2	47	21	4	34	589.388299099621
-Lagorchestes_hirsutus	COX2	56	31	4	18	1100.21785
-Neomys_fodiens	COX2	57	27	8	18	576.8888
-Distoechurus_pennatus	COX2	48	26	3	32	997.9661
-Vulpes_ferrilata	COX2	47	25	11	27	1427.3028
-Hemiechinus_auritus	COX2	47	37	0	22	940.3939
-Myodes_regulus	COX2	51	28	7	28	433.359922223833
-Mus_fragilicauda	COX2	53	32	6	15	628.295
-Apodemus_peninsulae	COX2	60	24	2	17	554.1929125
-Euchoreutes_naso	COX2	43	34	10	27	726.1971375
-Blarinella_quadraticauda	COX2	54	34	2	23	379.29295625
-Urotrichus_talpoides	COX3	83	22	3	24	680.5528
-Lepus_sinensis	COX3	64	38	2	36	1047.27668
-Mus_terricolor	COX3	80	23	2	30	435.665
-Sorex_araneus	COX3	66	30	4	33	524.7815
-Glis_glis	COX3	64	31	4	27	1152.9402
-Jaculus_jaculus	COX3	60	35	4	42	919.8561
-Rattus_tanezumi	COX3	74	26	2	27	534.7590666715
-Lasiopodomys_mandarinus	COX3	64	21	11	37	589.388299099621
-Crocidura_negrina	COX3	64	33	2	31	427.67965
-Crocidura_attenuata	COX3	63	25	5	39	427.67965
-Thryonomys_swinderianus	COX3	79	21	3	26	837.31
-Sorex_cylindricauda	COX3	66	35	3	26	422.884597917875
-Akodon_montensis	COX3	68	30	4	39	589.388299099621
-Perameles_gunnii	COX3	83	26	4	24	706.1569
-Crocidura_mindorus	COX3	62	33	5	31	427.67965
-Eothenomys_chinensis	COX3	63	17	7	46	589.388299099621
-Episoriculus_fumidus	COX3	69	34	3	25	426.91011944525
-Rattus_lutreolus	COX3	73	17	2	36	440.292083343
-Lepus_townsendii	COX3	65	37	1	39	1097.83525
-Hemiechinus_auritus	COX3	57	38	1	29	940.3939
-Blarinella_quadraticauda	COX3	70	42	4	20	379.29295625
-Tamiops_maritimus	COX3	58	29	3	49	1239.29886944283
-Meriones_unguiculatus	COX3	66	28	10	28	503.8875
-Nectogale_elegans	COX3	66	36	1	32	379.29295625
-Tarsipes_rostratus	COX3	52	32	4	32	341.275
-Spermophilus_dauricus	COX3	68	35	3	29	1053.68290714286
-Macroscelides_proboscideus	COX3	70	19	6	35	995.97395
-Sorex_tundrensis	COX3	67	25	2	39	422.884597917875
-Talpa_europaea	COX3	73	25	15	21	1000.1
-Myospalax_aspalax	COX3	68	32	5	29	1032.92357373767
-Mogera_wogura	COX3	78	23	5	28	759.185721428571
-Cephalophus_spadix	COX3	61	25	1	47	962.787
-Leopardus_jacobita	COX3	67	19	7	39	1392.97
-Microtus_kikuchii	COX3	74	17	6	35	373.623802083937
-Dremomys_rufigenis	COX3	63	28	1	44	1384.1212625
-Rattus_villosissimus	COX3	73	17	4	36	534.7590666715
-Tolypeutes_tricinctus	COX3	78	12	6	32	1095
-Galemys_pyrenaicus	COX3	77	22	10	26	730
-Macrotis_lagotis	COX3	83	27	3	13	1183.8648
-Meriones_libycus	COX3	62	22	11	43	649.48035
-Hylopetes_phayrei	COX3	60	46	7	27	1384.1212625
-Cephalophus_adersi	COX3	58	21	4	51	703.088
-Mus_fragilicauda	COX3	73	28	3	33	628.295
-Ochotona_curzoniae	COX3	53	26	5	57	751.47417
-Rattus_tiomanicus	COX3	75	19	2	32	534.7590666715
-Crocidura_palawanensis	COX3	61	31	5	32	409.171225
-Sminthopsis_douglasi	COX3	60	31	10	41	546.026466666667
-Proechimys_longicaudatus	COX3	66	29	7	35	631.7859833285
-Myodes_rufocanus	COX3	63	18	6	48	433.359922223833
-Cricetulus_kamensis	COX3	75	21	4	34	589.388299099621
-Eremitalpa_granti	COX3	60	37	4	32	1036.5575833285
-Crocidura_orientalis	COX3	61	36	4	30	427.67965
-Proedromys_liangshanensis	COX3	71	17	6	34	589.388299099621
-Monodelphis_domestica	COX3	65	32	7	27	717.0425
-Rattus_niobe	COX3	77	14	3	34	534.7590666715
-Neomys_fodiens	COX3	64	34	6	32	576.8888
-Cricetulus_longicaudatus	COX3	78	34	5	19	589.388299099621
-Rhyncholestes_raphanurus	COX3	74	27	0	23	998.676563583815
-Lepus_europaeus	COX3	62	39	5	34	730
-Myrmecobius_fasciatus	COX3	64	27	7	34	886.2761
-Crocidura_grayi	COX3	63	27	4	37	427.67965
-Microtus_ochrogaster	COX3	68	16	5	44	615.4024
-Vulpes_ferrilata	COX3	49	26	16	47	1427.3028
-Pteromys_volans	COX3	66	33	5	34	1384.1212625
-Eospalax_rothschildi	COX3	61	39	5	31	1032.92357373767
-Lepus_hainanus	COX3	64	35	6	38	1047.27668
-Mustela_frenata	COX3	66	20	6	47	986.110483343
-Meriones_meridianus	COX3	70	32	11	26	608.148016666667
-Mus_famulus	COX3	73	25	7	33	628.295
-Distoechurus_pennatus	COX3	60	26	1	44	997.9661
-Thylamys_elegans	COX3	63	37	5	28	642.840025
-Myodes_glareolus	COX3	61	21	3	47	577.7512
-Chrysochloris_asiatica	COX3	60	42	2	25	1036.5575833285
-Rattus_tunneyi	COX3	72	24	5	29	534.7590666715
-Spalacopus_cyanus	COX3	72	32	5	24	1310.04695
-Lepus_coreanus	COX3	66	35	2	38	1047.27668
-Episoriculus_macrurus	COX3	65	30	4	34	426.91011944525
-Eozapus_setchuanus	COX3	54	40	8	37	726.1971375
-Ochotona_princeps	COX3	61	21	4	53	1045.7507
-Dipus_sagitta	COX3	55	31	8	45	726.1971375
-Mus_spretus	COX3	81	29	3	24	628.295
-Acomys_cahirinus	COX3	71	12	6	41	650.0125
-Mogera_robusta	COX3	81	24	1	26	759.185721428571
-Phascogale_tapoatafa	COX3	55	33	3	44	878.35415
-Condylura_cristata	COX3	90	18	0	20	558.6411
-Notoryctes_typhlops	COX3	69	29	2	33	998.676563583815
-Dactylomys_dactylinus	COX3	70	41	7	25	739.009588885667
-Sicista_concolor	COX3	48	26	12	48	731.7872
-Niviventer_excelsior	COX3	70	22	5	34	639.631831820818
-Microtus_levis	COX3	75	19	8	31	373.623802083937
-Pseudomys_chapmani	COX3	79	23	2	24	884.68295
-Ochotona_collaris	COX3	58	18	5	57	894.25
-Tamiops_swinhoei	COX3	64	36	1	39	1239.29886944283
-Tamias_sibiricus	COX3	67	32	5	26	1311.5224
-Sorex_unguiculatus	COX3	67	30	3	30	392.4667
-Metachirus_nudicaudatus	COX3	68	37	4	20	843.373422219
-Onychomys_leucogaster	COX3	78	23	9	26	671.9993
-Mus_cookii	COX3	73	31	2	31	628.295
-Rhizomys_sinensis	COX3	66	33	2	33	717.776243621518
-Tscherskia_triton	COX3	60	24	22	39	589.388299099621
-Eothenomys_miletus	COX3	64	17	9	46	589.388299099621
-Rattus_leucopus	COX3	74	19	1	32	534.7590666715
-Bandicota_indica	COX3	72	27	6	27	639.631831820818
-Echinosorex_gymnura	COX3	71	34	1	23	1202.9252375
-Lepus_tolai	COX3	65	38	3	35	1047.27668
-Isoodon_macrourus	COX3	76	29	2	23	623.745
-Sminthopsis_crassicaudata	COX3	64	29	6	39	594.4425
-Laonastes_aenigmamus	COX3	60	13	12	54	1032.92357373767
-Stylodipus_telum	COX3	55	27	10	46	726.1971375
-Crocidura_shantungensis	COX3	67	35	3	25	409.171225
-Euchoreutes_naso	COX3	56	33	7	39	726.1971375
-Apodemus_draco	COX3	82	32	1	20	554.1929125
-Mesocricetus_auratus	COX3	62	45	4	32	787.9135
-Episoriculus_caudatus	COX3	72	31	2	34	426.91011944525
-Mus_caroli	COX3	72	26	7	28	628.295
-Rattus_sordidus	COX3	73	11	5	41	534.7590666715
-Wiedomys_cerradensis	COX3	72	21	6	39	589.388299099621
-Dromiciops_gliroides	COX3	56	34	6	35	998.676563583815
-Myospalax_psilurus	COX3	71	33	5	25	1032.92357373767
-Leopoldamys_edwardsi	COX3	68	20	7	41	639.631831820818
-Hylomys_suillus	COX3	73	34	2	26	1202.9252375
-Cephalophus_leucogaster	COX3	59	23	2	53	836.8205
-Cynopterus_brachyotis	COX3	63	22	10	43	1287.664
-Mus_cervicolor	COX3	77	35	3	18	628.295
-Rattus_fuscipes	COX3	71	18	4	36	558.507283343
-Spilogale_putorius	COX3	73	29	5	22	1257.256816657
-Lepus_americanus	COX3	60	34	7	40	1105.95
-Apodemus_latronum	COX3	82	24	2	24	554.1929125
-Mustela_erminea	COX3	68	24	4	42	1078.777858343
-Micromys_minutus	COX3	77	28	0	34	502.66
-Neodon_irene	COX3	63	21	8	38	589.388299099621
-Rattus_praetor	COX3	73	19	3	33	534.7590666715
-Rattus_rattus	COX3	76	23	1	29	546.1994
-Tlacuatzin_canescens	COX3	76	24	1	25	642.840025
-Scapanulus_oweni	COX3	79	19	5	28	759.185721428571
-Lepus_timidus	COX3	67	35	2	37	1047.27668
-Apodemus_peninsulae	COX3	78	31	1	22	554.1929125
-Niviventer_fulvescens	COX3	73	24	3	31	624.399640909091
-Ctenomys_leucodon	COX3	71	33	3	25	600.93415
-Leggadina_lakedownensis	COX3	76	24	3	26	624.399640909091
-Apodemus_chevrieri	COX3	72	31	2	31	554.1929125
-Caenolestes_fuliginosus	COX3	72	26	2	31	998.676563583815
-Mustela_nivalis	COX3	62	30	5	39	1194.19395
-Trinomys_dimidiatus	COX3	63	28	13	33	739.009588885667
-Rattus_exulans	COX3	75	26	0	30	534.7590666715
-Crocidura_lasiura	COX3	58	39	5	32	427.67965
-Myodes_regulus	COX3	63	25	5	42	433.359922223833
-Niviventer_confucianus	COX3	74	18	4	35	624.399640909091
-Pseudocheirus_peregrinus	COX3	65	23	3	35	1217.0925
-Neotetracus_sinensis	COX3	58	37	4	33	1202.9252375
-Anourosorex_squamipes	COX3	69	33	3	29	379.29295625
-Eothenomys_melanogaster	COX3	66	23	4	46	589.388299099621
-Uropsilus_soricipes	COX3	69	33	7	24	759.185721428571
-Didelphis_virginiana	COX3	68	40	5	16	745.99
-Lepus_capensis	COX3	64	38	3	35	1047.27668
-Crocidura_beatus	COX3	66	31	1	30	427.67965
-Mustela_kathiah	COX3	61	24	5	44	1253.04
-Suncus_murinus	COX3	71	33	8	24	363.52745
-Apodemus_agrarius	COX3	73	34	4	27	504.40745
-Mus_musculus	COX3	75	33	2	25	628.295
-Lagorchestes_hirsutus	COX3	58	29	3	50	1100.21785
-Lariscus_insignis	COX3	52	48	3	30	1384.1212625
-Apodemus_agrarius	CytB	101	29	6	48	504.40745
-Hylopetes_phayrei	CytB	82	45	3	54	1384.1212625
-Mus_terricolor	CytB	95	20	3	45	435.665
-Mus_caroli	CytB	101	36	8	29	628.295
-Rattus_praetor	CytB	95	27	5	59	534.7590666715
-Eothenomys_chinensis	CytB	102	23	1	57	589.388299099621
-Mus_spretus	CytB	104	15	6	44	628.295
-Distoechurus_pennatus	CytB	73	43	2	74	997.9661
-Suncus_murinus	CytB	81	44	7	54	363.52745
-Microtus_ochrogaster	CytB	102	25	8	49	615.4024
-Lepus_americanus	CytB	67	47	11	66	1105.95
-Neodon_irene	CytB	92	23	7	63	589.388299099621
-Notoryctes_typhlops	CytB	75	48	14	55	998.676563583815
-Micromys_minutus	CytB	100	38	1	44	502.66
-Lagorchestes_hirsutus	CytB	84	26	9	61	1100.21785
-Acomys_cahirinus	CytB	86	26	7	57	650.0125
-Lepus_hainanus	CytB	74	43	8	66	1047.27668
-Mus_fragilicauda	CytB	95	25	4	43	628.295
-Akodon_montensis	CytB	78	35	13	65	589.388299099621
-Thryonomys_swinderianus	CytB	91	37	4	44	837.31
-Euchoreutes_naso	CytB	72	36	11	67	726.1971375
-Sminthopsis_douglasi	CytB	58	39	14	76	546.026466666667
-Apodemus_peninsulae	CytB	100	38	6	36	554.1929125
-Eospalax_rothschildi	CytB	97	37	3	36	1032.92357373767
-Crocidura_grayi	CytB	86	39	7	50	427.67965
-Lepus_europaeus	CytB	70	52	6	59	730
-Talpa_europaea	CytB	105	20	20	31	1000.1
-Crocidura_mindorus	CytB	84	36	3	55	427.67965
-Microtus_levis	CytB	101	28	5	52	373.623802083937
-Condylura_cristata	CytB	121	21	1	30	558.6411
-Mus_musculus	CytB	98	19	6	48	628.295
-Sorex_cylindricauda	CytB	96	42	5	42	422.884597917875
-Meriones_unguiculatus	CytB	84	46	10	40	503.8875
-Dremomys_rufigenis	CytB	70	35	3	70	1384.1212625
-Lepus_sinensis	CytB	75	48	6	60	1047.27668
-Mustela_nivalis	CytB	80	27	8	62	1194.19395
-Rhyncholestes_raphanurus	CytB	95	40	2	41	998.676563583815
-Crocidura_shantungensis	CytB	88	35	5	51	409.171225
-Episoriculus_fumidus	CytB	92	34	5	43	426.91011944525
-Myodes_glareolus	CytB	93	27	6	57	577.7512
-Leopoldamys_edwardsi	CytB	90	30	7	59	639.631831820818
-Lepus_coreanus	CytB	79	47	2	58	1047.27668
-Niviventer_fulvescens	CytB	89	36	2	47	624.399640909091
-Eozapus_setchuanus	CytB	73	49	6	56	726.1971375
-Mustela_erminea	CytB	85	26	3	60	1078.777858343
-Niviventer_confucianus	CytB	91	32	8	52	624.399640909091
-Myrmecobius_fasciatus	CytB	88	26	17	58	886.2761
-Niviventer_excelsior	CytB	89	38	9	52	639.631831820818
-Onychomys_leucogaster	CytB	114	27	7	31	671.9993
-Urotrichus_talpoides	CytB	103	21	8	39	680.5528
-Metachirus_nudicaudatus	CytB	99	28	6	45	843.373422219
-Caenolestes_fuliginosus	CytB	97	30	4	48	998.676563583815
-Episoriculus_caudatus	CytB	91	39	5	45	426.91011944525
-Pteromys_volans	CytB	78	42	4	64	1384.1212625
-Crocidura_attenuata	CytB	85	39	2	54	427.67965
-Sminthopsis_crassicaudata	CytB	78	49	11	55	594.4425
-Meriones_meridianus	CytB	92	29	11	49	608.148016666667
-Mus_cookii	CytB	107	20	0	41	628.295
-Neomys_fodiens	CytB	90	37	5	48	576.8888
-Cephalophus_adersi	CytB	104	22	7	55	703.088
-Rattus_tiomanicus	CytB	100	21	4	52	534.7590666715
-Tlacuatzin_canescens	CytB	108	38	1	30	642.840025
-Myospalax_aspalax	CytB	92	25	4	50	1032.92357373767
-Apodemus_draco	CytB	109	29	4	30	554.1929125
-Chrysochloris_asiatica	CytB	102	38	2	37	1036.5575833285
-Ochotona_princeps	CytB	86	21	4	79	1045.7507
-Rattus_leucopus	CytB	92	25	5	56	534.7590666715
-Proedromys_liangshanensis	CytB	96	27	5	52	589.388299099621
-Proechimys_longicaudatus	CytB	90	36	3	42	631.7859833285
-Tolypeutes_tricinctus	CytB	97	18	6	62	1095
-Crocidura_orientalis	CytB	85	35	2	56	427.67965
-Laonastes_aenigmamus	CytB	74	21	11	75	1032.92357373767
-Lariscus_insignis	CytB	68	37	6	74	1384.1212625
-Crocidura_lasiura	CytB	81	44	2	56	427.67965
-Anourosorex_squamipes	CytB	97	28	5	48	379.29295625
-Uropsilus_soricipes	CytB	93	37	8	34	759.185721428571
-Rattus_tunneyi	CytB	89	26	7	60	534.7590666715
-Wiedomys_cerradensis	CytB	82	33	12	58	589.388299099621
-Myodes_regulus	CytB	91	26	7	56	433.359922223833
-Lepus_tolai	CytB	74	51	7	57	1047.27668
-Tamias_sibiricus	CytB	87	39	3	44	1311.5224
-Lepus_townsendii	CytB	78	47	4	58	1097.83525
-Apodemus_latronum	CytB	106	36	5	25	554.1929125
-Rattus_sordidus	CytB	94	27	1	60	534.7590666715
-Rattus_niobe	CytB	97	25	3	55	534.7590666715
-Rattus_fuscipes	CytB	87	21	8	65	558.507283343
-Crocidura_beatus	CytB	85	38	4	55	427.67965
-Cynopterus_brachyotis	CytB	96	20	14	55	1287.664
-Thylamys_elegans	CytB	89	51	8	33	642.840025
-Myodes_rufocanus	CytB	93	24	6	62	433.359922223833
-Mogera_wogura	CytB	105	27	11	30	759.185721428571
-Ochotona_curzoniae	CytB	69	28	6	92	751.47417
-Cephalophus_spadix	CytB	100	18	7	58	962.787
-Sorex_araneus	CytB	93	33	5	54	524.7815
-Cricetulus_kamensis	CytB	105	28	3	50	589.388299099621
-Tamiops_swinhoei	CytB	72	33	8	65	1239.29886944283
-Apodemus_chevrieri	CytB	98	32	12	41	554.1929125
-Macroscelides_proboscideus	CytB	102	24	7	48	995.97395
-Sorex_unguiculatus	CytB	97	28	4	54	392.4667
-Monodelphis_domestica	CytB	96	44	6	32	717.0425
-Mustela_frenata	CytB	88	33	4	48	986.110483343
-Nectogale_elegans	CytB	79	43	9	52	379.29295625
-Macrotis_lagotis	CytB	104	31	5	31	1183.8648
-Bandicota_indica	CytB	97	26	8	50	639.631831820818
-Crocidura_negrina	CytB	85	40	4	53	427.67965
-Mus_famulus	CytB	103	24	3	38	628.295
-Episoriculus_macrurus	CytB	95	34	5	48	426.91011944525
-Rattus_exulans	CytB	96	27	2	52	534.7590666715
-Mogera_robusta	CytB	108	25	8	31	759.185721428571
-Jaculus_jaculus	CytB	76	48	4	56	919.8561
-Rattus_rattus	CytB	100	20	3	50	546.1994
-Pseudocheirus_peregrinus	CytB	88	28	11	54	1217.0925
-Hylomys_suillus	CytB	89	50	4	39	1202.9252375
-Mesocricetus_auratus	CytB	94	57	2	29	787.9135
-Stylodipus_telum	CytB	70	42	6	63	726.1971375
-Leopardus_jacobita	CytB	88	21	5	69	1392.97
-Eothenomys_melanogaster	CytB	102	23	9	52	589.388299099621
-Rattus_tanezumi	CytB	100	22	3	50	534.7590666715
-Crocidura_palawanensis	CytB	84	37	4	54	409.171225
-Eremitalpa_granti	CytB	93	29	7	48	1036.5575833285
-Meriones_libycus	CytB	86	35	10	44	649.48035
-Myospalax_psilurus	CytB	100	17	1	55	1032.92357373767
-Dipus_sagitta	CytB	75	39	3	69	726.1971375
-Spalacopus_cyanus	CytB	92	31	9	42	1310.04695
-Rhizomys_sinensis	CytB	76	45	5	59	717.776243621518
-Vulpes_ferrilata	CytB	89	37	13	42	1427.3028
-Scapanulus_oweni	CytB	107	28	9	33	759.185721428571
-Lasiopodomys_mandarinus	CytB	91	27	7	60	589.388299099621
-Echinosorex_gymnura	CytB	98	41	6	23	1202.9252375
-Hemiechinus_auritus	CytB	81	45	3	33	940.3939
-Rattus_villosissimus	CytB	91	27	4	60	534.7590666715
-Mustela_kathiah	CytB	83	36	11	47	1253.04
-Cricetulus_longicaudatus	CytB	87	66	8	28	589.388299099621
-Dactylomys_dactylinus	CytB	91	31	5	44	739.009588885667
-Eothenomys_miletus	CytB	95	17	11	61	589.388299099621
-Trinomys_dimidiatus	CytB	87	28	10	52	739.009588885667
-Tscherskia_triton	CytB	72	43	20	57	589.388299099621
-Didelphis_virginiana	CytB	104	37	3	34	745.99
-Microtus_kikuchii	CytB	102	16	5	58	373.623802083937
-Lepus_timidus	CytB	78	50	3	57	1047.27668
-Tarsipes_rostratus	CytB	73	41	6	63	341.275
-Sicista_concolor	CytB	51	56	11	70	731.7872
-Dromiciops_gliroides	CytB	79	46	7	62	998.676563583815
-Sorex_tundrensis	CytB	92	41	6	48	422.884597917875
-Rattus_lutreolus	CytB	91	23	2	60	440.292083343
-Cephalophus_leucogaster	CytB	97	19	13	57	836.8205
-Blarinella_quadraticauda	CytB	92	37	5	40	379.29295625
-Leggadina_lakedownensis	CytB	103	30	1	43	624.399640909091
-Lepus_capensis	CytB	74	50	8	57	1047.27668
-Galemys_pyrenaicus	CytB	103	27	11	36	730
-Isoodon_macrourus	CytB	100	42	3	34	623.745
-Perameles_gunnii	CytB	94	39	2	44	706.1569
-Spilogale_putorius	CytB	89	31	8	45	1257.256816657
-Tamiops_maritimus	CytB	77	35	7	65	1239.29886944283
-Mus_cervicolor	CytB	103	33	1	36	628.295
-Ochotona_collaris	CytB	76	23	6	82	894.25
-Phascogale_tapoatafa	CytB	75	47	8	67	878.35415
-Ctenomys_leucodon	CytB	85	37	6	46	600.93415
-Pseudomys_chapmani	CytB	110	26	4	29	884.68295
-Spermophilus_dauricus	CytB	69	62	3	53	1053.68290714286
-Glis_glis	CytB	82	28	3	63	1152.9402
-Neotetracus_sinensis	CytB	89	58	6	30	1202.9252375
-Proedromys_liangshanensis	ND1	79	16	12	52	589.388299099621
-Nectogale_elegans	ND1	85	27	4	41	379.29295625
-Pteromys_volans	ND1	71	25	4	61	1384.1212625
-Tamias_sibiricus	ND1	83	28	4	42	1311.5224
-Eothenomys_melanogaster	ND1	83	21	11	43	589.388299099621
-Rattus_tanezumi	ND1	74	16	6	58	534.7590666715
-Tarsipes_rostratus	ND1	75	35	2	46	341.275
-Mus_fragilicauda	ND1	79	28	5	38	628.295
-Sicista_concolor	ND1	50	44	9	63	731.7872
-Lepus_timidus	ND1	75	37	3	45	1047.27668
-Lepus_coreanus	ND1	74	37	5	46	1047.27668
-Cephalophus_spadix	ND1	79	27	8	42	962.787
-Niviventer_excelsior	ND1	73	18	2	61	639.631831820818
-Cephalophus_adersi	ND1	79	21	10	48	703.088
-Talpa_europaea	ND1	94	11	17	33	1000.1
-Spilogale_putorius	ND1	81	33	6	36	1257.256816657
-Mustela_frenata	ND1	79	27	9	45	986.110483343
-Cricetulus_longicaudatus	ND1	81	32	8	30	589.388299099621
-Episoriculus_macrurus	ND1	76	34	5	42	426.91011944525
-Crocidura_mindorus	ND1	77	40	4	43	427.67965
-Myodes_rufocanus	ND1	79	29	8	42	433.359922223833
-Mus_musculus	ND1	80	25	8	37	628.295
-Hylopetes_phayrei	ND1	72	35	4	52	1384.1212625
-Meriones_meridianus	ND1	71	23	10	42	608.148016666667
-Scapanulus_oweni	ND1	87	32	8	38	759.185721428571
-Tlacuatzin_canescens	ND1	88	31	0	26	642.840025
-Niviventer_confucianus	ND1	70	26	5	49	624.399640909091
-Laonastes_aenigmamus	ND1	65	21	8	72	1032.92357373767
-Eospalax_rothschildi	ND1	89	41	3	30	1032.92357373767
-Lepus_tolai	ND1	76	38	5	44	1047.27668
-Wiedomys_cerradensis	ND1	66	34	4	46	589.388299099621
-Akodon_montensis	ND1	79	18	7	48	589.388299099621
-Suncus_murinus	ND1	76	44	2	39	363.52745
-Sminthopsis_douglasi	ND1	72	37	5	52	546.026466666667
-Rattus_leucopus	ND1	72	25	5	55	534.7590666715
-Ochotona_collaris	ND1	69	18	5	72	894.25
-Eremitalpa_granti	ND1	73	27	3	55	1036.5575833285
-Lepus_americanus	ND1	71	41	9	44	1105.95
-Dipus_sagitta	ND1	58	34	6	62	726.1971375
-Urotrichus_talpoides	ND1	80	25	7	51	680.5528
-Euchoreutes_naso	ND1	65	33	12	48	726.1971375
-Meriones_libycus	ND1	75	23	4	49	649.48035
-Lepus_europaeus	ND1	74	38	4	45	730
-Apodemus_latronum	ND1	88	34	0	26	554.1929125
-Acomys_cahirinus	ND1	65	24	6	60	650.0125
-Crocidura_grayi	ND1	74	40	4	45	427.67965
-Cynopterus_brachyotis	ND1	70	16	13	65	1287.664
-Ctenomys_leucodon	ND1	73	38	5	35	600.93415
-Dremomys_rufigenis	ND1	78	23	2	59	1384.1212625
-Rattus_fuscipes	ND1	64	23	11	59	558.507283343
-Rattus_niobe	ND1	69	25	5	54	534.7590666715
-Mus_terricolor	ND1	81	22	3	45	435.665
-Mustela_kathiah	ND1	80	18	4	51	1253.04
-Eothenomys_chinensis	ND1	79	18	7	48	589.388299099621
-Microtus_levis	ND1	85	28	5	43	373.623802083937
-Anourosorex_squamipes	ND1	92	34	3	28	379.29295625
-Rattus_rattus	ND1	68	15	11	60	546.1994
-Jaculus_jaculus	ND1	63	42	6	51	919.8561
-Isoodon_macrourus	ND1	79	40	4	26	623.745
-Monodelphis_domestica	ND1	79	27	6	36	717.0425
-Neomys_fodiens	ND1	79	41	5	29	576.8888
-Rattus_exulans	ND1	61	29	5	54	534.7590666715
-Apodemus_agrarius	ND1	82	33	6	35	504.40745
-Apodemus_chevrieri	ND1	81	34	5	33	554.1929125
-Microtus_kikuchii	ND1	82	11	10	54	373.623802083937
-Tamiops_maritimus	ND1	79	27	2	52	1239.29886944283
-Tamiops_swinhoei	ND1	79	31	5	51	1239.29886944283
-Niviventer_fulvescens	ND1	77	18	3	47	624.399640909091
-Rattus_tunneyi	ND1	71	21	4	58	534.7590666715
-Cricetulus_kamensis	ND1	85	23	3	48	589.388299099621
-Tolypeutes_tricinctus	ND1	92	19	8	44	1095
-Myospalax_psilurus	ND1	88	23	1	40	1032.92357373767
-Mogera_robusta	ND1	101	17	5	27	759.185721428571
-Apodemus_draco	ND1	90	33	2	31	554.1929125
-Perameles_gunnii	ND1	85	38	2	27	706.1569
-Myodes_glareolus	ND1	81	18	6	51	577.7512
-Phascogale_tapoatafa	ND1	58	62	14	40	878.35415
-Echinosorex_gymnura	ND1	77	40	7	20	1202.9252375
-Notoryctes_typhlops	ND1	63	40	11	50	998.676563583815
-Leopardus_jacobita	ND1	81	17	5	57	1392.97
-Rattus_sordidus	ND1	71	21	4	56	534.7590666715
-Sorex_unguiculatus	ND1	75	33	10	48	392.4667
-Crocidura_orientalis	ND1	76	40	2	42	427.67965
-Rhizomys_sinensis	ND1	73	42	1	50	717.776243621518
-Spermophilus_dauricus	ND1	74	38	3	46	1053.68290714286
-Metachirus_nudicaudatus	ND1	79	40	4	33	843.373422219
-Episoriculus_caudatus	ND1	88	20	1	51	426.91011944525
-Onychomys_leucogaster	ND1	87	14	10	38	671.9993
-Hylomys_suillus	ND1	68	52	7	37	1202.9252375
-Lagorchestes_hirsutus	ND1	75	25	4	54	1100.21785
-Rhyncholestes_raphanurus	ND1	78	37	6	34	998.676563583815
-Myrmecobius_fasciatus	ND1	83	21	10	36	886.2761
-Mesocricetus_auratus	ND1	68	37	2	39	787.9135
-Mus_cookii	ND1	84	27	8	31	628.295
-Neotetracus_sinensis	ND1	75	46	6	33	1202.9252375
-Thryonomys_swinderianus	ND1	74	32	5	42	837.31
-Rattus_villosissimus	ND1	72	22	4	58	534.7590666715
-Sorex_cylindricauda	ND1	82	36	4	37	422.884597917875
-Hemiechinus_auritus	ND1	75	42	0	27	940.3939
-Mus_spretus	ND1	76	23	12	38	628.295
-Leggadina_lakedownensis	ND1	87	23	3	33	624.399640909091
-Lepus_sinensis	ND1	72	33	7	50	1047.27668
-Macrotis_lagotis	ND1	97	32	4	20	1183.8648
-Mogera_wogura	ND1	102	12	8	29	759.185721428571
-Crocidura_lasiura	ND1	75	41	2	50	427.67965
-Cephalophus_leucogaster	ND1	82	20	9	50	836.8205
-Crocidura_shantungensis	ND1	73	50	4	39	409.171225
-Galemys_pyrenaicus	ND1	99	21	7	32	730
-Spalacopus_cyanus	ND1	70	34	4	40	1310.04695
-Lariscus_insignis	ND1	66	40	5	51	1384.1212625
-Leopoldamys_edwardsi	ND1	70	28	6	57	639.631831820818
-Micromys_minutus	ND1	78	35	2	50	502.66
-Glis_glis	ND1	65	45	11	48	1152.9402
-Crocidura_beatus	ND1	79	38	2	46	427.67965
-Crocidura_negrina	ND1	76	45	2	40	427.67965
-Mus_caroli	ND1	70	33	12	36	628.295
-Myodes_regulus	ND1	78	24	8	47	433.359922223833
-Thylamys_elegans	ND1	60	47	5	47	642.840025
-Rattus_praetor	ND1	68	28	5	53	534.7590666715
-Crocidura_attenuata	ND1	80	40	2	45	427.67965
-Meriones_unguiculatus	ND1	69	33	8	41	503.8875
-Condylura_cristata	ND1	101	23	4	24	558.6411
-Mustela_nivalis	ND1	72	24	9	52	1194.19395
-Rattus_lutreolus	ND1	70	23	3	58	440.292083343
-Eothenomys_miletus	ND1	83	20	9	47	589.388299099621
-Macroscelides_proboscideus	ND1	80	30	4	41	995.97395
-Tscherskia_triton	ND1	62	33	12	55	589.388299099621
-Lepus_townsendii	ND1	78	39	3	42	1097.83525
-Sorex_tundrensis	ND1	76	22	6	51	422.884597917875
-Sminthopsis_crassicaudata	ND1	68	43	10	42	594.4425
-Pseudocheirus_peregrinus	ND1	86	24	4	41	1217.0925
-Episoriculus_fumidus	ND1	91	29	6	33	426.91011944525
-Bandicota_indica	ND1	72	28	6	46	639.631831820818
-Apodemus_peninsulae	ND1	80	42	5	28	554.1929125
-Microtus_ochrogaster	ND1	82	20	8	45	615.4024
-Rattus_tiomanicus	ND1	75	17	3	58	534.7590666715
-Lepus_hainanus	ND1	72	35	8	49	1047.27668
-Ochotona_curzoniae	ND1	71	24	5	72	751.47417
-Sorex_araneus	ND1	78	29	6	45	524.7815
-Proechimys_longicaudatus	ND1	73	39	5	39	631.7859833285
-Dactylomys_dactylinus	ND1	69	34	3	44	739.009588885667
-Mus_famulus	ND1	80	27	9	34	628.295
-Distoechurus_pennatus	ND1	72	30	1	53	997.9661
-Neodon_irene	ND1	82	17	7	54	589.388299099621
-Pseudomys_chapmani	ND1	97	17	4	29	884.68295
-Dromiciops_gliroides	ND1	71	27	2	56	998.676563583815
-Didelphis_virginiana	ND1	83	36	4	32	745.99
-Lepus_capensis	ND1	76	38	5	45	1047.27668
-Mustela_erminea	ND1	75	16	9	60	1078.777858343
-Blarinella_quadraticauda	ND1	86	28	6	38	379.29295625
-Chrysochloris_asiatica	ND1	82	34	1	38	1036.5575833285
-Eozapus_setchuanus	ND1	68	27	7	58	726.1971375
-Mus_cervicolor	ND1	87	27	2	31	628.295
-Uropsilus_soricipes	ND1	79	35	3	45	759.185721428571
-Ochotona_princeps	ND1	70	19	6	72	1045.7507
-Stylodipus_telum	ND1	59	29	9	59	726.1971375
-Vulpes_ferrilata	ND1	70	29	9	59	1427.3028
-Trinomys_dimidiatus	ND1	70	25	5	52	739.009588885667
-Crocidura_palawanensis	ND1	75	37	5	47	409.171225
-Lasiopodomys_mandarinus	ND1	68	23	13	51	589.388299099621
-Caenolestes_fuliginosus	ND1	84	33	1	32	998.676563583815
-Myospalax_aspalax	ND1	86	26	3	35	1032.92357373767
-Echinosorex_gymnura	ND2	90	39	3	17	1202.9252375
-Cricetulus_kamensis	ND2	89	31	5	58	589.388299099621
-Cephalophus_leucogaster	ND2	77	23	5	62	836.8205
-Niviventer_excelsior	ND2	80	30	7	45	639.631831820818
-Cynopterus_brachyotis	ND2	92	19	10	50	1287.664
-Macroscelides_proboscideus	ND2	84	39	10	33	995.97395
-Rattus_fuscipes	ND2	83	17	5	53	558.507283343
-Cephalophus_spadix	ND2	78	18	8	56	962.787
-Apodemus_latronum	ND2	81	37	0	42	554.1929125
-Proechimys_longicaudatus	ND2	92	36	3	30	631.7859833285
-Microtus_levis	ND2	78	32	5	46	373.623802083937
-Ctenomys_leucodon	ND2	75	32	3	45	600.93415
-Meriones_meridianus	ND2	69	47	6	51	608.148016666667
-Mustela_nivalis	ND2	90	20	16	44	1194.19395
-Meriones_libycus	ND2	74	40	7	49	649.48035
-Caenolestes_fuliginosus	ND2	92	34	4	45	998.676563583815
-Glis_glis	ND2	74	43	4	43	1152.9402
-Akodon_montensis	ND2	66	39	7	62	589.388299099621
-Onychomys_leucogaster	ND2	93	18	4	40	671.9993
-Mus_cookii	ND2	76	37	3	45	628.295
-Thryonomys_swinderianus	ND2	79	31	2	42	837.31
-Vulpes_ferrilata	ND2	70	32	14	54	1427.3028
-Myodes_regulus	ND2	69	18	10	63	433.359922223833
-Apodemus_draco	ND2	88	24	2	35	554.1929125
-Lepus_timidus	ND2	76	30	3	45	1047.27668
-Eospalax_rothschildi	ND2	76	36	4	42	1032.92357373767
-Crocidura_orientalis	ND2	69	33	2	53	427.67965
-Lepus_americanus	ND2	71	40	2	43	1105.95
-Rattus_sordidus	ND2	83	29	5	48	534.7590666715
-Ochotona_curzoniae	ND2	66	26	4	81	751.47417
-Macrotis_lagotis	ND2	98	24	5	26	1183.8648
-Notoryctes_typhlops	ND2	69	36	11	53	998.676563583815
-Hylomys_suillus	ND2	72	51	2	35	1202.9252375
-Micromys_minutus	ND2	75	48	2	45	502.66
-Crocidura_beatus	ND2	71	43	5	41	427.67965
-Sminthopsis_douglasi	ND2	67	35	6	62	546.026466666667
-Dromiciops_gliroides	ND2	71	36	3	60	998.676563583815
-Pseudocheirus_peregrinus	ND2	65	21	10	72	1217.0925
-Lepus_hainanus	ND2	70	33	4	47	1047.27668
-Sorex_unguiculatus	ND2	87	24	7	41	392.4667
-Mogera_robusta	ND2	94	26	5	27	759.185721428571
-Crocidura_grayi	ND2	68	43	3	44	427.67965
-Pseudomys_chapmani	ND2	100	22	1	32	884.68295
-Mogera_wogura	ND2	98	23	5	30	759.185721428571
-Myospalax_psilurus	ND2	71	29	1	57	1032.92357373767
-Eremitalpa_granti	ND2	69	35	6	43	1036.5575833285
-Condylura_cristata	ND2	101	14	4	40	558.6411
-Lariscus_insignis	ND2	76	40	5	52	1384.1212625
-Mus_fragilicauda	ND2	78	32	3	50	628.295
-Suncus_murinus	ND2	72	40	3	46	363.52745
-Lepus_europaeus	ND2	72	36	5	43	730
-Talpa_europaea	ND2	101	18	12	32	1000.1
-Rattus_tiomanicus	ND2	89	25	3	44	534.7590666715
-Distoechurus_pennatus	ND2	59	32	0	83	997.9661
-Metachirus_nudicaudatus	ND2	84	39	2	38	843.373422219
-Crocidura_shantungensis	ND2	66	38	6	49	409.171225
-Laonastes_aenigmamus	ND2	73	28	13	63	1032.92357373767
-Myodes_rufocanus	ND2	68	23	12	55	433.359922223833
-Apodemus_chevrieri	ND2	81	37	1	38	554.1929125
-Pteromys_volans	ND2	76	35	4	50	1384.1212625
-Crocidura_mindorus	ND2	70	35	1	52	427.67965
-Neodon_irene	ND2	75	30	7	55	589.388299099621
-Niviventer_fulvescens	ND2	84	26	1	44	624.399640909091
-Myospalax_aspalax	ND2	75	39	3	45	1032.92357373767
-Stylodipus_telum	ND2	65	28	10	70	726.1971375
-Spilogale_putorius	ND2	92	25	6	40	1257.256816657
-Sicista_concolor	ND2	51	49	10	70	731.7872
-Tamiops_swinhoei	ND2	83	29	4	50	1239.29886944283
-Sminthopsis_crassicaudata	ND2	72	45	4	54	594.4425
-Mus_spretus	ND2	76	35	8	43	628.295
-Mus_caroli	ND2	84	35	4	35	628.295
-Crocidura_attenuata	ND2	75	36	4	52	427.67965
-Dremomys_rufigenis	ND2	71	32	4	59	1384.1212625
-Rhizomys_sinensis	ND2	66	42	2	51	717.776243621518
-Myrmecobius_fasciatus	ND2	75	35	7	44	886.2761
-Crocidura_palawanensis	ND2	72	41	1	44	409.171225
-Microtus_kikuchii	ND2	85	25	5	51	373.623802083937
-Eothenomys_chinensis	ND2	79	22	3	52	589.388299099621
-Leopardus_jacobita	ND2	82	19	5	58	1392.97
-Lepus_townsendii	ND2	76	31	4	45	1097.83525
-Ochotona_princeps	ND2	66	14	5	86	1045.7507
-Spermophilus_dauricus	ND2	72	46	0	48	1053.68290714286
-Mus_cervicolor	ND2	78	30	4	47	628.295
-Dipus_sagitta	ND2	58	42	4	74	726.1971375
-Galemys_pyrenaicus	ND2	100	26	7	27	730
-Leggadina_lakedownensis	ND2	82	28	1	49	624.399640909091
-Sorex_cylindricauda	ND2	85	25	2	47	422.884597917875
-Chrysochloris_asiatica	ND2	78	30	2	41	1036.5575833285
-Isoodon_macrourus	ND2	96	28	4	32	623.745
-Scapanulus_oweni	ND2	88	31	7	34	759.185721428571
-Lepus_capensis	ND2	74	31	5	46	1047.27668
-Mus_terricolor	ND2	78	39	3	39	435.665
-Neomys_fodiens	ND2	75	40	5	41	576.8888
-Eothenomys_melanogaster	ND2	76	23	9	51	589.388299099621
-Apodemus_peninsulae	ND2	78	51	2	27	554.1929125
-Rattus_villosissimus	ND2	84	27	7	47	534.7590666715
-Episoriculus_caudatus	ND2	91	23	2	45	426.91011944525
-Mustela_frenata	ND2	88	21	9	49	986.110483343
-Mustela_kathiah	ND2	89	24	9	38	1253.04
-Sorex_araneus	ND2	86	20	5	47	524.7815
-Didelphis_virginiana	ND2	91	36	4	32	745.99
-Rattus_niobe	ND2	83	18	4	55	534.7590666715
-Rattus_rattus	ND2	83	22	7	50	546.1994
-Episoriculus_fumidus	ND2	86	34	3	40	426.91011944525
-Bandicota_indica	ND2	85	25	4	49	639.631831820818
-Anourosorex_squamipes	ND2	96	30	2	27	379.29295625
-Meriones_unguiculatus	ND2	68	54	9	36	503.8875
-Spalacopus_cyanus	ND2	82	31	6	42	1310.04695
-Rattus_exulans	ND2	88	25	5	42	534.7590666715
-Cephalophus_adersi	ND2	82	17	6	60	703.088
-Crocidura_lasiura	ND2	72	33	3	55	427.67965
-Mus_musculus	ND2	77	36	7	40	628.295
-Rattus_lutreolus	ND2	89	18	7	54	440.292083343
-Lepus_sinensis	ND2	72	32	8	46	1047.27668
-Acomys_cahirinus	ND2	77	12	5	70	650.0125
-Rattus_leucopus	ND2	91	15	0	52	534.7590666715
-Trinomys_dimidiatus	ND2	78	24	8	49	739.009588885667
-Perameles_gunnii	ND2	104	28	1	29	706.1569
-Ochotona_collaris	ND2	68	19	3	83	894.25
-Jaculus_jaculus	ND2	61	38	10	70	919.8561
-Sorex_tundrensis	ND2	87	26	6	46	422.884597917875
-Hylopetes_phayrei	ND2	73	37	2	45	1384.1212625
-Apodemus_agrarius	ND2	84	35	3	35	504.40745
-Lepus_coreanus	ND2	76	29	3	46	1047.27668
-Nectogale_elegans	ND2	88	29	3	34	379.29295625
-Dactylomys_dactylinus	ND2	83	35	3	38	739.009588885667
-Lepus_tolai	ND2	74	32	5	46	1047.27668
-Cricetulus_longicaudatus	ND2	75	46	3	35	589.388299099621
-Rattus_tanezumi	ND2	84	22	9	47	534.7590666715
-Rhyncholestes_raphanurus	ND2	88	32	8	45	998.676563583815
-Urotrichus_talpoides	ND2	102	16	2	46	680.5528
-Euchoreutes_naso	ND2	61	35	13	58	726.1971375
-Leopoldamys_edwardsi	ND2	72	23	8	65	639.631831820818
-Thylamys_elegans	ND2	65	49	8	41	642.840025
-Mus_famulus	ND2	78	31	4	46	628.295
-Crocidura_negrina	ND2	72	44	3	40	427.67965
-Tlacuatzin_canescens	ND2	83	28	2	36	642.840025
-Rattus_tunneyi	ND2	85	18	4	53	534.7590666715
-Tarsipes_rostratus	ND2	67	51	3	54	341.275
-Rattus_praetor	ND2	91	17	3	53	534.7590666715
-Tamias_sibiricus	ND2	74	32	4	47	1311.5224
-Tscherskia_triton	ND2	72	34	10	67	589.388299099621
-Phascogale_tapoatafa	ND2	66	47	11	55	878.35415
-Neotetracus_sinensis	ND2	69	46	3	37	1202.9252375
-Microtus_ochrogaster	ND2	80	28	7	52	615.4024
-Proedromys_liangshanensis	ND2	80	26	9	52	589.388299099621
-Wiedomys_cerradensis	ND2	67	34	4	39	589.388299099621
-Monodelphis_domestica	ND2	83	29	7	46	717.0425
-Lagorchestes_hirsutus	ND2	71	35	3	65	1100.21785
-Episoriculus_macrurus	ND2	84	36	2	38	426.91011944525
-Uropsilus_soricipes	ND2	79	41	6	30	759.185721428571
-Mustela_erminea	ND2	91	19	7	41	1078.777858343
-Hemiechinus_auritus	ND2	81	30	1	23	940.3939
-Niviventer_confucianus	ND2	87	28	3	46	624.399640909091
-Tamiops_maritimus	ND2	85	22	2	60	1239.29886944283
-Lasiopodomys_mandarinus	ND2	70	29	10	62	589.388299099621
-Tolypeutes_tricinctus	ND2	92	6	5	55	1095
-Mesocricetus_auratus	ND2	66	51	4	43	787.9135
-Eothenomys_miletus	ND2	75	21	5	53	589.388299099621
-Myodes_glareolus	ND2	70	21	7	56	577.7512
-Blarinella_quadraticauda	ND2	76	35	5	41	379.29295625
-Eozapus_setchuanus	ND2	73	43	4	51	726.1971375
-Acomys_cahirinus	ND3	30	6	3	26	650.0125
-Lepus_sinensis	ND3	31	11	4	14	1047.27668
-Mustela_nivalis	ND3	36	9	3	10	1194.19395
-Onychomys_leucogaster	ND3	32	13	3	12	671.9993
-Cynopterus_brachyotis	ND3	29	11	6	21	1287.664
-Neomys_fodiens	ND3	32	18	0	14	576.8888
-Sorex_tundrensis	ND3	33	9	3	20	422.884597917875
-Leggadina_lakedownensis	ND3	39	11	0	8	624.399640909091
-Mus_cervicolor	ND3	33	15	1	7	628.295
-Spermophilus_dauricus	ND3	28	18	0	18	1053.68290714286
-Mus_fragilicauda	ND3	36	9	2	12	628.295
-Mus_terricolor	ND3	37	10	0	9	435.665
-Lasiopodomys_mandarinus	ND3	34	14	1	10	589.388299099621
-Caenolestes_fuliginosus	ND3	34	15	2	10	998.676563583815
-Lepus_timidus	ND3	31	13	6	11	1047.27668
-Glis_glis	ND3	26	17	0	16	1152.9402
-Akodon_montensis	ND3	29	13	3	25	589.388299099621
-Metachirus_nudicaudatus	ND3	32	13	1	14	843.373422219
-Eothenomys_melanogaster	ND3	28	10	5	18	589.388299099621
-Rattus_leucopus	ND3	35	15	2	11	534.7590666715
-Niviventer_confucianus	ND3	39	10	0	13	624.399640909091
-Vulpes_ferrilata	ND3	31	11	7	18	1427.3028
-Sorex_unguiculatus	ND3	35	10	6	12	392.4667
-Rattus_lutreolus	ND3	35	11	3	14	440.292083343
-Neotetracus_sinensis	ND3	30	27	0	5	1202.9252375
-Dactylomys_dactylinus	ND3	29	13	2	11	739.009588885667
-Spalacopus_cyanus	ND3	29	16	3	13	1310.04695
-Crocidura_grayi	ND3	28	15	2	18	427.67965
-Hemiechinus_auritus	ND3	34	18	2	5	940.3939
-Myodes_glareolus	ND3	35	8	1	13	577.7512
-Mus_spretus	ND3	37	10	2	11	628.295
-Tarsipes_rostratus	ND3	28	20	1	17	341.275
-Phascogale_tapoatafa	ND3	33	13	2	21	878.35415
-Crocidura_mindorus	ND3	29	18	1	13	427.67965
-Rhyncholestes_raphanurus	ND3	38	10	2	10	998.676563583815
-Leopardus_jacobita	ND3	31	14	2	18	1392.97
-Anourosorex_squamipes	ND3	35	15	1	8	379.29295625
-Lepus_townsendii	ND3	34	12	3	12	1097.83525
-Mus_famulus	ND3	37	6	3	11	628.295
-Cephalophus_leucogaster	ND3	30	9	5	23	836.8205
-Thryonomys_swinderianus	ND3	29	13	1	14	837.31
-Proechimys_longicaudatus	ND3	23	23	0	8	631.7859833285
-Apodemus_agrarius	ND3	34	13	2	10	504.40745
-Hylomys_suillus	ND3	33	17	0	9	1202.9252375
-Leopoldamys_edwardsi	ND3	33	12	3	16	639.631831820818
-Niviventer_excelsior	ND3	36	10	3	16	639.631831820818
-Niviventer_fulvescens	ND3	38	7	1	13	624.399640909091
-Macroscelides_proboscideus	ND3	34	7	3	17	995.97395
-Scapanulus_oweni	ND3	42	8	2	9	759.185721428571
-Pseudomys_chapmani	ND3	36	13	2	9	884.68295
-Sminthopsis_douglasi	ND3	27	21	4	22	546.026466666667
-Dipus_sagitta	ND3	29	19	3	18	726.1971375
-Distoechurus_pennatus	ND3	26	14	1	23	997.9661
-Microtus_levis	ND3	36	14	3	10	373.623802083937
-Proedromys_liangshanensis	ND3	36	8	3	13	589.388299099621
-Mogera_wogura	ND3	47	6	3	11	759.185721428571
-Apodemus_chevrieri	ND3	37	11	0	11	554.1929125
-Mus_musculus	ND3	37	12	3	7	628.295
-Mustela_frenata	ND3	36	7	2	18	986.110483343
-Stylodipus_telum	ND3	29	15	2	23	726.1971375
-Mesocricetus_auratus	ND3	29	20	1	14	787.9135
-Echinosorex_gymnura	ND3	31	18	0	6	1202.9252375
-Myospalax_aspalax	ND3	41	12	0	10	1032.92357373767
-Lepus_americanus	ND3	33	17	3	9	1105.95
-Spilogale_putorius	ND3	39	12	2	9	1257.256816657
-Chrysochloris_asiatica	ND3	34	13	3	8	1036.5575833285
-Dremomys_rufigenis	ND3	31	16	3	19	1384.1212625
-Pseudocheirus_peregrinus	ND3	29	11	2	17	1217.0925
-Apodemus_draco	ND3	36	15	0	11	554.1929125
-Microtus_ochrogaster	ND3	36	11	4	15	615.4024
-Rattus_exulans	ND3	34	12	1	16	534.7590666715
-Sminthopsis_crassicaudata	ND3	29	19	3	16	594.4425
-Meriones_libycus	ND3	28	15	1	19	649.48035
-Myodes_regulus	ND3	36	8	1	18	433.359922223833
-Myospalax_psilurus	ND3	39	9	0	14	1032.92357373767
-Lepus_hainanus	ND3	32	9	7	16	1047.27668
-Bandicota_indica	ND3	35	13	2	13	639.631831820818
-Jaculus_jaculus	ND3	32	14	4	19	919.8561
-Mogera_robusta	ND3	46	8	1	9	759.185721428571
-Mus_caroli	ND3	34	10	4	9	628.295
-Lepus_coreanus	ND3	31	14	6	11	1047.27668
-Dromiciops_gliroides	ND3	30	11	5	16	998.676563583815
-Apodemus_latronum	ND3	39	10	1	13	554.1929125
-Episoriculus_macrurus	ND3	36	14	0	11	426.91011944525
-Mustela_erminea	ND3	36	6	2	14	1078.777858343
-Mus_cookii	ND3	35	8	4	9	628.295
-Urotrichus_talpoides	ND3	45	9	3	8	680.5528
-Suncus_murinus	ND3	28	21	1	12	363.52745
-Meriones_meridianus	ND3	31	11	2	14	608.148016666667
-Lagorchestes_hirsutus	ND3	31	15	0	13	1100.21785
-Cricetulus_kamensis	ND3	30	11	1	18	589.388299099621
-Pteromys_volans	ND3	29	18	1	21	1384.1212625
-Apodemus_peninsulae	ND3	40	13	2	10	554.1929125
-Myrmecobius_fasciatus	ND3	28	9	6	22	886.2761
-Trinomys_dimidiatus	ND3	29	11	4	12	739.009588885667
-Tamiops_swinhoei	ND3	33	14	0	23	1239.29886944283
-Rattus_tanezumi	ND3	35	13	4	14	534.7590666715
-Myodes_rufocanus	ND3	36	9	0	17	433.359922223833
-Meriones_unguiculatus	ND3	27	17	4	16	503.8875
-Tamias_sibiricus	ND3	31	12	1	12	1311.5224
-Eremitalpa_granti	ND3	34	8	1	15	1036.5575833285
-Lariscus_insignis	ND3	32	21	2	12	1384.1212625
-Tscherskia_triton	ND3	24	21	2	24	589.388299099621
-Monodelphis_domestica	ND3	29	13	5	15	717.0425
-Micromys_minutus	ND3	26	19	1	17	502.66
-Episoriculus_fumidus	ND3	30	12	3	14	426.91011944525
-Macrotis_lagotis	ND3	34	12	2	5	1183.8648
-Rattus_tiomanicus	ND3	35	17	1	14	534.7590666715
-Euchoreutes_naso	ND3	27	16	3	18	726.1971375
-Eospalax_rothschildi	ND3	39	17	2	7	1032.92357373767
-Lepus_capensis	ND3	32	12	3	14	1047.27668
-Rattus_sordidus	ND3	34	13	3	12	534.7590666715
-Eothenomys_chinensis	ND3	32	5	6	17	589.388299099621
-Eozapus_setchuanus	ND3	31	12	3	19	726.1971375
-Tolypeutes_tricinctus	ND3	38	4	3	21	1095
-Notoryctes_typhlops	ND3	31	15	4	15	998.676563583815
-Wiedomys_cerradensis	ND3	27	14	4	18	589.388299099621
-Crocidura_attenuata	ND3	29	20	2	9	427.67965
-Rattus_fuscipes	ND3	36	11	2	14	558.507283343
-Mustela_kathiah	ND3	37	9	2	12	1253.04
-Microtus_kikuchii	ND3	36	7	2	17	373.623802083937
-Blarinella_quadraticauda	ND3	32	16	1	17	379.29295625
-Tamiops_maritimus	ND3	32	17	0	20	1239.29886944283
-Neodon_irene	ND3	32	9	3	21	589.388299099621
-Crocidura_shantungensis	ND3	32	14	0	14	409.171225
-Thylamys_elegans	ND3	27	23	1	12	642.840025
-Hylopetes_phayrei	ND3	26	22	2	16	1384.1212625
-Isoodon_macrourus	ND3	34	12	1	10	623.745
-Nectogale_elegans	ND3	34	17	3	10	379.29295625
-Perameles_gunnii	ND3	37	10	3	8	706.1569
-Eothenomys_miletus	ND3	29	9	5	19	589.388299099621
-Crocidura_palawanensis	ND3	29	16	3	13	409.171225
-Rattus_praetor	ND3	35	13	2	13	534.7590666715
-Rattus_villosissimus	ND3	36	13	2	13	534.7590666715
-Crocidura_beatus	ND3	27	17	3	14	427.67965
-Cephalophus_spadix	ND3	32	10	3	21	962.787
-Crocidura_negrina	ND3	28	20	2	11	427.67965
-Sorex_cylindricauda	ND3	33	12	1	14	422.884597917875
-Sicista_concolor	ND3	28	10	5	22	731.7872
-Cricetulus_longicaudatus	ND3	31	16	4	10	589.388299099621
-Tlacuatzin_canescens	ND3	39	13	1	10	642.840025
-Didelphis_virginiana	ND3	36	11	1	9	745.99
-Ctenomys_leucodon	ND3	29	16	1	12	600.93415
-Uropsilus_soricipes	ND3	32	16	2	12	759.185721428571
-Lepus_tolai	ND3	32	12	3	14	1047.27668
-Crocidura_lasiura	ND3	29	17	2	13	427.67965
-Crocidura_orientalis	ND3	29	22	1	10	427.67965
-Cephalophus_adersi	ND3	31	6	2	25	703.088
-Laonastes_aenigmamus	ND3	28	6	4	27	1032.92357373767
-Rattus_niobe	ND3	36	14	2	12	534.7590666715
-Sorex_araneus	ND3	32	8	4	18	524.7815
-Galemys_pyrenaicus	ND3	41	9	4	10	730
-Episoriculus_caudatus	ND3	34	16	1	13	426.91011944525
-Ochotona_collaris	ND3	26	8	3	26	894.25
-Rattus_rattus	ND3	36	14	2	17	546.1994
-Ochotona_curzoniae	ND3	26	7	2	29	751.47417
-Ochotona_princeps	ND3	31	11	1	21	1045.7507
-Lepus_europaeus	ND3	33	11	5	13	730
-Condylura_cristata	ND3	42	4	0	10	558.6411
-Rhizomys_sinensis	ND3	24	22	0	18	717.776243621518
-Talpa_europaea	ND3	41	5	6	12	1000.1
-Rattus_tunneyi	ND3	36	12	1	14	534.7590666715
-Myodes_regulus	ND4	95	30	8	71	433.359922223833
-Thylamys_elegans	ND4	88	59	11	45	642.840025
-Tamiops_maritimus	ND4	93	42	9	62	1239.29886944283
-Acomys_cahirinus	ND4	94	21	9	69	650.0125
-Episoriculus_caudatus	ND4	95	52	4	61	426.91011944525
-Meriones_libycus	ND4	92	43	9	63	649.48035
-Lasiopodomys_mandarinus	ND4	90	45	8	68	589.388299099621
-Sminthopsis_crassicaudata	ND4	82	60	16	67	594.4425
-Niviventer_fulvescens	ND4	101	40	4	51	624.399640909091
-Suncus_murinus	ND4	80	73	10	48	363.52745
-Apodemus_agrarius	ND4	93	50	7	50	504.40745
-Apodemus_draco	ND4	109	34	7	43	554.1929125
-Mus_terricolor	ND4	88	56	4	49	435.665
-Akodon_montensis	ND4	72	53	8	81	589.388299099621
-Urotrichus_talpoides	ND4	114	38	8	41	680.5528
-Myodes_glareolus	ND4	90	41	13	63	577.7512
-Pseudomys_chapmani	ND4	95	35	9	43	884.68295
-Microtus_kikuchii	ND4	81	28	14	88	373.623802083937
-Mus_musculus	ND4	94	39	8	51	628.295
-Blarinella_quadraticauda	ND4	88	70	4	41	379.29295625
-Caenolestes_fuliginosus	ND4	93	34	5	54	998.676563583815
-Macrotis_lagotis	ND4	105	57	7	39	1183.8648
-Sorex_araneus	ND4	87	49	13	61	524.7815
-Isoodon_macrourus	ND4	95	59	5	40	623.745
-Talpa_europaea	ND4	109	31	24	43	1000.1
-Anourosorex_squamipes	ND4	92	59	7	44	379.29295625
-Rattus_villosissimus	ND4	101	36	7	65	534.7590666715
-Mustela_erminea	ND4	92	30	18	69	1078.777858343
-Crocidura_grayi	ND4	77	67	5	60	427.67965
-Stylodipus_telum	ND4	82	52	15	68	726.1971375
-Cynopterus_brachyotis	ND4	96	23	9	84	1287.664
-Notoryctes_typhlops	ND4	81	38	17	72	998.676563583815
-Mogera_robusta	ND4	115	43	7	29	759.185721428571
-Phascogale_tapoatafa	ND4	87	55	11	82	878.35415
-Jaculus_jaculus	ND4	86	59	8	70	919.8561
-Bandicota_indica	ND4	99	30	15	61	639.631831820818
-Meriones_meridianus	ND4	94	54	14	46	608.148016666667
-Cephalophus_leucogaster	ND4	88	23	13	81	836.8205
-Rattus_sordidus	ND4	99	35	8	63	534.7590666715
-Crocidura_shantungensis	ND4	74	71	7	52	409.171225
-Episoriculus_fumidus	ND4	100	48	7	50	426.91011944525
-Lepus_townsendii	ND4	89	74	10	54	1097.83525
-Neodon_irene	ND4	83	38	9	78	589.388299099621
-Monodelphis_domestica	ND4	92	47	11	41	717.0425
-Nectogale_elegans	ND4	93	67	5	42	379.29295625
-Lepus_sinensis	ND4	90	65	10	68	1047.27668
-Mustela_nivalis	ND4	87	41	16	65	1194.19395
-Myodes_rufocanus	ND4	94	29	11	74	433.359922223833
-Niviventer_excelsior	ND4	88	48	5	63	639.631831820818
-Hemiechinus_auritus	ND4	80	71	4	19	940.3939
-Tamiops_swinhoei	ND4	94	41	11	64	1239.29886944283
-Mus_cervicolor	ND4	89	41	8	47	628.295
-Crocidura_beatus	ND4	75	66	4	62	427.67965
-Cricetulus_kamensis	ND4	97	39	5	65	589.388299099621
-Dactylomys_dactylinus	ND4	84	60	3	49	739.009588885667
-Glis_glis	ND4	93	64	3	46	1152.9402
-Ctenomys_leucodon	ND4	89	46	4	55	600.93415
-Pseudocheirus_peregrinus	ND4	91	32	7	83	1217.0925
-Eothenomys_melanogaster	ND4	98	29	13	60	589.388299099621
-Rattus_praetor	ND4	100	31	5	66	534.7590666715
-Distoechurus_pennatus	ND4	84	46	2	74	997.9661
-Rhizomys_sinensis	ND4	85	60	1	61	717.776243621518
-Macroscelides_proboscideus	ND4	85	46	8	71	995.97395
-Rattus_exulans	ND4	105	34	3	55	534.7590666715
-Eospalax_rothschildi	ND4	97	50	7	52	1032.92357373767
-Cephalophus_adersi	ND4	89	29	9	78	703.088
-Eothenomys_miletus	ND4	95	23	13	67	589.388299099621
-Ochotona_curzoniae	ND4	75	40	10	89	751.47417
-Tlacuatzin_canescens	ND4	102	40	3	34	642.840025
-Dipus_sagitta	ND4	70	49	14	86	726.1971375
-Eozapus_setchuanus	ND4	79	55	5	78	726.1971375
-Leopardus_jacobita	ND4	102	34	11	70	1392.97
-Mus_spretus	ND4	82	38	9	64	628.295
-Chrysochloris_asiatica	ND4	88	52	5	56	1036.5575833285
-Myospalax_aspalax	ND4	101	54	4	50	1032.92357373767
-Microtus_ochrogaster	ND4	93	37	8	73	615.4024
-Wiedomys_cerradensis	ND4	77	57	7	65	589.388299099621
-Crocidura_attenuata	ND4	81	69	7	55	427.67965
-Thryonomys_swinderianus	ND4	92	55	9	54	837.31
-Rattus_niobe	ND4	103	36	5	59	534.7590666715
-Proechimys_longicaudatus	ND4	91	46	11	44	631.7859833285
-Lepus_coreanus	ND4	90	72	6	59	1047.27668
-Crocidura_palawanensis	ND4	77	57	7	70	409.171225
-Metachirus_nudicaudatus	ND4	104	59	2	32	843.373422219
-Spilogale_putorius	ND4	91	54	10	54	1257.256816657
-Mus_cookii	ND4	99	47	4	40	628.295
-Microtus_levis	ND4	92	35	18	67	373.623802083937
-Lagorchestes_hirsutus	ND4	92	36	6	70	1100.21785
-Spermophilus_dauricus	ND4	88	63	6	56	1053.68290714286
-Rattus_fuscipes	ND4	98	33	7	68	558.507283343
-Mus_fragilicauda	ND4	94	44	11	50	628.295
-Ochotona_collaris	ND4	78	35	17	94	894.25
-Cephalophus_spadix	ND4	87	34	13	73	962.787
-Scapanulus_oweni	ND4	94	49	9	52	759.185721428571
-Apodemus_chevrieri	ND4	92	50	10	48	554.1929125
-Cricetulus_longicaudatus	ND4	100	51	12	38	589.388299099621
-Dremomys_rufigenis	ND4	84	49	6	62	1384.1212625
-Lariscus_insignis	ND4	79	68	8	58	1384.1212625
-Echinosorex_gymnura	ND4	100	56	6	25	1202.9252375
-Apodemus_peninsulae	ND4	98	53	6	39	554.1929125
-Perameles_gunnii	ND4	99	52	2	48	706.1569
-Lepus_europaeus	ND4	88	71	9	63	730
-Lepus_timidus	ND4	90	71	7	60	1047.27668
-Leggadina_lakedownensis	ND4	95	39	6	51	624.399640909091
-Laonastes_aenigmamus	ND4	87	20	21	89	1032.92357373767
-Sicista_concolor	ND4	61	50	15	97	731.7872
-Didelphis_virginiana	ND4	99	60	3	32	745.99
-Micromys_minutus	ND4	84	41	3	58	502.66
-Tolypeutes_tricinctus	ND4	107	25	14	64	1095
-Sorex_tundrensis	ND4	87	50	15	56	422.884597917875
-Eothenomys_chinensis	ND4	92	38	15	60	589.388299099621
-Mus_caroli	ND4	84	52	11	49	628.295
-Euchoreutes_naso	ND4	63	54	22	82	726.1971375
-Lepus_hainanus	ND4	84	62	7	72	1047.27668
-Galemys_pyrenaicus	ND4	108	42	17	46	730
-Rattus_rattus	ND4	103	35	4	59	546.1994
-Myospalax_psilurus	ND4	100	46	2	56	1032.92357373767
-Mesocricetus_auratus	ND4	102	65	4	31	787.9135
-Condylura_cristata	ND4	108	44	7	35	558.6411
-Crocidura_orientalis	ND4	75	66	7	61	427.67965
-Episoriculus_macrurus	ND4	103	47	2	47	426.91011944525
-Rattus_tiomanicus	ND4	106	43	3	51	534.7590666715
-Rattus_leucopus	ND4	99	30	8	70	534.7590666715
-Pteromys_volans	ND4	76	54	8	67	1384.1212625
-Rhyncholestes_raphanurus	ND4	88	50	7	46	998.676563583815
-Neomys_fodiens	ND4	101	47	6	47	576.8888
-Sminthopsis_douglasi	ND4	83	51	17	75	546.026466666667
-Sorex_unguiculatus	ND4	88	51	13	62	392.4667
-Rattus_lutreolus	ND4	101	39	8	66	440.292083343
-Leopoldamys_edwardsi	ND4	82	38	6	76	639.631831820818
-Dromiciops_gliroides	ND4	72	59	4	77	998.676563583815
-Lepus_tolai	ND4	91	70	3	62	1047.27668
-Mustela_frenata	ND4	88	37	10	64	986.110483343
-Trinomys_dimidiatus	ND4	80	40	17	58	739.009588885667
-Niviventer_confucianus	ND4	93	50	2	63	624.399640909091
-Lepus_capensis	ND4	89	68	4	63	1047.27668
-Crocidura_lasiura	ND4	82	68	5	59	427.67965
-Rattus_tanezumi	ND4	107	38	9	55	534.7590666715
-Mustela_kathiah	ND4	94	42	11	58	1253.04
-Neotetracus_sinensis	ND4	95	63	9	47	1202.9252375
-Spalacopus_cyanus	ND4	101	50	6	48	1310.04695
-Meriones_unguiculatus	ND4	89	56	6	54	503.8875
-Vulpes_ferrilata	ND4	73	46	30	69	1427.3028
-Lepus_americanus	ND4	85	65	7	73	1105.95
-Hylopetes_phayrei	ND4	84	55	6	59	1384.1212625
-Hylomys_suillus	ND4	78	75	4	44	1202.9252375
-Apodemus_latronum	ND4	102	39	4	50	554.1929125
-Proedromys_liangshanensis	ND4	91	32	9	74	589.388299099621
-Onychomys_leucogaster	ND4	106	23	12	60	671.9993
-Rattus_tunneyi	ND4	99	40	8	61	534.7590666715
-Crocidura_negrina	ND4	79	72	8	51	427.67965
-Tamias_sibiricus	ND4	94	55	4	49	1311.5224
-Mus_famulus	ND4	94	45	5	49	628.295
-Sorex_cylindricauda	ND4	96	52	11	59	422.884597917875
-Myrmecobius_fasciatus	ND4	96	45	13	56	886.2761
-Uropsilus_soricipes	ND4	98	59	4	39	759.185721428571
-Mogera_wogura	ND4	118	38	7	37	759.185721428571
-Crocidura_mindorus	ND4	77	64	2	62	427.67965
-Tscherskia_triton	ND4	80	54	23	66	589.388299099621
-Eremitalpa_granti	ND4	75	58	7	58	1036.5575833285
-Ochotona_princeps	ND4	81	38	14	87	1045.7507
-Tarsipes_rostratus	ND4	83	51	7	66	341.275
-Pseudomys_chapmani	ND4L	34	15	0	15	884.68295
-Crocidura_beatus	ND4L	36	12	4	7	427.67965
-Neomys_fodiens	ND4L	30	12	3	14	576.8888
-Niviventer_excelsior	ND4L	32	16	1	13	639.631831820818
-Condylura_cristata	ND4L	32	10	2	11	558.6411
-Wiedomys_cerradensis	ND4L	33	15	2	8	589.388299099621
-Sorex_tundrensis	ND4L	36	10	5	9	422.884597917875
-Onychomys_leucogaster	ND4L	36	7	6	11	671.9993
-Trinomys_dimidiatus	ND4L	30	13	3	12	739.009588885667
-Rattus_praetor	ND4L	31	9	1	23	534.7590666715
-Dromiciops_gliroides	ND4L	29	9	1	13	998.676563583815
-Myodes_rufocanus	ND4L	33	8	6	12	433.359922223833
-Hylomys_suillus	ND4L	30	14	3	8	1202.9252375
-Pteromys_volans	ND4L	29	12	2	12	1384.1212625
-Perameles_gunnii	ND4L	34	11	0	12	706.1569
-Meriones_meridianus	ND4L	27	14	3	16	608.148016666667
-Urotrichus_talpoides	ND4L	33	5	6	11	680.5528
-Chrysochloris_asiatica	ND4L	26	15	1	13	1036.5575833285
-Acomys_cahirinus	ND4L	34	9	1	19	650.0125
-Apodemus_chevrieri	ND4L	34	13	1	15	554.1929125
-Lepus_tolai	ND4L	26	15	6	10	1047.27668
-Apodemus_peninsulae	ND4L	35	11	0	16	554.1929125
-Macroscelides_proboscideus	ND4L	30	8	1	12	995.97395
-Episoriculus_caudatus	ND4L	33	13	3	12	426.91011944525
-Crocidura_attenuata	ND4L	32	12	2	13	427.67965
-Crocidura_lasiura	ND4L	34	13	2	10	427.67965
-Lepus_timidus	ND4L	26	13	5	12	1047.27668
-Ochotona_curzoniae	ND4L	26	8	1	24	751.47417
-Micromys_minutus	ND4L	30	11	0	12	502.66
-Crocidura_orientalis	ND4L	37	13	1	7	427.67965
-Proechimys_longicaudatus	ND4L	36	8	1	13	631.7859833285
-Leggadina_lakedownensis	ND4L	32	19	0	14	624.399640909091
-Sorex_unguiculatus	ND4L	36	9	2	11	392.4667
-Ochotona_princeps	ND4L	27	7	0	21	1045.7507
-Myospalax_aspalax	ND4L	35	10	3	14	1032.92357373767
-Eothenomys_miletus	ND4L	33	9	3	16	589.388299099621
-Mus_cervicolor	ND4L	34	13	1	13	628.295
-Eothenomys_melanogaster	ND4L	33	6	3	19	589.388299099621
-Crocidura_mindorus	ND4L	36	11	3	10	427.67965
-Myodes_glareolus	ND4L	33	12	5	10	577.7512
-Mustela_kathiah	ND4L	31	7	5	15	1253.04
-Suncus_murinus	ND4L	33	15	2	7	363.52745
-Blarinella_quadraticauda	ND4L	25	12	2	16	379.29295625
-Meriones_libycus	ND4L	33	12	5	10	649.48035
-Tamiops_maritimus	ND4L	32	8	2	12	1239.29886944283
-Apodemus_agrarius	ND4L	31	17	4	11	504.40745
-Lepus_capensis	ND4L	26	15	6	10	1047.27668
-Mus_famulus	ND4L	32	16	1	16	628.295
-Niviventer_confucianus	ND4L	33	10	1	20	624.399640909091
-Eozapus_setchuanus	ND4L	32	15	2	10	726.1971375
-Mesocricetus_auratus	ND4L	37	14	1	8	787.9135
-Isoodon_macrourus	ND4L	36	10	0	10	623.745
-Microtus_ochrogaster	ND4L	25	14	6	16	615.4024
-Tamiops_swinhoei	ND4L	32	9	4	9	1239.29886944283
-Sminthopsis_douglasi	ND4L	22	18	3	17	546.026466666667
-Caenolestes_fuliginosus	ND4L	37	6	1	13	998.676563583815
-Thylamys_elegans	ND4L	29	17	1	11	642.840025
-Akodon_montensis	ND4L	30	9	1	19	589.388299099621
-Sicista_concolor	ND4L	22	15	6	21	731.7872
-Lepus_americanus	ND4L	26	12	6	10	1105.95
-Dactylomys_dactylinus	ND4L	29	9	1	14	739.009588885667
-Mus_terricolor	ND4L	33	11	2	18	435.665
-Mustela_erminea	ND4L	30	6	4	18	1078.777858343
-Scapanulus_oweni	ND4L	27	13	1	12	759.185721428571
-Eothenomys_chinensis	ND4L	33	8	1	18	589.388299099621
-Lepus_coreanus	ND4L	26	13	5	12	1047.27668
-Laonastes_aenigmamus	ND4L	27	7	1	24	1032.92357373767
-Sorex_cylindricauda	ND4L	35	11	4	8	422.884597917875
-Eospalax_rothschildi	ND4L	33	13	1	15	1032.92357373767
-Neotetracus_sinensis	ND4L	33	17	2	8	1202.9252375
-Rattus_tunneyi	ND4L	32	10	2	20	534.7590666715
-Didelphis_virginiana	ND4L	33	10	0	12	745.99
-Leopardus_jacobita	ND4L	31	9	6	11	1392.97
-Pseudocheirus_peregrinus	ND4L	34	6	2	18	1217.0925
-Rattus_tiomanicus	ND4L	30	12	1	15	534.7590666715
-Proedromys_liangshanensis	ND4L	33	10	1	16	589.388299099621
-Episoriculus_macrurus	ND4L	28	14	2	13	426.91011944525
-Cricetulus_kamensis	ND4L	36	10	5	14	589.388299099621
-Lepus_hainanus	ND4L	26	7	4	15	1047.27668
-Tlacuatzin_canescens	ND4L	34	5	0	6	642.840025
-Cynopterus_brachyotis	ND4L	25	8	6	18	1287.664
-Leopoldamys_edwardsi	ND4L	32	9	2	20	639.631831820818
-Dipus_sagitta	ND4L	29	11	2	17	726.1971375
-Eremitalpa_granti	ND4L	27	12	1	11	1036.5575833285
-Lepus_townsendii	ND4L	27	13	4	10	1097.83525
-Rattus_fuscipes	ND4L	33	11	0	21	558.507283343
-Crocidura_palawanensis	ND4L	36	9	2	11	409.171225
-Phascogale_tapoatafa	ND4L	25	12	6	16	878.35415
-Spalacopus_cyanus	ND4L	28	15	2	11	1310.04695
-Metachirus_nudicaudatus	ND4L	32	11	0	10	843.373422219
-Vulpes_ferrilata	ND4L	31	8	11	9	1427.3028
-Mus_spretus	ND4L	32	8	3	17	628.295
-Sminthopsis_crassicaudata	ND4L	27	10	2	17	594.4425
-Cephalophus_spadix	ND4L	33	6	7	14	962.787
-Cricetulus_longicaudatus	ND4L	36	12	6	12	589.388299099621
-Mustela_frenata	ND4L	30	11	2	14	986.110483343
-Cephalophus_adersi	ND4L	33	6	1	16	703.088
-Sorex_araneus	ND4L	36	8	6	10	524.7815
-Euchoreutes_naso	ND4L	30	10	2	15	726.1971375
-Hemiechinus_auritus	ND4L	26	15	1	6	940.3939
-Rattus_leucopus	ND4L	32	9	1	22	534.7590666715
-Rattus_villosissimus	ND4L	31	13	1	20	534.7590666715
-Crocidura_negrina	ND4L	37	7	2	11	427.67965
-Lariscus_insignis	ND4L	31	12	5	10	1384.1212625
-Ochotona_collaris	ND4L	27	8	2	20	894.25
-Rattus_lutreolus	ND4L	32	9	2	21	440.292083343
-Rattus_rattus	ND4L	30	11	2	18	546.1994
-Mus_fragilicauda	ND4L	31	12	2	19	628.295
-Nectogale_elegans	ND4L	29	15	0	11	379.29295625
-Rattus_niobe	ND4L	32	8	0	24	534.7590666715
-Macrotis_lagotis	ND4L	34	4	1	13	1183.8648
-Jaculus_jaculus	ND4L	26	16	1	19	919.8561
-Tolypeutes_tricinctus	ND4L	34	2	1	18	1095
-Microtus_kikuchii	ND4L	27	14	4	15	373.623802083937
-Crocidura_grayi	ND4L	35	13	3	8	427.67965
-Lepus_sinensis	ND4L	27	12	6	13	1047.27668
-Apodemus_latronum	ND4L	39	10	2	12	554.1929125
-Niviventer_fulvescens	ND4L	35	17	0	12	624.399640909091
-Rhyncholestes_raphanurus	ND4L	34	10	3	13	998.676563583815
-Bandicota_indica	ND4L	31	14	2	13	639.631831820818
-Rattus_exulans	ND4L	31	13	1	16	534.7590666715
-Mustela_nivalis	ND4L	32	8	3	17	1194.19395
-Myrmecobius_fasciatus	ND4L	30	10	3	7	886.2761
-Lasiopodomys_mandarinus	ND4L	29	13	4	18	589.388299099621
-Tarsipes_rostratus	ND4L	29	9	3	18	341.275
-Microtus_levis	ND4L	31	9	5	17	373.623802083937
-Distoechurus_pennatus	ND4L	29	13	2	16	997.9661
-Mus_caroli	ND4L	32	21	1	11	628.295
-Hylopetes_phayrei	ND4L	29	13	2	10	1384.1212625
-Tscherskia_triton	ND4L	33	8	3	17	589.388299099621
-Thryonomys_swinderianus	ND4L	27	15	1	11	837.31
-Cephalophus_leucogaster	ND4L	32	6	2	17	836.8205
-Monodelphis_domestica	ND4L	29	10	3	12	717.0425
-Mus_musculus	ND4L	33	9	3	18	628.295
-Mus_cookii	ND4L	34	13	1	15	628.295
-Anourosorex_squamipes	ND4L	33	11	1	12	379.29295625
-Neodon_irene	ND4L	27	12	4	17	589.388299099621
-Rattus_sordidus	ND4L	31	9	1	21	534.7590666715
-Glis_glis	ND4L	29	10	1	15	1152.9402
-Meriones_unguiculatus	ND4L	32	15	4	9	503.8875
-Echinosorex_gymnura	ND4L	38	10	0	3	1202.9252375
-Talpa_europaea	ND4L	26	8	7	12	1000.1
-Uropsilus_soricipes	ND4L	34	14	1	6	759.185721428571
-Myospalax_psilurus	ND4L	34	10	1	13	1032.92357373767
-Lepus_europaeus	ND4L	29	11	3	12	730
-Tamias_sibiricus	ND4L	38	12	0	4	1311.5224
-Myodes_regulus	ND4L	33	9	4	12	433.359922223833
-Notoryctes_typhlops	ND4L	31	12	2	15	998.676563583815
-Spermophilus_dauricus	ND4L	27	19	1	12	1053.68290714286
-Apodemus_draco	ND4L	37	15	2	9	554.1929125
-Ctenomys_leucodon	ND4L	33	11	2	4	600.93415
-Mogera_wogura	ND4L	29	10	1	12	759.185721428571
-Lagorchestes_hirsutus	ND4L	29	12	1	16	1100.21785
-Episoriculus_fumidus	ND4L	30	16	1	11	426.91011944525
-Rattus_tanezumi	ND4L	29	14	2	15	534.7590666715
-Galemys_pyrenaicus	ND4L	37	10	2	7	730
-Spilogale_putorius	ND4L	32	10	5	7	1257.256816657
-Crocidura_shantungensis	ND4L	32	14	3	7	409.171225
-Stylodipus_telum	ND4L	25	15	4	20	726.1971375
-Dremomys_rufigenis	ND4L	28	10	3	12	1384.1212625
-Mogera_robusta	ND4L	30	13	2	11	759.185721428571
-Rhizomys_sinensis	ND4L	31	18	2	13	717.776243621518
-Urotrichus_talpoides	ND5	128	46	14	57	680.5528
-Acomys_cahirinus	ND5	100	41	19	108	650.0125
-Proechimys_longicaudatus	ND5	118	66	12	61	631.7859833285
-Mus_caroli	ND5	132	47	9	60	628.295
-Trinomys_dimidiatus	ND5	121	47	17	81	739.009588885667
-Microtus_ochrogaster	ND5	122	40	15	99	615.4024
-Apodemus_chevrieri	ND5	134	50	8	58	554.1929125
-Crocidura_palawanensis	ND5	99	77	9	63	409.171225
-Lepus_europaeus	ND5	104	78	5	86	730
-Sminthopsis_douglasi	ND5	100	76	17	80	546.026466666667
-Apodemus_peninsulae	ND5	126	49	13	61	554.1929125
-Myodes_rufocanus	ND5	124	38	9	88	433.359922223833
-Jaculus_jaculus	ND5	88	77	15	117	919.8561
-Glis_glis	ND5	101	88	9	68	1152.9402
-Mustela_erminea	ND5	121	38	14	86	1078.777858343
-Pteromys_volans	ND5	101	64	8	90	1384.1212625
-Cynopterus_brachyotis	ND5	114	38	14	108	1287.664
-Tamias_sibiricus	ND5	123	67	5	49	1311.5224
-Crocidura_orientalis	ND5	106	69	6	68	427.67965
-Crocidura_mindorus	ND5	102	74	12	61	427.67965
-Rattus_praetor	ND5	114	41	6	90	534.7590666715
-Isoodon_macrourus	ND5	114	66	7	61	623.745
-Mus_musculus	ND5	130	39	15	71	628.295
-Rattus_tanezumi	ND5	116	56	8	81	534.7590666715
-Echinosorex_gymnura	ND5	123	70	14	39	1202.9252375
-Dactylomys_dactylinus	ND5	116	67	2	72	739.009588885667
-Lepus_sinensis	ND5	98	67	10	97	1047.27668
-Sminthopsis_crassicaudata	ND5	108	83	12	70	594.4425
-Vulpes_ferrilata	ND5	91	62	21	100	1427.3028
-Macroscelides_proboscideus	ND5	132	51	12	77	995.97395
-Thylamys_elegans	ND5	101	86	12	68	642.840025
-Myodes_regulus	ND5	129	38	8	95	433.359922223833
-Tlacuatzin_canescens	ND5	136	65	4	33	642.840025
-Apodemus_agrarius	ND5	132	55	8	53	504.40745
-Leopardus_jacobita	ND5	111	43	15	94	1392.97
-Hylopetes_phayrei	ND5	100	88	7	74	1384.1212625
-Ctenomys_leucodon	ND5	114	63	7	57	600.93415
-Rattus_leucopus	ND5	117	45	6	89	534.7590666715
-Didelphis_virginiana	ND5	122	69	2	47	745.99
-Crocidura_negrina	ND5	103	85	8	55	427.67965
-Mustela_frenata	ND5	105	43	18	91	986.110483343
-Scapanulus_oweni	ND5	122	62	13	64	759.185721428571
-Blarinella_quadraticauda	ND5	107	58	6	84	379.29295625
-Eozapus_setchuanus	ND5	91	68	12	85	726.1971375
-Lepus_americanus	ND5	99	70	13	91	1105.95
-Lepus_capensis	ND5	103	73	9	87	1047.27668
-Rattus_fuscipes	ND5	114	44	7	88	558.507283343
-Dromiciops_gliroides	ND5	108	71	8	76	998.676563583815
-Eothenomys_melanogaster	ND5	129	35	12	93	589.388299099621
-Cricetulus_kamensis	ND5	107	48	10	103	589.388299099621
-Spalacopus_cyanus	ND5	107	66	9	78	1310.04695
-Crocidura_lasiura	ND5	105	76	8	70	427.67965
-Tamiops_swinhoei	ND5	103	55	10	106	1239.29886944283
-Myospalax_aspalax	ND5	124	59	3	82	1032.92357373767
-Mus_terricolor	ND5	125	47	5	75	435.665
-Mustela_kathiah	ND5	116	51	13	74	1253.04
-Pseudomys_chapmani	ND5	129	52	5	75	884.68295
-Onychomys_leucogaster	ND5	138	40	7	61	671.9993
-Eothenomys_chinensis	ND5	126	38	11	86	589.388299099621
-Micromys_minutus	ND5	107	55	7	86	502.66
-Akodon_montensis	ND5	105	52	9	107	589.388299099621
-Rattus_tiomanicus	ND5	116	50	5	86	534.7590666715
-Rattus_lutreolus	ND5	119	40	4	89	440.292083343
-Neomys_fodiens	ND5	98	79	10	80	576.8888
-Meriones_libycus	ND5	114	60	18	75	649.48035
-Tscherskia_triton	ND5	97	55	26	98	589.388299099621
-Metachirus_nudicaudatus	ND5	116	71	5	55	843.373422219
-Lariscus_insignis	ND5	93	67	11	105	1384.1212625
-Lepus_townsendii	ND5	103	74	8	87	1097.83525
-Lagorchestes_hirsutus	ND5	113	51	9	81	1100.21785
-Leggadina_lakedownensis	ND5	125	51	12	70	624.399640909091
-Distoechurus_pennatus	ND5	99	73	2	92	997.9661
-Mus_spretus	ND5	131	45	16	68	628.295
-Wiedomys_cerradensis	ND5	91	63	10	90	589.388299099621
-Uropsilus_soricipes	ND5	122	68	7	59	759.185721428571
-Phascogale_tapoatafa	ND5	100	60	11	86	878.35415
-Condylura_cristata	ND5	150	33	6	59	558.6411
-Microtus_levis	ND5	129	51	11	89	373.623802083937
-Mogera_robusta	ND5	138	47	10	59	759.185721428571
-Rhizomys_sinensis	ND5	99	78	6	81	717.776243621518
-Suncus_murinus	ND5	97	76	11	62	363.52745
-Myrmecobius_fasciatus	ND5	120	58	19	63	886.2761
-Myospalax_psilurus	ND5	119	48	4	90	1032.92357373767
-Crocidura_beatus	ND5	103	79	8	60	427.67965
-Rattus_niobe	ND5	115	41	7	89	534.7590666715
-Mesocricetus_auratus	ND5	106	74	13	64	787.9135
-Lasiopodomys_mandarinus	ND5	129	50	10	85	589.388299099621
-Mus_cervicolor	ND5	133	53	4	60	628.295
-Mustela_nivalis	ND5	108	48	21	82	1194.19395
-Lepus_timidus	ND5	105	75	8	90	1047.27668
-Chrysochloris_asiatica	ND5	128	58	5	56	1036.5575833285
-Anourosorex_squamipes	ND5	115	75	9	61	379.29295625
-Crocidura_grayi	ND5	101	71	9	65	427.67965
-Sorex_araneus	ND5	98	51	11	94	524.7815
-Episoriculus_fumidus	ND5	114	62	6	73	426.91011944525
-Hemiechinus_auritus	ND5	100	71	9	48	940.3939
-Spermophilus_dauricus	ND5	99	79	6	87	1053.68290714286
-Rhyncholestes_raphanurus	ND5	121	69	6	63	998.676563583815
-Rattus_villosissimus	ND5	112	41	9	91	534.7590666715
-Episoriculus_caudatus	ND5	110	67	13	70	426.91011944525
-Mus_cookii	ND5	137	48	5	59	628.295
-Caenolestes_fuliginosus	ND5	129	64	3	57	998.676563583815
-Talpa_europaea	ND5	144	40	25	59	1000.1
-Lepus_hainanus	ND5	100	66	12	98	1047.27668
-Stylodipus_telum	ND5	102	44	15	116	726.1971375
-Rattus_sordidus	ND5	116	38	8	92	534.7590666715
-Apodemus_latronum	ND5	148	48	2	55	554.1929125
-Mus_fragilicauda	ND5	127	38	9	67	628.295
-Lepus_coreanus	ND5	106	75	7	90	1047.27668
-Euchoreutes_naso	ND5	93	69	21	93	726.1971375
-Crocidura_attenuata	ND5	102	83	9	68	427.67965
-Eothenomys_miletus	ND5	122	37	14	92	589.388299099621
-Apodemus_draco	ND5	151	55	4	47	554.1929125
-Episoriculus_macrurus	ND5	99	65	9	77	426.91011944525
-Rattus_exulans	ND5	116	53	9	79	534.7590666715
-Galemys_pyrenaicus	ND5	135	48	14	58	730
-Ochotona_collaris	ND5	119	47	8	101	894.25
-Eremitalpa_granti	ND5	108	62	5	69	1036.5575833285
-Niviventer_fulvescens	ND5	120	56	5	76	624.399640909091
-Macrotis_lagotis	ND5	144	51	5	44	1183.8648
-Lepus_tolai	ND5	104	73	10	87	1047.27668
-Myodes_glareolus	ND5	124	41	14	92	577.7512
-Cephalophus_adersi	ND5	106	35	17	98	703.088
-Sorex_unguiculatus	ND5	100	65	20	78	392.4667
-Cephalophus_leucogaster	ND5	105	38	18	95	836.8205
-Thryonomys_swinderianus	ND5	119	49	5	69	837.31
-Sorex_tundrensis	ND5	95	50	14	94	422.884597917875
-Dipus_sagitta	ND5	97	50	18	117	726.1971375
-Niviventer_excelsior	ND5	121	49	6	80	639.631831820818
-Sicista_concolor	ND5	71	79	13	112	731.7872
-Neotetracus_sinensis	ND5	114	81	11	51	1202.9252375
-Leopoldamys_edwardsi	ND5	103	56	8	97	639.631831820818
-Tolypeutes_tricinctus	ND5	134	41	9	87	1095
-Notoryctes_typhlops	ND5	113	45	21	97	998.676563583815
-Sorex_cylindricauda	ND5	103	65	9	77	422.884597917875
-Spilogale_putorius	ND5	117	60	9	64	1257.256816657
-Laonastes_aenigmamus	ND5	108	41	21	101	1032.92357373767
-Tarsipes_rostratus	ND5	111	67	6	76	341.275
-Pseudocheirus_peregrinus	ND5	113	38	19	99	1217.0925
-Perameles_gunnii	ND5	117	64	3	64	706.1569
-Proedromys_liangshanensis	ND5	127	44	13	93	589.388299099621
-Nectogale_elegans	ND5	103	85	9	60	379.29295625
-Rattus_rattus	ND5	116	52	5	85	546.1994
-Niviventer_confucianus	ND5	122	49	6	80	624.399640909091
-Meriones_unguiculatus	ND5	111	67	13	66	503.8875
-Mogera_wogura	ND5	139	41	11	66	759.185721428571
-Monodelphis_domestica	ND5	113	63	11	57	717.0425
-Ochotona_curzoniae	ND5	113	49	13	104	751.47417
-Cephalophus_spadix	ND5	110	37	16	102	962.787
-Dremomys_rufigenis	ND5	103	61	9	104	1384.1212625
-Hylomys_suillus	ND5	110	87	3	71	1202.9252375
-Bandicota_indica	ND5	109	60	7	76	639.631831820818
-Cricetulus_longicaudatus	ND5	113	76	12	51	589.388299099621
-Neodon_irene	ND5	116	42	16	102	589.388299099621
-Mus_famulus	ND5	135	42	6	65	628.295
-Eospalax_rothschildi	ND5	105	79	6	62	1032.92357373767
-Meriones_meridianus	ND5	110	59	16	72	608.148016666667
-Crocidura_shantungensis	ND5	100	77	9	68	409.171225
-Rattus_tunneyi	ND5	117	44	7	86	534.7590666715
-Tamiops_maritimus	ND5	97	70	12	91	1239.29886944283
-Ochotona_princeps	ND5	111	43	5	115	1045.7507
-Microtus_kikuchii	ND5	110	36	24	108	373.623802083937
-Myodes_glareolus	ND6	39	22	3	28	577.7512
-Mogera_wogura	ND6	44	31	0	19	759.185721428571
-Thylamys_elegans	ND6	37	40	4	9	642.840025
-Crocidura_negrina	ND6	27	43	2	17	427.67965
-Trinomys_dimidiatus	ND6	42	25	3	20	739.009588885667
-Mustela_nivalis	ND6	45	30	4	19	1194.19395
-Eothenomys_melanogaster	ND6	33	29	2	23	589.388299099621
-Crocidura_lasiura	ND6	33	36	1	22	427.67965
-Apodemus_peninsulae	ND6	37	30	2	15	554.1929125
-Leopoldamys_edwardsi	ND6	37	26	0	23	639.631831820818
-Euchoreutes_naso	ND6	32	32	5	28	726.1971375
-Myospalax_psilurus	ND6	34	25	1	29	1032.92357373767
-Echinosorex_gymnura	ND6	37	34	4	13	1202.9252375
-Crocidura_beatus	ND6	28	48	1	16	427.67965
-Condylura_cristata	ND6	45	32	1	12	558.6411
-Mus_cervicolor	ND6	35	29	1	18	628.295
-Stylodipus_telum	ND6	43	29	1	19	726.1971375
-Meriones_unguiculatus	ND6	36	30	3	24	503.8875
-Sicista_concolor	ND6	29	31	4	30	731.7872
-Lariscus_insignis	ND6	29	36	1	27	1384.1212625
-Onychomys_leucogaster	ND6	45	22	2	20	671.9993
-Tamiops_swinhoei	ND6	30	32	4	18	1239.29886944283
-Spilogale_putorius	ND6	41	32	6	11	1257.256816657
-Proechimys_longicaudatus	ND6	38	32	3	17	631.7859833285
-Leggadina_lakedownensis	ND6	44	27	1	12	624.399640909091
-Rattus_rattus	ND6	34	31	2	12	546.1994
-Bandicota_indica	ND6	33	28	2	20	639.631831820818
-Glis_glis	ND6	34	30	4	18	1152.9402
-Tolypeutes_tricinctus	ND6	44	27	1	25	1095
-Lepus_townsendii	ND6	34	37	2	20	1097.83525
-Crocidura_orientalis	ND6	27	37	2	23	427.67965
-Tlacuatzin_canescens	ND6	35	39	1	5	642.840025
-Sorex_cylindricauda	ND6	40	32	1	20	422.884597917875
-Uropsilus_soricipes	ND6	46	32	3	12	759.185721428571
-Micromys_minutus	ND6	35	27	2	16	502.66
-Mus_spretus	ND6	36	30	0	26	628.295
-Suncus_murinus	ND6	37	43	1	10	363.52745
-Myospalax_aspalax	ND6	32	34	2	23	1032.92357373767
-Anourosorex_squamipes	ND6	38	42	0	14	379.29295625
-Apodemus_agrarius	ND6	38	29	2	15	504.40745
-Mus_famulus	ND6	32	28	0	13	628.295
-Lagorchestes_hirsutus	ND6	49	29	2	16	1100.21785
-Cephalophus_leucogaster	ND6	37	24	5	25	836.8205
-Mustela_erminea	ND6	41	26	9	20	1078.777858343
-Rattus_niobe	ND6	32	22	0	27	534.7590666715
-Crocidura_palawanensis	ND6	26	42	2	19	409.171225
-Sorex_tundrensis	ND6	43	32	0	18	422.884597917875
-Apodemus_draco	ND6	34	32	2	16	554.1929125
-Episoriculus_caudatus	ND6	39	35	0	22	426.91011944525
-Myrmecobius_fasciatus	ND6	39	29	4	22	886.2761
-Dipus_sagitta	ND6	36	33	3	22	726.1971375
-Eozapus_setchuanus	ND6	31	36	8	18	726.1971375
-Dactylomys_dactylinus	ND6	39	39	0	10	739.009588885667
-Niviventer_excelsior	ND6	34	27	2	15	639.631831820818
-Proedromys_liangshanensis	ND6	43	28	3	15	589.388299099621
-Macroscelides_proboscideus	ND6	50	30	0	22	995.97395
-Meriones_meridianus	ND6	34	35	5	19	608.148016666667
-Isoodon_macrourus	ND6	35	39	1	15	623.745
-Apodemus_chevrieri	ND6	36	30	3	13	554.1929125
-Crocidura_grayi	ND6	26	42	1	20	427.67965
-Scapanulus_oweni	ND6	42	29	2	15	759.185721428571
-Episoriculus_fumidus	ND6	42	36	1	15	426.91011944525
-Akodon_montensis	ND6	42	23	2	30	589.388299099621
-Myodes_regulus	ND6	38	26	2	24	433.359922223833
-Hylopetes_phayrei	ND6	27	39	1	23	1384.1212625
-Tscherskia_triton	ND6	35	29	7	16	589.388299099621
-Tarsipes_rostratus	ND6	50	27	3	15	341.275
-Leopardus_jacobita	ND6	38	29	4	26	1392.97
-Notoryctes_typhlops	ND6	41	28	1	21	998.676563583815
-Mus_caroli	ND6	40	24	0	19	628.295
-Ochotona_princeps	ND6	42	27	2	27	1045.7507
-Rattus_tiomanicus	ND6	36	32	0	13	534.7590666715
-Ctenomys_leucodon	ND6	36	32	2	18	600.93415
-Mesocricetus_auratus	ND6	29	44	2	14	787.9135
-Galemys_pyrenaicus	ND6	40	29	4	13	730
-Crocidura_attenuata	ND6	32	40	1	19	427.67965
-Metachirus_nudicaudatus	ND6	34	39	5	7	843.373422219
-Sorex_araneus	ND6	38	31	2	25	524.7815
-Mogera_robusta	ND6	45	36	2	9	759.185721428571
-Crocidura_mindorus	ND6	25	43	3	19	427.67965
-Microtus_levis	ND6	37	28	1	22	373.623802083937
-Blarinella_quadraticauda	ND6	29	37	2	21	379.29295625
-Dromiciops_gliroides	ND6	39	32	6	15	998.676563583815
-Tamiops_maritimus	ND6	31	32	0	22	1239.29886944283
-Talpa_europaea	ND6	36	28	5	22	1000.1
-Cricetulus_kamensis	ND6	39	34	0	19	589.388299099621
-Rattus_fuscipes	ND6	35	22	1	26	558.507283343
-Acomys_cahirinus	ND6	36	27	3	23	650.0125
-Caenolestes_fuliginosus	ND6	45	32	1	13	998.676563583815
-Microtus_ochrogaster	ND6	42	25	2	19	615.4024
-Jaculus_jaculus	ND6	32	23	5	30	919.8561
-Dremomys_rufigenis	ND6	33	27	2	26	1384.1212625
-Lepus_europaeus	ND6	35	34	2	22	730
-Laonastes_aenigmamus	ND6	42	26	6	20	1032.92357373767
-Monodelphis_domestica	ND6	40	33	2	8	717.0425
-Rattus_tanezumi	ND6	36	31	0	13	534.7590666715
-Lepus_timidus	ND6	33	39	0	20	1047.27668
-Eothenomys_miletus	ND6	36	20	2	29	589.388299099621
-Rattus_praetor	ND6	32	24	2	25	534.7590666715
-Cricetulus_longicaudatus	ND6	34	38	7	10	589.388299099621
-Rhizomys_sinensis	ND6	44	29	1	21	717.776243621518
-Macrotis_lagotis	ND6	48	32	2	9	1183.8648
-Wiedomys_cerradensis	ND6	40	34	1	20	589.388299099621
-Lepus_coreanus	ND6	32	38	1	21	1047.27668
-Hylomys_suillus	ND6	27	49	3	11	1202.9252375
-Mustela_kathiah	ND6	46	31	5	13	1253.04
-Sorex_unguiculatus	ND6	40	30	2	21	392.4667
-Crocidura_shantungensis	ND6	32	42	1	15	409.171225
-Hemiechinus_auritus	ND6	40	36	0	6	940.3939
-Lepus_tolai	ND6	31	39	0	22	1047.27668
-Mus_fragilicauda	ND6	39	26	0	21	628.295
-Episoriculus_macrurus	ND6	39	37	1	17	426.91011944525
-Didelphis_virginiana	ND6	34	41	5	4	745.99
-Spalacopus_cyanus	ND6	41	26	2	23	1310.04695
-Tamias_sibiricus	ND6	39	32	1	14	1311.5224
-Cephalophus_spadix	ND6	35	29	6	19	962.787
-Spermophilus_dauricus	ND6	30	44	2	12	1053.68290714286
-Pseudocheirus_peregrinus	ND6	42	27	4	16	1217.0925
-Rattus_tunneyi	ND6	35	25	1	23	534.7590666715
-Sminthopsis_crassicaudata	ND6	33	37	4	15	594.4425
-Sminthopsis_douglasi	ND6	28	34	6	22	546.026466666667
-Apodemus_latronum	ND6	42	29	0	14	554.1929125
-Lepus_sinensis	ND6	33	35	4	21	1047.27668
-Thryonomys_swinderianus	ND6	28	32	2	20	837.31
-Niviventer_fulvescens	ND6	38	26	0	15	624.399640909091
-Rattus_exulans	ND6	36	24	2	17	534.7590666715
-Chrysochloris_asiatica	ND6	46	35	1	14	1036.5575833285
-Neomys_fodiens	ND6	29	44	5	14	576.8888
-Neotetracus_sinensis	ND6	34	41	0	19	1202.9252375
-Mus_musculus	ND6	37	35	0	16	628.295
-Ochotona_collaris	ND6	39	26	1	33	894.25
-Perameles_gunnii	ND6	40	34	1	17	706.1569
-Rattus_leucopus	ND6	36	20	1	28	534.7590666715
-Mus_cookii	ND6	35	32	0	12	628.295
-Rattus_villosissimus	ND6	34	22	4	24	534.7590666715
-Eremitalpa_granti	ND6	32	34	1	24	1036.5575833285
-Meriones_libycus	ND6	42	23	3	20	649.48035
-Eospalax_rothschildi	ND6	38	33	1	15	1032.92357373767
-Vulpes_ferrilata	ND6	34	33	8	18	1427.3028
-Lepus_capensis	ND6	32	39	0	22	1047.27668
-Mus_terricolor	ND6	38	27	1	22	435.665
-Pteromys_volans	ND6	28	36	2	18	1384.1212625
-Eothenomys_chinensis	ND6	38	24	4	25	589.388299099621
-Rhyncholestes_raphanurus	ND6	49	30	6	4	998.676563583815
-Cephalophus_adersi	ND6	36	28	5	21	703.088
-Lepus_hainanus	ND6	34	36	3	18	1047.27668
-Nectogale_elegans	ND6	36	41	0	16	379.29295625
-Cynopterus_brachyotis	ND6	33	27	4	31	1287.664
-Phascogale_tapoatafa	ND6	41	31	2	17	878.35415
-Rattus_lutreolus	ND6	35	20	2	26	440.292083343
-Rattus_sordidus	ND6	38	19	1	24	534.7590666715
-Niviventer_confucianus	ND6	33	27	2	14	624.399640909091
-Microtus_kikuchii	ND6	38	28	3	22	373.623802083937
-Urotrichus_talpoides	ND6	43	31	3	14	680.5528
-Distoechurus_pennatus	ND6	42	34	1	10	997.9661
-Lepus_americanus	ND6	29	41	7	15	1105.95
-Myodes_rufocanus	ND6	38	29	2	21	433.359922223833
-Lasiopodomys_mandarinus	ND6	42	30	3	23	589.388299099621
-Mustela_frenata	ND6	47	27	3	21	986.110483343
-Neodon_irene	ND6	38	30	1	19	589.388299099621
-Ochotona_curzoniae	ND6	31	32	4	30	751.47417
-Pseudomys_chapmani	ND6	46	25	2	16	884.68295
+Species	Gene	NeutralA	NeutralT	NeutralG	NeutralC	GenerationLength_d	ECO.Maximum.longevity..yrs.	ECO.Body.mass..g.	ECO.Metabolic.rate..W.	ECO.Temperature..K.
+Mus_caroli	ATP6	54	26	6	20	628.295	NA	NA	NA	NA
+Leggadina_lakedownensis	ATP6	67	16	1	21	624.399640909091	NA	NA	NA	NA
+Myodes_regulus	ATP6	49	23	3	34	433.359922223833	NA	NA	NA	NA
+Rattus_tanezumi	ATP6	58	27	3	22	534.7590666715	NA	NA	NA	NA
+Cricetulus_kamensis	ATP6	45	18	8	42	589.388299099621	NA	NA	NA	NA
+Apodemus_peninsulae	ATP6	63	31	0	16	554.1929125	4.4	NA	NA	NA
+Sorex_cylindricauda	ATP6	58	22	1	25	422.884597917875	NA	NA	NA	NA
+Anourosorex_squamipes	ATP6	61	27	0	19	379.29295625	NA	NA	NA	NA
+Akodon_montensis	ATP6	42	27	5	38	589.388299099621	NA	NA	NA	NA
+Rattus_rattus	ATP6	57	27	2	22	546.1994	4.2	117	0.77	311.15
+Episoriculus_fumidus	ATP6	59	24	4	26	426.91011944525	NA	NA	NA	NA
+Cricetulus_longicaudatus	ATP6	57	32	4	18	589.388299099621	NA	NA	NA	NA
+Apodemus_draco	ATP6	65	18	3	23	554.1929125	NA	NA	NA	NA
+Leopoldamys_edwardsi	ATP6	55	23	6	23	639.631831820818	NA	NA	NA	NA
+Nectogale_elegans	ATP6	57	37	3	15	379.29295625	NA	NA	NA	NA
+Meriones_meridianus	ATP6	55	28	8	20	608.148016666667	6.8	NA	NA	NA
+Crocidura_mindorus	ATP6	49	31	3	27	427.67965	NA	NA	NA	NA
+Mus_fragilicauda	ATP6	60	18	5	27	628.295	NA	NA	NA	NA
+Apodemus_chevrieri	ATP6	61	22	2	25	554.1929125	NA	NA	NA	NA
+Apodemus_latronum	ATP6	64	25	0	19	554.1929125	NA	NA	NA	NA
+Suncus_murinus	ATP6	49	40	2	18	363.52745	3.2	39.7	0.403	311.85
+Rattus_villosissimus	ATP6	61	14	3	28	534.7590666715	NA	NA	NA	NA
+Crocidura_grayi	ATP6	52	34	3	23	427.67965	NA	NA	NA	NA
+Episoriculus_caudatus	ATP6	56	33	5	18	426.91011944525	NA	NA	NA	NA
+Crocidura_palawanensis	ATP6	47	34	5	25	409.171225	NA	NA	NA	NA
+Niviventer_excelsior	ATP6	57	20	4	26	639.631831820818	NA	NA	NA	NA
+Mus_cervicolor	ATP6	63	23	3	19	628.295	NA	NA	NA	NA
+Sorex_araneus	ATP6	54	30	5	21	524.7815	3.2	8.4	0.348	308.15
+Proechimys_longicaudatus	ATP6	49	38	6	19	631.7859833285	NA	NA	NA	NA
+Rattus_lutreolus	ATP6	62	16	5	28	440.292083343	4.4	109	0.353	309.85
+Mus_cookii	ATP6	60	24	3	22	628.295	NA	NA	NA	NA
+Crocidura_negrina	ATP6	49	37	3	22	427.67965	NA	NA	NA	NA
+Rattus_tiomanicus	ATP6	59	22	2	23	534.7590666715	NA	NA	NA	NA
+Rattus_tunneyi	ATP6	61	13	4	29	534.7590666715	NA	NA	NA	NA
+Crocidura_beatus	ATP6	49	36	3	23	427.67965	NA	NA	NA	NA
+Condylura_cristata	ATP6	56	30	5	14	558.6411	2.5	49	0.615	310.85
+Blarinella_quadraticauda	ATP6	54	38	1	16	379.29295625	NA	NA	NA	NA
+Rattus_praetor	ATP6	57	15	7	29	534.7590666715	NA	NA	NA	NA
+Mus_musculus	ATP6	64	22	1	20	628.295	4	18	0.271	310.05
+Mus_famulus	ATP6	55	27	4	23	628.295	NA	NA	NA	NA
+Microtus_levis	ATP6	50	26	4	35	373.623802083937	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ATP6	53	26	7	35	589.388299099621	NA	NA	NA	NA
+Crocidura_orientalis	ATP6	48	36	3	25	427.67965	NA	NA	NA	NA
+Rattus_exulans	ATP6	57	21	4	25	534.7590666715	NA	NA	NA	NA
+Crocidura_shantungensis	ATP6	49	35	3	22	409.171225	NA	NA	NA	NA
+Tarsipes_rostratus	ATP6	52	29	3	24	341.275	NA	10	0.162	309.75
+Microtus_ochrogaster	ATP6	55	21	1	36	615.4024	5.3	48.2	0.41	311.05
+Microtus_kikuchii	ATP6	50	16	5	40	373.623802083937	NA	NA	NA	NA
+Tlacuatzin_canescens	ATP6	66	26	2	11	642.840025	NA	NA	NA	NA
+Neodon_irene	ATP6	49	20	6	39	589.388299099621	NA	NA	NA	NA
+Mus_spretus	ATP6	61	19	4	23	628.295	NA	NA	NA	NA
+Eothenomys_chinensis	ATP6	52	18	5	40	589.388299099621	NA	NA	NA	NA
+Neomys_fodiens	ATP6	52	36	4	21	576.8888	3.1	16	0.328	310.45
+Mus_terricolor	ATP6	51	24	5	26	435.665	NA	NA	NA	NA
+Sorex_tundrensis	ATP6	53	27	7	21	422.884597917875	NA	NA	NA	NA
+Sminthopsis_douglasi	ATP6	46	29	4	32	546.026466666667	NA	NA	NA	NA
+Rattus_fuscipes	ATP6	61	17	4	27	558.507283343	5.3	76	0.471	310.65
+Episoriculus_macrurus	ATP6	57	30	2	24	426.91011944525	NA	NA	NA	NA
+Micromys_minutus	ATP6	53	25	3	26	502.66	3.8	7.6	0.201	311.15
+Proedromys_liangshanensis	ATP6	57	16	8	31	589.388299099621	NA	NA	NA	NA
+Sorex_unguiculatus	ATP6	56	32	4	17	392.4667	NA	NA	NA	NA
+Ctenomys_leucodon	ATP6	49	25	5	24	600.93415	NA	NA	NA	NA
+Niviventer_fulvescens	ATP6	57	26	5	18	624.399640909091	NA	NA	NA	NA
+Isoodon_macrourus	ATP6	53	33	0	25	623.745	6.8	1551	3.202	309.05
+Eothenomys_melanogaster	ATP6	58	25	7	27	589.388299099621	NA	NA	NA	NA
+Wiedomys_cerradensis	ATP6	44	29	6	36	589.388299099621	NA	NA	NA	NA
+Niviventer_confucianus	ATP6	59	23	3	22	624.399640909091	NA	NA	NA	NA
+Myodes_rufocanus	ATP6	49	19	2	37	433.359922223833	NA	NA	NA	NA
+Tscherskia_triton	ATP6	43	17	9	45	589.388299099621	NA	NA	NA	NA
+Bandicota_indica	ATP6	60	17	5	25	639.631831820818	NA	NA	NA	NA
+Apodemus_agrarius	ATP6	58	32	3	19	504.40745	NA	21.2	0.373	NA
+Crocidura_attenuata	ATP6	50	28	6	24	427.67965	NA	NA	NA	NA
+Thylamys_elegans	ATP6	49	28	8	30	642.840025	NA	NA	NA	NA
+Rattus_leucopus	ATP6	59	16	4	26	534.7590666715	NA	NA	NA	NA
+Rattus_sordidus	ATP6	61	15	2	29	534.7590666715	NA	NA	NA	NA
+Myodes_glareolus	ATP6	52	22	5	33	577.7512	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ATP6	42	37	6	29	594.4425	5	16	0.121	308.35
+Crocidura_lasiura	ATP6	48	36	2	23	427.67965	NA	NA	NA	NA
+Eothenomys_miletus	ATP6	56	23	7	31	589.388299099621	NA	NA	NA	NA
+Rattus_niobe	ATP6	59	18	7	26	534.7590666715	NA	NA	NA	NA
+Meriones_unguiculatus	ATP6	55	25	8	22	503.8875	6.3	64.8	0.546	311.35
+Leggadina_lakedownensis	ATP8	31	3	2	5	624.399640909091	NA	NA	NA	NA
+Crocidura_palawanensis	ATP8	23	9	0	1	409.171225	NA	NA	NA	NA
+Bandicota_indica	ATP8	27	9	0	5	639.631831820818	NA	NA	NA	NA
+Suncus_murinus	ATP8	23	8	2	2	363.52745	3.2	39.7	0.403	311.85
+Crocidura_orientalis	ATP8	22	6	0	4	427.67965	NA	NA	NA	NA
+Apodemus_peninsulae	ATP8	25	11	0	5	554.1929125	4.4	NA	NA	NA
+Thylamys_elegans	ATP8	23	5	0	9	642.840025	NA	NA	NA	NA
+Myodes_regulus	ATP8	25	4	1	7	433.359922223833	NA	NA	NA	NA
+Episoriculus_macrurus	ATP8	24	4	0	3	426.91011944525	NA	NA	NA	NA
+Mus_caroli	ATP8	31	5	0	1	628.295	NA	NA	NA	NA
+Meriones_unguiculatus	ATP8	22	10	1	4	503.8875	6.3	64.8	0.546	311.35
+Niviventer_confucianus	ATP8	27	7	3	3	624.399640909091	NA	NA	NA	NA
+Sminthopsis_douglasi	ATP8	22	7	3	4	546.026466666667	NA	NA	NA	NA
+Eothenomys_melanogaster	ATP8	28	8	2	7	589.388299099621	NA	NA	NA	NA
+Crocidura_shantungensis	ATP8	24	7	0	4	409.171225	NA	NA	NA	NA
+Rattus_leucopus	ATP8	25	3	1	9	534.7590666715	NA	NA	NA	NA
+Crocidura_attenuata	ATP8	22	6	0	4	427.67965	NA	NA	NA	NA
+Micromys_minutus	ATP8	26	8	1	5	502.66	3.8	7.6	0.201	311.15
+Proedromys_liangshanensis	ATP8	27	7	3	4	589.388299099621	NA	NA	NA	NA
+Wiedomys_cerradensis	ATP8	24	5	1	4	589.388299099621	NA	NA	NA	NA
+Episoriculus_caudatus	ATP8	24	8	1	3	426.91011944525	NA	NA	NA	NA
+Rattus_praetor	ATP8	26	4	0	8	534.7590666715	NA	NA	NA	NA
+Eothenomys_chinensis	ATP8	25	10	2	5	589.388299099621	NA	NA	NA	NA
+Mus_famulus	ATP8	31	1	0	9	628.295	NA	NA	NA	NA
+Episoriculus_fumidus	ATP8	24	6	1	3	426.91011944525	NA	NA	NA	NA
+Isoodon_macrourus	ATP8	25	4	0	1	623.745	6.8	1551	3.202	309.05
+Crocidura_mindorus	ATP8	23	9	0	1	427.67965	NA	NA	NA	NA
+Myodes_glareolus	ATP8	27	6	1	6	577.7512	NA	NA	NA	NA
+Rattus_rattus	ATP8	26	3	0	8	546.1994	4.2	117	0.77	311.15
+Rattus_tanezumi	ATP8	28	3	1	8	534.7590666715	NA	NA	NA	NA
+Mus_cookii	ATP8	30	3	0	8	628.295	NA	NA	NA	NA
+Microtus_levis	ATP8	27	7	2	4	373.623802083937	NA	NA	NA	NA
+Crocidura_grayi	ATP8	23	8	0	2	427.67965	NA	NA	NA	NA
+Mus_spretus	ATP8	32	2	1	4	628.295	NA	NA	NA	NA
+Neomys_fodiens	ATP8	21	7	0	2	576.8888	3.1	16	0.328	310.45
+Proechimys_longicaudatus	ATP8	25	6	0	6	631.7859833285	NA	NA	NA	NA
+Blarinella_quadraticauda	ATP8	23	5	0	5	379.29295625	NA	NA	NA	NA
+Apodemus_latronum	ATP8	28	6	0	4	554.1929125	NA	NA	NA	NA
+Rattus_lutreolus	ATP8	24	4	1	8	440.292083343	4.4	109	0.353	309.85
+Crocidura_negrina	ATP8	23	9	0	1	427.67965	NA	NA	NA	NA
+Niviventer_excelsior	ATP8	27	6	2	6	639.631831820818	NA	NA	NA	NA
+Mus_fragilicauda	ATP8	29	2	2	6	628.295	NA	NA	NA	NA
+Leopoldamys_edwardsi	ATP8	27	5	1	7	639.631831820818	NA	NA	NA	NA
+Nectogale_elegans	ATP8	21	4	1	6	379.29295625	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ATP8	28	8	0	4	589.388299099621	NA	NA	NA	NA
+Sorex_araneus	ATP8	22	7	2	4	524.7815	3.2	8.4	0.348	308.15
+Cricetulus_kamensis	ATP8	23	7	0	6	589.388299099621	NA	NA	NA	NA
+Rattus_fuscipes	ATP8	25	7	0	8	558.507283343	5.3	76	0.471	310.65
+Rattus_niobe	ATP8	26	4	1	7	534.7590666715	NA	NA	NA	NA
+Microtus_kikuchii	ATP8	27	6	1	4	373.623802083937	NA	NA	NA	NA
+Mus_cervicolor	ATP8	31	4	0	4	628.295	NA	NA	NA	NA
+Rattus_tiomanicus	ATP8	27	6	0	6	534.7590666715	NA	NA	NA	NA
+Sorex_cylindricauda	ATP8	22	9	0	3	422.884597917875	NA	NA	NA	NA
+Mus_terricolor	ATP8	29	2	1	6	435.665	NA	NA	NA	NA
+Microtus_ochrogaster	ATP8	29	5	1	5	615.4024	5.3	48.2	0.41	311.05
+Rattus_sordidus	ATP8	24	5	0	8	534.7590666715	NA	NA	NA	NA
+Myodes_rufocanus	ATP8	25	4	1	8	433.359922223833	NA	NA	NA	NA
+Tarsipes_rostratus	ATP8	22	11	0	3	341.275	NA	10	0.162	309.75
+Crocidura_beatus	ATP8	23	9	0	1	427.67965	NA	NA	NA	NA
+Anourosorex_squamipes	ATP8	24	4	0	6	379.29295625	NA	NA	NA	NA
+Apodemus_draco	ATP8	26	11	3	3	554.1929125	NA	NA	NA	NA
+Meriones_meridianus	ATP8	22	8	0	7	608.148016666667	6.8	NA	NA	NA
+Crocidura_lasiura	ATP8	23	7	0	2	427.67965	NA	NA	NA	NA
+Eothenomys_miletus	ATP8	26	5	2	7	589.388299099621	NA	NA	NA	NA
+Sorex_tundrensis	ATP8	23	7	1	4	422.884597917875	NA	NA	NA	NA
+Mus_musculus	ATP8	33	2	1	4	628.295	4	18	0.271	310.05
+Niviventer_fulvescens	ATP8	27	2	1	7	624.399640909091	NA	NA	NA	NA
+Tscherskia_triton	ATP8	22	6	1	8	589.388299099621	NA	NA	NA	NA
+Akodon_montensis	ATP8	25	7	0	7	589.388299099621	NA	NA	NA	NA
+Apodemus_chevrieri	ATP8	27	7	0	6	554.1929125	NA	NA	NA	NA
+Condylura_cristata	ATP8	28	3	1	1	558.6411	2.5	49	0.615	310.85
+Cricetulus_longicaudatus	ATP8	22	9	2	4	589.388299099621	NA	NA	NA	NA
+Tlacuatzin_canescens	ATP8	23	4	0	3	642.840025	NA	NA	NA	NA
+Ctenomys_leucodon	ATP8	22	6	0	2	600.93415	NA	NA	NA	NA
+Apodemus_agrarius	ATP8	27	7	0	6	504.40745	NA	21.2	0.373	NA
+Neodon_irene	ATP8	27	4	4	6	589.388299099621	NA	NA	NA	NA
+Rattus_tunneyi	ATP8	25	5	0	9	534.7590666715	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ATP8	21	5	3	7	594.4425	5	16	0.121	308.35
+Rattus_villosissimus	ATP8	25	5	1	7	534.7590666715	NA	NA	NA	NA
+Rattus_exulans	ATP8	27	5	0	7	534.7590666715	NA	NA	NA	NA
+Sorex_unguiculatus	ATP8	23	4	0	5	392.4667	NA	NA	NA	NA
+Condylura_cristata	COX1	144	61	8	42	558.6411	2.5	49	0.615	310.85
+Mus_famulus	COX1	139	68	10	48	628.295	NA	NA	NA	NA
+Mus_fragilicauda	COX1	147	62	8	51	628.295	NA	NA	NA	NA
+Nectogale_elegans	COX1	103	103	11	49	379.29295625	NA	NA	NA	NA
+Crocidura_attenuata	COX1	101	102	6	48	427.67965	NA	NA	NA	NA
+Myodes_glareolus	COX1	132	46	11	78	577.7512	NA	NA	NA	NA
+Rattus_exulans	COX1	134	68	9	61	534.7590666715	NA	NA	NA	NA
+Myodes_regulus	COX1	127	55	11	73	433.359922223833	NA	NA	NA	NA
+Rattus_leucopus	COX1	136	60	8	67	534.7590666715	NA	NA	NA	NA
+Sorex_araneus	COX1	125	85	16	48	524.7815	3.2	8.4	0.348	308.15
+Crocidura_shantungensis	COX1	90	101	13	57	409.171225	NA	NA	NA	NA
+Eothenomys_melanogaster	COX1	119	51	20	79	589.388299099621	NA	NA	NA	NA
+Mus_caroli	COX1	143	78	7	39	628.295	NA	NA	NA	NA
+Blarinella_quadraticauda	COX1	118	96	5	46	379.29295625	NA	NA	NA	NA
+Crocidura_mindorus	COX1	104	96	9	53	427.67965	NA	NA	NA	NA
+Suncus_murinus	COX1	104	99	11	45	363.52745	3.2	39.7	0.403	311.85
+Episoriculus_caudatus	COX1	122	74	12	59	426.91011944525	NA	NA	NA	NA
+Wiedomys_cerradensis	COX1	113	79	17	61	589.388299099621	NA	NA	NA	NA
+Leopoldamys_edwardsi	COX1	133	74	13	53	639.631831820818	NA	NA	NA	NA
+Mus_musculus	COX1	143	58	12	55	628.295	4	18	0.271	310.05
+Apodemus_chevrieri	COX1	139	76	12	42	554.1929125	NA	NA	NA	NA
+Cricetulus_kamensis	COX1	125	56	19	66	589.388299099621	NA	NA	NA	NA
+Rattus_villosissimus	COX1	126	62	12	68	534.7590666715	NA	NA	NA	NA
+Niviventer_fulvescens	COX1	140	73	14	43	624.399640909091	NA	NA	NA	NA
+Ctenomys_leucodon	COX1	132	69	11	41	600.93415	NA	NA	NA	NA
+Bandicota_indica	COX1	127	72	16	56	639.631831820818	NA	NA	NA	NA
+Sorex_cylindricauda	COX1	121	90	10	50	422.884597917875	NA	NA	NA	NA
+Microtus_levis	COX1	124	66	18	58	373.623802083937	NA	NA	NA	NA
+Apodemus_draco	COX1	155	59	2	48	554.1929125	NA	NA	NA	NA
+Tlacuatzin_canescens	COX1	142	75	2	32	642.840025	NA	NA	NA	NA
+Tarsipes_rostratus	COX1	109	88	6	58	341.275	NA	10	0.162	309.75
+Rattus_tiomanicus	COX1	131	59	9	72	534.7590666715	NA	NA	NA	NA
+Micromys_minutus	COX1	112	90	11	53	502.66	3.8	7.6	0.201	311.15
+Isoodon_macrourus	COX1	133	78	9	35	623.745	6.8	1551	3.202	309.05
+Anourosorex_squamipes	COX1	130	82	7	51	379.29295625	NA	NA	NA	NA
+Rattus_fuscipes	COX1	136	67	8	61	558.507283343	5.3	76	0.471	310.65
+Apodemus_latronum	COX1	153	70	6	34	554.1929125	NA	NA	NA	NA
+Proedromys_liangshanensis	COX1	124	54	26	64	589.388299099621	NA	NA	NA	NA
+Niviventer_confucianus	COX1	138	69	9	56	624.399640909091	NA	NA	NA	NA
+Crocidura_negrina	COX1	99	99	12	50	427.67965	NA	NA	NA	NA
+Crocidura_orientalis	COX1	104	90	11	56	427.67965	NA	NA	NA	NA
+Rattus_sordidus	COX1	126	65	12	63	534.7590666715	NA	NA	NA	NA
+Crocidura_palawanensis	COX1	97	94	15	55	409.171225	NA	NA	NA	NA
+Crocidura_lasiura	COX1	93	99	17	53	427.67965	NA	NA	NA	NA
+Rattus_tanezumi	COX1	131	72	5	64	534.7590666715	NA	NA	NA	NA
+Sorex_unguiculatus	COX1	126	66	15	70	392.4667	NA	NA	NA	NA
+Sorex_tundrensis	COX1	131	83	9	51	422.884597917875	NA	NA	NA	NA
+Rattus_tunneyi	COX1	131	70	9	64	534.7590666715	NA	NA	NA	NA
+Neomys_fodiens	COX1	114	93	12	53	576.8888	3.1	16	0.328	310.45
+Thylamys_elegans	COX1	99	81	19	57	642.840025	NA	NA	NA	NA
+Mus_spretus	COX1	138	60	10	63	628.295	NA	NA	NA	NA
+Crocidura_beatus	COX1	99	105	13	45	427.67965	NA	NA	NA	NA
+Apodemus_agrarius	COX1	139	68	12	48	504.40745	NA	21.2	0.373	NA
+Mus_cervicolor	COX1	145	73	3	47	628.295	NA	NA	NA	NA
+Mus_terricolor	COX1	146	57	7	57	435.665	NA	NA	NA	NA
+Crocidura_grayi	COX1	98	99	16	49	427.67965	NA	NA	NA	NA
+Rattus_lutreolus	COX1	133	67	8	63	440.292083343	4.4	109	0.353	309.85
+Meriones_meridianus	COX1	127	60	17	55	608.148016666667	6.8	NA	NA	NA
+Sminthopsis_crassicaudata	COX1	115	90	19	46	594.4425	5	16	0.121	308.35
+Rattus_praetor	COX1	135	60	6	70	534.7590666715	NA	NA	NA	NA
+Rattus_rattus	COX1	126	64	14	68	546.1994	4.2	117	0.77	311.15
+Mus_cookii	COX1	150	72	4	37	628.295	NA	NA	NA	NA
+Sminthopsis_douglasi	COX1	105	87	27	45	546.026466666667	NA	NA	NA	NA
+Lasiopodomys_mandarinus	COX1	124	53	25	67	589.388299099621	NA	NA	NA	NA
+Rattus_niobe	COX1	136	61	9	63	534.7590666715	NA	NA	NA	NA
+Eothenomys_miletus	COX1	118	46	22	80	589.388299099621	NA	NA	NA	NA
+Episoriculus_macrurus	COX1	112	83	6	66	426.91011944525	NA	NA	NA	NA
+Proechimys_longicaudatus	COX1	115	90	18	32	631.7859833285	NA	NA	NA	NA
+Meriones_unguiculatus	COX1	131	65	15	49	503.8875	6.3	64.8	0.546	311.35
+Microtus_kikuchii	COX1	116	58	29	69	373.623802083937	NA	NA	NA	NA
+Apodemus_peninsulae	COX1	150	61	7	44	554.1929125	4.4	NA	NA	NA
+Eothenomys_chinensis	COX1	126	51	18	73	589.388299099621	NA	NA	NA	NA
+Tscherskia_triton	COX1	100	67	33	79	589.388299099621	NA	NA	NA	NA
+Niviventer_excelsior	COX1	130	74	14	51	639.631831820818	NA	NA	NA	NA
+Myodes_rufocanus	COX1	121	49	20	77	433.359922223833	NA	NA	NA	NA
+Neodon_irene	COX1	124	57	19	70	589.388299099621	NA	NA	NA	NA
+Episoriculus_fumidus	COX1	123	81	9	53	426.91011944525	NA	NA	NA	NA
+Akodon_montensis	COX1	112	60	20	80	589.388299099621	NA	NA	NA	NA
+Leggadina_lakedownensis	COX1	139	75	8	47	624.399640909091	NA	NA	NA	NA
+Microtus_ochrogaster	COX1	119	57	17	74	615.4024	5.3	48.2	0.41	311.05
+Cricetulus_longicaudatus	COX1	130	89	16	31	589.388299099621	NA	NA	NA	NA
+Myodes_regulus	COX2	51	28	7	28	433.359922223833	NA	NA	NA	NA
+Tlacuatzin_canescens	COX2	65	22	1	15	642.840025	NA	NA	NA	NA
+Leopoldamys_edwardsi	COX2	53	25	10	22	639.631831820818	NA	NA	NA	NA
+Eothenomys_melanogaster	COX2	51	19	5	37	589.388299099621	NA	NA	NA	NA
+Condylura_cristata	COX2	66	24	4	11	558.6411	2.5	49	0.615	310.85
+Rattus_tunneyi	COX2	49	26	5	27	534.7590666715	NA	NA	NA	NA
+Mus_cookii	COX2	54	32	0	21	628.295	NA	NA	NA	NA
+Crocidura_shantungensis	COX2	45	47	3	18	409.171225	NA	NA	NA	NA
+Apodemus_agrarius	COX2	58	36	3	11	504.40745	NA	21.2	0.373	NA
+Proedromys_liangshanensis	COX2	51	21	5	31	589.388299099621	NA	NA	NA	NA
+Rattus_tanezumi	COX2	59	27	2	18	534.7590666715	NA	NA	NA	NA
+Cricetulus_longicaudatus	COX2	55	36	9	14	589.388299099621	NA	NA	NA	NA
+Eothenomys_chinensis	COX2	48	24	7	29	589.388299099621	NA	NA	NA	NA
+Crocidura_attenuata	COX2	46	47	5	13	427.67965	NA	NA	NA	NA
+Mus_spretus	COX2	54	18	4	30	628.295	NA	NA	NA	NA
+Mus_famulus	COX2	53	32	2	22	628.295	NA	NA	NA	NA
+Myodes_glareolus	COX2	56	23	4	32	577.7512	NA	NA	NA	NA
+Apodemus_chevrieri	COX2	53	32	7	15	554.1929125	NA	NA	NA	NA
+Crocidura_orientalis	COX2	46	42	5	18	427.67965	NA	NA	NA	NA
+Mus_caroli	COX2	46	39	7	16	628.295	NA	NA	NA	NA
+Rattus_lutreolus	COX2	50	21	5	34	440.292083343	4.4	109	0.353	309.85
+Apodemus_peninsulae	COX2	60	24	2	17	554.1929125	4.4	NA	NA	NA
+Crocidura_negrina	COX2	46	38	1	25	427.67965	NA	NA	NA	NA
+Tarsipes_rostratus	COX2	44	34	4	27	341.275	NA	10	0.162	309.75
+Niviventer_excelsior	COX2	49	24	4	33	639.631831820818	NA	NA	NA	NA
+Anourosorex_squamipes	COX2	64	31	0	15	379.29295625	NA	NA	NA	NA
+Mus_cervicolor	COX2	51	32	1	23	628.295	NA	NA	NA	NA
+Myodes_rufocanus	COX2	50	34	7	23	433.359922223833	NA	NA	NA	NA
+Rattus_praetor	COX2	57	26	3	22	534.7590666715	NA	NA	NA	NA
+Mus_terricolor	COX2	53	30	1	22	435.665	NA	NA	NA	NA
+Mus_fragilicauda	COX2	53	32	6	15	628.295	NA	NA	NA	NA
+Rattus_leucopus	COX2	60	20	1	27	534.7590666715	NA	NA	NA	NA
+Rattus_tiomanicus	COX2	55	30	2	18	534.7590666715	NA	NA	NA	NA
+Microtus_kikuchii	COX2	48	24	7	33	373.623802083937	NA	NA	NA	NA
+Sorex_cylindricauda	COX2	54	38	7	17	422.884597917875	NA	NA	NA	NA
+Ctenomys_leucodon	COX2	57	27	2	15	600.93415	NA	NA	NA	NA
+Apodemus_draco	COX2	47	21	4	34	554.1929125	NA	NA	NA	NA
+Sorex_araneus	COX2	51	30	5	25	524.7815	3.2	8.4	0.348	308.15
+Sminthopsis_douglasi	COX2	44	30	7	27	546.026466666667	NA	NA	NA	NA
+Episoriculus_caudatus	COX2	58	31	4	22	426.91011944525	NA	NA	NA	NA
+Akodon_montensis	COX2	49	21	4	38	589.388299099621	NA	NA	NA	NA
+Mus_musculus	COX2	51	26	5	24	628.295	4	18	0.271	310.05
+Isoodon_macrourus	COX2	57	33	3	21	623.745	6.8	1551	3.202	309.05
+Proechimys_longicaudatus	COX2	61	27	3	16	631.7859833285	NA	NA	NA	NA
+Neomys_fodiens	COX2	57	27	8	18	576.8888	3.1	16	0.328	310.45
+Apodemus_latronum	COX2	59	26	2	18	554.1929125	NA	NA	NA	NA
+Rattus_fuscipes	COX2	54	25	2	27	558.507283343	5.3	76	0.471	310.65
+Eothenomys_miletus	COX2	45	24	6	33	589.388299099621	NA	NA	NA	NA
+Microtus_levis	COX2	52	27	6	23	373.623802083937	NA	NA	NA	NA
+Blarinella_quadraticauda	COX2	54	34	2	23	379.29295625	NA	NA	NA	NA
+Meriones_meridianus	COX2	55	26	6	18	608.148016666667	6.8	NA	NA	NA
+Thylamys_elegans	COX2	53	27	9	20	642.840025	NA	NA	NA	NA
+Tscherskia_triton	COX2	45	16	16	37	589.388299099621	NA	NA	NA	NA
+Niviventer_fulvescens	COX2	52	31	6	21	624.399640909091	NA	NA	NA	NA
+Nectogale_elegans	COX2	57	26	6	20	379.29295625	NA	NA	NA	NA
+Rattus_rattus	COX2	54	26	5	21	546.1994	4.2	117	0.77	311.15
+Sminthopsis_crassicaudata	COX2	46	28	3	29	594.4425	5	16	0.121	308.35
+Rattus_niobe	COX2	57	24	4	24	534.7590666715	NA	NA	NA	NA
+Crocidura_mindorus	COX2	45	38	1	26	427.67965	NA	NA	NA	NA
+Cricetulus_kamensis	COX2	56	31	4	21	589.388299099621	NA	NA	NA	NA
+Crocidura_beatus	COX2	44	40	4	22	427.67965	NA	NA	NA	NA
+Neodon_irene	COX2	47	21	4	34	589.388299099621	NA	NA	NA	NA
+Sorex_tundrensis	COX2	49	31	6	25	422.884597917875	NA	NA	NA	NA
+Niviventer_confucianus	COX2	52	34	4	20	624.399640909091	NA	NA	NA	NA
+Episoriculus_fumidus	COX2	55	24	3	30	426.91011944525	NA	NA	NA	NA
+Crocidura_lasiura	COX2	49	41	3	18	427.67965	NA	NA	NA	NA
+Wiedomys_cerradensis	COX2	54	35	3	22	589.388299099621	NA	NA	NA	NA
+Suncus_murinus	COX2	57	39	2	12	363.52745	3.2	39.7	0.403	311.85
+Sorex_unguiculatus	COX2	49	30	5	29	392.4667	NA	NA	NA	NA
+Episoriculus_macrurus	COX2	59	35	1	18	426.91011944525	NA	NA	NA	NA
+Micromys_minutus	COX2	62	18	2	27	502.66	3.8	7.6	0.201	311.15
+Crocidura_grayi	COX2	43	37	5	27	427.67965	NA	NA	NA	NA
+Leggadina_lakedownensis	COX2	60	24	4	22	624.399640909091	NA	NA	NA	NA
+Rattus_exulans	COX2	62	19	3	26	534.7590666715	NA	NA	NA	NA
+Meriones_unguiculatus	COX2	54	26	7	23	503.8875	6.3	64.8	0.546	311.35
+Lasiopodomys_mandarinus	COX2	46	24	6	34	589.388299099621	NA	NA	NA	NA
+Rattus_sordidus	COX2	52	23	1	31	534.7590666715	NA	NA	NA	NA
+Microtus_ochrogaster	COX2	50	26	5	30	615.4024	5.3	48.2	0.41	311.05
+Rattus_villosissimus	COX2	51	20	3	33	534.7590666715	NA	NA	NA	NA
+Crocidura_palawanensis	COX2	45	42	2	22	409.171225	NA	NA	NA	NA
+Bandicota_indica	COX2	52	20	5	29	639.631831820818	NA	NA	NA	NA
+Episoriculus_caudatus	COX3	72	31	2	34	426.91011944525	NA	NA	NA	NA
+Suncus_murinus	COX3	71	33	8	24	363.52745	3.2	39.7	0.403	311.85
+Tlacuatzin_canescens	COX3	76	24	1	25	642.840025	NA	NA	NA	NA
+Apodemus_peninsulae	COX3	78	31	1	22	554.1929125	4.4	NA	NA	NA
+Bandicota_indica	COX3	72	27	6	27	639.631831820818	NA	NA	NA	NA
+Niviventer_excelsior	COX3	70	22	5	34	639.631831820818	NA	NA	NA	NA
+Myodes_regulus	COX3	63	25	5	42	433.359922223833	NA	NA	NA	NA
+Crocidura_mindorus	COX3	62	33	5	31	427.67965	NA	NA	NA	NA
+Mus_fragilicauda	COX3	73	28	3	33	628.295	NA	NA	NA	NA
+Mus_cookii	COX3	73	31	2	31	628.295	NA	NA	NA	NA
+Leopoldamys_edwardsi	COX3	68	20	7	41	639.631831820818	NA	NA	NA	NA
+Mus_spretus	COX3	81	29	3	24	628.295	NA	NA	NA	NA
+Microtus_ochrogaster	COX3	68	16	5	44	615.4024	5.3	48.2	0.41	311.05
+Anourosorex_squamipes	COX3	69	33	3	29	379.29295625	NA	NA	NA	NA
+Crocidura_beatus	COX3	66	31	1	30	427.67965	NA	NA	NA	NA
+Mus_caroli	COX3	72	26	7	28	628.295	NA	NA	NA	NA
+Isoodon_macrourus	COX3	76	29	2	23	623.745	6.8	1551	3.202	309.05
+Rattus_tiomanicus	COX3	75	19	2	32	534.7590666715	NA	NA	NA	NA
+Condylura_cristata	COX3	90	18	0	20	558.6411	2.5	49	0.615	310.85
+Wiedomys_cerradensis	COX3	72	21	6	39	589.388299099621	NA	NA	NA	NA
+Apodemus_latronum	COX3	82	24	2	24	554.1929125	NA	NA	NA	NA
+Sorex_unguiculatus	COX3	67	30	3	30	392.4667	NA	NA	NA	NA
+Rattus_tunneyi	COX3	72	24	5	29	534.7590666715	NA	NA	NA	NA
+Crocidura_grayi	COX3	63	27	4	37	427.67965	NA	NA	NA	NA
+Crocidura_lasiura	COX3	58	39	5	32	427.67965	NA	NA	NA	NA
+Microtus_kikuchii	COX3	74	17	6	35	373.623802083937	NA	NA	NA	NA
+Microtus_levis	COX3	75	19	8	31	373.623802083937	NA	NA	NA	NA
+Neomys_fodiens	COX3	64	34	6	32	576.8888	3.1	16	0.328	310.45
+Eothenomys_chinensis	COX3	63	17	7	46	589.388299099621	NA	NA	NA	NA
+Myodes_rufocanus	COX3	63	18	6	48	433.359922223833	NA	NA	NA	NA
+Crocidura_attenuata	COX3	63	25	5	39	427.67965	NA	NA	NA	NA
+Mus_terricolor	COX3	80	23	2	30	435.665	NA	NA	NA	NA
+Neodon_irene	COX3	63	21	8	38	589.388299099621	NA	NA	NA	NA
+Rattus_lutreolus	COX3	73	17	2	36	440.292083343	4.4	109	0.353	309.85
+Tarsipes_rostratus	COX3	52	32	4	32	341.275	NA	10	0.162	309.75
+Apodemus_chevrieri	COX3	72	31	2	31	554.1929125	NA	NA	NA	NA
+Sminthopsis_douglasi	COX3	60	31	10	41	546.026466666667	NA	NA	NA	NA
+Proechimys_longicaudatus	COX3	66	29	7	35	631.7859833285	NA	NA	NA	NA
+Micromys_minutus	COX3	77	28	0	34	502.66	3.8	7.6	0.201	311.15
+Rattus_villosissimus	COX3	73	17	4	36	534.7590666715	NA	NA	NA	NA
+Proedromys_liangshanensis	COX3	71	17	6	34	589.388299099621	NA	NA	NA	NA
+Niviventer_fulvescens	COX3	73	24	3	31	624.399640909091	NA	NA	NA	NA
+Sminthopsis_crassicaudata	COX3	64	29	6	39	594.4425	5	16	0.121	308.35
+Rattus_praetor	COX3	73	19	3	33	534.7590666715	NA	NA	NA	NA
+Akodon_montensis	COX3	68	30	4	39	589.388299099621	NA	NA	NA	NA
+Sorex_cylindricauda	COX3	66	35	3	26	422.884597917875	NA	NA	NA	NA
+Ctenomys_leucodon	COX3	71	33	3	25	600.93415	NA	NA	NA	NA
+Blarinella_quadraticauda	COX3	70	42	4	20	379.29295625	NA	NA	NA	NA
+Lasiopodomys_mandarinus	COX3	64	21	11	37	589.388299099621	NA	NA	NA	NA
+Rattus_fuscipes	COX3	71	18	4	36	558.507283343	5.3	76	0.471	310.65
+Mus_cervicolor	COX3	77	35	3	18	628.295	NA	NA	NA	NA
+Rattus_leucopus	COX3	74	19	1	32	534.7590666715	NA	NA	NA	NA
+Cricetulus_kamensis	COX3	75	21	4	34	589.388299099621	NA	NA	NA	NA
+Rattus_rattus	COX3	76	23	1	29	546.1994	4.2	117	0.77	311.15
+Rattus_exulans	COX3	75	26	0	30	534.7590666715	NA	NA	NA	NA
+Episoriculus_macrurus	COX3	65	30	4	34	426.91011944525	NA	NA	NA	NA
+Apodemus_draco	COX3	82	32	1	20	554.1929125	NA	NA	NA	NA
+Niviventer_confucianus	COX3	74	18	4	35	624.399640909091	NA	NA	NA	NA
+Mus_musculus	COX3	75	33	2	25	628.295	4	18	0.271	310.05
+Meriones_meridianus	COX3	70	32	11	26	608.148016666667	6.8	NA	NA	NA
+Crocidura_shantungensis	COX3	67	35	3	25	409.171225	NA	NA	NA	NA
+Eothenomys_miletus	COX3	64	17	9	46	589.388299099621	NA	NA	NA	NA
+Crocidura_negrina	COX3	64	33	2	31	427.67965	NA	NA	NA	NA
+Sorex_tundrensis	COX3	67	25	2	39	422.884597917875	NA	NA	NA	NA
+Leggadina_lakedownensis	COX3	76	24	3	26	624.399640909091	NA	NA	NA	NA
+Crocidura_palawanensis	COX3	61	31	5	32	409.171225	NA	NA	NA	NA
+Apodemus_agrarius	COX3	73	34	4	27	504.40745	NA	21.2	0.373	NA
+Meriones_unguiculatus	COX3	66	28	10	28	503.8875	6.3	64.8	0.546	311.35
+Thylamys_elegans	COX3	63	37	5	28	642.840025	NA	NA	NA	NA
+Nectogale_elegans	COX3	66	36	1	32	379.29295625	NA	NA	NA	NA
+Eothenomys_melanogaster	COX3	66	23	4	46	589.388299099621	NA	NA	NA	NA
+Cricetulus_longicaudatus	COX3	78	34	5	19	589.388299099621	NA	NA	NA	NA
+Rattus_niobe	COX3	77	14	3	34	534.7590666715	NA	NA	NA	NA
+Episoriculus_fumidus	COX3	69	34	3	25	426.91011944525	NA	NA	NA	NA
+Mus_famulus	COX3	73	25	7	33	628.295	NA	NA	NA	NA
+Sorex_araneus	COX3	66	30	4	33	524.7815	3.2	8.4	0.348	308.15
+Crocidura_orientalis	COX3	61	36	4	30	427.67965	NA	NA	NA	NA
+Tscherskia_triton	COX3	60	24	22	39	589.388299099621	NA	NA	NA	NA
+Rattus_sordidus	COX3	73	11	5	41	534.7590666715	NA	NA	NA	NA
+Rattus_tanezumi	COX3	74	26	2	27	534.7590666715	NA	NA	NA	NA
+Myodes_glareolus	COX3	61	21	3	47	577.7512	NA	NA	NA	NA
+Isoodon_macrourus	CytB	100	42	3	34	623.745	6.8	1551	3.202	309.05
+Rattus_tiomanicus	CytB	100	21	4	52	534.7590666715	NA	NA	NA	NA
+Wiedomys_cerradensis	CytB	82	33	12	58	589.388299099621	NA	NA	NA	NA
+Bandicota_indica	CytB	97	26	8	50	639.631831820818	NA	NA	NA	NA
+Rattus_leucopus	CytB	92	25	5	56	534.7590666715	NA	NA	NA	NA
+Rattus_rattus	CytB	100	20	3	50	546.1994	4.2	117	0.77	311.15
+Crocidura_negrina	CytB	85	40	4	53	427.67965	NA	NA	NA	NA
+Crocidura_mindorus	CytB	84	36	3	55	427.67965	NA	NA	NA	NA
+Crocidura_lasiura	CytB	81	44	2	56	427.67965	NA	NA	NA	NA
+Rattus_niobe	CytB	97	25	3	55	534.7590666715	NA	NA	NA	NA
+Episoriculus_fumidus	CytB	92	34	5	43	426.91011944525	NA	NA	NA	NA
+Myodes_glareolus	CytB	93	27	6	57	577.7512	NA	NA	NA	NA
+Rattus_lutreolus	CytB	91	23	2	60	440.292083343	4.4	109	0.353	309.85
+Niviventer_fulvescens	CytB	89	36	2	47	624.399640909091	NA	NA	NA	NA
+Apodemus_peninsulae	CytB	100	38	6	36	554.1929125	4.4	NA	NA	NA
+Crocidura_grayi	CytB	86	39	7	50	427.67965	NA	NA	NA	NA
+Suncus_murinus	CytB	81	44	7	54	363.52745	3.2	39.7	0.403	311.85
+Myodes_rufocanus	CytB	93	24	6	62	433.359922223833	NA	NA	NA	NA
+Rattus_villosissimus	CytB	91	27	4	60	534.7590666715	NA	NA	NA	NA
+Blarinella_quadraticauda	CytB	92	37	5	40	379.29295625	NA	NA	NA	NA
+Anourosorex_squamipes	CytB	97	28	5	48	379.29295625	NA	NA	NA	NA
+Apodemus_agrarius	CytB	101	29	6	48	504.40745	NA	21.2	0.373	NA
+Microtus_kikuchii	CytB	102	16	5	58	373.623802083937	NA	NA	NA	NA
+Sorex_cylindricauda	CytB	96	42	5	42	422.884597917875	NA	NA	NA	NA
+Eothenomys_miletus	CytB	95	17	11	61	589.388299099621	NA	NA	NA	NA
+Sminthopsis_crassicaudata	CytB	78	49	11	55	594.4425	5	16	0.121	308.35
+Tscherskia_triton	CytB	72	43	20	57	589.388299099621	NA	NA	NA	NA
+Microtus_ochrogaster	CytB	102	25	8	49	615.4024	5.3	48.2	0.41	311.05
+Leopoldamys_edwardsi	CytB	90	30	7	59	639.631831820818	NA	NA	NA	NA
+Apodemus_chevrieri	CytB	98	32	12	41	554.1929125	NA	NA	NA	NA
+Crocidura_attenuata	CytB	85	39	2	54	427.67965	NA	NA	NA	NA
+Rattus_exulans	CytB	96	27	2	52	534.7590666715	NA	NA	NA	NA
+Akodon_montensis	CytB	78	35	13	65	589.388299099621	NA	NA	NA	NA
+Mus_famulus	CytB	103	24	3	38	628.295	NA	NA	NA	NA
+Neodon_irene	CytB	92	23	7	63	589.388299099621	NA	NA	NA	NA
+Meriones_meridianus	CytB	92	29	11	49	608.148016666667	6.8	NA	NA	NA
+Apodemus_draco	CytB	109	29	4	30	554.1929125	NA	NA	NA	NA
+Myodes_regulus	CytB	91	26	7	56	433.359922223833	NA	NA	NA	NA
+Meriones_unguiculatus	CytB	84	46	10	40	503.8875	6.3	64.8	0.546	311.35
+Micromys_minutus	CytB	100	38	1	44	502.66	3.8	7.6	0.201	311.15
+Microtus_levis	CytB	101	28	5	52	373.623802083937	NA	NA	NA	NA
+Condylura_cristata	CytB	121	21	1	30	558.6411	2.5	49	0.615	310.85
+Proedromys_liangshanensis	CytB	96	27	5	52	589.388299099621	NA	NA	NA	NA
+Crocidura_shantungensis	CytB	88	35	5	51	409.171225	NA	NA	NA	NA
+Lasiopodomys_mandarinus	CytB	91	27	7	60	589.388299099621	NA	NA	NA	NA
+Neomys_fodiens	CytB	90	37	5	48	576.8888	3.1	16	0.328	310.45
+Sorex_tundrensis	CytB	92	41	6	48	422.884597917875	NA	NA	NA	NA
+Mus_terricolor	CytB	95	20	3	45	435.665	NA	NA	NA	NA
+Rattus_fuscipes	CytB	87	21	8	65	558.507283343	5.3	76	0.471	310.65
+Thylamys_elegans	CytB	89	51	8	33	642.840025	NA	NA	NA	NA
+Niviventer_excelsior	CytB	89	38	9	52	639.631831820818	NA	NA	NA	NA
+Crocidura_beatus	CytB	85	38	4	55	427.67965	NA	NA	NA	NA
+Rattus_praetor	CytB	95	27	5	59	534.7590666715	NA	NA	NA	NA
+Rattus_tanezumi	CytB	100	22	3	50	534.7590666715	NA	NA	NA	NA
+Eothenomys_chinensis	CytB	102	23	1	57	589.388299099621	NA	NA	NA	NA
+Mus_cervicolor	CytB	103	33	1	36	628.295	NA	NA	NA	NA
+Sorex_araneus	CytB	93	33	5	54	524.7815	3.2	8.4	0.348	308.15
+Apodemus_latronum	CytB	106	36	5	25	554.1929125	NA	NA	NA	NA
+Mus_spretus	CytB	104	15	6	44	628.295	NA	NA	NA	NA
+Tlacuatzin_canescens	CytB	108	38	1	30	642.840025	NA	NA	NA	NA
+Niviventer_confucianus	CytB	91	32	8	52	624.399640909091	NA	NA	NA	NA
+Episoriculus_caudatus	CytB	91	39	5	45	426.91011944525	NA	NA	NA	NA
+Proechimys_longicaudatus	CytB	90	36	3	42	631.7859833285	NA	NA	NA	NA
+Nectogale_elegans	CytB	79	43	9	52	379.29295625	NA	NA	NA	NA
+Crocidura_palawanensis	CytB	84	37	4	54	409.171225	NA	NA	NA	NA
+Mus_fragilicauda	CytB	95	25	4	43	628.295	NA	NA	NA	NA
+Cricetulus_kamensis	CytB	105	28	3	50	589.388299099621	NA	NA	NA	NA
+Cricetulus_longicaudatus	CytB	87	66	8	28	589.388299099621	NA	NA	NA	NA
+Tarsipes_rostratus	CytB	73	41	6	63	341.275	NA	10	0.162	309.75
+Sminthopsis_douglasi	CytB	58	39	14	76	546.026466666667	NA	NA	NA	NA
+Rattus_sordidus	CytB	94	27	1	60	534.7590666715	NA	NA	NA	NA
+Mus_caroli	CytB	101	36	8	29	628.295	NA	NA	NA	NA
+Eothenomys_melanogaster	CytB	102	23	9	52	589.388299099621	NA	NA	NA	NA
+Sorex_unguiculatus	CytB	97	28	4	54	392.4667	NA	NA	NA	NA
+Ctenomys_leucodon	CytB	85	37	6	46	600.93415	NA	NA	NA	NA
+Leggadina_lakedownensis	CytB	103	30	1	43	624.399640909091	NA	NA	NA	NA
+Rattus_tunneyi	CytB	89	26	7	60	534.7590666715	NA	NA	NA	NA
+Crocidura_orientalis	CytB	85	35	2	56	427.67965	NA	NA	NA	NA
+Mus_musculus	CytB	98	19	6	48	628.295	4	18	0.271	310.05
+Mus_cookii	CytB	107	20	0	41	628.295	NA	NA	NA	NA
+Episoriculus_macrurus	CytB	95	34	5	48	426.91011944525	NA	NA	NA	NA
+Leggadina_lakedownensis	ND1	87	23	3	33	624.399640909091	NA	NA	NA	NA
+Crocidura_beatus	ND1	79	38	2	46	427.67965	NA	NA	NA	NA
+Niviventer_excelsior	ND1	73	18	2	61	639.631831820818	NA	NA	NA	NA
+Crocidura_palawanensis	ND1	75	37	5	47	409.171225	NA	NA	NA	NA
+Rattus_tanezumi	ND1	74	16	6	58	534.7590666715	NA	NA	NA	NA
+Eothenomys_chinensis	ND1	79	18	7	48	589.388299099621	NA	NA	NA	NA
+Apodemus_peninsulae	ND1	80	42	5	28	554.1929125	4.4	NA	NA	NA
+Rattus_exulans	ND1	61	29	5	54	534.7590666715	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND1	68	23	13	51	589.388299099621	NA	NA	NA	NA
+Rattus_rattus	ND1	68	15	11	60	546.1994	4.2	117	0.77	311.15
+Blarinella_quadraticauda	ND1	86	28	6	38	379.29295625	NA	NA	NA	NA
+Niviventer_confucianus	ND1	70	26	5	49	624.399640909091	NA	NA	NA	NA
+Neomys_fodiens	ND1	79	41	5	29	576.8888	3.1	16	0.328	310.45
+Meriones_meridianus	ND1	71	23	10	42	608.148016666667	6.8	NA	NA	NA
+Micromys_minutus	ND1	78	35	2	50	502.66	3.8	7.6	0.201	311.15
+Proedromys_liangshanensis	ND1	79	16	12	52	589.388299099621	NA	NA	NA	NA
+Microtus_ochrogaster	ND1	82	20	8	45	615.4024	5.3	48.2	0.41	311.05
+Tarsipes_rostratus	ND1	75	35	2	46	341.275	NA	10	0.162	309.75
+Proechimys_longicaudatus	ND1	73	39	5	39	631.7859833285	NA	NA	NA	NA
+Microtus_levis	ND1	85	28	5	43	373.623802083937	NA	NA	NA	NA
+Episoriculus_fumidus	ND1	91	29	6	33	426.91011944525	NA	NA	NA	NA
+Sorex_cylindricauda	ND1	82	36	4	37	422.884597917875	NA	NA	NA	NA
+Myodes_glareolus	ND1	81	18	6	51	577.7512	NA	NA	NA	NA
+Eothenomys_melanogaster	ND1	83	21	11	43	589.388299099621	NA	NA	NA	NA
+Apodemus_draco	ND1	90	33	2	31	554.1929125	NA	NA	NA	NA
+Rattus_praetor	ND1	68	28	5	53	534.7590666715	NA	NA	NA	NA
+Crocidura_mindorus	ND1	77	40	4	43	427.67965	NA	NA	NA	NA
+Mus_caroli	ND1	70	33	12	36	628.295	NA	NA	NA	NA
+Mus_famulus	ND1	80	27	9	34	628.295	NA	NA	NA	NA
+Rattus_tunneyi	ND1	71	21	4	58	534.7590666715	NA	NA	NA	NA
+Rattus_villosissimus	ND1	72	22	4	58	534.7590666715	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND1	68	43	10	42	594.4425	5	16	0.121	308.35
+Cricetulus_longicaudatus	ND1	81	32	8	30	589.388299099621	NA	NA	NA	NA
+Mus_cookii	ND1	84	27	8	31	628.295	NA	NA	NA	NA
+Mus_terricolor	ND1	81	22	3	45	435.665	NA	NA	NA	NA
+Crocidura_grayi	ND1	74	40	4	45	427.67965	NA	NA	NA	NA
+Crocidura_lasiura	ND1	75	41	2	50	427.67965	NA	NA	NA	NA
+Bandicota_indica	ND1	72	28	6	46	639.631831820818	NA	NA	NA	NA
+Apodemus_chevrieri	ND1	81	34	5	33	554.1929125	NA	NA	NA	NA
+Sorex_araneus	ND1	78	29	6	45	524.7815	3.2	8.4	0.348	308.15
+Microtus_kikuchii	ND1	82	11	10	54	373.623802083937	NA	NA	NA	NA
+Rattus_tiomanicus	ND1	75	17	3	58	534.7590666715	NA	NA	NA	NA
+Myodes_regulus	ND1	78	24	8	47	433.359922223833	NA	NA	NA	NA
+Akodon_montensis	ND1	79	18	7	48	589.388299099621	NA	NA	NA	NA
+Meriones_unguiculatus	ND1	69	33	8	41	503.8875	6.3	64.8	0.546	311.35
+Wiedomys_cerradensis	ND1	66	34	4	46	589.388299099621	NA	NA	NA	NA
+Tscherskia_triton	ND1	62	33	12	55	589.388299099621	NA	NA	NA	NA
+Eothenomys_miletus	ND1	83	20	9	47	589.388299099621	NA	NA	NA	NA
+Thylamys_elegans	ND1	60	47	5	47	642.840025	NA	NA	NA	NA
+Sminthopsis_douglasi	ND1	72	37	5	52	546.026466666667	NA	NA	NA	NA
+Apodemus_agrarius	ND1	82	33	6	35	504.40745	NA	21.2	0.373	NA
+Suncus_murinus	ND1	76	44	2	39	363.52745	3.2	39.7	0.403	311.85
+Mus_fragilicauda	ND1	79	28	5	38	628.295	NA	NA	NA	NA
+Tlacuatzin_canescens	ND1	88	31	0	26	642.840025	NA	NA	NA	NA
+Anourosorex_squamipes	ND1	92	34	3	28	379.29295625	NA	NA	NA	NA
+Rattus_niobe	ND1	69	25	5	54	534.7590666715	NA	NA	NA	NA
+Sorex_tundrensis	ND1	76	22	6	51	422.884597917875	NA	NA	NA	NA
+Isoodon_macrourus	ND1	79	40	4	26	623.745	6.8	1551	3.202	309.05
+Rattus_lutreolus	ND1	70	23	3	58	440.292083343	4.4	109	0.353	309.85
+Mus_musculus	ND1	80	25	8	37	628.295	4	18	0.271	310.05
+Cricetulus_kamensis	ND1	85	23	3	48	589.388299099621	NA	NA	NA	NA
+Niviventer_fulvescens	ND1	77	18	3	47	624.399640909091	NA	NA	NA	NA
+Sorex_unguiculatus	ND1	75	33	10	48	392.4667	NA	NA	NA	NA
+Crocidura_shantungensis	ND1	73	50	4	39	409.171225	NA	NA	NA	NA
+Crocidura_attenuata	ND1	80	40	2	45	427.67965	NA	NA	NA	NA
+Apodemus_latronum	ND1	88	34	0	26	554.1929125	NA	NA	NA	NA
+Myodes_rufocanus	ND1	79	29	8	42	433.359922223833	NA	NA	NA	NA
+Rattus_fuscipes	ND1	64	23	11	59	558.507283343	5.3	76	0.471	310.65
+Episoriculus_caudatus	ND1	88	20	1	51	426.91011944525	NA	NA	NA	NA
+Mus_spretus	ND1	76	23	12	38	628.295	NA	NA	NA	NA
+Crocidura_orientalis	ND1	76	40	2	42	427.67965	NA	NA	NA	NA
+Ctenomys_leucodon	ND1	73	38	5	35	600.93415	NA	NA	NA	NA
+Condylura_cristata	ND1	101	23	4	24	558.6411	2.5	49	0.615	310.85
+Rattus_sordidus	ND1	71	21	4	56	534.7590666715	NA	NA	NA	NA
+Episoriculus_macrurus	ND1	76	34	5	42	426.91011944525	NA	NA	NA	NA
+Neodon_irene	ND1	82	17	7	54	589.388299099621	NA	NA	NA	NA
+Nectogale_elegans	ND1	85	27	4	41	379.29295625	NA	NA	NA	NA
+Rattus_leucopus	ND1	72	25	5	55	534.7590666715	NA	NA	NA	NA
+Crocidura_negrina	ND1	76	45	2	40	427.67965	NA	NA	NA	NA
+Leopoldamys_edwardsi	ND1	70	28	6	57	639.631831820818	NA	NA	NA	NA
+Mus_cervicolor	ND1	87	27	2	31	628.295	NA	NA	NA	NA
+Bandicota_indica	ND2	85	25	4	49	639.631831820818	NA	NA	NA	NA
+Episoriculus_macrurus	ND2	84	36	2	38	426.91011944525	NA	NA	NA	NA
+Crocidura_shantungensis	ND2	66	38	6	49	409.171225	NA	NA	NA	NA
+Sorex_araneus	ND2	86	20	5	47	524.7815	3.2	8.4	0.348	308.15
+Rattus_praetor	ND2	91	17	3	53	534.7590666715	NA	NA	NA	NA
+Proedromys_liangshanensis	ND2	80	26	9	52	589.388299099621	NA	NA	NA	NA
+Crocidura_orientalis	ND2	69	33	2	53	427.67965	NA	NA	NA	NA
+Myodes_glareolus	ND2	70	21	7	56	577.7512	NA	NA	NA	NA
+Eothenomys_chinensis	ND2	79	22	3	52	589.388299099621	NA	NA	NA	NA
+Apodemus_latronum	ND2	81	37	0	42	554.1929125	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND2	72	45	4	54	594.4425	5	16	0.121	308.35
+Rattus_tiomanicus	ND2	89	25	3	44	534.7590666715	NA	NA	NA	NA
+Microtus_kikuchii	ND2	85	25	5	51	373.623802083937	NA	NA	NA	NA
+Rattus_lutreolus	ND2	89	18	7	54	440.292083343	4.4	109	0.353	309.85
+Episoriculus_fumidus	ND2	86	34	3	40	426.91011944525	NA	NA	NA	NA
+Anourosorex_squamipes	ND2	96	30	2	27	379.29295625	NA	NA	NA	NA
+Condylura_cristata	ND2	101	14	4	40	558.6411	2.5	49	0.615	310.85
+Rattus_tanezumi	ND2	84	22	9	47	534.7590666715	NA	NA	NA	NA
+Rattus_villosissimus	ND2	84	27	7	47	534.7590666715	NA	NA	NA	NA
+Crocidura_negrina	ND2	72	44	3	40	427.67965	NA	NA	NA	NA
+Cricetulus_kamensis	ND2	89	31	5	58	589.388299099621	NA	NA	NA	NA
+Myodes_regulus	ND2	69	18	10	63	433.359922223833	NA	NA	NA	NA
+Sorex_unguiculatus	ND2	87	24	7	41	392.4667	NA	NA	NA	NA
+Mus_terricolor	ND2	78	39	3	39	435.665	NA	NA	NA	NA
+Rattus_tunneyi	ND2	85	18	4	53	534.7590666715	NA	NA	NA	NA
+Meriones_unguiculatus	ND2	68	54	9	36	503.8875	6.3	64.8	0.546	311.35
+Crocidura_mindorus	ND2	70	35	1	52	427.67965	NA	NA	NA	NA
+Blarinella_quadraticauda	ND2	76	35	5	41	379.29295625	NA	NA	NA	NA
+Mus_cervicolor	ND2	78	30	4	47	628.295	NA	NA	NA	NA
+Crocidura_beatus	ND2	71	43	5	41	427.67965	NA	NA	NA	NA
+Niviventer_excelsior	ND2	80	30	7	45	639.631831820818	NA	NA	NA	NA
+Suncus_murinus	ND2	72	40	3	46	363.52745	3.2	39.7	0.403	311.85
+Sminthopsis_douglasi	ND2	67	35	6	62	546.026466666667	NA	NA	NA	NA
+Apodemus_peninsulae	ND2	78	51	2	27	554.1929125	4.4	NA	NA	NA
+Crocidura_grayi	ND2	68	43	3	44	427.67965	NA	NA	NA	NA
+Microtus_levis	ND2	78	32	5	46	373.623802083937	NA	NA	NA	NA
+Eothenomys_miletus	ND2	75	21	5	53	589.388299099621	NA	NA	NA	NA
+Mus_musculus	ND2	77	36	7	40	628.295	4	18	0.271	310.05
+Leopoldamys_edwardsi	ND2	72	23	8	65	639.631831820818	NA	NA	NA	NA
+Rattus_fuscipes	ND2	83	17	5	53	558.507283343	5.3	76	0.471	310.65
+Mus_famulus	ND2	78	31	4	46	628.295	NA	NA	NA	NA
+Mus_spretus	ND2	76	35	8	43	628.295	NA	NA	NA	NA
+Neodon_irene	ND2	75	30	7	55	589.388299099621	NA	NA	NA	NA
+Isoodon_macrourus	ND2	96	28	4	32	623.745	6.8	1551	3.202	309.05
+Microtus_ochrogaster	ND2	80	28	7	52	615.4024	5.3	48.2	0.41	311.05
+Apodemus_chevrieri	ND2	81	37	1	38	554.1929125	NA	NA	NA	NA
+Myodes_rufocanus	ND2	68	23	12	55	433.359922223833	NA	NA	NA	NA
+Crocidura_lasiura	ND2	72	33	3	55	427.67965	NA	NA	NA	NA
+Rattus_rattus	ND2	83	22	7	50	546.1994	4.2	117	0.77	311.15
+Neomys_fodiens	ND2	75	40	5	41	576.8888	3.1	16	0.328	310.45
+Cricetulus_longicaudatus	ND2	75	46	3	35	589.388299099621	NA	NA	NA	NA
+Episoriculus_caudatus	ND2	91	23	2	45	426.91011944525	NA	NA	NA	NA
+Crocidura_palawanensis	ND2	72	41	1	44	409.171225	NA	NA	NA	NA
+Rattus_niobe	ND2	83	18	4	55	534.7590666715	NA	NA	NA	NA
+Mus_caroli	ND2	84	35	4	35	628.295	NA	NA	NA	NA
+Tscherskia_triton	ND2	72	34	10	67	589.388299099621	NA	NA	NA	NA
+Rattus_exulans	ND2	88	25	5	42	534.7590666715	NA	NA	NA	NA
+Micromys_minutus	ND2	75	48	2	45	502.66	3.8	7.6	0.201	311.15
+Mus_cookii	ND2	76	37	3	45	628.295	NA	NA	NA	NA
+Proechimys_longicaudatus	ND2	92	36	3	30	631.7859833285	NA	NA	NA	NA
+Leggadina_lakedownensis	ND2	82	28	1	49	624.399640909091	NA	NA	NA	NA
+Mus_fragilicauda	ND2	78	32	3	50	628.295	NA	NA	NA	NA
+Tarsipes_rostratus	ND2	67	51	3	54	341.275	NA	10	0.162	309.75
+Niviventer_fulvescens	ND2	84	26	1	44	624.399640909091	NA	NA	NA	NA
+Thylamys_elegans	ND2	65	49	8	41	642.840025	NA	NA	NA	NA
+Rattus_sordidus	ND2	83	29	5	48	534.7590666715	NA	NA	NA	NA
+Rattus_leucopus	ND2	91	15	0	52	534.7590666715	NA	NA	NA	NA
+Akodon_montensis	ND2	66	39	7	62	589.388299099621	NA	NA	NA	NA
+Apodemus_draco	ND2	88	24	2	35	554.1929125	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND2	70	29	10	62	589.388299099621	NA	NA	NA	NA
+Tlacuatzin_canescens	ND2	83	28	2	36	642.840025	NA	NA	NA	NA
+Wiedomys_cerradensis	ND2	67	34	4	39	589.388299099621	NA	NA	NA	NA
+Sorex_tundrensis	ND2	87	26	6	46	422.884597917875	NA	NA	NA	NA
+Eothenomys_melanogaster	ND2	76	23	9	51	589.388299099621	NA	NA	NA	NA
+Apodemus_agrarius	ND2	84	35	3	35	504.40745	NA	21.2	0.373	NA
+Niviventer_confucianus	ND2	87	28	3	46	624.399640909091	NA	NA	NA	NA
+Ctenomys_leucodon	ND2	75	32	3	45	600.93415	NA	NA	NA	NA
+Nectogale_elegans	ND2	88	29	3	34	379.29295625	NA	NA	NA	NA
+Sorex_cylindricauda	ND2	85	25	2	47	422.884597917875	NA	NA	NA	NA
+Crocidura_attenuata	ND2	75	36	4	52	427.67965	NA	NA	NA	NA
+Meriones_meridianus	ND2	69	47	6	51	608.148016666667	6.8	NA	NA	NA
+Crocidura_attenuata	ND3	29	20	2	9	427.67965	NA	NA	NA	NA
+Rattus_tanezumi	ND3	35	13	4	14	534.7590666715	NA	NA	NA	NA
+Neodon_irene	ND3	32	9	3	21	589.388299099621	NA	NA	NA	NA
+Meriones_meridianus	ND3	31	11	2	14	608.148016666667	6.8	NA	NA	NA
+Tlacuatzin_canescens	ND3	39	13	1	10	642.840025	NA	NA	NA	NA
+Episoriculus_caudatus	ND3	34	16	1	13	426.91011944525	NA	NA	NA	NA
+Microtus_ochrogaster	ND3	36	11	4	15	615.4024	5.3	48.2	0.41	311.05
+Proechimys_longicaudatus	ND3	23	23	0	8	631.7859833285	NA	NA	NA	NA
+Isoodon_macrourus	ND3	34	12	1	10	623.745	6.8	1551	3.202	309.05
+Sorex_cylindricauda	ND3	33	12	1	14	422.884597917875	NA	NA	NA	NA
+Myodes_rufocanus	ND3	36	9	0	17	433.359922223833	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND3	29	19	3	16	594.4425	5	16	0.121	308.35
+Myodes_regulus	ND3	36	8	1	18	433.359922223833	NA	NA	NA	NA
+Apodemus_agrarius	ND3	34	13	2	10	504.40745	NA	21.2	0.373	NA
+Leopoldamys_edwardsi	ND3	33	12	3	16	639.631831820818	NA	NA	NA	NA
+Eothenomys_chinensis	ND3	32	5	6	17	589.388299099621	NA	NA	NA	NA
+Micromys_minutus	ND3	26	19	1	17	502.66	3.8	7.6	0.201	311.15
+Mus_caroli	ND3	34	10	4	9	628.295	NA	NA	NA	NA
+Sorex_unguiculatus	ND3	35	10	6	12	392.4667	NA	NA	NA	NA
+Rattus_exulans	ND3	34	12	1	16	534.7590666715	NA	NA	NA	NA
+Mus_famulus	ND3	37	6	3	11	628.295	NA	NA	NA	NA
+Meriones_unguiculatus	ND3	27	17	4	16	503.8875	6.3	64.8	0.546	311.35
+Bandicota_indica	ND3	35	13	2	13	639.631831820818	NA	NA	NA	NA
+Eothenomys_melanogaster	ND3	28	10	5	18	589.388299099621	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND3	34	14	1	10	589.388299099621	NA	NA	NA	NA
+Suncus_murinus	ND3	28	21	1	12	363.52745	3.2	39.7	0.403	311.85
+Rattus_praetor	ND3	35	13	2	13	534.7590666715	NA	NA	NA	NA
+Rattus_niobe	ND3	36	14	2	12	534.7590666715	NA	NA	NA	NA
+Proedromys_liangshanensis	ND3	36	8	3	13	589.388299099621	NA	NA	NA	NA
+Crocidura_grayi	ND3	28	15	2	18	427.67965	NA	NA	NA	NA
+Rattus_villosissimus	ND3	36	13	2	13	534.7590666715	NA	NA	NA	NA
+Episoriculus_fumidus	ND3	30	12	3	14	426.91011944525	NA	NA	NA	NA
+Niviventer_excelsior	ND3	36	10	3	16	639.631831820818	NA	NA	NA	NA
+Niviventer_fulvescens	ND3	38	7	1	13	624.399640909091	NA	NA	NA	NA
+Crocidura_mindorus	ND3	29	18	1	13	427.67965	NA	NA	NA	NA
+Rattus_rattus	ND3	36	14	2	17	546.1994	4.2	117	0.77	311.15
+Episoriculus_macrurus	ND3	36	14	0	11	426.91011944525	NA	NA	NA	NA
+Ctenomys_leucodon	ND3	29	16	1	12	600.93415	NA	NA	NA	NA
+Rattus_tunneyi	ND3	36	12	1	14	534.7590666715	NA	NA	NA	NA
+Apodemus_draco	ND3	36	15	0	11	554.1929125	NA	NA	NA	NA
+Sorex_araneus	ND3	32	8	4	18	524.7815	3.2	8.4	0.348	308.15
+Rattus_fuscipes	ND3	36	11	2	14	558.507283343	5.3	76	0.471	310.65
+Crocidura_orientalis	ND3	29	22	1	10	427.67965	NA	NA	NA	NA
+Mus_cervicolor	ND3	33	15	1	7	628.295	NA	NA	NA	NA
+Condylura_cristata	ND3	42	4	0	10	558.6411	2.5	49	0.615	310.85
+Rattus_tiomanicus	ND3	35	17	1	14	534.7590666715	NA	NA	NA	NA
+Anourosorex_squamipes	ND3	35	15	1	8	379.29295625	NA	NA	NA	NA
+Tscherskia_triton	ND3	24	21	2	24	589.388299099621	NA	NA	NA	NA
+Leggadina_lakedownensis	ND3	39	11	0	8	624.399640909091	NA	NA	NA	NA
+Microtus_levis	ND3	36	14	3	10	373.623802083937	NA	NA	NA	NA
+Sorex_tundrensis	ND3	33	9	3	20	422.884597917875	NA	NA	NA	NA
+Cricetulus_kamensis	ND3	30	11	1	18	589.388299099621	NA	NA	NA	NA
+Mus_spretus	ND3	37	10	2	11	628.295	NA	NA	NA	NA
+Nectogale_elegans	ND3	34	17	3	10	379.29295625	NA	NA	NA	NA
+Rattus_sordidus	ND3	34	13	3	12	534.7590666715	NA	NA	NA	NA
+Rattus_lutreolus	ND3	35	11	3	14	440.292083343	4.4	109	0.353	309.85
+Akodon_montensis	ND3	29	13	3	25	589.388299099621	NA	NA	NA	NA
+Crocidura_shantungensis	ND3	32	14	0	14	409.171225	NA	NA	NA	NA
+Crocidura_palawanensis	ND3	29	16	3	13	409.171225	NA	NA	NA	NA
+Wiedomys_cerradensis	ND3	27	14	4	18	589.388299099621	NA	NA	NA	NA
+Microtus_kikuchii	ND3	36	7	2	17	373.623802083937	NA	NA	NA	NA
+Mus_fragilicauda	ND3	36	9	2	12	628.295	NA	NA	NA	NA
+Crocidura_negrina	ND3	28	20	2	11	427.67965	NA	NA	NA	NA
+Myodes_glareolus	ND3	35	8	1	13	577.7512	NA	NA	NA	NA
+Mus_terricolor	ND3	37	10	0	9	435.665	NA	NA	NA	NA
+Mus_musculus	ND3	37	12	3	7	628.295	4	18	0.271	310.05
+Rattus_leucopus	ND3	35	15	2	11	534.7590666715	NA	NA	NA	NA
+Neomys_fodiens	ND3	32	18	0	14	576.8888	3.1	16	0.328	310.45
+Apodemus_latronum	ND3	39	10	1	13	554.1929125	NA	NA	NA	NA
+Tarsipes_rostratus	ND3	28	20	1	17	341.275	NA	10	0.162	309.75
+Crocidura_lasiura	ND3	29	17	2	13	427.67965	NA	NA	NA	NA
+Mus_cookii	ND3	35	8	4	9	628.295	NA	NA	NA	NA
+Niviventer_confucianus	ND3	39	10	0	13	624.399640909091	NA	NA	NA	NA
+Cricetulus_longicaudatus	ND3	31	16	4	10	589.388299099621	NA	NA	NA	NA
+Apodemus_chevrieri	ND3	37	11	0	11	554.1929125	NA	NA	NA	NA
+Thylamys_elegans	ND3	27	23	1	12	642.840025	NA	NA	NA	NA
+Blarinella_quadraticauda	ND3	32	16	1	17	379.29295625	NA	NA	NA	NA
+Apodemus_peninsulae	ND3	40	13	2	10	554.1929125	4.4	NA	NA	NA
+Eothenomys_miletus	ND3	29	9	5	19	589.388299099621	NA	NA	NA	NA
+Sminthopsis_douglasi	ND3	27	21	4	22	546.026466666667	NA	NA	NA	NA
+Crocidura_beatus	ND3	27	17	3	14	427.67965	NA	NA	NA	NA
+Akodon_montensis	ND4	72	53	8	81	589.388299099621	NA	NA	NA	NA
+Apodemus_chevrieri	ND4	92	50	10	48	554.1929125	NA	NA	NA	NA
+Mus_cookii	ND4	99	47	4	40	628.295	NA	NA	NA	NA
+Isoodon_macrourus	ND4	95	59	5	40	623.745	6.8	1551	3.202	309.05
+Thylamys_elegans	ND4	88	59	11	45	642.840025	NA	NA	NA	NA
+Rattus_tanezumi	ND4	107	38	9	55	534.7590666715	NA	NA	NA	NA
+Crocidura_lasiura	ND4	82	68	5	59	427.67965	NA	NA	NA	NA
+Rattus_leucopus	ND4	99	30	8	70	534.7590666715	NA	NA	NA	NA
+Eothenomys_chinensis	ND4	92	38	15	60	589.388299099621	NA	NA	NA	NA
+Mus_terricolor	ND4	88	56	4	49	435.665	NA	NA	NA	NA
+Mus_caroli	ND4	84	52	11	49	628.295	NA	NA	NA	NA
+Crocidura_mindorus	ND4	77	64	2	62	427.67965	NA	NA	NA	NA
+Rattus_praetor	ND4	100	31	5	66	534.7590666715	NA	NA	NA	NA
+Proedromys_liangshanensis	ND4	91	32	9	74	589.388299099621	NA	NA	NA	NA
+Tlacuatzin_canescens	ND4	102	40	3	34	642.840025	NA	NA	NA	NA
+Anourosorex_squamipes	ND4	92	59	7	44	379.29295625	NA	NA	NA	NA
+Cricetulus_kamensis	ND4	97	39	5	65	589.388299099621	NA	NA	NA	NA
+Crocidura_palawanensis	ND4	77	57	7	70	409.171225	NA	NA	NA	NA
+Mus_famulus	ND4	94	45	5	49	628.295	NA	NA	NA	NA
+Myodes_rufocanus	ND4	94	29	11	74	433.359922223833	NA	NA	NA	NA
+Apodemus_draco	ND4	109	34	7	43	554.1929125	NA	NA	NA	NA
+Niviventer_fulvescens	ND4	101	40	4	51	624.399640909091	NA	NA	NA	NA
+Episoriculus_macrurus	ND4	103	47	2	47	426.91011944525	NA	NA	NA	NA
+Crocidura_shantungensis	ND4	74	71	7	52	409.171225	NA	NA	NA	NA
+Meriones_unguiculatus	ND4	89	56	6	54	503.8875	6.3	64.8	0.546	311.35
+Lasiopodomys_mandarinus	ND4	90	45	8	68	589.388299099621	NA	NA	NA	NA
+Rattus_rattus	ND4	103	35	4	59	546.1994	4.2	117	0.77	311.15
+Apodemus_latronum	ND4	102	39	4	50	554.1929125	NA	NA	NA	NA
+Tarsipes_rostratus	ND4	83	51	7	66	341.275	NA	10	0.162	309.75
+Neomys_fodiens	ND4	101	47	6	47	576.8888	3.1	16	0.328	310.45
+Tscherskia_triton	ND4	80	54	23	66	589.388299099621	NA	NA	NA	NA
+Cricetulus_longicaudatus	ND4	100	51	12	38	589.388299099621	NA	NA	NA	NA
+Nectogale_elegans	ND4	93	67	5	42	379.29295625	NA	NA	NA	NA
+Apodemus_agrarius	ND4	93	50	7	50	504.40745	NA	21.2	0.373	NA
+Mus_cervicolor	ND4	89	41	8	47	628.295	NA	NA	NA	NA
+Eothenomys_miletus	ND4	95	23	13	67	589.388299099621	NA	NA	NA	NA
+Mus_musculus	ND4	94	39	8	51	628.295	4	18	0.271	310.05
+Leopoldamys_edwardsi	ND4	82	38	6	76	639.631831820818	NA	NA	NA	NA
+Crocidura_attenuata	ND4	81	69	7	55	427.67965	NA	NA	NA	NA
+Niviventer_confucianus	ND4	93	50	2	63	624.399640909091	NA	NA	NA	NA
+Rattus_fuscipes	ND4	98	33	7	68	558.507283343	5.3	76	0.471	310.65
+Crocidura_orientalis	ND4	75	66	7	61	427.67965	NA	NA	NA	NA
+Crocidura_beatus	ND4	75	66	4	62	427.67965	NA	NA	NA	NA
+Rattus_villosissimus	ND4	101	36	7	65	534.7590666715	NA	NA	NA	NA
+Microtus_ochrogaster	ND4	93	37	8	73	615.4024	5.3	48.2	0.41	311.05
+Apodemus_peninsulae	ND4	98	53	6	39	554.1929125	4.4	NA	NA	NA
+Suncus_murinus	ND4	80	73	10	48	363.52745	3.2	39.7	0.403	311.85
+Micromys_minutus	ND4	84	41	3	58	502.66	3.8	7.6	0.201	311.15
+Episoriculus_caudatus	ND4	95	52	4	61	426.91011944525	NA	NA	NA	NA
+Rattus_tunneyi	ND4	99	40	8	61	534.7590666715	NA	NA	NA	NA
+Episoriculus_fumidus	ND4	100	48	7	50	426.91011944525	NA	NA	NA	NA
+Niviventer_excelsior	ND4	88	48	5	63	639.631831820818	NA	NA	NA	NA
+Rattus_lutreolus	ND4	101	39	8	66	440.292083343	4.4	109	0.353	309.85
+Sminthopsis_crassicaudata	ND4	82	60	16	67	594.4425	5	16	0.121	308.35
+Microtus_levis	ND4	92	35	18	67	373.623802083937	NA	NA	NA	NA
+Eothenomys_melanogaster	ND4	98	29	13	60	589.388299099621	NA	NA	NA	NA
+Mus_spretus	ND4	82	38	9	64	628.295	NA	NA	NA	NA
+Meriones_meridianus	ND4	94	54	14	46	608.148016666667	6.8	NA	NA	NA
+Myodes_regulus	ND4	95	30	8	71	433.359922223833	NA	NA	NA	NA
+Crocidura_grayi	ND4	77	67	5	60	427.67965	NA	NA	NA	NA
+Bandicota_indica	ND4	99	30	15	61	639.631831820818	NA	NA	NA	NA
+Rattus_sordidus	ND4	99	35	8	63	534.7590666715	NA	NA	NA	NA
+Myodes_glareolus	ND4	90	41	13	63	577.7512	NA	NA	NA	NA
+Ctenomys_leucodon	ND4	89	46	4	55	600.93415	NA	NA	NA	NA
+Sorex_tundrensis	ND4	87	50	15	56	422.884597917875	NA	NA	NA	NA
+Sorex_unguiculatus	ND4	88	51	13	62	392.4667	NA	NA	NA	NA
+Leggadina_lakedownensis	ND4	95	39	6	51	624.399640909091	NA	NA	NA	NA
+Condylura_cristata	ND4	108	44	7	35	558.6411	2.5	49	0.615	310.85
+Wiedomys_cerradensis	ND4	77	57	7	65	589.388299099621	NA	NA	NA	NA
+Sorex_cylindricauda	ND4	96	52	11	59	422.884597917875	NA	NA	NA	NA
+Sminthopsis_douglasi	ND4	83	51	17	75	546.026466666667	NA	NA	NA	NA
+Proechimys_longicaudatus	ND4	91	46	11	44	631.7859833285	NA	NA	NA	NA
+Neodon_irene	ND4	83	38	9	78	589.388299099621	NA	NA	NA	NA
+Mus_fragilicauda	ND4	94	44	11	50	628.295	NA	NA	NA	NA
+Blarinella_quadraticauda	ND4	88	70	4	41	379.29295625	NA	NA	NA	NA
+Crocidura_negrina	ND4	79	72	8	51	427.67965	NA	NA	NA	NA
+Microtus_kikuchii	ND4	81	28	14	88	373.623802083937	NA	NA	NA	NA
+Rattus_niobe	ND4	103	36	5	59	534.7590666715	NA	NA	NA	NA
+Rattus_tiomanicus	ND4	106	43	3	51	534.7590666715	NA	NA	NA	NA
+Rattus_exulans	ND4	105	34	3	55	534.7590666715	NA	NA	NA	NA
+Sorex_araneus	ND4	87	49	13	61	524.7815	3.2	8.4	0.348	308.15
+Tarsipes_rostratus	ND4L	29	9	3	18	341.275	NA	10	0.162	309.75
+Microtus_kikuchii	ND4L	27	14	4	15	373.623802083937	NA	NA	NA	NA
+Rattus_tiomanicus	ND4L	30	12	1	15	534.7590666715	NA	NA	NA	NA
+Crocidura_negrina	ND4L	37	7	2	11	427.67965	NA	NA	NA	NA
+Mus_cookii	ND4L	34	13	1	15	628.295	NA	NA	NA	NA
+Proedromys_liangshanensis	ND4L	33	10	1	16	589.388299099621	NA	NA	NA	NA
+Crocidura_grayi	ND4L	35	13	3	8	427.67965	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND4L	29	13	4	18	589.388299099621	NA	NA	NA	NA
+Rattus_leucopus	ND4L	32	9	1	22	534.7590666715	NA	NA	NA	NA
+Crocidura_mindorus	ND4L	36	11	3	10	427.67965	NA	NA	NA	NA
+Mus_fragilicauda	ND4L	31	12	2	19	628.295	NA	NA	NA	NA
+Cricetulus_longicaudatus	ND4L	36	12	6	12	589.388299099621	NA	NA	NA	NA
+Microtus_levis	ND4L	31	9	5	17	373.623802083937	NA	NA	NA	NA
+Akodon_montensis	ND4L	30	9	1	19	589.388299099621	NA	NA	NA	NA
+Mus_famulus	ND4L	32	16	1	16	628.295	NA	NA	NA	NA
+Isoodon_macrourus	ND4L	36	10	0	10	623.745	6.8	1551	3.202	309.05
+Neomys_fodiens	ND4L	30	12	3	14	576.8888	3.1	16	0.328	310.45
+Apodemus_chevrieri	ND4L	34	13	1	15	554.1929125	NA	NA	NA	NA
+Ctenomys_leucodon	ND4L	33	11	2	4	600.93415	NA	NA	NA	NA
+Rattus_praetor	ND4L	31	9	1	23	534.7590666715	NA	NA	NA	NA
+Episoriculus_fumidus	ND4L	30	16	1	11	426.91011944525	NA	NA	NA	NA
+Myodes_regulus	ND4L	33	9	4	12	433.359922223833	NA	NA	NA	NA
+Apodemus_peninsulae	ND4L	35	11	0	16	554.1929125	4.4	NA	NA	NA
+Myodes_glareolus	ND4L	33	12	5	10	577.7512	NA	NA	NA	NA
+Neodon_irene	ND4L	27	12	4	17	589.388299099621	NA	NA	NA	NA
+Tlacuatzin_canescens	ND4L	34	5	0	6	642.840025	NA	NA	NA	NA
+Mus_terricolor	ND4L	33	11	2	18	435.665	NA	NA	NA	NA
+Rattus_lutreolus	ND4L	32	9	2	21	440.292083343	4.4	109	0.353	309.85
+Episoriculus_caudatus	ND4L	33	13	3	12	426.91011944525	NA	NA	NA	NA
+Blarinella_quadraticauda	ND4L	25	12	2	16	379.29295625	NA	NA	NA	NA
+Cricetulus_kamensis	ND4L	36	10	5	14	589.388299099621	NA	NA	NA	NA
+Apodemus_draco	ND4L	37	15	2	9	554.1929125	NA	NA	NA	NA
+Rattus_tanezumi	ND4L	29	14	2	15	534.7590666715	NA	NA	NA	NA
+Niviventer_fulvescens	ND4L	35	17	0	12	624.399640909091	NA	NA	NA	NA
+Myodes_rufocanus	ND4L	33	8	6	12	433.359922223833	NA	NA	NA	NA
+Sorex_cylindricauda	ND4L	35	11	4	8	422.884597917875	NA	NA	NA	NA
+Micromys_minutus	ND4L	30	11	0	12	502.66	3.8	7.6	0.201	311.15
+Suncus_murinus	ND4L	33	15	2	7	363.52745	3.2	39.7	0.403	311.85
+Niviventer_excelsior	ND4L	32	16	1	13	639.631831820818	NA	NA	NA	NA
+Rattus_rattus	ND4L	30	11	2	18	546.1994	4.2	117	0.77	311.15
+Sorex_unguiculatus	ND4L	36	9	2	11	392.4667	NA	NA	NA	NA
+Crocidura_beatus	ND4L	36	12	4	7	427.67965	NA	NA	NA	NA
+Crocidura_palawanensis	ND4L	36	9	2	11	409.171225	NA	NA	NA	NA
+Bandicota_indica	ND4L	31	14	2	13	639.631831820818	NA	NA	NA	NA
+Wiedomys_cerradensis	ND4L	33	15	2	8	589.388299099621	NA	NA	NA	NA
+Meriones_meridianus	ND4L	27	14	3	16	608.148016666667	6.8	NA	NA	NA
+Eothenomys_melanogaster	ND4L	33	6	3	19	589.388299099621	NA	NA	NA	NA
+Rattus_fuscipes	ND4L	33	11	0	21	558.507283343	5.3	76	0.471	310.65
+Rattus_tunneyi	ND4L	32	10	2	20	534.7590666715	NA	NA	NA	NA
+Leggadina_lakedownensis	ND4L	32	19	0	14	624.399640909091	NA	NA	NA	NA
+Niviventer_confucianus	ND4L	33	10	1	20	624.399640909091	NA	NA	NA	NA
+Crocidura_shantungensis	ND4L	32	14	3	7	409.171225	NA	NA	NA	NA
+Meriones_unguiculatus	ND4L	32	15	4	9	503.8875	6.3	64.8	0.546	311.35
+Crocidura_lasiura	ND4L	34	13	2	10	427.67965	NA	NA	NA	NA
+Anourosorex_squamipes	ND4L	33	11	1	12	379.29295625	NA	NA	NA	NA
+Microtus_ochrogaster	ND4L	25	14	6	16	615.4024	5.3	48.2	0.41	311.05
+Mus_musculus	ND4L	33	9	3	18	628.295	4	18	0.271	310.05
+Crocidura_attenuata	ND4L	32	12	2	13	427.67965	NA	NA	NA	NA
+Rattus_sordidus	ND4L	31	9	1	21	534.7590666715	NA	NA	NA	NA
+Eothenomys_miletus	ND4L	33	9	3	16	589.388299099621	NA	NA	NA	NA
+Mus_cervicolor	ND4L	34	13	1	13	628.295	NA	NA	NA	NA
+Sorex_araneus	ND4L	36	8	6	10	524.7815	3.2	8.4	0.348	308.15
+Proechimys_longicaudatus	ND4L	36	8	1	13	631.7859833285	NA	NA	NA	NA
+Sminthopsis_douglasi	ND4L	22	18	3	17	546.026466666667	NA	NA	NA	NA
+Apodemus_agrarius	ND4L	31	17	4	11	504.40745	NA	21.2	0.373	NA
+Sorex_tundrensis	ND4L	36	10	5	9	422.884597917875	NA	NA	NA	NA
+Rattus_exulans	ND4L	31	13	1	16	534.7590666715	NA	NA	NA	NA
+Leopoldamys_edwardsi	ND4L	32	9	2	20	639.631831820818	NA	NA	NA	NA
+Condylura_cristata	ND4L	32	10	2	11	558.6411	2.5	49	0.615	310.85
+Tscherskia_triton	ND4L	33	8	3	17	589.388299099621	NA	NA	NA	NA
+Rattus_niobe	ND4L	32	8	0	24	534.7590666715	NA	NA	NA	NA
+Mus_spretus	ND4L	32	8	3	17	628.295	NA	NA	NA	NA
+Crocidura_orientalis	ND4L	37	13	1	7	427.67965	NA	NA	NA	NA
+Thylamys_elegans	ND4L	29	17	1	11	642.840025	NA	NA	NA	NA
+Eothenomys_chinensis	ND4L	33	8	1	18	589.388299099621	NA	NA	NA	NA
+Apodemus_latronum	ND4L	39	10	2	12	554.1929125	NA	NA	NA	NA
+Nectogale_elegans	ND4L	29	15	0	11	379.29295625	NA	NA	NA	NA
+Episoriculus_macrurus	ND4L	28	14	2	13	426.91011944525	NA	NA	NA	NA
+Mus_caroli	ND4L	32	21	1	11	628.295	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND4L	27	10	2	17	594.4425	5	16	0.121	308.35
+Rattus_villosissimus	ND4L	31	13	1	20	534.7590666715	NA	NA	NA	NA
+Mus_famulus	ND5	135	42	6	65	628.295	NA	NA	NA	NA
+Mus_spretus	ND5	131	45	16	68	628.295	NA	NA	NA	NA
+Cricetulus_longicaudatus	ND5	113	76	12	51	589.388299099621	NA	NA	NA	NA
+Crocidura_mindorus	ND5	102	74	12	61	427.67965	NA	NA	NA	NA
+Rattus_rattus	ND5	116	52	5	85	546.1994	4.2	117	0.77	311.15
+Akodon_montensis	ND5	105	52	9	107	589.388299099621	NA	NA	NA	NA
+Suncus_murinus	ND5	97	76	11	62	363.52745	3.2	39.7	0.403	311.85
+Microtus_kikuchii	ND5	110	36	24	108	373.623802083937	NA	NA	NA	NA
+Anourosorex_squamipes	ND5	115	75	9	61	379.29295625	NA	NA	NA	NA
+Tarsipes_rostratus	ND5	111	67	6	76	341.275	NA	10	0.162	309.75
+Eothenomys_chinensis	ND5	126	38	11	86	589.388299099621	NA	NA	NA	NA
+Apodemus_peninsulae	ND5	126	49	13	61	554.1929125	4.4	NA	NA	NA
+Rattus_exulans	ND5	116	53	9	79	534.7590666715	NA	NA	NA	NA
+Blarinella_quadraticauda	ND5	107	58	6	84	379.29295625	NA	NA	NA	NA
+Sorex_araneus	ND5	98	51	11	94	524.7815	3.2	8.4	0.348	308.15
+Cricetulus_kamensis	ND5	107	48	10	103	589.388299099621	NA	NA	NA	NA
+Episoriculus_macrurus	ND5	99	65	9	77	426.91011944525	NA	NA	NA	NA
+Crocidura_palawanensis	ND5	99	77	9	63	409.171225	NA	NA	NA	NA
+Mus_fragilicauda	ND5	127	38	9	67	628.295	NA	NA	NA	NA
+Sminthopsis_douglasi	ND5	100	76	17	80	546.026466666667	NA	NA	NA	NA
+Tscherskia_triton	ND5	97	55	26	98	589.388299099621	NA	NA	NA	NA
+Ctenomys_leucodon	ND5	114	63	7	57	600.93415	NA	NA	NA	NA
+Crocidura_lasiura	ND5	105	76	8	70	427.67965	NA	NA	NA	NA
+Mus_terricolor	ND5	125	47	5	75	435.665	NA	NA	NA	NA
+Apodemus_latronum	ND5	148	48	2	55	554.1929125	NA	NA	NA	NA
+Condylura_cristata	ND5	150	33	6	59	558.6411	2.5	49	0.615	310.85
+Microtus_levis	ND5	129	51	11	89	373.623802083937	NA	NA	NA	NA
+Leggadina_lakedownensis	ND5	125	51	12	70	624.399640909091	NA	NA	NA	NA
+Rattus_praetor	ND5	114	41	6	90	534.7590666715	NA	NA	NA	NA
+Crocidura_beatus	ND5	103	79	8	60	427.67965	NA	NA	NA	NA
+Apodemus_draco	ND5	151	55	4	47	554.1929125	NA	NA	NA	NA
+Rattus_villosissimus	ND5	112	41	9	91	534.7590666715	NA	NA	NA	NA
+Niviventer_excelsior	ND5	121	49	6	80	639.631831820818	NA	NA	NA	NA
+Apodemus_chevrieri	ND5	134	50	8	58	554.1929125	NA	NA	NA	NA
+Sorex_tundrensis	ND5	95	50	14	94	422.884597917875	NA	NA	NA	NA
+Microtus_ochrogaster	ND5	122	40	15	99	615.4024	5.3	48.2	0.41	311.05
+Thylamys_elegans	ND5	101	86	12	68	642.840025	NA	NA	NA	NA
+Eothenomys_miletus	ND5	122	37	14	92	589.388299099621	NA	NA	NA	NA
+Rattus_lutreolus	ND5	119	40	4	89	440.292083343	4.4	109	0.353	309.85
+Rattus_sordidus	ND5	116	38	8	92	534.7590666715	NA	NA	NA	NA
+Bandicota_indica	ND5	109	60	7	76	639.631831820818	NA	NA	NA	NA
+Mus_cookii	ND5	137	48	5	59	628.295	NA	NA	NA	NA
+Crocidura_attenuata	ND5	102	83	9	68	427.67965	NA	NA	NA	NA
+Sorex_cylindricauda	ND5	103	65	9	77	422.884597917875	NA	NA	NA	NA
+Neomys_fodiens	ND5	98	79	10	80	576.8888	3.1	16	0.328	310.45
+Mus_caroli	ND5	132	47	9	60	628.295	NA	NA	NA	NA
+Proedromys_liangshanensis	ND5	127	44	13	93	589.388299099621	NA	NA	NA	NA
+Apodemus_agrarius	ND5	132	55	8	53	504.40745	NA	21.2	0.373	NA
+Leopoldamys_edwardsi	ND5	103	56	8	97	639.631831820818	NA	NA	NA	NA
+Meriones_meridianus	ND5	110	59	16	72	608.148016666667	6.8	NA	NA	NA
+Rattus_tiomanicus	ND5	116	50	5	86	534.7590666715	NA	NA	NA	NA
+Micromys_minutus	ND5	107	55	7	86	502.66	3.8	7.6	0.201	311.15
+Episoriculus_caudatus	ND5	110	67	13	70	426.91011944525	NA	NA	NA	NA
+Proechimys_longicaudatus	ND5	118	66	12	61	631.7859833285	NA	NA	NA	NA
+Rattus_fuscipes	ND5	114	44	7	88	558.507283343	5.3	76	0.471	310.65
+Mus_cervicolor	ND5	133	53	4	60	628.295	NA	NA	NA	NA
+Episoriculus_fumidus	ND5	114	62	6	73	426.91011944525	NA	NA	NA	NA
+Isoodon_macrourus	ND5	114	66	7	61	623.745	6.8	1551	3.202	309.05
+Myodes_regulus	ND5	129	38	8	95	433.359922223833	NA	NA	NA	NA
+Crocidura_shantungensis	ND5	100	77	9	68	409.171225	NA	NA	NA	NA
+Neodon_irene	ND5	116	42	16	102	589.388299099621	NA	NA	NA	NA
+Myodes_rufocanus	ND5	124	38	9	88	433.359922223833	NA	NA	NA	NA
+Rattus_niobe	ND5	115	41	7	89	534.7590666715	NA	NA	NA	NA
+Rattus_tunneyi	ND5	117	44	7	86	534.7590666715	NA	NA	NA	NA
+Crocidura_negrina	ND5	103	85	8	55	427.67965	NA	NA	NA	NA
+Mus_musculus	ND5	130	39	15	71	628.295	4	18	0.271	310.05
+Rattus_tanezumi	ND5	116	56	8	81	534.7590666715	NA	NA	NA	NA
+Crocidura_orientalis	ND5	106	69	6	68	427.67965	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND5	108	83	12	70	594.4425	5	16	0.121	308.35
+Tlacuatzin_canescens	ND5	136	65	4	33	642.840025	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND5	129	50	10	85	589.388299099621	NA	NA	NA	NA
+Wiedomys_cerradensis	ND5	91	63	10	90	589.388299099621	NA	NA	NA	NA
+Crocidura_grayi	ND5	101	71	9	65	427.67965	NA	NA	NA	NA
+Niviventer_fulvescens	ND5	120	56	5	76	624.399640909091	NA	NA	NA	NA
+Niviventer_confucianus	ND5	122	49	6	80	624.399640909091	NA	NA	NA	NA
+Meriones_unguiculatus	ND5	111	67	13	66	503.8875	6.3	64.8	0.546	311.35
+Sorex_unguiculatus	ND5	100	65	20	78	392.4667	NA	NA	NA	NA
+Rattus_leucopus	ND5	117	45	6	89	534.7590666715	NA	NA	NA	NA
+Myodes_glareolus	ND5	124	41	14	92	577.7512	NA	NA	NA	NA
+Eothenomys_melanogaster	ND5	129	35	12	93	589.388299099621	NA	NA	NA	NA
+Nectogale_elegans	ND5	103	85	9	60	379.29295625	NA	NA	NA	NA
+Crocidura_grayi	ND6	26	42	1	20	427.67965	NA	NA	NA	NA
+Crocidura_shantungensis	ND6	32	42	1	15	409.171225	NA	NA	NA	NA
+Nectogale_elegans	ND6	36	41	0	16	379.29295625	NA	NA	NA	NA
+Crocidura_attenuata	ND6	32	40	1	19	427.67965	NA	NA	NA	NA
+Proedromys_liangshanensis	ND6	43	28	3	15	589.388299099621	NA	NA	NA	NA
+Rattus_tanezumi	ND6	36	31	0	13	534.7590666715	NA	NA	NA	NA
+Apodemus_peninsulae	ND6	37	30	2	15	554.1929125	4.4	NA	NA	NA
+Eothenomys_melanogaster	ND6	33	29	2	23	589.388299099621	NA	NA	NA	NA
+Akodon_montensis	ND6	42	23	2	30	589.388299099621	NA	NA	NA	NA
+Mus_famulus	ND6	32	28	0	13	628.295	NA	NA	NA	NA
+Niviventer_fulvescens	ND6	38	26	0	15	624.399640909091	NA	NA	NA	NA
+Bandicota_indica	ND6	33	28	2	20	639.631831820818	NA	NA	NA	NA
+Microtus_ochrogaster	ND6	42	25	2	19	615.4024	5.3	48.2	0.41	311.05
+Crocidura_mindorus	ND6	25	43	3	19	427.67965	NA	NA	NA	NA
+Episoriculus_caudatus	ND6	39	35	0	22	426.91011944525	NA	NA	NA	NA
+Sorex_unguiculatus	ND6	40	30	2	21	392.4667	NA	NA	NA	NA
+Sorex_araneus	ND6	38	31	2	25	524.7815	3.2	8.4	0.348	308.15
+Mus_caroli	ND6	40	24	0	19	628.295	NA	NA	NA	NA
+Cricetulus_longicaudatus	ND6	34	38	7	10	589.388299099621	NA	NA	NA	NA
+Ctenomys_leucodon	ND6	36	32	2	18	600.93415	NA	NA	NA	NA
+Microtus_levis	ND6	37	28	1	22	373.623802083937	NA	NA	NA	NA
+Tarsipes_rostratus	ND6	50	27	3	15	341.275	NA	10	0.162	309.75
+Myodes_rufocanus	ND6	38	29	2	21	433.359922223833	NA	NA	NA	NA
+Mus_cervicolor	ND6	35	29	1	18	628.295	NA	NA	NA	NA
+Episoriculus_fumidus	ND6	42	36	1	15	426.91011944525	NA	NA	NA	NA
+Apodemus_agrarius	ND6	38	29	2	15	504.40745	NA	21.2	0.373	NA
+Rattus_leucopus	ND6	36	20	1	28	534.7590666715	NA	NA	NA	NA
+Sorex_tundrensis	ND6	43	32	0	18	422.884597917875	NA	NA	NA	NA
+Crocidura_negrina	ND6	27	43	2	17	427.67965	NA	NA	NA	NA
+Rattus_rattus	ND6	34	31	2	12	546.1994	4.2	117	0.77	311.15
+Suncus_murinus	ND6	37	43	1	10	363.52745	3.2	39.7	0.403	311.85
+Meriones_meridianus	ND6	34	35	5	19	608.148016666667	6.8	NA	NA	NA
+Mus_spretus	ND6	36	30	0	26	628.295	NA	NA	NA	NA
+Crocidura_orientalis	ND6	27	37	2	23	427.67965	NA	NA	NA	NA
+Thylamys_elegans	ND6	37	40	4	9	642.840025	NA	NA	NA	NA
+Proechimys_longicaudatus	ND6	38	32	3	17	631.7859833285	NA	NA	NA	NA
+Leopoldamys_edwardsi	ND6	37	26	0	23	639.631831820818	NA	NA	NA	NA
+Episoriculus_macrurus	ND6	39	37	1	17	426.91011944525	NA	NA	NA	NA
+Anourosorex_squamipes	ND6	38	42	0	14	379.29295625	NA	NA	NA	NA
+Isoodon_macrourus	ND6	35	39	1	15	623.745	6.8	1551	3.202	309.05
+Mus_musculus	ND6	37	35	0	16	628.295	4	18	0.271	310.05
+Myodes_glareolus	ND6	39	22	3	28	577.7512	NA	NA	NA	NA
+Rattus_villosissimus	ND6	34	22	4	24	534.7590666715	NA	NA	NA	NA
+Apodemus_draco	ND6	34	32	2	16	554.1929125	NA	NA	NA	NA
+Apodemus_chevrieri	ND6	36	30	3	13	554.1929125	NA	NA	NA	NA
+Rattus_lutreolus	ND6	35	20	2	26	440.292083343	4.4	109	0.353	309.85
+Cricetulus_kamensis	ND6	39	34	0	19	589.388299099621	NA	NA	NA	NA
+Rattus_praetor	ND6	32	24	2	25	534.7590666715	NA	NA	NA	NA
+Crocidura_palawanensis	ND6	26	42	2	19	409.171225	NA	NA	NA	NA
+Neodon_irene	ND6	38	30	1	19	589.388299099621	NA	NA	NA	NA
+Niviventer_excelsior	ND6	34	27	2	15	639.631831820818	NA	NA	NA	NA
+Lasiopodomys_mandarinus	ND6	42	30	3	23	589.388299099621	NA	NA	NA	NA
+Blarinella_quadraticauda	ND6	29	37	2	21	379.29295625	NA	NA	NA	NA
+Sorex_cylindricauda	ND6	40	32	1	20	422.884597917875	NA	NA	NA	NA
+Tlacuatzin_canescens	ND6	35	39	1	5	642.840025	NA	NA	NA	NA
+Crocidura_beatus	ND6	28	48	1	16	427.67965	NA	NA	NA	NA
+Myodes_regulus	ND6	38	26	2	24	433.359922223833	NA	NA	NA	NA
+Sminthopsis_crassicaudata	ND6	33	37	4	15	594.4425	5	16	0.121	308.35
+Microtus_kikuchii	ND6	38	28	3	22	373.623802083937	NA	NA	NA	NA
+Rattus_tiomanicus	ND6	36	32	0	13	534.7590666715	NA	NA	NA	NA
+Sminthopsis_douglasi	ND6	28	34	6	22	546.026466666667	NA	NA	NA	NA
+Tscherskia_triton	ND6	35	29	7	16	589.388299099621	NA	NA	NA	NA
+Meriones_unguiculatus	ND6	36	30	3	24	503.8875	6.3	64.8	0.546	311.35
+Mus_fragilicauda	ND6	39	26	0	21	628.295	NA	NA	NA	NA
+Leggadina_lakedownensis	ND6	44	27	1	12	624.399640909091	NA	NA	NA	NA
+Eothenomys_chinensis	ND6	38	24	4	25	589.388299099621	NA	NA	NA	NA
+Apodemus_latronum	ND6	42	29	0	14	554.1929125	NA	NA	NA	NA
+Rattus_tunneyi	ND6	35	25	1	23	534.7590666715	NA	NA	NA	NA
+Mus_terricolor	ND6	38	27	1	22	435.665	NA	NA	NA	NA
+Neomys_fodiens	ND6	29	44	5	14	576.8888	3.1	16	0.328	310.45
+Rattus_sordidus	ND6	38	19	1	24	534.7590666715	NA	NA	NA	NA
+Rattus_exulans	ND6	36	24	2	17	534.7590666715	NA	NA	NA	NA
+Rattus_niobe	ND6	32	22	0	27	534.7590666715	NA	NA	NA	NA
+Mus_cookii	ND6	35	32	0	12	628.295	NA	NA	NA	NA
+Wiedomys_cerradensis	ND6	40	34	1	20	589.388299099621	NA	NA	NA	NA
+Rattus_fuscipes	ND6	35	22	1	26	558.507283343	5.3	76	0.471	310.65
+Eothenomys_miletus	ND6	36	20	2	29	589.388299099621	NA	NA	NA	NA
+Crocidura_lasiura	ND6	33	36	1	22	427.67965	NA	NA	NA	NA
+Niviventer_confucianus	ND6	33	27	2	14	624.399640909091	NA	NA	NA	NA
+Micromys_minutus	ND6	35	27	2	16	502.66	3.8	7.6	0.201	311.15
+Condylura_cristata	ND6	45	32	1	12	558.6411	2.5	49	0.615	310.85

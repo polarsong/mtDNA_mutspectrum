@@ -18,6 +18,11 @@ GenLength = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', se
 GenLength$Species = gsub(' ','_',GenLength$Scientific_name)
 GenLength = GenLength[,c(11,13)]
 
+CHOR = read.table('../../Body/2Derived/MitGenomics.txt', header=TRUE, sep='\t')
+CHOR = CHOR[, c('Species', 'ECO.Maximum.longevity..yrs.', 'ECO.Body.mass..g.', 'ECO.Metabolic.rate..W.',
+                'ECO.Temperature..K.')]
+GenLength = merge(GenLength, CHOR, by='Species')
+
 ### make ND6 complementary:
 NotND6 = SynNuc[SynNuc$Gene != 'ND6',]
 ND6 = SynNuc[SynNuc$Gene == 'ND6',]
@@ -116,9 +121,11 @@ legend("topright",legend=c('A','T','G','C'), col = c(ColA,ColT,ColG,ColC), pch =
 dev.off()
 
 NeutralMinGL = SynNuc_min[, c("Species", "Gene", "NeutralA", "NeutralT", "NeutralG", "NeutralC",
-                              "GenerationLength_d")]
+                              "GenerationLength_d", "ECO.Maximum.longevity..yrs.", "ECO.Body.mass..g.",
+                              "ECO.Metabolic.rate..W.", "ECO.Temperature..K.")]
 NeutralMaxGL = SynNuc_max[, c("Species", "Gene", "NeutralA", "NeutralT", "NeutralG", "NeutralC",
-                              "GenerationLength_d")]
+                              "GenerationLength_d", "ECO.Maximum.longevity..yrs.", "ECO.Body.mass..g.",
+                              "ECO.Metabolic.rate..W.", "ECO.Temperature..K.")]
 
 summary(NeutralMinGL)
 summary(NeutralMaxGL)
