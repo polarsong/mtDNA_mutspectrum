@@ -13,6 +13,11 @@ ALL$TumorVarFreq = ALL$tumor_reads2/(ALL$tumor_reads1 + ALL$tumor_reads2); summa
 ALL$NormalVarFreq = ALL$normal_reads2/(ALL$normal_reads1 + ALL$normal_reads2); summary(ALL$NormalVarFreq) 
 table(ALL$Levin2012) 
 
+
+#### pdf out
+pdf('../../Body/4Figures/CancerTimeOfTumoregenesis01.pdf', height = 15, width = 15)
+par(mfrow=c(2,2))
+
 #### DO VAF IN CANCER APPROXIMATE THE TIME OF ORIGIN?
 #### if there is a correlation between frequency in normal tissue and in cancer? yes
 
@@ -20,253 +25,75 @@ nrow(ALL)                           # 7611
 nrow(ALL[ALL$NormalVarFreq == 0,])  # 2265
 nrow(ALL[ALL$NormalVarFreq >  0,])  # 5436
 wilcox.test(ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq == 0,]$TumorVarFreq) # 0.005325
-boxplot(ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq == 0,]$TumorVarFreq, outline = FALSE, notch = TRUE, names = c('NonZeroInNormalTissue','ZeroInNormalTissue'), ylab = 'VafInCancer')
+boxplot(ALL[ALL$NormalVarFreq ==  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq > 0,]$TumorVarFreq, outline = FALSE, notch = TRUE, names = c("ZeroInNormal\nN=2265","NonZeroInNormal\nN=5436"), ylab = 'VafInCancer')
 
 cor.test(ALL$NormalVarFreq,ALL$TumorVarFreq,method = 'spearman') # Rho = 0.06958285, p =  1.226e-09
 cor.test(ALL[ALL$NormalVarFreq >  0,]$NormalVarFreq,ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq, method = 'spearman') # Rho = 0.0883715, p =  9.638e-11
 
-# TEXT: 
-# We assumed that many somatic mtDNA mutations, discovered in cancer samples have been already originated and segregated at low, sometimes undetectable, frequencies in normal tissues.
-# Propagation of cancer cell population from a single normal cell just lead to expansion of this variant and increasing its variant allele frequency (VAF).
-# To prove this logic we compared VAF in cancer and corresponding VAF in normal tissues and observed positive correlation (Spearman's  rho = 0.07, p = 1.226e-09, N = 7611; if we take into account only variants with non-zero VAF in normal tissues, correlation is still positive: Spearman's  rho = 0.09, p = 9.638e-11, N = 5436; see also figure 2A), 
-# suggesting that (i) many mutations might indeed originate before the cancerogenesis and (ii) that cancer VAF can approximate the time of origin of the mutation: before cancerogenesis (high VAF in cancer) and after (low VAF in cancer).
-# Using VAF in cancer as an approximation of the time of origin of the variant we are interesting now in the mutation spectra before and after tumoregenesis.
-
 # Ts/Tv => three levels.
 
-
-
-
-
-
-
-
-#exist_inLevin      notinLevin present_inLevin 
-#2542            5012              57 
 ALL$Subs = paste(ALL$ref,ALL$var, sep = '_'); table(ALL$Subs)
 VecOfTransitionSubstitutions = c('A_G','G_A','C_T','T_C') # all tr
 VecOfTransversionSubstitutions = c('C_A','A_C','C_G','G_C','G_T','T_G','T_A','A_T') # ALL Tv
-Ts = ALL[ALL$Subs %in% VecOfTransitionSubstitutions,]; nrow(Ts) 
-Tv = ALL[ALL$Subs %in% VecOfTransversionSubstitutions,]; nrow(Tv)
-Ts$Ts = 1; Tv$Ts = 0;  
-ALL = rbind(Ts,Tv)
 
-CancerType = unique(ALL$Tier2); length(CancerType)
+# CancerType = unique(ALL$Tier2); length(CancerType)
+CancerType = unique(ALL$tissue); length(CancerType)
 
-####### printing pdf
-pdf('../../Body/4Figures/CancerTimeOfTumoregenesis01.pdf', height = 15, width = 15)
-par(mfrow=c(3,2))
+####### APPROACH 1: 
+str(ALL$Subs)
+str(VecOfTransitionSubstitutions)
 
-####### APPROACH 1: TsTv in TWO GROUPS of mutations: ZERO IN NORMAL; NON ZERO IN NORMAL
-
-
-
-
-ALL$GradationFromNewToOld = 0
-for (i in 1:nrow(ALL))
-{
-  if (ALL$NormalVarFreq[i] == 0)  {ALL$GradationFromNewToOld[i] = 0} # YOUNG
-  if (ALL$NormalVarFreq[i] > 0)   {ALL$GradationFromNewToOld[i] = 1} # OLD
-}
-table(ALL$GradationFromNewToOld)
-# 0    1 
-# 2265 5346
-
-## which substitution type is more common among OLD?
-
-ratio = as.matrix(table(ALL$Subs,ALL$GradationFromNewToOld))
-colnames(ratio)
-Ratio =  ratio[,2] / ratio[,1]
-Ratio = as.data.frame(Ratio)
-Ratio$Subs = rownames(Ratio)
-Ratio = Ratio[order(Ratio$Ratio),]
-
-#Ratio Subs
-#A_T 1.482759  A_T
-#T_G 1.700000  T_G
-#C_T 2.000000  C_T
-#T_C 2.032904  T_C
-#C_A 2.036364  C_A
-#C_G 2.142857  C_G
-#A_G 2.143791  A_G
-#T_A 2.222222  T_A
-#A_C 2.500000  A_C
-#G_T 2.500000  G_T
-#G_C 2.606061  G_C
-#G_A 2.764645  G_A
-
-# interestingly all subs from G are becoming more common among old.
-
-
-
-
-
-
-
-
-
-Final = c();
-for (i in 0:max(ALL$GradationFromNewToOld))
-{ # i = 0
-  for (JackNife in 0:100)
-  {
-    Temp = ALL[ALL$GradationFromNewToOld == i,]
-    if (JackNife > 0) 
-    {
-      Temp = ALL[ALL$GradationFromNewToOld == i,]
-      Temp = Temp[sample(nrow(Temp),500),]
-    }
-    TempTs = Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]
-    TempTv = Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]
-    TsTv = nrow(TempTs)/nrow(TempTv)
-    Line = c(i,TsTv,JackNife); names(Line)=c('Group','TsTv','JackNife')
-    Final = rbind(Final,Line)
-  }
-}
-Final = data.frame(Final)  #
-Final[Final$JackNife == 0,]
-# 1       0 11.37705        0
-# 102     1 12.60305        0
-
-FinalJackNife = Final[Final$JackNife > 0,]
-boxplot(FinalJackNife[FinalJackNife$Group == 0,]$TsTv,FinalJackNife[FinalJackNife$Group == 1,]$TsTv,notch = TRUE, outline = FALSE, names = c('zero in normal (N = 2265)','more-than-zero in normal (N=5346)'), ylab = 'TsTv', main = 'TsTv in new versus old classes of mutations')
-
-####### APPROACH 2: TsTv in four GROUPS of mutations: from rare in cancer (young) to common in cancer (old)
 summary(ALL$TumorVarFreq) # 0.01000 0.01738 0.04540 0.20268 0.26278 0.99864
-ALL$GradationFromNewToOld = 0
-for (i in 1:nrow(ALL))
-{
-  if (ALL$TumorVarFreq[i] <= 0.01738)  {ALL$GradationFromNewToOld[i] = 0}
-  if (ALL$TumorVarFreq[i] > 0.01738 & ALL$TumorVarFreq[i] <= 0.04540)  {ALL$GradationFromNewToOld[i] = 1}
-  if (ALL$TumorVarFreq[i] > 0.04540 & ALL$TumorVarFreq[i] <= 0.26278)  {ALL$GradationFromNewToOld[i] = 2}
-  if (ALL$TumorVarFreq[i] > 0.26278)  {ALL$GradationFromNewToOld[i] = 3}
-}
-table(ALL$GradationFromNewToOld)
-# 0    1    2    3 
-# 1903 1903 1902 1903 
+A = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs %in% VecOfTransitionSubstitutions,])
+B = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+C = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs %in% VecOfTransitionSubstitutions,])
+D = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+X = rbind(c(A,B),c(C,D))
+fisher.test(X) # 0.689, p = 2.524e-05
+mosaicplot(X)
+# X
+# 3469  337
+# [2,] 3566  239
 
-Final = c();
-for (i in 0:max(ALL$GradationFromNewToOld))
-{ # i = 0
-  for (JackNife in 0:100)
-  {
-    Temp = ALL[ALL$GradationFromNewToOld == i,]
-    if (JackNife > 0) 
-    {
-      Temp = ALL[ALL$GradationFromNewToOld == i,]
-      Temp = Temp[sample(nrow(Temp),500),]
-    }
-    TempTs = Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]
-    TempTv = Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]
-    TsTv = nrow(TempTs)/nrow(TempTv)
-    Line = c(i,TsTv,JackNife); names(Line)=c('Group','TsTv','JackNife')
-    Final = rbind(Final,Line)
-  }
-}
-Final = data.frame(Final)  #
-Final[Final$JackNife == 0,]
-# Group      TsTv JackNife
-# 1       0  9.015789        0
-# 102     1 11.945578        0
-# 203     2 12.208333        0
-# 304     3 19.031579        0
-FinalJackNife = Final[Final$JackNife > 0,]
-boxplot(FinalJackNife[FinalJackNife$Group == 0,]$TsTv,FinalJackNife[FinalJackNife$Group == 1,]$TsTv,FinalJackNife[FinalJackNife$Group == 2,]$TsTv,FinalJackNife[FinalJackNife$Group == 3,]$TsTv,notch = TRUE, outline = FALSE, names = c('first 25% (N=1903)','second 25% (N=1903)','third 25% (N=1902)','fourth 25% (N=1903)'), ylab = 'TsTv', main = 'TsTv in rare (young) versus common (old) cancer mutations')
-
-####### APPROACH 3: reduce 4 groups to 2 (in relation to median) and run it cancer-specifically
-summary(ALL$TumorVarFreq) # 0.01000 0.01738 0.04540 0.20268 0.26278 0.99864
-ALL$GradationFromNewToOld = 0
-for (i in 1:nrow(ALL))
-{
-  if (ALL$TumorVarFreq[i] <= 0.04540)  {ALL$GradationFromNewToOld[i] = 0}
-  if (ALL$TumorVarFreq[i] > 0.04540)  {ALL$GradationFromNewToOld[i] = 1}
-}
-table(ALL$GradationFromNewToOld)
-# 0    1 
-# 3806 3805 
-
-Final = c();
-for (i in 0:max(ALL$GradationFromNewToOld))
-{ # i = 0
-  for (JackNife in 0:100)
-  {
-    Temp = ALL[ALL$GradationFromNewToOld == i,]
-    if (JackNife > 0) 
-    {
-      Temp = ALL[ALL$GradationFromNewToOld == i,]
-      Temp = Temp[sample(nrow(Temp),500),]
-    }
-    TempTs = Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]
-    TempTv = Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]
-    TsTv = nrow(TempTs)/nrow(TempTv)
-    Line = c(i,TsTv,JackNife); names(Line)=c('Group','TsTv','JackNife')
-    Final = rbind(Final,Line)
-  }
-}
-Final = data.frame(Final)  #
-Final[Final$JackNife == 0,]
-#Group     TsTv JackNife
-#1       0 10.29377        0
-#102     1 14.92050        0
-#FinalJackNife = Final[Final$JackNife > 0,]
-boxplot(FinalJackNife[FinalJackNife$Group == 1,]$TsTv,FinalJackNife[FinalJackNife$Group == 0,]$TsTv,notch = TRUE, outline = FALSE, names = c('high VAF (N=3806)','low VAF (N=3805)'), ylab = 'TsTv', main = 'TsTv in mutations with high and low VAFs')
-wilcox.test(FinalJackNife[FinalJackNife$Group == 1,]$TsTv,FinalJackNife[FinalJackNife$Group == 0,]$TsTv); # 4.636e-07
-
-####### APPROACH 4: do it separately for each cancer type: median in each case should be cancer- specific!!!!
+####### APPROACH 2: do it separately for each cancer type: median in each case should be cancer- specific!!!!
 
 Final = c();
 for (Tissue in CancerType)
 {  # Tissue = 'Bladder'
-    Temp = ALL[ALL$Tier2 == Tissue,]
+    # Temp = ALL[ALL$Tier2 == Tissue,]
+    Temp = ALL[ALL$tissue == Tissue,]
     TempLate = Temp[Temp$TumorVarFreq <= median(Temp$TumorVarFreq),]
     TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
+    LateMed = median(TempLate$TumorVarFreq)
+    EarlyMed = median(TempEarly$TumorVarFreq)
     EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
     EarlyTv = nrow(TempEarly[TempEarly$Subs %in% VecOfTransversionSubstitutions,])
     LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
     LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
-    Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv); 
+    Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
     Final = rbind(Final,Line)
 }
-Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv')
-for (i in 2:5) {Final[,i] = as.numeric(as.character(Final[,i]))}
+Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv','LateMed','EarlyMed')
+
+for (i in 2:7) {Final[,i] = as.numeric(as.character(Final[,i]))}
 Final$EarlyTsTv = Final$EarlyTs/Final$EarlyTv
 Final$LateTsTv = Final$LateTs/Final$LateTv
-### there is one Infinity (19/0) - paired test will be able to deal with it? Inf is very big number.. should be ok.
-wilcox.test(Final$LateTsTv,Final$EarlyTsTv, paired = TRUE) # 0.0106
+Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
+Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
+FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]  # 36 instead of 40
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272
 
 ## plot segments: dev.off() one cancer is missing here
-plot(NA, xlim=c(-0.2,1.2), ylim=c(0,70), xlab='', ylab="TsTv")
+plot(NA, xlim=c(-0.2,1.2), ylim=c(0,72), xlab='', ylab="TsTv")
 for (Tissue in CancerType)
-{ # Tissue = 'Bladder'
-  Temp = Final[Final$Tissue == Tissue,]
-  segments(0, Temp$LateTsTv, 1, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.1), lwd = 3) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
+{ 
+  Temp = FinalShort[FinalShort$Tissue == Tissue,]
+  segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 3) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
 }
-segments(0, mean(Final$LateTsTv), 1, mean(Final[!is.infinite(Final$EarlyTsTv),]$EarlyTsTv), col = rgb(1,0.1,0.1,1), lwd = 3) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
-Final
-#Tissue EarlyTs EarlyTv LateTs LateTv  LateTsTv EarlyTsTv
-#1          Bladder      47       2     41      9  4.555556 23.500000
-#2  Bone/SoftTissue      72       5     74      4 18.500000 14.400000
-#3           Breast     321      23    316     29 10.896552 13.956522
-#4          Biliary      43       2     41      4 10.250000 21.500000
-#5           Cervix      19       0     16      3  5.333333       Inf
-#6         Lymphoid     145      13    145     13 11.153846 11.153846
-#7          Myeloid      32       7     37      2 18.500000  4.571429
-#8     Colon/Rectum     105       7     98     14  7.000000 15.000000
-#9         Prostate     355      14    359     11 32.636364 25.357143
-#10       Esophagus     187      17    180     25  7.200000 11.000000
-#11         Stomach      93      12     95     10  9.500000  7.750000
-#12             CNS     128       3    105     26  4.038462 42.666667
-#13       Head/Neck      67       6     67      6 11.166667 11.166667
-#14          Kidney     372      39    349     62  5.629032  9.538462
-#15           Liver     596      40    589     48 12.270833 14.900000
-#16            Lung     130       4    126      8 15.750000 32.500000
-#17           Ovary     194       7    188     13 14.461538 27.714286
-#18        Pancreas     404      26    397     34 11.676471 15.538462
-#19            Skin     106       2    101      8 12.625000 53.000000
-#20         Thyroid      79       5     78      6 13.000000 15.800000
-#21          Uterus      71       1     67      6 11.166667 71.000000
 
-###### APPROACH 5: RUN IT PATIENT-WISE: rank all mutations according to VAF and check probability to have transition as a function of the order.
+CancerTypeSpecificData = Final
+
+##### APPROACH PATIENT-WISE: rank all mutations according to VAF and check probability to have transition as a function of the order.
 
 length(unique(ALL$index))
 length(unique(ALL$sample))
@@ -275,12 +102,12 @@ AGG = aggregate(ALL$Number, by = list(ALL$sample), FUN = sum); names(AGG)=c('sam
 VecOfPatientsWithManyMut = AGG[AGG$NumberOfMut>=2,]$sample; length(VecOfPatientsWithManyMut) # 1253 1715
 Final = c()
 for (i in 1:length(VecOfPatientsWithManyMut))
-{ 
+{  # i = 3
   Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
-  if (nrow(Temp[Temp$Ts == 1,]) > 0 & nrow(Temp[Temp$Ts == 0,]) > 0)
+  if (nrow(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
   {
-    VafTs = mean(Temp[Temp$Ts == '1',]$TumorVarFreq); 
-    VafTv = mean(Temp[Temp$Ts == '0',]$TumorVarFreq);
+    VafTs = mean(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq);
     Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
   }
 }
@@ -290,41 +117,47 @@ Final$RatioVafTsVafTv = log2(Final$VafTs/Final$VafTv); summary(Final$RatioVafTsV
 hist(Final$RatioVafTsVafTv, breaks = 50, main = '', xlab = 'log2(VAF(Ts)/VAF(Tv))') # I can color or plot separately different types of cancers
 abline(v = 0, col = 'red', lwd = 3)
 wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 5.109e-15 (419 observations)
-dev.off()  
+
+######## glycolisis:
+#### from Andrey Yurchenko and https://www.nature.com/articles/s41467-018-07232-8#MOESM5
+
+Tissue =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
+Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
+Glyc = data.frame(Tissue,Glycolysis)
+
+Glyc = merge(CancerTypeSpecificData,Glyc, by = 'Tissue')
+
+cor.test(Glyc$AllTsTv,Glyc$Glycolysis, method = 'spearman') # p = 0.014, rho 0.5706914
+plot(Glyc$AllTsTv,Glyc$Glycolysis,pch = '.')
+text(Glyc$AllTsTv,Glyc$Glycolysis,Glyc$Tissue, cex = )
+
+cor.test(Glyc$LateTsTv,Glyc$Glycolysis, method = 'spearman')  # p = 0.003583, -0.6487607
+cor.test(Glyc$EarlyTsTv,Glyc$Glycolysis, method = 'spearman') # p = 0.05017,  -0.4679755 
+
+Glyc = Glyc[order(Glyc$Glycolysis),]
+boxplot(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], names = c('oxidative','glycolitic'), ylab = 'Ts/Tv')
+wilcox.test(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], alternative = 'greater')
 
 
-FreqA = 4993;
-FreqT = 3871;
-FreqG = 2159;
-FreqC = 5357;
-total = FreqA + FreqT + FreqG + FreqC
-FreqA = FreqA/total; FreqT = FreqT/total; FreqG = FreqG/total; FreqC = FreqC/total;
-FreqA  # 0.304823 
-FreqT  # 0.2363248
-FreqG  # 0.1318071
-FreqC  # 0.3270452
-FreqA+FreqT+FreqG+FreqC # 1
+### do it better = sort each variant by VAF and calculate Ts/Tv based on the last 20 substitutions
 
-plot(ALL$NormalVarFreq, ALL$TumorVarFreq)
-
-summary(ALL$NormalVarFreq)                         #  0.0000000 0.0000000 0.0003605 0.0006286 0.0007522 0.0285714
-summary(ALL[ALL$NormalVarFreq > 0,]$NormalVarFreq) #  3.116e-05 3.315e-04 5.513e-04 8.950e-04 1.011e-03 2.857e-02
-nrow(ALL[ALL$NormalVarFreq == 0,]) # 2265
-nrow(ALL[ALL$NormalVarFreq > 0 & ALL$NormalVarFreq < 5.513e-04,]) # 2673
-nrow(ALL[ALL$NormalVarFreq > 5.513e-04,]) # 2673
+dev.off()
 
 
-ALL$NumberOfMut = 1
-ALL$NumberOfMutNormalized = 1
-#### normilaze by the number of the first nucleotide (the higher the frequency of the first nucleotide, the less should be the probability of a mutation)
-#### so, here I just divide by the number of ancestral nucleotide
-for (i in 1:nrow(ALL))
-{
-  if (ALL$ref[i] == 'A') {ALL$NumberOfMutNormalized[i] = 1/4993;}
-  if (ALL$ref[i] == 'T') {ALL$NumberOfMutNormalized[i] = 1/3871;}
-  if (ALL$ref[i] == 'G') {ALL$NumberOfMutNormalized[i] = 1/2159;}
-  if (ALL$ref[i] == 'C') {ALL$NumberOfMutNormalized[i] = 1/5357;}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### CAN WE PREDICT TIME OF ORIGIN OF THE mtDNA SOMATIC MUTATIONS USING 3 TYPES OF INFORMATION: mtDB, Levin and the frequency in normal
 #### If yes, overlap should be significant:
