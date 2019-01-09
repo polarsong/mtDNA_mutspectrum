@@ -11,12 +11,10 @@ ALL = read.table("../../Body/1Raw/mtDNA_snv_Oct2016.txt", head = TRUE, sep = '\t
 ### DERIVE NECESSARY TRAITS:
 ALL$TumorVarFreq = ALL$tumor_reads2/(ALL$tumor_reads1 + ALL$tumor_reads2); summary(ALL$TumorVarFreq)  # 0.01000 0.01738 0.04540 0.20268 0.26278 0.99864
 ALL$NormalVarFreq = ALL$normal_reads2/(ALL$normal_reads1 + ALL$normal_reads2); summary(ALL$NormalVarFreq) 
-table(ALL$Levin2012) 
-
 
 #### pdf out
-pdf('../../Body/4Figures/CancerTimeOfTumoregenesis01.pdf', height = 30, width = 30)
-par(mfrow=c(2,2))
+pdf("../../Body/4Figures/Cancer.TimeOfTumorigenesis01.pdf" , height = 20, width = 15)
+par(mfrow=c(2,2), cex = 1.5)
 
 #### DO VAF IN CANCER APPROXIMATE THE TIME OF ORIGIN?
 #### if there is a correlation between frequency in normal tissue and in cancer? yes
@@ -30,8 +28,6 @@ boxplot(ALL[ALL$NormalVarFreq ==  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq > 0,]$T
 cor.test(ALL$NormalVarFreq,ALL$TumorVarFreq,method = 'spearman') # Rho = 0.06958285, p =  1.226e-09
 cor.test(ALL[ALL$NormalVarFreq >  0,]$NormalVarFreq,ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq, method = 'spearman') # Rho = 0.0883715, p =  9.638e-11
 
-# Ts/Tv => three levels.
-
 ALL$Subs = paste(ALL$ref,ALL$var, sep = '_'); table(ALL$Subs)
 VecOfTransitionSubstitutions = c('A_G','G_A','C_T','T_C') # all tr
 VecOfTransversionSubstitutions = c('C_A','A_C','C_G','G_C','G_T','T_G','T_A','A_T') # ALL Tv
@@ -39,7 +35,7 @@ VecOfTransversionSubstitutions = c('C_A','A_C','C_G','G_C','G_T','T_G','T_A','A_
 # CancerType = unique(ALL$Tier2); length(CancerType)
 CancerType = unique(ALL$tissue); length(CancerType)
 
-####### APPROACH 1: 
+####### TEST 1: Ts/Tv in early and late variants - global analysis
 str(ALL$Subs)
 str(VecOfTransitionSubstitutions)
 
@@ -51,11 +47,30 @@ D = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs %in% VecOfTransversionSubstit
 X = rbind(c(A,B),c(C,D))
 fisher.test(X) # 0.689, p = 2.524e-05
 mosaicplot(X)
-# X
+X
 # 3469  337
-# [2,] 3566  239
+# 3566  239
 
-####### APPROACH 2: do it separately for each cancer type: median in each case should be cancer- specific!!!!
+## many transversions are low quality "noise", so it is important to show, that 
+## results are the same if I work with extremely low P-values.
+summary(-log10(ALL$pval))  # this is general p-value - that this variant is not mistake?
+summary(ALL$somatic_p_value)  # this is the somatic p-value? 
+cor.test(ALL$pval,ALL$somatic_p_value, method = 'spearman') # rho = 0.83, p-value < 2.2e-16
+
+# pval
+summary(-log10(ALL$pval))
+NewAll = ALL[-log10(ALL$pval) > 59,]
+nrow(NewAll)                # 5709
+median(NewAll$TumorVarFreq) # 0.094
+
+A = nrow(NewAll[NewAll$TumorVarFreq <= 0.094 & NewAll$Subs %in% VecOfTransitionSubstitutions,])
+B = nrow(NewAll[NewAll$TumorVarFreq <= 0.094 & NewAll$Subs %in% VecOfTransversionSubstitutions,])
+C = nrow(NewAll[NewAll$TumorVarFreq > 0.094 & NewAll$Subs %in% VecOfTransitionSubstitutions,])
+D = nrow(NewAll[NewAll$TumorVarFreq > 0.094 & NewAll$Subs %in% VecOfTransversionSubstitutions,])
+X = rbind(c(A,B),c(C,D))
+fisher.test(X) # 0.667, p = 0.0002002
+
+####### TEST 2: Ts/Tv in early and late - separately for each cancer type
 
 Final = c();
 for (Tissue in CancerType)
@@ -83,17 +98,16 @@ Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
 FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]  # 36 instead of 40
 wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272
 
-## plot segments: dev.off() one cancer is missing here
-plot(NA, xlim=c(-0.2,1.2), ylim=c(0,72), xlab='', ylab="TsTv")
+# plot: one segment - one cancer
+plot(NA, xlim=c(0,1), ylim=c(0,72), xlab='VAF', ylab="Ts/Tv")
 for (Tissue in CancerType)
 { 
   Temp = FinalShort[FinalShort$Tissue == Tissue,]
   segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 3) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
 }
-
 CancerTypeSpecificData = Final
 
-##### APPROACH PATIENT-WISE: rank all mutations according to VAF and check probability to have transition as a function of the order.
+##### TEST 3: per patient: rank all mutations according to VAF and check probability to have transition as a function of the order
 
 length(unique(ALL$index))
 length(unique(ALL$sample))
@@ -138,88 +152,62 @@ Glyc = Glyc[order(Glyc$Glycolysis),]
 boxplot(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], names = c('oxidative','glycolitic'), ylab = 'Ts/Tv')
 wilcox.test(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], alternative = 'greater')
 
+### do it better = sort each variant by VAF and calculate Ts/Tv based for example on the last 20 substitutions.
 
-### do it better = sort each variant by VAF and calculate Ts/Tv based on the last 20 substitutions
-
-#### logistic regression: T>C as a function of CancerGlycolisis and VAF
+######## logistic regression: T>C as a function of CancerGlycolisis and VAF
 
 tissue =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
 Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
-Glycolysis = data.frame(tissue,Glycolysis)
+OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.216577,3.199398,12.84608,7.390275,8.302373,6.407421,13.32523,4.457943,0.9468787,13.56102,2.319901,1.623032,11.08796,40.05531,0.3871189,26.50188,12.20636,13.09163,166.9113,51.49203,14.65809,2.185885)
 
+Glycolysis = data.frame(tissue,Glycolysis,OxidativePhosphorylation)
+plot(Glycolysis$Glycolysis,Glycolysis$OxidativePhosphorylation)
 ALL = merge(ALL,Glycolysis, by = 'tissue')  # 3348
 
+## T>C: both coefficients are positive
 ALL_T_C = ALL[ALL$Subs == 'T_C',]  # 936
 ALL_T_C$T_C = 1
 ALL_not_T_C = ALL[ALL$Subs != 'T_C',]  # 2412
 ALL_not_T_C$T_C = 0
 ALL = rbind(ALL_T_C,ALL_not_T_C)
-
-
-### logistic regression:
+par(mfrow=c(1,1), cex = 2)
 glm_1 <-glm(ALL$T_C ~ ALL$Glycolysis + ALL$TumorVarFreq, family = binomial())
 summary(glm_1)
-
+glm_2 <-glm(ALL$T_C ~ ALL$OxidativePhosphorylation + ALL$TumorVarFreq, family = binomial())
+summary(glm_2)
 ALL$prob <- predict(glm_1, type = 'response') # sqrt(P-EN/pi)
-ALL$area = sqrt(ALL$prob/pi)/500   # area instead of squares!!!
+summary(ALL$prob) #  0.2455  0.2544  0.2717  0.2796  0.2940  0.3713
+ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
+summary(ALL$area)
+plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', xlim = c(0,1.05), ylim = c(0,140), xlab = 'VAF', ylab = 'Glykolisis', main = 'T>C') #
+symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = "gray")
+symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = "red")
 
-plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', xlim = c(0,1), ylim = c(0,100), xlab = 'VAF', ylab = 'Glykolisis')
-symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE)
-
-dev.off()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-par(new = TRUE)
-
-plot(RL[RL$EN_1_LC_0 == 1,]$lnDN_DS ~ RL[RL$EN_1_LC_0 == 1,]$lnBM_g, pch = '', xlim = c(2,20), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
-symbols(RL[RL$EN_1_LC_0 == 1,]$lnBM_g, RL[RL$EN_1_LC_0 == 1,]$lnDN_DS, circles = RL[RL$EN_1_LC_0 == 1,]$prob, add = TRUE, fg = 'red', lwd = 2)  # , bg = 'red'
-
-dev.off()
-
-
-RL = RL[order(RL$prob),]
-RL$NUMBER = 0
-for (i in 1: nrow(RL)) 	{RL$NUMBER[i] = i}
-RL$NUM_SP = paste(RL$NUMBER,RL$SPECIES,sep = ' ')
-
-plot(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
-text(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, RL[RL$StatusRL == 'LC',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'black')
-par(new = TRUE)
-plot(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
-text(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, RL[RL$StatusRL == 'EN',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'red')
-legend(20,-1.4,legend = head(RL$NUM_SP,76), cex = 0.5)
-legend(22,-1.4,legend = tail(RL$NUM_SP,75), cex = 0.5)
-dev.off()
-
-SUPPL = data.frame(RL$NUMBER,RL$SPECIES,RL$StatusRL,RL$BodyMass_g,RL$DN_DS,RL$prob)
-names(SUPPL) = c('NUMBER_ON_FIGURE','SPECIES','RED_LIST_STATUS','BODY_MASS_GRAMM','Ka/Ks','PREDICED_PROBABILITY_OF_EXTINCTION_FROM_EQUATION_5')
-write.table(SUPPL, file = 'SUPPLEMENTARY_TABLE_2.txt', sep = '\t', row.names = F,quote = F)
-
-# in order to add a legend to the bubble plot I can take species with minimal prob (1,Tupaia_belangeri, 0.0124619294286938) and with maximal (151, Megaptera_novaeangliae, 0.637889874736737)
-
-
-
-
-
-
-
-
-
-
+## G>A: both coefficients are negative
+ALL_T_C = ALL[ALL$Subs == 'G_A',]  # 936
+ALL_T_C$T_C = 1
+ALL_not_T_C = ALL[ALL$Subs != 'G_A',]  # 2412
+ALL_not_T_C$T_C = 0
+ALL = rbind(ALL_T_C,ALL_not_T_C)
+par(mfrow=c(1,1), cex = 2)
+glm_1 <-glm(ALL$T_C ~ ALL$Glycolysis + ALL$TumorVarFreq, family = binomial())
+summary(glm_1)
+glm_2 <-glm(ALL$T_C ~ ALL$OxidativePhosphorylation + ALL$TumorVarFreq, family = binomial())
+summary(glm_2)
+ALL$prob <- predict(glm_1, type = 'response') # sqrt(P-EN/pi)
+summary(ALL$prob) #  0.2455  0.2544  0.2717  0.2796  0.2940  0.3713
+ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
+summary(ALL$area)
+plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', xlim = c(0,1.05), ylim = c(0,140), xlab = 'VAF', ylab = 'Glykolisis', main = 'G>A') #
+symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = "gray")
+symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = "red")
 
 dev.off()
 
-
-
+#plot(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
+#text(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, RL[RL$StatusRL == 'LC',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'black')
+#par(new = TRUE)
+#plot(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
+#text(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, RL[RL$StatusRL == 'EN',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'red')
+#legend(20,-1.4,legend = head(RL$NUM_SP,76), cex = 0.5)
+#legend(22,-1.4,legend = tail(RL$NUM_SP,75), cex = 0.5)
