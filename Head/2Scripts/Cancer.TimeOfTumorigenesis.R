@@ -70,6 +70,33 @@ D = nrow(NewAll[NewAll$TumorVarFreq > 0.094 & NewAll$Subs %in% VecOfTransversion
 X = rbind(c(A,B),c(C,D))
 fisher.test(X) # 0.667, p = 0.0002002
 
+## instead of Ts/Tv we analyse T>C/G>A - both are high quality transitions - distribution of frequencies is similar, T>C has a bit higher VAF
+summary(ALL[ALL$Subs == 'T_C',]$TumorVarFreq)
+summary(ALL[ALL$Subs == 'G_A',]$TumorVarFreq)
+wilcox.test(ALL[ALL$Subs == 'T_C',]$TumorVarFreq,ALL[ALL$Subs == 'G_A',]$TumorVarFreq) # 0.1577
+par(mfrow=c(2,1))
+hist(ALL[ALL$Subs == 'T_C',]$TumorVarFreq, breaks = 50)
+hist(ALL[ALL$Subs == 'G_A',]$TumorVarFreq, breaks = 50)
+
+## instead of Ts/Tv we analyse T>C/Tv 
+A = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs == 'T_C',])
+B = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+C = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs == 'T_C',])
+D = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+X = rbind(c(A,B),c(C,D))
+fisher.test(X) # 0.681, p = 5.26e-05
+X
+
+## instead of Ts/Tv we analyse G>A/Tv 
+A = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs == 'G_A',])
+B = nrow(ALL[ALL$TumorVarFreq <= 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+C = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs == 'G_A',])
+D = nrow(ALL[ALL$TumorVarFreq > 0.04540 & ALL$Subs %in% VecOfTransversionSubstitutions,])
+X = rbind(c(A,B),c(C,D))
+fisher.test(X) # 0.715092, p = 0.00023185
+X
+# both T>C and G>A similarly contribute to the trend
+
 ####### TEST 2: Ts/Tv in early and late - separately for each cancer type
 
 Final = c();
@@ -81,9 +108,11 @@ for (Tissue in CancerType)
     TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
     LateMed = median(TempLate$TumorVarFreq)
     EarlyMed = median(TempEarly$TumorVarFreq)
-    EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
+    # EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
+    EarlyTs = nrow(TempEarly[TempEarly$Subs == 'G_A',])
     EarlyTv = nrow(TempEarly[TempEarly$Subs %in% VecOfTransversionSubstitutions,])
-    LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
+    # LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
+    LateTs = nrow(TempLate[TempLate$Subs == 'G_A',])
     LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
     Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
     Final = rbind(Final,Line)
@@ -96,7 +125,7 @@ Final$LateTsTv = Final$LateTs/Final$LateTv
 Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
 Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
 FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]  # 36 instead of 40
-wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272, only T>C = 0.0004558, only G>A = 0.0006133
 
 # plot: one segment - one cancer
 plot(NA, xlim=c(0,1), ylim=c(0,72), xlab='VAF', ylab="Ts/Tv")
@@ -118,10 +147,12 @@ Final = c()
 for (i in 1:length(VecOfPatientsWithManyMut))
 {  # i = 3
   Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
-  if (nrow(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
+  # if (nrow(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
+  if (nrow(Temp[Temp$Subs == 'T_C',]) > 0 & nrow(Temp[Temp$Subs == 'G_A',]) > 0)
   {
-    VafTs = mean(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq); 
-    VafTv = mean(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq);
+    # VafTs = mean(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq); 
+    VafTs = mean(Temp[Temp$Subs == 'T_C',]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs == 'G_A',]$TumorVarFreq);
     Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
   }
 }
@@ -130,7 +161,7 @@ Final = data.frame(Final); names(Final)=c('sample','VafTs','VafTv')
 Final$RatioVafTsVafTv = log2(Final$VafTs/Final$VafTv); summary(Final$RatioVafTsVafTv) # higher than zero!!!
 hist(Final$RatioVafTsVafTv, breaks = 50, main = '', xlab = 'log2(VAF(Ts)/VAF(Tv))') # I can color or plot separately different types of cancers
 abline(v = 0, col = 'red', lwd = 3)
-wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 5.109e-15 (419 observations)
+wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 5.109e-15 (419 observations), T>C (p-value = 1.501e-06), G>A (p-value = 2.651e-09), T>C vs G>A (0.009667)
 
 ######## glycolisis:
 #### from Andrey Yurchenko and https://www.nature.com/articles/s41467-018-07232-8#MOESM5
@@ -202,6 +233,8 @@ plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', 
 symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = "gray")
 symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = "red")
 
+### T>C are more common among early mutations (normal), while G>A are more common among late (cancer specific). Why I don't see it in previous analyses with VAF?
+### - it might reflect just the same process. 
 dev.off()
 
 #plot(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
