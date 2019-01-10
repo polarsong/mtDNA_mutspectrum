@@ -74,7 +74,6 @@ fisher.test(X) # 0.667, p = 0.0002002
 summary(ALL[ALL$Subs == 'T_C',]$TumorVarFreq)
 summary(ALL[ALL$Subs == 'G_A',]$TumorVarFreq)
 wilcox.test(ALL[ALL$Subs == 'T_C',]$TumorVarFreq,ALL[ALL$Subs == 'G_A',]$TumorVarFreq) # 0.1577
-par(mfrow=c(2,1))
 hist(ALL[ALL$Subs == 'T_C',]$TumorVarFreq, breaks = 50)
 hist(ALL[ALL$Subs == 'G_A',]$TumorVarFreq, breaks = 50)
 
@@ -108,11 +107,11 @@ for (Tissue in CancerType)
     TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
     LateMed = median(TempLate$TumorVarFreq)
     EarlyMed = median(TempEarly$TumorVarFreq)
-    # EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
-    EarlyTs = nrow(TempEarly[TempEarly$Subs == 'G_A',])
+    EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
+    # EarlyTs = nrow(TempEarly[TempEarly$Subs == 'G_A',])
     EarlyTv = nrow(TempEarly[TempEarly$Subs %in% VecOfTransversionSubstitutions,])
-    # LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
-    LateTs = nrow(TempLate[TempLate$Subs == 'G_A',])
+    LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
+    # LateTs = nrow(TempLate[TempLate$Subs == 'G_A',])
     LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
     Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
     Final = rbind(Final,Line)
@@ -125,16 +124,78 @@ Final$LateTsTv = Final$LateTs/Final$LateTv
 Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
 Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
 FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]  # 36 instead of 40
-wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272, only T>C = 0.0004558, only G>A = 0.0006133
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272, 
 
 # plot: one segment - one cancer
 plot(NA, xlim=c(0,1), ylim=c(0,72), xlab='VAF', ylab="Ts/Tv")
 for (Tissue in CancerType)
 { 
   Temp = FinalShort[FinalShort$Tissue == Tissue,]
-  segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 3) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
+  segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 4) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
 }
 CancerTypeSpecificData = Final
+
+## only T>C
+
+Final = c();
+for (Tissue in CancerType)
+{  # Tissue = 'Bladder'
+  # Temp = ALL[ALL$Tier2 == Tissue,]
+  Temp = ALL[ALL$tissue == Tissue,]
+  TempLate = Temp[Temp$TumorVarFreq <= median(Temp$TumorVarFreq),]
+  TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
+  LateMed = median(TempLate$TumorVarFreq)
+  EarlyMed = median(TempEarly$TumorVarFreq)
+  # EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
+  EarlyTs = nrow(TempEarly[TempEarly$Subs == 'T_C',])
+  EarlyTv = nrow(TempEarly[TempEarly$Subs %in% VecOfTransversionSubstitutions,])
+  # LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
+  LateTs = nrow(TempLate[TempLate$Subs == 'T_C',])
+  LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
+  Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
+  Final = rbind(Final,Line)
+}
+Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv','LateMed','EarlyMed')
+
+for (i in 2:7) {Final[,i] = as.numeric(as.character(Final[,i]))}
+Final$EarlyTsTv = Final$EarlyTs/Final$EarlyTv
+Final$LateTsTv = Final$LateTs/Final$LateTv
+Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
+Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
+FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]
+nrow(FinalShort)  # 36 instead of 40
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0004558
+
+## only G>A
+
+Final = c();
+for (Tissue in CancerType)
+{  # Tissue = 'Bladder'
+  # Temp = ALL[ALL$Tier2 == Tissue,]
+  Temp = ALL[ALL$tissue == Tissue,]
+  TempLate = Temp[Temp$TumorVarFreq <= median(Temp$TumorVarFreq),]
+  TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
+  LateMed = median(TempLate$TumorVarFreq)
+  EarlyMed = median(TempEarly$TumorVarFreq)
+  # EarlyTs = nrow(TempEarly[TempEarly$Subs %in% VecOfTransitionSubstitutions,])
+  EarlyTs = nrow(TempEarly[TempEarly$Subs == 'G_A',])
+  EarlyTv = nrow(TempEarly[TempEarly$Subs %in% VecOfTransversionSubstitutions,])
+  # LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
+  LateTs = nrow(TempLate[TempLate$Subs == 'G_A',])
+  LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
+  Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
+  Final = rbind(Final,Line)
+}
+Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv','LateMed','EarlyMed')
+
+for (i in 2:7) {Final[,i] = as.numeric(as.character(Final[,i]))}
+Final$EarlyTsTv = Final$EarlyTs/Final$EarlyTv
+Final$LateTsTv = Final$LateTs/Final$LateTv
+Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
+Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
+FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]
+nrow(FinalShort)  # 36 instead of 40
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006133
 
 ##### TEST 3: per patient: rank all mutations according to VAF and check probability to have transition as a function of the order
 
@@ -147,100 +208,82 @@ Final = c()
 for (i in 1:length(VecOfPatientsWithManyMut))
 {  # i = 3
   Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
-  # if (nrow(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
-  if (nrow(Temp[Temp$Subs == 'T_C',]) > 0 & nrow(Temp[Temp$Subs == 'G_A',]) > 0)
+  if (nrow(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
+  # if (nrow(Temp[Temp$Subs == 'T_C',]) > 0 & nrow(Temp[Temp$Subs == 'G_A',]) > 0)
   {
-    # VafTs = mean(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq); 
-    VafTs = mean(Temp[Temp$Subs == 'T_C',]$TumorVarFreq); 
-    VafTv = mean(Temp[Temp$Subs == 'G_A',]$TumorVarFreq);
+    VafTs = mean(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq); 
+    # VafTs = mean(Temp[Temp$Subs == 'T_C',]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq);
     Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
   }
 }
 
 Final = data.frame(Final); names(Final)=c('sample','VafTs','VafTv')
-Final$RatioVafTsVafTv = log2(Final$VafTs/Final$VafTv); summary(Final$RatioVafTsVafTv) # higher than zero!!!
-hist(Final$RatioVafTsVafTv, breaks = 50, main = '', xlab = 'log2(VAF(Ts)/VAF(Tv))') # I can color or plot separately different types of cancers
-abline(v = 0, col = 'red', lwd = 3)
 wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 5.109e-15 (419 observations), T>C (p-value = 1.501e-06), G>A (p-value = 2.651e-09), T>C vs G>A (0.009667)
 
-######## glycolisis:
-#### from Andrey Yurchenko and https://www.nature.com/articles/s41467-018-07232-8#MOESM5
+Final$RatioVafTsVafTv = log2(Final$VafTs/Final$VafTv); summary(Final$RatioVafTsVafTv) # higher than zero!!!
+wilcox.test(Final$RatioVafTsVafTv, mu = 0)
+hist(Final$RatioVafTsVafTv, breaks = 50, main = '', xlab = 'log2(VAF(Ts)/VAF(Tv))') # I can color or plot separately different types of cancers
+abline(v = 0, col = 'red', lwd = 3)
+Final$DiffVafTsVafTv = Final$VafTs - Final$VafTv; summary(Final$DiffVafTsVafTv) # 0.054
 
-Tissue =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
-Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
-Glyc = data.frame(Tissue,Glycolysis)
 
-Glyc = merge(CancerTypeSpecificData,Glyc, by = 'Tissue')
 
-cor.test(Glyc$AllTsTv,Glyc$Glycolysis, method = 'spearman') # p = 0.014, rho 0.5706914
-plot(Glyc$AllTsTv,Glyc$Glycolysis,pch = '.')
-text(Glyc$AllTsTv,Glyc$Glycolysis,Glyc$Tissue, cex = )
+### T>C only:
+AGG = aggregate(ALL$Number, by = list(ALL$sample), FUN = sum); names(AGG)=c('sample','NumberOfMut'); summary(AGG$NumberOfMut) # median = 3
+VecOfPatientsWithManyMut = AGG[AGG$NumberOfMut>=2,]$sample; length(VecOfPatientsWithManyMut) # 1253 1715
+Final = c()
+for (i in 1:length(VecOfPatientsWithManyMut))
+{  # i = 3
+  Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
+  if (nrow(Temp[Temp$Subs == 'T_C',]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
+  {
+    VafTs = mean(Temp[Temp$Subs == 'T_C',]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq);
+    Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
+  }
+}
+Final = data.frame(Final); names(Final)=c('sample','VafTs','VafTv')
+wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 1.501e-06 (286 observations),
 
-cor.test(Glyc$LateTsTv,Glyc$Glycolysis, method = 'spearman')  # p = 0.003583, -0.6487607
-cor.test(Glyc$EarlyTsTv,Glyc$Glycolysis, method = 'spearman') # p = 0.05017,  -0.4679755 
+### G>A only:
+AGG = aggregate(ALL$Number, by = list(ALL$sample), FUN = sum); names(AGG)=c('sample','NumberOfMut'); summary(AGG$NumberOfMut) # median = 3
+VecOfPatientsWithManyMut = AGG[AGG$NumberOfMut>=2,]$sample; length(VecOfPatientsWithManyMut) # 1253 1715
+Final = c()
+for (i in 1:length(VecOfPatientsWithManyMut))
+{  # i = 3
+  Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
+  if (nrow(Temp[Temp$Subs == 'G_A',]) > 0 & nrow(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]) > 0)
+  {
+    VafTs = mean(Temp[Temp$Subs == 'G_A',]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq);
+    Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
+  }
+}
+Final = data.frame(Final); names(Final)=c('sample','VafTs','VafTv')
+wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p = p-value = 2.651e-09 (346 observations),
 
-Glyc = Glyc[order(Glyc$Glycolysis),]
-boxplot(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], names = c('oxidative','glycolitic'), ylab = 'Ts/Tv')
-wilcox.test(Glyc$AllTsTv[1:5],Glyc$AllTsTv[14:18], alternative = 'greater')
+### T>C/G>A:
+AGG = aggregate(ALL$Number, by = list(ALL$sample), FUN = sum); names(AGG)=c('sample','NumberOfMut'); summary(AGG$NumberOfMut) # median = 3
+VecOfPatientsWithManyMut = AGG[AGG$NumberOfMut>=2,]$sample; length(VecOfPatientsWithManyMut) # 1253 1715
+Final = c()
+for (i in 1:length(VecOfPatientsWithManyMut))
+{  # i = 3
+  Temp = ALL[ALL$sample == VecOfPatientsWithManyMut[i],]
+  if (nrow(Temp[Temp$Subs == 'T_C',]) > 0 & nrow(Temp[Temp$Subs == 'G_A',]) > 0)
+  {
+    VafTs = mean(Temp[Temp$Subs == 'T_C',]$TumorVarFreq); 
+    VafTv = mean(Temp[Temp$Subs == 'G_A',]$TumorVarFreq);
+    Final=rbind(Final,c(VecOfPatientsWithManyMut[i],VafTs,VafTv))
+  }
+}
+Final = data.frame(Final); names(Final)=c('sample','VafTs','VafTv')
+wilcox.test(Final$VafTs,Final$VafTv, paired = TRUE) # p-value = 0.009667 (983 observations),
+nrow(Final) # 983
 
-### do it better = sort each variant by VAF and calculate Ts/Tv based for example on the last 20 substitutions.
+Final$DiffVafTsVafTv = Final$VafTs - Final$VafTv; summary(Final$DiffVafTsVafTv) # 0.045 - higher than zero, 
+wilcox.test(Final$DiffVafTsVafTv, mu = 0) # but not significant
+Final$RatioVafTsVafTv = log2(Final$VafTs/Final$VafTv); summary(Final$RatioVafTsVafTv) # 0.045 - higher than zero, 
+wilcox.test(Final$RatioVafTsVafTv, mu = 0) # not significant
 
-######## logistic regression: T>C as a function of CancerGlycolisis and VAF
-
-tissue =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
-Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
-OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.216577,3.199398,12.84608,7.390275,8.302373,6.407421,13.32523,4.457943,0.9468787,13.56102,2.319901,1.623032,11.08796,40.05531,0.3871189,26.50188,12.20636,13.09163,166.9113,51.49203,14.65809,2.185885)
-
-Glycolysis = data.frame(tissue,Glycolysis,OxidativePhosphorylation)
-plot(Glycolysis$Glycolysis,Glycolysis$OxidativePhosphorylation)
-ALL = merge(ALL,Glycolysis, by = 'tissue')  # 3348
-
-## T>C: both coefficients are positive
-ALL_T_C = ALL[ALL$Subs == 'T_C',]  # 936
-ALL_T_C$T_C = 1
-ALL_not_T_C = ALL[ALL$Subs != 'T_C',]  # 2412
-ALL_not_T_C$T_C = 0
-ALL = rbind(ALL_T_C,ALL_not_T_C)
-par(mfrow=c(1,1), cex = 2)
-glm_1 <-glm(ALL$T_C ~ ALL$Glycolysis + ALL$TumorVarFreq, family = binomial())
-summary(glm_1)
-glm_2 <-glm(ALL$T_C ~ ALL$OxidativePhosphorylation + ALL$TumorVarFreq, family = binomial())
-summary(glm_2)
-ALL$prob <- predict(glm_1, type = 'response') # sqrt(P-EN/pi)
-summary(ALL$prob) #  0.2455  0.2544  0.2717  0.2796  0.2940  0.3713
-ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
-summary(ALL$area)
-plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', xlim = c(0,1.05), ylim = c(0,140), xlab = 'VAF', ylab = 'Glykolisis', main = 'T>C') #
-symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = "gray")
-symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = "red")
-
-## G>A: both coefficients are negative
-ALL_T_C = ALL[ALL$Subs == 'G_A',]  # 936
-ALL_T_C$T_C = 1
-ALL_not_T_C = ALL[ALL$Subs != 'G_A',]  # 2412
-ALL_not_T_C$T_C = 0
-ALL = rbind(ALL_T_C,ALL_not_T_C)
-par(mfrow=c(1,1), cex = 2)
-glm_1 <-glm(ALL$T_C ~ ALL$Glycolysis + ALL$TumorVarFreq, family = binomial())
-summary(glm_1)
-glm_2 <-glm(ALL$T_C ~ ALL$OxidativePhosphorylation + ALL$TumorVarFreq, family = binomial())
-summary(glm_2)
-ALL$prob <- predict(glm_1, type = 'response') # sqrt(P-EN/pi)
-summary(ALL$prob) #  0.2455  0.2544  0.2717  0.2796  0.2940  0.3713
-ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
-summary(ALL$area)
-plot(ALL[ALL$T_C == 0,]$Glycolysis ~ ALL[ALL$T_C == 0,]$TumorVarFreq, pch = '', xlim = c(0,1.05), ylim = c(0,140), xlab = 'VAF', ylab = 'Glykolisis', main = 'G>A') #
-symbols(ALL[ALL$T_C == 0,]$TumorVarFreq, ALL[ALL$T_C == 0,]$Glycolysis, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = "gray")
-symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = "red")
-
-### T>C are more common among early mutations (normal), while G>A are more common among late (cancer specific). Why I don't see it in previous analyses with VAF?
-### - it might reflect just the same process. 
 dev.off()
-
-#plot(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
-#text(RL[RL$StatusRL == 'LC',]$lnBM_g,RL[RL$StatusRL == 'LC',]$lnDN_DS, RL[RL$StatusRL == 'LC',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'black')
-#par(new = TRUE)
-#plot(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, pch = '', xlim = c(2,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)')
-#text(RL[RL$StatusRL == 'EN',]$lnBM_g,RL[RL$StatusRL == 'EN',]$lnDN_DS, RL[RL$StatusRL == 'EN',]$NUMBER, xlim = c(0,23), ylim = c(-5.5,-1.4), xlab = 'ln(Body mass(gramm))', ylab = 'ln(Kn/Ks)', cex = 0.7, col = 'red')
-#legend(20,-1.4,legend = head(RL$NUM_SP,76), cex = 0.5)
-#legend(22,-1.4,legend = tail(RL$NUM_SP,75), cex = 0.5)
