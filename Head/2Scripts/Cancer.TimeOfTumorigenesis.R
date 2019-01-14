@@ -103,6 +103,9 @@ for (Tissue in CancerType)
 {  # Tissue = 'Bladder'
     # Temp = ALL[ALL$Tier2 == Tissue,]
     Temp = ALL[ALL$tissue == Tissue,]
+    MedVaf = median(Temp$TumorVarFreq)
+    TsMedianVaf = median(Temp[Temp$Subs %in% VecOfTransitionSubstitutions,]$TumorVarFreq)
+    TvMedianVaf = median(Temp[Temp$Subs %in% VecOfTransversionSubstitutions,]$TumorVarFreq)
     TempLate = Temp[Temp$TumorVarFreq <= median(Temp$TumorVarFreq),]
     TempEarly = Temp[Temp$TumorVarFreq  > median(Temp$TumorVarFreq),]
     LateMed = median(TempLate$TumorVarFreq)
@@ -113,25 +116,44 @@ for (Tissue in CancerType)
     LateTs = nrow(TempLate[TempLate$Subs %in% VecOfTransitionSubstitutions,])
     # LateTs = nrow(TempLate[TempLate$Subs == 'G_A',])
     LateTv = nrow(TempLate[TempLate$Subs %in% VecOfTransversionSubstitutions,])
-    Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed); 
+    
+    X = rbind(c(LateTs,LateTv),c(EarlyTs,EarlyTv))
+    Pvalue = as.numeric(fisher.test(X)[1])
+    Odds = as.numeric(fisher.test(X)[3])
+    
+    Line = c(Tissue,EarlyTs,EarlyTv,LateTs,LateTv,LateMed,EarlyMed,Pvalue,Odds,TsMedianVaf,TvMedianVaf,MedVaf); 
     Final = rbind(Final,Line)
 }
-Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv','LateMed','EarlyMed')
+Final = data.frame(Final); names(Final)=c('Tissue','EarlyTs','EarlyTv','LateTs','LateTv','LateMed','EarlyMed','Pvalue','Odds','TsMedianVaf','TvMedianVaf','MedVaf')
 
-for (i in 2:7) {Final[,i] = as.numeric(as.character(Final[,i]))}
+for (i in 2:12) {Final[,i] = as.numeric(as.character(Final[,i]))}
+plot(Final$Odds,Final$Pvalue)
+Final = Final[order(Final$Pvalue),]
+Final$TsMinusTv = Final$TsMedianVaf - Final$TvMedianVaf
+summary(Final$TsMinusTv)
+nrow(Final[!is.na(Final$TsMinusTv) & Final$TsMinusTv > 0,]) # 25 
+nrow(Final[!is.na(Final$TsMinusTv) & Final$TsMinusTv <= 0,]) # 13  
+Final[!is.na(Final$Pvalue) & Final$Pvalue < 0.01,] # only one cancer is nominally significant: PBCA 1.139457e-06 0.06051041; Pediatric Brain Cancer
+
 Final$EarlyTsTv = Final$EarlyTs/Final$EarlyTv
 Final$LateTsTv = Final$LateTs/Final$LateTv
 Final$AllTsTv = (Final$LateTs+Final$EarlyTs)/(Final$LateTv + Final$EarlyTv)
 Final$OddsRatio = Final$LateTsTv/Final$EarlyTsTv
 FinalShort = Final[!is.na(Final$OddsRatio) & Final$OddsRatio != Inf,]  # 36 instead of 40
-wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272, 
+wilcox.test(FinalShort$LateTsTv,FinalShort$EarlyTsTv, paired = TRUE) # 0.0006272,
+
+wilcox.test(FinalShort[FinalShort$Tissue != 'PBCA',]$LateTsTv,FinalShort[FinalShort$Tissue != 'PBCA',]$EarlyTsTv, paired = TRUE) # 0.001051
 
 # plot: one segment - one cancer
 plot(NA, xlim=c(0,1), ylim=c(0,72), xlab='VAF', ylab="Ts/Tv")
 for (Tissue in CancerType)
 { 
   Temp = FinalShort[FinalShort$Tissue == Tissue,]
-  segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 4) # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)
+  if (nrow(Temp) == 1)
+  {
+    if (Temp$Pvalue > 0.00001) { segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(0.1,0.1,0.1,0.2), lwd = 4)}   # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)}
+    if (Temp$Pvalue < 0.00001) { segments(Temp$LateMed, Temp$LateTsTv, Temp$EarlyMed, Temp$EarlyTsTv, col = rgb(1,0.1,0.1,1), lwd = 4)}   # rgb(red, green, blue, alpha, names = NULL, maxColorValue = 1)}
+  }
 }
 CancerTypeSpecificData = Final
 
