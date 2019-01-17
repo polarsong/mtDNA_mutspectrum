@@ -34,8 +34,6 @@
   #UCEC_Uterus 
   #145 
   
-  ######### division rate: Cancer number of divisions (from Table S1 one before last column Tomasetti and Vogelstein 2015 science) and T>C fraction (from bioarchive Campbell 2018)
-  
 ########### LIFETIME RISK OF DEVELOPING CANCER BASED ON TISSUE:
   
   unique(ALL$CancerTissue)
@@ -64,108 +62,225 @@
   CancerTissue = c('Bladder','Bone/SoftTissue','Breast','Biliary','Cervix','Lymphoid','Myeloid','Colon/Rectum','Prostate','Esophagus','Stomach','CNS','Head/Neck','Kidney','Liver','Lung','Ovary','Pancreas','Skin','Thyroid','Uterus')  
   LifeTimeRisk = c(0.023,0.01,0.124,0.01,0.006,0.023,0.008,0.042,0.112,0.005,0.008,0.006,0.003,0.017,0.01,0.062,0.013,0.016,0.023,0.012,0.029)
   LifeRisk = data.frame(CancerTissue,LifeTimeRisk)
-  summary(LifeRisk$LifeTimeRisk)  # 
-  LifeRisk$FrequentCancer = 0
-  for (i in 1:nrow(LifeRisk)) 
-    {
-    if (LifeRisk$LifeTimeRisk[i] >= 0.023) {LifeRisk$FrequentCancer[i] = 1}
-    }   
-  hist(LifeRisk$LifeTimeRisk, breaks = 30)
   ALL = merge(ALL, LifeRisk, by = 'CancerTissue')
   
-  ##################### NumOfCellDivPerLife
-  Cells = data.frame(matrix( c("Thyroid","Head/Neck","Ovary","Esophagus","Pancreas","Skin","Lung","Liver","Colon/Rectum","Lymphoid","CNS","Bone/SoftTissue","Myeloid",                             
+#################### NumOfCellDivPerLife (not for all!!!!)
+######### division rate: Cancer number of divisions (from Table S1 one before last column Tomasetti and Vogelstein 2015 science)
+  
+Cells = data.frame(matrix( c("Thyroid","Head/Neck","Ovary","Esophagus","Pancreas","Skin","Lung","Liver","Colon/Rectum","Lymphoid","CNS","Bone/SoftTissue","Myeloid",                             
                                7,1720,0,1390,80,199,5.6,88,5840,960,0,5,960), ncol = 2))
-  names(Cells) = c('CancerTissue','NumOfCellDivPerLife')
-  Cells$NumOfCellDivPerLife = as.numeric(as.character(Cells$NumOfCellDivPerLife))
-  ALL = merge(ALL,Cells, all.x = TRUE)
+names(Cells) = c('CancerTissue','NumOfCellDivPerLife')
+Cells$NumOfCellDivPerLife = as.numeric(as.character(Cells$NumOfCellDivPerLife))
+ALL = merge(ALL,Cells, all.x = TRUE)
   
-  #### turnover of cells (number of days)
-  # http://book.bionumbers.org/how-quickly-do-different-cells-in-the-body-replace-themselves/
-  # It has become apparent that adult stem cells not only reside and function in highly regenerative tissues like the bone marrow, intestine and epidermis where they produce a steady supply of differentiated cells to maintain their respective tissues but are also found in
-  # tissues of low cell turnover, such as neural, liver, prostate and pancreas. In these tissues, adult stem cells function in maintaining tissue homeostasis by replenishing functional tissue cells lost by apoptosis.
-  # Bladder: [200]
-    # Urothelial stem cells localize in the basal cell layer and can generate all types of urothelial cells: Under homeostatic conditions, the adult urothelium is quiescent with one of the slowest turnover rates amongst mammalian epithelia (Hicks, 1975; Jost and Potten, 1986; Jost, 1989), however, there is a dramatic upregulation in urothelial proliferation in response to injury, which results in complete restoration of newly differentiated superficial cells within 72 hours # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5354960/
-    # The rate of turnover of the cells in the normal transitional epithelium is slow but continuous: it takes more than 200 days for the progeny of a USC to mature and eventually be shed.      https://reproductivesciences.wustl.edu/laboratories/mysorekar-lab/urothelial-stem-cell-regeneration/
-  # Bone/SoftTissue: 360 / 0.067 = [5373] Finally, bone stem cells divide every ~15 years (Tomacetti 2015) 15*360 = 5400 days; 
-  # Breast tissue: an average turnover of [84.5] days (Tomacetti 2017)
-  # Biliary: [400]
-      # The biliary tract, (biliary tree or biliary system) refers to the liver, gall bladder and bile ducts, and how they work together to make, store and secrete bile.
-      # don't know = took the same as liver
-  # Cervix: [6] days http://book.bionumbers.org/how-quickly-do-different-cells-in-the-body-replace-themselves/
-  # Lymphoid: [30] Hematopoietic stem cells have ben estimated to divide every ~15 (35), 17 (36), 30 (37, 38), 57 (39) days. Thus, we assume they divide every 30 days.  (Tomasetti 2015, Chronic lymphocytic leukemia)
-  # Myeloid:  [30] Hematopoietic stem cells have ben estimated to divide every ~15 (35), 17 (36), 30 (37, 38), 57 (39) days. Thus, we assume they divide every 30 days.  (Tomasetti 2015, Acute myeloid leukemia)
-  # Colon/Rectum: [5] Thus, we estimate that the total number of stem cells in the large intestine is ~1.5·107 ·15~ 2·108 and that stem cells divide, on average, every 5 days (Tomasetti 2015, Colorectal adenocarcinoma, Colorectal adenocarcinoma in FAP patients, Colorectal adenocarcinoma in patients with HNPCC)
-  # Prostate: 360/3 = [120]: Thus, we estimated that normal prostatic tissue divides at 0.83/4.4=18.9% of that of prostate cancer cells. As the division rate in prostatic cancer cells is every 23.1 days or 365/23.1 =15.8 times a year (48), the normal prostate turnover is 15.8· 0.189 = 2.986, i.e., 3 times a year (Tomacetti 2017)
-  # Esophagus: [11] days - The epithelial turnover rate of the healthy human esophagus is ~11 days (50). (Tomacetti 2017)
-  # Stomach: [5.5]
-    # 2-9 days http://book.bionumbers.org/how-quickly-do-different-cells-in-the-body-replace-themselves/
-    # Stomach Adenocarcinoma
-  # CNS: 360/0 = [Inf~10000]  virtually no cell division after birth (Tomacetti 2015)
-  # Head/Neck: 360/21.5 = [16] days. Stem cells in the oral mucosa divide every 14 to 20 days (Tomacetti 2015)
-  # Kidney: [low for example 1000]
-      # The kidney is a complex organ that is derived from interactions between two distinct embryonic appendages and has more than 24 distinct mature cells. Therefore, the adult mammalian kidney is likely to have multiple stem cells and niches. Here, we will discuss some of the most promising kidney stem cell candidates and the evidence supporting their role in kidney regeneration. As isolation of stem cells using selective culture conditions has several limitations, such as contamination by blood cells and dedifferentiation of mature cells under culture conditions, we have not discussed this method in the present review. We have also not discussed the role of exogenous administration and paracrine effects of stem cells in kidney regeneration.
-      # While the magnitude of renal cell turnover is lower than other organs, homeostatic mechanism(s) are still needed to maintain kidney functionality. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665577/
-      # Organ complexity and low turnover of renal cells has made stem cell identification difficult and lead to the investigation of multiple possible populations. https://jbiomedsci.biomedcentral.com/articles/10.1186/s12929-017-0339-7
-  # Liver: 360/0.9125 ~ [400] days. Hepatic stem cells. Cell turnover has been estimated to be very low, with estimates ranging from 300 to 500 days (81).(Tomacetti 2015, Hepatocellular carcinoma)
-  # Lung: 360/0.07 ~ [5143] days. Finally, the stem cell division rate for lung tissue (specifically the alveoli) has been estimated to be 7% per year. (Tomacetti 2015, Lung adenocarcinoma) 
-  # Ovary: 360/0 = [Inf ~ 11000] There does not appear to be any oocyte divisions after week 15 of embryogenesis. (Tomacetti 2015, Ovarian germ cell cancer) 
-  # Pancreas: [360] days. These stem cells are estimated to divide about once a year (Tomacetti 2015, Pancreatic ductal adenocarcinoma) 
-  # Skin: [147] days. Melanocytes have been estimated to divide every ~147 days (120), i.e. 2.48 times per year. (Tomacetti 2015, Melanoma)
-  # Thyroid: 360/0.087 = [4138] days. Cell turnover has been estimated to be very low, with stem cell divisions occurring once every 8.5 – 14.4 years (Tomacetti 2015, Thyroid papillary and follicular carcinoma)
-  # Uterus: [4]
-    # UCEC - Uterine Corpus Endometrial Carcinoma, 
-    # Human endometrium is the mucosal lining of the uterus, which undergoes more than 400 cycles of regeneration, differentiation, and shedding during a woman’s reproductive life [14]. Each month, 5–10 mm of new endometrial mucosa grows during the first 4–10 days of the menstrual cycle from the residual basalis layer (0.5–1 mm thick) to generate a new functionalis layer into which the embryo subsequently implants (Fig. 1A). Within 48 hours of endometrial shedding, regeneration begins with rapid repair/re-epithelialization of the endometrial surface to cover the exposed basalis surface
-    # Stem cell division is modeled (Fig. 4) as minimal before menarche (once per week), rapid with menstruation (average of one division per day), and minimal after menopause (once per week). Ages at menarche or menopause are variable among women but are modeled as occurring at 12 and 52 years of age. https://www.pnas.org/content/102/49/17739
-    # So it is 7 days for a half of a life and 1 day for another half => 4 days on average (KP)
-  
-  CancerTissue = c('Bladder','Bone/SoftTissue','Breast','Biliary','Cervix','Lymphoid','Myeloid','Colon/Rectum','Prostate','Esophagus','Stomach','CNS','Head/Neck','Kidney','Liver','Lung','Ovary','Pancreas','Skin','Thyroid','Uterus')  
-  TurnOverDays = c(200,5373,84.5,200,6,30,30,5,120,11,5.5,10000,16,1000,400,5143,11000,360,147,4138,4)
-  Turn = data.frame(CancerTissue,TurnOverDays)
-  
-  
-  
-  ######## glycolisis: from Andrey Yurchenko and https://www.nature.com/articles/s41467-018-07232-8#MOESM5
-  
-  CancerType =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
-  Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
-  OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.216577,3.199398,12.84608,7.390275,8.302373,6.407421,13.32523,4.457943,0.9468787,13.56102,2.319901,1.623032,11.08796,40.05531,0.3871189,26.50188,12.20636,13.09163,166.9113,51.49203,14.65809,2.185885)
+####################### TURNOVER OF CELLS (number of days)
+### derive table is here: https://docs.google.com/document/d/1UECub1DIdmuXwPqDLK8WRcZ6uIjEQiVmHXN1_XNVvUU/edit?usp=sharing  
+CancerTissue = c('Bladder','Bone/SoftTissue','Breast','Biliary','Cervix','Lymphoid','Myeloid','Colon/Rectum','Prostate','Esophagus','Stomach','CNS','Head/Neck','Kidney','Liver','Lung','Ovary','Pancreas','Skin','Thyroid','Uterus')  
+TurnOverDays = c(200,5373,84.5,200,6,30,30,5,120,11,5.5,10000,16,1000,400,5143,11000,360,147,4138,4)
+Turn = data.frame(CancerTissue,TurnOverDays)
+Turn = Turn[order(Turn$TurnOverDays),]
+ALL = merge(ALL,Turn)
 
-  Glyc = data.frame(CancerType,Glycolysis,OxidativePhosphorylation)
-  ALL = merge(ALL,Glyc, all.x=TRUE)
+######## glycolisis: from Andrey Yurchenko and https://www.nature.com/articles/s41467-018-07232-8#MOESM5
   
-  ####### mtDNA copies: https://www.ncbi.nlm.nih.gov/pubmed/26901439 (figure 3 gives a rank of cancer types)
-  CancerType = c('KIRC','BRCA','BLCA','LIHC','HNSC','ESCA','KIRP','STAD','UCEC','KICH','COAD','THCA','PAAD','PRAD','LUAD')
-  mtDNACopyNumberRank = c(1:15)
-  CopyNumber = data.frame(CancerType,mtDNACopyNumberRank)
-  ALL = merge(ALL,CopyNumber, all.x=TRUE)
-  
-  ####### can we derive mtDNA copies from the table?
-  ####### for example compare total coverage in tumor versus total coverage in normal versus cancer types?
-  
-  ALL$CovNor = ALL$normal_reads1 + ALL$normal_reads2
-  ALL$CovTum = ALL$tumor_reads1 + ALL$tumor_reads2
-  ALL$CovTumToNor = log2(ALL$CovTum/ALL$CovNor)
-  boxplot(CovTumToNor ~ CancerType, data = ALL, outline = FALSE, notch = TRUE, ylab = 'log2(TotalCovTum/TotalCovNor)')
-  abline(h=0, col = 'red')
-  
-  # get medain of log2(TotalCovTum/TotalCovNor) for each cancer
-  AggMed = aggregate(ALL$CovTumToNor, by = list(ALL$CancerType,ALL$sample), FUN = median)
-  AggMed = aggregate(AggMed$x, by = list(AggMed$Group.1), FUN = median)
-  names(AggMed)=c('CancerType','MedianCovTumToNor')
-  AggMed = AggMed[order(AggMed$MedianCovTumToNor),]
-  
-  ALL = merge(ALL,AggMed, all.x=TRUE)
-  
+CancerType =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
+Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
+OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.216577,3.199398,12.84608,7.390275,8.302373,6.407421,13.32523,4.457943,0.9468787,13.56102,2.319901,1.623032,11.08796,40.05531,0.3871189,26.50188,12.20636,13.09163,166.9113,51.49203,14.65809,2.185885)
 
-  # div rate versus T>C
-  ALL_T_C = ALL[ALL$Subs == 'T_C',]  # 936
-  ALL_T_C$T_C = 1
-  ALL_not_T_C = ALL[!ALL$Subs == 'T_C',]  # 2412
-  ALL_not_T_C$T_C = 0
-  ALL = rbind(ALL_T_C,ALL_not_T_C)
+Glyc = data.frame(CancerType,Glycolysis,OxidativePhosphorylation)
+ALL = merge(ALL,Glyc, all.x=TRUE)
   
-### TEST 0: lifetyme risk and Ts/Tv
+####### mtDNA copies: https://www.ncbi.nlm.nih.gov/pubmed/26901439 (figure 3 gives a rank of cancer types)
+CancerType = c('KIRC','BRCA','BLCA','LIHC','HNSC','ESCA','KIRP','STAD','UCEC','KICH','COAD','THCA','PAAD','PRAD','LUAD')
+mtDNACopyNumberRank = c(1:15)
+CopyNumber = data.frame(CancerType,mtDNACopyNumberRank)
+ALL = merge(ALL,CopyNumber, all.x=TRUE)
+  
+####### can we derive mtDNA copies from the table?
+####### for example compare total coverage in tumor versus total coverage in normal versus cancer types?
+  
+ALL$CovNor = ALL$normal_reads1 + ALL$normal_reads2
+ALL$CovTum = ALL$tumor_reads1 + ALL$tumor_reads2
+ALL$CovTumToNor = log2(ALL$CovTum/ALL$CovNor)
+boxplot(CovTumToNor ~ CancerType, data = ALL, outline = FALSE, notch = TRUE, ylab = 'log2(TotalCovTum/TotalCovNor)')
+abline(h=0, col = 'red')
+  
+# get medain of log2(TotalCovTum/TotalCovNor) for each cancer
+AggMed = aggregate(ALL$CovTumToNor, by = list(ALL$CancerType,ALL$sample), FUN = median)
+AggMed = aggregate(AggMed$x, by = list(AggMed$Group.1), FUN = median)
+names(AggMed)=c('CancerType','MedianCovTumToNor')
+AggMed = AggMed[order(AggMed$MedianCovTumToNor),]
+  
+ALL = merge(ALL,AggMed, all.x=TRUE)
+  
+#######################
+####### ANALYSES
+#######################
+
+ALL_T_C = ALL[ALL$Subs == 'T_C',]; ALL_T_C$T_C = 1
+ALL_not_T_C = ALL[!ALL$Subs == 'T_C',]; ALL_not_T_C$T_C = 0
+ALL = rbind(ALL_T_C,ALL_not_T_C)
+
+ALL_G_A = ALL[ALL$Subs == 'G_A',]; ALL_G_A$G_A = 1
+ALL_not_G_A = ALL[!ALL$Subs == 'G_A',]; ALL_not_G_A$G_A = 0
+ALL = rbind(ALL_G_A,ALL_not_G_A)
+
+ALL_Ts = ALL[ALL$Subs %in% VecOfTransitionSubstitutions,]; ALL_Ts$Ts = 1  
+ALL_Tv = ALL[ALL$Subs %in% VecOfTransversionSubstitutions,]; ALL_Tv$Ts = 0  
+ALL = rbind(ALL_Ts,ALL_Tv)
+  
+### TEST -1: TurnOver and Ts/Tv
+length(unique(ALL$TurnOverDays)) # 19 different rates (21 tissues) = 7 in each group
+sort(unique(ALL$TurnOverDays))
+Turn
+FAST = ALL[ALL$TurnOverDays <= 30,]                      
+MIDDLE = ALL[ALL$TurnOverDays > 30 & ALL$TurnOverDays <= 1000,]  
+SLOW = ALL[ALL$TurnOverDays > 1000,]
+
+TEMP = FAST
+TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TsTv # 10.02817
+TCTv = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TCTv # 2.816901
+GATv = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); GATv # 5.014085
+TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]); TCGA # 0.5617978
+TEMP = MIDDLE
+TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TsTv # 12.56941
+TCTv = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TCTv # 3.827195
+GATv = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); GATv # 6.634561
+TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]); TCGA # 0.5768574
+TEMP = SLOW
+TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TsTv # 14.49383
+TCTv = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); TCTv # 4.555556
+GATv = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]); GATv # 7.518519
+TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]); TCGA # 0.6059113
+
+####### bootstrep to perturb these three numbers (Ts/Tv)? to draw three boxplots!!!!
+VecFast = c()
+for (i in 1:1000) {
+  TEMP = FAST[sample(nrow(FAST),nrow(FAST)/2),]; 
+  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  VecFast = c(VecFast,TsTv) }
+summary(VecFast)
+
+VecMiddle = c()
+for (i in 1:1000) {
+  TEMP = MIDDLE[sample(nrow(MIDDLE),nrow(MIDDLE)/2),]; 
+  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  VecMiddle = c(VecMiddle,TsTv) }
+summary(VecMiddle)
+
+VecSlow = c()
+for (i in 1:1000) {
+  TEMP = SLOW[sample(nrow(SLOW),nrow(SLOW)/2),]; 
+  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  VecSlow = c(VecSlow,TsTv) }
+summary(VecSlow)
+
+boxplot(VecFast,VecMiddle,VecSlow, notch = TRUE) # dev.off()
+
+####### logistic regression with all 21 Turnovers and 2 Dummy 
+
+FAST$TurnOverDummyFast = 1; FAST$TurnOverDummySlow = 0; FAST$TurnOverRank = 1
+MIDDLE$TurnOverDummyFast = 0; MIDDLE$TurnOverDummySlow = 0; MIDDLE$TurnOverRank = 2
+SLOW$TurnOverDummyFast = 0; SLOW$TurnOverDummySlow = 1; SLOW$TurnOverRank = 3
+ALL = rbind(FAST, MIDDLE, SLOW)
+
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # both are significant
+
+glm_1b <-glm(ALL$T_C ~ scale(ALL$TurnOverRank) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1b) # both are significant
+
+glm_2 <-glm(ALL$G_A ~ ALL$TurnOverDays + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_2) # TurnOverDays are not siginficant, VAF is negatively associated
+
+glm_3 <-glm(ALL$Ts ~ ALL$TurnOverDays + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_3) # only VAF
+
+glm_4 <-glm(ALL$Ts ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_4) # both!
+
+glm_4 <-glm(ALL$Ts ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_4) # only VAF
+
+glm_5a <-glm(ALL$T_C ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_5a) # both!
+
+glm_5b <-glm(ALL$T_C ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_5b) # only VAF
+
+glm_6 <-glm(ALL$G_A ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_6) # both are negative!
+
+glm_6 <-glm(ALL$G_A ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_6) # only VAF is negative
+
+#### plot glm_1
+
+ALL$prob <- predict(glm_1a, type = 'response') # sqrt(P-EN/pi)
+summary(ALL$prob) #  0.2616  0.2632  0.2667  0.2785  0.2918  0.3622
+ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
+summary(ALL$area)
+plot(log2(ALL$TurnOverDays) ~ log2(ALL$TumorVarFreq), pch = '',  xlab = 'VAF', ylim = c(1,15), xlim = c(-6.7,0.2), ylab = 'TurnOverDays', main = 'T>C') #  dev.off()
+symbols(log2(ALL[ALL$T_C == 0,]$TumorVarFreq), log2(ALL[ALL$T_C == 0,]$TurnOverDays), circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = rgb(0.1,0.1,0.1,0.1))
+symbols(log2(ALL[ALL$T_C == 1,]$TumorVarFreq), log2(ALL[ALL$T_C == 1,]$TurnOverDays), circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = rgb(1,0.0,0.0,0.2))
+
+ALL$prob <- predict(glm_1b, type = 'response') # sqrt(P-EN/pi)
+summary(ALL$prob) #  0.2616  0.2632  0.2667  0.2785  0.2918  0.3622
+ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
+summary(ALL$area)
+plot(ALL$TurnOverRank ~ log2(ALL$TumorVarFreq), pch = '', xlim = c(-6.7,0.2), xlab = 'VAF', ylab = 'TurnOverDays', main = 'prob (T>C)') #  dev.off()
+symbols(log2(ALL[ALL$T_C == 0,]$TumorVarFreq), ALL[ALL$T_C == 0,]$TurnOverRank, circles = ALL[ALL$T_C == 0,]$area, add = TRUE, fg = rgb(0.1,0.1,0.1,0.1))
+symbols(log2(ALL[ALL$T_C == 1,]$TumorVarFreq), ALL[ALL$T_C == 1,]$TurnOverRank, circles = ALL[ALL$T_C == 1,]$area, add = TRUE, fg = rgb(1,0.0,0.0,0.2))
+
+cor.test(ALL[ALL$TurnOverRank == 1,]$TumorVarFreq,ALL[ALL$TurnOverRank == 1,]$T_C, method='spearman') # pos
+cor.test(ALL[ALL$TurnOverRank == 2,]$TumorVarFreq,ALL[ALL$TurnOverRank == 2,]$T_C, method='spearman') # pos
+cor.test(ALL[ALL$TurnOverRank == 3,]$TumorVarFreq,ALL[ALL$TurnOverRank == 3,]$T_C, method='spearman') # nonsign
+
+### TurnOver may correlate with predisposition to switch metabolism, for example number of copies seems is increasing in slow-dividing tissues (they are more aerobic - they need mtDNA).
+cor.test(ALL$CovTumToNor,ALL$TurnOverDays,method='spearman') # very significant positive: the slower turnover the more mtDNA in tumor versus normal
+boxplot(ALL$CovTumToNor ~ ALL$TurnOverDays)
+
+dev.off()
+
+
+########################################################
+############## OTHER MORE NOISY IDEAS::: glycolysis, mtDNA copies etx
+########################################################
+
+####### rank cor
+Final = c()
+CancerVec = unique(ALL$CancerTissue)
+CancerTypeVec = unique(ALL$CancerType)  
+
+for (i in 1:length(CancerVec))
+{ # i = 1
+  TEMP = ALL[ALL$CancerTissue == CancerVec[i],]
+  NRow = nrow(TEMP)
+  TurnOver = TEMP$TurnOverDays[1]
+  CancerTissue = as.character(TEMP$CancerTissue[1])
+  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,])  #
+  # TsTv = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,])  # 
+  OneLine = c(as.character(CancerVec[i]),CancerTissue,TsTv,TurnOver,NRow)
+  Final = rbind(Final,OneLine)
+}
+Final = data.frame(Final)
+names(Final)=c('CancerType','CancerTissue','TsTv','TurnOverDays','NRow')
+Final$TsTv = as.numeric(as.character(Final$TsTv))
+Final$TurnOverDays = as.numeric(as.character(Final$TurnOverDays))
+Final$NRow = as.numeric(as.character(Final$NRow))
+Final = Final[order(Final$TurnOverDays),]
+
+cor.test(Final$TsTv,Final$TurnOverDays,method = 'spearman')
+plot(log2(Final$TsTv),log2(Final$TurnOverDays), pch = '') # dev.off()
+text(log2(Final$TsTv),log2(Final$TurnOverDays),Final$CancerTissue) # dev.off()
+
+boxplot(Final[Final$TurnOverDays < 2000,]$TsTv,Final[Final$TurnOverDays > 2000,]$TsTv)
+wilcox.test(Final[Final$TurnOverDays < 2000,]$TsTv,Final[Final$TurnOverDays > 2000,]$TsTv)
+
+glm_1 <-glm(ALL$T_C ~ ALL$TurnOverDays + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+summary(glm_1)
+
+### TEST 0: lifetyme risk and T_C/G_A
 Final = c()  
 CancerVec = unique(ALL$CancerTissue)  
 for (i in 1:length(CancerVec))
@@ -178,7 +293,7 @@ for (i in 1:length(CancerVec))
 Final = data.frame(Final)
 names(Final)=c('CancerTissue','TC_GA')
 Final$TC_GA = as.numeric(as.character(Final$TC_GA))
-  
+
 Risk =  aggregate(ALL$T_C, by = list(ALL$sample,ALL$CancerTissue,ALL$LifeTimeRisk), FUN = mean)
 Risk =  aggregate(Risk$x, by = list(Risk$Group.2,Risk$Group.3), FUN = median) 
 names(Risk)=c('CancerTissue','LifeTimeRisk','FrT_C')
@@ -186,6 +301,7 @@ cor.test(Risk$LifeTimeRisk,Risk$FrT_C, method = 'spearman') # nonsign positive T
 Risk = merge(Risk, Final, by = 'CancerTissue')
 cor.test(Risk$LifeTimeRisk,Risk$TC_GA, method = 'spearman') # nonsign positive Try T_C/G_A
 cor.test(Risk$FrT_C,Risk$TC_GA, method = 'spearman') # positive  - the higher T_C, the highet TC_GA.
+
 
 # more fastly dividing are more aerobic?
 ### TEST 1: are there correlations between division rate, glycolisis, mtDNA copies etc between cancer types? 
@@ -333,27 +449,6 @@ symbols(ALL[ALL$T_C == 1,]$TumorVarFreq, ALL[ALL$T_C == 1,]$Glycolysis, circles 
 
 ### T>C are more common among early mutations (normal), while G>A are more common among late (cancer specific). Why I don't see it in previous analyses with VAF?
 ### - it might reflect just the same process. 
-dev.off()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 LowGlycolysis = DivisionGlycolysis[!is.na(DivisionGlycolysis$Glycolysis) & DivisionGlycolysis$Glycolysis <= median(DivisionGlycolysis[!is.na(DivisionGlycolysis$Glycolysis),]$Glycolysis),]$CancerType
@@ -420,7 +515,7 @@ for (methods in 1:3)
   text(TrTv$NumOfCellDivPerLife,TrTv$TrTv,TrTv$CancerTypes)
   boxplot(TrTv[TrTv$TrTv < median(TrTv$TrTv),]$NumOfCellDivPerLife,TrTv[TrTv$TrTv > median(TrTv$TrTv),]$NumOfCellDivPerLife,names =c('LowTsTv','HighTsTv'), ylab = 'Number Of Divisoins Of Each Stemm Cell Per Lifetime')
 }
-dev.off()
+
 
 
 
