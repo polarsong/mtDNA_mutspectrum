@@ -134,7 +134,7 @@ length(unique(ALL$TurnOverDays)) # 19 different rates (21 tissues) = 7 in each g
 sort(unique(ALL$TurnOverDays))
 Turn
 FAST = ALL[ALL$TurnOverDays <= 30,]                      
-MIDDLE = ALL[ALL$TurnOverDays > 30 & ALL$TurnOverDays <= 1000,]  
+MIDDLE = ALL[ALL$TurnOverDays > 30 & ALL$TurnOverDays <= 1000,]  # 4138/360
 SLOW = ALL[ALL$TurnOverDays > 1000,]
 
 TEMP = FAST
@@ -175,7 +175,11 @@ for (i in 1:1000) {
   VecSlow = c(VecSlow,TsTv) }
 summary(VecSlow)
 
-boxplot(VecFast,VecMiddle,VecSlow, notch = TRUE) # dev.off()
+par(mfrow=c(2,3))
+
+boxplot(VecFast,VecMiddle,VecSlow, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE) # dev.off()
+wilcox.test(VecFast,VecMiddle) # highly signif
+wilcox.test(VecMiddle,VecSlow) # highly signif
 
 ####### logistic regression with all 21 Turnovers and 2 Dummy 
 
@@ -216,6 +220,8 @@ summary(glm_6) # only VAF is negative
 
 #### plot glm_1
 
+par(mfrow=c(1,1), cex = 3)
+
 ALL$prob <- predict(glm_1a, type = 'response') # sqrt(P-EN/pi)
 summary(ALL$prob) #  0.2616  0.2632  0.2667  0.2785  0.2918  0.3622
 ALL$area = (ALL$prob - min(ALL$prob))/(max(ALL$prob)-min(ALL$prob)) # normilaze data to 0-1 range
@@ -241,6 +247,17 @@ cor.test(ALL$CovTumToNor,ALL$TurnOverDays,method='spearman') # very significant 
 boxplot(ALL$CovTumToNor ~ ALL$TurnOverDays)
 
 dev.off()
+
+
+
+
+
+
+
+
+
+
+
 
 
 ########################################################
