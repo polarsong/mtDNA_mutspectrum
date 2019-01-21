@@ -69,6 +69,20 @@ Abalistes_stellaris	CytB	14395	15536	0	0	MASLRKTHPLLKIANDALVDLPTPSNISAWWNFGSLLGM
 # OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.AtgcCoeffVarTaxaGenes.R.01.pdf
 
 ###############################
+# PURPOSE		: Define correlation between body temperature and nucleotide fraction
+# AUTHOR, DATE	: Alya, 21 Jan 2019 
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.ColdVSWarm.NoOverlap.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+		: ../../Body/1Raw/TemperatureAllChordataDataSet.txt  (https://doi.org/10.1186/s12862-014-0178-z)
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.coldAmphibiaVSwarmAmphibia_alya.NoOverlap.R.01.pdf
+		:../../Body/4Figures/WholeGenomeAnalyses.coldReptiliaVSwarmReptilia_alya.NoOverlap.R.01.pdf
+		:../../Body/4Figures/WholeGenomeAnalyses.coldFishVSwarmFish_alya.NoOverlap.R.01.pdf
+
+
+
+
+
+###############################
 # PURPOSE		: To polarise branches reconstructed by PIPELINE making ancestal-descendant pairs
 # AUTHOR, DATE	: Alya, 15 Nov 2017 (modified May 2018) 
 # SCRIPT		: Head/2Scripts/1MTspec_ALYA_polarise_branches_with_seq.R
