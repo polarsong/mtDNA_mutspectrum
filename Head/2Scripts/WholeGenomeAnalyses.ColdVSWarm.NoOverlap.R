@@ -161,5 +161,36 @@ dev.off()
 
 
 
+#####################################################################################
+########## PICs
 
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+
+data = fish[which(as.character(fish$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(fish$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, -c(1, 5)]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
+
+cor.test(contrasts$T..oC., contrasts$FrA, method = 'spearman')  # 0.3002067, 0.005247
+cor.test(contrasts$T..oC., contrasts$FrT, method = 'spearman')   # -0.2361942; 0.02954
+cor.test(contrasts$T..oC., contrasts$FrG, method = 'spearman') # -0.2300676; 0.03416
+cor.test(contrasts$T..oC., contrasts$FrC, method = 'spearman') # nothing
+
+
+c<-lm(contrasts$T..oC. ~ scale(contrasts$FrA) + scale(contrasts$FrT) + scale(contrasts$FrG)); summary(c); # nothing significant
+b<-lm(contrasts$T..oC. ~ scale(contrasts$FrT) + scale(contrasts$FrG)); summary(b) # frT estimate -7.507 pvalue 0.0595
 
