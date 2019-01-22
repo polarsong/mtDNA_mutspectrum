@@ -3,11 +3,11 @@
 ###################################
 
 #### nucleotide content of the human genome: A T G C: 4993	3871	2159	5357
-  rm(list=ls(all=TRUE))
+rm(list=ls(all=TRUE))
   
   ALL = read.table("../../Body/1Raw/mtDNA_snv_Oct2016.txt", head = TRUE, sep = '\t')  # 7611
   
-  pdf("../../Body/4Figures/Cancer.DifferencesBetweenCancerTypes.01.pdf" , height = 15, width = 30)
+  pdf("../../Body/4Figures/Cancer.DifferencesBetweenCancerTypes.01.pdf" , height = 30, width = 30)
   
   ### DERIVE NECESSARY TRAITS:
   ALL$TumorVarFreq = ALL$tumor_reads2/(ALL$tumor_reads1 + ALL$tumor_reads2); summary(ALL$TumorVarFreq)  # 0.01000 0.01738 0.04540 0.20268 0.26278 0.99864
@@ -162,109 +162,108 @@ GAOtherTs = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T',
 
 ####### bootstrep to perturb these numbers to draw three boxplots!!!!
 VecFastTsTv = c()
-VecFastTCGA = c()
+VecFastTCTv = c()
+VecFastGATv = c()
 VecFastTCOtherTs = c()
-
+VecFastGAOtherTs = c()
+VecFastTCGA = c()
 for (i in 1:1000) {
   TEMP = FAST[sample(nrow(FAST),nrow(FAST)/2),]; 
-  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
-  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
+  TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,])
+  TCTv = nrow(TEMP[TEMP$Subs  == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  GATv = nrow(TEMP[TEMP$Subs  == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
   TCOtherTs = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','G_A','A_G'),]) 
-  VecFastTsTv = c(VecFastTsTv,TsTv) 
-  VecFastTCGA = c(VecFastTCGA,TCGA)
+  GAOtherTs = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','T_C','A_G'),]) 
+  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
+  VecFastTsTv = c(VecFastTsTv,TsTv)
+  VecFastTCTv = c(VecFastTCTv,TCTv) 
+  VecFastGATv = c(VecFastGATv,GATv) 
   VecFastTCOtherTs = c(VecFastTCOtherTs,TCOtherTs)
+  VecFastGAOtherTs = c(VecFastGAOtherTs,GAOtherTs)
+  VecFastTCGA = c(VecFastTCGA,TCGA)
                   }
-summary(VecFastTsTv)
-summary(VecFastTCGA)
-summary(VecFastTCOtherTs)
 
 VecMiddleTsTv = c()
-VecMiddleTCGA = c()
+VecMiddleTCTv = c()
+VecMiddleGATv = c()
 VecMiddleTCOtherTs = c()
+VecMiddleGAOtherTs = c()
+VecMiddleTCGA = c()
 for (i in 1:1000) {
   TEMP = MIDDLE[sample(nrow(MIDDLE),nrow(MIDDLE)/2),]; 
   TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
-  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
+  TCTv = nrow(TEMP[TEMP$Subs  == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  GATv = nrow(TEMP[TEMP$Subs  == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
   TCOtherTs = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','G_A','A_G'),]) 
+  GAOtherTs = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','T_C','A_G'),]) 
+  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
   VecMiddleTsTv = c(VecMiddleTsTv,TsTv) 
-  VecMiddleTCGA = c(VecMiddleTCGA,TCGA)
+  VecMiddleTCTv = c(VecMiddleTCTv,TCTv) 
+  VecMiddleGATv = c(VecMiddleGATv,GATv) 
   VecMiddleTCOtherTs = c(VecMiddleTCOtherTs,TCOtherTs)
+  VecMiddleGAOtherTs = c(VecMiddleGAOtherTs,GAOtherTs)
+  VecMiddleTCGA = c(VecMiddleTCGA,TCGA)
                   }
-summary(VecMiddleTsTv)
-summary(VecMiddleTCGA)
-summary(VecMiddleTCOtherTs)
 
 VecSlowTsTv = c()
-VecSlowTCGA = c()
+VecSlowTCTv = c()
+VecSlowGATv = c()
 VecSlowTCOtherTs = c()
+VecSlowGAOtherTs = c()
+VecSlowTCGA = c()
 for (i in 1:1000) {
   TEMP = SLOW[sample(nrow(SLOW),nrow(SLOW)/2),]; 
   TsTv = nrow(TEMP[TEMP$Subs %in% VecOfTransitionSubstitutions,]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
-  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
+  TCTv = nrow(TEMP[TEMP$Subs  == 'T_C',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
+  GATv = nrow(TEMP[TEMP$Subs  == 'G_A',]) / nrow(TEMP[TEMP$Subs %in% VecOfTransversionSubstitutions,]) 
   TCOtherTs = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','G_A','A_G'),]) 
+  GAOtherTs = nrow(TEMP[TEMP$Subs == 'G_A',]) / nrow(TEMP[TEMP$Subs  %in% c('C_T','T_C','A_G'),]) 
+  TCGA = nrow(TEMP[TEMP$Subs == 'T_C',]) / nrow(TEMP[TEMP$Subs  == 'G_A',]) 
   VecSlowTsTv = c(VecSlowTsTv,TsTv) 
-  VecSlowTCGA = c(VecSlowTCGA,TCGA)
+  VecSlowTCTv = c(VecSlowTCTv,TCTv) 
+  VecSlowGATv = c(VecSlowGATv,GATv) 
   VecSlowTCOtherTs = c(VecSlowTCOtherTs,TCOtherTs)
+  VecSlowGAOtherTs = c(VecSlowGAOtherTs,GAOtherTs)
+  VecSlowTCGA = c(VecSlowTCGA,TCGA)
   }
-summary(VecSlowTsTv)
-summary(VecSlowTCGA)
-summary(VecSlowTCOtherTs)
 
 par(mfrow=c(2,3))
 
 ### TC is increasing not only if normalized by Tv, but also if normalized by all other Ts and if normalized by GA!!!
-boxplot(VecFastTsTv,VecMiddleTsTv,VecSlowTsTv, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'Ts/Tv') # dev.off()
-wilcox.test(VecFastTsTv,VecMiddleTsTv) # highly signif
-wilcox.test(VecMiddleTsTv,VecSlowTsTv) # highly signif
+boxplot(VecFastTsTv,VecMiddleTsTv,VecSlowTsTv, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'Ts/Tv', col = rgb(0.1,0.1,0.1,0.3)) # dev.off()
+boxplot(VecFastTsTv,VecFastTCTv,VecFastGATv,VecMiddleTsTv,VecMiddleTCTv,VecMiddleGATv,VecSlowTsTv,VecSlowTCTv,VecSlowGATv, notch = TRUE, names = c('FastTs','FastTC','FastGA','MiddleTs','MiddleTC','MiddleGA','SlowTs','SlowTC','SlowGA'), outline = FALSE, ylab = 'Ts/Tv', col = c(rgb(0.1,0.1,0.1,0.3),rgb(0.1,1,0.1,0.3),rgb(1,0.1,0.1,0.3))) # dev.off()
 boxplot(VecFastTCOtherTs,VecMiddleTCOtherTs,VecSlowTCOtherTs, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'TC/OtherTs') # dev.off()
-boxplot(VecFastTCGA,VecMiddleTCGA,VecSlowTCGA, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'TC/GA') # dev.off()
+boxplot(VecFastGAOtherTs,VecMiddleGAOtherTs,VecSlowGAOtherTs, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'GA/OtherTs') # dev.off()
+boxplot(VecFastTCOtherTs,VecFastGAOtherTs,VecMiddleTCOtherTs,VecMiddleGAOtherTs,VecSlowTCOtherTs,VecSlowGAOtherTs, notch = TRUE, names = c('FastTC','FastGA','MiddleTC','MiddleGA','SlowTC','SlowGA'), outline = FALSE, ylab = 'Common Transition / Other Ts', col = c(rgb(0.1,1,0.1,0.3),rgb(1,0.1,0.1,0.3))) # dev.off()
+boxplot(VecFastTCGA,VecMiddleTCGA,VecSlowTCGA, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'TC/GA', col = rgb(0.1,1,0.1,0.3)) # dev.off()
+wilcox.test(VecFastTCGA,VecMiddleTCGA); wilcox.test(VecMiddleTCGA,VecSlowTCGA); 
 
 ####### logistic regression with all 21 Turnovers and 2 Dummy 
+summary(ALL$TumorVarFreq)
+quantile(ALL$TumorVarFreq,0.05)
+quantile(ALL$TumorVarFreq,0.1)
+quantile(ALL$TumorVarFreq,0.25) # 0.01738204
+quantile(ALL$TumorVarFreq,0.5)  # 0.04539986
 
 FAST$TurnOverDummyFast = 1; FAST$TurnOverDummySlow = 0; FAST$TurnOverRank = 1
 MIDDLE$TurnOverDummyFast = 0; MIDDLE$TurnOverDummySlow = 0; MIDDLE$TurnOverRank = 2
 SLOW$TurnOverDummyFast = 0; SLOW$TurnOverDummySlow = 1; SLOW$TurnOverRank = 3
 ALL = rbind(FAST, MIDDLE, SLOW)
 
-glm_1aFIN <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1aFIN) # THE SECOND BEST
-
-glm_1bFIN <-glm(ALL$T_C ~ scale(ALL$TurnOverRank) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1bFIN) # THE THIRD BEST
-
-glm_2 <-glm(ALL$G_A ~ ALL$TurnOverDays + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_2) # TurnOverDays are not siginficant, VAF is negatively associated
-
-glm_3 <-glm(ALL$Ts ~ ALL$TurnOverDays + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_3) # only VAF
-
-glm_4 <-glm(ALL$Ts ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_4) # both!
-
-glm_4 <-glm(ALL$Ts ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_4) # only VAF
-
-glm_5a <-glm(ALL$T_C ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_5a) # both! THE FIRST BEST
-
-glm_5b <-glm(ALL$T_C ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_5b) # only VAF
-
-glm_6 <-glm(ALL$G_A ~ ALL$TurnOverDummyFast + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_6) # both are negative!
-
-glm_6 <-glm(ALL$G_A ~ ALL$TurnOverDummySlow + ALL$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_6) # only VAF is negative
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1) # MODEL 1
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # TurnOverDummyFast is more significant than ALL$TurnOverDays => remove ALL$TurnOverDays
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # MODEL 1A
+glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1b)  # MODEL 1B
 
 ##### now the same but only with Transitions!!!
 
 ALL1 = ALL[ALL$Subs %in% c('T_C','C_T','G_A','A_G'),] 
-glm_5a <-glm(ALL1$T_C ~ ALL1$TurnOverDummyFast + ALL1$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
-summary(glm_5a) # both! THE FIRST BEST
-glm_1a <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDays) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1a) # THE SECOND BEST
-glm_1b <-glm(ALL1$T_C ~ scale(ALL1$TurnOverRank) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1b) # THE THIRD BEST
+glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_2) # both! THE FIRST BEST
 
 ##### now the same but only with TC GA!!!
 
