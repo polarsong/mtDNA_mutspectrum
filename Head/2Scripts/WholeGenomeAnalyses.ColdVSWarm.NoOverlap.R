@@ -191,6 +191,20 @@ cor.test(contrasts$T..oC., contrasts$FrG, method = 'spearman') # -0.2300676; 0.0
 cor.test(contrasts$T..oC., contrasts$FrC, method = 'spearman') # nothing
 
 
-c<-lm(contrasts$T..oC. ~ scale(contrasts$FrA) + scale(contrasts$FrT) + scale(contrasts$FrG)); summary(c); # nothing significant
-b<-lm(contrasts$T..oC. ~ scale(contrasts$FrT) + scale(contrasts$FrG)); summary(b) # frT estimate -7.507 pvalue 0.0595
+a = lm(scale(contrasts$T..oC.) ~ scale(contrasts$FrA) + scale(contrasts$FrT) + scale(contrasts$FrG) + scale(contrasts$FrC)); summary(a)
+# scale(contrasts$FrA)  1.200e-01  1.436e-01   0.836   0.4056  
+# scale(contrasts$FrT) -1.864e-01  1.091e-01  -1.708   0.0914 .
+# scale(contrasts$FrG) -9.348e-02  1.429e-01  -0.654   0.5150  
+# scale(contrasts$FrC)         NA         NA      NA       NA  
 
+b = lm(scale(contrasts$T..oC.) ~ scale(contrasts$FrA) + scale(contrasts$FrT) + scale(contrasts$FrG)); summary(b)
+# scale(contrasts$FrA)  1.200e-01  1.436e-01   0.836   0.4056  
+# scale(contrasts$FrT) -1.864e-01  1.091e-01  -1.708   0.0914 .
+# scale(contrasts$FrG) -9.348e-02  1.429e-01  -0.654   0.5150
+
+c = lm(scale(contrasts$T..oC.) ~ scale(contrasts$FrA) + scale(contrasts$FrT)); summary(c)
+# scale(contrasts$FrA)  1.823e-01  1.071e-01   1.702   0.0926 .
+# scale(contrasts$FrT) -1.741e-01  1.071e-01  -1.625   0.1079  
+
+d = lm(scale(contrasts$T..oC.) ~ scale(contrasts$FrA)); summary(d)
+# scale(contrasts$FrA)  2.014e-01  1.075e-01   1.873   0.0646 .
