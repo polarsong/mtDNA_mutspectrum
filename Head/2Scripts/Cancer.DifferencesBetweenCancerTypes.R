@@ -5,7 +5,7 @@
 #### nucleotide content of the human genome: A T G C: 4993	3871	2159	5357
 rm(list=ls(all=TRUE))
   
-  ALL = read.table("../../Body/1Raw/mtDNA_snv_Oct2016.txt", head = TRUE, sep = '\t')  # 7611
+  ALL = read.table("../../Body/2Derived/mtDNA_snv_Oct2016.PatientInfo.txt", head = TRUE, sep = '\t')  # 7611
   
   pdf("../../Body/4Figures/Cancer.DifferencesBetweenCancerTypes.01.pdf" , height = 30, width = 30)
   
@@ -250,14 +250,42 @@ MIDDLE$TurnOverDummyFast = 0; MIDDLE$TurnOverDummySlow = 0; MIDDLE$TurnOverRank 
 SLOW$TurnOverDummyFast = 0; SLOW$TurnOverDummySlow = 1; SLOW$TurnOverRank = 3
 ALL = rbind(FAST, MIDDLE, SLOW)
 
+cor.test(ALL$mt_copies,ALL$TurnOverDays, method = 'spearman') # very positive - there are many mtDNA copies in slow-dividing cancers!!!!!
+cor.test(ALL$mt_copies,ALL$TumorVarFreq, method = 'spearman') # a bit positive 
+
+
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1) # MODEL 1
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq) + scale(ALL$Consensus_age) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1) # MODEL 1 intermediate
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1) # MODEL 1 final
+
 glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1a) # TurnOverDummyFast is more significant than ALL$TurnOverDays => remove ALL$TurnOverDays
-glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1a) # MODEL 1A
+
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq) , family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # MODEL 1A intermediate
+
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq) + scale(ALL$Consensus_age) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # MODEL 1A intermediate
+
+glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1a) # MODEL 1A final
+
 glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1b)  # MODEL 1B
+
+glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$Consensus_age) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1b)  # MODEL 1B Intermediate
+
+glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1b)  # MODEL 1B Final mtcopies are not significant anymore!!! because all varaints are high quality!!!
+
+glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1b)  # MODEL 1B Final mtcopies are not significant anymore!!! because all varaints are high quality!!!
 
 ##### now the same but only with Transitions!!!
 
@@ -265,11 +293,18 @@ ALL1 = ALL[ALL$Subs %in% c('T_C','C_T','G_A','A_G'),]
 glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_2) # both! THE FIRST BEST
 
+glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq) + scale(ALL1$Consensus_age) + scale(ALL1$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_2) # both! THE FIRST BEST
+
+glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq)  + scale(ALL1$mt_copies), family = binomial())  # total number of mutations? total disruption?
+summary(glm_2) # both! THE FIRST BEST
+
 ##### now the same but only with TC GA!!!
 
 ALL1 = ALL1[ALL1$Subs %in% c('T_C','G_A'),] 
-glm_5a <-glm(ALL1$T_C ~ ALL1$TurnOverDummyFast + ALL1$TumorVarFreq, family = binomial())  # total number of mutations? total disruption?
+glm_5a <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq) + scale(ALL1$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_5a) # second only significant, THE FIRST BEST
+
 glm_1a <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDays) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1a) # second only significant, THE SECOND BEST
 glm_1b <-glm(ALL1$T_C ~ scale(ALL1$TurnOverRank) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
