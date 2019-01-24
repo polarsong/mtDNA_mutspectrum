@@ -53,9 +53,51 @@ SynNucGT = merge(GT,SynNuc)
 length(unique(SynNucGT$Species))  # 649 species
 table(SynNucGT$TAXON)
 
+############ data for PICs
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+data = SynNucGT[which(as.character(SynNucGT$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(SynNucGT$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, -c(1, 5)]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
 ########### question 1: which nucleotides better correlate with GT: log2(GT) = 11 - 0.29*scale(FrT) + 0.33*scale(FrC) (in line with our mutational spectrum result that T->C correlates with generation time)
 AGG = aggregate(list(SynNucGT$FrA,SynNucGT$FrT,SynNucGT$FrG,SynNucGT$FrC), by = list(SynNucGT$Species,SynNucGT$GenerationLength_d), FUN = mean)
 names(AGG) = c('Species','GenerationLength_d','FrA','FrT','FrG','FrC')
+
+############ data for PICs
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+data = AGG[which(as.character(AGG$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(AGG$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+data = data[-597,]
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, -1]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
 
 ### start from pairwise correlations and go to multiple linear model:
 
@@ -64,12 +106,22 @@ cor.test(log2(AGG$GenerationLength_d),AGG$FrT, method = 'spearman') # rho -0.306
 cor.test(log2(AGG$GenerationLength_d),AGG$FrG, method = 'spearman') # rho  0.1804395; p = 3.665e-06
 cor.test(log2(AGG$GenerationLength_d),AGG$FrC, method = 'spearman') # rho  0.4717114;  p < 2.2e-16
 
+cor.test(log2(contrasts$GenerationLength_d), contrasts$FrA, method = 'spearman') # rho -0.07057586; p = 0.1659
+cor.test(log2(contrasts$GenerationLength_d), contrasts$FrT, method = 'spearman') # rho -0.1002072; p = 0.04885
+cor.test(log2(contrasts$GenerationLength_d), contrasts$FrG, method = 'spearman') # rho  0.03871029; p = 0.4476
+cor.test(log2(contrasts$GenerationLength_d), contrasts$FrC, method = 'spearman') # rho  0.1187421;  p = 0.01946
+
 ### for multiple linear backward model we choosed A,T & C, on the second step we delete A from the model and the final model is just with T and C
 
 A <- lm(log2(AGG$GenerationLength_d) ~ AGG$FrA + AGG$FrT + AGG$FrC); summary(A) # A is not significant - delete it
 A <- lm(log2(AGG$GenerationLength_d) ~ AGG$FrT + AGG$FrC); summary(A)
 A <- lm(log2(AGG$GenerationLength_d) ~ scale(AGG$FrT) + scale(AGG$FrC)); summary(A) # log2(GT) = 11.08294 - 0.12 scale(FrT) + 0.45 scale(FrC)
 # Adjusted R-squared:  0.2321 - not bad!!!
+
+A <- lm(scale(contrasts$GenerationLength_d) ~ contrasts$FrA + contrasts$FrT + contrasts$FrC); summary(A) # A is not significant - delete it
+A <- lm(scale(contrasts$GenerationLength_d) ~ contrasts$FrT + contrasts$FrC); summary(A) # only C is significant
+# A <- lm(log2(contrasts$GenerationLength_d) ~ scale(contrasts$FrT) + scale(contrast$FrC)); summary(A) # log2(GT) = 11.08294 - 0.12 scale(FrT) + 0.45 scale(FrC)
+
 
 ## next step is PIC, ALINA!!!!!! SOS!!!!!
 
