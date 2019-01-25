@@ -38,6 +38,29 @@ VecOfTaxaShort = c('Actinopterygii','Reptilia','Aves','Mammalia','Amphibia')
 AA = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
 AA$Species = paste(AA$Genus,AA$Species,sep = '_')
 
+############# data for PICs
+
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+data = AGG[which(as.character(AGG$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(AGG$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+data = data[-597,]
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, -1]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
+
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordataNoOverlap.R.01.pdf", width = 25, height = 25)
 ###########
 for (i in 1:length(VecOfTaxaShort))
@@ -56,6 +79,24 @@ for (i in 1:length(VecOfTaxaShort))
   names(AGG) = c('Species','FemaleMaturityDays','FrA','FrT','FrG','FrC')
   nrow(AGG)
   
+  ###### Add PICs
+  data = AGG[which(as.character(AGG$Species) %in% tree$tip.label),]
+  
+  df_vec <- as.character(AGG$Species)
+  tree_vec <- tree$tip.label
+  
+  a <- setdiff(df_vec, tree_vec)
+  b <- setdiff(tree_vec, df_vec)
+  
+  row.names(data) = data$Species
+  
+  tree2 <- drop.tip(tree, b)
+  
+  TempData = data[, -1]
+  contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+  names(contrasts) = names(TempData)
+  
+  ##############
   cor.test(log2(AGG$FemaleMaturityDays),AGG$FrA)
   cor.test(log2(AGG$FemaleMaturityDays),AGG$FrT)
   cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG)
@@ -63,6 +104,14 @@ for (i in 1:length(VecOfTaxaShort))
   
   A = lm(log2(AGG$FemaleMaturityDays) ~  scale(AGG$FrA) + scale(AGG$FrT) + scale(AGG$FrC));   summary(A)
   A = lm(log2(AGG$FemaleMaturityDays) ~  scale(AGG$FrT) + scale(AGG$FrC));   summary(A)
+  
+  cor.test(log2(contrasts$FemaleMaturityDays), contrasts$FrA)
+  cor.test(log2(contrasts$FemaleMaturityDays), contrasts$FrT)
+  cor.test(log2(contrasts$FemaleMaturityDays), contrasts$FrG)
+  cor.test(log2(contrasts$FemaleMaturityDays), contrasts$FrC)
+  
+  A = lm(log2(contrasts$FemaleMaturityDays) ~  scale(contrasts$FrA) + scale(contrasts$FrT) + scale(contrasts$FrC));   summary(A)
+  A = lm(log2(contrasts$FemaleMaturityDays) ~  scale(contrasts$FrA) + scale(contrasts$FrC));   summary(A)
 
   ###### start from pairwise correlations and go to multiple linear model:
   ## it is opposite s compared to mammals
