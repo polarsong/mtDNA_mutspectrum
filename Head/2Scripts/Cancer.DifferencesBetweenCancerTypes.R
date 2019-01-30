@@ -89,7 +89,21 @@ OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.21657
 
 Glyc = data.frame(CancerType,Glycolysis,OxidativePhosphorylation)
 ALL = merge(ALL,Glyc, all.x=TRUE)
-  
+
+### Glycolysis derived by hands: 
+GAPDH = read.table("../../Body/2Derived/Cancer.DeriveLevelOfGlycolysisForEachCancerType.txt", header = TRUE)
+ALL = merge(ALL,GAPDH, all.x=TRUE)
+
+Glyc = merge(Glyc,GAPDH)
+cor.test(Glyc$Glycolysis,Glyc$GAPDH, method = 'spearman') # positive and good!!!!!!! rho = 0.6096838; p = 0.002467
+plot(Glyc$Glycolysis,Glyc$GAPDH)
+text(Glyc$Glycolysis,Glyc$GAPDH,Glyc$CancerType)
+
+Short = ALL[,grep("CancerType|CancerTissue|GAPDH|Glycolysis|TurnOverDays",colnames(ALL))]
+Short = unique(Short)
+cor.test(Short$TurnOverDays,Short$Glycolysis, method = 'spearman') # nothing
+cor.test(Short$TurnOverDays,Short$GAPDH, method = 'spearman')      # nothing
+
 ####### mtDNA copies: https://www.ncbi.nlm.nih.gov/pubmed/26901439 (figure 3 gives a rank of cancer types)
 CancerType = c('KIRC','BRCA','BLCA','LIHC','HNSC','ESCA','KIRP','STAD','UCEC','KICH','COAD','THCA','PAAD','PRAD','LUAD')
 mtDNACopyNumberRank = c(1:15)
@@ -257,6 +271,51 @@ cor.test(ALL$mt_copies,ALL$TumorVarFreq, method = 'spearman') # a bit positive
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1) # MODEL 1
 
+# if I add all: Glycolysis, TurnOverDays, GAPDH - who is the winner?
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$Glycolysis) + scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1)
+#(Intercept)                                   -1.42553    0.08884 -16.047  < 2e-16 ***
+#  scale(ALL$TurnOverDays)                       -1.47590    0.25200  -5.857 4.72e-09 ***
+#  scale(ALL$Glycolysis)                         -0.84335    0.17544  -4.807 1.53e-06 ***
+#  scale(ALL$GAPDH)                               0.53686    0.12061   4.451 8.54e-06 ***
+#  scale(ALL$TumorVarFreq)                        0.08096    0.03843   2.107   0.0351 *  
+#  scale(ALL$TurnOverDays):scale(ALL$Glycolysis) -1.45539    0.26167  -5.562 2.67e-08 ***
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$Glycolysis) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1)
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)+ scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)+scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
+#(Intercept)                              -0.96781    0.05243 -18.460  < 2e-16 ***
+#  scale(ALL$TurnOverDays)                  -0.20749    0.10177  -2.039  0.04148 *  
+#  scale(ALL$GAPDH)                          0.13780    0.05174   2.664  0.00773 ** 
+#  scale(ALL$TumorVarFreq)                   0.10642    0.03809   2.794  0.00521 ** 
+#  scale(ALL$TurnOverDays):scale(ALL$GAPDH) -0.22764    0.06141  -3.707  0.00021 ***
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast)*scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # Good enough also
+
+# Deviance Residuals: 
+#  Min       1Q   Median       3Q      Max  
+# -1.0360  -0.8170  -0.7853   1.4728   1.8267  
+# Coefficients:
+#  Estimate Std. Error z value Pr(>|z|)    
+# (Intercept)                                   -0.83831    0.05335 -15.714  < 2e-16 ***
+#  scale(ALL$TurnOverDummyFast)                   0.13223    0.08045   1.644 0.100244    
+# scale(ALL$GAPDH)                               0.16608    0.07378   2.251 0.024382 *  
+#  scale(ALL$TumorVarFreq)                        0.11442    0.03878   2.950 0.003175 ** 
+#  scale(ALL$TurnOverDummyFast):scale(ALL$GAPDH)  0.46766    0.12892   3.628 0.000286 ***
+#  ---
+#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# (Dispersion parameter for binomial family taken to be 1)
+# Null deviance: 3696.6  on 3133  degrees of freedom
+# Residual deviance: 3668.5  on 3129  degrees of freedom
+# (4477 observations deleted due to missingness)
+# AIC: 3678.5
+# Number of Fisher Scoring iterations: 4
+
+
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq) + scale(ALL$Consensus_age) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1) # MODEL 1 intermediate
 
@@ -299,6 +358,11 @@ summary(glm_2) # both! THE FIRST BEST
 glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq)  + scale(ALL1$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_2) # both! THE FIRST BEST
 
+##### glycolisys
+
+glm_3 <-glm(ALL$T_C ~ scale(ALL$Glycolysis) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_3) #
+
 ##### now the same but only with TC GA!!!
 
 ALL1 = ALL1[ALL1$Subs %in% c('T_C','G_A'),] 
@@ -310,7 +374,7 @@ summary(glm_1a) # second only significant, THE SECOND BEST
 glm_1b <-glm(ALL1$T_C ~ scale(ALL1$TurnOverRank) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1b) # second only significant, THE THIRD BEST
 
-#### plot glm_1
+##### plot glm_1
 
 par(mfrow=c(1,1), cex = 3)
 
