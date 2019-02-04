@@ -1,0 +1,13 @@
+
+############################### /../../Body/1Raw/Rebolledo2014/S1.txt + S3.txt
+# PURPOSE		: Supplements from the paper "Maternal age effect and severe germ-line bottleneck in the inheritance of human mitochondrial DNA"
+
+############################### /../../Head/2Scripts/Humans.RebolledoAnalyses.R
+# PURPOSE		: Fraction of nucleotides versus generation time of mammals
+# AUTHOR, DATE	: Kostya, 26 Nov 2018  
+# SCRIPT		: Head/2Scripts/WholeGenomeAnalyses.MutagensWithinMammals.R
+# INPUT FILE 	: ../../Body/3Results/AllGenesCodonUsage.txt
+# INPUT FILE 	: ../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt
+# OUTPUT FILE   : ../../Body/4Figures/WholeGenomeAnalyses.MutagensWithinMammals.R.01.pdf
+
+###############################
