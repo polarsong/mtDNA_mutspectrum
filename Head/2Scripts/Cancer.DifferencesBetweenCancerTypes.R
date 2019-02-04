@@ -86,12 +86,16 @@ ALL = merge(ALL,Turn)
 CancerType =c('PRAD','LUNG','COAD','BRCA','KIRC','BLAD','CESC','CHOL','COADREAD','ESCA','GBM','HNSC','THCA','THYM','STAD','SKCM','SARC','READ','PCPG','PAAD','LUSC','LUAD','LIHC','KIRP','KICH','UCEC','MSKCCTvN')
 Glycolysis=c(12.38978,21.35984,59.51087,129.9068,99.2046,12.13424,14.89038,49.08608,26.55547,7.960641,3.820559,60.00785,46.08075,20.28906,19.16362,3.914527,10.47275,25.35386,43.00674,0.5165879,64.19461,25.59793,14.61152,77.26818,74.4774,29.7614,3.739063)
 OxidativePhosphorylation =c(15.76979,9.893736,14.81407,14.28531,249.1245,2.216577,3.199398,12.84608,7.390275,8.302373,6.407421,13.32523,4.457943,0.9468787,13.56102,2.319901,1.623032,11.08796,40.05531,0.3871189,26.50188,12.20636,13.09163,166.9113,51.49203,14.65809,2.185885)
+PentosePhosphate = c(4.482671,5.194823,4.599162,15.15577,12.77786,1.661569,2.182199,10.00908,1.998763,2.546287,1.110797,3.574438,1.615254,0.6553366,3.967936,0.8680933,2.732062,2.317814,25.14021,0.05184657,19.18611,6.007663,2.381309,14.36361,10.93353,5.921344,1.946353)
 
-Glyc = data.frame(CancerType,Glycolysis,OxidativePhosphorylation)
+Glyc = data.frame(CancerType,Glycolysis,OxidativePhosphorylation,PentosePhosphate)
 ALL = merge(ALL,Glyc, all.x=TRUE)
 
 ### Glycolysis derived by hands: 
 GAPDH = read.table("../../Body/2Derived/Cancer.DeriveLevelOfGlycolysisForEachCancerType.txt", header = TRUE)
+setdiff(ALL$CancerType,GAPDH$CancerType) # CLLE" "CMDI" "DLBC" "ESAD" "GACA" "LAML" "MALY" "ORCA" "BLCA" "BTCA" "EOPC" "LICA" "LINC" "LIRI" "MELA" "PACA" "PAEN" "RECA" "BOCA" "LGG"  "OV"   "PBCA" "THCA"
+setdiff(GAPDH$CancerType,ALL$CancerType) # BLAD"     "CHOL"     "COADREAD" "ESCA"     "LUNG"     "PAAD"     "PCPG"     "TGCA"     "THYM" 
+intersect(GAPDH$CancerType,ALL$CancerType)
 ALL = merge(ALL,GAPDH, all.x=TRUE)
 
 Glyc = merge(Glyc,GAPDH)
@@ -99,10 +103,12 @@ cor.test(Glyc$Glycolysis,Glyc$GAPDH, method = 'spearman') # positive and good!!!
 plot(Glyc$Glycolysis,Glyc$GAPDH)
 text(Glyc$Glycolysis,Glyc$GAPDH,Glyc$CancerType)
 
-Short = ALL[,grep("CancerType|CancerTissue|GAPDH|Glycolysis|TurnOverDays",colnames(ALL))]
+Short = ALL[,grep("CancerType|CancerTissue|GAPDH|PFK|PentosePhosphate|Glycolysis|TurnOverDays",colnames(ALL))] # names(ALL)
 Short = unique(Short)
 cor.test(Short$TurnOverDays,Short$Glycolysis, method = 'spearman') # nothing
 cor.test(Short$TurnOverDays,Short$GAPDH, method = 'spearman')      # nothing
+cor.test(Short$TurnOverDays,Short$PFK, method = 'spearman')      # nothing
+cor.test(Short$TurnOverDays,Short$PentosePhosphate, method = 'spearman')      # nothing
 
 ####### mtDNA copies: https://www.ncbi.nlm.nih.gov/pubmed/26901439 (figure 3 gives a rank of cancer types)
 CancerType = c('KIRC','BRCA','BLCA','LIHC','HNSC','ESCA','KIRP','STAD','UCEC','KICH','COAD','THCA','PAAD','PRAD','LUAD')
@@ -271,6 +277,16 @@ cor.test(ALL$mt_copies,ALL$TumorVarFreq, method = 'spearman') # a bit positive
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1) # MODEL 1
 
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
+summary(glm_1) # MODEL 1 - there is no interaction between TurnOverDays and TumorVarFreq
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$PFK) + scale(ALL$TumorVarFreq) , family = binomial())  # total number of mutations? total disruption?
+summary(glm_1) # MODEL 1 : 4431 observations deleted due to missingness!!!!!!!!!!!!!!! K CHERTU TOGDA ETO!!!!!
+table(ALL[is.na(ALL$Glycolysis),]$CancerType)
+table(ALL[!is.na(ALL$Glycolysis),]$CancerType)
+summary(ALL[is.na(ALL$Glycolysis),]$TurnOverDays)  # unknown glycolysis -> slowly dividing cancers
+summary(ALL[!is.na(ALL$Glycolysis),]$TurnOverDays) # known glycolysis -> fastly dividing cancers
+
 # if I add all: Glycolysis, TurnOverDays, GAPDH - who is the winner?
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$Glycolysis) + scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1)
@@ -284,6 +300,8 @@ glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$Glycolysis) + scale(ALL$
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$Glycolysis) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1)
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)+ scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
+
+glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$PentosePhosphate) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)+scale(ALL$GAPDH) + scale(ALL$TumorVarFreq), family = binomial()); summary(glm_1) # !!!!!!!!!!!!!!!!!!
 

@@ -23,6 +23,7 @@ AGG = aggregate(-log10(Tr$adj.P.Val), by = list(Tr$Gene), FUN = median); names(A
 # PKM: Pyruvate Kinase M1/2. This gene encodes a protein involved in glycolysis. The encoded protein is a pyruvate kinase that catalyzes the transfer of a phosphoryl group from phosphoenolpyruvate to ADP, generating ATP and pyruvate. This protein has been shown to interact with thyroid hormone and may mediate cellular metabolic effects induced by thyroid hormones. 
 # ENO: enolase (there are three enolase isoenzymes in mammals). They are glycolytic enzymes.
 # PFK: Phosphofructokinase (M - muscle; P = platelet, L = liver; PFKL','PFKM','PFKP'); Three phosphofructokinase isozymes exist in humans: muscle, liver and platelet. These isozymes function as subunits of the mammalian tetramer phosphofructokinase, which catalyzes the phosphorylation of fructose-6-phosphate to fructose-1,6-bisphosphate
+# according to Dima Knorre Phosphofructokinase is the best marker of the glycolysis
 # PGM: (1,2) Phosphoglucomutase. There are several PGM isozymes, which are encoded by different genes and catalyze the transfer of phosphate between the 1 and 6 positions of glucose
 # HK(1,2,3): Hexokinases phosphorylate glucose to produce glucose-6-phosphate, the first step in most glucose metabolism pathways
 # PFKFB(1,2,3,4): 6-Phosphofructo-2-Kinase/Fructose-2,6-Biphosphatase. These proteins belong to a family of bifunctional proteins that are involved in both the synthesis and degradation of fructose-2,6-bisphosphate, a regulatory molecule that controls glycolysis in eukaryotes
