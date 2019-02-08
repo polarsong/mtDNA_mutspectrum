@@ -7,24 +7,30 @@
 => SCRIPT:
 ../../Head/2Scripts/VertebratePolymorphisms.BetweenClassesWithoutNormalization.R
 => PURPOSE: 
-count observed mutations in nautral sites (FourFold Syn Degenerative) without normalization, check equilibrium (From - To) for different nucleotides, plot. 
+count observed mutations in neutral sites (FourFold Syn Degenerative) without normalization, check equilibrium (From - To) for different nucleotides, plot. 
 => INPUT:
 ../../Body/3Results/Mutational_spectra_in_Chordata_ML.txt
 ../../Body/1Raw/TaxaFromKostya.Names.stat
 ../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt
 => OUTPUT:
+../../Body/3Results/VertebratePolymorphisms.BetweenClassesWithoutNormalization.PieChartTable.txt
+../../Body/3Results/VertebratePolymorphisms.BetweenClassesWithoutNormalization.EquilibriumLog2ToFrom.txt
 ../../Body/4Figures/VertebratePolymorphisms.BetweenClassesWithoutNormalization.R.01.pdf
 
 
 ################# 
 => SCRIPT:
-VertebratePolymorphisms.Normalization.R
+../../Head/2Scripts/VertebratePolymorphisms.Normalization.R
 => PURPOSE: 
 Taking external branches (real sequences) count for each "species X gene" number of A T G C in fourfold degener syn positions. Later will use it for normalization
 => INPUT:
 ../../Body/2Derived/POLARIZEDBR_DATA.zip
+../../Body/1Raw/TaxaFromKostya.Names.stat
+../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt
 => OUTPUT:
 ../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt
+../../Body/3Results/VertebratePolymorphisms.Normalization.Normalized12Fractions.txt
+../../Body/4Figures/VertebratePolymorphisms.Normalization.R.01.pdf
 
 
 

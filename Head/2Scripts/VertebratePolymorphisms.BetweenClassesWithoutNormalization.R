@@ -87,6 +87,7 @@ MUT = merge(MUT,Taxa, all.x = TRUE)  ##### NOT ALL SPECIES HAVE TAXONOMY!!!!
 
 ##### derive observed number of mutations for each class (no normalization)
 
+PieChartTable = c()
 Equil = c()
 par(mfrow = c(1,5))
 VecOfClasses = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves')
@@ -101,6 +102,9 @@ for (i in 1:length(VecOfClasses))
   sum(Agg$Number) # 1 - 100%
   pie(Agg$Number, labels = Agg$Subs, main = title, col=rainbow(length(Agg$Subs)))
   
+  Agg$Class = VecOfClasses[i];
+  PieChartTable = rbind(PieChartTable,Agg)
+  
   ToGFromG = sum(Agg[Agg$Subs %in% c('A_G','T_G','C_G'),]$Number) /  sum(Agg[Agg$Subs %in% c('G_A','G_T','G_C'),]$Number)
   ToTFromT = sum(Agg[Agg$Subs %in% c('A_T','G_T','C_T'),]$Number) /  sum(Agg[Agg$Subs %in% c('T_A','T_G','T_C'),]$Number)
   ToAFromA = sum(Agg[Agg$Subs %in% c('T_A','G_A','C_A'),]$Number) /  sum(Agg[Agg$Subs %in% c('A_T','A_G','A_C'),]$Number)
@@ -109,7 +113,10 @@ for (i in 1:length(VecOfClasses))
   Equil = rbind(Equil,c(i,VecOfClasses[i],ToGFromG,ToTFromT,ToAFromA,ToCFromC))
 }
 
+PieChartTable = data.frame(PieChartTable)
+write.table(PieChartTable,"../../Body/3Results/VertebratePolymorphisms.BetweenClassesWithoutNormalization.PieChartTable.txt")
 Equil = data.frame(Equil); names(Equil) = c('i','Classes','G','T','C','A')
+
 # i        Classes                 G                 T                C                 A
 # 1 Actinopterygii 0.594741697416974  0.88695652173913 1.64319645994664  1.04326864396436
 # 2       Amphibia   0.5125284738041  1.04096989966555 1.76627712854758 0.917777777777778
@@ -125,7 +132,7 @@ VecOfSpecies = unique(MUT$Species)
 for (i in 1:length(VecOfSpecies))
   { # i = 1
   Agg = AGG[AGG$Species == VecOfSpecies[i],]
-  if (sum(Agg$Number) >= 15)
+  if (sum(Agg$Number) >= 15) ### do I need to add the same requirement for piechart, probably now, the first figure is expected to be completely general - all together
     {
     ToGFromG = log2(sum(Agg[Agg$Subs %in% c('A_G','T_G','C_G'),]$Number) /  sum(Agg[Agg$Subs %in% c('G_A','G_T','G_C'),]$Number))
     ToTFromT = log2(sum(Agg[Agg$Subs %in% c('A_T','G_T','C_T'),]$Number) /  sum(Agg[Agg$Subs %in% c('T_A','T_G','T_C'),]$Number))
@@ -137,6 +144,8 @@ for (i in 1:length(VecOfSpecies))
   }
 Equilibrium = data.frame(Equilibrium); names(Equilibrium)=c('Species','Class','G','T','A','C')
 Equilibrium[,3:6] <- sapply(Equilibrium[,3:6], function(x) as.numeric(as.character(x)))
+write.table(Equilibrium,"../../Body/3Results/VertebratePolymorphisms.BetweenClassesWithoutNormalization.EquilibriumLog2ToFrom.txt", quote = FALSE, row.names = FALSE)
+
 par(mfrow=c(1,1))
 Equilibrium = Equilibrium[Equilibrium$Class %in% VecOfClasses,]
 boxplot(
@@ -149,3 +158,15 @@ outline = FALSE, notch = TRUE, col = c(ColG,ColT,ColC,ColA), names = rep(c('G','
 abline(h = 0, col = 'red')
 
 dev.off()
+
+############# DELETE BELOW: 
+### little experiment: equilibrium and generation time - only log2(ToG/FromG) is increasing with GT -> short lived are more fard from equilibrium... strange...
+GT = read.table("../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt", sep = '\t', header = TRUE)
+GT$Species = gsub(' ','_',GT$Scientific_name)
+GT = merge(Equilibrium,GT)
+cor.test(GT$G,GT$GenerationLength_d, method = 'spearman') # positive a bit - small are running away faster...
+cor.test(GT$C,GT$GenerationLength_d, method = 'spearman') # nothing
+cor.test(GT$T,GT$GenerationLength_d, method = 'spearman') # nothing
+cor.test(GT$A,GT$GenerationLength_d, method = 'spearman') # nothing
+
+
