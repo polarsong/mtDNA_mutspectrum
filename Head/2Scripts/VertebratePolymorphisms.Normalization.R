@@ -52,7 +52,7 @@ for (i in 1:length(List))
   }
 }
 
-Final = as.data.frame(Final); names(Final)=c('Species','Gene','A','T','G','C',"NumberOfFourFoldDegenCodons",'NumberOfAllCodons')
+Final = as.data.frame(Final); names(Final)=c('Species','Gene','A','T','G','C','NumberOfAllCodons',"NumberOfFourFoldDegenCodons")
 write.table(Final, "../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt", quote = FALSE, row.names = FALSE)
 
 ## delete all unziped files

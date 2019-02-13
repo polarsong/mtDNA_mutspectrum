@@ -3,6 +3,35 @@
 
 rm(list=ls(all=TRUE))
 
+### neutral ATGC
+NeutralATGC = read.table('../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt', header = TRUE)
+
+###### fast test just for fun - fraction of 4FoldSyn sites between different genes and species 
+NeutralATGC$FrOfNeutral = NeutralATGC$NumberOfFourFoldDegenCodons / NeutralATGC$NumberOfAllCodons
+summary(NeutralATGC$FrOfNeutral) 
+boxplot(NeutralATGC$FrOfNeutral ~ NeutralATGC$Gene) # ATP8 has minimum of this fraction and ATP8 has the highest Kn/Ks!!! Level of optimisation???
+
+### compare it for different species (mammals):
+GL = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', header = TRUE, sep = '\t')
+GL$Species = gsub(' ','_',GL$Scientific_name)
+
+Test = merge(NeutralATGC,GL, by = 'Species')
+table(Test$Gene)
+cor.test(Test[Test$Gene == 'CytB',]$FrOfNeutral,Test[Test$Gene == 'CytB',]$GenerationLength_d, method='spearman')
+plot(Test[Test$Gene == 'CytB',]$FrOfNeutral,log2(Test[Test$Gene == 'CytB',]$GenerationLength_d))
+# the rest is not very significant because not so many species! 
+# fraction of 4foldSyn is increasing in long-lived. Why? 
+
+
+
+
+
+
+
+
+
+
+
 VecOfSynFourFoldDegenerateSites <- c('CTT', 'CTC', 'CTA', 'CTG', 
                                      'GTT', 'GTC', 'GTA', 'GTG', 
                                      'TCT', 'TCC', 'TCA', 'TCG', 

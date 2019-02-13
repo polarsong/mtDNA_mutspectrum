@@ -1,4 +1,4 @@
-Species Gene A T G C NumberOfFourFoldDegenCodons NumberOfAllCodons
+Species Gene A T G C NumberOfAllCodons NumberOfFourFoldDegenCodons
 Abbottina_obtusirostris CytB 504 172 97 248 1900 1021
 Abbottina_rivularis ATP6 309 108 43 234 1135 694
 Abbottina_rivularis COX1 547 318 188 385 2580 1438
