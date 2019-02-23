@@ -3,11 +3,9 @@
 #######
 
 
-################# 
+################# Count observed mutations in neutral sites (FourFold Syn Degenerative) without normalization, check equilibrium (From - To) for different nucleotides, plot. 
 => SCRIPT:
 ../../Head/2Scripts/VertebratePolymorphisms.BetweenClassesWithoutNormalization.R
-=> PURPOSE: 
-count observed mutations in neutral sites (FourFold Syn Degenerative) without normalization, check equilibrium (From - To) for different nucleotides, plot. 
 => INPUT:
 ../../Body/3Results/Mutational_spectra_in_Chordata_ML.txt
 ../../Body/1Raw/TaxaFromKostya.Names.stat
@@ -18,11 +16,9 @@ count observed mutations in neutral sites (FourFold Syn Degenerative) without no
 ../../Body/4Figures/VertebratePolymorphisms.BetweenClassesWithoutNormalization.R.01.pdf
 
 
-################# 
+################# Taking external branches (real sequences) count for each "species X gene" number of A T G C in fourfold degener syn positions. Later will use it for normalization.
 => SCRIPT:
 ../../Head/2Scripts/VertebratePolymorphisms.Normalization.R
-=> PURPOSE: 
-Taking external branches (real sequences) count for each "species X gene" number of A T G C in fourfold degener syn positions. Later will use it for normalization
 => INPUT:
 ../../Body/2Derived/POLARIZEDBR_DATA.zip
 ../../Body/1Raw/TaxaFromKostya.Names.stat
@@ -32,6 +28,19 @@ Taking external branches (real sequences) count for each "species X gene" number
 ../../Body/3Results/VertebratePolymorphisms.Normalization.Normalized12Fractions.txt
 ../../Body/4Figures/VertebratePolymorphisms.Normalization.R.01.pdf
 
+################# Analyse MutSpec (derived by Max Likelohood): select only normal substituions (12 types), species with majority of (>95%) normal substitutions, synonymous ones and generate a file with one mut - one line and extra parameters (MutType Number A T G C NumOfFourFoldMut NumOfSynMut NumOfFourFoldMutInCytB NumOfSynInCytB)
+=> SCRIPT:  ../../Head/2Scripts/VertebratePolymorphisms.GenerationOfMutSpecForEachSpecies.R
+=> INPUT: 
+../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt
+../../Body/3Results/Mutational_spectra_in_Chordata_ML.txt
+=> OUTPUT:
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt
+
+################# Compare mut specta between species and classes
+=> SCRIPT:  ../../Head/2Scripts/VertebratePolymorphisms.MutSpecComparisons.R
+=> INPUT: 
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt
+=> OUTPUT:
 
 
 
