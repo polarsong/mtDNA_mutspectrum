@@ -1,3 +1,4 @@
+#Biol. Lett. (doi:10.1098/rsbl.2005.0378) 
 "Species" "Mass" "Temperature" "MetabolRate" "Class"
 "Alopex_lagopus" "3600" "38.6" "1374" "Mammalia"
 "Canis_latrans" "10000" "37" "2686.567" "Mammalia"
