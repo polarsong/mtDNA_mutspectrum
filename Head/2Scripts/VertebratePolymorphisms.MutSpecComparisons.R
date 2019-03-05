@@ -23,13 +23,14 @@ TRIM<-function(x)	 {unlist(strsplit(x,'_'))[1]}
 Mut$AncestralNuc = apply(as.matrix(Mut$Subs), 1 , FUN = TRIM)
 
 ## normalize by freq of ancestral nucleotides
-Mut$Number = 1
+
 A = Mut[Mut$AncestralNuc == 'A',]; A$Number = A$A/(A$A+A$T+A$G+A$C)
 T = Mut[Mut$AncestralNuc == 'T',]; T$Number = T$T/(T$A+T$T+T$G+T$C)
 G = Mut[Mut$AncestralNuc == 'G',]; G$Number = G$G/(G$A+G$T+G$G+G$C)
 C = Mut[Mut$AncestralNuc == 'C',]; C$Number = C$C/(C$A+C$T+C$G+C$C)
 
 Mut = rbind(A,T); Mut = rbind(Mut,G); Mut = rbind(Mut,C);
+Mut$Number = 1/Mut$Number
 agg = aggregate(Mut$Number, by = list(Mut$Species,Mut$Subs), FUN = sum)
 names(agg)=c('Species','Subs','Freq')
 
@@ -53,8 +54,10 @@ for (i in 1:length(VecOfSpecies))
 
 write.table(Final, '../../Body/3Results/VertebratePolymorphisms.MutSpecData.AllSynMutationsAllGenes.txt', quote = FALSE, row.names = FALSE)
 
+
 ################ 2 OnlyFourFoldMut AllGenes
-Mut = MUT[MUT$NumOfFourFoldMut >= 15,] 
+Mut = MUT[MUT$NumOfFourFoldMut >= 15,]
+Mut = Mut[Mut$MutType == 'FourFold',] 
 
 #### generate MutSpec for each species
 
@@ -71,6 +74,7 @@ G = Mut[Mut$AncestralNuc == 'G',]; G$Number = G$G/(G$A+G$T+G$G+G$C)
 C = Mut[Mut$AncestralNuc == 'C',]; C$Number = C$C/(C$A+C$T+C$G+C$C)
 
 Mut = rbind(A,T); Mut = rbind(Mut,G); Mut = rbind(Mut,C);
+Mut$Number = 1/Mut$Number
 agg = aggregate(Mut$Number, by = list(Mut$Species,Mut$Subs), FUN = sum)
 names(agg)=c('Species','Subs','Freq')
 
@@ -96,6 +100,7 @@ write.table(Final, '../../Body/3Results/VertebratePolymorphisms.MutSpecData.Only
 
 ################ 3  OnlyFourFoldMut CytB
 Mut = MUT[MUT$NumOfFourFoldMut >= 15 & MUT$Gene == 'CytB',] 
+Mut = Mut[Mut$MutType == 'FourFold',] 
 
 #### generate MutSpec for each species
 
@@ -112,6 +117,7 @@ G = Mut[Mut$AncestralNuc == 'G',]; G$Number = G$G/(G$A+G$T+G$G+G$C)
 C = Mut[Mut$AncestralNuc == 'C',]; C$Number = C$C/(C$A+C$T+C$G+C$C)
 
 Mut = rbind(A,T); Mut = rbind(Mut,G); Mut = rbind(Mut,C);
+Mut$Number = 1/Mut$Number
 agg = aggregate(Mut$Number, by = list(Mut$Species,Mut$Subs), FUN = sum)
 names(agg)=c('Species','Subs','Freq')
 
@@ -137,7 +143,7 @@ write.table(Final, '../../Body/3Results/VertebratePolymorphisms.MutSpecData.Only
 
 ################ 4  AllSynonMut for EachGeneSeparately 
 
-Mut = MUT[MUT$NumOfSynMut >= 15,] 
+Mut = MUT[(MUT$NumOfSynMut + MUT$NumOfFourFoldMut) >= 15,] 
 
 #### generate MutSpec for each species
 
@@ -154,6 +160,7 @@ G = Mut[Mut$AncestralNuc == 'G',]; G$Number = G$G/(G$A+G$T+G$G+G$C)
 C = Mut[Mut$AncestralNuc == 'C',]; C$Number = C$C/(C$A+C$T+C$G+C$C)
 
 Mut = rbind(A,T); Mut = rbind(Mut,G); Mut = rbind(Mut,C);
+Mut$Number = 1/Mut$Number
 agg = aggregate(Mut$Number, by = list(Mut$Species,Mut$Gene,Mut$Subs), FUN = sum)
 names(agg)=c('Species','Gene','Subs','Freq')
 agg$SpeciesGene = paste(agg$Species,agg$Gene, sep = '.')

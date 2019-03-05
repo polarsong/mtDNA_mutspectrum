@@ -34,14 +34,22 @@
 ../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt
 ../../Body/3Results/Mutational_spectra_in_Chordata_ML.txt
 => OUTPUT:
-../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt 
 
 ################# Compare mut specta between species and classes
-=> SCRIPT:  ../../Head/2Scripts/VertebratePolymorphisms.MutSpecComparisons.R
+=> SCRIPT:  ../../Head/2Scripts/VertebratePolymorphisms.MutSpecComparisons.R  # CHECKED IT, looks ok now. I have reverted the numbers! Fuck, idiot
 => INPUT: 
 ../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt
 => OUTPUT:
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.AllSynMutationsAllGenes.txt
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegCytb.txt
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.AllSynMutSepForEachGene.txt
 
+################# run ecological analyses
+VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.R   ######## CONTINUE HERE
+=> INPUT:
+../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt
 
 
 

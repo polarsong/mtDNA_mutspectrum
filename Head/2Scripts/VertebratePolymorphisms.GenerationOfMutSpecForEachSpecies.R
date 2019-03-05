@@ -6,22 +6,6 @@ rm(list=ls(all=TRUE))
 ### neutral ATGC
 NeutralATGC = read.table('../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt', header = TRUE)
 
-###### fast test just for fun - fraction of 4FoldSyn sites in CYTB (the largest statistics) is increasing in long-lived species!!!! very good correlation.
-NeutralATGC$FrOfNeutral = NeutralATGC$NumberOfFourFoldDegenCodons / NeutralATGC$NumberOfAllCodons
-summary(NeutralATGC$FrOfNeutral) 
-boxplot(NeutralATGC$FrOfNeutral ~ NeutralATGC$Gene) # ATP8 has minimum of this fraction and ATP8 has the highest Kn/Ks!!! Level of optimisation???
-
-## compare it for different species (mammals):
-GL = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', header = TRUE, sep = '\t')
-GL$Species = gsub(' ','_',GL$Scientific_name)
-
-Test = merge(NeutralATGC,GL, by = 'Species')
-table(Test$Gene)
-cor.test(Test[Test$Gene == 'CytB',]$FrOfNeutral,Test[Test$Gene == 'CytB',]$GenerationLength_d, method='spearman')
-plot(Test[Test$Gene == 'CytB',]$FrOfNeutral,log2(Test[Test$Gene == 'CytB',]$GenerationLength_d))
-# the rest is not very significant because not so many species! 
-# fraction of 4foldSyn is increasing in long-lived. Why? 
-
 ####### READ
 MUT = read.table("../../Body/3Results/Mutational_spectra_in_Chordata_ML.txt", header = TRUE)
 length(unique(MUT$Species)) # 2404  SOME SPECIES HAVE THREE WORDS => CUT THE LAST AND MERGE WITH TAXA, OR EVEN CUT TWO LAST AND LEAVE JUST GENUS

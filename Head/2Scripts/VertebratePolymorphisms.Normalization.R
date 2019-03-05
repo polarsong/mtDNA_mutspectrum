@@ -65,7 +65,7 @@ for (i in 1:length(files))
 
 ################### merge with classes (from Taxa & MoreTaxa), average A T G C for each species, average it for classes and draw it.
 #### associate species name with Class
-### Taxa 1, Cut out the third world!!!!!!!!!!!!!!!!!
+### Taxa 1, Cut out the third word!!!!!!!!!!!!!!!!!
 Taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = '\t',header = FALSE) 
 Taxa$Species = gsub(";.*",'',Taxa$V1); 
 for (i in (1:nrow(Taxa)))  {Taxa$Species[i] = paste(unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[1],unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[2], sep = '_')}
@@ -76,7 +76,7 @@ length(unique(Taxa$Species)) # 1708
 table(Taxa$Class)
 Taxa = Taxa[,-1]
 
-### Taxa 2, Cut out the third world!!!!!!!!!!!!!!!!!
+### Taxa 2, Cut out the third word!!!!!!!!!!!!!!!!!
 TaxaMore = read.table("../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt", sep = '\t',header = FALSE) 
 TaxaMore$Species = ''
 for (i in (1:nrow(TaxaMore)))  
