@@ -47,9 +47,12 @@
 ../../Body/3Results/VertebratePolymorphisms.MutSpecData.AllSynMutSepForEachGene.txt
 
 ################# run ecological analyses
-VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.R   ######## CONTINUE HERE
+VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Mammals.R   
 => INPUT:
 ../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt
+
+VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.R   
+
 
 
 

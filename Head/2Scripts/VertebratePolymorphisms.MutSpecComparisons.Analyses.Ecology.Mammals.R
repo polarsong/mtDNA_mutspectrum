@@ -149,16 +149,3 @@ MamGt = merge(GT,MUT, by = 'Species')
 
 cor.test(MamGt$G_A,MamGt$AdultBodyMass_g, method = 'spearman') # nothing (negative sign)
 cor.test(MamGt$T_C,MamGt$AdultBodyMass_g, method = 'spearman') # a bit positive
-
-
-
-
-
-
-
-#########
-#### MAMMALS: PCA
-#########
-
-
-
