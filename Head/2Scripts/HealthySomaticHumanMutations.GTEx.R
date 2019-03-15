@@ -98,8 +98,15 @@ cor.test(AGG$TotalMut,AGG$TurnOverRate, method = 'spearman')
 ## mut spec and rate-related properties:
 cor.test(AGG$T_C,AGG$TurnOverRate, method = 'spearman')
 cor.test(AGG$G_A,AGG$TurnOverRate, method = 'spearman')
+
+cor.test(AGG[AGG$TotalMut >= 15,]$G_A,AGG[AGG$TotalMut >= 15,]$TurnOverRate, method = 'spearman')
 cor.test(AGG$TC_GA,AGG$TurnOverRate, method = 'spearman')
-plot(AGG$G_A,log2(AGG$TurnOverRate), pch = ''); text(AGG$G_A,log2(AGG$TurnOverRate), pch = '');  
+cor.test(AGG[AGG$TotalMut >= 10,]$TC_GA,AGG[AGG$TotalMut >= 10,]$TurnOverRate, method = 'spearman')
+
+plot(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate), pch = ''); text(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate),AGG[AGG$TotalMut >= 10,]$Tissue);   # dev.off()
+plot(AGG$G_A,log2(AGG$TurnOverRate), pch = ''); text(AGG$G_A,log2(AGG$TurnOverRate),AGG$Tissue);   # dev.off()
+
+dev.off()
 
 
 Som = Som[Som$AF <= 0.06893,]
