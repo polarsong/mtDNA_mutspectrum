@@ -6,11 +6,11 @@ rm(list=ls(all=TRUE))
 pdf("../../Body/4Figures/HealthySomaticHumanMutations.GTEx.R.01.pdf")
 par(mfrow=c(2,2))
 
-############ read human ref seq (note that it is hg19 - not cambridge reference!):
+############ A: read human ref seq (note that it is hg19 - not cambridge reference!):
 RefSeq = read.table("../../Body/1Raw/chrM_refAllele.txt", header = FALSE, sep = '')
 names(RefSeq)=c('Position','AncestralAllele')
 
-############ read GTEx mutations and merge them with Ref Seq:
+############ B: read GTEx mutations and merge them with Ref Seq:
 SomMut = read.table("../../Body/1Raw/TissueSpecificMtDNAMutationsGTEx.txt", header = TRUE, sep = '\t')
 SomMut$Position = gsub('_(.*)','',SomMut$Mutation)  # gsub("_(.*)",'',READS$patient)
 SomMut$DerivedAllele = gsub('(.*)_','',SomMut$Mutation)  # gsub("_(.*)",'',READS$patient)
@@ -28,10 +28,12 @@ hist(Som$AF, breaks = 100)
 summary(Som$AF) # median = 0.0437
 # Som = Som[Som$AF <= median(Som$AF),]
 # Som = Som[Som$AF <= 0.0687,]
-Som = Som[Som$AF <= 0.0437,]
+# Som = Som[Som$AF <= 0.0437,]
 
-############ read GTEx expression data:
+############ C: read GTEx expression data:
 Expr = read.table("../../Body/1Raw/TissueSpecificMtDNACoverageGTEx.txt", header = TRUE, sep = '\t')
+ExprTissues = data.frame(table(Expr$Tissue))
+ExprTissues = ExprTissues[order(ExprTissues$Var1),]
 
 # merge by SRRID (lost 2565 - 2523 observations, but got expression level (percentMito) for each sample and alternative name of the Tissue (more simple))
 nrow(Som) # 2565
@@ -43,14 +45,7 @@ VecOfGTExTissues
 # Stomach         Pancreas        Nerve           Uterus          Adipose Tissue  Prostate        Spleen          Testis          Kidney          Lung           
 # Ovary           Small Intestine Salivary Gland  Brain           Thyroid         Pituitary       Heart 
 
-########### analyses: derive for each Tissue mean percentMito (approximation of the level of metabolism) and MutSpec 
-
-### derive percentMito:
-Agg1 = aggregate(Som$percentMito, by = list(Som$Tissue), FUN = mean);
-names(Agg1)=c('Tissue','percentMito')
-Agg1 = Agg1[order(Agg1$percentMito),]
-
-### derive MutSpec:
+############ D: derive MutSpec
 Som$T_C = 0; Som$G_A = 0;
 Som$C_T = 0; Som$A_G = 0;
 Som$Tv = 0; Som$Ts = 0;
@@ -63,13 +58,63 @@ for (i in 1:nrow(Som))
   if (Som$Substitution[i] == 'T_C' | Som$Substitution[i] == 'C_T' | Som$Substitution[i] == 'G_A' | Som$Substitution[i] == 'A_G') {Som$Ts[i] = 1;}
   if (Som$Substitution[i] == 'A_T' | Som$Substitution[i] == 'T_A' | Som$Substitution[i] == 'G_C' | Som$Substitution[i] == 'C_G' | Som$Substitution[i] == 'A_C' | Som$Substitution[i] == 'C_A'  | Som$Substitution[i] == 'G_T' | Som$Substitution[i] == 'T_G') {Som$Tv[i] = 1;}
 }
-Agg2 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue), FUN = mean);
-names(Agg2) = c('Tissue','T_C','C_T','G_A','A_G','Ts','Tv')
 
-### derive total number of all mutations:
+########### E: Cell lifespans from the table here: https://docs.google.com/document/d/1UECub1DIdmuXwPqDLK8WRcZ6uIjEQiVmHXN1_XNVvUU/edit?usp=sharing 
+VecOfTissues = c('Adipose Tissue','Adrenal Gland','Bladder','Blood','Blood Vessel','Bone Marrow','Brain','Breast','Cervix Uteri','Colon','Esophagus','Heart','Kidney','Liver','Lung','Muscle','Nerve','Ovary','Pancreas','Prostate','Salivary Gland','Skin','Small Intestine','Spleen','Stomach','Testis','Thyroid','Uterus','Vagina')
+VecOfTurnOvers = c(  2448,  455,  49,  30,  67.5,  3.2,  24637.5,  65.75,  5.7,  4.25,  10.5,  25300,  270,  363.5,  126,  5510,  24637.5,  30000,  315,  120,  60,  64,  7.05,  7.8,  1.4,  63.5,  3679.5,  13,  3.9)
+All = data.frame(VecOfTissues,VecOfTurnOvers); names(All) = c('Tissue','TurnOverRate')
+Som = merge(Som,All, by = 'Tissue') 
+
+setdiff(VecOfGTExTissues,All$Tissue) # Pituitary
+
+########### G: analyses: derive for each Tissue mean percentMito (approximation of the level of metabolism), MutSpec and merge with 
+
+### G1: percentMito versus TurnOver: nothing
+Agg1 = aggregate(Som$percentMito, by = list(Som$Tissue), FUN = mean);
+names(Agg1)=c('Tissue','percentMito')
+Agg1 = Agg1[order(Agg1$percentMito),]
+
+### G2: derive total number of all mutations:
 Som$Mut = 1
-Agg3 = aggregate(Som$Mut, by = list(Som$Tissue), FUN = sum);
-names(Agg3) = c('Tissue','TotalMut')
+Agg2 = aggregate(Som$Mut, by = list(Som$Tissue), FUN = sum);
+names(Agg2) = c('Tissue','TotalMut')
+
+### percentMito versus MutSpec: nothing
+summary(Som$AF) # 0.03000 0.03520 0.04370 0.07916 0.06893 0.99120 
+# FOR ALL:
+Agg3 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean);
+names(Agg3) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
+
+AGG = merge(Agg1,Agg2, by = 'Tissue'); AGG = merge(AGG,Agg3, by = 'Tissue');  
+AGG$TC_GA =AGG$T_C / AGG$G_A
+
+######### analyses:
+
+## three main rate-related properties: nothing
+cor.test(AGG$percentMito,AGG$TotalMut, method = 'spearman')
+cor.test(AGG$percentMito,AGG$TurnOverRate, method = 'spearman')
+cor.test(AGG$TotalMut,AGG$TurnOverRate, method = 'spearman')
+
+## mut spec and rate-related properties:
+cor.test(AGG$T_C,AGG$TurnOverRate, method = 'spearman')
+cor.test(AGG$G_A,AGG$TurnOverRate, method = 'spearman')
+cor.test(AGG$TC_GA,AGG$TurnOverRate, method = 'spearman')
+plot(AGG$G_A,log2(AGG$TurnOverRate), pch = ''); text(AGG$G_A,log2(AGG$TurnOverRate), pch = '');  
+
+
+Som = Som[Som$AF <= 0.06893,]
+Agg2 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean);
+names(Agg2) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
+cor.test(Agg2$T_C,Agg2$TurnOverRate, method = 'spearman') # a bit 
+cor.test(Agg2$G_A,Agg2$TurnOverRate, method = 'spearman') # negative
+
+Som = Som[Som$AF <= 0.04370,]
+Agg2 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean);
+names(Agg2) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
+Agg2$TC_GA = Agg2$T_C/Agg2$G_A
+cor.test(Agg2$T_C,Agg2$TurnOverRate, method = 'spearman')   # a bit 
+cor.test(Agg2$G_A,Agg2$TurnOverRate, method = 'spearman')   # negative
+cor.test(Agg2$TC_GA,Agg2$TurnOverRate, method = 'spearman') # negative
 
 ### merge by tissue three Agg dataframes 
 
@@ -109,31 +154,6 @@ a<-lm(Som$A_G ~ Som$percentMito + Som$AF); summary(a) # negative with percentMit
 a<-lm(Som$Ts ~ Som$percentMito + Som$AF + Som$Position); summary(a)
 a<-lm(Som$Ts ~ Som$percentMito + Som$AF); summary(a) # Ts are more rare in high percentMito (due to A>G)
 a<-lm(Som$Tv ~ Som$percentMito + Som$AF); summary(a) # Tv are more often in high percentMito
-
-###### derive cell lifespan: https://docs.google.com/document/d/1UECub1DIdmuXwPqDLK8WRcZ6uIjEQiVmHXN1_XNVvUU/edit?usp=sharing 
-## Gladyshev: https://www.nature.com/articles/npjamd201614
-# some changes in order to fit Tissue names from Som:
-# Muscle <= sceletal muscle
-# Heart <= heart Muscle
-# Brain <= Neuron (neocortex)
-# Thyroid <= Thyroid gland
-# Skin <= Keratinocytes (skin epidermis)
-VecOfTissuesGladyshev = c('Adipose Tissue', 'Adrenal Gland', 'Bone Marrow', 'Monocytes', 'Colon',  'Endometrium', 'Esophagus', 'Heart',  'Skin', 'Kidney', 'Liver', 'Lung', 'Brain', 'Osteoblasts (bone)', 'Rectum', 'Salivary Gland', 'Muscle', 'Smooth muscle', 'Spleen',  'Thyroid',  'Bladder')  
-VecOfLifespansGladyshev = c(2448,455,3.2,2,3.5,13,10,25300,64,270,327, 200, 32850, 8.3,  3.5, 60, 5510, 67.5, 7.8, 3180, 49) 
-First = data.frame(VecOfTissuesGladyshev,VecOfLifespansGladyshev); names(First) = c('Tissue','TurnOverRate')
-
-intersect(VecOfGTExTissues,VecOfTissuesGladyshev)
-# Skin Esophagus"      "Colon"          "Liver"          "Muscle"         "Adrenal Gland"  "Adipose Tissue" "Spleen"         "Kidney"         "Lung"          
-# "Salivary Gland" "Brain"          "Thyroid"        "Heart"   
-setdiff(VecOfGTExTissues,VecOfTissuesGladyshev)
-# "Blood Vessel"    "Breast"          "Blood"           "Vagina"          "Stomach"         "Pancreas"        "Nerve"           "Uterus"         
-# "Prostate"        "Testis"          "Ovary"           "Small Intestine" "Pituitary"      
-
-### get more from Tomacetti and others: 
-VecOfTissuesTomacettiAndOthers = c("Breast", "Stomach", "Pancreas", "Uterus", 'Prostate','Testis', 'Ovary', 'Small Intestine')
-VecOfLifespansTomacettiAndOthers = c(84.5, 5.5, 360, 4, 120.0, 60, 11000, 3)
-Second = data.frame(VecOfTissuesTomacettiAndOthers,VecOfLifespansTomacettiAndOthers); names(Second) = c('Tissue','TurnOverRate')
-All = rbind(First,Second)
 
 setdiff(VecOfGTExTissues,All$Tissue)
 # "Blood Vessel" "Blood"        "Vagina"       "Nerve"        "Pituitary"    - to find it
