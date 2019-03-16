@@ -72,6 +72,12 @@ MamGt$T_C.NoEffectOfTFreq = MamGt$T_C / (MamGt$T_C + MamGt$T_A + MamGt$T_G); sum
 cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman') # positive and significant!!!! rho = 0.164, p = 0.0007114
 plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
 
+#### ALINA, PICS - MamGt dataset:
+#1)  MamGt$TsTv versus MamGt$GenerationLength_d
+#2)  MamGt$T_C versus MamGt$GenerationLength_d
+
+
+
 ##### Body Mass (N = 426)
 
 cor.test(MamGt$AdultBodyMass_g,MamGt$A_T, method = 'spearman')
@@ -247,8 +253,6 @@ PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of eac
 PCA$rotation # still the first component 
 cor.test(MATRIX$Pca2,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
 
-#### ALINA, PICS - MamGt dataset:
-#1)  MamGt$TsTv versus MamGt$GenerationLength_d
-#2) MamGt$T_C versus MamGt$GenerationLength_d
+
 
 
