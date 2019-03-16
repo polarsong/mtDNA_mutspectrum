@@ -4,7 +4,6 @@
 rm(list=ls(all=TRUE))
 
 pdf("../../Body/4Figures/HealthySomaticHumanMutations.GTEx.R.01.pdf")
-par(mfrow=c(2,2))
 
 ############ A: read human ref seq (note that it is hg19 - not cambridge reference!):
 RefSeq = read.table("../../Body/1Raw/chrM_refAllele.txt", header = FALSE, sep = '')
@@ -29,6 +28,10 @@ summary(Som$AF) # median = 0.0437
 # Som = Som[Som$AF <= median(Som$AF),]
 # Som = Som[Som$AF <= 0.0687,]
 # Som = Som[Som$AF <= 0.0437,]
+# Som = Som[Som$AF <= 0.1,]
+
+Som$Position = as.numeric(as.character(Som$Position))
+# Som = Som[Som$Position > 5000,]
 
 ############ C: read GTEx expression data:
 Expr = read.table("../../Body/1Raw/TissueSpecificMtDNACoverageGTEx.txt", header = TRUE, sep = '\t')
@@ -69,7 +72,7 @@ setdiff(VecOfGTExTissues,All$Tissue) # Pituitary
 
 ########### G: analyses: derive for each Tissue mean percentMito (approximation of the level of metabolism), MutSpec and merge with 
 
-### G1: percentMito versus TurnOver: nothing
+### G1: percentMito versus TurnOver
 Agg1 = aggregate(Som$percentMito, by = list(Som$Tissue), FUN = mean);
 names(Agg1)=c('Tissue','percentMito')
 Agg1 = Agg1[order(Agg1$percentMito),]
@@ -88,106 +91,37 @@ names(Agg3) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
 AGG = merge(Agg1,Agg2, by = 'Tissue'); AGG = merge(AGG,Agg3, by = 'Tissue');  
 AGG$TC_GA =AGG$T_C / AGG$G_A
 
-######### analyses:
+######### analyses Cor-tests:
 
 ## three main rate-related properties: nothing
 cor.test(AGG$percentMito,AGG$TotalMut, method = 'spearman')
 cor.test(AGG$percentMito,AGG$TurnOverRate, method = 'spearman')
 cor.test(AGG$TotalMut,AGG$TurnOverRate, method = 'spearman')
 
-## mut spec and rate-related properties:
-cor.test(AGG$T_C,AGG$TurnOverRate, method = 'spearman')
-cor.test(AGG$G_A,AGG$TurnOverRate, method = 'spearman')
+## mut spec and TurnOver (when I decrease VAF - effect is getting weaker)
 
-cor.test(AGG[AGG$TotalMut >= 15,]$G_A,AGG[AGG$TotalMut >= 15,]$TurnOverRate, method = 'spearman')
-cor.test(AGG$TC_GA,AGG$TurnOverRate, method = 'spearman')
-cor.test(AGG[AGG$TotalMut >= 10,]$TC_GA,AGG[AGG$TotalMut >= 10,]$TurnOverRate, method = 'spearman')
+cor.test(AGG$T_C,AGG$TurnOverRate, method = 'spearman')   # 0.8826
+cor.test(AGG$G_A,AGG$TurnOverRate, method = 'spearman')   # -0.5130049, 0.007362
+cor.test(AGG$TC_GA,AGG$TurnOverRate, method = 'spearman') # 0.5165042, 0.006904 - if we decrease FAV - correlation is robust more or less.
 
-plot(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate), pch = ''); text(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate),AGG[AGG$TotalMut >= 10,]$Tissue);   # dev.off()
-plot(AGG$G_A,log2(AGG$TurnOverRate), pch = ''); text(AGG$G_A,log2(AGG$TurnOverRate),AGG$Tissue);   # dev.off()
+nrow(AGG[AGG$TotalMut >= 10,]) # 25
+cor.test(AGG[AGG$TotalMut >= 10,]$T_C,AGG[AGG$TotalMut >= 10,]$TurnOverRate, method = 'spearman') # 00.9723 PAPER
+cor.test(AGG[AGG$TotalMut >= 10,]$TC_GA,AGG[AGG$TotalMut >= 10,]$TurnOverRate, method = 'spearman') # 0.5791803, 0.002415;  PAPER
+cor.test(AGG[AGG$TotalMut >= 10,]$G_A,AGG[AGG$TotalMut >= 10,]$TurnOverRate, method = 'spearman') # -0.532615, 0.006125 PAPER
 
-dev.off()
+plot(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate), pch = 16, col ='grey'); text(AGG[AGG$TotalMut >= 10,]$TC_GA,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate),AGG[AGG$TotalMut >= 10,]$Tissue);   # dev.off()
+plot(AGG[AGG$TotalMut >= 10,]$G_A,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate), pch = 16, col ='grey'); text(AGG[AGG$TotalMut >= 10,]$G_A,log2(AGG[AGG$TotalMut >= 10,]$TurnOverRate),AGG[AGG$TotalMut >= 10,]$Tissue);   # dev.off()
 
+######## analyses lm:
 
-Som = Som[Som$AF <= 0.06893,]
-Agg2 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean);
-names(Agg2) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
-cor.test(Agg2$T_C,Agg2$TurnOverRate, method = 'spearman') # a bit 
-cor.test(Agg2$G_A,Agg2$TurnOverRate, method = 'spearman') # negative
+a<-lm(Som$G_A ~ Som$TurnOverRate + Som$AF); summary(a)
+a<-lm(Som$T_C ~ Som$TurnOverRate + Som$AF); summary(a)
+a<-lm(Som$TurnOverRate ~ Som$AF); summary(a) # negative a bit -> in slowly dividing tissues (with high number of days) AF are low.
 
-Som = Som[Som$AF <= 0.04370,]
-Agg2 = aggregate(list(Som$T_C,Som$C_T,Som$G_A,Som$A_G,Som$Ts, Som$Tv), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean);
-names(Agg2) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
-Agg2$TC_GA = Agg2$T_C/Agg2$G_A
-cor.test(Agg2$T_C,Agg2$TurnOverRate, method = 'spearman')   # a bit 
-cor.test(Agg2$G_A,Agg2$TurnOverRate, method = 'spearman')   # negative
-cor.test(Agg2$TC_GA,Agg2$TurnOverRate, method = 'spearman') # negative
+######## distribution along the genome T>C and G>A
 
-### merge by tissue three Agg dataframes 
-
-Agg = merge(Agg1,Agg2, by = 'Tissue'); Agg = merge(Agg,Agg3, by = 'Tissue')
-
-### compare percentMito with MutSpec (a trend that T>C is higher in tissues with high percentMito)
-
-Agg = Agg[order(Agg$percentMito),]
-Agg$TsTv = Agg$Ts/Agg$Tv
-Agg$TC_GA = Agg$T_C/Agg$G_A
-cor.test(Agg$percentMito,Agg$T_C, method = 'spearman');
-cor.test(Agg$percentMito,Agg$T_C, method = 'spearman', alternative = 'greater'); # p = 0.08 
-cor.test(Agg[Agg$TotalMut >= 10,]$percentMito,Agg[Agg$TotalMut >= 10,]$T_C, method = 'spearman', alternative = 'greater');  # 0.048
-cor.test(Agg[Agg$TotalMut >= 10,]$percentMito,Agg[Agg$TotalMut >= 10,]$TC_GA, method = 'spearman', alternative = 'greater'); # 0.078
-boxplot(Agg[Agg$percentMito < median(Agg$percentMito),]$T_C,Agg[Agg$percentMito >= median(Agg$percentMito),]$T_C)
-wilcox.test(Agg[Agg$percentMito < median(Agg$percentMito),]$T_C,Agg[Agg$percentMito >= median(Agg$percentMito),]$T_C, alternative = 'less')
-boxplot(Agg[Agg$TotalMut >= 10 & Agg$percentMito < median(Agg$percentMito),]$T_C,Agg[Agg$TotalMut >= 10 & Agg$percentMito >= median(Agg$percentMito),]$T_C)
-wilcox.test(Agg[Agg$percentMito < median(Agg$percentMito),]$T_C,Agg[Agg$percentMito >= median(Agg$percentMito),]$T_C, alternative = 'less')
-
-cor.test(Agg$percentMito,Agg$G_A, method = 'spearman')
-cor.test(Agg$percentMito,Agg$Tv, method = 'spearman')
-cor.test(Agg$percentMito,Agg$TsTv, method = 'spearman')
-cor.test(Agg$percentMito,Agg$Ts, method = 'spearman')
-cor.test(Agg$percentMito,Agg$TotalMut, method = 'spearman')
-
-plot(Agg$percentMito,Agg$T_C, pch = ''); text(Agg$percentMito,Agg$T_C,Agg$Tissue)
-plot(Agg[Agg$TotalMut >=10,]$percentMito,Agg[Agg$TotalMut >=10,]$T_C, pch = ''); text(Agg[Agg$TotalMut >=10,]$percentMito,Agg[Agg$TotalMut >=10,]$T_C,Agg[Agg$TotalMut >=10,]$Tissue)
-plot(Agg[Agg$TotalMut > 30,]$percentMito,Agg[Agg$TotalMut > 30,]$T_C);
-
-### lm
-
-Som$Position = as.numeric(as.character(Som$Position))
-a<-lm(Som$T_C ~ Som$percentMito + Som$AF); summary(a)
-a<-lm(Som$G_A ~ Som$percentMito + Som$AF); summary(a)
-a<-lm(Som$C_T ~ Som$percentMito + Som$AF); summary(a)
-a<-lm(Som$A_G ~ Som$percentMito + Som$AF); summary(a) # negative with percentMito 
-a<-lm(Som$Ts ~ Som$percentMito + Som$AF + Som$Position); summary(a)
-a<-lm(Som$Ts ~ Som$percentMito + Som$AF); summary(a) # Ts are more rare in high percentMito (due to A>G)
-a<-lm(Som$Tv ~ Som$percentMito + Som$AF); summary(a) # Tv are more often in high percentMito
-
-setdiff(VecOfGTExTissues,All$Tissue)
-# "Blood Vessel" "Blood"        "Vagina"       "Nerve"        "Pituitary"    - to find it
-
-####### merge Som with All
-nrow(Som) # 2523
-Som = merge(Som,All, by = 'Tissue')
-nrow(Som) # 1608 = lost a lot due to these several tissues
-
-Agg4 = aggregate(list(Som$T_C,Som$G_A,Som$C_T,Som$A_G,Som$Ts,Som$Tv,Som$percentMito), by = list(Som$Tissue,Som$TurnOverRate), FUN = mean); 
-names(Agg4)=c('Tissue','TurnOverRate','T_C','G_A','C_T','A_G','Ts','Tv','percentMito')
-Agg4$TC_GA = Agg4$T_C/Agg4$G_A
-Agg4$TC_Tv = Agg4$T_C/Agg4$Tv
-
-cor.test(Agg4$TurnOverRate,Agg4$percentMito, method = 'spearman') # nothing
-cor.test(Agg4$TurnOverRate,Agg4$T_C, method = 'spearman')   # nothing
-cor.test(Agg4$TurnOverRate,Agg4$G_A, method = 'spearman')   # negative trend
-cor.test(Agg4$TurnOverRate,Agg4$TC_GA, method = 'spearman') # nothing
-cor.test(Agg4$TurnOverRate,Agg4$TC_Tv, method = 'spearman')
-plot(Agg4$TurnOverRate,Agg4$G_A,pch = ''); text(Agg4$TurnOverRate,Agg4$G_A,Agg4$Tissue)
-
-Agg = merge(Agg[,c(1,9)],Agg4, by = 'Tissue')
-cor.test(Agg$TurnOverRate,Agg$TC_GA, method = 'spearman') # positive trend
-cor.test(Agg[Agg$TotalMut >= 10,]$TurnOverRate,Agg[Agg$TotalMut >= 10,]$TC_GA, method = 'spearman') # positive - and even better!
-# if I take rare and get T>C/G>A I have good positive correlation
-plot(Agg[Agg$TotalMut >= 10,]$TurnOverRate,Agg[Agg$TotalMut >= 10,]$TC_GA,pch = ''); text(Agg[Agg$TotalMut >= 10,]$TurnOverRate,Agg[Agg$TotalMut >= 10,]$TC_GA,Agg[Agg$TotalMut >= 10,]$Tissue)
-par(mfrow=c(1,1))
-plot(log2(Agg[Agg$TotalMut >= 10,]$TurnOverRate),Agg[Agg$TotalMut >= 10,]$TC_GA,pch = ''); text(log2(Agg[Agg$TotalMut >= 10,]$TurnOverRate),Agg[Agg$TotalMut >= 10,]$TC_GA,Agg[Agg$TotalMut >= 10,]$Tissue)
+par(mfrow=c(2,1))
+hist(Som[Som$G_A == 1,]$Position, breaks = 50) # decreasing a bit
+hist(Som[Som$T_C == 1,]$Position, breaks = 50) # goes 
 
 dev.off()
