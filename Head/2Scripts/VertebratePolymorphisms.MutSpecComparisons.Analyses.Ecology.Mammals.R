@@ -16,20 +16,26 @@ MamGt = merge(GT,MUT, by = 'Species') # 426
 Qual = data.frame(table(MamGt$Species))
 UniqueSpecies = Qual[Qual$Freq == 1,]$Var1; length(UniqueSpecies);
 MamGt = MamGt[MamGt$Species %in% UniqueSpecies,]
-MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A)
+MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A) #  424
+
+######## add the number of mutations per species
+Number = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt')
+Number = data.frame(Number$Species,Number$NumOfFourFoldMutInCytB); names(Number)=c('Species','NumOfFourFoldMutInCytB')
+Number = unique(Number) # 2118
+nrow(MamGt) # 424
+MamGt = merge(MamGt,Number, by ='Species')
+nrow(MamGt) # 424
 
 ######## TC_TCGA and Generation length
 summary(MamGt$TC_TCGA) #  0.0000  0.1335  0.2007  0.2196  0.2815  1.0000 
 cor.test(MamGt$TC_TCGA,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.21, p = 8.441e-06 PAPER
 
 ######## TsTv and Generation length - significant
-
 nrow(MamGt)  # 424
 cor.test(MamGt$TsTv,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.228, p = 2.021e-06
 plot(log2(MamGt$GenerationLength_d),log2(MamGt$TsTv))
 
 #### Generation length ~ T>C + A>G
-
 cor.test(MamGt$GenerationLength_d,MamGt$A_T, method = 'spearman') # negative, - 0.22
 cor.test(MamGt$GenerationLength_d,MamGt$A_G, method = 'spearman') 
 cor.test(MamGt$GenerationLength_d,MamGt$A_C, method = 'spearman') # negative, - 0.17
@@ -57,10 +63,20 @@ a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + sc
 #  scale(MamGt$T_C)  0.26205    0.05734   4.570 6.42e-06 ***
 #  scale(MamGt$G_T) -0.18386    0.05723  -3.213  0.00142 ** 
 
+#### ADD NUMBER OF MUTATIONS USED TO ESTIMATE MUT SPEC
+summary(MamGt$NumOfFourFoldMutInCytB) # 5.00   33.75   58.50   84.34  117.50  403.00
+a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + scale(MamGt$G_T) + scale(MamGt$NumOfFourFoldMutInCytB)); summary(a)
+
 ### remove effect of ancestral nucleotide frequency (WORKS!!!!!)
 MamGt$T_C.NoEffectOfTFreq = MamGt$T_C / (MamGt$T_C + MamGt$T_A + MamGt$T_G); summary(MamGt$T_C.NoEffectOfTFreq)
 cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman') # positive and significant!!!! rho = 0.164, p = 0.0007114
 plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
+
+#### ALINA, PICS - MamGt dataset:
+#1)  MamGt$TsTv versus MamGt$GenerationLength_d
+#2)  MamGt$T_C versus MamGt$GenerationLength_d
+
+
 
 ##### Body Mass (N = 426)
 
@@ -154,6 +170,14 @@ Qual = data.frame(table(MamGt$Species))
 UniqueSpecies = Qual[Qual$Freq == 1,]$Var1; length(UniqueSpecies);
 MamGt = MamGt[MamGt$Species %in% UniqueSpecies,]
 
+######## add the number of mutations per species
+Number = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt')
+Number = data.frame(Number$Species,Number$NumOfFourFoldMutInCytB); names(Number)=c('Species','NumOfFourFoldMutInCytB')
+Number = unique(Number) # 2118
+nrow(MamGt) # 424
+MamGt = merge(MamGt,Number, by ='Species')
+nrow(MamGt) # 424
+
 ###### PCA 
 
 names(MamGt)
@@ -169,13 +193,19 @@ MATRIX$Pca2 = PCA$x[,2]
 MATRIX$Pca3 = PCA$x[,3]
 MATRIX$Pca4 = PCA$x[,4]
 
-MATRIX = cbind(MATRIX,MamGt[,c(1:14,26)])
+MATRIX = cbind(MATRIX,MamGt[,c(1:14,26,27)])
 
 ###### ANALYSIS OF COMPONENTS
 plot(log2(MATRIX$GenerationLength_d),MATRIX$Pca2)
 cor.test(MATRIX$Pca1,MATRIX$GenerationLength_d, method = 'spearman') # rho = 0.004288973, p = 0.9298
 cor.test(MATRIX$Pca2,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
-cor.test(MATRIX$Pca3,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
+cor.test(MATRIX$Pca3,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.1037697, p =  0.03266
+
+cor.test(MATRIX$Pca1,MATRIX$NumOfFourFoldMutInCytB, method = 'spearman') # rho = -0.02800981, p = 0.5652
+cor.test(MATRIX$Pca2,MATRIX$NumOfFourFoldMutInCytB, method = 'spearman') # rho = 0.2247093, p = 2.964e-06 PAPER
+
+a<-lm(MATRIX$Pca2 ~ scale(MATRIX$GenerationLength_d) + scale(MATRIX$NumOfFourFoldMutInCytB)); summary(a)  # PAPER
+a<-lm(MATRIX$Pca2 ~ scale(MATRIX$GenerationLength_d)*scale(MATRIX$NumOfFourFoldMutInCytB)); summary(a)    # PAPER
 
 biplot(PCA, choices=c(1,2), col = c('white','black'), cex = 0.8) #  biplot(princomp(USArrests),choices=c(1,3))
 
@@ -202,9 +232,28 @@ PCA$rotation # and the loadings (res$rotation).
 
 dev.off()
 
-#### ALINA, PICS - MamGt dataset:
-#1)  MamGt$TsTv versus MamGt$GenerationLength_d
-#2) MamGt$T_C versus MamGt$GenerationLength_d
+#### IF WE RERUN PRCOMP WITH MANY MUTATIONS (N = 211)
+
+summary(MamGt$NumOfFourFoldMutInCytB) # why minumum is 5!!???
+MamGt = MamGt[MamGt$NumOfFourFoldMutInCytB > 60,]
+MATRIX = MamGt[,c(14:25)]
+row.names(MATRIX)=MamGt$Species
+matrix = MATRIX
+PCA = prcomp(matrix, center = TRUE, scale = TRUE) #FALSE) # I don't scale because we analyze the same units (fraction from MutSpec) 
+print(PCA)  
+summary(PCA)
+MATRIX$Pca1 = PCA$x[,1]
+MATRIX$Pca2 = PCA$x[,2]
+MATRIX$Pca3 = PCA$x[,3]
+MATRIX$Pca4 = PCA$x[,4]
+
+MATRIX = cbind(MATRIX,MamGt[,c(1:14,26,27)])
+
+PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of each PC, 
+PCA$rotation # still the first component 
+cor.test(MATRIX$Pca2,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
+
+
 
 ##########################################################################################
 #################### PICs
