@@ -36,7 +36,7 @@
 => OUTPUT:
 ../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt 
 
-################# Compare mut specta between species and classes
+################# Compare mut spectra between species and classes
 => SCRIPT:  ../../Head/2Scripts/VertebratePolymorphisms.MutSpecComparisons.R  # CHECKED IT, looks ok now. I have reverted the numbers! Fuck, idiot
 => INPUT: 
 ../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt
