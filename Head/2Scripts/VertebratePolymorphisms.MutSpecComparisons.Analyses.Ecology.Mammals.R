@@ -2,7 +2,6 @@ rm(list=ls(all=TRUE))
 
 pdf('../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Mammals.R.01.pdf')
 
-# MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegCytb.txt', header = TRUE) # OnlyFourFoldDegCytb
 MUT$TsTv = (MUT$T_C + MUT$C_T + MUT$G_A + MUT$A_G) / (MUT$T_A + MUT$A_T + MUT$G_C + MUT$C_G + MUT$G_T + MUT$T_G + MUT$C_A + MUT$A_C)
 summary(MUT$TsTv)
@@ -17,6 +16,11 @@ MamGt = merge(GT,MUT, by = 'Species') # 426
 Qual = data.frame(table(MamGt$Species))
 UniqueSpecies = Qual[Qual$Freq == 1,]$Var1; length(UniqueSpecies);
 MamGt = MamGt[MamGt$Species %in% UniqueSpecies,]
+MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A)
+
+######## TC_TCGA and Generation length
+summary(MamGt$TC_TCGA) #  0.0000  0.1335  0.2007  0.2196  0.2815  1.0000 
+cor.test(MamGt$TC_TCGA,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.21, p = 8.441e-06 PAPER
 
 ######## TsTv and Generation length - significant
 
@@ -52,13 +56,10 @@ a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + sc
 #  scale(MamGt$A_T) -0.18037    0.05603  -3.219  0.00138 ** 
 #  scale(MamGt$T_C)  0.26205    0.05734   4.570 6.42e-06 ***
 #  scale(MamGt$G_T) -0.18386    0.05723  -3.213  0.00142 ** 
-  ---
 
 ### remove effect of ancestral nucleotide frequency (WORKS!!!!!)
-
 MamGt$T_C.NoEffectOfTFreq = MamGt$T_C / (MamGt$T_C + MamGt$T_A + MamGt$T_G); summary(MamGt$T_C.NoEffectOfTFreq)
 cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman') # positive and significant!!!! rho = 0.164, p = 0.0007114
-
 plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
 
 ##### Body Mass (N = 426)
@@ -200,5 +201,9 @@ PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of eac
 PCA$rotation # and the loadings (res$rotation).
 
 dev.off()
+
+#### ALINA, PICS - MamGt dataset:
+#1)  MamGt$TsTv versus MamGt$GenerationLength_d
+#2) MamGt$T_C versus MamGt$GenerationLength_d
 
 

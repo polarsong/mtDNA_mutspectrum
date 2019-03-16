@@ -79,11 +79,18 @@ nrow(MUT) # 395157
 MUT = MUT[MUT$AncestorCodon %in% VecOfSynFourFoldDegenerateSites & MUT$DescendantCodon %in% VecOfSynFourFoldDegenerateSites,]; nrow(MUT) # 209120
 
 ##### FILTER: Gene
+nrow(MUT) # 209120
 table(MUT$Gene)
 # ATP6   ATP8   COX1   COX2   COX3   CytB    ND1    ND2    ND3    ND4   ND4L 
 # 9752    625  13233   4264   4873 109049  14314  33809   2635  14511   2055  # there are quite many genes - do I need to analyse all of them focus on CYTB? Better - all and from time to time to check that results based on CYTB only are robust!!!
+# fraction of CytB is 109049 / 209120  = 0.52 
 
 MUT = merge(MUT,Taxa, all.x = TRUE)  ##### NOT ALL SPECIES HAVE TAXONOMY!!!!
+nrow(MUT[MUT$Class == 'Mammalia',]) # 70053
+table(MUT[MUT$Class == 'Mammalia',]$Gene)
+# ATP6  ATP8  COX1  COX2  COX3  CytB   ND1   ND2   ND3   ND4  ND4L 
+# 1592   184  4481  2044  1809 39112  3111  3624  1048  4934   897 
+# fraction of CytB: 39112 / 70053 - 0.558 PAPER
 
 ##### derive observed number of mutations for each class (no normalization)
 
