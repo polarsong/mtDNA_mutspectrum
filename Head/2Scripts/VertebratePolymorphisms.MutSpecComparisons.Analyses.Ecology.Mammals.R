@@ -76,7 +76,43 @@ plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
 #1)  MamGt$TsTv versus MamGt$GenerationLength_d
 #2)  MamGt$T_C versus MamGt$GenerationLength_d
 
+##########################################################################################
+#################### PICs
 
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+
+data = MamGt[which(as.character(MamGt$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(MamGt$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, c('TsTv', 'GenerationLength_d', 'T_C')]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
+cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
+cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.09273606, pvalue = 0.2811
+
+cor.test(MamGt$T_C, MamGt$GenerationLength_d, method = 'spearman')
+cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.08338287, pvalue = 0.3327
+
+plot(contrasts$T_C, contrasts$GenerationLength_d)
+plot(MamGt$T_C, MamGt$GenerationLength_d)
+
+summary(contrasts)
+
+####################################################################################
 
 ##### Body Mass (N = 426)
 
@@ -253,40 +289,3 @@ PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of eac
 PCA$rotation # still the first component 
 cor.test(MATRIX$Pca2,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
 
-
-
-##########################################################################################
-#################### PICs
-
-library(ape)
-
-tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
-
-data = MamGt[which(as.character(MamGt$Species) %in% tree$tip.label),]
-
-df_vec <- as.character(MamGt$Species)
-tree_vec <- tree$tip.label
-
-a <- setdiff(df_vec, tree_vec)
-b <- setdiff(tree_vec, df_vec)
-
-row.names(data) = data$Species
-
-tree2 <- drop.tip(tree, b)
-
-TempData = data[, c('TsTv', 'GenerationLength_d', 'T_C')]
-contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
-names(contrasts) = names(TempData)
-
-cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.09273606, pvalue = 0.2811
- 
-cor.test(MamGt$T_C, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.08338287, pvalue = 0.3327
-
-plot(contrasts$T_C, contrasts$GenerationLength_d)
-plot(MamGt$T_C, MamGt$GenerationLength_d)
-
-summary(contrasts)
