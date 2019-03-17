@@ -112,6 +112,79 @@ plot(MamGt$T_C, MamGt$GenerationLength_d)
 
 summary(contrasts)
 
+##### take into account number of mutations
+
+####### more than 20
+
+TempData20 = data[data$NumOfFourFoldMutInCytB > 20, ]
+
+df_vec <- as.character(TempData20$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+row.names(data) = data$Species
+
+tree2 <- drop.tip(tree, b)
+
+TempData20 = TempData20[, c('TsTv', 'GenerationLength_d', 'T_C')]
+contrasts <- as.data.frame(apply(TempData20, 2, pic, tree2))
+names(contrasts) = names(TempData20)
+
+cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
+cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.06804767, pvalue = 0.4699
+
+cor.test(MamGt$T_C, MamGt$GenerationLength_d, method = 'spearman')
+cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.1806132, pvalue = 0.05341
+
+
+########## more than 30
+
+TempData30 = data[data$NumOfFourFoldMutInCytB > 30, ]
+
+df_vec <- as.character(TempData30$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+tree2 <- drop.tip(tree, b)
+
+TempData30 = TempData30[, c('TsTv', 'GenerationLength_d', 'T_C')]
+contrasts <- as.data.frame(apply(TempData30, 2, pic, tree2))
+names(contrasts) = names(TempData20)
+
+cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.09088164, pvalue = 0.371
+
+cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.1670086, pvalue = 0.09849
+
+########## more than 60
+
+TempData60 = data[data$NumOfFourFoldMutInCytB > 60, ]
+
+df_vec <- as.character(TempData60$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+tree2 <- drop.tip(tree, b)
+
+TempData60 = TempData60[, c('TsTv', 'GenerationLength_d', 'T_C')]
+contrasts <- as.data.frame(apply(TempData60, 2, pic, tree2))
+names(contrasts) = names(TempData20)
+
+cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.1502864, pvalue = 0.2437
+
+cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = 0.1670086, pvalue = 0.2102
+
 ####################################################################################
 
 ##### Body Mass (N = 426)
@@ -289,3 +362,26 @@ PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of eac
 PCA$rotation # still the first component 
 cor.test(MATRIX$Pca2,MATRIX$GenerationLength_d, method = 'spearman') # rho = -0.3897472, p =  < 2.2e-16
 
+#########################################################################################
+######################### PIC wit PCA2
+
+library(ape)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+
+data = MATRIX[which(as.character(MATRIX$Species) %in% tree$tip.label),]
+
+df_vec <- as.character(MATRIX$Species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+tree2 <- drop.tip(tree, b)
+
+TempData = data[, c('Pca2', 'GenerationLength_d')]
+contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+names(contrasts) = names(TempData)
+
+cor.test(contrasts$Pca2, log(contrasts$GenerationLength_d), method = 'spearman')
+# rho = -0.1240444, pvalue = 0.1487
