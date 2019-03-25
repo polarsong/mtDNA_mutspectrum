@@ -48,9 +48,37 @@ summary(GT$GenerationLength_d)
 
 Mam = merge(AGG,GT, by ='Species')
 plot(log2(Mam$GenerationLength_d),Mam$ATSkew, main = 'Mammalia', xlab = 'log2(Generation Length)', ylab = 'AT skew', ylim=c(-0.12,0.7))
+a<-lm(Mam$ATSkew ~ log2(Mam$GenerationLength_d)); summary(a)
+abline(a, col = 'red', lwd = 4)
 plot(log2(Mam$GenerationLength_d),Mam$GCSkew, main = 'Mammalia', xlab = 'log2(Generation Length)', ylab = 'GC skew', ylim=c(-1,-0.2))
+a<-lm(Mam$GCSkew ~ log2(Mam$GenerationLength_d)); summary(a)
+abline(a, col = 'red', lwd = 4)
+
 cor.test(log2(Mam$GenerationLength_d),Mam$ATSkew, method = 'spearman') # 0.1183936, 0.0025, 
 cor.test(log2(Mam$GenerationLength_d),Mam$GCSkew, method = 'spearman') # -0.05774663, 0.1414
+median(log2(Mam$GenerationLength_d)) # 11.09672
+cor.test(log2(Mam[log2(Mam$GenerationLength_d) > 11.09672,]$GenerationLength_d),Mam[log2(Mam$GenerationLength_d) > 11.09672,]$GCSkew, method = 'spearman') # -0.31, p = 8.205e-09
+cor.test(log2(Mam[log2(Mam$GenerationLength_d) < 11.09672,]$GenerationLength_d),Mam[log2(Mam$GenerationLength_d) < 11.09672,]$GCSkew, method = 'spearman') #  0.2871864, p = 1.256e-07
+
+#### PICS, ALINA
+# cor.test(log2(Mam$GenerationLength_d),Mam$ATSkew, method = 'spearman')
+# cor.test(log2(Mam$GenerationLength_d),Mam$GCSkew, method = 'spearman')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ############ AnAge
 AA = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
@@ -63,6 +91,8 @@ Mammalia = merge(Mammalia,AA, by = 'Species')
 nrow(Mammalia[!is.na(Mammalia$Maximum.longevity..yrs.),]) # 387
 nrow(Mammalia[!is.na(Mammalia$Female.maturity..days.),])  # 359
 cor.test(Mammalia$Maximum.longevity..yrs.,Mammalia$ATSkew, method = 'spearman') # 0.02185936, 0.6682
+cor.test(Mammalia$Maximum.longevity..yrs.,Mammalia$GCSkew, method = 'spearman') # -0.1683312, 0.0008858
+median(Mammalia$Maximum.longevity..yrs.)
 cor.test(Mammalia$Maximum.longevity..yrs.,Mammalia$GCSkew, method = 'spearman') # -0.1683312, 0.0008858
 
 ### FISHES - yes!!!
