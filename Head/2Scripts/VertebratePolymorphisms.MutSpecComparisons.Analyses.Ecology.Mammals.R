@@ -33,7 +33,12 @@ cor.test(MamGt$TC_TCGA,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.
 ######## TsTv and Generation length - significant
 nrow(MamGt)  # 424
 cor.test(MamGt$TsTv,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.228, p = 2.021e-06
+a <- lm(log2(MamGt$TsTv) ~ log2(MamGt$GenerationLength_d)); 
+summary(a)
+# (Intercept)                     0.97246    0.56084   1.734   0.0837 .  
+# log2(MamGt$GenerationLength_d)  0.23602    0.05361   4.402 1.36e-05 ***
 plot(log2(MamGt$GenerationLength_d),log2(MamGt$TsTv))
+abline(a, col = 'red', lwd = 2)
 
 #### Generation length ~ T>C + A>G
 cor.test(MamGt$GenerationLength_d,MamGt$A_T, method = 'spearman') # negative, - 0.22
@@ -63,6 +68,14 @@ a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + sc
 #  scale(MamGt$T_C)  0.26205    0.05734   4.570 6.42e-06 ***
 #  scale(MamGt$G_T) -0.18386    0.05723  -3.213  0.00142 ** 
 
+cor.test(MamGt$GenerationLength_d,MamGt$T_C, method = 'spearman') # positive, rho = 0.2536943, p = 1.188e-07
+a<-lm(MamGt$T_C ~ log2(MamGt$GenerationLength_d))
+summary(a)
+# (Intercept)                    -0.030871   0.036446  -0.847    0.397    
+# log2(MamGt$GenerationLength_d)  0.019082   0.003484   5.477 7.44e-08 ***
+plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
+abline(a, col = 'red', lwd = 2)
+
 #### ADD NUMBER OF MUTATIONS USED TO ESTIMATE MUT SPEC
 summary(MamGt$NumOfFourFoldMutInCytB) # 5.00   33.75   58.50   84.34  117.50  403.00
 a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + scale(MamGt$G_T) + scale(MamGt$NumOfFourFoldMutInCytB)); summary(a)
@@ -70,7 +83,7 @@ a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + sc
 ### remove effect of ancestral nucleotide frequency (WORKS!!!!!)
 MamGt$T_C.NoEffectOfTFreq = MamGt$T_C / (MamGt$T_C + MamGt$T_A + MamGt$T_G); summary(MamGt$T_C.NoEffectOfTFreq)
 cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman') # positive and significant!!!! rho = 0.164, p = 0.0007114
-plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
+
 
 #### ALINA, PICS - MamGt dataset:
 #1)  MamGt$TsTv versus MamGt$GenerationLength_d
@@ -337,6 +350,7 @@ plot(PCA$x[,1],PCA$x[,2])
 
 PCA$x # PC's
 PCA$sdev # the eigenvalues (res$sdev) giving information on the magnitude of each PC, 
+# 1.603726e+00 1.227148e+00 1.204381e+00 1.057175e+00 1.036204e+00 9.831485e-01 9.157673e-01 8.374509e-01 8.318695e-01 7.727840e-01 6.961052e-01 2.487852e-15
 PCA$rotation # and the loadings (res$rotation).
 
 dev.off()
