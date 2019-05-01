@@ -24,7 +24,7 @@ table(Som$Substitution)
 
 write.table(Som, file = "../../Body/2Derived/GTExRef.txt", quote = FALSE, row.names = FALSE)
 
-### It is reasonable to remove variants, shared between at least tow tissues in the same individuum (because in this case we don't know the tisse of origin). 
+### It is reasonable to remove variants, shared between at least two tissues in the same individuum (because in this case we don't know the tisse of origin). 
 Som = Som[order(Som$subject, Som$Mutation),]
 
 
@@ -92,7 +92,7 @@ Som = merge(Som,agg, by = 'subject')
 # position is singificant, but there are two explanations: time being single-stranded and selection (there are many mutation in D loop???)
 # repeat it with synonymous only!!!!!!!!!!! KG help????
 
-# backward multiple logistic regression
+# backward multiple logistic regression for G>A
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$AF + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
@@ -100,18 +100,50 @@ a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Positio
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$uniqueMappedReads, family = binomial()); summary(a)
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position, family = binomial()); summary(a)
 a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$Position, family = binomial()); summary(a) # final step
-
-
-
-
-
-
+# I don't understand by heart effect of position and coverage
 
 MajorArc = Som[Som$Position > 6000 & Som$Position < 16000,]
 a<-glm(MajorArc$G_A ~ MajorArc$TurnOverRate + MajorArc$COV + MajorArc$NumOfMutPerIndiv + MajorArc$AF + MajorArc$Position, family = binomial())
 summary(a)
 
+# backward multiple logistic regression for T>C
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$AF + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF + Som$nDonorTissue + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF + Som$uniqueMappedReads, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$NumOfMutPerIndiv + Som$AF, family = binomial()); summary(a)
+a<-glm(Som$T_C ~ Som$TurnOverRate + Som$AF, family = binomial()); summary(a) # final step
+# weak and NEGATIVE (EXPECT POSITIVE) correlation with TurnOver and correlation with AF ~ heteroplasmy level: the higher the heteroplasmy the more chances that mutation is T>C (T>C are "old" alleles)
 
+## multiple model: TurnOver as a function of MutSpec:
+a<-lm(Som$TurnOverRate ~  Som$G_A + Som$A_G + Som$T_C + Som$C_T + Som$AF + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent); summary(a)
+a<-lm(Som$TurnOverRate ~  Som$G_A + Som$A_G + Som$T_C + Som$C_T + Som$AF + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReadsPercent); summary(a)
+a<-lm(Som$TurnOverRate ~  Som$G_A + Som$A_G + Som$T_C + Som$C_T + Som$AF + Som$COV + Som$NumOfMutPerIndiv + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReadsPercent); summary(a)
+a<-lm(Som$TurnOverRate ~  Som$G_A + Som$A_G + Som$T_C + Som$AF + Som$COV + Som$NumOfMutPerIndiv + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReadsPercent); summary(a)
+a<-lm(Som$TurnOverRate ~  Som$G_A + Som$A_G + Som$T_C + Som$COV + Som$NumOfMutPerIndiv + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReadsPercent); summary(a) # final
+a<-lm(scale(Som$TurnOverRate) ~ 0 +  scale(Som$G_A) + scale(Som$A_G) + scale(Som$T_C) + scale(Som$COV) + scale(Som$NumOfMutPerIndiv) + scale(Som$nDonorTissue) + scale(Som$percentMito) + scale(Som$uniqueMappedReadsPercent)); summary(a) # final
+# all transitions are decreasing with cell longevity!???
+# PercentMito (~expression level of mtDNA) positively correlate with cell longevity => neurons and muscles are active! 
+#  scale(Som$G_A)                      -0.14796    0.02432  -6.084 1.36e-09 ***
+#  scale(Som$A_G)                      -0.06438    0.02316  -2.779 0.005486 ** 
+#  scale(Som$T_C)                      -0.11350    0.02397  -4.736 2.31e-06 ***
+#  scale(Som$COV)                      -0.05521    0.02027  -2.723 0.006509 ** 
+#  scale(Som$NumOfMutPerIndiv)          0.10628    0.02026   5.246 1.69e-07 ***
+#  scale(Som$nDonorTissue)             -0.07082    0.01964  -3.605 0.000318 ***
+#  scale(Som$percentMito)               0.16913    0.02102   8.047 1.30e-15 ***
+#  scale(Som$uniqueMappedReadsPercent) -0.07080    0.02123  -3.336 0.000864 ***
+
+# continue with more stringent p value threshold:
+a<-lm(scale(Som$TurnOverRate) ~ 0 +  scale(Som$G_A) + scale(Som$A_G) + scale(Som$T_C) + scale(Som$NumOfMutPerIndiv) + scale(Som$nDonorTissue) + scale(Som$percentMito) + scale(Som$uniqueMappedReadsPercent)); summary(a) # final
+a<-lm(scale(Som$TurnOverRate) ~ 0 +  scale(Som$G_A) + scale(Som$T_C) + scale(Som$NumOfMutPerIndiv) + scale(Som$nDonorTissue) + scale(Som$percentMito) + scale(Som$uniqueMappedReadsPercent)); summary(a) # final
+a<-lm(scale(Som$TurnOverRate) ~ 0 +  scale(Som$G_A) + scale(Som$T_C) + scale(Som$NumOfMutPerIndiv) + scale(Som$nDonorTissue) + scale(Som$percentMito)); summary(a) # final
+a<-lm(scale(Som$TurnOverRate) ~ 0 +  scale(Som$G_A) + scale(Som$T_C) + scale(Som$NumOfMutPerIndiv) + scale(Som$percentMito)); summary(a) # final
+# scale(Som$G_A)              -0.13273    0.02132  -6.224 5.67e-10 ***
+# scale(Som$T_C)              -0.09113    0.02130  -4.278 1.96e-05 ***
+# scale(Som$NumOfMutPerIndiv)  0.12505    0.02005   6.238 5.19e-10 ***
+# scale(Som$percentMito)       0.13891    0.02000   6.947 4.77e-12 ***
 
 ########### G: analyses: derive for each Tissue mean percentMito (approximation of the level of metabolism), MutSpec and merge with 
 
