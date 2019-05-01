@@ -1,4 +1,4 @@
-# In GTEx we expect more strong selection (as compared to cancer data) - (i) play with annotation (ii) play with VAF (the rarier - the more neutral)
+# In GTEx we expect more strong selection (as compared to cancer data) - (i) play with annotation (ii) play with VAF (the rarier - the more neutral) (iii) take care of tissue-specificity in each patient
 # We can check Samuels tissue-specific paper
 
 rm(list=ls(all=TRUE))
@@ -21,6 +21,12 @@ Som$Substitution = paste(Som$AncestralAllele,Som$DerivedAllele, sep = '_')
 table(Som$Substitution)
 # A_C A_G A_T C_A C_G C_T G_A G_C G_T T_A T_C T_G 
 # 43 473  49  49   6 336 728  63  57  42 693  26
+
+write.table(Som, file = "../../Body/2Derived/GTExRef.txt", quote = FALSE, row.names = FALSE)
+
+### It is reasonable to remove variants, shared between at least tow tissues in the same individuum (because in this case we don't know the tisse of origin). 
+Som = Som[order(Som$subject, Som$Mutation),]
+
 
 ## I don't need common varaints because of potential selection => it is better to go to more rare
 hist(Som$AF, breaks = 100) 
@@ -70,6 +76,43 @@ Som = merge(Som,All, by = 'Tissue')
 
 setdiff(VecOfGTExTissues,All$Tissue) # Pituitary
 
+
+# derive number of total somatic mutations per each individuum
+Som$Number = 1
+agg = aggregate(Som$Number, by = list(Som$subject), FUN = sum); names(agg) = c('subject','NumOfMutPerIndiv')
+Som = merge(Som,agg, by = 'subject')
+
+### COverage is very important; The higher the coverage the higher probability to see G>A. Why?
+## logistic regression with a set of confounders:
+# nDonorTissue = number of tissues from a given donor
+# COV = coverage if a given region in a donor
+# AF = heteroplasmy level in a given sample (minimum is 3%)
+# NumOfMutPerIndiv = number of mutations per a given individuum
+# Position = position => sibstitute it by the time spent single stranded (from 6000 (COX1) to 16000(CYTB) time being single stranded is increasing, the rest is unknown (for me) - may be we can approximate it somehow)
+# position is singificant, but there are two explanations: time being single-stranded and selection (there are many mutation in D loop???)
+# repeat it with synonymous only!!!!!!!!!!! KG help????
+
+# backward multiple logistic regression
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$AF + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$nDonorTissue + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$percentMito + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$uniqueMappedReads + Som$uniqueMappedReadsPercent, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position + Som$uniqueMappedReads, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$NumOfMutPerIndiv + Som$Position, family = binomial()); summary(a)
+a<-glm(Som$G_A ~ Som$TurnOverRate + Som$COV + Som$Position, family = binomial()); summary(a) # final step
+
+
+
+
+
+
+
+MajorArc = Som[Som$Position > 6000 & Som$Position < 16000,]
+a<-glm(MajorArc$G_A ~ MajorArc$TurnOverRate + MajorArc$COV + MajorArc$NumOfMutPerIndiv + MajorArc$AF + MajorArc$Position, family = binomial())
+summary(a)
+
+
+
 ########### G: analyses: derive for each Tissue mean percentMito (approximation of the level of metabolism), MutSpec and merge with 
 
 ### G1: percentMito versus TurnOver
@@ -90,6 +133,7 @@ names(Agg3) = c('Tissue','TurnOverRate','T_C','C_T','G_A','A_G','Ts','Tv')
 
 AGG = merge(Agg1,Agg2, by = 'Tissue'); AGG = merge(AGG,Agg3, by = 'Tissue');  
 AGG$TC_GA =AGG$T_C / AGG$G_A
+AGG$TsTv =AGG$Ts/ AGG$Tv
 
 ######### analyses Cor-tests:
 
@@ -101,7 +145,10 @@ cor.test(AGG$TotalMut,AGG$TurnOverRate, method = 'spearman')
 ## mut spec and TurnOver (when I decrease VAF - effect is getting weaker)
 
 cor.test(AGG$T_C,AGG$TurnOverRate, method = 'spearman')   # 0.8826
+cor.test(AGG$C_T,AGG$TurnOverRate, method = 'spearman')   # a bit positive???
 cor.test(AGG$G_A,AGG$TurnOverRate, method = 'spearman')   # -0.5130049, 0.007362
+cor.test(AGG$A_G,AGG$TurnOverRate, method = 'spearman')   # a bit positive???
+cor.test(AGG$TsTv,AGG$TurnOverRate, method = 'spearman')  # nothing.. TsTv doesn't work, but TC/GA works well
 cor.test(AGG$TC_GA,AGG$TurnOverRate, method = 'spearman') # 0.5165042, 0.006904 - if we decrease FAV - correlation is robust more or less.
 
 nrow(AGG[AGG$TotalMut >= 10,]) # 25
@@ -121,7 +168,8 @@ a<-lm(Som$TurnOverRate ~ Som$AF); summary(a) # negative a bit -> in slowly divid
 ######## distribution along the genome T>C and G>A
 
 par(mfrow=c(2,1))
-hist(Som[Som$G_A == 1,]$Position, breaks = 50) # decreasing a bit
-hist(Som[Som$T_C == 1,]$Position, breaks = 50) # goes 
+hist(Som[Som$G_A == 1,]$Position, breaks = 100) # decreasing a bit
+hist(Som[Som$T_C == 1,]$Position, breaks = 100) # goes 
+hist(Som$Position, breaks = 100) # goes 
 
 dev.off()
