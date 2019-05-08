@@ -109,4 +109,4 @@ Som = merge(Som,All, by = 'TissueShortName')
 
 ########### F: write derive for future analyses:
 
-write.table(Som,"../../Body/2Derived/HealthySomaticHumanMutations.GTEx.PatientSpecificDerive.txt", row.names = FALSE, quote = FALSE)
+write.table(Som,"../../Body/2Derived/HealthySomaticHumanMutations.GTEx.PatientSpecificDerive.txt", row.names = FALSE, quote = FALSE, sep = '\t')
