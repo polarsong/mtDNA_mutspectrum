@@ -3,6 +3,67 @@ rm(list=ls(all=TRUE))
 Som = read.table("../../Body/2Derived/HealthySomaticHumanMutations.GTEx.PatientSpecificDerive.txt", header = TRUE, sep = '\t')
 
 ################################################################################################
+######################## general statistice (to comapre with TCGA)
+################################################################################################
+
+par(mfrow = c(2,2))
+
+Subs = data.frame(table(Som$Substitution))
+Subs = Subs[order(Subs$Freq),]; Summ = sum(Subs$Freq); Subs$Freq = Subs$Freq/Summ
+Subs
+#Var1        Freq
+#  C_G 0.002339181
+#  T_G 0.010136452
+#  T_A 0.016374269
+#  A_C 0.016764133
+#  A_T 0.019103314
+#  C_A 0.019103314
+#  G_T 0.022222222
+#  G_C 0.024561404
+#  C_T 0.130994152
+#  A_G 0.184405458
+#  T_C 0.270175439
+#  G_A 0.283820663
+
+Subs = data.frame(table(Som[Som$TurnOverRate <= 64,]$Substitution)); Subs = Subs[order(Subs$Freq),]; Summ = sum(Subs$Freq); Subs$Freq = Subs$Freq/Summ
+Subs
+#   C_G 0.003353454
+#   G_T 0.008048290
+#   T_G 0.008718981
+#   A_C 0.012072435
+#   T_A 0.012072435
+#   A_T 0.012743125
+#   C_A 0.017437961
+#   G_C 0.026827632
+#   C_T 0.120724346
+#   A_G 0.191817572
+#   T_C 0.273641851
+#   G_A 0.312541918
+
+Subs = data.frame(table(Som[Som$TurnOverRate > 64,]$Substitution)); Subs = Subs[order(Subs$Freq),]; Summ = sum(Subs$Freq); Subs$Freq = Subs$Freq/Summ
+Subs
+#  Var1       Freq
+#  C_G 0.0009310987
+#  T_G 0.0121042831
+#  C_A 0.0214152700
+#  G_C 0.0214152700
+#  T_A 0.0223463687
+#  A_C 0.0232774674
+#  A_T 0.0279329609
+#  G_T 0.0418994413
+#  C_T 0.1452513966
+#  A_G 0.1741154562
+#  G_A 0.2439478585
+#  T_C 0.2653631285
+
+# slow cells have: lower T_C, lower A_G (they are together in pca), higher A_T and G_T (they are also together in pca). 
+
+# run prcomp for GTEX (26 tissues)
+
+
+boxplot(Som[Som$Substitution == 'T_C',]$Position, Som[Som$Substitution == 'G_A',]$Position, Som[Som$Substitution == 'C_T',]$Position, Som[Som$Substitution == 'A_G',]$Position, notch = TRUE, names = c('T>C','G>A','C>T','A>G'))
+
+################################################################################################
 ######################## count MutSpek and correlate it with Turnover
 ################################################################################################
 
@@ -79,20 +140,42 @@ hist(ShortRes$Rho, breaks = 100)
 ######################## what is happening within the same tissue of the same patient (VAF(T_C) ~ VAF(G_A)...)
 ################################################################################################
 
-summary(SomSrr$TurnOverRate) # median = 64
+#summary(SomSrr$TurnOverRate) # median = 64
 # SRR is unique for sample (tissue X patient), so, I need to filter a subset of SRRs with at least one G_A and T_C and compare VAFs
-SomSrr = Som[Som$Substitution == 'G_A' | Som$Substitution == 'T_C' & SomSrr$TurnOverRate > 64,] # better correlate the ratio with tissue-specific properties
+SomSrr = Som[Som$Substitution == 'G_A' | Som$Substitution == 'T_C',] # better correlate the ratio with tissue-specific properties
 SomSrr$Number = 1
 AggSrr = aggregate(SomSrr$Number, by=list(SomSrr$SRR), FUN = sum); summary(AggSrr$x)
 SrrVec = unique(AggSrr[AggSrr$x > 1,]$Group.1); length(SrrVec) # 262 tissues with > 1 substitutions (T_C,G_A)
 SomSrr = SomSrr[SomSrr$SRR %in% SrrVec,]
-AggVaf = aggregate(SomSrr$AF, by = list(SomSrr$Substitution,SomSrr$SRR), FUN = mean)
-AggVafGa = AggVaf[AggVaf$Group.1 =='G_A',]; AggVafGa = AggVafGa[,2:3]; names(AggVafGa)=c('SRR','GaVaf')
-AggVafTc = AggVaf[AggVaf$Group.1 =='T_C',]; AggVafTc = AggVafTc[,2:3]; names(AggVafTc)=c('SRR','TcVaf')
-Vaf = merge(AggVafGa,AggVafTc, by = 'SRR') # 166 tissues with at least one T_C and G_A
+AggVaf = aggregate(SomSrr$AF, by = list(SomSrr$Substitution,SomSrr$SRR,SomSrr$TurnOverRate), FUN = mean)
+AggVafGa = AggVaf[AggVaf$Group.1 =='G_A',]; AggVafGa = AggVafGa[,2:4]; names(AggVafGa)=c('SRR','TurnOverRate','GaVaf')
+AggVafTc = AggVaf[AggVaf$Group.1 =='T_C',]; AggVafTc = AggVafTc[,2:4]; names(AggVafTc)=c('SRR','TurnOverRate','TcVaf')
+Vaf = merge(AggVafGa,AggVafTc, by = c('SRR','TurnOverRate')) # 166 tissues with at least one T_C and G_A
 summary(log2(Vaf$TcVaf/Vaf$GaVaf))
 hist(log2(Vaf$TcVaf/Vaf$GaVaf), breaks = 20) # take tissues with low cell division - they decrease cell division with time and this effect might be more pronounced
 wilcox.test(log2(Vaf$TcVaf/Vaf$GaVaf), mu = 0) # 0.037
+Vaf$TcToGaVaf = Vaf$TcVaf/Vaf$GaVaf; summary(Vaf$TcToGaVaf)
+cor.test(Vaf$TcToGaVaf,Vaf$TurnOverRate, method = 'spearman')
+plot(Vaf$TurnOverRate,Vaf$TcToGaVaf); abline(h = 1, col = 'red', lwd = 2)
+cor.test(Vaf$TcVaf,Vaf$TurnOverRate, method = 'spearman')
+cor.test(Vaf$GaVaf,Vaf$TurnOverRate, method = 'spearman')
+
+plot(Vaf$TcVaf,Vaf$GaVaf)
+cor.test(Vaf$TcVaf,Vaf$GaVaf, method ='spearman') # positive - good
+abline(0,1, col = 'red')
+plot(Vaf$TcVaf,Vaf$GaVaf, method ='spearman', xlim = c(0,0.2), ylim = c(0,0.2)) # positive - good
+abline(0,1, col = 'red')
+
+# the higher the VAF the shorter the turnover rate
+cor.test(Vaf$TcVaf,Vaf$TurnOverRate, method = 'spearman')
+cor.test(Vaf$GaVaf,Vaf$TurnOverRate, method = 'spearman')
+wilcox.test(Vaf$TcVaf,Vaf$GaVaf, paired = TRUE)
+
+cor.test(Vaf$TcToGaVaf,Vaf$TurnOverRate, method = 'spearman')
+summary(Vaf$TurnOverRate) # 4.25    30.00    64.00  1958.10   270.00 30000.00 
+boxplot(Vaf[Vaf$TurnOverRate <= 30,]$TcToGaVaf,Vaf[Vaf$TurnOverRate > 30 & Vaf$TurnOverRate <= 64,]$TcToGaVaf,Vaf[Vaf$TurnOverRate > 64 & Vaf$TurnOverRate <= 270,]$TcToGaVaf,Vaf[Vaf$TurnOverRate > 270,]$TcToGaVaf, ylim = c(0,5))
+abline(h = 1, col = 'red', lwd = 2)
+cor.test(Vaf$TcToGaVaf,Vaf$TurnOverRate, method = 'spearman')
 
 ################################################################################################
 ############ permute 1000 times and estimate p value of spearman rank correlation
