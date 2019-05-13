@@ -33,7 +33,59 @@ rm(list=ls(all=TRUE))
   #186                  617                   57                  286                   65                   73                  130                  168 
   #UCEC_Uterus 
   #145 
-  
+########## summary of all substitutions:
+  Subs = data.frame(table(ALL$Subs)); Subs = Subs[order(Subs$Freq),] 
+  Subs$Freq = Subs$Freq/sum(Subs$Freq)
+  Subs
+#  C_G 0.002890553
+#  T_G 0.003547497
+#  T_A 0.003810275
+#  G_T 0.006438050
+#  A_T 0.009459992
+#  A_C 0.011956379
+#  G_C 0.015635265
+#  C_A 0.021941926
+#  A_G 0.063198003
+#  C_T 0.101300749
+#  T_C 0.278544212
+#  G_A 0.481277099
+
+Subs = data.frame(table(ALL[ALL$TumorVarFreq > quantile(ALL$TumorVarFreq,0.75),]$Subs)); Subs = Subs[order(Subs$Freq),]
+Subs$Freq = Subs$Freq/sum(Subs$Freq)
+Subs
+
+#Var1        Freq
+#5   C_G 0.001576458
+#10  T_A 0.002101944
+#3   A_T 0.002627430
+#12  T_G 0.003152916
+#9   G_T 0.004203889
+#1   A_C 0.007356805
+#4   C_A 0.013137152
+#8   G_C 0.015764582
+#2   A_G 0.073042564
+#6   C_T 0.117708881
+#11  T_C 0.302679979
+#7   G_A 0.456647399
+
+Subs = data.frame(table(ALL[ALL$TumorVarFreq > quantile(ALL$TumorVarFreq,0.9),]$Subs)); Subs = Subs[order(Subs$Freq),]
+Subs$Freq = Subs$Freq/sum(Subs$Freq)
+Subs
+#Var1        Freq
+#3   A_T 0.001314060
+#5   C_G 0.001314060
+#10  T_A 0.001314060
+#9   G_T 0.002628121
+#12  T_G 0.003942181
+#1   A_C 0.006570302
+#4   C_A 0.007884363
+#8   G_C 0.017082786
+#2   A_G 0.080157687
+#6   C_T 0.126149803
+#11  T_C 0.336399474
+#7   G_A 0.415243101  
+
+
 ########### LIFETIME RISK OF DEVELOPING CANCER BASED ON TISSUE:
   
   unique(ALL$CancerTissue)
