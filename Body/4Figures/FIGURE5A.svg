@@ -649,9 +649,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="439.42108"
-     inkscape:cy="397.76875"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="426.69129"
+     inkscape:cy="589.80125"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1425,7 +1425,7 @@
          id="tspan6479-5-7-3-9"
          x="331.39911"
          y="125.51503"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.88613522px">A&gt;G</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.88613522px">T&gt;C</tspan></text>
     <path
        style="fill:#7200b3;fill-rule:evenodd;stroke:#5100cd;stroke-width:0.88613522;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1"
        d="m 108.57516,180.63696 223.35521,0.29572"
@@ -1449,7 +1449,7 @@
          id="tspan6479-5-7-9-6-8-5"
          x="333.34402"
          y="53.799"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.0640974px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.88503712px">C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.0640974px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.88503712px">G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#006f00;stroke-width:1.53510118;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 106.89785,189.15166 c 219.40992,-63.34925 1.38467,-1.71139 219.40992,-63.34925"
@@ -9589,7 +9589,7 @@
          id="tspan6479-5-7-3-9-0"
          x="542.28595"
          y="161.30882"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.88613522px">A&gt;G/(A&gt;G + C&gt;T)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.88613522px">T&gt;C/(T&gt;C + G&gt;A)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.6204443px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.88503712px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -9601,7 +9601,7 @@
          id="tspan6479-5-7-9-6-8-5-4"
          x="542.25885"
          y="52.758495"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.06409645px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.88503712px">C&gt;T/(C&gt;T + A&gt;G)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.06409645px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.88503712px">G&gt;A/(G&gt;A + T&gt;C)</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.88613528;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4040-4)"
        d="M 412.474,191.53094 H 653.63736"
@@ -9618,7 +9618,7 @@
          id="tspan6479-5-7-3-9-0-3"
          x="584.2691"
          y="105.5854"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#666666;fill-opacity:1;stroke-width:0.88613522px">A&gt;G/C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.07534409px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#666666;fill-opacity:1;stroke-width:0.88613522px">T&gt;C/G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:2.04680157;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 416.85252,50.726872 c 111.85757,31.860863 82.42406,24.003381 212.7173,44.540495"
@@ -9711,7 +9711,7 @@
          id="tspan6479-5-7-3-9-2"
          x="233.79657"
          y="382.20706"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">A&gt;G</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">T&gt;C</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.4321804px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.78601509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -9723,7 +9723,7 @@
          id="tspan6479-5-7-9-6-8-5-0"
          x="239.72414"
          y="319.08105"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#006f00;stroke-width:1.36334693;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M 31.521325,438.06119 C 226.38267,381.79976 32.751081,436.54128 226.38267,381.79976"
@@ -9798,7 +9798,7 @@
          id="tspan6479-5-7-3-9-2-2"
          x="225.67514"
          y="504.05118"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">A&gt;G in shortlived</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">T&gt;C in shortlived</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.4321804px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.78601509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -9810,7 +9810,7 @@
          id="tspan6479-5-7-9-6-8-5-0-0"
          x="480.07785"
          y="309.31589"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#006f00;stroke-width:1.36334693;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 271.75892,434.54379 c 194.86137,-56.26142 1.22977,-1.5199 194.86137,-56.26142"
@@ -9863,7 +9863,7 @@
          id="tspan6479-5-7-3-9-0-0-9"
          x="403.08139"
          y="661.13116"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.54424381px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.93191946px">A&gt;G/(A&gt;G + C&gt;T)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.54424381px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#006f00;fill-opacity:1;stroke-width:0.93191946px">T&gt;C/(T&gt;C + G&gt;A)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:11.16917515px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.93076462px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -9875,7 +9875,7 @@
          id="tspan6479-5-7-9-6-8-5-4-3-0"
          x="410.61081"
          y="548.87848"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.53241444px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.93076462px">C&gt;T/(C&gt;T + A&gt;G)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.53241444px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.93076462px">G&gt;A/(G&gt;A + T&gt;C)</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93191952;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4040-4-3-4)"
        d="M 261.31047,691.0975 H 514.93409"
@@ -9892,7 +9892,7 @@
          id="tspan6479-5-7-3-9-0-3-3-2"
          x="447.23395"
          y="602.52856"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.54424381px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#666666;fill-opacity:1;stroke-width:0.93191946px">A&gt;G/C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.54424381px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#666666;fill-opacity:1;stroke-width:0.93191946px">T&gt;C/G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:2.15255451;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 265.91524,543.01845 c 117.63698,33.50703 86.68271,25.24357 223.70787,46.84178"
@@ -9979,7 +9979,7 @@
          id="tspan6479-5-7-9-6-8-5-0-0-9"
          x="721.44562"
          y="306.97775"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">C&gt;T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.0499649px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.78601509px">G&gt;A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#006f00;stroke-width:1.36334693;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 512.81009,438.48798 c 194.86137,-56.26144 1.22976,-1.51991 194.86137,-56.26144"
@@ -10046,7 +10046,7 @@
          id="tspan6479-5-7-3-9-2-2-2"
          x="233.93132"
          y="475.70651"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">A&gt;G in longlived</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">T&gt;C in longlived</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.4438858px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.78699064px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -10074,7 +10074,7 @@
          id="tspan6479-5-7-3-9-2-2-2-4"
          x="442.34735"
          y="560.55444"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">A&gt;G in longlived (asymmetrical)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">T&gt;C in longlived (asymmetrical)</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#006f00;stroke-width:1.36364818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:1.36364828, 2.72729655;stroke-dashoffset:0;stroke-opacity:1"
        d="m 514.98531,435.60203 195.29993,-2.53702"
@@ -10092,7 +10092,7 @@
          id="tspan6479-5-7-3-9-2-2-2-4-6"
          x="574.4787"
          y="438.12723"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">A&gt;G in shortlived (strand-coupled)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.05995369px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#006f00;fill-opacity:1;stroke-width:0.78699034px">T&gt;C in shortlived (strand-coupled)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.23599148px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.76966566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
