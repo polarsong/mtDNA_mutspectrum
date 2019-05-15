@@ -3,7 +3,7 @@
 rm(list=ls(all=TRUE))
   
 ALL = read.table("../../Body/1Raw/mtDNA_snv_Oct2016.txt", head = TRUE, sep = '\t')  
-length(unique(ALL$sample)) # 2177
+length(unique(ALL$sample)) # 2177 samples
 
 Pat = read.table("../../Body/1Raw/TCGA_MTmut_Age_Coverage.txt", head = TRUE, sep = '\t')  
 
@@ -14,5 +14,9 @@ setdiff(unique(ALL$sample),unique(Pat$sample)) # PCSI_0357 -> for one sample ID 
 
 ALL = merge(ALL,Pat, by = 'sample', all.x = TRUE)
 names(ALL)
+
+length(unique(ALL$sample))  # 2177 samples
+nrow(ALL) # 7611 somatic muations
+length(unique(ALL$tissue))  # 40 tissues
 
 write.table(ALL,"../../Body/2Derived/mtDNA_snv_Oct2016.PatientInfo.txt", sep = '\t', row.names = FALSE, quote = FALSE) 
