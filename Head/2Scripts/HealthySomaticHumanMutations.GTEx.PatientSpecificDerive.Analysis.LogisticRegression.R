@@ -3,6 +3,10 @@ rm(list=ls(all=TRUE))
 ### non independence of mutations within the same patient / tissue ??? => nested logistic (linear) regression (glm) with classes | should we????
 
 Som = read.table("../../Body/2Derived/HealthySomaticHumanMutations.GTEx.PatientSpecificDerive.txt", header = TRUE, sep = '\t')
+length(unique(Som$SRR)) # 1258 samples
+nrow(Som)               # 2565 somatic mutations
+length(unique(Som$TissueShortName)) # 27 tissues
+length(unique(Som$subjid)) # 435 individuals
 
 ### derive MutSpek as a set of Dummy variables:
 
