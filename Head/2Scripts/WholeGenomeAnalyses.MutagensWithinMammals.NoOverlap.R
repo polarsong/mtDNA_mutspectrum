@@ -53,6 +53,24 @@ SynNucGT = merge(GT,SynNuc)
 length(unique(SynNucGT$Species))  # 649 species
 table(SynNucGT$TAXON)
 
+############ data for PICs
+#library(ape)
+
+#tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+#data = SynNucGT[which(as.character(SynNucGT$Species) %in% tree$tip.label),]
+
+#df_vec <- as.character(SynNucGT$Species)
+#tree_vec <- tree$tip.label
+
+#a <- setdiff(df_vec, tree_vec)
+#b <- setdiff(tree_vec, df_vec)
+
+# some errors below:
+# row.names(data) = data$Species # it gives an error!!
+# tree2 <- drop.tip(tree, b)
+# TempData = data[, -c(1, 5)]
+# contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+# names(contrasts) = names(TempData)
 
 ########### question 1: which nucleotides better correlate with GT: log2(GT) = 11 - 0.29*scale(FrT) + 0.33*scale(FrC) (in line with our mutational spectrum result that T->C correlates with generation time)
 AGG = aggregate(list(SynNucGT$FrA,SynNucGT$FrT,SynNucGT$FrG,SynNucGT$FrC), by = list(SynNucGT$Species,SynNucGT$GenerationLength_d), FUN = mean)
@@ -135,10 +153,6 @@ plot(log2(AGG$GenerationLength_d),AGG$FrC, col = ColC, ylim = c(0,0.6), xlab = '
 abline(h =0.25, lt = 1, col = 'red');
 legend("topright",legend=c('A','C','T','G'), col = c(ColA,ColC,ColT,ColG), pch = 16, horiz = FALSE)
 
-grid.newpage()
-par(mfrow=c(2,2))
-grid.table(res)
-
 par(mfrow=c(2,2), oma = c(0, 0, 2, 0),cex.main = 2, cex.lab = 2, cex = 2, pch = 16)
 plot(log2(AGG$GenerationLength_d),AGG$FrA, col = ColA, ylim = c(0,0.6), xlab = 'log2(GT)', main = 'FrA', cex = 2); abline(h =0.25, lt = 2, col = 'red')
 a <-lm(AGG$FrA ~ log2(AGG$GenerationLength_d)); summary(a); abline(a, lwd = 2, col = 'red')
@@ -164,5 +178,37 @@ for (i in 1:length(VecOfGenes))
   plot(log2(OneGene$GenerationLength_d),OneGene$FrG, col = ColG, main = main, ylim = c(0,0.7), xlab = '', ylab = '')
   plot(log2(OneGene$GenerationLength_d),OneGene$FrC, col = ColC, main = main, ylim = c(0,0.7), xlab = '', ylab = '')
 }
+
+dev.off()
+
+########### question 3: pairwise correlations between nucleotide content - which nucleotides anticorrelate with each other better?
+### in this way we can try to move from 4 dimensions to 6 dimensions
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.MutagensWithinMammalsNoOverlap.Tables.R.01.pdf")
+
+Res = c()
+AT = cor.test(AGG$FrA,AGG$FrT, method = 'spearman'); Res = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));  
+AG = cor.test(AGG$FrA,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));  
+AC = cor.test(AGG$FrA,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));  
+TC = cor.test(AGG$FrT,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));  
+TG = cor.test(AGG$FrT,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));  
+CG = cor.test(AGG$FrC,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));  
+names(Res) = c('Subst', 'Pvalue','SpearmanRho')
+
+grid.newpage()
+grid.table(Res)
+
+# the same with contrasts:
+ResC = c()
+AT = cor.test(contrasts$FrA,contrasts$FrT, method = 'spearman'); ResC = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));  
+AG = cor.test(contrasts$FrA,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));  
+AC = cor.test(contrasts$FrA,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));  
+TC = cor.test(contrasts$FrT,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));  
+TG = cor.test(contrasts$FrT,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));  
+CG = cor.test(contrasts$FrC,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));  
+names(ResC) = c('Subst', 'Pvalue','SpearmanRho')
+
+grid.newpage()
+grid.table(ResC)
 dev.off()
 
