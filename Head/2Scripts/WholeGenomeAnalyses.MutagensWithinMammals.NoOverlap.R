@@ -1,5 +1,5 @@
 ###################################
-###### 
+######
 ###################################
 
 rm(list=ls(all=TRUE))
@@ -31,9 +31,9 @@ SynNuc = rbind(NotND6,ND6)
 
 ### count fraction of nucleotides
 SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
-SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
-SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
-SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
 
 SynNuc$TAXON = SynNuc$Class
 VecOfTaxa = unique(SynNuc$TAXON)
@@ -43,7 +43,7 @@ VecOfTaxa = unique(SynNuc$TAXON)
 GT = read.table("../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt", header = TRUE, sep = '\t')
 GT$Species = gsub(' ','_',GT$Scientific_name)
 length(unique(GT$Species))
-summary(GT$AdultBodyMass_g)     # 2        21        71    136058       614 154321304 
+summary(GT$AdultBodyMass_g)     # 2        21        71    136058       614 154321304
 summary(GT$GenerationLength_d)  # 129.0   624.4  1101.1  1578.8  2064.3 18980.0 # max = 18980 days => 52 years. ok
 GT = GT[,c(11,13)]
 summary(GT$GenerationLength_d)
@@ -91,18 +91,98 @@ b <- setdiff(tree_vec, df_vec)
 data = data[-597,] # It is duplicate
 row.names(data) = data$Species
 tree2 <- drop.tip(tree, b)
+# Old
+# Phylogenetic tree: tree2
+#
+#   Number of tips: 705
+#   Number of nodes: 704
+#   Branch lengths:
+#     mean: 0.02279781
+#     variance: 0.0007592831
+#     distribution summary:
+#        Min.     1st Qu.      Median     3rd Qu.        Max.
+# 0.000002000 0.005374533 0.013691633 0.029818258 0.207282537
+#   No root edge.
+#   First ten tip labels: Acinonyx_jubatus
+#                         Caracal_caracal
+#                         Leptailurus_serval
+#                         Felis_silvestris
+#                         Felis_margarita
+#                         Felis_chaus
+#                         Felis_nigripes
+#                         Prionailurus_bengalensis
+#                         Prionailurus_viverrinus
+#                         Prionailurus_rubiginosus
+#   No node labels.
+# New
+# Phylogenetic tree: .
+#
+#   Number of tips: 649
+#   Number of nodes: 648
+#   Branch lengths:
+#     mean: 0.02377763
+#     variance: 0.000807141
+#     distribution summary:
+#        Min.     1st Qu.      Median     3rd Qu.        Max.
+# 0.000002000 0.005784191 0.014175031 0.031247906 0.207282537
+#   No root edge.
+#   First ten tip labels: Acinonyx_jubatus
+#                         Caracal_caracal
+#                         Leptailurus_serval
+#                         Felis_silvestris
+#                         Felis_margarita
+#                         Felis_chaus
+#                         Felis_nigripes
+#                         Prionailurus_bengalensis
+#                         Prionailurus_viverrinus
+#                         Prionailurus_rubiginosus
+#   No node labels.
 TempData = data[, -1]
+ # TempData %>% skim()
+# n obs: 649
+# n variables: 5
+#
+# -- Variable type:numeric -------------------------------------------------------
+#           variable missing complete   n     mean       sd       p0      p25      p50      p75     p100     hist
+#                FrA       0      649 649    0.49     0.044   0.34      0.46     0.49     0.52      0.64 ▁▁▃▇▇▃▁▁
+#                FrC       0      649 649    0.27     0.049   0.12      0.24     0.27     0.29      0.44 ▁▂▃▇▆▂▁▁
+#                FrG       0      649 649    0.046    0.018   0.0097    0.033    0.042    0.056     0.1  ▁▅▇▅▃▂▁▁
+#                FrT       0      649 649    0.19     0.044   0.096     0.16     0.19     0.22      0.33 ▁▃▇▆▅▂▁▁
+# GenerationLength_d       0      649 649 2799.22  2116.86  341.27   1458.08  2190     3650     18980    ▇▃▁▁▁▁▁▁
 
-p_load(tibble, dplyr, magrittr, purrr)
-contrasts <- TempData %>% 
-#  select(GenerationLength_d, FrA, FrT, FrG, FrC) %>% 
-  mutate_if(is.numeric, log2) %>% 
+
+# generlen       0      705 705 2790.31 2074.87 341.27 1460 2227.96 3650 18980 ▇▃▁▁▁▁▁▁
+
+
+
+
+p_load(tibble, dplyr, magrittr, purrr, skimr)
+contrasts <- TempData %>%
+#  select(GenerationLength_d, FrA, FrT, FrG, FrC) %>%
+  mutate_if(is.numeric, log2) %>%
   map(pic, tree2)
+
+  # n obs: 648
+  # n variables: 5
+  #
+  # -- Variable type:numeric -------------------------------------------------------
+  #           variable missing complete   n    mean   sd     p0   p25    p50     p75     p100     hist
+  #                FrA       0      648 648  0.0086 0.82  -4.22 -0.32  0.028  0.36       3.15 ▁▁▁▂▇▂▁▁
+  #                FrC       0      648 648 -0.028  1.7  -10.13 -0.65 -0.035  0.59       9.15 ▁▁▁▃▇▁▁▁
+  #                FrG       0      648 648  0.24   3.98 -17.33 -1.62  0.11   1.95      23.51 ▁▁▂▇▂▁▁▁
+  #                FrT       0      648 648 -0.042  2.26 -13.84 -1    -0.069  0.72      14.23 ▁▁▁▇▆▁▁▁
+  # GenerationLength_d       0      648 648 -0.2    0.46  -4.74 -0.19 -0.056 -0.0013 2e-14    ▁▁▁▁▁▁▁▇
 
 # contrasts2 <- as.data.frame(apply(TempData, 2, pic, tree2))
 # names(contrasts2) = names(TempData)
 
 summary(pic(log2(TempData$GenerationLength_d), tree2)) == summary(contrasts$GenerationLength_d)
+
+# Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+# -85.2348  -2.5281   0.0000  -0.1349   2.5727  33.8374
+
+#      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
+# -28.39738  -0.90117   0.00000  -0.00859   0.99571  11.56081
 
 #### why < 0 ???
 
@@ -127,7 +207,7 @@ A <- lm(log2(AGG$GenerationLength_d) ~ scale(AGG$FrT) + scale(AGG$FrC)); summary
 A <- lm(scale(contrasts$GenerationLength_d) ~ contrasts$FrA + contrasts$FrT + contrasts$FrC); summary(A) # A is not significant - delete it
 A <- lm(scale(contrasts$GenerationLength_d) ~ contrasts$FrT + contrasts$FrC); summary(A) # only C is significant
 A <- lm(scale(contrasts$GenerationLength_d) ~ contrasts$FrC); summary(A) # only C is significant: 0.00596 **
-#(Intercept)   0.001477   0.039088   0.038  0.96987   
+#(Intercept)   0.001477   0.039088   0.038  0.96987
 #contrasts$FrC 1.091700   0.395708   2.759  0.00596 **
 A <- lm(scale(contrasts$GenerationLength_d) ~ 0 + contrasts$FrC); summary(A) # only C is significant: 0.00596 **
 
@@ -187,12 +267,12 @@ dev.off()
 pdf("../../Body/4Figures/WholeGenomeAnalyses.MutagensWithinMammalsNoOverlap.Tables.R.01.pdf")
 
 Res = c()
-AT = cor.test(AGG$FrA,AGG$FrT, method = 'spearman'); Res = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));  
-AG = cor.test(AGG$FrA,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));  
-AC = cor.test(AGG$FrA,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));  
-TC = cor.test(AGG$FrT,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));  
-TG = cor.test(AGG$FrT,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));  
-CG = cor.test(AGG$FrC,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));  
+AT = cor.test(AGG$FrA,AGG$FrT, method = 'spearman'); Res = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));
+AG = cor.test(AGG$FrA,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));
+AC = cor.test(AGG$FrA,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));
+TC = cor.test(AGG$FrT,AGG$FrC, method = 'spearman'); Res = rbind(Res, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));
+TG = cor.test(AGG$FrT,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));
+CG = cor.test(AGG$FrC,AGG$FrG, method = 'spearman'); Res = rbind(Res, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));
 names(Res) = c('Subst', 'Pvalue','SpearmanRho')
 
 grid.newpage()
@@ -200,15 +280,14 @@ grid.table(Res)
 
 # the same with contrasts:
 ResC = c()
-AT = cor.test(contrasts$FrA,contrasts$FrT, method = 'spearman'); ResC = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));  
-AG = cor.test(contrasts$FrA,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));  
-AC = cor.test(contrasts$FrA,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));  
-TC = cor.test(contrasts$FrT,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));  
-TG = cor.test(contrasts$FrT,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));  
-CG = cor.test(contrasts$FrC,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));  
+AT = cor.test(contrasts$FrA,contrasts$FrT, method = 'spearman'); ResC = c('AT', as.numeric(AT[3]), as.numeric(AT[4]));
+AG = cor.test(contrasts$FrA,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('AG', as.numeric(AG[3]), as.numeric(AG[4])));
+AC = cor.test(contrasts$FrA,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('AC', as.numeric(AC[3]), as.numeric(AC[4])));
+TC = cor.test(contrasts$FrT,contrasts$FrC, method = 'spearman'); ResC = rbind(ResC, c('TC', as.numeric(TC[3]), as.numeric(TC[4])));
+TG = cor.test(contrasts$FrT,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('TG', as.numeric(TG[3]), as.numeric(TG[4])));
+CG = cor.test(contrasts$FrC,contrasts$FrG, method = 'spearman'); ResC = rbind(ResC, c('CG', as.numeric(CG[3]), as.numeric(CG[4])));
 names(ResC) = c('Subst', 'Pvalue','SpearmanRho')
 
 grid.newpage()
 grid.table(ResC)
 dev.off()
-
