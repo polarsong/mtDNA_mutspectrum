@@ -74,3 +74,83 @@ a <- lm(log2(AtgcGl$GenerationLength_d) ~ scale(AtgcGl$TotalNeutralA) + scale(At
 a <- lm(log2(AtgcGl$GenerationLength_d) ~ scale(AtgcGl$TotalNeutralA) + scale(AtgcGl$TotalNeutralT) + scale(AtgcGl$TotalNeutralG) + scale(AtgcGl$A) + scale(AtgcGl$T) + scale(AtgcGl$G) + scale(AtgcGl$C)); summary(a)
 a <- lm(log2(AtgcGl$GenerationLength_d) ~ scale(AtgcGl$TotalNeutralA) + scale(AtgcGl$TotalNeutralG) + scale(AtgcGl$A) + scale(AtgcGl$T) + scale(AtgcGl$G) + scale(AtgcGl$C)); summary(a)
 
+
+##############################################################################################
+############## PICs 
+
+library(ape) # install.packages('ape') 
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+
+data <- AtgcGl[which(as.character(AtgcGl$species) %in% tree$tip.label),]
+row.names(data) <- data$species
+data$GenerationLength_d = log2(data$GenerationLength_d)
+
+df_vec <- as.character(data$species)
+tree_vec <- tree$tip.label
+
+a <- setdiff(df_vec, tree_vec)
+b <- setdiff(tree_vec, df_vec)
+
+tree2 <- drop.tip(tree, b)
+
+library(pacman)
+p_load(tibble, dplyr, magrittr, purrr)
+contrasts <- data %>% 
+  select(-c(species, taxonomy)) %>% 
+#   mutate_if(is.numeric, log2) %>% 
+  map(pic, tree2)
+
+
+
+
+
+
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeA, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionA, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralA, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeAfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionAfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralAfr, method = 'spearman')
+
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeT, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionT, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralT, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeTfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionTfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralTfr, method = 'spearman')
+
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeG, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionG, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralG, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeGfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionGfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralGfr, method = 'spearman')
+
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeC, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionC, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralC, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeCfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionCfr, method = 'spearman')
+cor.test(contrasts$GenerationLength_d, contrasts$NeutralCfr, method = 'spearman')
+
+########### 4 LM analyses: Neutral vs UnderSelection 
+
+a <- lm((contrasts$GenerationLength_d) ~ contrasts$NeutralA + contrasts$UnderSelectionA); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ contrasts$NeutralT + contrasts$UnderSelectionT); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ contrasts$NeutralG + contrasts$UnderSelectionG); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ contrasts$NeutralC + contrasts$UnderSelectionC); summary(a)
+
+########### 5 which pairs correlate better with each other
+cor.test(contrasts$NeutralA, contrasts$NeutralT, method = 'spearman')
+cor.test(contrasts$NeutralA, contrasts$NeutralG, method = 'spearman')
+cor.test(contrasts$NeutralA, contrasts$NeutralC, method = 'spearman') # -0.53
+cor.test(contrasts$NeutralT, contrasts$NeutralG, method = 'spearman')
+cor.test(contrasts$NeutralT, contrasts$NeutralC, method = 'spearman') # -0.52
+
+########### 6 which pairs correlate better with each other
+a <- lm((contrasts$GenerationLength_d) ~ contrasts$TotalNeutralA + contrasts$TotalNeutralT + contrasts$TotalNeutralG + contrasts$TotalNeutralC + contrasts$A + contrasts$T + contrasts$G + contrasts$C); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(contrasts$TotalNeutralT) + scale(contrasts$TotalNeutralG) + scale(contrasts$TotalNeutralC) + scale(contrasts$A) + scale(contrasts$T) + scale(contrasts$G) + scale(contrasts$C)); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(contrasts$TotalNeutralT) + scale(contrasts$TotalNeutralG) + scale(contrasts$A) + scale(contrasts$T) + scale(contrasts$G) + scale(contrasts$C)); summary(a)
+a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(contrasts$TotalNeutralG) + scale(contrasts$A) + scale(contrasts$T) + scale(contrasts$G) + scale(contrasts$C)); summary(a)
+
