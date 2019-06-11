@@ -104,8 +104,6 @@ contrasts <- data %>%
 
 
 
-
-
 cor.test(contrasts$GenerationLength_d, contrasts$WholeGenomeA, method = 'spearman')
 cor.test(contrasts$GenerationLength_d, contrasts$UnderSelectionA, method = 'spearman')
 cor.test(contrasts$GenerationLength_d, contrasts$NeutralA, method = 'spearman')
@@ -154,3 +152,73 @@ a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(
 a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(contrasts$TotalNeutralT) + scale(contrasts$TotalNeutralG) + scale(contrasts$A) + scale(contrasts$T) + scale(contrasts$G) + scale(contrasts$C)); summary(a)
 a <- lm((contrasts$GenerationLength_d) ~ scale(contrasts$TotalNeutralA) + scale(contrasts$TotalNeutralG) + scale(contrasts$A) + scale(contrasts$T) + scale(contrasts$G) + scale(contrasts$C)); summary(a)
 
+
+##########################################################################################
+########### 
+
+hand_pic = function(data, species, feature_1, feature_2, tree){
+  # feature_1 = 'GenerationLength_d'; feature_2 = 'WholeGenomeA'; taxon = 'All'; data = AtgcGl
+  # tree = tree2; species = AtgcGl$species
+  
+  library(geiger)
+  library(ggplot2)
+  
+  temp_data = data
+  
+  temp_data = temp_data[!is.na(temp_data[feature_1]),]; temp_data = temp_data[!is.na(temp_data[feature_2]),]; 
+  
+  
+  # pruning tree 
+  row.names(temp_data) = species
+  TempDiff <- setdiff(tree$tip.label, row.names(temp_data))
+  SpeciesDiff <- setdiff(row.names(temp_data), tree$tip.label)
+  temp_data = temp_data[!(species %in% SpeciesDiff),]
+  temp_tree <- drop.tip(tree, TempDiff)
+  
+  # getting sister tips
+  max_node_number = max(temp_tree$edge)
+  min_node_number = length(temp_tree$tip.label) + 1
+  
+  one_line = c()
+  for (i in min_node_number:max_node_number){
+    descendants = tips(temp_tree, i)
+    if (length(descendants) == 2){
+      one_line = rbind(one_line, descendants)
+    }
+  }
+  
+  sisters = as.data.frame(one_line)
+  names(sisters) = c('Species_1', 'Species_2')
+  print(nrow(sisters))
+  
+  sisters$Species_1 <- as.character(sisters$Species_1); sisters$Species_2 <- as.character(sisters$Species_2)
+  
+  # getting contrasts
+  contrast = c(NULL)
+  for (i in 1:nrow(sisters)){
+    # i = 4
+    Species_1 = sisters[i,1]; Species_2 = sisters[i,2]
+    first_value_1 = temp_data[Species_1, feature_1];
+    second_value_1 = temp_data[Species_2, feature_1]
+    first_value_2 = temp_data[Species_1, feature_2];
+    second_value_2 = temp_data[Species_2, feature_2]
+    contrast = rbind(contrast, c(first_value_1 - second_value_1, 
+                                 first_value_2 - second_value_2))
+  }
+  
+  contrast = as.data.frame(contrast)
+  names(contrast) = c('feature_1', 'feature_2')
+  contrast = contrast[!is.na(contrast$feature_1),]
+  contrast = contrast[!is.na(contrast$feature_2),]
+  if (nrow(contrast) > 10){
+    a = summary(lm(feature_1 ~ 0 + feature_2, contrast))
+    a = a$coefficients[1,]
+    
+    ggplot(data = contrast, aes(feature_1, feature_2)) + geom_point(na.rm = TRUE) + 
+      ggtitle(paste(taxon, a[1], a[4], nrow(contrast), sep = ', ')) + xlab(feature_1) + ylab(feature_2)
+    
+  } 
+  return(nrow(contrast), a)
+}
+
+hand_pic(AtgcGl, AtgcGl$species, 'GenerationLength_d', 'WholeGenomeA', tree2)
