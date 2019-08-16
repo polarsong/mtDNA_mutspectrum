@@ -33,6 +33,14 @@ TemperMut$T_C.NormalOnlyByT = TemperMut$T_C / (TemperMut$T_C  + TemperMut$T_A + 
 ###### Temperature, Mass, MetabolRate
 ###### Temperature ~ T_C 
 cor.test(TemperMut$T_C,TemperMut$Temperature, method = 'spearman') # super positive!!!! rho = 0.566
+
+install.packages("ggpubr")
+library("ggpubr")
+plotTCtemp = ggscatter(TemperMut, x = "Temperature", y = "T_C", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Temperature", ylab = "A>G")
+
 cor.test(TemperMut$T_C.NormalOnlyByT,TemperMut$Temperature, method = 'spearman') # still positive!!!! rho = 0.285
 cor.test(TemperMut$T_A,TemperMut$Temperature, method = 'spearman')
 cor.test(TemperMut$T_G,TemperMut$Temperature, method = 'spearman') # negative
