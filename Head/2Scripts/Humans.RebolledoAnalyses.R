@@ -38,12 +38,14 @@ table(Mut$FromTo)
 table(Mut[Mut$FromTo == 'T_C',]$Category)
 
 Child = Mut[Mut$Category == 'child',]
+# Child = Child[Child$Annotation == 'synonymous_variant',] # !!!!!
+# Child = Child[Child$Mitomap == 'annotated',] # !!!!!
 table(Child$FromTo)
 # A_G A_T C_T G_A T_C 
 # 6   1   1   4   4 
 
 ## compare reproduction age for different mutation types: We can just report this result, no more!!!! Do it. 
-## Cite the main colcusion of the paper (reread it and say that T_C might be the strongest driver, because the maximal mean age)
+## Cite the main conclusion of the paper (reread it and say that T_C might be the strongest driver, because the maximal mean age)
 ## report the trend, not statistical result - it is difficult to get significant result with so low numbers.
 
 mean(Child[Child$FromTo == 'T_C',]$MotherMinusKid); nrow(Child[Child$FromTo == 'T_C',]) # 34.075
@@ -53,21 +55,20 @@ mean(Child[Child$FromTo == 'G_A',]$MotherMinusKid); nrow(Child[Child$FromTo == '
 mean(Child[Child$FromTo == 'A_T',]$MotherMinusKid) # 37.9 - just one
 mean(Child[Child$FromTo == 'C_T',]$MotherMinusKid) # 25.1 - just one
 
-median(Child[Child$FromTo == 'T_C',]$MotherMinusKid) # 34.65
-median(Child[Child$FromTo != 'T_C',]$MotherMinusKid) # 33.05
-median(Child[Child$FromTo == 'A_G',]$MotherMinusKid) # 33.5
-median(Child[Child$FromTo == 'G_A',]$MotherMinusKid) # 31.95
-median(Child[Child$FromTo == 'A_T',]$MotherMinusKid) # 37.9 - just one
-median(Child[Child$FromTo == 'C_T',]$MotherMinusKid) # 25.1 - just one
-
 wilcox.test(Child[Child$FromTo == 'T_C',]$MotherMinusKid,Child[Child$FromTo == 'G_A',]$MotherMinusKid, alternative = 'greater')  # p = 0.0956 
 wilcox.test(Child[Child$FromTo == 'T_C',]$MotherMinusKid, Child[Child$FromTo != 'T_C',]$MotherMinusKid, alternative = 'greater') # p = 0.19
+wilcox.test(Child[Child$FromTo == 'T_C' | Child$FromTo == 'A_G',]$MotherMinusKid, Child[Child$FromTo != 'T_C' || Child$FromTo != 'A_G',]$MotherMinusKid, alternative = 'greater') # p = 0.19
 
 TCGA = Child[Child$FromTo == 'T_C' | Child$FromTo == 'G_A',]
 summary(Child$MotherMinusKid) # 33.55
 nrow(Child[Child$FromTo == 'T_C' & Child$MotherMinusKid < median(Child$MotherMinusKid),])/nrow(Child[Child$FromTo == 'G_A' & Child$MotherMinusKid < median(Child$MotherMinusKid),])   # 1 to 3
 nrow(Child[Child$FromTo == 'T_C' & Child$MotherMinusKid >= median(Child$MotherMinusKid),])/nrow(Child[Child$FromTo == 'G_A' & Child$MotherMinusKid >= median(Child$MotherMinusKid),]) # 3 vs 1
 
+## Take a subset of kids with several de novo mtDNA mutations and compare them according to their VAFs:
 
 
+## somatic mutations in mothers versus their age - no difference:
+SomGain = Mut[Mut$Category == 'somatic-gain' & !is.na(Mut$AgeOfMothers),]
+mean(SomGain[SomGain$FromTo == 'T_C',]$AgeOfMothers); nrow(SomGain[SomGain$FromTo == 'T_C',]);
+mean(SomGain[SomGain$FromTo != 'T_C',]$AgeOfMothers); nrow(SomGain[SomGain$FromTo != 'T_C',]);
 
