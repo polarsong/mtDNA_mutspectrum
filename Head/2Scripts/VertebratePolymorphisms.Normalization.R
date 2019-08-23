@@ -13,12 +13,11 @@ VecOfSynFourFoldDegenerateSites <- c('CTT', 'CTC', 'CTA', 'CTG',
                                      'GGT', 'GGC', 'GGA', 'GGG')
 length(unique(VecOfSynFourFoldDegenerateSites)) # 32
 
-unzip("../../Body/2Derived/POLARIZEDBR_DATA.zip", exdir= "../../Body/2Derived/")
-List = list.files("../../Body/2Derived/POLARIZEDBR_DATA/")
+unzip("../../Body/2Derived/POLARIZEDBR_DATA.zip")
+List = list.files("../../Body/2Derived/POLARIZEDBR_DATA/POLARIZEDBR_DATA/")
 
-for (i in 1:length(List))
-{ # i = 1303
-  infile = paste("../../Body/2Derived/POLARIZEDBR_DATA/",as.character(List[i]),sep='') 
+for (i in 1:length(List)){ # i = 1303
+  infile = paste("../../Body/2Derived/POLARIZEDBR_DATA/POLARIZEDBR_DATA/",as.character(List[i]),sep='') 
   if (length(grep('POLARISED',infile)) > 0)
   {
   Species = gsub('\\..*','',as.character(List[i]))
@@ -56,10 +55,10 @@ Final = as.data.frame(Final); names(Final)=c('Species','Gene','A','T','G','C','N
 write.table(Final, "../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt", quote = FALSE, row.names = FALSE)
 
 ## delete all unziped files
-files <- list.files("../../Body/2Derived/POLARIZEDBR_DATA/")
+files <- list.files("../../Body/2Derived/POLARIZEDBR_DATA/POLARIZEDBR_DATA/")
 for (i in 1:length(files)) 
 { # i = 1
-  file = paste('../../Body/2Derived/POLARIZEDBR_DATA/',files[i],sep='')
+  file = paste('../../Body/2Derived/POLARIZEDBR_DATA/POLARIZEDBR_DATA/',files[i],sep='')
   if (file.exists(file)) file.remove(file)
 }
 
@@ -153,3 +152,37 @@ pie(PieChartTable[PieChartTable$Class == VecOfClasses[i],]$Normalised2Number, la
 
 dev.off()
 
+##########barplots########
+library("ggpubr")
+
+NormFrac = read.table("../../Body/3Results/VertebratePolymorphisms.Normalization.Normalized12Fractions.txt", header = TRUE)
+NormFracMamm = NormFrac[NormFrac$Class %in% "Mammalia",]
+NormFracMamm$SubsHCh = 1
+
+for ( i in 1:length(NormFracMamm)){
+  if (NormFracMamm$Subs[i] == "A_C") {NormFracMamm$SubsHCh[i] = "T_G"}
+  if (NormFracMamm$Subs[i] == "A_G") {NormFracMamm$SubsHCh[i] = "T_C"}
+  if (NormFracMamm$Subs[i] == "A_T") {NormFracMamm$SubsHCh[i] = "T_A"}
+
+  if (NormFracMamm$Subs[i] == "C_A") {NormFracMamm$SubsHCh[i] = "G_T"}
+  if (NormFracMamm$Subs[i] == "C_G") {NormFracMamm$SubsHCh[i] = "G_C"}
+  if (NormFracMamm$Subs[i] == "C_T") {NormFracMamm$SubsHCh[i] = "G_A"}
+
+  if (NormFracMamm$Subs[i] == "G_A") {NormFracMamm$SubsHCh[i] = "C_T"}
+  if (NormFracMamm$Subs[i] == "G_C") {NormFracMamm$SubsHCh[i] = "C_G"}
+  if (NormFracMamm$Subs[i] == "G_T") {NormFracMamm$SubsHCh[i] = "C_A"}
+
+  if (NormFracMamm$Subs[i] == "T_A") {NormFracMamm$SubsHCh[i] = "A_T"}
+  if (NormFracMamm$Subs[i] == "T_C") {NormFracMamm$SubsHCh[i] = "A_G"}
+  if (NormFracMamm$Subs[i] == "T_G") {NormFracMamm$SubsHCh[i] = "A_C"} 
+}
+
+
+
+
+
+
+pdf("../../Body/4Figures/VertebratePolymorphisms.Normalization.R.02.Bars.pdf")
+ggbarplot(NormFracMamm, "SubsHCh", "Normalised2Number", xlab="Substitution types", ylab="Normalised frequencies", 
+          fill = "Subs", color = "Subs", palette = c("#bb1300", "#e5e3b9", "#74c500", "#0080ce", "#7748ec", "#ffc6ee", "#ff00b3", "#cbbcee", "#9acae7", "#bace9e", "#f2e800", "#c56e64"))
+dev.off()
