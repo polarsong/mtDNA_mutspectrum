@@ -184,5 +184,5 @@ for ( i in 1:length(NormFracMamm)){
 
 pdf("../../Body/4Figures/VertebratePolymorphisms.Normalization.R.02.Bars.pdf")
 ggbarplot(NormFracMamm, "SubsHCh", "Normalised2Number", xlab="Substitution types", ylab="Normalised frequencies", 
-          fill = "Subs", color = "Subs", palette = c("#bb1300", "#e5e3b9", "#74c500", "#0080ce", "#7748ec", "#ffc6ee", "#ff00b3", "#cbbcee", "#9acae7", "#bace9e", "#f2e800", "#c56e64"))
+          fill = "Subs", color = "Subs", palette = c("#bdbdbd", "#7fcdbb", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#feb24c", "#f03b20", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#2c7fb8", "#bdbdbd"))
 dev.off()
