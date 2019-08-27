@@ -1,20 +1,23 @@
 rm(list=ls(all=TRUE))
 
+
+### read data
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 class(MUT$A_T)
 class(MUT$Species)
-
 
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 class(TEMPE$Temperature)
 class(TEMPE$Species)
 
+### derive data:
 
+### calculating average for repeating species in TEMPE
+averageTEMPE = aggregate(Temperature ~ ., mean, data = TEMPE)
 
-
-### temperature in fishes: 
-
+### temperature in fishes 
 TemperMut = merge(MUT,TEMPE)   # 1170 rows
+
 
 ###### Temperature, Mass, MetabolRate
 ###### Temperature ~ T_C 
