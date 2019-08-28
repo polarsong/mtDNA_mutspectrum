@@ -83,7 +83,7 @@ propTCo = nrow(old[old$FromTo == "T_C",])/(nrow(old[old$FromTo == "T_C",])+nrow(
 propGAo = nrow(old[old$FromTo == "G_A",])/(nrow(old[old$FromTo == "T_C",])+nrow(old[old$FromTo == "G_A",]))
 
 subs = c("A>G","C>T","A>G","C>T")
-age = c(">33", "<34", "<34",">33")
+age = c("<33", ">34", ">34","<33")
 pr = c(propTCy, propGAo, propTCo, propGAy)
 
 ploot = data.frame(subs, age, pr, row.names = NULL)
