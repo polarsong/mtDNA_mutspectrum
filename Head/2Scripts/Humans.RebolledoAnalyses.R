@@ -82,11 +82,14 @@ propGAy = nrow(young[young$FromTo == "G_A",])/(nrow(young[young$FromTo == "T_C",
 propTCo = nrow(old[old$FromTo == "T_C",])/(nrow(old[old$FromTo == "T_C",])+nrow(old[old$FromTo == "G_A",]))
 propGAo = nrow(old[old$FromTo == "G_A",])/(nrow(old[old$FromTo == "T_C",])+nrow(old[old$FromTo == "G_A",]))
 
-subs = c("T>C","G>A","T>C","G>A")
+subs = c("A>G","C>T","A>G","C>T")
 age = c(">33", "<34", "<34",">33")
 pr = c(propTCy, propGAo, propTCo, propGAy)
 
 ploot = data.frame(subs, age, pr, row.names = NULL)
+class(ploot$subs)
 
-#need barplot! x="Transitions" y="Proportion of Ts types"
-
+#need barplot! x="Age of mothers" y="Proportion of Ts types"
+ggbarplot(ploot, "age", "pr", xlab="Age of mothers", ylab = "Proportion of Ts types",
+          fill = "subs", color = "subs", palette = "Paired",
+          label = TRUE, lab.col = "white", lab.pos = "in")
