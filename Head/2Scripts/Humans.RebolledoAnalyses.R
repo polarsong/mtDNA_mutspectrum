@@ -93,3 +93,17 @@ class(ploot$subs)
 ggbarplot(ploot, "age", "pr", xlab="Age of mothers", ylab = "Proportion of Ts types",
           fill = "subs", color = "subs", palette = "Paired",
           label = TRUE, lab.col = "white", lab.pos = "in")
+
+propTCy = nrow(young[young$FromTo == "T_C",])/nrow(young)
+propNTCy = nrow(young[young$FromTo != "T_C",])/nrow(young)
+
+propTCo = nrow(old[old$FromTo == "T_C",])/nrow(old)
+propNTCo = nrow(old[old$FromTo != "T_C",])/nrow(old)
+subs = c("A>G","other","A>G","other")
+age = c("<33", ">34", ">34","<33")
+pr2 = c(propTCy, propNTCo, propTCo, propNTCy)
+ploot2 = data.frame(subs, age, pr2, row.names = NULL)
+
+ggbarplot(ploot2, "age", "pr2", xlab="Age of mothers", ylab = "Proportion of Ts types",
+          fill = "subs", color = "subs", palette = "Paired",
+          label = TRUE, lab.col = "white", lab.pos = "in")
