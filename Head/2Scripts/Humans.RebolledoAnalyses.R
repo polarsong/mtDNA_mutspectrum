@@ -16,8 +16,7 @@ Mut = merge(Mut,Ann, all.x = TRUE)
 Age = read.table("../../Body/1Raw/Rebolledo2014/S1.txt", sep = '\t', header = TRUE)
 Age$Sample = gsub("-bl",'',Age$BloodId)
 Age$length = 0;
-for (i in 1:nrow(Age))
-{
+for (i in 1:nrow(Age)){
   Age$length[i] = length(unlist(strsplit(Age$Sample[i],split='')))
 }
 AgeOfMothers = Age[Age$length <= 4,];  AgeOfMothers$AgeOfMothers = AgeOfMothers$AgeAtCollection; AgeOfMothers=AgeOfMothers[,c(4,6)]
@@ -71,4 +70,23 @@ nrow(Child[Child$FromTo == 'T_C' & Child$MotherMinusKid >= median(Child$MotherMi
 SomGain = Mut[Mut$Category == 'somatic-gain' & !is.na(Mut$AgeOfMothers),]
 mean(SomGain[SomGain$FromTo == 'T_C',]$AgeOfMothers); nrow(SomGain[SomGain$FromTo == 'T_C',]);
 mean(SomGain[SomGain$FromTo != 'T_C',]$AgeOfMothers); nrow(SomGain[SomGain$FromTo != 'T_C',]);
+
+
+
+#######two groups to compare
+young=Child[Child$MotherMinusKid < median(Child$MotherMinusKid),] # under 33
+old=Child[Child$MotherMinusKid >= median(Child$MotherMinusKid),]  # over 34
+
+propTCy = nrow(young[young$FromTo == "T_C",])/(nrow(young[young$FromTo == "T_C",])+nrow(young[young$FromTo == "G_A",]))
+propGAy = nrow(young[young$FromTo == "G_A",])/(nrow(young[young$FromTo == "T_C",])+nrow(young[young$FromTo == "G_A",]))
+propTCo = nrow(old[old$FromTo == "T_C",])/(nrow(old[old$FromTo == "T_C",])+nrow(old[old$FromTo == "G_A",]))
+propGAo = nrow(old[old$FromTo == "G_A",])/(nrow(old[old$FromTo == "T_C",])+nrow(old[old$FromTo == "G_A",]))
+
+subs = c("T>C","G>A","T>C","G>A")
+age = c(">33", "<34", "<34",">33")
+pr = c(propTCy, propGAo, propTCo, propGAy)
+
+ploot = data.frame(subs, age, pr, row.names = NULL)
+
+#need barplot! x="Transitions" y="Proportion of Ts types"
 
