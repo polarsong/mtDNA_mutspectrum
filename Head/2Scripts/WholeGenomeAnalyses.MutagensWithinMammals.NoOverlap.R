@@ -91,6 +91,9 @@ b <- setdiff(tree_vec, df_vec)
 data = data[-597,] # It is duplicate
 row.names(data) = data$Species
 tree2 <- drop.tip(tree, b)
+
+matchedData = data[match(tree2$tip.label, data$Species),]
+
 # Old
 # Phylogenetic tree: tree2
 #
@@ -137,7 +140,7 @@ tree2 <- drop.tip(tree, b)
 #                         Prionailurus_viverrinus
 #                         Prionailurus_rubiginosus
 #   No node labels.
-TempData = data[, -1]
+# TempData = data[, -1]
  # TempData %>% skim()
 # n obs: 649
 # n variables: 5
@@ -156,10 +159,18 @@ TempData = data[, -1]
 
 
 
-p_load(tibble, dplyr, magrittr, purrr, skimr)
-contrasts <- TempData %>%
+# p_load(tibble, dplyr, magrittr, purrr, skimr)
+# contrasts <- TempData %>%
 #  select(GenerationLength_d, FrA, FrT, FrG, FrC) %>%
-  mutate_if(is.numeric, log2) %>%
+#   mutate_if(is.numeric, log2) %>%
+#   map(pic, tree2)
+
+matchedData$GenerationLength_d = log2(matchedData$GenerationLength_d)
+
+p_load(tibble, dplyr, magrittr, purrr, skimr)
+contrasts <- matchedData[, -1] %>%
+#  select(GenerationLength_d, FrA, FrT, FrG, FrC) %>%
+#  mutate_if(is.numeric, log2) %>%
   map(pic, tree2)
 
   # n obs: 648
@@ -176,15 +187,27 @@ contrasts <- TempData %>%
 # contrasts2 <- as.data.frame(apply(TempData, 2, pic, tree2))
 # names(contrasts2) = names(TempData)
 
-summary(pic(log2(TempData$GenerationLength_d), tree2)) == summary(contrasts$GenerationLength_d)
+# summary(pic(log2(matchedData$GenerationLength_d), tree2)) == summary(contrasts$GenerationLength_d)
+summary(pic(matchedData$GenerationLength_d, tree2)) == summary(contrasts$GenerationLength_d)
 
-# Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
-# -85.2348  -2.5281   0.0000  -0.1349   2.5727  33.8374
+############################################################################
 
-#      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
-# -28.39738  -0.90117   0.00000  -0.00859   0.99571  11.56081
+library(caper)
 
-#### why < 0 ???
+
+comparTable = comparative.data(tree2, matchedData, Species)
+
+crunch(scale(GenerationLength_d) ~ scale(FrT), data=comparTable) # est -0.10025, p 0.0172
+crunch(scale(GenerationLength_d) ~ scale(FrC), data=comparTable) # est 0.12110 p 0.00591
+crunch(GenerationLength_d ~ FrA, data=comparTable)
+crunch(GenerationLength_d ~ FrG, data=comparTable)
+
+# crunch(scale(GenerationLength_d) ~ scale(FrT), data=comparTable, node.depth = 2)
+# crunch(scale(GenerationLength_d) ~ scale(FrC), data=comparTable, node.depth = 2)
+
+crunch(GenerationLength_d ~ FrT + FrC + FrA, data=comparTable) # the same for contrasts
+crunch(scale(GenerationLength_d) ~ FrT + FrC, data=comparTable)
+
 
 cor.test(contrasts$GenerationLength_d, contrasts$FrT, method= 'spearman')  # p = 0.02491, rho = -0.08810244  # PAPER
 cor.test(contrasts$GenerationLength_d, contrasts$FrC, method= 'spearman')  # p = 0.02121, rho =  0.09050626  # PAPER
