@@ -202,6 +202,12 @@ crunch(scale(GenerationLength_d) ~ scale(FrC), data=comparTable) # est 0.12110 p
 crunch(GenerationLength_d ~ FrA, data=comparTable)
 crunch(GenerationLength_d ~ FrG, data=comparTable)
 
+model = pgls(GenerationLength_d ~ FrC + FrT + FrA, comparTable, lambda = 'ML')
+summary(model)
+
+model = pgls(GenerationLength_d ~ FrC, comparTable, lambda = 'ML')
+summary(model)
+
 # crunch(scale(GenerationLength_d) ~ scale(FrT), data=comparTable, node.depth = 2)
 # crunch(scale(GenerationLength_d) ~ scale(FrC), data=comparTable, node.depth = 2)
 
