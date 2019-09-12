@@ -28,7 +28,7 @@ table(SynNuc$Class)/13
 
 AGG = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species,SynNuc$Class,SynNuc$Gene), FUN = sum)
 names(AGG) = c('Species','Class','Gene','NeutralA','NeutralT','NeutralG','NeutralC')
-AGG$AGSkew = (AGG$NeutralG - AGG$NeutralA)/(AGG$NeutralG + AGG$NeutralA)
+AGG$CTSkew = (AGG$NeutralC - AGG$NeutralT)/(AGG$NeutralC + AGG$NeutralT)
 
 
 
@@ -55,7 +55,7 @@ M$Gene =  ordered(M$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','N
 M = M[order(M$Gene),]
 
 par(mfrow=c(2,1), oma = c(3, 1, 1, 1), cex = 2)
-boxplot(AGSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col = c('red','green'), ylim = c(-1,0), main = 'Mammalia, AG skew')
+boxplot(CTSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col = c('red','green'), ylim = c(-1,0), main = 'Mammalia, GA skew')
 
 
 dev.off()
