@@ -28,7 +28,7 @@ table(SynNuc$Class)/13
 
 AGG = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species,SynNuc$Class,SynNuc$Gene), FUN = sum)
 names(AGG) = c('Species','Class','Gene','NeutralA','NeutralT','NeutralG','NeutralC')
-AGG$AGSkew = (AGG$NeutralA - AGG$NeutralG)/(AGG$NeutralA + AGG$NeutralG)
+AGG$AGSkew = (AGG$NeutralG - AGG$NeutralA)/(AGG$NeutralG + AGG$NeutralA)
 
 
 
