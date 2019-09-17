@@ -60,10 +60,10 @@ nuclCount = function(seq, char){
   return(cnt)
 }
 
-aCount = sapply(shortSeq, nuclCount, char='A')
-gCount = sapply(shortSeq, nuclCount, char='G')
+tCount = sapply(shortSeq, nuclCount, char='T')
+cCount = sapply(shortSeq, nuclCount, char='C')
 
 pdf('../../Body/4Figures/WholeGenomeAnalyses.NoOverlapAgAlongGenome.pdf')
-plot(1:length(aCount), aCount)
-plot(1:length(gCount), gCount)
+plot(1:length(tCount), tCount)
+plot(1:length(cCount), cCount)
 dev.off()
