@@ -97,4 +97,123 @@ a = ggplot(longTC, aes(num, tCountlong)) +
   ggtitle('high Generation time') + xlab('Position') + ylab('') +
   scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")); a
 
+# dev.off()
+
+shortTC = as.data.frame(cbind(cCount, tCount))
+shortTC$cCount = - shortTC$cCount
+num = 1:nrow(shortTC)
+shortTC = cbind(shortTC, num)
+
+longTC = as.data.frame(cbind(cCountlong, tCountlong))
+longTC$cCountlong = - longTC$cCountlong
+num = 1:nrow(longTC)
+longTC = cbind(longTC, num)
+
+p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
+  
+  # This add the bars with a blue color
+  geom_bar(aes(fill = 'red'), stat="identity") +
+  geom_bar(aes(num, cCount, fill='green'), stat = "identity") +
+  # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
+  ylim(-20, 20) +
+  
+  # Custom the theme: no axis title and no cartesian grid
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+  ) +
+  
+  # This makes the coordinate polar instead of cartesian.
+  coord_polar(start = 0) + scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
+p
+
+p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
+  
+  # This add the bars with a blue color
+  geom_bar(stat="identity", aes(fill = 'red')) +
+  geom_bar(aes(num, cCountlong, fill='green'), stat = "identity") +
+  # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
+  ylim(-20, 20) +
+  
+  # Custom the theme: no axis title and no cartesian grid
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+  ) +
+  
+  # This makes the coordinate polar instead of cartesian.
+  coord_polar(start = 0) +
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
+p
+
+############################################################
+### add zeros
+
+shortTC = as.data.frame(cbind(cCount, tCount))
+shortTC$cCount = - shortTC$cCount
+a = as.data.frame(matrix(0, ncol = 2, nrow = 35))
+names(a) = names(shortTC)
+shortTC = rbind(shortTC, a)
+num = 1:nrow(shortTC)
+shortTC = cbind(shortTC, num)
+
+longTC = as.data.frame(cbind(cCountlong, tCountlong))
+longTC$cCountlong = - longTC$cCountlong
+a = as.data.frame(matrix(0, ncol = 2, nrow = 37))
+names(a) = names(longTC)
+longTC = rbind(longTC, a)
+num = 1:nrow(longTC)
+longTC = cbind(longTC, num)
+
+p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
+  
+  # This add the bars with a blue color
+  geom_bar(stat="identity", aes(fill = 'red')) +
+  geom_bar(aes(num, cCount, fill='green'), stat = "identity") +
+  # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
+  ylim(-20, 20) +
+  
+  # Custom the theme: no axis title and no cartesian grid
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+  ) +
+  
+  # This makes the coordinate polar instead of cartesian.
+  coord_polar(start = 0) +
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
+p
+
+
+p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
+  
+  # This add the bars with a blue color
+  geom_bar(stat="identity", aes(fill = 'red')) +
+  geom_bar(aes(num, cCountlong, fill='green'), stat = "identity") +
+  # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
+  ylim(-20, 20) +
+  
+  # Custom the theme: no axis title and no cartesian grid
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+  ) +
+  
+  # This makes the coordinate polar instead of cartesian.
+  coord_polar(start = 0) +
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
+p
+
 dev.off()
