@@ -1,6 +1,7 @@
 rm(list=ls(all=TRUE))
 
 library(seqinr)
+library(ggplot2)
 
 ############ Syn mut
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
@@ -63,7 +64,37 @@ nuclCount = function(seq, char){
 tCount = sapply(shortSeq, nuclCount, char='T')
 cCount = sapply(shortSeq, nuclCount, char='C')
 
+tCountlong = sapply(longSeq, nuclCount, char='T')
+cCountlong = sapply(longSeq, nuclCount, char='C')
+
+plot(1:length(tCountlong), tCountlong)
+plot(1:length(cCountlong), cCountlong)
+
+shortTC = as.data.frame(cbind(cCount, tCount))
+shortTC$cCount = - (shortTC$cCount / 20)
+shortTC$tCount = shortTC$tCount / 20
+num = 1:nrow(shortTC)
+shortTC = cbind(shortTC, num)
+
+longTC = as.data.frame(cbind(cCountlong, tCountlong))
+longTC$cCountlong = - (longTC$cCountlong / 20)
+longTC$tCountlong = longTC$tCountlong / 20
+num = 1:nrow(longTC)
+longTC = cbind(longTC, num)
+
+
 pdf('../../Body/4Figures/WholeGenomeAnalyses.NoOverlapAgAlongGenome.pdf')
-plot(1:length(tCount), tCount)
-plot(1:length(cCount), cCount)
+
+a = ggplot(shortTC, aes(num, tCount)) +
+  geom_bar(aes(fill = 'red'), stat = "identity") +
+  geom_bar(aes(num, cCount, fill = 'green'), stat = "identity") +
+  ggtitle('low Generation time') + xlab('Position') + ylab('') +
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")); a
+
+a = ggplot(longTC, aes(num, tCountlong)) +
+  geom_bar(aes(fill = 'red'), stat = "identity") +
+  geom_bar(aes(num, cCountlong, fill = 'green'), stat = "identity") +
+  ggtitle('high Generation time') + xlab('Position') + ylab('') +
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")); a
+
 dev.off()
