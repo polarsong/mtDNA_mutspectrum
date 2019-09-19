@@ -112,7 +112,7 @@ M = merge(AGG,GT, by ='Species')
 summary(M$GenerationLength_d) # median = 2190.0
 ShortLived = unique(M[M$GenerationLength_d <= median(M$GenerationLength_d),]$Species); length(ShortLived)
 LongLived = unique(M[M$GenerationLength_d  > median(M$GenerationLength_d),]$Species);  length(LongLived)
-MShort = M[M$Species %in% ShortLived,]; MShort$GT = 'short'; MLong = M[M$Species %in% LongLived,]; MLong$GT = 'long';
+MShort = M[M$Species %in% ShortLived,]; MShort$GT = 'short lived'; MLong = M[M$Species %in% LongLived,]; MLong$GT = 'long lived';
 M = rbind(MShort,MLong)
 
 M$Gene =  ordered(M$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','ND6','CytB', 'ND1','ND2'))
@@ -163,5 +163,5 @@ dev.off()
 library("ggpubr")
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NoOverlap.AGSkew.R.02.pdf", height = 10, width = 20)
 ggboxplot(M, "Gene", "CTSkew",
-          fill = "GT", palette = c("#5c76d6", "#d65c5c"), xlab="Genes", ylab="AG skew", title = "AG skew in long- vs shortlived mammals", legend.title = "Mammals' longevity", width = 0.7)
+          fill = "GT", palette = c("#5c76d6", "#d65c5c"), xlab="Genes", ylab="GA skew", title = "GA skew in long- vs shortlived mammals", legend.title = "Mammals", width = 0.7, notch = TRUE)
 dev.off()
