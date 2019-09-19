@@ -126,6 +126,11 @@ M = M[!M$Gene %in% c('ND6','ND1','ND2'),]
 M$Gene =  ordered(M$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','CytB'))
 boxplot(CTSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col = c('red','green'), main = 'Mammalia, GA skew')
 
+
+
+
+
+
 ####### naive multiple linear model, assigning numbers to order of genes. We can improve it substituting integers by real time or using more correct stat
 FromGenesToNumbers = data.frame(c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','CytB'),seq(1:10)); names(FromGenesToNumbers)=c('Gene','TSSS') # time spend single stranded
 M=merge(M,FromGenesToNumbers) 
@@ -151,4 +156,12 @@ A<-lm(M$CTSkew ~ scale(M$GenerationLength_d)*scale(M$TSSS)); summary(A)  # inter
 #  scale(M$TSSS)                              0.111289   0.002865  38.844   <2e-16 ***
 #  scale(M$GenerationLength_d):scale(M$TSSS) -0.002585   0.002865  -0.902    0.367  
 
+dev.off()
+
+####beautiful boxplots###################
+
+library("ggpubr")
+pdf("../../Body/4Figures/WholeGenomeAnalyses.NoOverlap.AGSkew.R.02.pdf", height = 10, width = 20)
+ggboxplot(M, "Gene", "CTSkew",
+          fill = "GT", palette = c("#5c76d6", "#d65c5c"), xlab="Genes", ylab="AG skew", title = "AG skew in long- vs shortlived mammals", legend.title = "Mammals' longevity", width = 0.7)
 dev.off()
