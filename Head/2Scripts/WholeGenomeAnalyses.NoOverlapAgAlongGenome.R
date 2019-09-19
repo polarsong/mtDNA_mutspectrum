@@ -71,14 +71,12 @@ plot(1:length(tCountlong), tCountlong)
 plot(1:length(cCountlong), cCountlong)
 
 shortTC = as.data.frame(cbind(cCount, tCount))
-shortTC$cCount = - (shortTC$cCount / 20)
-shortTC$tCount = shortTC$tCount / 20
+shortTC$cCount = - shortTC$cCount
 num = 1:nrow(shortTC)
 shortTC = cbind(shortTC, num)
 
 longTC = as.data.frame(cbind(cCountlong, tCountlong))
-longTC$cCountlong = - (longTC$cCountlong / 20)
-longTC$tCountlong = longTC$tCountlong / 20
+longTC$cCountlong = - longTC$cCountlong
 num = 1:nrow(longTC)
 longTC = cbind(longTC, num)
 
@@ -128,7 +126,7 @@ p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. I
   
   # This makes the coordinate polar instead of cartesian.
   coord_polar(start = 0) + scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
-p
+# p
 
 p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
@@ -150,14 +148,14 @@ p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor
   # This makes the coordinate polar instead of cartesian.
   coord_polar(start = 0) +
   scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
-p
+# p
 
 ############################################################
 ### add zeros
 
 shortTC = as.data.frame(cbind(cCount, tCount))
 shortTC$cCount = - shortTC$cCount
-a = as.data.frame(matrix(0, ncol = 2, nrow = 35))
+a = as.data.frame(matrix(0, ncol = 2, nrow = 40))
 names(a) = names(shortTC)
 shortTC = rbind(shortTC, a)
 num = 1:nrow(shortTC)
@@ -165,7 +163,7 @@ shortTC = cbind(shortTC, num)
 
 longTC = as.data.frame(cbind(cCountlong, tCountlong))
 longTC$cCountlong = - longTC$cCountlong
-a = as.data.frame(matrix(0, ncol = 2, nrow = 37))
+a = as.data.frame(matrix(0, ncol = 2, nrow = 42))
 names(a) = names(longTC)
 longTC = rbind(longTC, a)
 num = 1:nrow(longTC)
@@ -182,17 +180,17 @@ p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. I
   # Custom the theme: no axis title and no cartesian grid
   theme_minimal() +
   theme(
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    panel.grid = element_blank(),
-    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+  #plot.title = element_text('Tarsipes rostratus, 341.275')
+   axis.text = element_blank(),
+   axis.title = element_blank(),
+   panel.grid = element_blank()
+   # plot.margin = unit(rep(-1,4), "cm")     # This remove unnecessary margin around plot
   ) +
   
   # This makes the coordinate polar instead of cartesian.
-  coord_polar(start = 0) +
+  coord_polar(start = 3*pi/4, direction = -1) +
   scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
-p
-
+print(p + labs(title = 'Tarsipes rostratus, 341 days'))
 
 p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
@@ -207,13 +205,13 @@ p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor
   theme(
     axis.text = element_blank(),
     axis.title = element_blank(),
-    panel.grid = element_blank(),
-    plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
+    panel.grid = element_blank()
+    # plot.margin = unit(rep(-2,4), "cm")     # This remove unnecessary margin around plot
   ) +
   
   # This makes the coordinate polar instead of cartesian.
-  coord_polar(start = 0) +
+  coord_polar(start = 3*pi/4, direction = -1) +
   scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
-p
+p + ggtitle('Balaena mysticetus, 18980 days')
 
 dev.off()
