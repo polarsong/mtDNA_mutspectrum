@@ -162,6 +162,8 @@ dev.off()
 
 library("ggpubr")
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NoOverlap.AGSkew.R.02.pdf", height = 10, width = 20)
-ggboxplot(M, "Gene", "CTSkew",
-          fill = "GT", palette = c("#5c76d6", "#d65c5c"), xlab="Genes", ylab="GA skew", title = "GA skew in long- vs shortlived mammals", legend.title = "Mammals", width = 0.7, notch = TRUE)
+MM = M
+MM$GT<- factor(MM$GT, levels = c("short lived", "long lived"))
+ggboxplot(MM, "Gene", "CTSkew",
+          fill = "GT", palette = c("#22AF1D", "#0B350B"), xlab="Genes", ylab="GA skew", title = "GA skew in long- vs shortlived mammals", legend.title = "Mammals", width = 0.7, notch = TRUE)
 dev.off()
