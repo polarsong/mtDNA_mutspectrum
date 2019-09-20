@@ -83,17 +83,22 @@ longTC = cbind(longTC, num)
 
 pdf('../../Body/4Figures/WholeGenomeAnalyses.NoOverlapAgAlongGenome.pdf')
 
+ColG = rgb(0.1,0.1,0.1,0.5)
+ColA = rgb(1,0.1,0.1,0.5)
+
 a = ggplot(shortTC, aes(num, tCount)) +
-  geom_bar(aes(fill = 'red'), stat = "identity") +
-  geom_bar(aes(num, cCount, fill = 'green'), stat = "identity") +
+  geom_bar(fill = ColA, color = 'white', stat = "identity") +
+  geom_bar(aes(num, cCount), fill = ColG, color = 'white', stat = "identity") +
   ggtitle('low Generation time') + xlab('Position') + ylab('') +
-  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")); a
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")) +
+  theme_classic(); a
 
 a = ggplot(longTC, aes(num, tCountlong)) +
-  geom_bar(aes(fill = 'red'), stat = "identity") +
-  geom_bar(aes(num, cCountlong, fill = 'green'), stat = "identity") +
+  geom_bar(fill = ColA, color = 'white', stat = "identity") +
+  geom_bar(aes(num, cCountlong), fill = ColG, color = 'white', stat = "identity") +
   ggtitle('high Generation time') + xlab('Position') + ylab('') +
-  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")); a
+  scale_fill_discrete(name = "Nucleotide", labels = c("G", "A")) +
+  theme_classic(); a
 
 # dev.off()
 
@@ -110,8 +115,8 @@ longTC = cbind(longTC, num)
 p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
   # This add the bars with a blue color
-  geom_bar(aes(fill = 'red'), stat="identity") +
-  geom_bar(aes(num, cCount, fill='green'), stat = "identity") +
+  geom_bar(fill = ColA, color = 'white', stat="identity") +
+  geom_bar(aes(num, cCount), fill = ColG, color = 'white', stat = "identity") +
   # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
   ylim(-20, 20) +
   
@@ -131,8 +136,8 @@ p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. I
 p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
   # This add the bars with a blue color
-  geom_bar(stat="identity", aes(fill = 'red')) +
-  geom_bar(aes(num, cCountlong, fill='green'), stat = "identity") +
+  geom_bar(stat="identity", fill = ColA, color = 'white') +
+  geom_bar(aes(num, cCountlong), fill = ColG, color = 'white', stat = "identity") +
   # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
   ylim(-20, 20) +
   
@@ -172,8 +177,8 @@ longTC = cbind(longTC, num)
 p <- ggplot(shortTC, aes(x=num, y=tCount)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
   # This add the bars with a blue color
-  geom_bar(stat="identity", aes(fill = 'red')) +
-  geom_bar(aes(num, cCount, fill='green'), stat = "identity") +
+  geom_bar(stat="identity", fill = ColA, color = 'white') +
+  geom_bar(aes(num, cCount), fill = ColG, color = 'white', stat = "identity") +
   # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
   ylim(-20, 20) +
   
@@ -195,8 +200,8 @@ print(p + labs(title = 'Tarsipes rostratus, 341 days'))
 p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor. If x is numeric, there is some space between the first bar
   
   # This add the bars with a blue color
-  geom_bar(stat="identity", aes(fill = 'red')) +
-  geom_bar(aes(num, cCountlong, fill='green'), stat = "identity") +
+  geom_bar(stat="identity", fill = ColA, color = 'white') +
+  geom_bar(aes(num, cCountlong), fill = ColG, color = 'white', stat = "identity") +
   # Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar
   ylim(-20, 20) +
   
