@@ -168,7 +168,7 @@ shortTC = cbind(shortTC, num)
 
 longTC = as.data.frame(cbind(cCountlong, tCountlong))
 longTC$cCountlong = - longTC$cCountlong
-a = as.data.frame(matrix(0, ncol = 2, nrow = 42))
+a = as.data.frame(matrix(0, ncol = 2, nrow = 35))
 names(a) = names(longTC)
 longTC = rbind(longTC, a)
 num = 1:nrow(longTC)
