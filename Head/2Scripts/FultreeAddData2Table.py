@@ -35,13 +35,15 @@ aminoacids = {'C' : 'Cys', 'D' : 'Asp', 'S' : 'Ser', 'Q' : 'Gln', 'K' : 'Lys',
               '*' : 'Stop', 'X' : 'Ambiguous', 'J' : 'Leu/Ile', 'B' : 'Asn/Asp',
               'Z' : 'Gln/Glu'}
 
+position = {1 : 1, 2 : 2, 0 : 3}
+
 # Open new table fulltreeCodons for writing
 newTablePath = os.path.join(dirname, "../../Body/3Results/fulltreeCodons.csv")
 newTable = open(newTablePath, 'wt')
 
 # Read header in old file append and store in new
 header = sourceTable.readline().strip('\n')
-newHeader = ";".join([header, "pos_in_codon", "synonymous", "ancestral_aa", "derived_aa", "note"]) 
+newHeader = ";".join([header, "pos_in_codon_anc", "pos_in_codon_der", "synonymous", "ancestral_aa", "derived_aa", "note"]) 
 newTable.write(newHeader + "\n")
 
 for line in sourceTable:
@@ -49,29 +51,33 @@ for line in sourceTable:
 	name = line[-1]
 	# Only take mRNA
 	if 'mRNA' in name:
-		posTable = int(line[3]) # get mutation pos in ref from table
-		
 		# DISREPANCY CHECK DONE
 		# if posTable - startRecord < 0:
-		#	 print("No good")
+		# print("No good") # 0 occurences
 
+		# extract ancestral codon
 		ancestralSeq = line[4]
-		derivedSeq = line[5]
-		# determine position in codon
-		posInCodon = 3 - (posTable % 3)
-		# Get codon from table
-		codonStart = 3 - posInCodon
+		pos = int(line[2])
+		posInCodonAnc = 3 - (pos % 3)
+		codonStart = 3 - posInCodonAnc
 		codonEnd = codonStart + 3
 		ancestralCodon = ancestralSeq[codonStart:codonEnd]
+
+		# extract derived codon
+		derivedSeq = line[5]
+		posRef = int(line[3]) # get mutation pos in ref from table
+		posInCodonDer = 3 - (posRef % 3)
+		codonStart = 3 - posInCodonDer
+		codonEnd = codonStart + 3
 		derivedCodon = derivedSeq[codonStart:codonEnd]
 
 		# If gaps in either sequences then ignore
 		if '-' in ancestralCodon or '-' in derivedCodon:
-			line.extend([posInCodon, "NA", "NA", "NA", "gaps"])
+			line.extend([posInCodonAnc, posInCodonDer, "NA", "NA", "NA", "gaps"])
 			next
 		else:
-			ancestralCodon = Seq(ancestralSeq[codonStart:codonEnd], generic_dna)
-			derivedCodon = Seq(derivedSeq[codonStart:codonEnd], generic_dna)
+			ancestralCodon = Seq(ancestralCodon, generic_dna)
+			derivedCodon = Seq(derivedCodon, generic_dna)
 			ancestralAa = aminoacids[ancestralCodon.translate(table=2)]
 			derivedAa = aminoacids[derivedCodon.translate(table=2)]
 			synonymous = "non-synonymous"
@@ -79,10 +85,9 @@ for line in sourceTable:
 			if ancestralAa == derivedAa:
 				synonymous = "synonymous"
 			note = "normal"
-			line.extend([posInCodon, synonymous, ancestralAa, derivedAa, note])
+			line.extend([position[pos % 3], position[posRef % 3], synonymous, ancestralAa, derivedAa, note])
 	else:
-		line.extend(["NA", "NA", "NA", "NA", "NA"])
-	print(line)
+		line.extend(["NA", "NA", "NA", "NA", "NA", "non-coding"])
 	line = ";".join(str(element) for element in line)
 	newTable.write(line + "\n")
 
