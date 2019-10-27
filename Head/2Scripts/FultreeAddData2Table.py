@@ -40,7 +40,7 @@ newTablePath = os.path.join(dirname, "../../Body/3Results/fulltreeCodons.csv")
 newTable = open(newTablePath, 'wt')
 
 # Read header in old file append and store in new
-header = sourceTable.readline()
+header = sourceTable.readline().strip('\n')
 newHeader = ";".join([header, "pos_in_codon", "synonymous", "ancestral_aa", "derived_aa", "note"]) 
 newTable.write(newHeader + "\n")
 
@@ -78,7 +78,8 @@ for line in sourceTable:
 			#synonymous or not
 			if ancestralAa == derivedAa:
 				synonymous = "synonymous"
-			line.extend([posInCodon, synonymous, ancestralAa, derivedAa])
+			note = "normal"
+			line.extend([posInCodon, synonymous, ancestralAa, derivedAa, note])
 	else:
 		line.extend(["NA", "NA", "NA", "NA", "NA"])
 	print(line)
