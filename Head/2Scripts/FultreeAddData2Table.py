@@ -22,8 +22,23 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.Alphabet import generic_dna
 
-# Open our table. This is the way around relative paths in Python
+# Path name for opening files
 dirname = os.path.dirname(os.path.abspath(__file__))
+
+# Parse Genbank, extract gene start
+refGenes = {}
+refGenbank = os.path.join(dirname, "../../Body/3Results/NC_012920.1.gb")
+refGenbank = open(refGenbank)
+
+# Parse record
+for rec in SeqIO.parse(refGenbank, "genbank"):
+    if rec.features:
+        for feature in rec.features:
+            if feature.type == "CDS":
+            	refGenes[feature.qualifiers['gene'][0]] = int(feature.location.start)
+refGenbank.close()
+
+# Open our table. This is the way around relative paths in Python
 sourceTablePath = os.path.join(dirname, "../../Body/3Results/fulltree.csv")
 sourceTable = open(sourceTablePath)
 
@@ -43,7 +58,7 @@ newTable = open(newTablePath, 'wt')
 
 # Read header in old file append and store in new
 header = sourceTable.readline().strip('\n')
-newHeader = ";".join([header, "pos_in_codon_anc", "pos_in_codon_der", "synonymous", "ancestral_aa", "derived_aa", "note"]) 
+newHeader = ";".join([header, "gene_start", "pos_in_codon", "synonymous", "ancestral_aa", "derived_aa", "note"]) 
 newTable.write(newHeader + "\n")
 
 for line in sourceTable:
@@ -55,25 +70,30 @@ for line in sourceTable:
 		# if posTable - startRecord < 0:
 		# print("No good") # 0 occurences
 
-		# extract ancestral codon
+		# Get gene name
+		nameShort = name.replace("mRNA_","")
+		if "&" in nameShort:
+			nameShort = nameShort.split("&")[0]
+
+		# gene start from ref
+		geneStart = refGenes[nameShort]
+
+		# extract codons
 		ancestralSeq = line[4]
+		derivedSeq = line[5]
 		pos = int(line[2])
-		posInCodonAnc = 3 - (pos % 3)
-		codonStart = 3 - posInCodonAnc
+
+		# beginning of codon, beginning of gene from ref
+		posOfNucl = pos - geneStart
+		posInCodon = position[posOfNucl % 3]
+		codonStart = 3 - posInCodon
 		codonEnd = codonStart + 3
 		ancestralCodon = ancestralSeq[codonStart:codonEnd]
-
-		# extract derived codon
-		derivedSeq = line[5]
-		posRef = int(line[3]) # get mutation pos in ref from table
-		posInCodonDer = 3 - (posRef % 3)
-		codonStart = 3 - posInCodonDer
-		codonEnd = codonStart + 3
 		derivedCodon = derivedSeq[codonStart:codonEnd]
 
 		# If gaps in either sequences then ignore
 		if '-' in ancestralCodon or '-' in derivedCodon:
-			line.extend([posInCodonAnc, posInCodonDer, "NA", "NA", "NA", "gaps"])
+			line.extend([geneStart, posInCodon, "NA", "NA", "NA", "gaps"])
 			next
 		else:
 			ancestralCodon = Seq(ancestralCodon, generic_dna)
@@ -85,7 +105,7 @@ for line in sourceTable:
 			if ancestralAa == derivedAa:
 				synonymous = "synonymous"
 			note = "normal"
-			line.extend([position[pos % 3], position[posRef % 3], synonymous, ancestralAa, derivedAa, note])
+			line.extend([geneStart, posInCodon, synonymous, ancestralAa, derivedAa, note])
 	else:
 		line.extend(["NA", "NA", "NA", "NA", "NA", "non-coding"])
 	line = ";".join(str(element) for element in line)
