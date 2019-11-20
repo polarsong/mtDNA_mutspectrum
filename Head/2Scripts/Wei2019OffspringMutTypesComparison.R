@@ -46,12 +46,58 @@ TotalMutSpecHeavyChain
 #### average heteroplasmy per substitution type: G>A, A>G, Tv, T>C, C>T
 Agg1 = aggregate(OffDeNovo$HeteroplasmicFraction, by = list(OffDeNovo$mutType), FUN = mean)
 Agg1
+#Group.1         x
+#1     A>G  6.039623
+#2     C>T  5.948062
+#3     G>A 10.575000
+#4     T>C  6.271930
+#5      Tv  6.804348
 
-boxplot(OffDeNovo$HeteroplasmicFraction ~ OffDeNovo$mutType, varwidth = TRUE, notch = TRUE)
+## among all de novo substitutions, category of A>G is among the rarest type
+boxplot(OffDeNovo$HeteroplasmicFraction ~ OffDeNovo$mutType, varwidth = TRUE, notch = TRUE, outline = FALSE)
+wilcox.test(OffDeNovo[OffDeNovo$mutType == 'A>G',]$HeteroplasmicFraction,OffDeNovo[OffDeNovo$mutType != 'A>G',]$HeteroplasmicFraction)
+
+##### get a subcohort with at least two substitutions per offspring among which there is one - A>G and another - not A>G
+VecOfOffspringsWithMoreThanOneMut = as.data.frame(table(OffDeNovo$PairID)) 
+VecOfOffspringsWithMoreThanOneMut = VecOfOffspringsWithMoreThanOneMut[VecOfOffspringsWithMoreThanOneMut$Freq>1,]$Var1
+length(VecOfOffspringsWithMoreThanOneMut)  # 71
+VecOfOffspringsWithAtLeastOneA_G = OffDeNovo[OffDeNovo$mutType == 'A>G',]$PairID; length(VecOfOffspringsWithAtLeastOneA_G) # 159
+VecOfOffspringsWithAtLeastOneNotA_G = OffDeNovo[OffDeNovo$mutType != 'A>G',]$PairID; length(VecOfOffspringsWithAtLeastOneNotA_G) # 318
+VecOfOffspringsWithAllSettingsForAnalysis = intersect(VecOfOffspringsWithMoreThanOneMut,VecOfOffspringsWithAtLeastOneA_G)
+VecOfOffspringsWithAllSettingsForAnalysis = intersect(VecOfOffspringsWithAllSettingsForAnalysis,VecOfOffspringsWithAtLeastOneNotA_G)
+length(VecOfOffspringsWithAllSettingsForAnalysis) # 30
+
+OffTwoOrMoreDeNovo = OffDeNovo[OffDeNovo$PairID %in% VecOfOffspringsWithAllSettingsForAnalysis,] # 62
+OffTwoOrMoreDeNovo = OffTwoOrMoreDeNovo[order(OffTwoOrMoreDeNovo$PairID),]
+
+boxplot(OffTwoOrMoreDeNovo$HeteroplasmicFraction ~ OffTwoOrMoreDeNovo$mutType, varwidth = TRUE, notch = TRUE, outline = FALSE)
+
+counter = 0
+for (i in 1:length(VecOfOffspringsWithAllSettingsForAnalysis))
+{ # i = 1
+  temp = OffTwoOrMoreDeNovo[OffTwoOrMoreDeNovo$PairID ==  VecOfOffspringsWithAllSettingsForAnalysis[i],]
+  AtoGVaf    = mean(temp[temp$mutType == 'A>G',]$HeteroplasmicFraction)
+  NotAtoGVaf = mean(temp[temp$mutType != 'A>G',]$HeteroplasmicFraction)
+  OneLine = data.frame(VecOfOffspringsWithAllSettingsForAnalysis[i],AtoGVaf,NotAtoGVaf)
+  if (AtoGVaf < NotAtoGVaf) {counter=counter+1}
+  if (i == 1) {final = OneLine}
+  if (i >  1) {final = rbind(final,OneLine)}
+}
+counter # 16 = exactly the middle....
+wilcox.test(final$AtoGVaf,final$NotAtoGVaf, paired = TRUE, alternative = 'less') # 0.207
+
+dev.off()
+plot(0,0,xlim = c(0,10), ylim = c(0,1), pch = NA)
+for (i in 1:nrow(final)) {   segments(final$NotAtoGVaf[i],0,final$AtoGVaf[i],1) }
+
+final = final[final$AtoGVaf <= 10 & final$NotAtoGVaf <= 10,] # 23
+wilcox.test(final$AtoGVaf,final$NotAtoGVaf, paired = TRUE, alternative = 'less') # 0.05015
+summary(final$AtoGVaf - final$NotAtoGVaf) # on average A>G has 1% less VAF as compared to all other substitutions among de novo mtDNA mutations. 
 
 
-#### OLD 
 
+
+#### OOOOOOOOLLLLLLLLLDDDDDDDDDD
 
 #### get paired data: average heteroplasmy for A>G and average heteroplasmy for all others
 # offspring$mutType1 = offspring$mutType
@@ -68,7 +114,6 @@ hist(Agg$heteroplasmyA2G2others, breaks = 50)
 
 #### if we repeat the same test but focus on more and more rare variants => do we see the same trend? yes, we see, but how we can prove that this is correct analysis? we use heteroplasmy as both - function of the time and neutrality... not very good
 offspring = offspring[offspring$HeteroplasmicFraction < 10,]
-
 Agg = aggregate(offspring$HeteroplasmicFraction, by = list(offspring$PairID,offspring$mutType1), FUN = mean)
 Agg1 = Agg[Agg$Group.2 == 'X',]; Agg1 = Agg1[,c(1,3)]; names(Agg1) = c('pairID','HeteroplasmyA2G')
 Agg2 = Agg[Agg$Group.2 == 'others',]; Agg2 = Agg2[,c(1,3)]; names(Agg2) = c('pairID','HeteroplasmyOthers')
@@ -90,8 +135,6 @@ table(Agg3$x)
 
 # BELOW IS OLD CODE BY KRISTINA & ALYA
 
-
-  
 offspringMultiple = offspring[offspring$PairID %in% offspring$PairID[duplicated(offspring$PairID)],][order(offspring$PairID),]
 length(unique(offspringMultiple$PairID))
 
