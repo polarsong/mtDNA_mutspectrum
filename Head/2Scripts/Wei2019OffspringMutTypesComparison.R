@@ -1,57 +1,57 @@
-# Clear all vars
 rm(list=ls())
 
-# Load libraries  - V ZADNITCY 
-#require(stringr)
-#require(ggplot2)
-#require(magrittr)
-
-### DERIVE ###
-# Load the raw data
-# data = read.table("~/Desktop/Wei2019HumanDuos.txt", sep='\t', header=TRUE) # KAKOI V ZADNITCY DESKTOP!!!!! SEE LINE BELOW
 data = read.table("../../Body/1Raw/Wei2019HumanDuos.txt", sep='\t', header = TRUE)
-
-# Convert contents of allele type column into character values
 str(data)
-data$Allele = as.character(data$Allele)
+length(unique(data$PairID)) # 928
+table(data$MotherOffspring) # Mother: 1043 Offspring: 893
+table(data$HeteroplasmiCategory) # de novo: 477; inherited: 416; lost: 614; tansmitted: 429  # inherited - transmitted&&&
 
-# Add mutation type column
+### Add mutation type column
+data$Allele = as.character(data$Allele)
 data$mutType = paste(substr(data$Allele, 1, 1), substr(data$Allele, nchar(data$Allele), nchar(data$Allele)), sep="")
 
-### Only offspring with several de novo mutations
-offspring = data[which(data$MotherOffspring == 'Offspring'),]
+### we need to work with offspring who has several de novo variants (to compare their VAFs)
+Off = data[which(data$MotherOffspring == 'Offspring'),]
+table(Off$HeteroplasmiCategory) # de novo: 477; inherited: 416  
+OffDeNovo = Off[Off$HeteroplasmiCategory == 'de novo',]  # 477
 
-# check frequencies => indeed this is light chain notation
-TotalMutSpec = as.data.frame(table(offspring$mutType)); TotalMutSpec = TotalMutSpec[order(-TotalMutSpec$Freq),]
-#    Var1 Freq
-#10  T>C  311
-#7   G>A  210
-#2   A>G  194
-#6   C>T  121
-#1   A>C   24
+### check that this is indeed light chain notation (default as expected) and check - how reasonable the MutSpec in general
+TotalMutSpecLightChain = as.data.frame(table(OffDeNovo$mutType)); TotalMutSpecLightChain = TotalMutSpecLightChain[order(-TotalMutSpecLightChain$Freq),]
+TotalMutSpecLightChain
+# Var1 Freq
+# 10   TC  159 # our A>G. it is the most common here (not the second most common as in cancers and in mammals)! unusual a bit, but from other side - they are oocytes!!!!!
+# 7    GA  129 # C>T
+# 2    AG  114 # T>C
+# 6    CT   52 # 
+# 1    AC    7
+# 4    CA    4
+# 11   TG    4
+# 3    AT    3
+# 5    CG    2
+# 9    TA    2
+# 8    GC    1
 
-# invert transitions to heavy notations (to A>G):
-offspring$mutType = gsub('TC','A>G',offspring$mutType);  offspring$mutType = gsub('GA','C>T',offspring$mutType); offspring$mutType = gsub('AG','T>C',offspring$mutType); offspring$mutType = gsub('CT','G>A',offspring$mutType); 
-offspring$mutType = gsub("AC|CA|GT|TG|AT|TA|CG|GC", 'Tv',offspring$mutType);
-TotalMutSpec = as.data.frame(table(offspring$mutType)); TotalMutSpec = TotalMutSpec[order(-TotalMutSpec$Freq),]
-TotalMutSpec
-#     Var1 Freq
-#1    A>G  311
-#2    C>T  210
-#5    T>C  194
-#3    G>A  121
-#4others   57
+# invert transitions to heavy notations (to A>G) and collapse all transversions to Tv:
+OffDeNovo$mutType = gsub('TC','A>G',OffDeNovo$mutType);  OffDeNovo$mutType = gsub('GA','C>T',OffDeNovo$mutType); OffDeNovo$mutType = gsub('AG','T>C',OffDeNovo$mutType); OffDeNovo$mutType = gsub('CT','G>A',OffDeNovo$mutType); 
+OffDeNovo$mutType = gsub("AC|CA|GT|TG|AT|TA|CG|GC", 'Tv',OffDeNovo$mutType);
+TotalMutSpecHeavyChain = as.data.frame(table(OffDeNovo$mutType)); TotalMutSpecHeavyChain = TotalMutSpecHeavyChain[order(-TotalMutSpecHeavyChain$Freq),]
+TotalMutSpecHeavyChain
+# Var1 Freq
+#1  A>G  159
+#2  C>T  129
+#4  T>C  114
+#3  G>A   52
+#5   Tv   23
 
 #### average heteroplasmy per substitution type: G>A, A>G, Tv, T>C, C>T
-Agg1 = aggregate(offspring$HeteroplasmicFraction, by = list(offspring$mutType), FUN = mean)
+Agg1 = aggregate(OffDeNovo$HeteroplasmicFraction, by = list(OffDeNovo$mutType), FUN = mean)
 Agg1
-#1     A>G 21.11029
-#2     C>T 15.00333
-#3     G>A 25.02893
-#4      Tv 20.28246
-#5     T>C 16.22423
 
-boxplot(offspring$HeteroplasmicFraction ~ offspring$mutType, varwidth = TRUE, notch = TRUE)
+boxplot(OffDeNovo$HeteroplasmicFraction ~ OffDeNovo$mutType, varwidth = TRUE, notch = TRUE)
+
+
+#### OLD 
+
 
 #### get paired data: average heteroplasmy for A>G and average heteroplasmy for all others
 # offspring$mutType1 = offspring$mutType
