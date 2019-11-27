@@ -1,0 +1,1030 @@
+PairID	MotherOffspring	Allele	HeteroplasmicFraction	Depth	Gene	HeteroplasmiCategory	fromTo	heavyNotation	codingOrNot	SynonymousOrNot	posInCodon	fromToAA	note
+F1534	Mother	A13772C	1.3	5705	ND5	lost	A>C	T>G	coding	non-synonymous	2	Gln>Pro	normal
+F24	Mother	A6485G	1.4	6793	CO1	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1044	Mother	C15100T	1.5	1945	CYB	lost	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F1513	Mother	T9369C	1.5	2595	CO3	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F342	Mother	G12618A	1.5	2094	ND5	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F622	Mother	A8730G	1.5	3108	ATP6	lost	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F648	Mother	T6661C	1.5	2605	CO1	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F993	Mother	G9868A	1.5	2187	CO3	lost	G>A	C>T	coding	non-synonymous	2	Arg>His	normal
+F1006	Mother	A6843G	1.6	1717	CO1	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1033	Mother	G6962A	1.6	2882	CO1	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1097	Mother	T6061C	1.6	1622	CO1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1452	Mother	T3590C	1.6	2868	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1463	Mother	C10159T	1.6	2141	ND3	lost	C>T	G>A	coding	non-synonymous	2	Ser>Phe	normal
+F1489	Mother	T12468C	1.6	2802	ND5	lost	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F499	Mother	C12885T	1.6	1767	ND5	lost	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F571	Mother	T6756C	1.6	1888	CO1	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F632	Mother	G11651A	1.6	1528	ND4	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F646	Mother	C7249T	1.6	1441	CO1	lost	C>T	G>A	coding	non-synonymous	2	Thr>Met	normal
+F700	Mother	T6512C	1.6	2062	CO1	lost	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F707	Mother	T5374C	1.6	1928	ND2	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F864	Mother	A15442G	1.6	1495	CYB	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1046	Mother	T10256C	1.7	1680	ND3	lost	T>C	A>G	coding	synonymous	3	Asp>Asp	normal
+F1049	Mother	T8167C	1.7	2278	CO2	lost	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F1073	Mother	G10695A	1.7	2657	ND4L	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1078	Mother	C15625T	1.7	2784	CYB	lost	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F1083	Mother	G9932A	1.7	2241	CO3	lost	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F1111	Mother	A3855G	1.7	1561	ND1	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F1136	Mother	T5095C	1.7	1914	ND2	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1190	Mother	T9781C	1.7	1816	CO3	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1413	Mother	T3590C	1.7	1963	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1487	Mother	T3590C	1.7	1676	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1517	Mother	T3590C	1.7	1161	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F336	Mother	A10876G	1.7	2714	ND4	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F554	Mother	A3565C	1.7	1529	ND1	lost	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F649	Mother	A15442G	1.7	2278	CYB	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F738	Mother	T12601C	1.7	1793	ND5	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F798	Mother	G14869A	1.7	2376	CYB	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F849	Mother	A5042G	1.7	2034	ND2	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F923	Mother	A10398G	1.7	1390	ND3	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1018	Mother	A14424G	1.8	1114	ND6	lost	A>G	T>C	coding	synonymous	3	Val>Val	normal
+F1075	Mother	A9983G	1.8	3198	CO3	lost	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1085	Mother	A3879G	1.8	1861	ND1	lost	A>G	T>C	coding	synonymous	3	Ala>Ala	normal
+F1372	Mother	G5970A	1.8	1668	CO1	lost	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1455	Mother	T15697C	1.8	5277	CYB	lost	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F1524	Mother	T6438C	1.8	1651	CO1	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1529	Mother	T5291C	1.8	2616	ND2	lost	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F675	Mother	G7337A	1.8	1058	CO1	lost	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F752	Mother	A9150G	1.8	1964	ATP6	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F771	Mother	T15618C	1.8	1954	CYB	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F777	Mother	A6785G	1.8	1879	CO1	lost	A>G	T>C	coding	synonymous	3	Thr>Thr	normal
+F835	Mother	A7325G	1.8	1524	CO1	lost	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F898	Mother	A7257G	1.8	2359	CO1	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F960	Mother	A10945C	1.8	763	ND4	lost	A>C	T>G	coding	synonymous	3	Thr>Thr	normal
+F1108	Mother	G9838C	1.9	2319	CO3	lost	G>C	C>G	coding	non-synonymous	2	Gly>Ala	normal
+F1296	Mother	A10744G	1.9	1659	ND4L	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F144	Mother	C4259T	1.9	2103	ND1	lost	C>T	G>A	coding	non-synonymous	2	Thr>Ile	normal
+F1459	Mother	T6256C	1.9	1628	CO1	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F1500	Mother	T14326C	1.9	1560	ND6	lost	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F573	Mother	C15502T	1.9	1053	CYB	lost	C>T	G>A	coding	synonymous	3	Asp>Asp	normal
+F681	Mother	G11372A	1.9	830	ND4	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F776	Mother	T15645C	1.9	1982	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F797	Mother	G3946A	1.9	1342	ND1	lost	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F847	Mother	T8610C	1.9	1980	ATP6	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F895	Mother	T9762C	1.9	1012	CO3	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F896	Mother	G15497A	1.9	1189	CYB	lost	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F897	Mother	A10946C	1.9	888	ND4	lost	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F987	Mother	T15639C	1.9	1283	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1089	Mother	G15596A	2	1749	CYB	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1128	Mother	T15755C	2	2810	CYB	lost	T>C	A>G	coding	non-synonymous	1	Trp>Arg	normal
+F1147	Mother	G12835A	2	2185	ND5	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F13	Mother	A10750G	2	2317	ND4L	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F1499	Mother	T15585C	2	2074	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1538	Mother	G9979A	2	3228	CO3	lost	G>A	C>T	coding	non-synonymous	2	Trp>Stop	normal
+F526	Mother	T9090C	2	2463	ATP6	lost	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F671	Mother	A11432G	2	1377	ND4	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F843	Mother	C13026T	2	2273	ND5	lost	C>T	G>A	coding	synonymous	3	His>His	normal
+F866	Mother	G6383C	2	2504	CO1	lost	G>C	C>G	coding	synonymous	3	Gly>Gly	normal
+F945	Mother	T6406C	2	1245	CO1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F960	Mother	C13746T	2	1376	ND5	lost	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F1027	Mother	G6322A	2.1	1228	CO1	lost	G>A	C>T	coding	non-synonymous	2	Gly>Glu	normal
+F1085	Mother	A14347G	2.1	1655	ND6	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1138	Mother	G7814A	2.1	2137	CO2	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F391	Mother	T4813C	2.1	1850	ND2	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F508	Mother	C10362T	2.1	2690	ND3	lost	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F609	Mother	T15795C	2.1	1803	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F643	Mother	A10089G	2.1	1814	ND3	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F718	Mother	T13376C	2.1	1164	ND5	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F853	Mother	A12760G	2.1	1651	ND5	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F862	Mother	T11809C	2.1	970	ND4	lost	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1015	Mother	T6050C	2.2	3421	CO1	lost	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F1320	Mother	G8581A	2.2	1387	ATP6	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F308	Mother	T4232C	2.2	1303	ND1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F491	Mother	T6933C	2.2	1756	CO1	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F593	Mother	C4808T	2.2	596	ND2	lost	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F644	Mother	T14798C	2.2	2229	CYB	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1498	Mother	T9832C	2.3	1871	CO3	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1529	Mother	G10230A	2.3	2686	ND3	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F25	Mother	T15297C	2.3	2458	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F308	Mother	A7781G	2.3	1436	CO2	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F588	Mother	G15777A	2.3	1855	CYB	lost	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F626	Mother	T9880C	2.3	968	CO3	lost	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F705	Mother	A13629G	2.3	1414	ND5	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F706	Mother	T8598A	2.3	1109	ATP6	lost	T>A	A>T	coding	non-synonymous	3	Ile>Met	normal
+F884	Mother	A12865C	2.3	2060	ND5	lost	A>C	T>G	coding	non-synonymous	1	Ile>Leu	normal
+F902	Mother	G13309A	2.3	1203	ND5	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1070	Mother	T8404C	2.4	2098	ATP8	lost	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1459	Mother	A3583C	2.4	907	ND1	lost	A>C	T>G	coding	non-synonymous	1	Asn>His	normal
+F522	Mother	G13916A	2.4	840	ND5	lost	G>A	C>T	coding	non-synonymous	2	Gly>Glu	normal
+F724	Mother	G6138A	2.4	1916	CO1	lost	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F736	Mother	T8570C	2.4	1266	ATP8	lost	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F895	Mother	G13333A	2.4	942	ND5	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1498	Mother	G8723A	2.5	1796	ATP6	lost	G>A	C>T	coding	non-synonymous	2	Arg>Gln	normal
+F1531	Mother	A4486G	2.5	2652	ND2	lost	A>G	T>C	coding	non-synonymous	2	Gln>Arg	normal
+F505	Mother	T4238C	2.5	3406	ND1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F760	Mother	A8554G	2.5	1943	ATP8	lost	A>G	T>C	coding	synonymous	3	Ser>Ser	normal
+F869	Mother	G15254A	2.5	1951	CYB	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F953	Mother	G13210A	2.5	2211	ND5	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F981	Mother	A10694G	2.5	2406	ND4L	lost	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1059	Mother	A11413G	2.6	2014	ND4	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1136	Mother	A11392G	2.6	1486	ND4	lost	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F1370	Mother	G15596A	2.6	2688	CYB	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1488	Mother	T6742C	2.6	1400	CO1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F554	Mother	T9758C	2.6	3239	CO3	lost	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1187	Mother	G7926A	2.7	2528	CO2	lost	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1246	Mother	T8945C	2.7	2209	ATP6	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F148	Mother	G12406A	2.7	2743	ND5	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F276	Mother	G11004A	2.7	1682	ND4	lost	G>A	C>T	coding	non-synonymous	2	Arg>His	normal
+F538	Mother	T9637C	2.7	2489	CO3	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F906	Mother	A13236G	2.7	638	ND5	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F921	Mother	T4823C	2.7	777	ND2	lost	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F1035	Mother	G4959A	2.8	2234	ND2	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1520	Mother	G8152A	2.8	5153	CO2	lost	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F416	Mother	T15618C	2.8	2470	CYB	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F485	Mother	A7015G	2.8	1560	CO1	lost	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F554	Mother	A4958G	2.8	3195	ND2	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F593	Mother	G12613A	2.8	778	ND5	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F668	Mother	T15530C	2.8	1726	CYB	lost	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F736	Mother	A13216G	2.8	1264	ND5	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1027	Mother	T15779C	2.9	1507	CYB	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1061	Mother	G7041A	2.9	1368	CO1	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1206	Mother	T12800C	2.9	2591	ND5	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F123	Mother	A14641G	2.9	1431	ND6	lost	A>G	T>C	coding	non-synonymous	1	Asn>Asp	normal
+F1398	Mother	G8519A	2.9	1646	ATP8	lost	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F1480	Mother	T12011C	2.9	991	ND4	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F169	Mother	G11363A	2.9	1227	ND4	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F612	Mother	T5205C	2.9	1901	ND2	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F731	Mother	G15575A	2.9	659	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F979	Mother	T7965C	2.9	1681	CO2	lost	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F993	Mother	G7340A	2.9	2143	CO1	lost	G>A	C>T	coding	synonymous	3	Lys>Lys	normal
+F1086	Mother	A4732G	3	1900	ND2	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F1086	Mother	A13327G	3	1677	ND5	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1460	Mother	T7647C	3	3681	CO2	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F204	Mother	T7242C	3	1857	CO1	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F312	Mother	C4964T	3	2204	ND2	lost	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F723	Mother	T3590C	3	1102	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F872	Mother	T3752C	3	1854	ND1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1147	Mother	A6323G	3.1	1995	CO1	lost	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F2	Mother	G15200A	3.1	1856	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F337	Mother	A13153G	3.1	2579	ND5	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F708	Mother	T3590C	3.1	766	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F872	Mother	G13359A	3.1	2113	ND5	lost	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1125	Mother	G14861A	3.2	852	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1482	Mother	G11004A	3.2	2761	ND4	lost	G>A	C>T	coding	non-synonymous	2	Arg>His	normal
+F450	Mother	T12719C	3.2	1875	ND5	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1163	Mother	G15806A	3.3	454	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1210	Mother	T11865C	3.3	2406	ND4	lost	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F1245	Mother	T9428C	3.3	1062	CO3	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F1478	Mother	G9265A	3.3	3394	CO3	lost	G>A	C>T	coding	non-synonymous	2	Gly>Glu	normal
+F380	Mother	G7853A	3.3	2710	CO2	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F895	Mother	T8013C	3.3	914	CO2	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F937	Mother	T4752C	3.3	2293	ND2	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F1035	Mother	T8400C	3.4	2301	ATP8	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1102	Mother	G8648A	3.4	945	ATP6	lost	G>A	C>T	coding	non-synonymous	2	Arg>Gln	normal
+F1132	Mother	A15758G	3.4	1502	CYB	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1162	Mother	A14870G	3.4	2707	CYB	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1240	Mother	T9987C	3.4	2971	CO3	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F253	Mother	T14264C	3.4	2135	ND6	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F451	Mother	A8053G	3.4	3002	CO2	lost	A>G	T>C	coding	synonymous	3	Ser>Ser	normal
+F760	Mother	T9141C	3.4	1900	ATP6	lost	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F808	Mother	T8134C	3.4	1879	CO2	lost	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F921	Mother	T7311C	3.4	893	CO1	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1137	Mother	A15124G	3.5	1819	CYB	lost	A>G	T>C	coding	synonymous	3	Thr>Thr	normal
+F1372	Mother	T7705C	3.5	1755	CO2	lost	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F808	Mother	G10260A	3.5	1833	ND3	lost	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F1025	Mother	G8838A	3.6	1853	ATP6	lost	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1072	Mother	T3749C	3.6	2495	ND1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F354	Mother	G12113A	3.6	2715	ND4	lost	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F933	Mother	A5148G	3.6	1537	ND2	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F838	Mother	A7843G	3.7	322	CO2	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F1114	Mother	G4841A	3.8	1563	ND2	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1518	Mother	A10958G	3.8	1403	ND4	lost	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F1539	Mother	A5954G	3.8	2172	CO1	lost	A>G	T>C	coding	synonymous	3	Thr>Thr	normal
+F1013	Mother	T15228C	3.9	2551	CYB	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F404	Mother	T11662C	3.9	2148	ND4	lost	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F777	Mother	G9452A	3.9	2012	CO3	lost	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F1277	Mother	T10601C	4	1705	ND4L	lost	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F595	Mother	T6626C	4	1763	CO1	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F713	Mother	G15431A	4	1156	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F969	Mother	T4117C	4	396	ND1	lost	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1195	Mother	C9764T	4.1	2902	CO3	lost	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F378	Mother	T15663C	4.1	1735	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1385	Mother	G9554A	4.2	1927	CO3	lost	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F6	Mother	G15043A	4.2	2476	CYB	lost	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F674	Mother	C12606T	4.3	2286	ND5	lost	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F925	Mother	G6755A	4.3	2045	CO1	lost	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F752	Mother	A8730G	4.4	2028	ATP6	lost	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F113	Mother	G15437A	4.5	2230	CYB	lost	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F444	Mother	T12468C	4.5	2047	ND5	lost	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F813	Mother	A9972G	4.5	1613	CO3	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F868	Mother	A13269G	4.5	2876	ND5	lost	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F1282	Mother	C11356T	4.6	2044	ND4	lost	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F1340	Mother	C15641T	4.7	1408	CYB	lost	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F317	Mother	T11460C	4.7	1302	ND4	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F542	Mother	G13359A	4.7	2583	ND5	lost	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F933	Mother	C10518T	4.7	1734	ND4L	lost	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F989	Mother	T9309C	4.7	2267	CO3	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1359	Mother	C15539T	4.8	1202	CYB	lost	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F1530	Mother	A11337G	4.8	2220	ND4	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F464	Mother	C7350T	4.8	2414	CO1	lost	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F580	Mother	G11651A	4.8	1702	ND4	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F739	Mother	G15355A	4.8	2354	CYB	lost	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1161	Mother	G10172A	4.9	961	ND3	lost	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F1520	Mother	T6121C	4.9	4876	CO1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F288	Mother	C4680T	4.9	1992	ND2	lost	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F811	Mother	G7852A	4.9	1273	CO2	lost	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F995	Mother	C3476T	4.9	1758	ND1	lost	C>T	G>A	coding	non-synonymous	2	Thr>Ile	normal
+F376	Mother	G7272A	5	1071	CO1	lost	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F732	Mother	T9486C	5	1972	CO3	lost	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1127	Mother	T8424C	5.1	2647	ATP8	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1388	Mother	A12676G	5.1	1426	ND5	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F373	Mother	A13434G	5.1	2024	ND5	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F444	Mother	T15831C	5.1	1973	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F679	Mother	T10604C	5.1	489	ND4L	lost	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1063	Mother	G9010A	5.2	1744	ATP6	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1538	Mother	T8412C	5.2	2862	ATP8	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F463	Mother	T5389C	5.3	2063	ND2	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1058	Mother	T4193C	5.4	2245	ND1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F691	Mother	G3640C	5.4	1937	ND1	lost	G>C	C>G	coding	non-synonymous	1	Ala>Pro	normal
+F873	Mother	T14291C	5.4	515	ND6	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F58	Mother	G8392A	5.5	1777	ATP8	lost	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F598	Mother	T6221C	5.5	1680	CO1	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F1222	Mother	A10768G	5.6	2914	ND4	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F686	Mother	G5054A	5.6	2668	ND2	lost	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F902	Mother	T7913C	5.6	1217	CO2	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1201	Mother	T14386C	5.7	1425	ND6	lost	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F455	Mother	G3358A	5.7	1874	ND1	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1499	Mother	G9947A	5.8	2145	CO3	lost	G>A	C>T	coding	synonymous	3	Val>Val	normal
+F294	Mother	T14215C	5.9	2967	ND6	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F1416	Mother	T3336C	6	1798	ND1	lost	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F437	Mother	T4226C	6	1806	ND1	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F354	Mother	T6286C	6.1	2400	CO1	lost	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F338	Mother	T14502C	6.2	3420	ND6	lost	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F748	Mother	A8784T	6.2	1254	ATP6	lost	A>T	T>A	coding	synonymous	3	Gly>Gly	normal
+F1205	Mother	G7986A	6.5	2524	CO2	lost	G>A	C>T	coding	non-synonymous	2	Arg>Gln	normal
+F405	Mother	A4039G	6.5	1133	ND1	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F562	Mother	T14757C	6.5	1594	CYB	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F230	Mother	G7379A	6.6	1296	CO1	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1496	Mother	G14861A	6.8	1978	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F26	Mother	G8865A	6.8	1846	ATP6	lost	G>A	C>T	coding	synonymous	3	Val>Val	normal
+F591	Mother	T8265C	6.8	1359	CO2	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F760	Mother	A14128G	6.8	1891	ND5	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F824	Mother	A4767G	6.8	2049	ND2	lost	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F1229	Mother	T15786C	6.9	1260	CYB	lost	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F340	Mother	A13907G	6.9	2492	ND5	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F479	Mother	G15521A	6.9	3160	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1379	Mother	G7419A	7.1	2210	CO1	lost	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F73	Mother	T4838C	7.1	876	ND2	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F979	Mother	T10878C	7.1	1510	ND4	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1483	Mother	C6848T	7.3	2443	CO1	lost	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F688	Mother	G7332A	7.4	1424	CO1	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F263	Mother	T8705C	7.5	4025	ATP6	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1452	Mother	T6896C	7.6	4000	CO1	lost	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F1544	Mother	C14428T	7.6	1283	ND6	lost	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F588	Mother	T11152C	7.7	1756	ND4	lost	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F1481	Mother	G10365A	7.8	2481	ND3	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1541	Mother	T6293C	7.8	1045	CO1	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F897	Mother	T15601C	7.8	2107	CYB	lost	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F1311	Mother	G9554A	7.9	2538	CO3	lost	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F1526	Mother	A5134G	7.9	2164	ND2	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F399	Mother	T7193C	7.9	4836	CO1	lost	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F860	Mother	T9975C	7.9	2453	CO3	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F998	Mother	G7664A	8	1127	CO2	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1184	Mother	T11864C	8.1	3432	ND4	lost	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F12	Mother	G6915A	8.3	5371	CO1	lost	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F243	Mother	C6467T	8.3	995	CO1	lost	C>T	G>A	coding	synonymous	3	Val>Val	normal
+F44	Mother	G9621A	8.4	1077	CO3	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F130	Mother	G11420A	8.6	1470	ND4	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F259	Mother	G5231A	8.9	620	ND2	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F259	Mother	T8538C	8.9	629	ATP8	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1178	Mother	G8921A	9	3066	ATP6	lost	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1210	Mother	C12084T	9.2	2606	ND4	lost	C>T	G>A	coding	non-synonymous	2	Ser>Phe	normal
+F7	Mother	A9545G	9.2	904	CO3	lost	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F1192	Mother	C15430T	9.3	1512	CYB	lost	C>T	G>A	coding	synonymous	3	Asp>Asp	normal
+F1191	Mother	A14251G	9.6	1242	ND6	lost	A>G	T>C	coding	non-synonymous	1	Ser>Gly	normal
+F247	Mother	A15686G	9.6	1626	CYB	lost	A>G	T>C	coding	non-synonymous	1	Ser>Gly	normal
+F1501	Mother	T9963C	9.7	4548	CO3	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F709	Mother	T15713C	9.7	1661	CYB	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F599	Mother	A7732G	10	1569	CO2	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1330	Mother	G8152A	10.2	3371	CO2	lost	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F327	Mother	A12447G	10.3	2839	ND5	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1128	Mother	G15777A	10.6	2760	CYB	lost	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F1528	Mother	T5393C	10.8	3146	ND2	lost	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F978	Mother	A10580G	11.3	1563	ND4L	lost	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F1525	Mother	A3411G	11.6	1075	ND1	lost	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F468	Mother	T15831C	12	2274	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1162	Mother	G11914A	12.1	2652	ND4	lost	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F622	Mother	A4824G	12.3	2460	ND2	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F257	Mother	G10653A	13	1542	ND4L	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1184	Mother	G7362A	13.4	3375	CO1	lost	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F1406	Mother	A14552G	13.4	969	ND6	lost	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F831	Mother	G6285A	14.3	1794	CO1	lost	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F526	Mother	T6451C	15.3	2367	CO1	lost	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F845	Mother	T6121C	15.5	2320	CO1	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F151	Mother	G9022A	15.9	1138	ATP6	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F992	Mother	T6288C	16.5	2287	CO1	lost	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F259	Mother	G14040A	16.7	681	ND5	lost	G>A	C>T	coding	synonymous	3	Gln>Gln	normal
+F1529	Mother	A6963G	17.2	2588	CO1	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F845	Mother	G8557A	17.8	2234	ATP8	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1024	Mother	A8623G	20.4	2520	ATP6	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F125	Mother	A8225G	20.6	998	CO2	lost	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1179	Mother	T14979C	20.7	3283	CYB	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F909	Mother	T8143C	21.7	1466	CO2	lost	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F1229	Mother	G13980A	22.6	1140	ND5	lost	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F453	Mother	G7642A	23.4	1490	CO2	lost	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F200	Mother	G15119A	24.4	982	CYB	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F698	Mother	T11787C	25	2293	ND4	lost	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F981	Mother	A14209G	25.8	2391	ND6	lost	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F594	Mother	T8801C	28.6	683	ATP6	lost	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F318	Mother	T7609C	31.4	1036	CO2	lost	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F1463	Mother	T6246C	32.2	1868	CO1	lost	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F202	Mother	G9932A	35	1283	CO3	lost	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F793	Mother	A4897G	35.9	1676	ND2	lost	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F903	Mother	G11693A	38.4	1174	ND4	lost	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F935	Mother	T8696C	43.4	978	ATP6	lost	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1073	Mother	T13830C	44.6	2488	ND5	lost	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1534	Mother	T3590C	1.5	5515	ND1	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F554	Mother	T8380C	1.5	3065	ATP8	tansmitted	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F211	Mother	G5471A	1.6	2216	ND2	tansmitted	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1520	Mother	C10647T	1.7	5110	ND4L	tansmitted	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F429	Mother	G8854A	2	1349	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F501	Mother	G3460A	2	1532	ND1	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F909	Mother	G9025A	2	1438	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F910	Mother	A7055G	2	1189	CO1	tansmitted	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F1209	Mother	G5237A	2.1	2357	ND2	tansmitted	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F1265	Mother	A14793G	2.1	1921	CYB	tansmitted	A>G	T>C	coding	non-synonymous	2	His>Arg	normal
+F1472	Mother	C12759T	2.1	3253	ND5	tansmitted	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F238	Mother	C15022T	2.1	1249	CYB	tansmitted	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F847	Mother	G12775A	2.1	2264	ND5	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F162	Mother	C14248T	2.3	1422	ND6	tansmitted	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F1125	Mother	T15622C	2.4	715	CYB	tansmitted	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1362	Mother	G9429A	2.4	2372	CO3	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F331	Mother	A4136G	2.4	1072	ND1	tansmitted	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F869	Mother	T4907C	2.4	1805	ND2	tansmitted	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1468	Mother	A8623C	2.5	1326	ATP6	tansmitted	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F1527	Mother	A14750G	2.5	1610	CYB	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1478	Mother	A12674G	2.7	3831	ND5	tansmitted	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F927	Mother	T9032C	2.8	1508	ATP6	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F723	Mother	G15575A	2.9	1696	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F85	Mother	A12865G	2.9	1456	ND5	tansmitted	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1242	Mother	T13769C	3.2	811	ND5	tansmitted	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F974	Mother	T4216C	3.4	563	ND1	tansmitted	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1007	Mother	A6905G	3.5	1398	CO1	tansmitted	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F928	Mother	T14395C	3.5	1410	ND6	tansmitted	T>C	A>G	coding	non-synonymous	1	Trp>Arg	normal
+F1504	Mother	G7637A	3.6	1659	CO2	tansmitted	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F223	Mother	A5480G	3.9	1806	ND2	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F493	Mother	T5239C	3.9	2178	ND2	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F249	Mother	A15203G	4.2	2069	CYB	tansmitted	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1067	Mother	G15498A	4.5	1455	CYB	tansmitted	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1188	Mother	G15254A	4.5	2048	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F532	Mother	G13759A	4.6	1533	ND5	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F604	Mother	G4530A	4.7	1311	ND2	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F100	Mother	G5417A	4.8	1319	ND2	tansmitted	G>A	C>T	coding	synonymous	3	Gln>Gln	normal
+F1315	Mother	T6253C	5	1972	CO1	tansmitted	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F856	Mother	G9804A	5.1	1427	CO3	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F490	Mother	A11239G	5.2	3223	ND4	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1207	Mother	T10318C	5.3	1699	ND3	tansmitted	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F367	Mother	T10927C	5.4	1887	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F1019	Mother	T7922C	5.5	2436	CO2	tansmitted	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F631	Mother	A14527C	5.6	1135	ND6	tansmitted	A>C	T>G	coding	non-synonymous	1	Asn>His	normal
+F1436	Mother	G15355A	5.8	2739	CYB	tansmitted	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F79	Mother	A7732G	5.8	2504	CO2	tansmitted	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1463	Mother	A14527C	6.4	1250	ND6	tansmitted	A>C	T>G	coding	non-synonymous	1	Asn>His	normal
+F1338	Mother	C15420T	7.6	1489	CYB	tansmitted	C>T	G>A	coding	non-synonymous	2	Thr>Met	normal
+F690	Mother	C9290T	7.6	1731	CO3	tansmitted	C>T	G>A	coding	synonymous	3	Thr>Thr	normal
+F1239	Mother	T14318C	8.1	1410	ND6	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F1194	Mother	T8556C	8.2	2609	ATP8	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F755	Mother	C7079T	8.5	1500	CO1	tansmitted	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F752	Mother	T13572C	8.6	1888	ND5	tansmitted	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1338	Mother	A8389G	8.7	1602	ATP8	tansmitted	A>G	T>C	coding	synonymous	3	Val>Val	normal
+F1524	Mother	G15500A	8.7	1495	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F51	Mother	T15293C	8.8	1860	CYB	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1455	Mother	A3558G	9.3	4370	ND1	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F16	Mother	T15566C	9.3	1437	CYB	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F297	Mother	C3556T	9.3	1109	ND1	tansmitted	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F1362	Mother	G13708A	9.5	2101	ND5	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F448	Mother	T6365C	9.5	2067	CO1	tansmitted	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F74	Mother	A14452G	9.6	741	ND6	tansmitted	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F1083	Mother	C14356T	9.8	1960	ND6	tansmitted	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F1179	Mother	A7241G	9.9	3754	CO1	tansmitted	A>G	T>C	coding	synonymous	3	Ala>Ala	normal
+F721	Mother	G15650A	10	1693	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F924	Mother	G4659A	10.6	1417	ND2	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1012	Mother	A7934G	10.8	2020	CO2	tansmitted	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1520	Mother	T13635C	10.9	4784	ND5	tansmitted	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F1008	Mother	C9719T	11.1	2019	CO3	tansmitted	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F942	Mother	G5943A	11.1	1357	CO1	tansmitted	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F52	Mother	T7785C	11.3	1432	CO2	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1166	Mother	C3846T	11.4	1662	ND1	tansmitted	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F552	Mother	T8736C	12	1740	ATP6	tansmitted	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F357	Mother	C12966T	12.7	339	ND5	tansmitted	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F1231	Mother	G5973A	12.8	1810	CO1	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F836	Mother	G14226A	12.8	1830	ND6	tansmitted	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F960	Mother	C9008T	12.8	1444	ATP6	tansmitted	C>T	G>A	coding	non-synonymous	2	Thr>Ile	normal
+F280	Mother	T10915C	12.9	2139	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Cys>Cys	normal
+F1331	Mother	G10934C	13	1677	ND4	tansmitted	G>C	C>G	coding	non-synonymous	1	Asp>His	normal
+F989	Mother	G15596A	13.1	2373	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1514	Mother	G13810A	13.5	1598	ND5	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1020	Mother	G8857A	14	641	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F407	Mother	T8870C	14.1	1380	ATP6	tansmitted	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F482	Mother	C11326T	14.2	731	ND4	tansmitted	C>T	G>A	coding	synonymous	3	Ser>Ser	normal
+F963	Mother	G6366A	14.6	1548	CO1	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F381	Mother	G10203A	14.8	1985	ND3	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F623	Mother	T10810C	14.8	2016	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F638	Mother	G7211A	15.1	2217	CO1	tansmitted	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F289	Mother	G14249A	15.3	986	ND6	tansmitted	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1194	Mother	T9686C	15.4	3064	CO3	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F520	Mother	T12136C	15.4	1861	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F618	Mother	T10191C	16	1841	ND3	tansmitted	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F447	Mother	T10345C	16.1	2409	ND3	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F453	Mother	C9201T	16.2	1299	ATP6	tansmitted	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F1193	Mother	T10786C	16.3	1604	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F476	Mother	G7337A	16.3	564	CO1	tansmitted	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F1538	Mother	C9184T	16.5	2710	ATP6	tansmitted	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F54	Mother	C3417T	16.5	1002	ND1	tansmitted	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F850	Mother	T14325C	16.9	1731	ND6	tansmitted	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F49	Mother	C11005T	17	1224	ND4	tansmitted	C>T	G>A	coding	synonymous	3	Arg>Arg	normal
+F822	Mother	T7407C	17.2	2541	CO1	tansmitted	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1490	Mother	A8498G	17.9	1647	ATP8	tansmitted	A>G	T>C	coding	non-synonymous	1	Lys>Glu	normal
+F1527	Mother	G9921A	18.3	1914	CO3	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F451	Mother	T14271C	18.4	2989	ND6	tansmitted	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F1351	Mother	T9685C	18.6	1705	CO3	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F734	Mother	T15297C	18.8	1124	CYB	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1215	Mother	T15519C	19	3525	CYB	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1031	Mother	A8460G	19.3	2144	ATP8	tansmitted	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F1078	Mother	G15596A	19.5	2730	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1016	Mother	G12007A	20.1	2158	ND4	tansmitted	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F694	Mother	T3752C	20.3	1766	ND1	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1436	Mother	G10704A	20.5	2894	ND4L	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1130	Mother	C11428T	21.3	2348	ND4	tansmitted	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F1383	Mother	G15200A	22	1912	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F629	Mother	T11864C	22.2	1620	ND4	tansmitted	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F663	Mother	T8843C	22.3	1892	ATP6	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F886	Mother	A9765G	22.5	1640	CO3	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1346	Mother	A13563G	22.7	2693	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1159	Mother	T10389C	22.8	556	ND3	tansmitted	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F319	Mother	G14544A	22.8	1547	ND6	tansmitted	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F583	Mother	T9098C	23.2	2882	ATP6	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1402	Mother	T14470C	23.3	2178	ND6	tansmitted	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F1044	Mother	T10345C	23.4	2103	ND3	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1498	Mother	C11638T	23.9	1673	ND4	tansmitted	C>T	G>A	coding	synonymous	3	His>His	normal
+F811	Mother	T8222C	23.9	1189	CO2	tansmitted	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1506	Mother	T5291C	24.2	2230	ND2	tansmitted	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F1462	Mother	T10101C	24.6	2554	ND3	tansmitted	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F841	Mother	C9812T	25.3	2443	CO3	tansmitted	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F1390	Mother	C6887T	27.1	1588	CO1	tansmitted	C>T	G>A	coding	synonymous	3	His>His	normal
+F464	Mother	A12534G	27.1	2775	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F945	Mother	G12406A	27.1	1279	ND5	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1509	Mother	G9287A	27.5	1527	CO3	tansmitted	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1198	Mother	C8905T	27.6	2077	ATP6	tansmitted	C>T	G>A	coding	non-synonymous	1	His>Tyr	normal
+F299	Mother	A6259G	28.8	809	CO1	tansmitted	A>G	T>C	coding	non-synonymous	2	Glu>Gly	normal
+F316	Mother	A4064G	28.8	765	ND1	tansmitted	A>G	T>C	coding	non-synonymous	2	Glu>Gly	normal
+F1430	Mother	T15530C	29.9	2111	CYB	tansmitted	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F74	Mother	G9755A	30.9	811	CO3	tansmitted	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F356	Mother	C10619T	31.1	1552	ND4L	tansmitted	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F616	Mother	G4219A	32.4	2198	ND1	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F991	Mother	T8134C	32.5	1702	CO2	tansmitted	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1309	Mother	G7419A	32.6	2495	CO1	tansmitted	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F41	Mother	A3434G	33	1073	ND1	tansmitted	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F1457	Mother	C9650T	34.2	2064	CO3	tansmitted	C>T	G>A	coding	synonymous	3	His>His	normal
+F271	Mother	G8989A	34.3	2691	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1167	Mother	A13350G	34.6	871	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F1514	Mother	T15601C	34.8	1941	CYB	tansmitted	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F129	Mother	A8679G	35.1	1506	ATP6	tansmitted	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1371	Mother	G9695A	35.3	2605	CO3	tansmitted	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1089	Mother	T3644C	35.6	1415	ND1	tansmitted	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F1239	Mother	T10915C	36.2	1421	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Cys>Cys	normal
+F245	Mother	T9185C	36.2	1498	ATP6	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F353	Mother	G8857A	37.1	1859	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1361	Mother	T15039C	37.7	1900	CYB	tansmitted	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1012	Mother	T13581C	37.9	1869	ND5	tansmitted	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F278	Mother	A3724G	38.1	1979	ND1	tansmitted	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F273	Mother	T7964C	39	3109	CO2	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F902	Mother	C13056T	39	1216	ND5	tansmitted	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F880	Mother	T15128C	39.2	1992	CYB	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F902	Mother	T11260C	40	1176	ND4	tansmitted	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F213	Mother	A7374G	41.2	1656	CO1	tansmitted	A>G	T>C	coding	non-synonymous	1	Asn>Asp	normal
+F474	Mother	G15077A	41.5	1838	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F523	Mother	A12366G	41.8	2220	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1040	Mother	G8573A	44.6	1691	ATP6	tansmitted	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F69	Mother	C15037T	44.9	813	CYB	tansmitted	C>T	G>A	coding	synonymous	3	His>His	normal
+F1005	Mother	A6339G	46	2124	CO1	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1374	Mother	G3369A	46.5	2754	ND1	tansmitted	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F703	Mother	A15218G	46.8	2303	CYB	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1077	Mother	G4219C	47	2173	ND1	tansmitted	G>C	C>G	coding	non-synonymous	1	Val>Leu	normal
+F299	Mother	A11893G	50.3	995	ND4	tansmitted	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F206	Mother	A6663G	50.9	1957	CO1	tansmitted	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F763	Mother	A12768G	52	1589	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1447	Mother	G12070A	53.5	2330	ND4	tansmitted	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F954	Mother	A8678T	54.8	1200	ATP6	tansmitted	A>T	T>A	coding	non-synonymous	2	Lys>Met	normal
+F1158	Mother	T13151C	56.1	1854	ND5	tansmitted	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1513	Mother	C14404T	56.9	2535	ND6	tansmitted	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F51	Mother	T12757C	57.4	2110	ND5	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1108	Mother	T14271C	57.7	1905	ND6	tansmitted	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F913	Mother	T13899C	57.8	1686	ND5	tansmitted	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F1494	Mother	T8477C	58.2	1703	ATP8	tansmitted	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F185	Mother	T5108C	59.5	1596	ND2	tansmitted	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1485	Mother	A13327G	61.5	3014	ND5	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F353	Mother	T5201C	61.7	2468	ND2	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1265	Mother	G8251A	61.9	1878	CO2	tansmitted	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F1087	Mother	T12678C	63.3	1863	ND5	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F749	Mother	C10094T	64.1	1379	ND3	tansmitted	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F894	Mother	T9467C	68.5	1696	CO3	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F481	Mother	G11887A	68.7	1579	ND4	tansmitted	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F257	Mother	T7624C	69.1	1643	CO2	tansmitted	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1198	Mother	A8682G	70.2	2482	ATP6	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1048	Mother	A4745G	71.3	1827	ND2	tansmitted	A>G	T>C	coding	synonymous	3	Gln>Gln	normal
+F462	Mother	G14831A	71.3	2650	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1020	Mother	G7697A	72.1	723	CO2	tansmitted	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F339	Mother	C4898T	72.1	1873	ND2	tansmitted	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F160	Mother	A3995G	72.6	1544	ND1	tansmitted	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F817	Mother	C9332T	73.1	843	CO3	tansmitted	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F1159	Mother	A9425C	73.2	571	CO3	tansmitted	A>C	T>G	coding	synonymous	3	Pro>Pro	normal
+F111	Mother	A8623C	74.9	554	ATP6	tansmitted	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F1478	Mother	T9887C	75.1	3626	CO3	tansmitted	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F1160	Mother	T8490C	76.1	2514	ATP8	tansmitted	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F51	Mother	G7984A	76.4	1889	CO2	tansmitted	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1145	Mother	G5147A	77	1677	ND2	tansmitted	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1508	Mother	A6040G	77.5	3737	CO1	tansmitted	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F639	Mother	G9525A	78.5	1495	CO3	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F972	Mother	A13681G	80.6	1423	ND5	tansmitted	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F649	Mother	T8258C	80.9	2555	CO2	tansmitted	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F193	Mother	C8835T	81.1	972	ATP6	tansmitted	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F1404	Mother	C7028T	81.8	1544	CO1	tansmitted	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F1271	Mother	G15884A	82	2090	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F476	Mother	A13470G	83.1	596	ND5	tansmitted	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1313	Mother	A8521G	85.3	1287	ATP8	tansmitted	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F255	Mother	G6260A	85.3	2303	CO1	tansmitted	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F758	Mother	C7996T	86.7	360	CO2	tansmitted	C>T	G>A	coding	synonymous	3	Asp>Asp	normal
+F104	Mother	T4502C	86.9	411	ND2	tansmitted	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F47	Mother	T4002C	87.5	1850	ND1	tansmitted	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F16	Mother	G15355A	87.9	1421	CYB	tansmitted	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F203	Mother	A11836G	88	1129	ND4	tansmitted	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1308	Mother	T5930C	88.8	2568	CO1	tansmitted	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1422	Mother	A10397G	88.9	2111	ND3	tansmitted	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F176	Mother	G15257A	89.1	2073	CYB	tansmitted	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F590	Mother	C6713T	90	1660	CO1	tansmitted	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F903	Mother	G11719A	92.5	1128	ND4	tansmitted	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F181	Mother	G11518A	93	2138	ND4	tansmitted	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F304	Mother	G6267A	94.9	904	CO1	tansmitted	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F661	Offspring	T12586C	1.4	3713	ND5	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1131	Offspring	T13819C	1.5	2506	ND5	de novo	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1468	Offspring	T6351C	1.5	3678	CO1	de novo	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F649	Offspring	A4212G	1.5	2593	ND1	de novo	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F756	Offspring	G15350A	1.5	2539	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F1017	Offspring	G6384A	1.6	1675	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1120	Offspring	C9031T	1.6	2833	ATP6	de novo	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F172	Offspring	G8249A	1.6	3280	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Stop	normal
+F528	Offspring	G5913A	1.6	1681	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F582	Offspring	T4774C	1.6	1923	ND2	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F599	Offspring	G3391A	1.6	1793	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F649	Offspring	T10065C	1.6	2894	ND3	de novo	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F724	Offspring	G15575A	1.6	2510	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1339	Offspring	T7950C	1.7	2105	CO2	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F540	Offspring	T8506C	1.7	2231	ATP8	de novo	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F607	Offspring	A7308G	1.7	1957	CO1	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F755	Offspring	T10237C	1.7	2109	ND3	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F822	Offspring	C8173T	1.7	3472	CO2	de novo	C>T	G>A	coding	synonymous	3	Cys>Cys	normal
+F872	Offspring	G14016A	1.7	1265	ND5	de novo	G>A	C>T	coding	synonymous	3	Lys>Lys	normal
+F884	Offspring	T8618C	1.7	1312	ATP6	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F885	Offspring	G3607A	1.7	1377	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1064	Offspring	A8460T	1.8	3576	ATP8	de novo	A>T	T>A	coding	non-synonymous	2	Asn>Ile	normal
+F1064	Offspring	C9555T	1.8	4002	CO3	de novo	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F1266	Offspring	A10694G	1.8	1255	ND4L	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1423	Offspring	T12785C	1.8	3596	ND5	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F716	Offspring	G10373A	1.8	1470	ND3	de novo	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F892	Offspring	C7196A	1.8	3114	CO1	de novo	C>A	G>T	coding	synonymous	3	Leu>Leu	normal
+F917	Offspring	G15357A	1.8	1694	CYB	de novo	G>A	C>T	coding	non-synonymous	2	Gly>Glu	normal
+F919	Offspring	T13965C	1.8	1370	ND5	de novo	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1040	Offspring	T6297C	1.9	2412	CO1	de novo	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1050	Offspring	G9477A	1.9	2245	CO3	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1084	Offspring	A8454G	1.9	2008	ATP8	de novo	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F1162	Offspring	A4944G	1.9	1400	ND2	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F181	Offspring	G6480A	1.9	2595	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F280	Offspring	T12130C	1.9	1907	ND4	de novo	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F565	Offspring	G8581A	1.9	2712	ATP6	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F570	Offspring	G11150A	1.9	1711	ND4	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F60	Offspring	A10277C	1.9	2401	ND3	de novo	A>C	T>G	coding	non-synonymous	3	Leu>Phe	normal
+F743	Offspring	C10211T	1.9	2805	ND3	de novo	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F834	Offspring	A8577G	1.9	1850	ATP6	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F847	Offspring	A15720G	1.9	2168	CYB	de novo	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F992	Offspring	T4475C	1.9	1665	ND2	de novo	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F1162	Offspring	G11906A	2	1432	ND4	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F1339	Offspring	T3590C	2	1367	ND1	de novo	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1485	Offspring	A9156G	2	1926	ATP6	de novo	A>G	T>C	coding	synonymous	3	Gln>Gln	normal
+F1513	Offspring	T7348C	2	2850	CO1	de novo	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F585	Offspring	A7241G	2	2727	CO1	de novo	A>G	T>C	coding	synonymous	3	Ala>Ala	normal
+F741	Offspring	G7269A	2	2982	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F741	Offspring	T15549C	2	2430	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1029	Offspring	T7861C	2.1	1650	CO2	de novo	T>C	A>G	coding	synonymous	3	Asp>Asp	normal
+F1033	Offspring	A10097G	2.1	2794	ND3	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F182	Offspring	G9053A	2.1	618	ATP6	de novo	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F375	Offspring	T4216C	2.1	569	ND1	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F566	Offspring	G8155A	2.1	2740	CO2	de novo	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F670	Offspring	T15852C	2.1	3405	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F700	Offspring	C14235T	2.1	1936	ND6	de novo	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F731	Offspring	C4223T	2.1	1206	ND1	de novo	C>T	G>A	coding	non-synonymous	2	Ser>Phe	normal
+F770	Offspring	T15071C	2.1	1881	CYB	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F787	Offspring	A14605G	2.1	1943	ND6	de novo	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F9	Offspring	T7175C	2.1	2664	CO1	de novo	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1038	Offspring	G3316A	2.2	2614	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1046	Offspring	A13681G	2.2	1697	ND5	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F165	Offspring	T14871C	2.2	1423	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F710	Offspring	A10946C	2.2	507	ND4	de novo	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F754	Offspring	G15761A	2.2	3283	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Stop	normal
+F856	Offspring	G5985A	2.2	1514	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F920	Offspring	G8189C	2.2	1379	CO2	de novo	G>C	C>G	coding	non-synonymous	1	Ala>Pro	normal
+F1105	Offspring	T14828C	2.3	1302	CYB	de novo	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F639	Offspring	T8267C	2.3	1492	CO2	de novo	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F721	Offspring	A15703G	2.3	1090	CYB	de novo	A>G	T>C	coding	synonymous	3	Pro>Pro	normal
+F800	Offspring	A9390G	2.3	2133	CO3	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1031	Offspring	T9832C	2.4	1730	CO3	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1451	Offspring	T14371C	2.4	4041	ND6	de novo	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1454	Offspring	A7125G	2.4	3611	CO1	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F918	Offspring	A12367G	2.4	1743	ND5	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1099	Offspring	G15498A	2.5	1339	CYB	de novo	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1144	Offspring	G9939A	2.5	2417	CO3	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F1258	Offspring	A11473G	2.5	1876	ND4	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1284	Offspring	G15773A	2.5	2834	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F1450	Offspring	T15672C	2.5	3017	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F545	Offspring	T12519C	2.5	2346	ND5	de novo	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F633	Offspring	G15557A	2.5	1795	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F637	Offspring	T13488C	2.5	1268	ND5	de novo	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F671	Offspring	T7270G	2.5	2096	CO1	de novo	T>G	A>C	coding	non-synonymous	2	Val>Gly	normal
+F795	Offspring	T12957C	2.5	2194	ND5	de novo	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F935	Offspring	A9288G	2.5	1097	CO3	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F897	Offspring	G9053A	2.6	1399	ATP6	de novo	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F9	Offspring	T3590C	2.6	1592	ND1	de novo	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1475	Offspring	A5070G	2.7	7496	ND2	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F611	Offspring	T9179C	2.7	1308	ATP6	de novo	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F773	Offspring	A14890G	2.7	3186	CYB	de novo	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F1053	Offspring	G8020A	2.8	1432	CO2	de novo	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F1458	Offspring	T8477C	2.8	2437	ATP8	de novo	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F977	Offspring	T14208C	2.8	2324	ND6	de novo	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1439	Offspring	G5271A	2.9	1888	ND2	de novo	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F354	Offspring	T9325C	2.9	1352	CO3	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F447	Offspring	T5485C	2.9	2736	ND2	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F614	Offspring	A13570G	2.9	1877	ND5	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F690	Offspring	G10143A	2.9	1371	ND3	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F802	Offspring	G8206A	2.9	409	CO2	de novo	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F815	Offspring	G11693A	2.9	1804	ND4	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1192	Offspring	A5268G	3	2010	ND2	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F719	Offspring	T3372C	3	1221	ND1	de novo	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F728	Offspring	T3590C	3	864	ND1	de novo	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F951	Offspring	T13280C	3	1748	ND5	de novo	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F989	Offspring	A13722G	3	1385	ND5	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1126	Offspring	G11914A	3.1	1797	ND4	de novo	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1338	Offspring	T14020C	3.1	2126	ND5	de novo	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1384	Offspring	C7331A	3.1	1222	CO1	de novo	C>A	G>T	coding	non-synonymous	3	Phe>Leu	normal
+F1509	Offspring	A14619G	3.1	2930	ND6	de novo	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F728	Offspring	G14040A	3.1	1167	ND5	de novo	G>A	C>T	coding	synonymous	3	Gln>Gln	normal
+F836	Offspring	G10586A	3.1	1704	ND4L	de novo	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F1373	Offspring	G8251A	3.2	2109	CO2	de novo	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F718	Offspring	C14989T	3.2	844	CYB	de novo	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F1075	Offspring	T14849C	3.3	2256	CYB	de novo	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F1261	Offspring	G14569A	3.3	1117	ND6	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1325	Offspring	G10197A	3.3	3436	ND3	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F628	Offspring	T9833C	3.3	2553	CO3	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F329	Offspring	G3496A	3.4	2137	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F442	Offspring	G14960A	3.4	2130	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F1459	Offspring	G14760A	3.5	1860	CYB	de novo	G>A	C>T	coding	non-synonymous	2	Arg>His	normal
+F217	Offspring	T4957C	3.5	1342	ND2	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F649	Offspring	C6761T	3.5	2612	CO1	de novo	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F661	Offspring	G11150A	3.5	3226	ND4	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1217	Offspring	G6049A	3.6	1569	CO1	de novo	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F431	Offspring	G5979A	3.6	1434	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F589	Offspring	G5985A	3.6	1299	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1089	Offspring	T14316C	3.7	1333	ND6	de novo	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F1179	Offspring	G7637A	3.7	3994	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F1302	Offspring	G9142A	3.7	1483	ATP6	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1362	Offspring	A3892G	3.7	2109	ND1	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1435	Offspring	T14952C	3.7	1659	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F427	Offspring	C15448T	3.7	2674	CYB	de novo	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F607	Offspring	G5147A	3.7	2066	ND2	de novo	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1057	Offspring	T11050G	3.8	997	ND4	de novo	T>G	A>C	coding	synonymous	3	Ser>Ser	normal
+F111	Offspring	T10492C	3.8	1167	ND4L	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1148	Offspring	G6168A	3.8	1772	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1508	Offspring	G15431A	3.8	4153	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F314	Offspring	A7874G	3.8	1248	CO2	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F399	Offspring	A6302G	3.8	2356	CO1	de novo	A>G	T>C	coding	synonymous	3	Ala>Ala	normal
+F282	Offspring	G5471A	3.9	2909	ND2	de novo	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F35	Offspring	G12476A	3.9	1605	ND5	de novo	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F475	Offspring	T12470C	3.9	2016	ND5	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F788	Offspring	G15699A	3.9	2076	CYB	de novo	G>A	C>T	coding	non-synonymous	2	Arg>His	normal
+F1448	Offspring	A12724G	4	2368	ND5	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F667	Offspring	T3536C	4	1640	ND1	de novo	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F842	Offspring	T15394C	4	2033	CYB	de novo	T>C	A>G	coding	synonymous	3	Asp>Asp	normal
+F1171	Offspring	G6480A	4.1	1784	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F122	Offspring	T3760A	4.1	1063	ND1	de novo	T>A	A>T	coding	non-synonymous	1	Ser>Thr	normal
+F1346	Offspring	G6651A	4.1	2520	CO1	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1457	Offspring	T3509C	4.1	1331	ND1	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1460	Offspring	G6026A	4.2	3066	CO1	de novo	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F147	Offspring	A10978G	4.2	1172	ND4	de novo	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F332	Offspring	T14969C	4.2	1772	CYB	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F937	Offspring	T12609C	4.2	1589	ND5	de novo	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F1039	Offspring	G14861A	4.3	2340	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1428	Offspring	T15657C	4.3	1982	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1465	Offspring	C12867A	4.3	3326	ND5	de novo	C>A	G>T	coding	non-synonymous	3	Ile>Met	normal
+F965	Offspring	T10238C	4.3	1546	ND3	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F970	Offspring	T15305C	4.3	971	CYB	de novo	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F785	Offspring	C12557G	4.4	1965	ND5	de novo	C>G	G>C	coding	non-synonymous	2	Thr>Ser	normal
+F13	Offspring	T7961C	4.5	3254	CO2	de novo	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F702	Offspring	T15388C	4.5	2436	CYB	de novo	T>C	A>G	coding	synonymous	3	His>His	normal
+F73	Offspring	A11334G	4.5	1436	ND4	de novo	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F1540	Offspring	G14831A	4.6	1916	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F953	Offspring	T8876C	4.6	1603	ATP6	de novo	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F852	Offspring	T13500C	4.8	1775	ND5	de novo	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F979	Offspring	T15310C	4.8	566	CYB	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1211	Offspring	G15466A	4.9	1728	CYB	de novo	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1471	Offspring	T9481C	4.9	1964	CO3	de novo	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F189	Offspring	G8856A	4.9	696	ATP6	de novo	G>A	C>T	coding	synonymous	3	Ala>Ala	normal
+F1242	Offspring	T4859C	5	1997	ND2	de novo	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1263	Offspring	A10398G	5	2949	ND3	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F910	Offspring	T9829C	5.1	1511	CO3	de novo	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F1359	Offspring	C14948T	5.2	2014	CYB	de novo	C>T	G>A	coding	non-synonymous	1	His>Tyr	normal
+F343	Offspring	C9610T	5.3	1324	CO3	de novo	C>T	G>A	coding	non-synonymous	2	Ser>Phe	normal
+F354	Offspring	G3907A	5.3	1460	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F988	Offspring	A9377G	5.3	1275	CO3	de novo	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F122	Offspring	A15244G	5.4	1110	CYB	de novo	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F86	Offspring	G10646A	5.4	1681	ND4L	de novo	G>A	C>T	coding	synonymous	3	Val>Val	normal
+F907	Offspring	G13928A	5.4	424	ND5	de novo	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F866	Offspring	T8462C	5.5	2422	ATP8	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F846	Offspring	G7805A	5.6	2211	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1336	Offspring	G9713A	5.8	2614	CO3	de novo	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1451	Offspring	T10304C	5.8	4417	ND3	de novo	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F208	Offspring	T9096C	5.9	853	ATP6	de novo	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1369	Offspring	G15596A	6.1	1827	CYB	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F207	Offspring	C5061T	6.2	2353	ND2	de novo	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F1485	Offspring	G9986A	6.3	2314	CO3	de novo	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F1527	Offspring	T11050C	6.3	2611	ND4	de novo	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F713	Offspring	A3892G	6.3	1373	ND1	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1008	Offspring	C12861T	6.6	2005	ND5	de novo	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F329	Offspring	A14790G	6.7	2246	CYB	de novo	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F951	Offspring	G15246A	6.8	1552	CYB	de novo	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1374	Offspring	G8078A	6.9	780	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F2	Offspring	G13177A	7	1717	ND5	de novo	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1014	Offspring	A15377G	7.1	902	CYB	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1541	Offspring	T13404C	7.2	1647	ND5	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F591	Offspring	T15099C	7.2	1343	CYB	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F91	Offspring	G14162A	7.3	1748	ND6	de novo	G>A	C>T	coding	non-synonymous	2	Trp>Stop	normal
+F250	Offspring	G11900A	7.8	1573	ND4	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F499	Offspring	C13809A	7.8	2345	ND5	de novo	C>A	G>T	coding	synonymous	3	Leu>Leu	normal
+F799	Offspring	T14153C	8	2324	ND6	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F986	Offspring	C11946T	8	485	ND4	de novo	C>T	G>A	coding	non-synonymous	2	Thr>Met	normal
+F364	Offspring	C7260T	8.1	2054	CO1	de novo	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F1036	Offspring	G3918A	8.3	2409	ND1	de novo	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F1137	Offspring	G8998A	8.3	1435	ATP6	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F568	Offspring	G8269A	8.3	1704	CO2	de novo	G>A	C>T	coding	synonymous	3	Stop>Stop	normal
+F218	Offspring	T7407C	9	2536	CO1	de novo	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1055	Offspring	G13726A	9.2	1638	ND5	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F598	Offspring	G8156A	9.2	1931	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F1281	Offspring	A14524G	9.3	1599	ND6	de novo	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F413	Offspring	G7598A	9.4	1281	CO2	de novo	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1236	Offspring	G12651A	9.6	1633	ND5	de novo	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F663	Offspring	T11113C	9.6	1918	ND4	de novo	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F109	Offspring	T8005C	9.8	2262	CO2	de novo	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F576	Offspring	T12011C	9.8	1462	ND4	de novo	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F458	Offspring	G9182A	9.9	2869	ATP6	de novo	G>A	C>T	coding	non-synonymous	2	Ser>Asn	normal
+F965	Offspring	A6905G	9.9	1727	CO1	de novo	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1546	Offspring	T9137C	10.1	871	ATP6	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F581	Offspring	G6734A	10.1	5362	CO1	de novo	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1520	Offspring	T10915C	10.4	1933	ND4	de novo	T>C	A>G	coding	synonymous	3	Cys>Cys	normal
+F950	Offspring	T7695C	10.7	3106	CO2	de novo	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F376	Offspring	C10975T	11.1	899	ND4	de novo	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F1120	Offspring	T8763C	11.2	2778	ATP6	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1162	Offspring	T7040C	11.2	1481	CO1	de novo	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F1474	Offspring	C5057T	11.7	2245	ND2	de novo	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F90	Offspring	A10524G	12.4	5759	ND4L	de novo	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F977	Offspring	T14577C	12.6	2129	ND6	de novo	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F1093	Offspring	A5347G	14.1	3278	ND2	de novo	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F895	Offspring	C8726T	14.5	1104	ATP6	de novo	C>T	G>A	coding	non-synonymous	2	Thr>Ile	normal
+F1007	Offspring	G5231A	14.6	2027	ND2	de novo	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F333	Offspring	T12028C	15.6	1741	ND4	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F807	Offspring	C4814T	15.6	1146	ND2	de novo	C>T	G>A	coding	synonymous	3	Val>Val	normal
+F950	Offspring	T8267C	15.8	2856	CO2	de novo	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F1008	Offspring	A11314G	17.5	2071	ND4	de novo	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F657	Offspring	A5335G	18	1738	ND2	de novo	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F583	Offspring	T6430C	18.5	2248	CO1	de novo	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F468	Offspring	C4146T	20.8	2429	ND1	de novo	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F875	Offspring	A13527G	21.2	1487	ND5	de novo	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F1403	Offspring	A6905G	23.2	1849	CO1	de novo	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F587	Offspring	G9966A	24.3	2076	CO3	de novo	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1206	Offspring	A7443G	24.7	3361	CO1	de novo	A>G	T>C	coding	non-synonymous	1	Stop>Gly	normal
+F929	Offspring	T9111C	25.4	1640	ATP6	de novo	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F814	Offspring	C9752T	25.6	1650	CO3	de novo	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F709	Offspring	C15174T	29.1	787	CYB	de novo	C>T	G>A	coding	non-synonymous	2	Ala>Val	normal
+F805	Offspring	G5237A	30	1774	ND2	de novo	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F844	Offspring	C9893T	32.5	2968	CO3	de novo	C>T	G>A	coding	synonymous	3	Ser>Ser	normal
+F1090	Offspring	G3946A	32.8	1687	ND1	de novo	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F991	Offspring	T7032C	36.1	2181	CO1	de novo	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F510	Offspring	T4903C	37.9	2167	ND2	de novo	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F110	Offspring	C7225T	43.9	1924	CO1	de novo	C>T	G>A	coding	non-synonymous	2	Ser>Leu	normal
+F857	Offspring	C7043T	44.7	1731	CO1	de novo	C>T	G>A	coding	synonymous	3	Val>Val	normal
+F968	Offspring	T8419C	53.2	425	ATP8	de novo	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F832	Offspring	A13834G	59.1	1900	ND5	de novo	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F736	Offspring	T8993G	82.1	1027	ATP6	de novo	T>G	A>C	coding	non-synonymous	2	Leu>Arg	normal
+F327	Offspring	G14459A	93.6	2196	ND6	de novo	G>A	C>T	coding	non-synonymous	2	Arg>Gln	normal
+F623	Offspring	T10810C	1.2	883	ND4	inherited	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F1012	Offspring	A7934G	1.5	1372	CO2	inherited	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1534	Offspring	T3590C	1.6	3154	ND1	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1468	Offspring	A8623C	1.8	2670	ATP6	inherited	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F447	Offspring	T10345C	1.8	2726	ND3	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F407	Offspring	T8870C	1.9	1036	ATP6	inherited	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1005	Offspring	A6339G	1.9	2207	CO1	inherited	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F476	Offspring	G7337A	2	736	CO1	inherited	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F1019	Offspring	T7922C	2.1	2230	CO2	inherited	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1188	Offspring	G15254A	2.2	2746	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F734	Offspring	T15297C	2.2	1248	CYB	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F319	Offspring	G14544A	2.2	1691	ND6	inherited	G>A	C>T	coding	synonymous	3	Ser>Ser	normal
+F1194	Offspring	T8556C	2.3	2450	ATP8	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F963	Offspring	G6366A	2.3	2660	CO1	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1242	Offspring	T13769C	2.6	1256	ND5	inherited	T>C	A>G	coding	non-synonymous	2	Phe>Ser	normal
+F532	Offspring	G13759A	2.6	949	ND5	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1447	Offspring	G12070A	2.7	2647	ND4	inherited	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1514	Offspring	G13810A	2.9	1413	ND5	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1209	Offspring	G5237A	3.6	2214	ND2	inherited	G>A	C>T	coding	synonymous	3	Pro>Pro	normal
+F1362	Offspring	G9429A	3.6	2400	CO3	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F974	Offspring	T4216C	3.6	330	ND1	inherited	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F493	Offspring	T5239C	3.6	2248	ND2	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F297	Offspring	C3556T	3.6	718	ND1	inherited	C>T	G>A	coding	synonymous	1	Leu>Leu	normal
+F16	Offspring	T15566C	3.7	759	CYB	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1514	Offspring	T15601C	3.9	1576	CYB	inherited	T>C	A>G	coding	synonymous	3	Pro>Pro	normal
+F129	Offspring	A8679G	4.1	955	ATP6	inherited	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F1193	Offspring	T10786C	4.2	1574	ND4	inherited	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1031	Offspring	A8460G	4.2	1423	ATP8	inherited	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F211	Offspring	G5471A	4.3	1517	ND2	inherited	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1472	Offspring	C12759T	4.3	2550	ND5	inherited	C>T	G>A	coding	synonymous	3	Phe>Phe	normal
+F928	Offspring	T14395C	4.3	1240	ND6	inherited	T>C	A>G	coding	non-synonymous	1	Trp>Arg	normal
+F213	Offspring	A7374G	4.3	1959	CO1	inherited	A>G	T>C	coding	non-synonymous	1	Asn>Asp	normal
+F755	Offspring	C7079T	4.5	2173	CO1	inherited	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F1504	Offspring	G7637A	4.7	2071	CO2	inherited	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F162	Offspring	C14248T	5.1	2598	ND6	inherited	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F690	Offspring	C9290T	5.1	1137	CO3	inherited	C>T	G>A	coding	synonymous	3	Thr>Thr	normal
+F631	Offspring	A14527C	5.2	1467	ND6	inherited	A>C	T>G	coding	non-synonymous	1	Asn>His	normal
+F552	Offspring	T8736C	5.3	1748	ATP6	inherited	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F490	Offspring	A11239G	5.4	2186	ND4	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1463	Offspring	A14527C	5.6	2390	ND6	inherited	A>C	T>G	coding	non-synonymous	1	Asn>His	normal
+F723	Offspring	G15575A	5.8	1982	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F752	Offspring	T13572C	5.8	2405	ND5	inherited	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1478	Offspring	A12674G	6	2726	ND5	inherited	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F429	Offspring	G8854A	6.3	1724	ATP6	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1527	Offspring	A14750G	7.2	2783	CYB	inherited	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F85	Offspring	A12865G	7.5	1541	ND5	inherited	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1125	Offspring	T15622C	7.6	1660	CYB	inherited	T>C	A>G	coding	synonymous	3	Leu>Leu	normal
+F989	Offspring	G15596A	7.8	1453	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F847	Offspring	G12775A	7.9	2039	ND5	inherited	G>A	C>T	coding	non-synonymous	1	Val>Met	normal
+F51	Offspring	T15293C	8.3	2322	CYB	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1231	Offspring	G5973A	8.4	1463	CO1	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1436	Offspring	G15355A	8.5	1352	CYB	inherited	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1351	Offspring	T9685C	8.5	1795	CO3	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F448	Offspring	T6365C	8.6	1129	CO1	inherited	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F74	Offspring	A14452G	8.6	1026	ND6	inherited	A>G	T>C	coding	non-synonymous	1	Met>Val	normal
+F49	Offspring	C11005T	8.7	1560	ND4	inherited	C>T	G>A	coding	synonymous	3	Arg>Arg	normal
+F223	Offspring	A5480G	8.8	2195	ND2	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F482	Offspring	C11326T	8.8	1369	ND4	inherited	C>T	G>A	coding	synonymous	3	Ser>Ser	normal
+F299	Offspring	A11893G	9.1	1882	ND4	inherited	A>G	T>C	coding	synonymous	3	Glu>Glu	normal
+F869	Offspring	T4907C	9.2	2355	ND2	inherited	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1265	Offspring	A14793G	9.3	1099	CYB	inherited	A>G	T>C	coding	non-synonymous	2	His>Arg	normal
+F1338	Offspring	C15420T	9.5	2248	CYB	inherited	C>T	G>A	coding	non-synonymous	2	Thr>Met	normal
+F1044	Offspring	T10345C	9.6	1570	ND3	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F357	Offspring	C12966T	9.7	257	ND5	inherited	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F271	Offspring	G8989A	9.7	1002	ATP6	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F367	Offspring	T10927C	10.2	1557	ND4	inherited	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F273	Offspring	T7964C	10.4	2534	CO2	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F52	Offspring	T7785C	10.5	1114	CO2	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1338	Offspring	A8389G	10.8	2544	ATP8	inherited	A>G	T>C	coding	synonymous	3	Val>Val	normal
+F316	Offspring	A4064G	11.2	1146	ND1	inherited	A>G	T>C	coding	non-synonymous	2	Glu>Gly	normal
+F910	Offspring	A7055G	11.4	1271	CO1	inherited	A>G	T>C	coding	synonymous	3	Gly>Gly	normal
+F616	Offspring	G4219A	11.7	2852	ND1	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F886	Offspring	A9765G	11.8	533	CO3	inherited	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1520	Offspring	C10647T	12.2	1967	ND4L	inherited	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F554	Offspring	T8380C	12.3	3096	ATP8	inherited	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F299	Offspring	A6259G	12.4	1479	CO1	inherited	A>G	T>C	coding	non-synonymous	2	Glu>Gly	normal
+F604	Offspring	G4530A	12.7	685	ND2	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1207	Offspring	T10318C	12.9	2552	ND3	inherited	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F850	Offspring	T14325C	12.9	2139	ND6	inherited	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F638	Offspring	G7211A	13.2	1585	CO1	inherited	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1166	Offspring	C3846T	13.5	1726	ND1	inherited	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F811	Offspring	T8222C	13.9	2383	CO2	inherited	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1331	Offspring	G10934C	14	1288	ND4	inherited	G>C	C>G	coding	non-synonymous	1	Asp>His	normal
+F1016	Offspring	G12007A	14.5	2004	ND4	inherited	G>A	C>T	coding	synonymous	3	Trp>Trp	normal
+F1007	Offspring	A6905G	14.6	2385	CO1	inherited	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F942	Offspring	G5943A	14.6	1955	CO1	inherited	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F451	Offspring	T14271C	14.7	4362	ND6	inherited	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F1215	Offspring	T15519C	15.4	2865	CYB	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F501	Offspring	G3460A	15.7	1727	ND1	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F856	Offspring	G9804A	15.8	1698	CO3	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F763	Offspring	A12768G	15.8	1777	ND5	inherited	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1130	Offspring	C11428T	16.1	2082	ND4	inherited	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F1167	Offspring	A13350G	16.3	1344	ND5	inherited	A>G	T>C	coding	synonymous	3	Met>Met	normal
+F1371	Offspring	G9695A	16.5	2570	CO3	inherited	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F54	Offspring	C3417T	16.8	979	ND1	inherited	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F836	Offspring	G14226A	17.1	1582	ND6	inherited	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F249	Offspring	A15203G	17.3	2720	CYB	inherited	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1239	Offspring	T14318C	17.7	1411	ND6	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Ser	normal
+F841	Offspring	C9812T	17.9	2350	CO3	inherited	C>T	G>A	coding	synonymous	3	Gly>Gly	normal
+F100	Offspring	G5417A	18.1	1185	ND2	inherited	G>A	C>T	coding	synonymous	3	Gln>Gln	normal
+F289	Offspring	G14249A	18.3	1121	ND6	inherited	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1520	Offspring	T13635C	18.5	1819	ND5	inherited	T>C	A>G	coding	synonymous	3	Gly>Gly	normal
+F909	Offspring	G9025A	19.4	1541	ATP6	inherited	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1194	Offspring	T9686C	19.7	2928	CO3	inherited	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1067	Offspring	G15498A	20.2	1583	CYB	inherited	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F1455	Offspring	A3558G	21	1975	ND1	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1083	Offspring	C14356T	21.4	3091	ND6	inherited	C>T	G>A	coding	non-synonymous	1	Pro>Ser	normal
+F238	Offspring	C15022T	22.3	1478	CYB	inherited	C>T	G>A	coding	synonymous	3	Ile>Ile	normal
+F1198	Offspring	C8905T	22.5	2249	ATP6	inherited	C>T	G>A	coding	non-synonymous	1	His>Tyr	normal
+F79	Offspring	A7732G	22.6	1520	CO2	inherited	A>G	T>C	coding	synonymous	3	Lys>Lys	normal
+F381	Offspring	G10203A	22.9	999	ND3	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F331	Offspring	A4136G	23	1629	ND1	inherited	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F520	Offspring	T12136C	24.9	1830	ND4	inherited	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F1383	Offspring	G15200A	24.9	1759	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F822	Offspring	T7407C	25.3	3207	CO1	inherited	T>C	A>G	coding	non-synonymous	1	Tyr>His	normal
+F1430	Offspring	T15530C	26	1831	CYB	inherited	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1361	Offspring	T15039C	26	1634	CYB	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F523	Offspring	A12366G	26	392	ND5	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F924	Offspring	G4659A	26.4	1790	ND2	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F583	Offspring	T9098C	27.1	2307	ATP6	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F476	Offspring	A13470G	27.8	752	ND5	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F453	Offspring	C9201T	27.9	1912	ATP6	inherited	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F639	Offspring	G9525A	28.3	1468	CO3	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1524	Offspring	G15500A	28.7	1093	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Asp>Asn	normal
+F1008	Offspring	C9719T	28.7	2102	CO3	inherited	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F721	Offspring	G15650A	28.8	978	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F356	Offspring	C10619T	28.9	1220	ND4L	inherited	C>T	G>A	coding	synonymous	3	Asn>Asn	normal
+F1265	Offspring	G8251A	29	1150	CO2	inherited	G>A	C>T	coding	synonymous	3	Gly>Gly	normal
+F1538	Offspring	C9184T	32.1	1939	ATP6	inherited	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F1436	Offspring	G10704A	32.5	1429	ND4L	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1527	Offspring	G9921A	32.9	3099	CO3	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F41	Offspring	A3434G	33.4	740	ND1	inherited	A>G	T>C	coding	non-synonymous	2	Tyr>Cys	normal
+F1457	Offspring	C9650T	33.5	1641	CO3	inherited	C>T	G>A	coding	synonymous	3	His>His	normal
+F629	Offspring	T11864C	33.8	1424	ND4	inherited	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1020	Offspring	G8857A	34.1	848	ATP6	inherited	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F1145	Offspring	G5147A	34.5	1760	ND2	inherited	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1179	Offspring	A7241G	35.9	4108	CO1	inherited	A>G	T>C	coding	synonymous	3	Ala>Ala	normal
+F1462	Offspring	T10101C	36.6	4006	ND3	inherited	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F1089	Offspring	T3644C	38.5	1278	ND1	inherited	T>C	A>G	coding	non-synonymous	2	Val>Ala	normal
+F1239	Offspring	T10915C	38.7	1442	ND4	inherited	T>C	A>G	coding	synonymous	3	Cys>Cys	normal
+F749	Offspring	C10094T	39.1	1415	ND3	inherited	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F960	Offspring	C9008T	39.4	2893	ATP6	inherited	C>T	G>A	coding	non-synonymous	2	Thr>Ile	normal
+F902	Offspring	C13056T	40	1288	ND5	inherited	C>T	G>A	coding	synonymous	3	Pro>Pro	normal
+F1362	Offspring	G13708A	40.4	2088	ND5	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F902	Offspring	T11260C	40.7	1237	ND4	inherited	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F954	Offspring	A8678T	40.8	1926	ATP6	inherited	A>T	T>A	coding	non-synonymous	2	Lys>Met	normal
+F1012	Offspring	T13581C	41.8	1370	ND5	inherited	T>C	A>G	coding	synonymous	3	Ala>Ala	normal
+F464	Offspring	A12534G	41.9	1276	ND5	inherited	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F1490	Offspring	A8498G	42.4	1892	ATP8	inherited	A>G	T>C	coding	non-synonymous	1	Lys>Glu	normal
+F991	Offspring	T8134C	42.7	2155	CO2	inherited	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1158	Offspring	T13151C	44.4	1922	ND5	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1494	Offspring	T8477C	46.7	1652	ATP8	inherited	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F663	Offspring	T8843C	47.5	1761	ATP6	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F694	Offspring	T3752C	48.1	2293	ND1	inherited	T>C	A>G	coding	non-synonymous	2	Ile>Thr	normal
+F1346	Offspring	A13563G	48.5	2323	ND5	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F353	Offspring	T5201C	49.1	2629	ND2	inherited	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F353	Offspring	G8857A	49.4	2289	ATP6	inherited	G>A	C>T	coding	non-synonymous	1	Gly>Ser	normal
+F280	Offspring	T10915C	49.6	1751	ND4	inherited	T>C	A>G	coding	synonymous	3	Cys>Cys	normal
+F1159	Offspring	A9425C	50.7	2180	CO3	inherited	A>C	T>G	coding	synonymous	3	Pro>Pro	normal
+F1159	Offspring	T10389C	50.9	2363	ND3	inherited	T>C	A>G	coding	synonymous	1	Leu>Leu	normal
+F880	Offspring	T15128C	51.2	2811	CYB	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F1498	Offspring	C11638T	51.4	1896	ND4	inherited	C>T	G>A	coding	synonymous	3	His>His	normal
+F1478	Offspring	T9887C	51.7	2633	CO3	inherited	T>C	A>G	coding	synonymous	3	Phe>Phe	normal
+F257	Offspring	T7624C	51.9	1936	CO2	inherited	T>C	A>G	coding	synonymous	3	Thr>Thr	normal
+F1048	Offspring	A4745G	52.8	2696	ND2	inherited	A>G	T>C	coding	synonymous	3	Gln>Gln	normal
+F1513	Offspring	C14404T	52.9	3063	ND6	inherited	C>T	G>A	coding	non-synonymous	1	Leu>Phe	normal
+F462	Offspring	G14831A	53.2	3340	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1506	Offspring	T5291C	53.5	2403	ND2	inherited	T>C	A>G	coding	synonymous	3	Asn>Asn	normal
+F1309	Offspring	G7419A	53.6	1292	CO1	inherited	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F894	Offspring	T9467C	54.5	892	CO3	inherited	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F1315	Offspring	T6253C	55	2635	CO1	inherited	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F1078	Offspring	G15596A	55	1978	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F481	Offspring	G11887A	55.3	848	ND4	inherited	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F74	Offspring	G9755A	55.6	1074	CO3	inherited	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F1402	Offspring	T14470C	55.8	2582	ND6	inherited	T>C	A>G	coding	non-synonymous	1	Stop>Gln	normal
+F1390	Offspring	C6887T	56.4	1568	CO1	inherited	C>T	G>A	coding	synonymous	3	His>His	normal
+F339	Offspring	C4898T	59.6	1481	ND2	inherited	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F1509	Offspring	G9287A	60.6	2454	CO3	inherited	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F16	Offspring	G15355A	62.6	668	CYB	inherited	G>A	C>T	coding	synonymous	3	Thr>Thr	normal
+F1020	Offspring	G7697A	63.7	891	CO2	inherited	G>A	C>T	coding	non-synonymous	1	Val>Ile	normal
+F1485	Offspring	A13327G	64.2	2059	ND5	inherited	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F181	Offspring	G11518A	65	2189	ND4	inherited	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F1308	Offspring	T5930C	68.2	2854	CO1	inherited	T>C	A>G	coding	synonymous	3	Ser>Ser	normal
+F111	Offspring	A8623C	68.4	735	ATP6	inherited	A>C	T>G	coding	non-synonymous	1	Thr>Pro	normal
+F1374	Offspring	G3369A	68.5	825	ND1	inherited	G>A	C>T	coding	synonymous	3	Met>Met	normal
+F1040	Offspring	G8573A	69.5	2229	ATP6	inherited	G>A	C>T	coding	non-synonymous	2	Gly>Asp	normal
+F703	Offspring	A15218G	69.9	2304	CYB	inherited	A>G	T>C	coding	non-synonymous	1	Thr>Ala	normal
+F1108	Offspring	T14271C	71.1	2272	ND6	inherited	T>C	A>G	coding	synonymous	3	Val>Val	normal
+F1271	Offspring	G15884A	71.4	2524	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F1077	Offspring	G4219C	72.7	2617	ND1	inherited	G>C	C>G	coding	non-synonymous	1	Val>Leu	normal
+F1198	Offspring	A8682G	74.8	2710	ATP6	inherited	A>G	T>C	coding	synonymous	3	Leu>Leu	normal
+F1160	Offspring	T8490C	74.9	1427	ATP8	inherited	T>C	A>G	coding	non-synonymous	2	Met>Thr	normal
+F474	Offspring	G15077A	76.3	1543	CYB	inherited	G>A	C>T	coding	non-synonymous	1	Glu>Lys	normal
+F51	Offspring	G7984A	78.4	2296	CO2	inherited	G>A	C>T	coding	synonymous	3	Leu>Leu	normal
+F193	Offspring	C8835T	78.5	1336	ATP6	inherited	C>T	G>A	coding	synonymous	3	Ala>Ala	normal
+F758	Offspring	C7996T	79.4	339	CO2	inherited	C>T	G>A	coding	synonymous	3	Asp>Asp	normal
+F51	Offspring	T12757C	80.9	2530	ND5	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F255	Offspring	G6260A	82.6	2277	CO1	inherited	G>A	C>T	coding	synonymous	3	Glu>Glu	normal
+F590	Offspring	C6713T	82.6	1434	CO1	inherited	C>T	G>A	coding	synonymous	3	Tyr>Tyr	normal
+F927	Offspring	T9032C	83.1	5681	ATP6	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1508	Offspring	A6040G	83.1	4663	CO1	inherited	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F160	Offspring	A3995G	83.4	1311	ND1	inherited	A>G	T>C	coding	non-synonymous	2	Asn>Ser	normal
+F304	Offspring	G6267A	83.5	952	CO1	inherited	G>A	C>T	coding	non-synonymous	1	Ala>Thr	normal
+F649	Offspring	T8258C	83.7	2381	CO2	inherited	T>C	A>G	coding	non-synonymous	1	Phe>Leu	normal
+F618	Offspring	T10191C	85	2432	ND3	inherited	T>C	A>G	coding	non-synonymous	1	Ser>Pro	normal
+F817	Offspring	C9332T	86.2	1678	CO3	inherited	C>T	G>A	coding	synonymous	3	Leu>Leu	normal
+F913	Offspring	T13899C	87.3	2324	ND5	inherited	T>C	A>G	coding	synonymous	3	Tyr>Tyr	normal
+F206	Offspring	A6663G	88	2360	CO1	inherited	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F1422	Offspring	A10397G	89.2	1673	ND3	inherited	A>G	T>C	coding	synonymous	3	Trp>Trp	normal
+F245	Offspring	T9185C	90.1	1876	ATP6	inherited	T>C	A>G	coding	non-synonymous	2	Leu>Pro	normal
+F1087	Offspring	T12678C	90.2	1712	ND5	inherited	T>C	A>G	coding	synonymous	3	Ile>Ile	normal
+F278	Offspring	A3724G	90.8	1629	ND1	inherited	A>G	T>C	coding	non-synonymous	1	Ile>Val	normal
+F69	Offspring	C15037T	95.5	1717	CYB	inherited	C>T	G>A	coding	synonymous	3	His>His	normal
+F1404	Offspring	C7028T	95.5	1677	CO1	inherited	C>T	G>A	coding	synonymous	3	Ala>Ala	normal

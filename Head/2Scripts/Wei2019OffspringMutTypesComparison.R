@@ -1,10 +1,13 @@
 rm(list=ls())
 
-data = read.table("../../Body/1Raw/Wei2019HumanDuos.txt", sep='\t', header = TRUE)
-str(data)
+DataOrig = read.table("../../Body/1Raw/Wei2019HumanDuos.txt", sep='\t', header = TRUE); dim(DataOrig)      # Original Data from supplement
+data = read.table("../../Body/3Results/Wei2019HumanDuosDerived.txt", sep='\t', header = TRUE); dim(data)   # KU modified data - only protein-coding genes here
+
+data = DataOrig # which dataset to work with? !!!
+
 length(unique(data$PairID)) # 928
 table(data$MotherOffspring) # Mother: 1043 Offspring: 893
-table(data$HeteroplasmiCategory) # de novo: 477; inherited: 416; lost: 614; tansmitted: 429  # inherited - transmitted&&&
+table(data$HeteroplasmiCategory) # de novo: 477; inherited: 416; lost: 614; tansmitted: 429  # inherited - transmitted.
 
 ### Add mutation type column
 data$Allele = as.character(data$Allele)
@@ -34,10 +37,14 @@ TotalMutSpecLightChain
 # invert transitions to heavy notations (to A>G) and collapse all transversions to Tv:
 OffDeNovo$mutType = gsub('TC','A>G',OffDeNovo$mutType);  OffDeNovo$mutType = gsub('GA','C>T',OffDeNovo$mutType); OffDeNovo$mutType = gsub('AG','T>C',OffDeNovo$mutType); OffDeNovo$mutType = gsub('CT','G>A',OffDeNovo$mutType); 
 OffDeNovo$mutType = gsub("AC|CA|GT|TG|AT|TA|CG|GC", 'Tv',OffDeNovo$mutType);
+
+# save only syn mut
+# OffDeNovo = OffDeNovo[OffDeNovo$SynonymousOrNot == 'synonymous',]; # just 98 # can comment this line to keep more
+
 TotalMutSpecHeavyChain = as.data.frame(table(OffDeNovo$mutType)); TotalMutSpecHeavyChain = TotalMutSpecHeavyChain[order(-TotalMutSpecHeavyChain$Freq),]
 TotalMutSpecHeavyChain
 # Var1 Freq
-#1  A>G  159
+#1  A>G  159 A>G is the most common (without normalization)!!!!!
 #2  C>T  129
 #4  T>C  114
 #3  G>A   52
@@ -45,7 +52,14 @@ TotalMutSpecHeavyChain
 
 #### average heteroplasmy per substitution type: G>A, A>G, Tv, T>C, C>T
 Agg1 = aggregate(OffDeNovo$HeteroplasmicFraction, by = list(OffDeNovo$mutType), FUN = mean)
-Agg1
+Agg1 # A>G is minimal now among all (nons + syn) protein-coding genes
+#Group.1         x
+#1     A>G  6.138636
+#2     C>T  6.169412
+#3     G>A 12.420000
+#4     T>C  7.043478
+#5      Tv  9.384615
+### all mutations:
 #Group.1         x
 #1     A>G  6.039623
 #2     C>T  5.948062
@@ -90,10 +104,22 @@ dev.off()
 plot(0,0,xlim = c(0,10), ylim = c(0,1), pch = NA)
 for (i in 1:nrow(final)) {   segments(final$NotAtoGVaf[i],0,final$AtoGVaf[i],1) }
 
+# both are rare
 final = final[final$AtoGVaf <= 10 & final$NotAtoGVaf <= 10,] # 23
+nrow(final) # 23
+nrow(final[final$AtoGVaf < final$NotAtoGVaf,])  # 13
 wilcox.test(final$AtoGVaf,final$NotAtoGVaf, paired = TRUE, alternative = 'less') # 0.05015
 summary(final$AtoGVaf - final$NotAtoGVaf) # on average A>G has 1% less VAF as compared to all other substitutions among de novo mtDNA mutations. 
+wilcox.test(final$AtoGVaf - final$NotAtoGVaf, mu = 0, alternative = 'less') # p = 0.05015
+dev.off()
+plot(0,0,xlim = c(0,10), ylim = c(0,1), pch = NA)
+for (i in 1:nrow(final)) {   segments(final$NotAtoGVaf[i],0,final$AtoGVaf[i],1) }
 
+### MAY BE RUN GLOBAL PERMUTATION - TO SHUFFLE "MutType" in the Original dataset (with De novo mutations only) and see - how often
+# 1) we will get A>G rare enough
+# 2) 13 our of 23 offspring where A>G has less VAF than another. 
+# A>G is the most common (among patients) and in parallel - rare (within patients). 
+# Probably permutation will show that if we distribute everything equally - A>G will be never more rare.  
 
 
 
