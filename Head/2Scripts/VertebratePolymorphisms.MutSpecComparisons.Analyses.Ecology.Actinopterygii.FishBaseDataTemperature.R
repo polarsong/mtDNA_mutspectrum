@@ -12,7 +12,7 @@ class(TEMPE$Species)
 
 
 ### calculating average for repeating species in TEMPE
-averageTEMPE = aggregate(Temperature ~ ., mean, data = TEMPE)
+averageTEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
 
 ### temperature in fishes 
 TemperMut = merge(MUT,TEMPE)   # 1170 rows
