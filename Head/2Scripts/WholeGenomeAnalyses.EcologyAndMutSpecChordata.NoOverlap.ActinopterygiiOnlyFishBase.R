@@ -91,7 +91,9 @@ cor.test(log2(AGG$FemaleMaturityDays),AGG$FrT)
 cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG)
 cor.test(log2(AGG$FemaleMaturityDays),AGG$FrC)
 
-############# mult reg Tm
+################################
+############# mult reg with Tm maturity
+################################
 AGG = aggregate(list(SynNucTM$FrA,SynNucTM$FrT,SynNucTM$FrG,SynNucTM$FrC), by = list(SynNucTM$Species,SynNucTM$Tm), FUN = mean)
 names(AGG) = c('Species','FemaleMaturityDays','FrA','FrT','FrG','FrC')
 AGGTEMPE = merge(AGG,TEMPE)
@@ -99,33 +101,41 @@ names(AGGTEMPE) = c('Species','Maturity','FrA','FrT','FrG','FrC', "Temperature")
 nrow(AGGTEMPE)
 
 
-ltest = lm(formula = FrA ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
-summary(ltest)
-
 ltest = lm(formula = FrT ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrG ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
+ltest = lm(formula = FrT ~ scale(Temperature)+scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrC ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
+ltest = lm(formula = scale(FrT) ~ scale(Temperature) + scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-############# mult reg Lm
+ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature) + scale(Maturity), data = AGGTEMPE)
+summary(ltest)
+
+ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature), data = AGGTEMPE)
+summary(ltest)
+
+
+############# mult reg with Tm maturity
+
 AGG = aggregate(list(SynNucLM$FrA,SynNucLM$FrT,SynNucLM$FrG,SynNucLM$FrC), by = list(SynNucLM$Species,SynNucLM$Lm), FUN = mean)
 names(AGG) = c('Species','FemaleMaturityDays','FrA','FrT','FrG','FrC')
 AGGTEMPE = merge(AGG,TEMPE)
 names(AGGTEMPE) = c('Species','Maturity','FrA','FrT','FrG','FrC', "Temperature")
 nrow(AGGTEMPE)
 
-ltest = lm(formula = FrA ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
-summary(ltest)
-
 ltest = lm(formula = FrT ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrG ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
+ltest = lm(formula = FrT ~ scale(Temperature)+scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrC ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
+ltest = lm(formula = scale(FrT) ~ scale(Temperature) + scale(Maturity), data = AGGTEMPE)
+summary(ltest)
+
+ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature) + scale(Maturity), data = AGGTEMPE)
+summary(ltest)
+
+ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature), data = AGGTEMPE)
 summary(ltest)
