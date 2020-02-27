@@ -47,6 +47,18 @@ summary(ltest)
 ltest = lm(formula = scale(T_C) ~ 0 + scale(Temperature), data = allparameters)
 summary(ltest)
 
+#####checking A_G
+
+
+ltest = lm(formula = A_G ~ scale(Temperature)*scale(Tm), data = allparameters)
+summary(ltest)
+
+ltest = lm(formula = Temperature ~ scale(T_C)*scale(A_G), data = allparameters)
+summary(ltest)
+
+ltest = lm(formula = Temperature ~ scale(T_C)+scale(A_G), data = allparameters)
+summary(ltest)
+
 
 ##multiple reg Lm
 TemperMut = merge(MUT,averageTEMPE) 
@@ -68,4 +80,8 @@ summary(ltest)
 
 ltest = lm(formula = scale(T_C) ~ 0 + scale(Temperature), data = allparameters)
 summary(ltest)
+
+
+
+
 

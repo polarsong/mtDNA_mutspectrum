@@ -14,11 +14,11 @@ TEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
 TemperMut = merge(MUT, TEMPE) 
 
 cor.test(TemperMut$A_T,TemperMut$Temperature, method = 'spearman')   #rho  
-cor.test(TemperMut$A_G,TemperMut$Temperature, method = 'spearman')   #rho     -0.3581037 p-value = 3.321e-05
+cor.test(TemperMut$A_G,TemperMut$Temperature)   #rho     -0.3581037 p-value = 3.321e-05
 cor.test(TemperMut$A_C,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$T_A,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$T_G,TemperMut$Temperature, method = 'spearman')   #rho   
-cor.test(TemperMut$T_C,TemperMut$Temperature, method = 'spearman')   #rho     0.2648037 p-value = 0.002522
+cor.test(TemperMut$T_C,TemperMut$Temperature)   #rho     0.2648037 p-value = 0.002522
 cor.test(TemperMut$G_A,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$G_T,TemperMut$Temperature, method = 'spearman')   #rho  
 cor.test(TemperMut$G_C,TemperMut$Temperature, method = 'spearman')   #rho  
@@ -26,7 +26,12 @@ cor.test(TemperMut$C_A,TemperMut$Temperature, method = 'spearman')   #rho
 cor.test(TemperMut$C_T,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$C_G,TemperMut$Temperature, method = 'spearman')   #rho   
 
+####### after normalization
+TemperMut$T_C.NormalOnlyByT = TemperMut$T_C / (TemperMut$T_C  + TemperMut$T_A + TemperMut$T_G )
+TemperMut$A_G.NormalOnlyByA = TemperMut$A_G / (TemperMut$A_C  + TemperMut$A_T + TemperMut$A_G )
 
+cor.test(TemperMut$T_C.NormalOnlyByT,TemperMut$Temperature)
+cor.test(TemperMut$A_G.NormalOnlyByA,TemperMut$Temperature)
 
 library("ggpubr")
 ggscatter(TemperMut, x = "Temperature", y = "A_G", 
@@ -120,12 +125,6 @@ ggscatter(TEMPMATUTM, x = "Tm", y = "Temperature",
           cor.coef = TRUE, cor.method = "spearman",
           xlab = "Tm", ylab = "Temperature")
 
-ANAGEMATULM = merge(MATULM, AnAge)
-cor.test(ANAGEMATULM$Lm,ANAGEMATULM$Maximum.longevity..yrs., method = 'spearman')
-ggscatter(ANAGEMATULM, x = "Lm", y = "Maximum.longevity..yrs.", 
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = TRUE, cor.method = "spearman",
-          xlab = "Lm", ylab = "Maximum.longevity..yrs.")
 
 ANAGETEMP = merge(TEMPE, AnAge)
 cor.test(ANAGETEMP$Temperature,ANAGETEMP$Maximum.longevity..yrs., method = 'spearman')
@@ -134,5 +133,17 @@ ggscatter(ANAGETEMP, x = "Temperature", y = "Maximum.longevity..yrs.",
           cor.coef = TRUE, cor.method = "spearman",
           xlab = "Temperature", ylab = "Maximum.longevity..yrs.")
 
+ANAGEMATLM = merge(MATULM, AnAge)
+cor.test(ANAGEMATLM$Lm,ANAGEMATLM$Maximum.longevity..yrs., method = 'spearman')
+ggscatter(ANAGEMATLM, x = "Lm", y = "Maximum.longevity..yrs.", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Lm", ylab = "Maximum.longevity..yrs.")
 
+ANAGEMATTM = merge(MATUTM, AnAge)
+cor.test(ANAGEMATTM$Tm,ANAGEMATTM$Maximum.longevity..yrs., method = 'spearman')
+ggscatter(ANAGEMATTM, x = "Tm", y = "Maximum.longevity..yrs.", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Tm", ylab = "Maximum.longevity..yrs.")
 
