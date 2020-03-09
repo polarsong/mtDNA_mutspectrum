@@ -56,3 +56,24 @@ a <- lm(TemperMut$Temperature ~ scale(TemperMut$T_C) + scale(TemperMut$G_T) + sc
 # scale(TemperMut$C_G)  -1.3195     0.4166  -3.167  0.00169 ** 
 # r2 = 0.37
 
+
+
+###################Endotermic fishes
+
+etnet= read.table('../../Body/1Raw/ET_vs_nET_fishes.txt', header = TRUE)
+etwt= read.table('../../Body/1Raw/ET_without_temp.txt', header = TRUE)
+
+etMut = merge(MUT,etnet)
+etwtMut = merge(MUT,etwt)
+
+ggscatter(etMut, x = "Temp", y = "T_C",
+          color = "ET", palette = c("#00AFBB", "#E7B800"),
+          label = "Species", repel = TRUE)
+
+ggboxplot(etwtMut, "ET", "T_C",
+          fill = "ET", palette = c("#00AFBB", "#E7B800"))
+
+
+
+
+
