@@ -5,9 +5,10 @@
 rm(list=ls(all=TRUE))
 
 ############ list of hibernating animals
-Hib = read.table("../../Body/1Raw/HibernatingMammals.txt", sep = '\t')
-ListOfHibSpecies = gsub(' ','_',Hib$V1); length(ListOfHibSpecies)
-
+Hib = read.table("../../Body/1Raw/HibernatingDailytorporMammals.txt")
+Hib$V1 = paste(Hib$V1, Hib$V2, sep="_")
+ListOfHibSpecies = Hib[Hib$V3 == "HIB",]$V1; length(ListOfHibSpecies)
+ListOfNHibSpecies = Hib[!Hib$V3 == "HIB",]$V1; length(ListOfNHibSpecies)
 ############ Syn mut
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
@@ -74,6 +75,8 @@ vec_of_NonWarm = c(GL[GL$Genus %in% Vec_of_Monotremata_genus,]$Species, GL[GL$Ge
 
 GL$Hib = 1
 GL[!GL$Species %in% ListOfHibSpecies,]$Hib = 0
+GL$Daily = 1
+GL[!GL$Species %in% ListOfNHibSpecies,]$Daily = 0
 GL$Mono= 1
 GL[!GL$Genus %in% Vec_of_Monotremata_genus,]$Mono = 0
 GL$Mars = 1
@@ -83,6 +86,7 @@ GL[!GL$Species %in% vec_of_NonWarm,]$NonWarm = 0
 
 allparameters = merge(GL, AGG)
 table(allparameters$Hib)
+table(allparameters$Daily)
 table(allparameters$Mono)
 table(allparameters$Mars)
 table(allparameters$NonWarm)
@@ -90,15 +94,15 @@ table(allparameters$NonWarm)
 
 
 
-ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(NonWarm), data = allparameters)
+ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(Daily), data = allparameters)
 summary(ltest)
 
 
-ltest = lm(formula = FrT ~ scale(GenerationLength_d)+scale(NonWarm)+scale(Hib), data = allparameters)
+ltest = lm(formula = FrT ~ scale(GenerationLength_d)+scale(Hib)+scale(Mono), data = allparameters)
 summary(ltest)
 
 
-ltest = lm(formula = scale(FrT) ~ 0 + scale(GenerationLength_d)+scale(Hib), data = allparameters)
+ltest = lm(formula = scale(FrT) ~ 0 + scale(GenerationLength_d)+scale(Daily), data = allparameters)
 summary(ltest)
 
 
