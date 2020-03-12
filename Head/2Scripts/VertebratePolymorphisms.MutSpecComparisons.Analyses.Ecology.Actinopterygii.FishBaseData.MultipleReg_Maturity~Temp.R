@@ -1,5 +1,5 @@
 rm(list=ls(all=TRUE))
-
+library(ggpubr)
 
 
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
@@ -46,6 +46,15 @@ summary(ltest)
 
 ltest = lm(formula = scale(T_C) ~ 0 + scale(Temperature), data = allparameters)
 summary(ltest)
+
+
+ggscatter(TemperMut, x = "Temperature", y = "T_C",
+          color = "blue", shape = 21, size = 3, # Points color, shape and size
+          add = "reg.line",  # Add regressin line
+          add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
+          conf.int = TRUE, # Add confidence interval
+          cor.coef = TRUE, # Add correlation coefficient. see ?stat_cor
+          cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n"), xlab="Temperature, C", ylab="A>G")
 
 #####checking A_G
 
