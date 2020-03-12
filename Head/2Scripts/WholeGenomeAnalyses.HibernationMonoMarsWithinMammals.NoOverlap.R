@@ -72,7 +72,7 @@ vec_of_Marsupials_orders = c("Dasyuromorphia", 'Didelphimorphia', "Diprotodontia
 Vec_of_Monotremata_genus = c("Tachyglossus","Zaglossus", "Ornithorhynchus") #Ornithorhynchus
 Vec_of_Marsupials_genus = AA[AA$Order %in% vec_of_Marsupials_orders,]$Genus
 vec_of_NonWarm = c(GL[GL$Genus %in% Vec_of_Monotremata_genus,]$Species, GL[GL$Genus %in% Vec_of_Marsupials_genus,]$Species, "Heterocephalus_glaber")
-
+Vec_of_HibDai = c(ListOfNHibSpecies, ListOfHibSpecies)
 GL$Hib = 1
 GL[!GL$Species %in% ListOfHibSpecies,]$Hib = 0
 GL$Daily = 1
@@ -83,6 +83,9 @@ GL$Mars = 1
 GL[!GL$Genus %in% Vec_of_Marsupials_genus,]$Mars = 0
 GL$NonWarm = 1
 GL[!GL$Species %in% vec_of_NonWarm,]$NonWarm = 0
+GL$HibDai = 1
+GL[!GL$Species %in% Vec_of_HibDai,]$HibDai = 0
+
 
 allparameters = merge(GL, AGG)
 table(allparameters$Hib)
@@ -90,23 +93,47 @@ table(allparameters$Daily)
 table(allparameters$Mono)
 table(allparameters$Mars)
 table(allparameters$NonWarm)
+table(allparameters$HibDai)
+
+allparameters$Temper = "Warm"
+
+allparameters[allparameters$Species %in% Vec_of_HibDai, ]$Temper= "HibDay"
+allparameters[allparameters$Species %in% vec_of_NonWarm, ]$Temper= "MonoMarsHG"
 
 
-
-
-ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(Daily), data = allparameters)
+ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(HibDai), data = allparameters)
 summary(ltest)
 
 
-ltest = lm(formula = FrT ~ scale(GenerationLength_d)+scale(Hib)+scale(Mono), data = allparameters)
+ltest = lm(formula = FrT ~ scale(GenerationLength_d)+scale(HibDai), data = allparameters)
 summary(ltest)
 
 
-ltest = lm(formula = scale(FrT) ~ 0 + scale(GenerationLength_d)+scale(Daily), data = allparameters)
+ltest = lm(formula = scale(FrT) ~ 0 + scale(GenerationLength_d)+scale(HibDai), data = allparameters)
 summary(ltest)
 
 
+library(ggpubr)
+ggscatter(allparameters, x = "GenerationLength_d", y = "FrT", color = "Temper",
+          palette = c("#00AFBB", "#756bb1", "#FC4E07"), add = "reg.line",  xscale = "log2", cor.coeff.args = list(method = "spearman"))
+ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
+          color = "Temper", shape = "Temper",
+          palette = c("#00AFBB", "#756bb1", "#FC4E07"),
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2")
 
 
+gghistogram(allparameters, x = "GenerationLength_d",
+            add = "mean", rug = TRUE,
+            color = "Temper", fill = "Temper",
+            palette = c("#00AFBB", "#756bb1", "#FC4E07"), bins = 50)
 
+alleqgenl = allparameters[allparameters$GenerationLength_d < 2000,]
+alleqgenl = allparameters[allparameters$GenerationLength_d < 2500,]
+alleqgenl = allparameters[allparameters$GenerationLength_d > 1250,]
 
+alleqgenl[alleqgenl$Temper == "MonoMarsHG",]
+
+ggboxplot(alleqgenl, x = "Temper", y = "FrT",
+               color = "Temper", palette =c("#FC4E07", "#00AFBB", "#756bb1"),
+               add = "jitter", shape = "Temper")
+nrow(alleqgenl[alleqgenl$Temper == "Warm",])
