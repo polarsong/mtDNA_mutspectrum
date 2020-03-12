@@ -95,10 +95,10 @@ table(allparameters$Mars)
 table(allparameters$NonWarm)
 table(allparameters$HibDai)
 
-allparameters$Temper = "Warm"
+allparameters$Temperature = "Warm"
 
-allparameters[allparameters$Species %in% Vec_of_HibDai, ]$Temper= "HibDay"
-allparameters[allparameters$Species %in% vec_of_NonWarm, ]$Temper= "MonoMarsHG"
+allparameters[allparameters$Species %in% Vec_of_HibDai, ]$Temperature= "HibDay"
+allparameters[allparameters$Species %in% vec_of_NonWarm, ]$Temperature= "MonoMarsHG"
 
 
 ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(HibDai), data = allparameters)
@@ -114,12 +114,12 @@ summary(ltest)
 
 
 library(ggpubr)
-ggscatter(allparameters, x = "GenerationLength_d", y = "FrT", color = "Temper",
+ggscatter(allparameters, x = "GenerationLength_d", y = "FrT", color = "Temperature",
           palette = c("#00AFBB", "#756bb1", "#FC4E07"), add = "reg.line",  xscale = "log2", cor.coeff.args = list(method = "spearman"))
 ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
-          color = "Temper", shape = "Temper",
-          palette = c("#00AFBB", "#756bb1", "#FC4E07"),
-          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2")
+          color = "Temperature", shape = "Temperature",
+          palette = c("#08519c", "#3182bd", "#fc9272"),
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2")
 
 
 gghistogram(allparameters, x = "GenerationLength_d",

@@ -73,3 +73,16 @@ ltest = lm(formula = FrT ~ scale(Temperature)+scale(EuFish), data = allparameter
 summary(ltest)
 ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature)+scale(EuFish), data = allparameters)
 summary(ltest)
+
+ggscatter(allparameters, x = "Temperature", y = "FrT",
+          palette = c("#00AFBB"), add = "reg.line", xlab="Temperature, C")
+
+
+ggscatter(allparameters, x = "Temperature", y = "FrT",
+          color = "blue", # Points color, shape and size
+          add = "reg.line",  # Add regressin line
+          add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
+          conf.int = TRUE, # Add confidence interval
+          cor.coef = TRUE, # Add correlation coefficient. see ?stat_cor
+          cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n")
+)
