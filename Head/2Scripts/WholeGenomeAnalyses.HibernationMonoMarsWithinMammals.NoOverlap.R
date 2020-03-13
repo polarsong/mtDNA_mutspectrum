@@ -119,7 +119,7 @@ ggscatter(allparameters, x = "GenerationLength_d", y = "FrT", color = "Temperatu
 ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
           color = "Temperature", shape = "Temperature",
           palette = c("#08519c", "#3182bd", "#fc9272"),
-          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2")
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of A")
 
 
 gghistogram(allparameters, x = "GenerationLength_d",
@@ -137,3 +137,10 @@ ggboxplot(alleqgenl, x = "Temper", y = "FrT",
                color = "Temper", palette =c("#FC4E07", "#00AFBB", "#756bb1"),
                add = "jitter", shape = "Temper")
 nrow(alleqgenl[alleqgenl$Temper == "Warm",])
+
+
+allparameters = merge(allparameters, AA, all.x = TRUE)
+EcologyMammalianTable= data.frame(allparameters$Kingdom, allparameters$Phylum, allparameters$Class, allparameters$Order, allparameters$Family,allparameters$Genus, allparameters$Species, allparameters$GenerationLength_d, allparameters$FrT, allparameters$Hib, allparameters$Daily, allparameters$Mars, allparameters$Mono)
+write.table(EcologyMammalianTable, file="../../Body/2Derived/EcologyMammalianTable.txt", quote = FALSE, row.names = FALSE)
+
+
