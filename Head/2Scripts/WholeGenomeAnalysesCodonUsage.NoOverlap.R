@@ -1,0 +1,205 @@
+rm(list=ls(all=TRUE))
+
+############ read aminoacid and codon sequences
+unzip("../../Body/2Derived/AllGenesCodons.zip", exdir = "../../Body/2Derived/")
+WholeGenomes = read.table("../../Body/2Derived/AllGenesCodons.csv", header = TRUE, sep = '\t')
+if (file.exists("../../Body/2Derived/AllGenesCodons.csv")) file.remove("../../Body/2Derived/AllGenesCodons.csv")
+
+### read coordinates and find overlaps (round number of codons/aminoacids to delete at the end or in the beginning)
+
+Overlaps = read.table("../../Body/2Derived/cds_coords.csv", header = TRUE, sep = '\t')
+Overlaps = Overlaps[order(Overlaps$species,Overlaps$start),]
+VecOfSpecies = unique(Overlaps$species); length(VecOfSpecies)
+for (i in 1:length(VecOfSpecies))
+{ # i = 1
+  temp = Overlaps[Overlaps$species == as.character(VecOfSpecies[i]),]
+  if (nrow(temp) == 13) # if there is no 13 protein coding genes - we don't trust this annotation and suspect complete crap in the annotation
+  {
+    temp$NextStart = c(temp$start[-1],50000); temp$IfEndIsOverlapped = temp$NextStart - temp$end -1               # even the same start and end means overlap in 1: for example 50 - 50 - 1 = -1 -> overlap in one nucleotide
+    temp$PreviousEnd   = c(0,temp$end[-nrow(temp)]); temp$IfStartIsOverlapped = temp$start - temp$PreviousEnd - 1 # even the same start and end means overlap in 1: for example 50 - 50 - 1 = -1 -> overlap in one nucleotide
+    temp = temp[,grepl("species|gene|start|end|IfEndIsOverlapped|IfStartIsOverlapped",names(temp))]
+    if (i ==1) {OverlapFinal = temp}
+    if (i > 1) {OverlapFinal = rbind(OverlapFinal,temp)}
+  }
+}
+
+StrangeSpecies = unique(OverlapFinal[OverlapFinal$IfEndIsOverlapped < -1000 |  OverlapFinal$IfStartIsOverlapped < -1000,]$species) # Corvus_cornix_cornix
+head(OverlapFinal[OverlapFinal$species %in% StrangeSpecies,],13)
+
+#species gene start   end IfEndIsOverlapped IfStartIsOverlapped
+#45863 Corvus_cornix_cornix COX3     0 16946            -16150                   0
+#45864 Corvus_cornix_cornix  ND3   796  1146                73              -16150
+#45865 Corvus_cornix_cornix ND4L  1219  1516                -7                  73
+#45866 Corvus_cornix_cornix  ND4  1509  2887               205                  -7
+#45867 Corvus_cornix_cornix  ND5  3092  4910                10                 205
+#45868 Corvus_cornix_cornix CytB  4920  6063               161                  10
+#45869 Corvus_cornix_cornix  ND6  6224  6746              4233                 161
+#45870 Corvus_cornix_cornix  ND1 10979 11957               226                4233
+#45871 Corvus_cornix_cornix  ND2 12183 13224               362                 226
+#45872 Corvus_cornix_cornix COX1 13586 15137               147                 362
+#45873 Corvus_cornix_cornix COX2 15284 15968                72                 147
+#45874 Corvus_cornix_cornix ATP8 16040 16208               -10                  72
+#45875 Corvus_cornix_cornix ATP6 16198 16882             33118                 -10
+
+VecOfAnalyzedSpecies = unique(OverlapFinal$species); length(VecOfAnalyzedSpecies)  # list of species with annotated 13 genes (no less, no more) 
+VecOfAnalyzedSpecies = setdiff(VecOfAnalyzedSpecies,StrangeSpecies)                # without strange ones (Corvus_cornix_cornix has a mistake in COX annotation)   
+
+#### analyses of WholeGenomes:
+nrow(WholeGenomes) # 51523
+WholeGenomes = WholeGenomes[WholeGenomes$Species %in% VecOfAnalyzedSpecies,]; nrow(WholeGenomes) # 50415
+SpeciesTable = data.frame(table(WholeGenomes$Species))
+SpeciesWithNot13 = unique(SpeciesTable[SpeciesTable$Freq != 13,]$Var1); length(SpeciesWithNot13) # 87
+WholeGenomes = WholeGenomes[!WholeGenomes$Species %in% SpeciesWithNot13,]; nrow(WholeGenomes)
+
+Final = c()
+for (step in 1:nrow(WholeGenomes))
+{ # step = 3
+  if (WholeGenomes$Quality[step] == 1)
+  {
+  species = as.character(WholeGenomes$Species[step]) # species = 'Corvus_cornix_cornix'
+  gene = as.character(WholeGenomes$Gene[step])       # gene = 'COX3'
+  
+  StartOverlap = OverlapFinal[OverlapFinal$species == species & OverlapFinal$gene == gene,]$IfStartIsOverlapped
+  EndOverlap = OverlapFinal[OverlapFinal$species == species & OverlapFinal$gene == gene,]$IfEndIsOverlapped
+  
+  GeneStart = OverlapFinal[OverlapFinal$species == species & OverlapFinal$gene == gene,]$start
+  GeneEnd = OverlapFinal[OverlapFinal$species == species & OverlapFinal$gene == gene,]$end
+  
+  if (length(StartOverlap)>1) {print(paste('ACHTUNG',species,gene,sep=' '))}
+  if (length(EndOverlap)>1)   {print(paste('ACHTUNG',species,gene,sep=' '))}
+  
+  if(StartOverlap > 0) {CodonsToDeleteInTheBeginning = 0}
+  if(EndOverlap > 0) {CodonsToDeleteAtTheEnd = 0}
+  if(StartOverlap < 0) {CodonsToDeleteInTheBeginning = round(0.5 + StartOverlap*(-1)/3)}  # add 0.5 in order to round towars bigget integer
+  if(EndOverlap < 0)   {CodonsToDeleteAtTheEnd =  round(0.5 + EndOverlap*(-1)/3)}               # add 0.5 in order to round towars bigget integer
+  
+  ############ translate codons to aminoacids
+  ### make triplets 
+  Codons = as.character(WholeGenomes$Codons[step])
+  AminoSeq = as.character(WholeGenomes$ModifiedAmino[step])
+  
+  AminoSeqVec = unlist(strsplit(AminoSeq,''))
+  CodonsVec = unlist(strsplit(Codons,''))
+  StartNuc = 1
+  CodonsVec1 = c()
+  # if length(CodonsVec)/3 == integer
+  for (i in 1:(length(CodonsVec)/3))
+  {
+    CodonsVec1 = c(CodonsVec1,paste(CodonsVec[StartNuc : (StartNuc+2)],collapse = ''))
+    StartNuc = StartNuc+3
+  }
+  
+  ### trim AminoSeqVec and CodonsVec1 if there is an overlap (at the end or at the beginning)
+  CodonsVec1 = CodonsVec1[1:(length(CodonsVec1) - CodonsToDeleteAtTheEnd)]
+  AminoSeqVec = AminoSeqVec[1:(length(AminoSeqVec) - CodonsToDeleteAtTheEnd)]
+  if (CodonsToDeleteInTheBeginning > 0)   
+    {
+  CodonsVec1 = CodonsVec1[-c(1:CodonsToDeleteInTheBeginning)]
+  AminoSeqVec = AminoSeqVec[-c(1:CodonsToDeleteInTheBeginning)]   
+  }
+  # warnings() : In 1:(length(CodonsVec1) - CodonsToDeleteAtTheEnd) :   numerical expression has 2 elements: only the first used
+  # warnings() : In 1:(length(AminoSeqVec) - CodonsToDeleteAtTheEnd) :  numerical expression has 2 elements: only the first used
+  # warnings() : In rbind(Final, Line) : number of columns of result is not a multiple of vector length (arg 2)
+  
+  TranslationalTest = data.frame(CodonsVec1,AminoSeqVec)
+  
+  ### translate them
+  Temp = as.character(TranslationalTest$CodonsVec1)
+  Temp = gsub("TTT|TTC",'F',Temp)
+  Temp = gsub("TTA|TTG|CTT|CTC|CTA|CTG",'L',Temp)
+  Temp = gsub("ATT|ATC",'I',Temp)
+  Temp = gsub("ATG|ATA",'M',Temp)
+  Temp = gsub("GTT|GTC|GTA|GTG",'V',Temp)
+  Temp = gsub("TCT|TCC|TCA|TCG|AGT|AGC",'S',Temp)
+  Temp = gsub("CCT|CCC|CCA|CCG",'P',Temp)
+  Temp = gsub("ACT|ACC|ACA|ACG",'T',Temp)
+  Temp = gsub("GCT|GCC|GCA|GCG",'A',Temp)
+  Temp = gsub("TAT|TAC",'Y',Temp)
+  Temp = gsub("AGA|AGG|TAA|TAG",'*',Temp)
+  Temp = gsub("CAT|CAC",'H',Temp)
+  Temp = gsub("CAA|CAG",'Q',Temp)
+  Temp = gsub("AAT|AAC",'N',Temp)
+  Temp = gsub("AAA|AAG",'K',Temp)
+  Temp = gsub("GAT|GAC",'D',Temp)
+  Temp = gsub("GAA|GAG",'E',Temp)
+  Temp = gsub("TGT|TGC",'C',Temp)
+  Temp = gsub("TGG|TGA",'W',Temp)
+  Temp = gsub("CGT|CGC|CGA|CGG",'R',Temp)
+  Temp = gsub("GGT|GGC|GGA|GGG",'G',Temp)
+  TranslationalTest$TranslatedAa = Temp
+  
+  if (nrow(TranslationalTest[TranslationalTest$TranslatedAa != TranslationalTest$AminoSeqVec,]) == 0) # should be zero
+    {
+    VecOfAllCodons = c('TTT','TTC','TTA','TTG','CTT','CTC','CTA','CTG','ATT','ATC','ATG','ATA','GTT','GTC','GTA','GTG','TCT','TCC','TCA','TCG','AGT','AGC','CCT','CCC','CCA','CCG','ACT','ACC','ACA','ACG','GCT','GCC','GCA','GCG','TAT','TAC','AGA','AGG','TAA','TAG','CAT','CAC','CAA','CAG','AAT','AAC','AAA','AAG','GAT','GAC','GAA','GAG','TGT','TGC','TGG','TGA','CGT','CGC','CGA','CGG','GGT','GGC','GGA','GGG')
+    CodonUsage = c(VecOfAllCodons,as.character(TranslationalTest$CodonsVec1))  # concatenate out 64 codons with everything that we have in real sequence
+    CU = data.frame(table(CodonUsage)); CU$Freq = CU$Freq-1  # delete one because we used the whole length of all 64 codons before -> will transform to zero
+    NamesOfCodons = as.character(CU$CodonUsage)
+  
+    Line = c(species, gene, GeneStart, GeneEnd, CodonsToDeleteInTheBeginning, CodonsToDeleteAtTheEnd, paste(AminoSeqVec,collapse=''), paste(CodonsVec1,collapse=''), CU$Freq)
+    Final = rbind(Final,Line)
+    }
+  }
+}
+
+# warnings()
+Names = c('Species','Gene', 'GeneStart', 'GeneEnd', 'CodonsToDeleteInTheBeginning', 'CodonsToDeleteAtTheEnd', 'AminoNoOverlap', 'CodonsNoOverlap', NamesOfCodons)
+Final = as.data.frame(Final)
+names(Final) = Names
+
+Final <- data.frame(lapply(Final, as.character), stringsAsFactors=FALSE) # transform data to the character
+
+## count the number of A T G C in neutral positions of each gene (8 synon fourlfold codons)
+Final$NeutralA = as.numeric(as.character(Final$CTA[1])) + as.numeric(Final$GTA) + as.numeric(Final$TCA) + as.numeric(Final$CCA)  + as.numeric(Final$ACA)  + as.numeric(Final$GCA)  + as.numeric(Final$CGA)  + as.numeric(Final$GGA)
+Final$NeutralT = as.numeric(Final$CTT) + as.numeric(Final$GTT) + as.numeric(Final$TCT) + as.numeric(Final$CCT)  + as.numeric(Final$ACT)  + as.numeric(Final$GCT)  + as.numeric(Final$CGT)  + as.numeric(Final$GGT)
+Final$NeutralG = as.numeric(Final$CTG) + as.numeric(Final$GTG) + as.numeric(Final$TCG) + as.numeric(Final$CCG)  + as.numeric(Final$ACG)  + as.numeric(Final$GCG)  + as.numeric(Final$CGG)  + as.numeric(Final$GGG)
+Final$NeutralC = as.numeric(Final$CTC) + as.numeric(Final$GTC) + as.numeric(Final$TCC) + as.numeric(Final$CCC)  + as.numeric(Final$ACC)  + as.numeric(Final$GCC)  + as.numeric(Final$CGC)  + as.numeric(Final$GGC)
+
+## filter out the species with less than 13 well translated protein coding genes
+
+TBL = data.frame(table(Final$Species)); nrow(TBL)         # 3871 = some ot them don't have 13 high quality annotated genes => we will delete them
+SpeciesWith13 = TBL[TBL$Freq == 13,]$Var1; length(SpeciesWith13) # 3596
+Final = Final[Final$Species %in% SpeciesWith13,]; nrow(Final)/13  # 3596   3453
+
+## merge with taxonomy 
+# warnings()
+unzip("../../Body/2Derived/full_table.zip", exdir = "../../Body/2Derived/")
+Taxa = read.table("../../Body/2Derived/full_table.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/2Derived/full_table.txt")) file.remove("../../Body/2Derived/full_table.txt")
+
+Taxa = Taxa[,c(1,2)]
+names(Taxa)=c('Species','Taxonomy')
+length(unique(Taxa$Species))
+nrow(Final)
+Final = merge(Final,Taxa)
+nrow(Final)/13  # 3453
+
+## derive class from taxonomy
+Final$Class = 'SOLYANKA';
+for (i in 1:nrow(Final))
+{ 
+  if (length(grep('Mammalia', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Mammalia'; }
+  if (length(grep('Amphibia', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Amphibia'; }
+  
+  if (length(grep('Actinopterygii', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Actinopterygii'; }
+  if (length(grep('Aves', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Aves'; }
+  
+  if (length(grep('Lepidosauria', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Reptilia'; }
+  if (length(grep('Testudines', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Reptilia'; }
+  if (length(grep('Crocodylia', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'Reptilia'; }
+  
+  if (length(grep('Dipnoi', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+  if (length(grep('Coelacanthiformes', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+  if (length(grep('Cyclostomata', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+  if (length(grep('Chondrichthyes', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+  if (length(grep('Cephalochordata', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+  if (length(grep('Tunicata', Final$Taxonomy[i])) == 1) {Final$Class[i] = 'AncientFish'; }
+}
+
+table(Final$Class)
+
+## print it out, zip and delete unzipped file
+
+write.table(Final, "../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", sep = '\t', row.names = FALSE, quote = FALSE)  
+zip(zipfile = "../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", files = "../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+nrow(Final)/13 # 3590 species
