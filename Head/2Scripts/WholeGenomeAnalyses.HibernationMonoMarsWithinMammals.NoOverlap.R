@@ -101,8 +101,10 @@ allparameters[allparameters$Species %in% Vec_of_HibDai, ]$Temperature= "HibDay"
 allparameters[allparameters$Species %in% vec_of_NonWarm, ]$Temperature= "MonoMarsHG"
 
 
-ltest = lm(formula = FrT ~ scale(GenerationLength_d)*scale(HibDai), data = allparameters)
+ltest = lm(formula = FrT ~ scale(GenerationLength_d), data = allparameters)
 summary(ltest)
+
+allparameters$residuals = ltest$residuals
 
 
 ltest = lm(formula = FrT ~ scale(GenerationLength_d)+scale(HibDai), data = allparameters)
@@ -140,7 +142,8 @@ nrow(alleqgenl[alleqgenl$Temper == "Warm",])
 
 
 allparameters = merge(allparameters, AA, all.x = TRUE)
-EcologyMammalianTable= data.frame(allparameters$Kingdom, allparameters$Phylum, allparameters$Class, allparameters$Order, allparameters$Family,allparameters$Genus, allparameters$Species, allparameters$GenerationLength_d, allparameters$FrT, allparameters$Hib, allparameters$Daily, allparameters$Mars, allparameters$Mono)
-write.table(EcologyMammalianTable, file="../../Body/2Derived/EcologyMammalianTable.txt", quote = FALSE, row.names = FALSE)
-
+EcologyMammalianTable= data.frame(allparameters$Kingdom, allparameters$Phylum, allparameters$Class, allparameters$Order, allparameters$Family,allparameters$Genus, allparameters$Species, allparameters$GenerationLength_d, allparameters$FrT, allparameters$Hib, allparameters$Daily, allparameters$Mars, allparameters$Mono, allparameters$residuals)
+EcologyMammalianTable= EcologyMammalianTable[order(EcologyMammalianTable$allparameters.residuals),]
+write.table(EcologyMammalianTable, file="../../Body/2Derived/EcologyMammalianTable01.txt", quote = FALSE, row.names = FALSE)
+write.csv(EcologyMammalianTable, file="../../Body/2Derived/EcologyMammalianTable01.csv", quote = FALSE, row.names = FALSE)
 
