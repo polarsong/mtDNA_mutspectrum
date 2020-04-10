@@ -18,4 +18,6 @@ Thunnus alalunga
 Thunnus maccoyii
 Thunnus orientalis
 Thunnus thynnus
-#doi:10.1086/423743 
+Lampris gutattus
+#doi:10.1086/423743
+#doi:10.1126/science.aaa8902 
