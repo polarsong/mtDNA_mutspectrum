@@ -41,6 +41,8 @@ i = 1
   SynNuc = SynNucAll
   SynNuc = SynNuc[SynNuc$TAXON == VecOfTaxaShort[i],]
 
+  SynNucCytb = SynNuc[SynNuc$Gene == "CytB",]
+  
   
 ###merge with temperature
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
@@ -56,10 +58,10 @@ nrow(AGG) # 302
 AGG = AGG[AGG$FemaleMaturityDays > 0,]
 
 ############## T - negative, G - negative
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrA)
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrT)
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG)
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrC)
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrA, method = "spearman")
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrT, method = "spearman")
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG, method = "spearman")
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrC, method = "spearman")
 
 ######merge with fishbase maturation
 MATULM = read.table('../../Body/1Raw/FishBaseMaturity_Lm.txt',  header = TRUE, stringsAsFactors=FALSE)
@@ -76,9 +78,9 @@ names(AGG) = c('Species','FemaleMaturityDays','FrA','FrT','FrG','FrC')
 nrow(AGG) # 188
 
 ############## T - negative
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrA)
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrA, method="spearman")
 cor.test(log2(AGG$FemaleMaturityDays),AGG$FrT)
-cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG)
+cor.test(log2(AGG$FemaleMaturityDays),AGG$FrG,method="spearman")
 cor.test(log2(AGG$FemaleMaturityDays),AGG$FrC)
 
 AGG = aggregate(list(SynNucLM$FrA,SynNucLM$FrT,SynNucLM$FrG,SynNucLM$FrC), by = list(SynNucLM$Species,SynNucLM$Lm), FUN = mean)
@@ -100,12 +102,24 @@ AGGTEMPE = merge(AGG,TEMPE)
 names(AGGTEMPE) = c('Species','Maturity','FrA','FrT','FrG','FrC', "Temperature")
 nrow(AGGTEMPE)
 
+p = AGG
+p$FrCT = (p$FrC-p$FrT)/(p$FrC+p$FrT)
+p$FrGA = (p$FrG-p$FrA)/(p$FrG+p$FrA)
+table(p$FemaleMaturityDays)
+cor.test(p$FemaleMaturityDays,p$FrCT, method="spearman")
+cor.test(p$Maturity,p$FrCT, method="spearman")
+cor.test(p$Temperature,p$FrGA, method="spearman")
+cor.test(p$Maturity,p$FrGA, method="spearman")
+plot(p$FemaleMaturityDays,p$FrCT)
+
+ltest = lm(formula = Temperature ~ scale(FrT)+scale(FrG), data = AGGTEMPE)
+summary(ltest)
 
 ltest = lm(formula = FrT ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrT ~ scale(Temperature)+scale(Maturity), data = AGGTEMPE)
-summary(ltest)
+ltestl = lm(formula = FrG ~ scale(Temperature)+scale(Maturity), data = AGGTEMPE)
+summary(ltestl)
 
 ltest = lm(formula = scale(FrT) ~ scale(Temperature) + scale(Maturity), data = AGGTEMPE)
 summary(ltest)
@@ -113,7 +127,7 @@ summary(ltest)
 ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature) + scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = scale(FrT) ~ 0 + scale(Temperature), data = AGGTEMPE)
+ltest = lm(formula = Temperature ~ FrCT + FrGA, data = p)
 summary(ltest)
 
 
@@ -128,7 +142,7 @@ nrow(AGGTEMPE)
 ltest = lm(formula = FrT ~ scale(Temperature)*scale(Maturity), data = AGGTEMPE)
 summary(ltest)
 
-ltest = lm(formula = FrT ~ scale(Temperature)+scale(Maturity), data = AGGTEMPE)
+ltest = lm(formula = FrG ~ scale(Temperature)+scale(Maturity), data = AGG)
 summary(ltest)
 
 ltest = lm(formula = scale(FrT) ~ scale(Temperature) + scale(Maturity), data = AGGTEMPE)
