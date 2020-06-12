@@ -1,4 +1,10 @@
 rm(list=ls(all=TRUE))
+
+if (!require(caper)) install.packages("caper")
+if (!require(geiger)) install.packages("geiger")
+
+library(caper)
+library(geiger)
 library("ggpubr")
 
 ###########Taxonomy###################################################################
@@ -174,3 +180,87 @@ ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
           cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n"), yscale = "log2", xlab="Temperature, C", ylab="log2 TCdivAG")
 dev.off()
 
+#####################################################################################
+### PICs
+
+tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
+
+row.names(allparameters) = allparameters$Species
+
+tree_pruned = treedata(tree, allparameters, sort=T, warnings=T)$phy
+
+#   Not found in the tree and were dropped from the dataframe:
+# Boops_boops
+# Helicolenus_dactylopterus
+# Lepidorhombus_whiffiagonis
+# Lethrinus_olivaceus
+# Lithognathus_mormyrus
+# Lutjanus_vitta
+# Pagellus_acarne
+# Plagioscion_squamosissimus
+# Sarda_sarda
+# Scomberomorus_commerson
+# Solea_solea
+# Squalius_cephalus
+# Squalius_pyrenaicus
+# Trisopterus_minutus
+
+data<-as.data.frame(treedata(tree_pruned, allparameters, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+
+data$TCdivAG = as.numeric(as.character(data$TCdivAG))
+data$Temperature = as.numeric(as.character(data$Temperature))
+data$Tm = as.numeric(as.character(data$Tm))
+
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+model = pgls(TCdivAG ~ scale(Temperature) + scale(Tm), data_comp, lambda="ML")
+summary(model)
+
+# lambda [ ML]  : 0.731
+# lower bound : 0.000, p = 0.03528
+# upper bound : 1.000, p = 1.2987e-08
+# 95.0% CI   : (0.217, 0.900)
+# delta  [Fix]  : 1.000
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)   
+# (Intercept)         5.76508    1.93865  2.9738 0.004715 **
+#   scale(Temperature)  0.55015    0.53135  1.0354 0.306023   
+# scale(Tm)          -0.14488    0.57032 -0.2540 0.800630   
+# ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 6.819 on 45 degrees of freedom
+# Multiple R-squared: 0.03013,	Adjusted R-squared: -0.01297 
+# F-statistic: 0.6991 on 2 and 45 DF,  p-value: 0.5024 
+
+model = pgls(log2(TCdivAG) ~ scale(Temperature) + scale(Tm), data_comp, lambda="ML")
+summary(model)
+
+# lambda [ ML]  : 0.535
+# lower bound : 0.000, p = 0.14424
+# upper bound : 1.000, p = 3.3975e-12
+# 95.0% CI   : (NA, 0.830)
+# delta  [Fix]  : 1.000
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)  
+# (Intercept)         1.69761    0.63241  2.6843  0.01014 *
+#   scale(Temperature)  0.47952    0.21438  2.2368  0.03030 *
+#   scale(Tm)          -0.08112    0.22464 -0.3611  0.71971  
+# ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 2.436 on 45 degrees of freedom
+# Multiple R-squared: 0.1189,	Adjusted R-squared: 0.07972 
+# F-statistic: 3.036 on 2 and 45 DF,  p-value: 0.05798 
+
+summary(lm(pic(data$TCdivAG, tree_pruned) ~ pic(data$Temperature, tree_pruned) +
+             pic(data$Tm, tree_pruned)))
+
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)
+# (Intercept)                        -0.961202   2.371449  -0.405    0.687
+# pic(data$Temperature, tree_pruned) -0.005479   0.091820  -0.060    0.953
+# pic(data$Tm, tree_pruned)           0.110200   0.127524   0.864    0.392
