@@ -89,8 +89,6 @@ GL$HibDai = 1
 GL[!GL$Species %in% Vec_of_HibDai,]$HibDai = 0
 
 
-allparameters = merge(kuptsovtable, AGG, by="Species")
-allparameters$FrT.x = NULL
 table(allparameters$Hib)
 table(allparameters$Daily)
 table(allparameters$Mono)
@@ -155,9 +153,8 @@ write.csv(EcologyMammalianTable, file="../../Body/2Derived/EcologyMammalianTable
 
 kuptsovtable = read.table("../../Body/2Derived/EcologyMammalianTable01_KuptsovA_ver2_Full.txt", sep='\t', header=TRUE)
 
-
+allparameters$FrT= NULL
 allparameters = merge(kuptsovtable, AGG, by="Species")
-allparameters$FrT.x = NULL
 allparameters$Temper = as.numeric(gsub(",", ".", allparameters$Temperature.C._White2003.2006.other.close.species))
 allparameters$GenerationLength_d = as.numeric(gsub(",", ".", allparameters$GenerationLength_d))
 
@@ -212,9 +209,103 @@ allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Da
 table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
+ltest = lm(formula = FrT.y ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters)
+summary(ltest)
+
+
+ltest = lm(formula = FrT.y ~ log2(GenerationLength_d), data = allparameters)
+summary(ltest)
+allparameters$residuals = ltest$residuals
+
 ltest = lm(formula = FrT.y ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters)
 summary(ltest)
 
 ltest = lm(formula = FrT.y ~ scale(GenerationLength_d)*scale(allcolddummy), data = allparameters)
 summary(ltest)
 
+#################Lm ~ Xen
+allparameters$Xen = 0
+allparameters[allparameters$Superorder == "Xenarthra", ]$Xen = 1
+ltest = lm(formula = FrT.y ~ scale(GenerationLength_d)+scale(Xen), data = allparameters)
+summary(ltest)
+
+table(allparameters$Xen)
+
+ltest = lm(formula = FrT.y ~ scale(GenerationLength_d)+scale(Xen)+scale(allcolddummy), data = allparameters)
+summary(ltest)
+
+
+##############################
+####Fraction G
+##############################
+
+ltest = lm(formula = FrG ~ scale(GenerationLength_d), data = allparameters)
+summary(ltest)
+
+#######Lm ~ hiber
+
+ltest = lm(formula = FrG ~ scale(GenerationLength_d)+scale(Hib), data = allparameters)
+summary(ltest)
+
+#########Lm ~ allcold
+
+ltest = lm(formula = FrG ~ scale(allcolddummy), data = allparameters)
+summary(ltest)
+
+ltest = lm(formula = FrG ~ scale(GenerationLength_d)*scale(allcolddummy), data = allparameters)
+summary(ltest)
+
+
+##########mutspec
+MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
+
+HG = MUT[MUT$Species == "Heterocephalus_glaber",]
+MM = MUT[MUT$Species == "Mus_musculus",]
+CH = MUT[MUT$Species == "Cryptomys_hottentotus",]
+	
+
+HG$Temperature = allparameters[allparameters$Species == "Heterocephalus_glaber",]$Temper
+MM$Temperature = allparameters[allparameters$Species == "Mus_musculus",]$Temper
+HG$GL = allparameters[allparameters$Species == "Heterocephalus_glaber",]$GenerationLength_d
+MM$GL = allparameters[allparameters$Species == "Mus_musculus",]$GenerationLength_d
+CH$Temperature = allparameters[allparameters$Species == "Cryptomys_hottentotus",]$Temper
+CH$GL = allparameters[allparameters$Species == "Cryptomys_hottentotus",]$GenerationLength_d
+
+HGMM = rbind(HG, CH)
+
+##############MUT + WG
+
+MUTWG = merge(MUT, allparameters, by="Species")
+ltest = lm(formula = T_C ~ scale(GenerationLength_d)+scale(allcolddummy), data = MUTWG)
+summary(ltest)
+
+ltest = lm(formula = T_C ~ scale(Xen)+scale(allcolddummy)+scale(GenerationLength_d), data = MUTWG)
+summary(ltest)
+
+ltest = lm(formula = T_C ~ scale(allcolddummy)+log2(GenerationLength_d), data = MUTWG)
+summary(ltest)
+
+ltest = lm(formula = A_G ~ scale(allcolddummy)+log2(GenerationLength_d), data = MUTWG)
+summary(ltest)
+
+#############residuals
+summary(allparameters$residuals)
+table(allparameters$Superorder)
+table(allparameters$Order..or.infraorder.for.Cetacea.)
+
+table(allparameters[allparameters$Superorder == "Laurasiatheria",]$Order..or.infraorder.for.Cetacea.)
+table(allparameters[allparameters$Superorder == "Euarchontoglires",]$Order..or.infraorder.for.Cetacea.)
+
+boxplot(allparameters[allparameters$Hib.unconfirmedHib == 1,]$residuals, allparameters[allparameters$Daily.unconfirmedDaily == 1,]$residuals, allparameters[allparameters$MarsMono == 1,]$residuals, allparameters[allparameters$colddummy == 1,]$residuals, allparameters[allparameters$allcolddummy == 1,]$residuals, allparameters[allparameters$allcolddummy == 0 & allparameters$Superorder == "Xenarthra",]$residuals, allparameters[allparameters$allcolddummy == 0 & allparameters$Superorder == "Euarchontoglires",]$residuals, allparameters[allparameters$allcolddummy == 0 & allparameters$Superorder == "Laurasiatheria",]$residuals, 
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Primates",]$residuals,
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Rodentia",]$residuals, 
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Artiodactyla",]$residuals,
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Carnivora",]$residuals,
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Chiroptera",]$residuals,
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Cetacea",]$residuals,
+        allparameters[allparameters$allcolddummy == 0 & allparameters$Order..or.infraorder.for.Cetacea. == "Eulipotyphla",]$residuals,
+        names = c("Hib", "Daily", "MarsMono", "Cold", "Allcold", "Xenarthra","Euarchontoglires", "Laurasiatheria", "Primates", "Rodentia", "Artiodactyla", "Carnivora", "Chiroptera", "Cetacea", "Eulipotyphla"), varwidth = TRUE, notch = TRUE)
+abline(h = 0, col = "red")
+
+summary(allparameters[allparameters$Order..or.infraorder.for.Cetacea. == "Cetacea",]$FrT.y)
+summary(allparameters[allparameters$Order..or.infraorder.for.Cetacea. == "Artiodactyla",]$FrT.y)
