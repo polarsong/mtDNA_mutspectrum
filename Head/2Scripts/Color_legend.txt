@@ -1,0 +1,9 @@
+A L (T H) red - HEX #e61a0b ; RGB 230, 26, 11
+T L (A H) blue - HEX #0918e6 ; RGB 9, 24, 230
+G L (C H) grey - HEX #5c5c5c ; RGB 92, 92, 92
+C L (G H) green - HEX #009414 ; RGB 0, 148, 20
+
+A_G L (T_C H) more grey - HEX #73514f ; RGB 115, 81, 79
+G_A L (C_T H) more red - HEX #9c3d37 ; RGB 156, 61, 55
+C_T L (G_A H) more blue - HEX #055088 ; RGB 5, 80, 136
+T_C L (A_G H) more green - HEX #036a5b ; RGB 3, 106, 91
