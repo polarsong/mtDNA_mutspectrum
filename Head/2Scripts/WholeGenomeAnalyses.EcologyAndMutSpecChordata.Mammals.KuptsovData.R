@@ -111,6 +111,26 @@ ltest = lm(formula = FrG ~ scale(GenerationLength_d)*scale(allcolddummy), data =
 summary(ltest)
 
 
+allparameters$TwoMammaliaGroups = as.character(allparameters$allcolddummy)
+for (i in 1:nrow(allparameters)){
+  if(allparameters$TwoMammaliaGroups[i] == 0){
+    allparameters$TwoMammaliaGroups[i] = "Warmer mammals"
+  }else{
+    allparameters$TwoMammaliaGroups[i] = "Colder mammals"
+  }
+}
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE3.pdf", width = 9, height = 5.5)
+ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
+          color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
+          palette = c("#08519c", "#de6a85"),
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of A")
+dev.off()
+
+
+
+
+
 ##########mutspec
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 
