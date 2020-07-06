@@ -1,9 +1,10 @@
 rm(list=ls(all=TRUE))
 
 if (!require(ggpubr)) install.packages("ggpubr")
+if (!require(vioplot)) install.packages("vioplot")
 
 library("ggpubr")
-
+library(vioplot)
 ###########Taxonomy###################################################################
 Taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = '\t',header = FALSE) 
 Taxa$Species = gsub(";.*",'',Taxa$V1); 
@@ -39,7 +40,7 @@ dev.off()
 ##########################################################################################
 
 table(MUTFROMK$Class)
-
+MUTFROMK = merge(MUT, Taxa)
 MUTFROMK = MUTFROMK[MUTFROMK$T_C > 0,]
 MUTFROMK = MUTFROMK[MUTFROMK$A_G > 0,]
 MUTFROMK$TCdivAG = MUTFROMK$T_C / MUTFROMK$A_G
@@ -59,5 +60,14 @@ ALL = rbind(HG, CH)
 ALL = rbind(ALL, MM)
 ALL$TCdivAG = ALL$T_C / (ALL$A_G + ALL$T_C)
 
-CLORD = MUTFROMK[order(MUTFROMK$Class, MUTFROMK$T_C),]
-write.table(CLORD, file = "../../Body/3Results/AllmutspecforKuptsov.txt", row.names = FALSE)
+#CLORD = MUTFROMK[order(MUTFROMK$Class, MUTFROMK$T_C),]
+#write.table(CLORD, file = "../../Body/3Results/AllmutspecforKuptsov.txt", row.names = FALSE)
+
+pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.AtoG.DiffClasses.MutSpectrum.VIOLIN.pdf")
+ggviolin(MUTFROMK, x = "Class", y = "T_C", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 30,]
+
+ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+dev.off()
