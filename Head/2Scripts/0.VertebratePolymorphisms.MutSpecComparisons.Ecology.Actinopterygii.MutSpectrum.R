@@ -33,6 +33,7 @@ Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 MUTACTINOPTERITAXAFROMK = merge(MUT, Taxa)
 MUTACTINOPTERITAXAFROMK = MUTACTINOPTERITAXAFROMK[MUTACTINOPTERITAXAFROMK$Class == "Actinopterygii",]
+#names(MUTACTINOPTERITAXAFROMK) = c("T_G", "T_C", "T_A", "G_T", "G_C", "G_A", "C_T", "C_G", "C_A", "A_T", "A_G", "A_C")
 
 MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-1]
 MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-13]
@@ -45,9 +46,17 @@ for(i in 1:ncol(temp)){
   a = rbind(a, b)
 }
 
+#c("TH>GH", "TH>CH", "TH>AH", "GH>TH", "GH>CH", "GH>AH", "CH>TH", "CH>GH", "CH>AH", "AH>TH", "AH>GH", "AH>CH")
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
 ggbarplot(a, x = "Sub", y = "Freq", fill = "Sub", color = "Sub",
           palette = c("#bdbdbd", "#73514f", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#055088", "#9c3d37", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#036a5b", "#bdbdbd"), 
-          xlab="Substitution types", ylab="Normalised frequencies", add = "mean_se")  
+          xlab="Substitution types", ylab="Normalised frequencies", add = "mean_se", legend = "none")  
 dev.off()
 ##########################################################################################
+
+svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.svg")
+ggbarplot(a, x = "Sub", y = "Freq", fill = "Sub", color = "Sub",
+          palette = c("#bdbdbd", "#73514f", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#055088", "#9c3d37", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#036a5b", "#bdbdbd"), 
+          xlab="Substitution types", ylab="Normalised frequencies", add = "mean_se")
+dev.off()
+

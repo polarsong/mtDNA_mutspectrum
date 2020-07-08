@@ -28,6 +28,15 @@ allparameters = merge(kuptsovtable, SynNuc, by="Species")
 allparameters$Temper = as.numeric(gsub(",", ".", allparameters$Temperature.C._White2003.2006.other.close.species))
 allparameters$GenerationLength_d = as.numeric(gsub(",", ".", allparameters$GenerationLength_d))
 
+allparameters$TG = allparameters$FrT+allparameters$FrG
+allparameters$AC = allparameters$FrA+allparameters$FrC
+allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
+allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
+
+summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
+summary(lm(TG_ACSkew ~ log2(Temper)+log2(GenerationLength_d), data = allparameters))
+summary(lm(TtoCSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
+
 summary(allparameters$Temper)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 #30.70   35.90   37.00   36.80   38.08   40.10     425 
@@ -76,10 +85,18 @@ table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
 summary(lm(formula = FrT ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
+summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters))
 
 ltest = lm(formula = FrT  ~ log2(GenerationLength_d), data = allparameters)
 summary(ltest)
 allparameters$residuals = ltest$residuals ## residuals added
+
+summary(lm(formula = TG_ACSkew ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
+summary(lm(formula = TG_ACSkew ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters))
+
+nrow(allparameters[!is.na(allparameters$Temper),]) #224
+
+
 
 #################Lm ~ Xen
 allparameters$Xen = 0
@@ -87,7 +104,6 @@ allparameters[allparameters$Superorder == "Xenarthra", ]$Xen = 1
 summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(Xen), data = allparameters))
 
 summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(Xen)+scale(allcolddummy), data = allparameters))
-
 
 
 ##############################
@@ -120,13 +136,17 @@ for (i in 1:nrow(allparameters)){
   }
 }
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE3.pdf", width = 9, height = 5.5)
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2D.pdf", width = 9, height = 5.5)
 ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
           color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
           palette = c("#08519c", "#de6a85"),
           ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of A")
 dev.off()
 
+ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
+          color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
+          palette = c("#08519c", "#de6a85"),
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew")
 
 
 
@@ -183,3 +203,15 @@ abline(h = 0, col = "red")
 
 summary(allparameters[allparameters$Order..or.infraorder.for.Cetacea. == "Cetacea",]$FrT.y)
 summary(allparameters[allparameters$Order..or.infraorder.for.Cetacea. == "Artiodactyla",]$FrT.y)
+
+
+
+#################################metabolic rate approximation
+
+allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
+
+allparameters$MR=(allparameters$GenerationLength_d+1)^0.75
+allparameters$TemperatureK = 273.15 + allparameters$Temper
+allparameters$B=allparameters$MR * exp(-1.2/((8.617*10^-5)*allparameters$TemperatureK))
+cor.test(allparameters$B, allparameters$TtoCSkew, method="spearman") #rho  -0.4568971 
+cor.test(allparameters$Temper, allparameters$TtoCSkew, method = "spearman")

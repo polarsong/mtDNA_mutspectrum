@@ -7,6 +7,9 @@ library(caper)
 library(geiger)
 library("ggpubr")
 
+MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
+
+
 ##########TEMPERATURE 
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 class(TEMPE$Temperature)
@@ -27,23 +30,54 @@ cor.test(TemperMut$C_A,TemperMut$Temperature, method = 'spearman')   #rho
 cor.test(TemperMut$C_T,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$C_G,TemperMut$Temperature, method = 'spearman')   #rho   
 
+samplesize = paste("N==", as.character(nrow(TemperMut)), sep="")
+
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B.pdf")
 ggscatter(TemperMut, x = "Temperature", y = "T_C",
           color = "#036a5b", # Points color, shape and size
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          cor.coef = TRUE, # Add correlation coefficient. see ?stat_cor
-          cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n"), xlab="Temperature, C", ylab="AH>GH")
+          xlab="Mean annual water temperature, °C", ylab="AH>GH") + stat_cor(
+            aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
+            label.x = 3
+          )
 
 ggscatter(TemperMut, x = "Temperature", y = "A_G",
           color = "#73514f", # Points color, shape and size
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          cor.coef = TRUE, # Add correlation coefficient. see ?stat_cor
-          cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n"), xlab="Temperature, C", ylab="TH>CH")
+          xlab="Mean annual water temperature, °C", ylab="TH>CH") + stat_cor(
+            aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
+            label.x = 3
+          )
 dev.off()
+
+svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B1.svg")
+ggscatter(TemperMut, x = "Temperature", y = "T_C",
+          color = "#036a5b", # Points color, shape and size
+          add = "reg.line",  # Add regressin line
+          add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
+          conf.int = TRUE, # Add confidence interval
+          xlab="Mean annual water temperature, °C", ylab="AH>GH") + stat_cor(
+            aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
+            label.x = 3
+          )
+dev.off()
+svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B2.svg")
+
+ggscatter(TemperMut, x = "Temperature", y = "A_G",
+          color = "#73514f", # Points color, shape and size
+          add = "reg.line",  # Add regressin line
+          add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
+          conf.int = TRUE, # Add confidence interval
+          xlab="Mean annual water temperature, °C", ylab="TH>CH")+ stat_cor(
+            aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
+            label.x = 3
+          )
+dev.off()
+
 
 ##########MATURITY Lm (mean length at first maturity in  )  and Tm (Mean or median age at first maturity)
 MATULM = read.table('../../Body/1Raw/FishBaseMaturity_Lm.txt',  header = TRUE, stringsAsFactors = FALSE)
@@ -119,6 +153,7 @@ allparameters=allparameters[allparameters$T_C != 0,]
 allparameters$TCdivAG=allparameters$T_C/allparameters$A_G
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature) + scale(Tm), data = allparameters))
+samplesize = paste("N==", as.character(nrow(allparameters)), sep="")
 
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1C.pdf")
 ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
@@ -126,9 +161,13 @@ ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          cor.coef = TRUE, # Add correlation coefficient. see ?stat_cor
-          cor.coeff.args = list(method = "spearman", label.x = 3, label.sep = "\n"), yscale = "log2", xlab="Temperature, C", ylab="log2 TCdivAG")
+          yscale = "log2", xlab="Mean annual water temperature, °C", ylab="log2 A_GdivT_C")+ stat_cor(
+  aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
+  label.x = 3
+)
 dev.off()
+
+
 
 #####################################################################################
 ### PICs
@@ -214,3 +253,12 @@ summary(lm(pic(data$TCdivAG, tree_pruned) ~ pic(data$Temperature, tree_pruned) +
 # (Intercept)                        -0.961202   2.371449  -0.405    0.687
 # pic(data$Temperature, tree_pruned) -0.005479   0.091820  -0.060    0.953
 # pic(data$Tm, tree_pruned)           0.110200   0.127524   0.864    0.392
+
+
+#################################metabolic rate approximation
+allparameters = merge (TemperMut, MATUTM)
+allparameters$MR=(allparameters$Tm+1)^0.75
+allparameters$TemperatureK = 273.15 + allparameters$Temperature
+allparameters$B=allparameters$MR * exp(-1.2/((8.617*10^-5)*allparameters$TemperatureK))
+cor.test(allparameters$B, allparameters$T_C, method="spearman") #rho 0.4075402 
+cor.test(allparameters$Temperature, allparameters$T_C, method = "spearman")
