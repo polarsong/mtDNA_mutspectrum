@@ -32,6 +32,8 @@ allparameters$TG = allparameters$FrT+allparameters$FrG
 allparameters$AC = allparameters$FrA+allparameters$FrC
 allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
 allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
+ 
+
 
 summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
 summary(lm(TG_ACSkew ~ log2(Temper)+log2(GenerationLength_d), data = allparameters))
@@ -136,17 +138,26 @@ for (i in 1:nrow(allparameters)){
   }
 }
 
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.TemperatureHist.pdf", width = 9, height = 5.5)
+gghistogram(allparameters, x = "Temper", fill = "red", ylab = " ", xlab = "Body temperature, °C", 
+            add = "mean", rug = TRUE)
+dev.off()
+
+
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2D.pdf", width = 9, height = 5.5)
 ggscatter(allparameters, x = "GenerationLength_d", y = "FrT",
           color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
           palette = c("#08519c", "#de6a85"),
-          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of A")
+          ellipse = TRUE,  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of A")
 dev.off()
 
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2E.pdf", width = 9, height = 5.5)
 ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
           color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
           palette = c("#08519c", "#de6a85"),
-          ellipse = TRUE, mean.point = TRUE, add = "reg.line",  xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew")
+          ellipse = TRUE,  add = "reg.line", xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", )
+dev.off()
 
 
 
@@ -215,3 +226,14 @@ allparameters$TemperatureK = 273.15 + allparameters$Temper
 allparameters$B=allparameters$MR * exp(-1.2/((8.617*10^-5)*allparameters$TemperatureK))
 cor.test(allparameters$B, allparameters$TtoCSkew, method="spearman") #rho  -0.4568971 
 cor.test(allparameters$Temper, allparameters$TtoCSkew, method = "spearman")
+
+allparameters$TemperatureK = 273.15 + allparameters$Temper
+form=allparameters[!is.na(allparameters$GenerationLength_d),]
+form=form[!is.na(form$TG_ACSkew),]
+form=form[!is.na(form$TemperatureK),]
+form$TG_ACSkew=form$TG_ACSkew * (-1)
+
+form$x = (1/log(form$GenerationLength_d))*(log(form$TG_ACSkew)+0.2/((8.617*10^-5)*form$TemperatureK))
+bodymassgenlpred=((form$GenerationLength_d/365)/(6.10*10^6))^(1/0.2)
+form$x = log(form$TG_ACSkew * exp(0.62/((8.617*10^-5)*form$TemperatureK))) / log(bodymassgenlpred)
+summary(form$x)

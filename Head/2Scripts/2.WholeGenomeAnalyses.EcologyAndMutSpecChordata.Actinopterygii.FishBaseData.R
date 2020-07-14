@@ -172,3 +172,9 @@ ggscatter(temp, x = "Temperature", y = "TG_ACSkew",
           ellipse = TRUE, mean.point = TRUE, add = "reg.line", xlab="Mean annual water temperature, °C", ylab="AC_TGSkew")
 dev.off()
 
+form=SynNuc[!is.na(SynNuc$Tm),]
+form=form[!is.na(form$TG_ACSkew),]
+form=form[!is.na(form$TemperatureK),]
+form$TG_ACSkew=form$TG_ACSkew * (-1)
+
+form$x = (1/log(form$Tm))*(log(form$TG_ACSkew)+0.62/((8.617*10^-5)*form$TemperatureK))

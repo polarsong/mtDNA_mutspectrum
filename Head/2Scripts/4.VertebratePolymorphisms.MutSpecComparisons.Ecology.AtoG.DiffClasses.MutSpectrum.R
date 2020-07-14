@@ -71,3 +71,23 @@ MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 30,]
 ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
 dev.off()
+
+AA = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
+AA$Species = paste(AA$Genus,AA$Species,sep = '_')
+
+AA$TemperatureC = AA$Temperature..K. - 273.15
+summary(AA$TemperatureC)
+table(AA[AA$Class == "Aves",]$Temperature..K.)
+
+TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
+class(TEMPE$Temperature)
+class(TEMPE$Species)
+TEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
+TEMPE$Class = "Actinopterygii"
+Alltemp = data.frame(AA$Species, AA$Class, AA$TemperatureC); names(Alltemp) = c("Species", "Class", "Temperature")
+Alltemp = rbind(Alltemp, TEMPE)
+
+pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.MeanTemp.DiffClasses.MutSpectrum.Boxplots.pdf")
+ggboxplot(Alltemp, x = "Class", y = "Temperature", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "Body temperature, °C",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+dev.off()
