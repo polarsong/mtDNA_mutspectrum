@@ -1,5 +1,7 @@
 rm(list=ls(all=TRUE))
 
+pdf("../../Body/4Figures/Humanz.ZaidiAnalysesR.pdf")
+
 library(dplyr)
 
 suppl = read.csv('../../Body/1Raw/Zaidi2019/pnas.1906331116.sd01.csv')
@@ -20,6 +22,8 @@ mut$age_birth..yrs. = mut$age_birth..days. / 365
 
 # hist(mut$age_birth..days.)
 hist(mut$age_birth..yrs.)
+
+# mut$age_birth..yrs. == Age of the mother at birth?
 
 table(mut$Individual.id)
 
@@ -58,3 +62,5 @@ cor.test(mut_fr$T_C, log2(mut_fr$age), method = 'spearman')
 # sample estimates:
 #   rho 
 # 0.02736107 
+
+dev.off()

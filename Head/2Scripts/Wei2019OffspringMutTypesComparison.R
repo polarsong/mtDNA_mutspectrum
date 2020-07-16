@@ -7,7 +7,8 @@ data = DataOrig # which dataset to work with? !!!
 
 length(unique(data$PairID)) # 928
 table(data$MotherOffspring) # Mother: 1043 Offspring: 893
-table(data$HeteroplasmiCategory) # de novo: 477; inherited: 416; lost: 614; tansmitted: 429  # inherited - transmitted.
+table(data$HeteroplasmiCategory) # de novo: 477; inherited: 416; lost: 614; transmitted: 429  # inherited - transmitted.
+## "transmitted" from mother == "inherited" by KID!!  
 
 ### Add mutation type column
 data$Allele = as.character(data$Allele)
@@ -84,7 +85,7 @@ length(VecOfOffspringsWithAllSettingsForAnalysis) # 30
 OffTwoOrMoreDeNovo = OffDeNovo[OffDeNovo$PairID %in% VecOfOffspringsWithAllSettingsForAnalysis,] # 62
 OffTwoOrMoreDeNovo = OffTwoOrMoreDeNovo[order(OffTwoOrMoreDeNovo$PairID),]
 
-boxplot(OffTwoOrMoreDeNovo$HeteroplasmicFraction ~ OffTwoOrMoreDeNovo$mutType, varwidth = TRUE, notch = TRUE, outline = FALSE)
+# boxplot(OffTwoOrMoreDeNovo$HeteroplasmicFraction ~ OffTwoOrMoreDeNovo$mutType, varwidth = TRUE, notch = TRUE, outline = FALSE)
 
 counter = 0
 for (i in 1:length(VecOfOffspringsWithAllSettingsForAnalysis))
@@ -99,6 +100,7 @@ for (i in 1:length(VecOfOffspringsWithAllSettingsForAnalysis))
 }
 counter # 16 = exactly the middle....
 wilcox.test(final$AtoGVaf,final$NotAtoGVaf, paired = TRUE, alternative = 'less') # 0.207
+summary(final$NotAtoGVaf - final$AtoGVaf) # -36.100  -0.900   0.200   0.295   2.325  28.300 median and mean > 0
 
 dev.off()
 plot(0,0,xlim = c(0,10), ylim = c(0,1), pch = NA)
@@ -109,7 +111,7 @@ final = final[final$AtoGVaf <= 10 & final$NotAtoGVaf <= 10,] # 23
 nrow(final) # 23
 nrow(final[final$AtoGVaf < final$NotAtoGVaf,])  # 13
 wilcox.test(final$AtoGVaf,final$NotAtoGVaf, paired = TRUE, alternative = 'less') # 0.05015
-summary(final$AtoGVaf - final$NotAtoGVaf) # on average A>G has 1% less VAF as compared to all other substitutions among de novo mtDNA mutations. 
+summary(final$NotAtoGVaf - final$AtoGVaf) # on average A>G has 1% less VAF as compared to all other substitutions among de novo mtDNA mutations. 
 wilcox.test(final$AtoGVaf - final$NotAtoGVaf, mu = 0, alternative = 'less') # p = 0.05015
 dev.off()
 plot(0,0,xlim = c(0,10), ylim = c(0,1), pch = NA)
