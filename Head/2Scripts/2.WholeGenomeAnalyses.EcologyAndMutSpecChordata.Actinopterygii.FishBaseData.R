@@ -52,9 +52,10 @@ summary(lm(CtoTSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TtoCSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
+
 summary(lm(-TG_ACSkew ~ Temperature + Tm, data = SynNuc))
 
-summary(lm(TG_ACSkew ~ Temperature * Tm, data = SynNuc))
+
 
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
@@ -76,13 +77,15 @@ temp = SynNuc[!SynNuc$Lifespan == "Na",]
 
 plot(temp$Temperature, temp$Tm, col="#42cbf5", xlab="Temperature", ylab="Time of maturetion, years", pch = 1, cex = (temp$TG_ACSkew*-7), ylim =c(0, 30))
 
+summary(lm(-TG_ACSkew ~ Temperature + Lifespan, data = temp))
+
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf", width = 5.5, height = 5.5)
 plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew, col="#4da36c", xlab="Temperature", ylab="Fraction of AC_TCSkew", xlim = c(0, 30), ylim = c(-0.65, -0.1))
-abline((-0.272616+-0.006709 ), -0.006184 , col="#4da36c", lwd = 2)
+abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
 par(new=TRUE)
 plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew, col="#42cbf5", xlab="Temperature", ylab="Fraction of AC_TCSkew", xlim = c(0, 30), ylim = c(-0.65, -0.1))
-abline(-0.272616, -0.006184 , col="#42cbf5", lwd = 2)
+abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
 dev.off()
 
 
