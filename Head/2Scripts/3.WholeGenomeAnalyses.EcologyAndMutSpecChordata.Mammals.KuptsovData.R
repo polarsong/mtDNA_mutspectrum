@@ -183,9 +183,10 @@ abline((0.272616+0.006709 ), 0.006184 , col="#4da36c", lwd = 2)
 par(new=TRUE)
 plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab=" ", ylab= "", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
 abline(0.272616, 0.006184 , col="#42cbf5", lwd = 2)
+legend("bottomright", legend=c("Mammals, Long GL", "Mammals, Short GL", "Fishes, Short TM","Fishes, Long TM"), col=c("black", "#d7badb", "#4da36c", "#42cbf5"), pch = c(15:18))
 dev.off()
 
-summary(lm(formula = -TG_ACSkew ~ Temper+DummyGL, data = allparameters))
+summary(lm(formula = -TG_ACSkew ~ Temper+DummyGL, data = allparameters), )
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse.pdf", width = 9, height = 5.5)
