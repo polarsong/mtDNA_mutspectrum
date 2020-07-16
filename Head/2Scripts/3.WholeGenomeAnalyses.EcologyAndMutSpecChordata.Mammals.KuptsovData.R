@@ -93,8 +93,9 @@ ltest = lm(formula = FrT  ~ log2(GenerationLength_d), data = allparameters)
 summary(ltest)
 allparameters$residuals = ltest$residuals ## residuals added
 
-summary(lm(formula = TG_ACSkew ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
+summary(lm(formula = TG_ACSkew ~ log2(GenerationLength_d)+allcolddummy, data = allparameters))
 summary(lm(formula = TG_ACSkew ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters))
+summary(lm(formula = TG_ACSkew ~ GenerationLength_d+allcolddummy, data = allparameters))
 
 nrow(allparameters[!is.na(allparameters$Temper),]) #224
 
@@ -159,9 +160,53 @@ ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
           ellipse = TRUE,  add = "reg.line", xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", )
 dev.off()
 
+colfunc<-colorRampPalette(c("red","yellow","springgreen","royalblue"))
+plot(allparameters$Temper, allparameters$GenerationLength_d, col="#42cbf5", xlab="Temperature", ylab="GL, days", pch = 1, cex = (allparameters$TG_ACSkew*-7), ylim = c(0, 11000))
 
 
+medGL = median(allparameters$GenerationLength_d)
+allparameters$GLgroups = "LongGL"
+allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "ShortGL"
+allparameters$DummyGL = 0
+allparameters[allparameters$GenerationLength_d < medGL,]$DummyGL = 1
 
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 10, height = 11)
+plot(allparameters[allparameters$GLgroups == "LongGL",]$Temper, allparameters[allparameters$GLgroups == "LongGL",]$TG_ACSkew*-1, col="#121d2e", xlab="Temperature", ylab="STG-SAC", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
+abline(0.362350, 0.004390, col="black", lwd = 2)
+par(new=TRUE)
+plot(allparameters[allparameters$GLgroups == "ShortGL",]$Temper, allparameters[allparameters$GLgroups == "ShortGL",]$TG_ACSkew*-1, col="#d7badb", xlab=" ", ylab="", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
+abline((0.362350-0.043854), 0.004390, col="#d7badb", lwd = 2)
+par(new=TRUE)
+plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab=" ", ylab="  ", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
+abline((0.272616+0.006709 ), 0.006184 , col="#4da36c", lwd = 2)
+par(new=TRUE)
+plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab=" ", ylab= "", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
+abline(0.272616, 0.006184 , col="#42cbf5", lwd = 2)
+dev.off()
+
+summary(lm(formula = -TG_ACSkew ~ Temper+DummyGL, data = allparameters))
+
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse.pdf", width = 9, height = 5.5)
+plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$TG_ACSkew, col="#08519c", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", xlim = c(8, 14.5), ylim = c(-0.75, -0.25))
+abline((-0.323919+0.043515), -0.018255, col="#08519c", lwd = 2)
+par(new=TRUE)
+plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$TG_ACSkew, col="#de6a85", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", xlim = c(8, 14.5), ylim = c(-0.75, -0.25))
+abline(-0.323919, -0.018255, col="#de6a85", lwd = 2)
+dev.off()
+
+breaks = seq(-0.75, -0.25, 0.01)
+#par(mfrow = c(2,1))
+hist(allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$TG_ACSkew, col="#de6a85", breaks = breaks, xlim = c(-0.75, -0.25), ylim = c(0, 30))
+par(new=TRUE)
+hist(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$TG_ACSkew, col="#08519c", breaks = breaks, xlim = c(-0.75, -0.25), ylim = c(0, 30))
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2C.pdf", width = 9, height = 5.5)
+plot(density(allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$TG_ACSkew), col="#de6a85", xlim = c(-0.75, -0.25), ylim = c(0, 6))
+par(new=TRUE)
+plot(density(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$TG_ACSkew), col="#08519c", xlim = c(-0.75, -0.25), ylim = c(0, 6))
+dev.off()
 ##########mutspec
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 
