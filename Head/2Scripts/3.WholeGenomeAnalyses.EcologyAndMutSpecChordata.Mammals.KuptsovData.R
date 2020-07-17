@@ -27,7 +27,6 @@ kuptsovtable$FrT= NULL
 allparameters = merge(kuptsovtable, SynNuc, by="Species")
 allparameters$Temper = as.numeric(gsub(",", ".", allparameters$Temperature.C._White2003.2006.other.close.species))
 allparameters$GenerationLength_d = as.numeric(gsub(",", ".", allparameters$GenerationLength_d))
-
 allparameters$TG = allparameters$FrT+allparameters$FrG
 allparameters$AC = allparameters$FrA+allparameters$FrC
 allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
@@ -35,9 +34,6 @@ allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$Fr
  
 
 
-summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
-summary(lm(TG_ACSkew ~ log2(Temper)+log2(GenerationLength_d), data = allparameters))
-summary(lm(TtoCSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
 
 summary(allparameters$Temper)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -130,6 +126,17 @@ ltest = lm(formula = FrG ~ scale(GenerationLength_d)*scale(allcolddummy), data =
 summary(ltest)
 
 
+allparameters$AC_TGSkew = allparameters$TG_ACSkew *-1
+
+summary(lm(TG_ACSkew ~ log2(Temper)+log2(GenerationLength_d), data = allparameters))
+summary(lm(TtoCSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
+summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
+summary(lm(AC_TGSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters)) ###PICS
+
+
+
+
+##################plotting 
 allparameters$TwoMammaliaGroups = as.character(allparameters$allcolddummy)
 for (i in 1:nrow(allparameters)){
   if(allparameters$TwoMammaliaGroups[i] == 0){
@@ -160,20 +167,18 @@ ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
           ellipse = TRUE,  add = "reg.line", xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", )
 dev.off()
 
-colfunc<-colorRampPalette(c("red","yellow","springgreen","royalblue"))
 plot(allparameters$Temper, allparameters$GenerationLength_d, col="#42cbf5", xlab="Temperature", ylab="GL, days", pch = 1, cex = (allparameters$TG_ACSkew*-7), ylim = c(0, 11000))
 
 
 medGL = median(allparameters$GenerationLength_d)
 allparameters$GLgroups = "LongGL"
 allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "ShortGL"
-allparameters$DummyGL = 0
-allparameters[allparameters$GenerationLength_d < medGL,]$DummyGL = 1
+
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 10, height = 11)
 plot(allparameters[allparameters$GLgroups == "LongGL",]$Temper, allparameters[allparameters$GLgroups == "LongGL",]$TG_ACSkew*-1, col="#121d2e", xlab="Temperature", ylab="STG-SAC", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
-abline(0.362350, 0.004390, col="black", lwd = 2, s )
+abline(0.362350, 0.004390, col="black", lwd = 2)
 par(new=TRUE)
 plot(allparameters[allparameters$GLgroups == "ShortGL",]$Temper, allparameters[allparameters$GLgroups == "ShortGL",]$TG_ACSkew*-1, col="#d7badb", xlab=" ", ylab="", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
 abline((0.362350-0.043854), 0.004390, col="#d7badb", lwd = 2)
@@ -185,8 +190,6 @@ plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == 
 abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
 legend("bottomright", legend=c("Mammals, Long GL", "Mammals, Short GL", "Fishes, Short TM","Fishes, Long TM"), col=c("black", "#d7badb", "#4da36c", "#42cbf5"), pch = c(15:18))
 dev.off()
-
-summary(lm(formula = -TG_ACSkew ~ Temper+DummyGL, data = allparameters), )
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse.pdf", width = 9, height = 5.5)
@@ -209,6 +212,7 @@ par(new=TRUE)
 plot(density(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$TG_ACSkew), col="#08519c", xlim = c(-0.75, -0.25), ylim = c(0, 6))
 dev.off()
 ##########mutspec
+
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 
 HG = MUT[MUT$Species == "Heterocephalus_glaber",]

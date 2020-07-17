@@ -36,7 +36,8 @@ SynNuc$TtoCSkew = (SynNuc$FrT-SynNuc$FrC)/(SynNuc$FrT+SynNuc$FrC); summary(SynNu
 SynNuc$TG = SynNuc$FrT+SynNuc$FrG
 SynNuc$AC = SynNuc$FrA+SynNuc$FrC
 SynNuc$TG_ACSkew = (SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$TG_ACSkew)
-summary(SynNuc$TG_ACSkew *-1)
+SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew)
+
 
 
 ### ANALYSES:
@@ -51,16 +52,15 @@ summary(lm(GtoASkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc)) # the high
 summary(lm(CtoTSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TtoCSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
+summary(lm(AC_TGSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
-
-summary(lm(-TG_ACSkew ~ Temperature + Tm, data = SynNuc))
-
+summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
 
 
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
 
-
+##### plotting scatter with temperature and two groups
 medianTm = median(SynNuc[!is.na(SynNuc$Tm),]$Tm)
 SynNuc$Lifespan = "Na"
 
@@ -73,18 +73,16 @@ for (i in 1:nrow(SynNuc)){
   }
 }
 temp = SynNuc[!SynNuc$Lifespan == "Na",]
-
-
-plot(temp$Temperature, temp$Tm, col="#42cbf5", xlab="Temperature", ylab="Time of maturetion, years", pch = 1, cex = (temp$TG_ACSkew*-7), ylim =c(0, 30))
-
 summary(lm(-TG_ACSkew ~ Temperature + Lifespan, data = temp))
+
+plot(temp$Temperature, temp$Tm, col="#42cbf5", xlab="Temperature", ylab="Time of maturation, years", pch = 1, cex = (temp$TG_ACSkew*-7), ylim =c(0, 30))
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf", width = 5.5, height = 5.5)
-plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew, col="#4da36c", xlab="Temperature", ylab="Fraction of AC_TCSkew", xlim = c(0, 30), ylim = c(-0.65, -0.1))
+plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab="Temperature", ylab="Fraction of AC_TCSkew", ylim=c(0.1, 0.65), xlim=c(0,30))
 abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
 par(new=TRUE)
-plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew, col="#42cbf5", xlab="Temperature", ylab="Fraction of AC_TCSkew", xlim = c(0, 30), ylim = c(-0.65, -0.1))
+plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab="Temperature", ylab="Fraction of AC_TCSkew", ylim=c(0.1, 0.65), xlim=c(0,30))
 abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
 dev.off()
 
@@ -154,13 +152,6 @@ ggscatter(SynNuc, x = "Temperature", y = "TG_ACSkew",
 dev.off()
 
 
-#################################metabolic rate approximation
-SynNuc$MR=(SynNuc$Tm+1)^0.75
-SynNuc$TemperatureK = 273.15 + SynNuc$Temperature
-SynNuc$B=SynNuc$MR * exp(-1.2/((8.617*10^-5)*SynNuc$TemperatureK))
-cor.test(SynNuc$B, SynNuc$TtoCSkew, method="spearman") #rho  -0.3155981 
-cor.test(SynNuc$Temperature, SynNuc$TtoCSkew, method = "spearman")
-
 ggscatter(SynNuc, x = "Temperature", y = "TtoCSkew",
           color = "#009414", # Points color, shape and size
           add = "reg.line",  # Add regressin line
@@ -190,8 +181,6 @@ ggscatter(SynNuc, x = "Temperature", y = "GtoASkew",
             label.x = 3
           )
 
-
-
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf")
 temp = SynNuc[!SynNuc$Lifespan == "Na",]
 ggscatter(temp, x = "Temperature", y = "TG_ACSkew",
@@ -199,6 +188,14 @@ ggscatter(temp, x = "Temperature", y = "TG_ACSkew",
           palette = c("#4da36c", "#c9a157"),
           ellipse = TRUE, mean.point = TRUE, add = "reg.line", xlab="Mean annual water temperature, °C", ylab="AC_TGSkew")
 dev.off()
+
+#################################metabolic rate approximation
+SynNuc$MR=(SynNuc$Tm+1)^0.75
+SynNuc$TemperatureK = 273.15 + SynNuc$Temperature
+SynNuc$B=SynNuc$MR * exp(-1.2/((8.617*10^-5)*SynNuc$TemperatureK))
+cor.test(SynNuc$B, SynNuc$TtoCSkew, method="spearman") #rho  -0.3155981 
+cor.test(SynNuc$Temperature, SynNuc$TtoCSkew, method = "spearman")
+
 
 form=SynNuc[!is.na(SynNuc$Tm),]
 form=form[!is.na(form$TG_ACSkew),]
