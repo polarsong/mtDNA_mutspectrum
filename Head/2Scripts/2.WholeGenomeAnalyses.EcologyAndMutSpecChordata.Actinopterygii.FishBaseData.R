@@ -1,6 +1,8 @@
 ###################################
 rm(list=ls(all=TRUE))
 library(ggpubr)
+library(caper)
+library(geiger)
 
 setwd("../../Body/3Results")
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
@@ -57,6 +59,34 @@ summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
 
 
+######### phylogenetic inertia analysis
+
+tree = read.tree('../1Raw/mtalign.aln.treefile.rooted')
+
+row.names(SynNuc) = SynNuc$Species
+
+tree_pruned = treedata(tree, SynNuc, sort=T, warnings=T)$phy 
+# 5104 sp in SynNuc, 3608 sp in tree_pruned
+
+data<-as.data.frame(treedata(tree_pruned, SynNuc, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+
+data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
+data$Temperature = as.numeric(as.character(data$Temperature))
+data$Tm = as.numeric(as.character(data$Tm))
+
+data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
+                                                    'Temperature', 'Tm')], Species, vcv=TRUE)
+
+model = pgls(AC_TGSkew ~ scale(Temperature+2) + scale(Tm), data_comp, lambda="ML")
+summary(model)
+
+# lambda [ ML]  : 0.992
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)            0.4182931  0.1214322  3.4447 0.0007736 ***
+#   scale(Temperature + 2) 0.0125032  0.0063876  1.9574 0.0524728 .  
+# scale(Tm)              0.0050481  0.0051593  0.9784 0.3296996    
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
 
@@ -79,7 +109,7 @@ plot(temp$Temperature, temp$Tm, col="#42cbf5", xlab="Temperature", ylab="Time of
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf", width = 7, height = 8.5)
-plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab="Mean annual water temperature, C°", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16)
+plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab="Mean annual water temperature, C?", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16)
 abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
 par(new=TRUE)
 plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab="", ylab="", ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16)
@@ -88,7 +118,7 @@ legend("bottomright", legend=c( "Short time of maturation","Long time of maturat
 dev.off()
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1CC.pdf", width = 7, height = 8.5)
-plot(SynNuc$Temperature, SynNuc$AC_TGSkew, ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16, col="#c99bc9", xlab="Mean annual water temperature, C°", ylab="STG-SAC skew" )
+plot(SynNuc$Temperature, SynNuc$AC_TGSkew, ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16, col="#c99bc9", xlab="Mean annual water temperature, C?", ylab="STG-SAC skew" )
 abline(lm(Temperature ~ AC_TGSkew, data = SynNuc))
 
 #### Rank corr
@@ -102,13 +132,13 @@ tempnumper = tempnumper[!is.na(tempnumper$FrT),]
 
 samplesize = paste("N==", as.character(nrow(tempnumper)), sep="")
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1Ñ.pdf")
+pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1?.pdf")
 ggscatter(SynNuc, x = "Temperature", y = "FrT",
           color = "#e61a0b", # Points color, shape and size
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="Whole genome neutral fraction of A")+ stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="Whole genome neutral fraction of A")+ stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -118,7 +148,7 @@ ggscatter(SynNuc, x = "Temperature", y = "FrG",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="Whole genome neutral fraction of C")+ stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="Whole genome neutral fraction of C")+ stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -127,7 +157,7 @@ ggscatter(SynNuc, x = "Temperature", y = "FrC",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="Whole genome neutral fraction of G")+ stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="Whole genome neutral fraction of G")+ stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -136,7 +166,7 @@ ggscatter(SynNuc, x = "Temperature", y = "FrA",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="Whole genome neutral fraction of T")+ stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="Whole genome neutral fraction of T")+ stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -149,7 +179,7 @@ ggscatter(SynNuc, x = "Temperature", y = "AC_TGSkew",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30))+stat_cor(aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")))
+          xlab="Mean annual water temperature, ?C", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30))+stat_cor(aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")))
 dev.off()
 
 
@@ -187,7 +217,7 @@ temp = SynNuc[!SynNuc$Lifespan == "Na",]
 ggscatter(temp, x = "Temperature", y = "TG_ACSkew",
           color = "Lifespan", shape = "Lifespan",
           palette = c("#4da36c", "#c9a157"),
-          ellipse = TRUE, mean.point = TRUE, add = "reg.line", xlab="Mean annual water temperature, °C", ylab="AC_TGSkew")
+          ellipse = TRUE, mean.point = TRUE, add = "reg.line", xlab="Mean annual water temperature, ?C", ylab="AC_TGSkew")
 dev.off()
 
 #################################metabolic rate approximation

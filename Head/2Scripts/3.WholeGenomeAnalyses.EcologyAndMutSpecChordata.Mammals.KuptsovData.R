@@ -134,6 +134,33 @@ summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparame
 summary(lm(AC_TGSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters)) ###PICS
 
 
+##### phylogenetic inertia analysis
+
+tree = read.tree('../1Raw/mtalign.aln.treefile.rooted')
+
+row.names(allparameters) = allparameters$Species
+
+tree_pruned = treedata(tree, allparameters, sort=T, warnings=T)$phy 
+
+data<-as.data.frame(treedata(tree_pruned, allparameters, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+
+data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
+data$Temper = as.numeric(as.character(data$Temper))
+data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
+
+data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
+                                                    'GenerationLength_d', 'Temper')], Species, vcv=TRUE)
+
+model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
+
+# lambda [ ML]  : 1.000
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)                0.4455734  0.0508286  8.7662 4.441e-16 ***
+#   scale(Temper)             -0.0048257  0.0054858 -0.8797     0.380    
+# scale(GenerationLength_d)  0.0036460  0.0042781  0.8523     0.395    
 
 
 ##################plotting 
@@ -148,7 +175,7 @@ for (i in 1:nrow(allparameters)){
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.TemperatureHist.pdf", width = 9, height = 5.5)
-gghistogram(allparameters, x = "Temper", fill = "red", ylab = " ", xlab = "Body temperature, °C", 
+gghistogram(allparameters, x = "Temper", fill = "red", ylab = " ", xlab = "Body temperature, ?C", 
             add = "mean", rug = TRUE)
 dev.off()
 
