@@ -78,14 +78,18 @@ summary(lm(-TG_ACSkew ~ Temperature + Lifespan, data = temp))
 plot(temp$Temperature, temp$Tm, col="#42cbf5", xlab="Temperature", ylab="Time of maturation, years", pch = 1, cex = (temp$TG_ACSkew*-7), ylim =c(0, 30))
 
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf", width = 5.5, height = 5.5)
-plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab="Temperature", ylab="Fraction of AC_TCSkew", ylim=c(0.1, 0.65), xlim=c(0,30))
+pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D.pdf", width = 7, height = 8.5)
+plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab="Mean annual water temperature, C°", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16)
 abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
 par(new=TRUE)
-plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab="Temperature", ylab="Fraction of AC_TCSkew", ylim=c(0.1, 0.65), xlim=c(0,30))
+plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab="", ylab="", ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16)
 abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
+legend("bottomright", legend=c( "Short time of maturation","Long time of maturation"), col=c("#4da36c","#42cbf5"), pch = 16)
 dev.off()
 
+pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1CC.pdf", width = 7, height = 8.5)
+plot(SynNuc$Temperature, SynNuc$AC_TGSkew, ylim=c(0.1, 0.65), xlim=c(0,30), pch = 16, col="#c99bc9", xlab="Mean annual water temperature, C°", ylab="STG-SAC skew" )
+abline(lm(Temperature ~ AC_TGSkew, data = SynNuc))
 
 #### Rank corr
 cor.test(log2(SynNuc$Temperature),SynNuc$FrA, method = "spearman")
@@ -139,16 +143,13 @@ ggscatter(SynNuc, x = "Temperature", y = "FrA",
 dev.off()
 
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1E.pdf")
-ggscatter(SynNuc, x = "Temperature", y = "TG_ACSkew",
+pdf("../../Body/4Figures/WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1E.pdf", width = 7, height = 8.5)
+ggscatter(SynNuc, x = "Temperature", y = "AC_TGSkew",
           color = "#c99bc9", # Points color, shape and size
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="ACH-TGH skew")+ stat_cor(
-            aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
-            label.x = 3
-          )
+          xlab="Mean annual water temperature, °C", ylab="STG-SAC skew", ylim=c(0.1, 0.65), xlim=c(0,30))+stat_cor(aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")))
 dev.off()
 
 

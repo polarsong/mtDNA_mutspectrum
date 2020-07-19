@@ -176,7 +176,7 @@ allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "ShortGL"
 
 
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 10, height = 11)
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 7, height = 8.5)
 plot(allparameters[allparameters$GLgroups == "LongGL",]$Temper, allparameters[allparameters$GLgroups == "LongGL",]$TG_ACSkew*-1, col="#121d2e", xlab="Temperature", ylab="STG-SAC", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
 abline(0.362350, 0.004390, col="black", lwd = 2)
 par(new=TRUE)
@@ -188,16 +188,17 @@ abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
 par(new=TRUE)
 plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab=" ", ylab= "", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
 abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
-legend("bottomright", legend=c("Mammals, Long GL", "Mammals, Short GL", "Fishes, Short TM","Fishes, Long TM"), col=c("black", "#d7badb", "#4da36c", "#42cbf5"), pch = c(15:18))
+legend("bottomright", legend=c("Mammals, Long GL", "Mammals, Short GL", "Fishes, Long TM", "Fishes, Short TM"), col=c("black", "#d7badb", "#42cbf5", "#4da36c"), pch = 16)
 dev.off()
 
 
-pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse.pdf", width = 9, height = 5.5)
-plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$TG_ACSkew, col="#08519c", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", xlim = c(8, 14.5), ylim = c(-0.75, -0.25))
-abline((-0.323919+0.043515), -0.018255, col="#08519c", lwd = 2)
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse.pdf", width = 7, height = 8.5)
+plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Colder mammals",]$AC_TGSkew, col="#08519c", xlab="Generation Length, log2", ylab="STG-SAC skew",  pch = 16, ylim=c(0.3,0.73), xlim=c(8, 14.5))
+abline((0.323919-0.043515), 0.018255, col="#08519c", lwd = 2)
 par(new=TRUE)
-plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$TG_ACSkew, col="#de6a85", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", xlim = c(8, 14.5), ylim = c(-0.75, -0.25))
-abline(-0.323919, -0.018255, col="#de6a85", lwd = 2)
+plot(log2(allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$GenerationLength_d), allparameters[allparameters$TwoMammaliaGroups == "Warmer mammals",]$AC_TGSkew, col="#de6a85", xlab="", ylab="",  pch = 16, ylim=c(0.3,0.73), xlim=c(8, 14.5))
+abline(0.323919, 0.018255, col="#de6a85", lwd = 2)
+legend("bottomright", legend=c("Colder mammals", "Warmer mammals"), col=c("#08519c", "#de6a85"), pch = 16)
 dev.off()
 
 breaks = seq(-0.75, -0.25, 0.01)
