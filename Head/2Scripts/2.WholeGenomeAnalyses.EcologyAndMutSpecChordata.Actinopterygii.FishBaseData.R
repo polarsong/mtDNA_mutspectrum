@@ -88,6 +88,30 @@ summary(model)
 #   scale(Temperature + 2) 0.0125032  0.0063876  1.9574 0.0524728 .  
 # scale(Tm)              0.0050481  0.0051593  0.9784 0.3296996    
 
+model2 = pgls(AC_TGSkew ~ scale(Temperature+2), data_comp, lambda="ML")
+summary(model2)
+
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)            0.4231533  0.1223940  3.4573 0.0007395 ***
+#   scale(Temperature + 2) 0.0101526  0.0060137  1.6882 0.0937819 .  
+
+
+model3 = pgls(AC_TGSkew ~ log2(Temperature + 2) + log2(Tm), data_comp, lambda="ML")
+summary(model3)
+
+# lambda [ ML]  : 0.990
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)  
+# (Intercept)           0.3185648  0.1248595  2.5514  0.01191 *
+#   log2(Temperature + 2) 0.0186083  0.0086042  2.1627  0.03242 *
+#   log2(Tm)              0.0099184  0.0048863  2.0298  0.04445 *
+
+model4 = pgls(AC_TGSkew ~ Temperature, data_comp, lambda="ML")
+summary(model4)
+
+
+
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
 
 ##### plotting scatter with temperature and two groups

@@ -3,6 +3,8 @@
 ###################################
 rm(list=ls(all=TRUE))
 library(ggpubr)
+library(caper)
+library(geiger)
 
 ############ Syn mut
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
@@ -136,7 +138,7 @@ summary(lm(AC_TGSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparame
 
 ##### phylogenetic inertia analysis
 
-tree = read.tree('../1Raw/mtalign.aln.treefile.rooted')
+tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
 
 row.names(allparameters) = allparameters$Species
 
@@ -148,6 +150,7 @@ data$Species = as.character(data$Species)
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
+# data$allcolddummy = as.numeric(as.character(data$allcolddummy))
 
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
                                                     'GenerationLength_d', 'Temper')], Species, vcv=TRUE)
@@ -161,6 +164,32 @@ summary(model)
 # (Intercept)                0.4455734  0.0508286  8.7662 4.441e-16 ***
 #   scale(Temper)             -0.0048257  0.0054858 -0.8797     0.380    
 # scale(GenerationLength_d)  0.0036460  0.0042781  0.8523     0.395    
+
+model2 = pgls(AC_TGSkew ~ log2(Temper + 2) + log2(GenerationLength_d), data_comp, lambda="ML")
+summary(model2)
+
+# lambda [ ML]  : 1.000
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)  
+# (Intercept)               0.7338936  0.4312905  1.7016  0.09023 .
+# log2(Temper + 2)         -0.0688118  0.0808772 -0.8508  0.39579  
+# log2(GenerationLength_d)  0.0068201  0.0048876  1.3954  0.16430  
+
+##### after calculating temp dummy
+
+# data_comp_dummy <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
+#                                                     'GenerationLength_d', 'Temper',
+#                                                     'allcolddummy')], Species, vcv=TRUE)
+# 
+# model2 = pgls(AC_TGSkew ~ allcolddummy + scale(GenerationLength_d), data_comp_dummy, lambda="ML")
+# summary(model2)
+
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)               0.4451936  0.0511134  8.7099 6.661e-16 ***
+#   allcolddummy              0.0074469  0.0098631  0.7550    0.4510    
+# scale(GenerationLength_d) 0.0037206  0.0042780  0.8697    0.3854 
+
 
 
 ##################plotting 
@@ -191,7 +220,7 @@ pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.K
 ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
           color = "TwoMammaliaGroups", shape = "TwoMammaliaGroups",
           palette = c("#08519c", "#de6a85"),
-          ellipse = TRUE,  add = "reg.line", xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew", )
+          ellipse = TRUE,  add = "reg.line", xscale = "log2", xlab="Generation Length, log2", ylab="Fraction of AC_TCSkew")
 dev.off()
 
 plot(allparameters$Temper, allparameters$GenerationLength_d, col="#42cbf5", xlab="Temperature", ylab="GL, days", pch = 1, cex = (allparameters$TG_ACSkew*-7), ylim = c(0, 11000))
