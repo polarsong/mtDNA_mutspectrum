@@ -150,10 +150,11 @@ data$Species = as.character(data$Species)
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
-# data$allcolddummy = as.numeric(as.character(data$allcolddummy))
+data$allcolddummy = as.numeric(as.character(data$allcolddummy))
 
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'GenerationLength_d', 'Temper')], Species, vcv=TRUE)
+                                                    'GenerationLength_d', 'Temper',
+                                                    'allcolddummy')], Species, vcv=TRUE)
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
@@ -174,6 +175,31 @@ summary(model2)
 # (Intercept)               0.7338936  0.4312905  1.7016  0.09023 .
 # log2(Temper + 2)         -0.0688118  0.0808772 -0.8508  0.39579  
 # log2(GenerationLength_d)  0.0068201  0.0048876  1.3954  0.16430  
+
+model3 = pgls(AC_TGSkew ~ log2(GenerationLength_d), data_comp, lambda="ML")
+summary(model3)
+
+# lambda [ ML]  : 1.000
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)        4.4578e-01 5.0767e-02  8.7809 4.441e-16 ***
+#   GenerationLength_d 2.3930e-06 2.4945e-06  0.9593    0.3384  
+
+# as lambda is 1.0, we can use PIC
+
+cor.test(pic(data$AC_TGSkew, tree_pruned), pic(data$GenerationLength_d, tree_pruned))
+# 0.08146519, p-value 0.03815
+
+model4 = pgls(AC_TGSkew ~ GenerationLength_d + allcolddummy, data_comp, lambda="ML")
+summary(model4)
+
+# lambda [ ML]  : 1.000
+
+# Coefficients:
+#   Estimate Std. Error t value  Pr(>|t|)    
+# (Intercept)              0.3692538  0.0735997  5.0171 1.078e-06 ***
+#   log2(GenerationLength_d) 0.0069482  0.0048809  1.4235    0.1560    
+# allcolddummy             0.0071838  0.0098121  0.7321    0.4649
 
 ##### after calculating temp dummy
 
