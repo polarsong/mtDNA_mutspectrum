@@ -138,11 +138,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-70.497907"
-     inkscape:cy="425.68062"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="764.97901"
+     inkscape:cy="676.47064"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g5871"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="986"
@@ -876,7 +876,8 @@
       <g
          id="g26656" />
       <g
-         id="g26658">
+         id="g26658"
+         transform="matrix(2.3511724,0,0,2.3511724,-374.16009,-23.451391)">
         <text
            id="text26662"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -891,7 +892,8 @@
       <g
          id="g26664" />
       <g
-         id="g26666">
+         id="g26666"
+         transform="matrix(2.2490906,0,0,2.2490906,-27.940861,-298.96889)">
         <text
            id="text26670"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -2750,31 +2752,29 @@
          id="g5871">
         <text
            id="text5875"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,202.09,18.72)">
+           style="font-variant:normal;font-weight:normal;font-size:21.14974785px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.76247895"
+           transform="scale(1,-1)"
+           x="161.71936"
+           y="-12.058734">
           <tspan
              id="tspan5873"
              sodipodi:role="line"
-             y="0"
-             x="0 9.3360004 16.007999 22.68 29.351999 33.228001 39.900002 43.236 45.900002 52.571999 59.243999 62.580002 69.251999 75.924004 82.596001 89.267998 92.603996 99.276001 102.612 105.948 108.612 115.284 121.956">Generation Length, log2</tspan>
+             y="-12.058734"
+             x="161.71936 178.17386 189.93312 201.69238 213.45164 220.28302 232.04227 237.92191 242.61716 254.3764 266.13565 272.01529 283.77454 295.53381 307.29306 319.05234 324.93195 336.69122 342.57086 348.45047 353.14572 364.90497 376.66425"
+             style="stroke-width:1.76247895">Generation Length, log2</tspan>
         </text>
         <text
            id="text5879"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="font-variant:normal;font-weight:normal;font-size:23.43167686px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.95263982"
            transform="matrix(0,1,1,0,0,0)"
-           x="270.10999"
-           y="20.243105">
+           x="247.74713"
+           y="27.386663">
           <tspan
              id="tspan5877"
              sodipodi:role="line"
-             y="20.243105"
-             x="270.10999 278.11401 285.44601 294.78201 301.79001 309.79401 317.43799 326.10199 329.43799 335.43799 341.198 347.63">S<tspan
-   style="font-size:8.09233815px"
-   id="tspan12195">TG</tspan>
-−S<tspan
-   style="font-size:8.09233815px"
-   id="tspan12199">AC</tspan>
- skew</tspan>
+             x="247.74713"
+             style="stroke-width:1.95263982"
+             y="27.386663">STG-</tspan>
         </text>
       </g>
       <g
@@ -8871,32 +8871,16 @@
          id="g10014">
         <text
            id="text10018"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,232.84,18.72)">
+           style="font-variant:normal;font-weight:normal;font-size:24.30604553px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.02550387"
+           transform="scale(1,-1)"
+           x="208.27457"
+           y="-9.7608614">
           <tspan
              id="tspan10016"
              sodipodi:role="line"
-             y="0"
-             x="0 5.8920002 12.564 22.559999 29.232 35.903999 39.779999 46.452 49.787998 56.459999 60.456001">Temperature,C°</tspan>
-        </text>
-        <text
-           id="text5879-5"
-           style="font-variant:normal;font-weight:normal;font-size:12.00000095px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1"
-           transform="matrix(0,1,1,0,0,0)"
-           x="265.8147"
-           y="21.453472">
-          <tspan
-             style="stroke-width:1"
-             id="tspan5877-8"
-             sodipodi:role="line"
-             y="21.453472"
-             x="265.8147 273.81873 281.15076 290.48669 297.49475 305.49878 313.1427 321.80676 325.1427 331.1427 336.90271 343.33472">S<tspan
-   style="font-size:8.09233815px"
-   id="tspan12201">TG</tspan>
-−S<tspan
-   style="font-size:8.09233815px"
-   id="tspan12203">AC</tspan>
- skew</tspan>
+             y="-9.7608614"
+             x="208.27457 220.20883 233.72299 253.96994 267.4841 280.99826 288.84912 302.36328 309.12036 322.63452 330.72842"
+             style="stroke-width:2.02550387">Temperature,C°</tspan>
         </text>
       </g>
       <g
@@ -11665,5 +11649,12 @@
          x="109.91357"
          y="138.00238"
          style="font-size:8.29179573px;stroke-width:0.22210167"> C.</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect10729"
+       width="110.36904"
+       height="9.8273811"
+       x="63.877975"
+       y="4.8244047" />
   </g>
 </svg>
