@@ -370,3 +370,24 @@ form$x = (1/log(form$GenerationLength_d))*(log(form$TG_ACSkew)+0.2/((8.617*10^-5
 bodymassgenlpred=((form$GenerationLength_d/365)/(6.10*10^6))^(1/0.2)
 form$x = log(form$TG_ACSkew * exp(0.62/((8.617*10^-5)*form$TemperatureK))) / log(bodymassgenlpred)
 summary(form$x)
+
+
+################### one model
+
+onedatasetF = data.frame(temp$Species, temp$Temperature, temp$Lifespan, temp$AC_TGSkew)
+onedatasetF$Longevity = 0
+onedatasetF[onedatasetF$temp.Lifespan == "LongMaturated",]$Longevity=1
+names(onedatasetF)=c("Species", "Temperature", "Lifespan", "AC_TGSkew", "Longevity")
+onedatasetF$Ectothermy = 1
+
+onedatasetM = data.frame(allparameters$Species, allparameters$Temper, allparameters$GLgroups, allparameters$AC_TGSkew)
+onedatasetM$Longevity = 0
+onedatasetM[onedatasetM$allparameters.GLgroups == "LongGL",]$Longevity = 1
+names(onedatasetM)=c("Species", "Temperature", "Lifespan", "AC_TGSkew", "Longevity")
+onedatasetM$Ectothermy = 0
+
+onedata = rbind(onedatasetF, onedatasetM)
+table(onedata$Ectothermy)
+summary(lm(formula = AC_TGSkew ~ Temperature + Longevity + Ectothermy, data = onedata))
+nrow(onedata[!is.na(onedata$Temperature) & !is.na(onedata$AC_TGSkew),])
+
