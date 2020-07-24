@@ -130,6 +130,46 @@
          id="path11220"
          d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
     </clipPath>
+    <clipPath
+       id="clipPath10570-6"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10568-3"
+         d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath10030-3"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10028-1"
+         d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath10906-6"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10904-8"
+         d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath10030-3-7"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10028-1-2"
+         d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath10570-6-5"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10568-3-5"
+         d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -138,11 +178,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="764.97901"
-     inkscape:cy="676.47064"
+     inkscape:zoom="1.979899"
+     inkscape:cx="598.80117"
+     inkscape:cy="545.78465"
      inkscape:document-units="mm"
-     inkscape:current-layer="g5871"
+     inkscape:current-layer="g9466"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="986"
@@ -157,7 +197,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -905,6 +945,7 @@
              x="0 8.0039997 16.667999 23.676001 33.012001">A<tspan
    style="font-size:8px"
    id="tspan27213">H</tspan>
+
 &gt;G<tspan
    style="font-size:8px"
    id="tspan27211">H</tspan>
@@ -8884,7 +8925,8 @@
         </text>
       </g>
       <g
-         id="g10024">
+         id="g10024"
+         transform="matrix(0.41252609,0,0,0.41252609,278.32164,234.41578)">
         <g
            clip-path="url(#clipPath10030)"
            id="g10026">
@@ -10092,7 +10134,8 @@
       <g
          id="g10562" />
       <g
-         id="g10564">
+         id="g10564"
+         transform="matrix(0.39469298,0,0,0.39469298,270.70414,218.1944)">
         <g
            clip-path="url(#clipPath10570)"
            id="g10566">
@@ -10348,15 +10391,6 @@
              transform="matrix(1,0,0,-1,211.93,299.08)">
             <tspan
                id="tspan10686"
-               y="0"
-               x="0">●</tspan>
-          </text>
-          <text
-             id="text10692"
-             style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#4da36c;fill-opacity:1;fill-rule:nonzero;stroke:none"
-             transform="matrix(1,0,0,-1,293.88,310.6)">
-            <tspan
-               id="tspan10690"
                y="0"
                x="0">●</tspan>
           </text>
@@ -10639,6 +10673,15 @@
                y="0"
                x="0">●</tspan>
           </text>
+          <text
+             id="text10692"
+             style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#4da36c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,293.88,310.6)">
+            <tspan
+               id="tspan10690"
+               y="0"
+               x="0">●</tspan>
+          </text>
         </g>
       </g>
       <g
@@ -10841,7 +10884,8 @@
       <g
          id="g10898" />
       <g
-         id="g10900">
+         id="g10900"
+         transform="matrix(0.66555235,0,0,0.66555235,61.779519,88.850913)">
         <g
            clip-path="url(#clipPath10906)"
            id="g10902">
@@ -11552,8 +11596,8 @@
           <path
              inkscape:connector-curvature="0"
              id="path11224"
-             style="fill:none;stroke:#42cbf5;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 59.04,242.7 473.76,429.38" />
+             style="fill:none;stroke:#42cbf5;stroke-width:0.97124654;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 103.85807,262.81815 372.38832,383.69302" />
           <path
              inkscape:connector-curvature="0"
              id="path11226"
@@ -11635,6 +11679,76 @@
                y="0"
                x="0 7.3319998 9.9960003 15.996 22.667999 29.34 35.16 38.495998 41.832001 49.835999 56.507999 63.18 67.655998 70.991997 74.328003 81.660004">Fishes, Short TM</tspan>
           </text>
+          <path
+             inkscape:connector-curvature="0"
+             id="path11224-1"
+             style="fill:none;stroke:#42cbf5;stroke-width:0.97124654;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 103.94785,261.88129 268.53024,120.8749" />
+        </g>
+      </g>
+      <g
+         id="g10564-5"
+         transform="matrix(0.39469298,0,0,0.39469298,270.67705,217.59831)">
+        <g
+           clip-path="url(#clipPath10570-6)"
+           id="g10566-4">
+          <path
+             inkscape:connector-curvature="0"
+             id="path10572-2"
+             style="fill:none;stroke:#d7badb;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 59.04,235.53 473.76,368.31" />
+        </g>
+      </g>
+      <g
+         id="g10024-6"
+         transform="matrix(0.41252609,0,0,0.41252609,278.31206,233.94639)">
+        <g
+           clip-path="url(#clipPath10030-3)"
+           id="g10026-8">
+          <path
+             inkscape:connector-curvature="0"
+             id="path10032-3"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 59.04,265.49 473.76,398.27" />
+        </g>
+      </g>
+      <g
+         id="g10900-5"
+         transform="matrix(0.66555235,0,0,0.66555235,61.768364,87.899541)">
+        <g
+           clip-path="url(#clipPath10906-6)"
+           id="g10902-7">
+          <path
+             inkscape:connector-curvature="0"
+             id="path10908-5"
+             style="fill:none;stroke:#4da36c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 59.04,209.09 473.76,395.78" />
+        </g>
+      </g>
+      <g
+         id="g10024-6-3"
+         transform="matrix(0.41252609,0,0,0.41252609,278.31206,233.30966)">
+        <g
+           clip-path="url(#clipPath10030-3-7)"
+           id="g10026-8-3">
+          <path
+             inkscape:connector-curvature="0"
+             id="path10032-3-5"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 59.04,265.49 473.76,398.27" />
+        </g>
+      </g>
+      <g
+         id="g10564-5-8"
+         transform="matrix(0.39469298,0,0,0.39469298,270.71887,216.99857)">
+        <g
+           clip-path="url(#clipPath10570-6-5)"
+           id="g10566-4-8">
+          <path
+             inkscape:connector-curvature="0"
+             id="path10572-2-1"
+             style="fill:none;stroke:#d7badb;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 59.04,235.53 473.76,368.31" />
         </g>
       </g>
     </g>
