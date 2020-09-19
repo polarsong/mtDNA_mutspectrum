@@ -215,7 +215,7 @@ p <- ggplot(longTC, aes(x=num, y=tCountlong)) +       # Note that id is a factor
   ) +
   
   # This makes the coordinate polar instead of cartesian.
-  coord_polar(start = 3*pi/4, direction = -1) +
+  coord_polar(start = 2*pi/3, direction = -1) +
   scale_fill_discrete(name = "Nucleotide", labels = c("G", "A"))
 p + ggtitle('Balaena mysticetus, 18980 days')
 
