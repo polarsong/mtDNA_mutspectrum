@@ -68,6 +68,12 @@ ggviolin(MUTFROMK, x = "Class", y = "T_C", select = c("Actinopterygii", "Amphibi
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
 MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 30,]
 
+length(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$T_C) #551
+length(MUTFROMK[MUTFROMK$Class == "Amphibia",]$T_C) #79
+length(MUTFROMK[MUTFROMK$Class == "Reptilia",]$T_C) #200
+length(MUTFROMK[MUTFROMK$Class == "Mammalia",]$T_C) #526
+length(MUTFROMK[MUTFROMK$Class == "Aves",]$T_C) #210
+
 ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
 dev.off()

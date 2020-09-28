@@ -274,17 +274,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="446.28686"
-     inkscape:cy="527.06799"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="981.57243"
+     inkscape:cy="560.22487"
      inkscape:document-units="mm"
-     inkscape:current-layer="g26626"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="986"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata2670">
     <rdf:RDF>
@@ -293,7 +295,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1027,20 +1029,6 @@
       <g
          id="g26656" />
       <g
-         id="g26658"
-         transform="matrix(1.7762063,0,0,1.7762063,-224.77511,-18.579407)">
-        <text
-           id="text26662"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,255.15,8.62)">
-          <tspan
-             id="tspan26660"
-             sodipodi:role="line"
-             y="0"
-             x="0 8.6639996 11.328 18 24">Class</tspan>
-        </text>
-      </g>
-      <g
          id="g26664" />
       <g
          id="g26666"
@@ -1056,6 +1044,7 @@
              x="0 8.0039997 16.667999 23.676001 33.012001">A<tspan
    style="font-size:8px"
    id="tspan27213">H</tspan>
+
 
 
 &gt;G<tspan
@@ -1431,6 +1420,66 @@
          id="g26904" />
       <g
          id="g26906" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.9562397px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.19170713"
+         x="71.866653"
+         y="2.9276667"
+         id="text19392"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan19390"
+           x="71.866653"
+           y="2.9276667"
+           style="stroke-width:1.19170713">N=551</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.9562397px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.19170713"
+         x="164.28352"
+         y="2.1460364"
+         id="text19392-6"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan19390-8"
+           x="164.28352"
+           y="2.1460364"
+           style="stroke-width:1.19170713">N=79</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.9562397px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.19170713"
+         x="251.95779"
+         y="2.3974249"
+         id="text19392-6-8"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan19390-8-6"
+           x="251.95779"
+           y="2.3974249"
+           style="stroke-width:1.19170713">N=200</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.9562397px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.19170713"
+         x="340.48459"
+         y="1.5462056"
+         id="text19392-6-8-8"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan19390-8-6-2"
+           x="340.48459"
+           y="1.5462056"
+           style="stroke-width:1.19170713">N=526</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.9562397px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.19170713"
+         x="428.84119"
+         y="2.3974252"
+         id="text19392-6-8-88"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan19390-8-6-6"
+           x="428.84119"
+           y="2.3974252"
+           style="stroke-width:1.19170713">N=210</tspan></text>
     </g>
     <g
        transform="matrix(0.21797024,0,0,-0.21797024,2.9878186,267.8087)"
@@ -2902,21 +2951,7 @@
            d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 V 73.44" />
       </g>
       <g
-         id="g5871">
-        <text
-           id="text5875"
-           style="font-variant:normal;font-weight:normal;font-size:21.14974785px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.76247895"
-           transform="scale(1,-1)"
-           x="161.71936"
-           y="-12.058734">
-          <tspan
-             id="tspan5873"
-             sodipodi:role="line"
-             y="-12.058734"
-             x="161.71936 178.17386 189.93312 201.69238 213.45164 220.28302 232.04227 237.92191 242.61716 254.3764 266.13565 272.01529 283.77454 295.53381 307.29306 319.05234 324.93195 336.69122 342.57086 348.45047 353.14572 364.90497 376.66425"
-             style="stroke-width:1.76247895">Generation Length, log2</tspan>
-        </text>
-      </g>
+         id="g5871" />
       <g
          id="g5881">
         <g
@@ -9042,25 +9077,6 @@
              y="-12.535653"
              style="stroke-width:1.84837389">Temperature, °C</tspan>
         </text>
-        <text
-           id="text4034"
-           style="font-variant:normal;font-weight:normal;font-size:26.84836197px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.46036667"
-           transform="matrix(0,1,1,0,0,0)"
-           x="266.97653"
-           y="-429.69708">
-          <tspan
-             id="tspan4032"
-             sodipodi:role="line"
-             x="266.97653"
-             y="-429.69708"
-             style="stroke-width:0.46036667">S<tspan
-   style="font-size:17.45143318px;baseline-shift:sub;stroke-width:0.46036667"
-   id="tspan6110">TG</tspan>
--S<tspan
-   style="font-size:17.45143318px;baseline-shift:sub;stroke-width:0.46036667"
-   id="tspan6108">AC</tspan>
-</tspan>
-        </text>
       </g>
       <g
          id="g4036"
@@ -11333,7 +11349,7 @@
                sodipodi:role="line"
                x="0"
                y="0"
-               style="font-size:8.90992737px">Mammals, Long generation length</tspan>
+               style="font-size:8.90992737px">Long-lived mammals</tspan>
           </text>
           <text
              y="-112.88141"
@@ -11346,7 +11362,7 @@
                sodipodi:role="line"
                x="334.2243"
                y="-112.88141"
-               style="font-size:8.90992737px;stroke-width:1">Mammals, Short generation length</tspan>
+               style="font-size:8.90992737px;stroke-width:1">Short-lived mammals</tspan>
           </text>
           <text
              y="-99.212776"
@@ -11359,7 +11375,7 @@
                sodipodi:role="line"
                x="334.27853"
                y="-99.212776"
-               style="font-size:8.90992737px;stroke-width:1">Fishes, Long time of maturation</tspan>
+               style="font-size:8.90992737px;stroke-width:1">Late-maturing fishes</tspan>
           </text>
           <text
              y="-86.628952"
@@ -11372,7 +11388,7 @@
                sodipodi:role="line"
                x="334.2785"
                y="-86.628952"
-               style="font-size:8.90992737px;stroke-width:1">Fishes, Short time of maturation</tspan>
+               style="font-size:8.90992737px;stroke-width:1">Early-maturing fishes</tspan>
           </text>
         </g>
       </g>
@@ -11429,5 +11445,36 @@
         </g>
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-203.35359"
+       y="7.3448949"
+       id="text19468"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan19466"
+         x="-203.35359"
+         y="7.3448949"
+         style="stroke-width:0.26458332"><tspan
+           style="font-size:5.64444447px"
+           id="tspan19470">S</tspan><tspan
+           style="font-size:3.52777767px"
+           id="tspan19476">TG</tspan><tspan
+           style="font-size:5.64444447px"
+           id="tspan19472">-S</tspan><tspan
+           style="font-size:3.52777767px"
+           id="tspan19474">AC</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.82952785px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="27.781252"
+       y="264.53186"
+       id="text19480"><tspan
+         sodipodi:role="line"
+         id="tspan19478"
+         x="27.781252"
+         y="264.53186"
+         style="font-size:4.82952785px;stroke-width:0.26458332">Generation Length (days), log2</tspan></text>
   </g>
 </svg>

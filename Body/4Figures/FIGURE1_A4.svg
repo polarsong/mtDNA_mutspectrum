@@ -4306,10 +4306,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="456.38117"
-     inkscape:cy="356.78129"
+     inkscape:cx="5.6995357"
+     inkscape:cy="362.75447"
      inkscape:document-units="mm"
-     inkscape:current-layer="g45940"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="986"
@@ -4833,6 +4833,7 @@
    style="font-size:6.27931595px"
    id="tspan8520">H</tspan>
 
+
 &gt;G<tspan
    style="font-size:6.27931595px"
    id="tspan8518">H</tspan>
@@ -4850,6 +4851,7 @@
              style="font-size:9.41897392px">T<tspan
    style="font-size:6.27931595px"
    id="tspan8522">H</tspan>
+
 
 &gt;C<tspan
    style="font-size:6.27931595px"
@@ -4869,6 +4871,7 @@
    style="font-size:6.27931595px"
    id="tspan8528">H</tspan>
 
+
 &gt;A<tspan
    style="font-size:6.27931595px"
    id="tspan8526">H</tspan>
@@ -4886,6 +4889,7 @@
              style="font-size:9.41897392px">G<tspan
    style="font-size:6.27931595px"
    id="tspan8532">H</tspan>
+
 
 &gt;T<tspan
    style="font-size:6.27931595px"
@@ -4905,6 +4909,7 @@
    style="font-size:6.27931595px"
    id="tspan8538">H</tspan>
 
+
 &gt;C<tspan
    style="font-size:6.27931595px"
    id="tspan8536">H</tspan>
@@ -4922,6 +4927,7 @@
              style="font-size:9.41897392px">G<tspan
    style="font-size:6.27931595px"
    id="tspan8542">H</tspan>
+
 
 &gt;A<tspan
    style="font-size:6.27931595px"
@@ -4941,6 +4947,7 @@
    style="font-size:6.27931595px"
    id="tspan8549">H</tspan>
 
+
 &gt;T<tspan
    style="font-size:6.27931595px"
    id="tspan8547">H</tspan>
@@ -4958,6 +4965,7 @@
              style="font-size:9.41897392px">C<tspan
    style="font-size:6.27931595px"
    id="tspan8553">H</tspan>
+
 
 &gt;G<tspan
    style="font-size:6.27931595px"
@@ -4977,6 +4985,7 @@
    style="font-size:6.27931595px"
    id="tspan8557">H</tspan>
 
+
 &gt;A<tspan
    style="font-size:6.27931595px"
    id="tspan8555">H</tspan>
@@ -4994,6 +5003,7 @@
              style="font-size:9.41897392px">A<tspan
    style="font-size:6.27931595px"
    id="tspan8561">H</tspan>
+
 
 &gt;T<tspan
    style="font-size:6.27931595px"
@@ -5013,6 +5023,7 @@
    style="font-size:6.27931595px"
    id="tspan8565">H</tspan>
 
+
 &gt;G<tspan
    style="font-size:6.27931595px"
    id="tspan8563">H</tspan>
@@ -5030,6 +5041,7 @@
              style="font-size:9.41897392px">A<tspan
    style="font-size:6.27931595px"
    id="tspan8569">H</tspan>
+
 
 &gt;C<tspan
    style="font-size:6.27931595px"
@@ -5049,37 +5061,12 @@
          id="g8308" />
       <g
          id="g8310"
-         transform="matrix(1.6059363,0,0,1.6059363,-152.66834,-10.516829)">
-        <text
-           id="text8314"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,222.79,8.62)">
-          <tspan
-             id="tspan8312"
-             sodipodi:role="line"
-             y="0"
-             x="0 8.0039997 14.676 21.348 27.348 30.684 33.348 36.683998 43.355999 46.692001 49.355999 56.028 62.700001 66.036003 69.372002 75.372002 82.043999 88.716003">Substitution types</tspan>
-        </text>
-      </g>
+         transform="matrix(1.6059363,0,0,1.6059363,-152.66834,-10.516829)" />
       <g
          id="g8316" />
       <g
          id="g8318"
-         transform="matrix(1.0879455,0,0,1.0879455,-1.4928548,-35.014538)">
-        <text
-           id="text8322"
-           style="font-variant:normal;font-weight:normal;font-size:18.52973747px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.54414475"
-           transform="matrix(0,1,1,0,0,0)"
-           x="203.77261"
-           y="13.292342">
-          <tspan
-             id="tspan8320"
-             sodipodi:role="line"
-             y="13.292342"
-             x="203.77261 217.15109 227.45363 234.08727 249.52254 259.82507 263.93869 268.05228 277.31714 287.61969 297.92221 303.07349 308.22473 314.39514 324.69766 335.00021 345.30273 355.60529 365.90781 375.1727 379.28629 389.58881"
-             style="stroke-width:1.54414475">Normalised frequencies</tspan>
-        </text>
-      </g>
+         transform="matrix(1.0879455,0,0,1.0879455,-1.4928548,-35.014538)" />
       <g
          id="g8324" />
       <g
@@ -6642,18 +6629,7 @@
          id="g9319" />
       <g
          id="g9321"
-         transform="matrix(2.8656611,0,0,2.8656611,31.01128,-53.393496)">
-        <text
-           id="text9325"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,175.35,8.62)">
-          <tspan
-             id="tspan9323"
-             sodipodi:role="line"
-             y="0"
-             x="0 9.9960003 16.667999 23.34 30.011999 33.348 40.02 46.692001 53.243999 59.916 66.587997 69.251999 72.587997 81.071999 87.744003 91.080002 97.751999 101.748 105.084 108.42 115.092 125.088 131.75999 138.43201 142.308 148.98 152.31599 158.98801 162.98399 169.476 172.812 176.14799 180.948">Mean annual water temperature, °C</tspan>
-        </text>
-      </g>
+         transform="matrix(2.8656611,0,0,2.8656611,31.01128,-53.393496)" />
       <g
          id="g9327" />
       <g
@@ -6667,12 +6643,13 @@
              id="tspan9331"
              sodipodi:role="line"
              y="0"
-             x="0 8.0039997 16.667999 23.676001 33.012001">A<tspan
-   style="font-size:8.07983112px"
-   id="tspan21616">H</tspan>
+             x="0 8.0039997 16.667999 23.676001 33.012001"
+             style="font-size:9.77023973px">A<tspan
+   style="font-size:6.57819673px"
+   id="tspan13617">H</tspan>
 &gt;G<tspan
-   style="font-size:8.07983112px"
-   id="tspan21614">H</tspan>
+   style="font-size:6.57819673px"
+   id="tspan13619">H</tspan>
 </tspan>
         </text>
       </g>
@@ -6702,18 +6679,7 @@
          id="g9357" />
       <g
          id="g9321-2"
-         transform="matrix(2.8656611,0,0,2.8656611,321.19644,-753.87341)">
-        <text
-           id="text9325-6"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(1,0,0,-1,175.35,8.62)">
-          <tspan
-             id="tspan9323-1"
-             sodipodi:role="line"
-             y="0"
-             x="0 9.9960003 16.667999 23.34 30.011999 33.348 40.02 46.692001 53.243999 59.916 66.587997 69.251999 72.587997 81.071999 87.744003 91.080002 97.751999 101.748 105.084 108.42 115.092 125.088 131.75999 138.43201 142.308 148.98 152.31599 158.98801 162.98399 169.476 172.812 176.14799 180.948">Mean annual water temperature, °C</tspan>
-        </text>
-      </g>
+         transform="matrix(2.8656611,0,0,2.8656611,321.19644,-753.87341)" />
     </g>
     <g
        transform="matrix(0.13355546,0,0,-0.13355546,72.213611,164.25768)"
@@ -8266,13 +8232,13 @@
              id="tspan10486"
              sodipodi:role="line"
              y="6.481339"
-             x="250.87817 267.43811 287.00647 302.83459 322.40295"
-             style="stroke-width:2.25858164">T<tspan
-   style="font-size:18.24895859px;stroke-width:2.25858164"
-   id="tspan21630">H</tspan>
-&gt;C<tspan
-   style="font-size:18.24895859px;stroke-width:2.25858164"
-   id="tspan21618">H</tspan>
+             x="250.87817 267.43811 287.00647 302.83459 302.83459 322.40295"
+             style="font-size:21.53824425px;stroke-width:2.25858164">T<tspan
+   style="font-size:14.50146628px"
+   id="tspan13613">H</tspan>
+&gt;C <tspan
+   style="font-size:11.86003345px"
+   id="tspan13615">H</tspan>
 </tspan>
         </text>
       </g>
@@ -9793,7 +9759,7 @@
              id="tspan11619"
              sodipodi:role="line"
              x="0"
-             y="0">log2 A<tspan
+             y="0">log2 (A<tspan
    style="font-size:8.07983112px"
    id="tspan21628">H</tspan>
 &gt;G<tspan
@@ -9805,6 +9771,9 @@
 &gt;C<tspan
    style="font-size:8.07983112px"
    id="tspan21622">H</tspan>
+<tspan
+   id="tspan13611"
+   style="font-size:11.99862498px">)</tspan>
 </tspan>
         </text>
       </g>
@@ -9856,7 +9825,7 @@
          y="177.76755"
          style="font-size:7.55373955px;stroke-width:0.20233229"> D.</tspan></text>
     <g
-       transform="matrix(0.07903232,0,0,-0.07903232,2.5308404,219.45061)"
+       transform="matrix(0.07903232,0,0,-0.07903232,5.6680429,219.6396)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1С"
        id="g12062">
       <g
@@ -13245,21 +13214,7 @@
          id="g13618" />
       <g
          id="g13620"
-         transform="matrix(1.374163,0,0,1.374163,-13.099518,-103.23999)">
-        <text
-           id="text13624"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(0,1,1,0,14.59,173.52)">
-          <tspan
-             id="tspan13622"
-             sodipodi:role="line"
-             y="0"
-             x="0 11.328 18 24.672001 27.336 34.007999 37.344002 44.015999 50.688 57.360001 64.031998 74.028 80.699997 84.036003 90.708 97.379997 104.052 107.388 111.264 117.936 120.6 123.936 127.272 131.14799 137.82001 143.82001 147.15601 149.82001 156.492 163.164 166.5 173.172 176.508 179.84399">Whole genome neutral fraction of A<tspan
-   style="font-size:6.26075697px"
-   id="tspan21632">H</tspan>
-</tspan>
-        </text>
-      </g>
+         transform="matrix(1.374163,0,0,1.374163,-13.099518,-103.23999)" />
       <g
          id="g13626" />
       <g
@@ -13286,7 +13241,7 @@
          id="g13648" />
     </g>
     <g
-       transform="matrix(0.07903232,0,0,-0.07903232,42.363128,219.45061)"
+       transform="matrix(0.07903232,0,0,-0.07903232,45.500331,219.6396)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1С"
        id="g14452">
       <g
@@ -16686,21 +16641,7 @@
          id="g16012" />
       <g
          id="g16014"
-         transform="matrix(1.3666719,0,0,1.3666719,-6.5789837,-99.187626)">
-        <text
-           id="text16018"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(0,1,1,0,14.59,173.19)">
-          <tspan
-             id="tspan16016"
-             sodipodi:role="line"
-             y="0"
-             x="0 11.328 18 24.672001 27.336 34.007999 37.344002 44.015999 50.688 57.360001 64.031998 74.028 80.699997 84.036003 90.708 97.379997 104.052 107.388 111.264 117.936 120.6 123.936 127.272 131.14799 137.82001 143.82001 147.15601 149.82001 156.492 163.164 166.5 173.172 176.508 179.84399">Whole genome neutral fraction of C<tspan
-   style="font-size:6.26075697px"
-   id="tspan21634">H</tspan>
-</tspan>
-        </text>
-      </g>
+         transform="matrix(1.3666719,0,0,1.3666719,-6.5789837,-99.187626)" />
       <g
          id="g16020" />
       <g
@@ -16727,7 +16668,7 @@
          id="g16042" />
     </g>
     <g
-       transform="matrix(0.07903232,0,0,-0.07903232,3.1456986,261.19784)"
+       transform="matrix(0.07903232,0,0,-0.07903232,6.2829011,261.38683)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1С"
        id="g16848">
       <g
@@ -20110,42 +20051,11 @@
          id="g18394" />
       <g
          id="g18396"
-         transform="matrix(2.3391709,0,0,2.3391709,-114.85009,-46.044903)">
-        <text
-           id="text18400"
-           style="font-variant:normal;font-weight:normal;font-size:19.4989872px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.6249156"
-           transform="scale(1,-1)"
-           x="128.61717"
-           y="-3.1605327">
-          <tspan
-             id="tspan18398"
-             sodipodi:role="line"
-             y="-3.1605327"
-             x="128.61717 144.85982 155.70126 166.54269 177.38412 182.80486 193.64627 204.48773 215.13416 225.97562 236.81702 241.1458 246.56648 260.35223 271.19366 276.61435 287.45581 293.94897 299.36969 304.79037 315.63184 331.87451 342.71591 353.55737 359.85553 370.69699 376.11768 386.95917 393.4523 404.00125 409.42197 414.84265 422.6423"
-             style="stroke-width:1.6249156">Mean annual water temperature, °C</tspan>
-        </text>
-      </g>
+         transform="matrix(2.3391709,0,0,2.3391709,-114.85009,-46.044903)" />
       <g
          id="g18402" />
       <g
-         id="g18404">
-        <text
-           id="text18408"
-           style="font-variant:normal;font-weight:normal;font-size:17.05401802px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.42116821"
-           transform="matrix(0,1,1,0,0,0)"
-           x="146.00601"
-           y="6.8308125">
-          <tspan
-             id="tspan18406"
-             sodipodi:role="line"
-             y="6.8308125"
-             x="146.00601 162.10501 171.58705 181.06908 184.85507 194.33711 199.07812 208.56015 218.04219 227.52423 237.00624 251.21222 260.69424 265.43527 274.91733 284.39935 293.88138 298.62241 304.13086 313.61288 317.39886 322.13989 326.88092 332.38934 341.8714 350.39841 355.13943 358.92542 368.40744 377.8895 382.63049 392.11252 396.85355 401.59454"
-             style="stroke-width:1.42116821">Whole genome neutral fraction of G<tspan
-   style="font-size:8.89758873px;stroke-width:1.42116821"
-   id="tspan21636">H</tspan>
-</tspan>
-        </text>
-      </g>
+         id="g18404" />
       <g
          id="g18410" />
       <g
@@ -20172,7 +20082,7 @@
          id="g18432" />
     </g>
     <g
-       transform="matrix(0.07903232,0,0,-0.07903232,42.505372,261.67043)"
+       transform="matrix(0.07903232,0,0,-0.07903232,45.642575,261.85942)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1С"
        id="g19235">
       <g
@@ -23557,24 +23467,7 @@
          id="g20789" />
       <g
          id="g20791"
-         transform="matrix(1.0628659,0,0,1.0628659,-0.92564432,-10.261958)">
-        <text
-           id="text20795"
-           style="font-variant:normal;font-weight:normal;font-size:15.52964497px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.294137"
-           transform="matrix(0,1,1,0,0,0)"
-           x="163.04617"
-           y="11.455913">
-          <tspan
-             id="tspan20793"
-             sodipodi:role="line"
-             y="11.455913"
-             x="163.04617 177.70616 186.34064 194.97513 198.4227 207.05719 211.37442 220.00891 228.64339 237.27788 245.91235 258.84854 267.48303 271.80026 280.43475 289.06924 297.70374 302.02097 307.03705 315.67151 319.11911 323.43634 327.75357 332.76965 341.40414 349.16898 353.48621 356.93381 365.56827 374.20276 378.51999 387.15448 391.47171 395.78894"
-             style="stroke-width:1.294137">Whole genome neutral fraction of T<tspan
-   style="font-size:8.10227776px;stroke-width:1.294137"
-   id="tspan21640">H</tspan>
-</tspan>
-        </text>
-      </g>
+         transform="matrix(1.0628659,0,0,1.0628659,-0.92564432,-10.261958)" />
       <g
          id="g20797" />
       <g
@@ -23601,7 +23494,7 @@
          id="g20819" />
     </g>
     <g
-       transform="matrix(0.14611298,0,0,-0.14611298,139.13431,262.62856)"
+       transform="matrix(0.13789596,0,0,-0.13789596,140.07187,264.94176)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1D"
        id="g43397">
       <g
@@ -25022,7 +24915,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.12413803,0,0,-0.12413803,80.25402,256.27583)"
+       transform="matrix(0.11715682,0,0,-0.11715682,84.502843,258.94629)"
        inkscape:label="WholeGenomeAnalyses.NucContent.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1E"
        id="g44446">
       <g
@@ -28439,5 +28332,125 @@
            x="0 6.1160002 12.232">333</tspan>
       </text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="87.690483"
+       y="166.9762"
+       id="text13625"><tspan
+         sodipodi:role="line"
+         id="tspan13623"
+         x="87.690483"
+         y="166.9762"
+         style="stroke-width:0.26458332">Mean annual water temperature, °C </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="99.785713"
+       y="91.002975"
+       id="text13629"><tspan
+         sodipodi:role="line"
+         id="tspan13627"
+         x="99.785713"
+         y="91.002975"
+         style="stroke-width:0.26458332">Substitution types</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-60.060181"
+       y="59.782143"
+       id="text13633"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan13631"
+         x="-60.060181"
+         y="59.782143"
+         style="stroke-width:0.26458332">Normalised frequencies</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-243.07468"
+       y="5.2048979"
+       id="text13637"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan13635"
+         x="-243.07468"
+         y="5.2048979"
+         style="stroke-width:0.26458332">Whole genome neutral fraction nucleotides</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="10.980207"
+       y="183.27641"
+       id="text13641"><tspan
+         sodipodi:role="line"
+         id="tspan13639"
+         x="10.980207"
+         y="183.27641"
+         style="stroke-width:0.26458332">A<tspan
+   style="font-size:1.93675005px"
+   id="tspan13643">H</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="50.873718"
+       y="183.31377"
+       id="text13641-9"><tspan
+         sodipodi:role="line"
+         id="tspan13639-0"
+         x="50.873718"
+         y="183.31377"
+         style="stroke-width:0.26458332">С<tspan
+   style="font-size:1.93675005px;stroke-width:0.26458332"
+   id="tspan13643-6">H</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="50.646931"
+       y="225.45813"
+       id="text13641-99"><tspan
+         sodipodi:role="line"
+         id="tspan13639-4"
+         x="50.646931"
+         y="225.45813"
+         style="stroke-width:0.26458332">T<tspan
+   style="font-size:1.93675005px;stroke-width:0.26458332"
+   id="tspan13643-0">H</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="10.759397"
+       y="225.08014"
+       id="text13641-99-6"><tspan
+         sodipodi:role="line"
+         id="tspan13639-4-1"
+         x="10.759397"
+         y="225.08014"
+         style="stroke-width:0.26458332">G<tspan
+   style="font-size:1.93675005px;stroke-width:0.26458332"
+   id="tspan13643-0-1">H</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="27.612915"
+       y="265.06635"
+       id="text13625-2"><tspan
+         sodipodi:role="line"
+         id="tspan13623-5"
+         x="27.612915"
+         y="265.06635"
+         style="stroke-width:0.26458332">Mean annual water temperature, °C </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="124.48817"
+       y="265.14197"
+       id="text13625-8"><tspan
+         sodipodi:role="line"
+         id="tspan13623-2"
+         x="124.48817"
+         y="265.14197"
+         style="stroke-width:0.26458332">Mean annual water temperature, °C </tspan></text>
   </g>
 </svg>
