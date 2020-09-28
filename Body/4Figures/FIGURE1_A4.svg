@@ -4306,10 +4306,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="5.6995357"
-     inkscape:cy="362.75447"
+     inkscape:cx="526.07521"
+     inkscape:cy="141.24307"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g44065"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="986"
@@ -4834,6 +4834,8 @@
    id="tspan8520">H</tspan>
 
 
+
+
 &gt;G<tspan
    style="font-size:6.27931595px"
    id="tspan8518">H</tspan>
@@ -4851,6 +4853,8 @@
              style="font-size:9.41897392px">T<tspan
    style="font-size:6.27931595px"
    id="tspan8522">H</tspan>
+
+
 
 
 &gt;C<tspan
@@ -4872,6 +4876,8 @@
    id="tspan8528">H</tspan>
 
 
+
+
 &gt;A<tspan
    style="font-size:6.27931595px"
    id="tspan8526">H</tspan>
@@ -4889,6 +4895,8 @@
              style="font-size:9.41897392px">G<tspan
    style="font-size:6.27931595px"
    id="tspan8532">H</tspan>
+
+
 
 
 &gt;T<tspan
@@ -4910,6 +4918,8 @@
    id="tspan8538">H</tspan>
 
 
+
+
 &gt;C<tspan
    style="font-size:6.27931595px"
    id="tspan8536">H</tspan>
@@ -4927,6 +4937,8 @@
              style="font-size:9.41897392px">G<tspan
    style="font-size:6.27931595px"
    id="tspan8542">H</tspan>
+
+
 
 
 &gt;A<tspan
@@ -4948,6 +4960,8 @@
    id="tspan8549">H</tspan>
 
 
+
+
 &gt;T<tspan
    style="font-size:6.27931595px"
    id="tspan8547">H</tspan>
@@ -4965,6 +4979,8 @@
              style="font-size:9.41897392px">C<tspan
    style="font-size:6.27931595px"
    id="tspan8553">H</tspan>
+
+
 
 
 &gt;G<tspan
@@ -4986,6 +5002,8 @@
    id="tspan8557">H</tspan>
 
 
+
+
 &gt;A<tspan
    style="font-size:6.27931595px"
    id="tspan8555">H</tspan>
@@ -5003,6 +5021,8 @@
              style="font-size:9.41897392px">A<tspan
    style="font-size:6.27931595px"
    id="tspan8561">H</tspan>
+
+
 
 
 &gt;T<tspan
@@ -5024,6 +5044,8 @@
    id="tspan8565">H</tspan>
 
 
+
+
 &gt;G<tspan
    style="font-size:6.27931595px"
    id="tspan8563">H</tspan>
@@ -5041,6 +5063,8 @@
              style="font-size:9.41897392px">A<tspan
    style="font-size:6.27931595px"
    id="tspan8569">H</tspan>
+
+
 
 
 &gt;C<tspan
@@ -6634,25 +6658,7 @@
          id="g9327" />
       <g
          id="g9329"
-         transform="matrix(2.2044744,0,0,2.2044744,-17.749717,-297.0022)">
-        <text
-           id="text9333"
-           style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           transform="matrix(0,1,1,0,14.59,246.6)">
-          <tspan
-             id="tspan9331"
-             sodipodi:role="line"
-             y="0"
-             x="0 8.0039997 16.667999 23.676001 33.012001"
-             style="font-size:9.77023973px">A<tspan
-   style="font-size:6.57819673px"
-   id="tspan13617">H</tspan>
-&gt;G<tspan
-   style="font-size:6.57819673px"
-   id="tspan13619">H</tspan>
-</tspan>
-        </text>
-      </g>
+         transform="matrix(2.2044744,0,0,2.2044744,-17.749717,-297.0022)" />
       <g
          id="g9335" />
       <g
@@ -8221,27 +8227,7 @@
       <g
          id="g10482" />
       <g
-         id="g10484">
-        <text
-           id="text10488"
-           style="font-variant:normal;font-weight:normal;font-size:27.10297966px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.25858164"
-           transform="matrix(0,1,1,0,0,0)"
-           x="250.87817"
-           y="6.481339">
-          <tspan
-             id="tspan10486"
-             sodipodi:role="line"
-             y="6.481339"
-             x="250.87817 267.43811 287.00647 302.83459 302.83459 322.40295"
-             style="font-size:21.53824425px;stroke-width:2.25858164">T<tspan
-   style="font-size:14.50146628px"
-   id="tspan13613">H</tspan>
-&gt;C <tspan
-   style="font-size:11.86003345px"
-   id="tspan13615">H</tspan>
-</tspan>
-        </text>
-      </g>
+         id="g10484" />
       <g
          id="g10490" />
       <g
@@ -9762,12 +9748,18 @@
              y="0">log2 (A<tspan
    style="font-size:8.07983112px"
    id="tspan21628">H</tspan>
+
+
 &gt;G<tspan
    style="font-size:8.07983112px"
    id="tspan21626">H</tspan>
+
+
  / T<tspan
    style="font-size:8.07983112px"
    id="tspan21624">H</tspan>
+
+
 &gt;C<tspan
    style="font-size:8.07983112px"
    id="tspan21622">H</tspan>
@@ -24892,24 +24884,56 @@
                x="0">●</tspan>
           </text>
           <text
-             id="text44085"
-             style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-             transform="matrix(1,0,0,-1,339.95,97.93)">
+             y="-139.16367"
+             x="515.40112"
+             id="text5028-5-5"
+             style="font-variant:normal;font-weight:normal;font-size:18.95044708px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.57920396"
+             transform="scale(1,-1)">
             <tspan
-               id="tspan44083"
+               id="tspan5026-0-3"
                sodipodi:role="line"
-               y="0"
-               x="0 8.0039997 14.676 21.348 25.823999 29.16 32.495998 35.832001 38.495998 48.492001 55.164001 58.5 65.171997 68.508003 71.844002 81.839996 88.512001 91.848 98.519997 102.396 109.068 112.404 115.068 121.74">Short time of maturation</tspan>
+               x="515.40112"
+               y="-139.16367"
+               style="font-size:14.07059288px;stroke-width:1.57920396">Late-maturing fishes</tspan>
           </text>
           <text
-             id="text44089"
-             style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-             transform="matrix(1,0,0,-1,339.95,83.53)">
+             y="-119.29123"
+             x="515.401"
+             id="text5028-5-9"
+             style="font-variant:normal;font-weight:normal;font-size:18.95044708px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.57920396"
+             transform="scale(1,-1)">
             <tspan
-               id="tspan44087"
+               id="tspan5026-0-4"
                sodipodi:role="line"
-               y="0"
-               x="0 6.6719999 13.344 20.016001 26.688 30.024 33.360001 36.023998 46.02 52.692001 56.028 62.700001 66.036003 69.372002 79.367996 86.040001 89.375999 96.047997 99.924004 106.596 109.932 112.596 119.268">Long time of maturation</tspan>
+               x="515.401"
+               y="-119.29123"
+               style="font-size:14.07059288px;stroke-width:1.57920396">Early-maturing fishes</tspan>
+          </text>
+          <text
+             y="-99.297379"
+             x="337.41336"
+             id="text5028-5-9-9"
+             style="font-variant:normal;font-weight:normal;font-size:18.95044708px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.57920396"
+             transform="scale(1,-1)">
+            <tspan
+               id="tspan5026-0-4-2"
+               sodipodi:role="line"
+               x="337.41336"
+               y="-99.297379"
+               style="font-size:10.23315774px;stroke-width:1.57920396">Early-maturing fishes</tspan>
+          </text>
+          <text
+             y="-83.541008"
+             x="337.75409"
+             id="text5028-5-5-6"
+             style="font-variant:normal;font-weight:normal;font-size:18.95044708px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.57920396"
+             transform="scale(1,-1)">
+            <tspan
+               id="tspan5026-0-3-5"
+               sodipodi:role="line"
+               x="337.75409"
+               y="-83.541008"
+               style="font-size:10.23315774px;stroke-width:1.57920396">Late-maturing fishes</tspan>
           </text>
         </g>
       </g>
@@ -28160,27 +28184,7 @@
          id="g45938" />
       <g
          id="g45940"
-         transform="translate(8.5254562)">
-        <text
-           id="text45944"
-           style="font-variant:normal;font-weight:normal;font-size:22.89042282px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.90753531"
-           transform="matrix(0,1,1,0,0,0)"
-           x="252.28442"
-           y="18.408758">
-          <tspan
-             id="tspan45942"
-             sodipodi:role="line"
-             y="18.408758"
-             x="252.28442 267.55234 281.53836 299.34714 312.71515 327.98306 342.56424 359.09116 365.45468 376.8999 387.8873 400.15656"
-             style="stroke-width:1.90753531">S<tspan
-   style="font-size:16.26260757px;stroke-width:1.90753531"
-   id="tspan46978">TG</tspan>
-−S<tspan
-   style="font-size:16.26260757px;stroke-width:1.90753531"
-   id="tspan46982">AC</tspan>
- skew</tspan>
-        </text>
-      </g>
+         transform="translate(8.5254562)" />
       <g
          id="g45946" />
       <g
@@ -28452,5 +28456,53 @@
          x="124.48817"
          y="265.14197"
          style="stroke-width:0.26458332">Mean annual water temperature, °C </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-227.66794"
+       y="87.357086"
+       id="text7217"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan7215"
+         x="-227.66794"
+         y="87.357086"
+         style="stroke-width:0.26458332">S<tspan
+   style="font-size:1.93675005px"
+   id="tspan7221">TG</tspan>−S<tspan
+   style="font-size:1.93675005px"
+   id="tspan7219">AC</tspan> skew</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-129.99455"
+       y="73.707817"
+       id="text7225"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan7223"
+         x="-129.99455"
+         y="73.707817"
+         style="stroke-width:0.26458332">T<tspan
+   style="font-size:1.93675005px"
+   id="tspan7237">H</tspan>&gt;C<tspan
+   style="font-size:1.93675005px"
+   id="tspan7235">H</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.87654996px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-129.1739"
+       y="5.7964087"
+       id="text7229"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan7227"
+         x="-129.1739"
+         y="5.7964087"
+         style="stroke-width:0.26458332">A<tspan
+   style="font-size:1.93675005px"
+   id="tspan7233">H</tspan>&gt;G<tspan
+   style="font-size:1.93675005px"
+   id="tspan7231">H</tspan></tspan></text>
   </g>
 </svg>
