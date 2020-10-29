@@ -57,7 +57,7 @@ cor.test(Final$AhGhfr,Final$hypoxia_score_buffa,method = 'spearman')
 
 wilcox.test(Final[Final$hypoxia_score_buffa < quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr,Final[Final$hypoxia_score_buffa >= quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr)
 boxplot(Final[Final$hypoxia_score_buffa < quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr,Final[Final$hypoxia_score_buffa >= quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr, notch = TRUE, col =c('blue','light blue'))   
-# ADD VIOLIN HERE (same code as one line above)! 
+# ADD VIOLIN HERE (same code as one line above)! https://github.com/polarsong/mtDNA_mutspectrum/blob/Cancer/Head/2Scripts/Cancer.Hypoxia%26MutSpec.R
 
 summary(Final[Final$hypoxia_score_buffa < quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr) # 0.28
 summary(Final[Final$hypoxia_score_buffa >= quantile(Final$hypoxia_score_buffa,0.9),]$AhGhfr) # 0.20

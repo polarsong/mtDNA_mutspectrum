@@ -40,3 +40,17 @@ FinalBreast = Final[Final$Tier2 == 'Breast',]
 FinalBreast$hypoxia_score_buffa = as.numeric(FinalBreast$hypoxia_score_buffa)
 cor.test(FinalBreast$TotalMut,FinalBreast$hypoxia_score_buffa, method = 'spearman') # weak positive
 plot(FinalBreast$TotalMut,FinalBreast$hypoxia_score_buffa)
+FinalBreast[FinalBreast$TotalMut > 30,]$hypoxia_score_buffa # = -4
+nrow(FinalBreast[FinalBreast$hypoxia_score_buffa <= -4,])
+nrow(FinalBreast) # 28/76 = -0.37 - почти половина, а не нормоксичный хвост как я ожидал...
+
+
+Final$AhGhfr = as.numeric(Final$AhGhfr)
+### out of 828 cancers there are 5 champions with >= 13 mutations. Do they have increased A>G? Are they less hypoxic (more normoxic)?
+plot(Final$TotalMut,Final$hypoxia_score_buffa) # 5 champions with >= 13
+nrow(Final[Final$TotalMut >= 13,])
+summary(Final[Final$TotalMut >= 13,]$AhGhfr)
+summary(Final[Final$TotalMut < 13,]$AhGhfr)
+
+
+
