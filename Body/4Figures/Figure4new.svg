@@ -385,9 +385,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="365.83015"
-     inkscape:cy="27.913354"
+     inkscape:zoom="0.35"
+     inkscape:cx="321.7705"
+     inkscape:cy="756.82142"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -406,7 +406,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -441,7 +441,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555487px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.2293424">B</tspan>
     </text>
     <text
-       y="221.80284"
+       y="207.94861"
        x="13.350996"
        transform="scale(1.0472606,0.95487216)"
        style="font-variant:normal;font-weight:bold;font-size:7.33895588px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22934237"
@@ -450,7 +450,7 @@
          sodipodi:role="line"
          id="tspan204-5-0-2-7"
          x="13.350996"
-         y="221.80284"
+         y="207.94861"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555487px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.22934237">C</tspan>
     </text>
     <text
@@ -7441,7 +7441,7 @@
 </tspan>
     </text>
     <g
-       transform="matrix(0.35277777,0,0,-0.35277777,376.22155,605.76475)"
+       transform="matrix(0.35277777,0,0,-0.35277777,379.16975,702.98025)"
        inkscape:label="WholeGenomeAnalyses.NoOverlap.AGSkew.R.02"
        id="g49046">
       <g
@@ -8709,14 +8709,14 @@
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.7547884px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#1a1a1a;fill-opacity:0.50196078;fill-rule:nonzero;stroke:none;stroke-width:0.0990581"
        id="text4270-7-3-72"
-       x="94.545616"
-       y="213.52414">
+       x="91.31797"
+       y="119.33287">
       <tspan
          style="fill:#1a1a1a;fill-opacity:0.50196078;stroke-width:0.0990581"
          sodipodi:role="line"
          id="tspan4268-5-6-8"
-         x="94.545616"
-         y="213.52414">frequency of G<tspan
+         x="91.31797"
+         y="119.33287">frequency of G<tspan
    style="font-size:3.52777767px"
    id="tspan20148">H</tspan>
 </tspan>
@@ -8724,20 +8724,20 @@
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.7547884px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff1a1a;fill-opacity:0.50196078;fill-rule:nonzero;stroke:none;stroke-width:0.0990581"
        id="text4270-7-3-7-5"
-       x="94.755356"
-       y="208.87895">
+       x="91.527718"
+       y="114.68768">
       <tspan
          style="fill:#ff1a1a;fill-opacity:0.50196078;stroke-width:0.0990581"
          sodipodi:role="line"
          id="tspan4268-5-6-5-5"
-         x="94.755356"
-         y="208.87895">frequency of A<tspan
+         x="91.527718"
+         y="114.68768">frequency of A<tspan
    style="font-size:3.52777767px"
    id="tspan20146">H</tspan>
 </tspan>
     </text>
     <g
-       transform="matrix(0.28175602,0,0,-0.28175602,-13.692278,304.63598)"
+       transform="matrix(0.28175602,0,0,-0.28175602,-16.919919,210.44471)"
        inkscape:label="WholeGenomeAnalyses.NoOverlapAgAlongGenome"
        id="g17166">
       <g
@@ -9967,7 +9967,7 @@
          id="g17724" />
     </g>
     <g
-       transform="matrix(0.28175602,0,0,-0.28175602,-329.90634,363.59035)"
+       transform="matrix(0.28175602,0,0,-0.28175602,-333.13398,269.39908)"
        inkscape:label="WholeGenomeAnalyses.NoOverlapAgAlongGenome"
        id="g18014">
       <g
