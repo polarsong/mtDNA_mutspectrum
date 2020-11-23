@@ -1,5 +1,7 @@
 rm(list=ls(all=TRUE))
 library(dplyr)
+library(tidyr)
+library(ggplot2)
 
 Mut = read.table("../../Body/1Raw/mtDNA_snv_Oct2016.txt", head = TRUE, sep = '\t')  
 Decode = read.table("../../Body/1Raw/PancancerInfoMetadata.txt", head = TRUE, sep = '\t')  
@@ -120,4 +122,24 @@ cor.test(Agg$TurnOverDays,Agg$MedianHypoxiaScoreBuffa, method = 'spearman', alte
 summary(lm(HypMut$hypoxia_score_buffa ~ HypMut$tumor_var_freq+HypMut$TurnOverDays)) # positive both coefficients!!!
 summary(lm(HypMut$hypoxia_score_buffa ~ 0 +  HypMut$tumor_var_freq+HypMut$TurnOverDays)) # positive both coefficients!!!
 
+Final$OtherMut = 1-Final$AhGhfr
+colors = c("red","black")
+
+FinalNew = data.frame(Final$AhGhfr, Final$OtherMut, rownames(FinalNew), Final$hypoxia_score_buffa)    
+FinalHypo = FinalNew[FinalNew$Final.hypoxia_score_buffa>=32,]
+FinalHypo$Final.hypoxia_score_buffa = NULL
+FinalNorm = FinalNew[FinalNew$Final.hypoxia_score_buffa<32,]
+FinalNorm$Final.hypoxia_score_buffa = NULL
+
+a = FinalHypo %>% gather(subtype, freq,  Final.AhGhfr:Final.OtherMut)
+
+b = FinalNorm %>% gather(subtype, freq,  Final.AhGhfr:Final.OtherMut)
+
+pdf("../../Body/4Figures/Cancer.Hypoxia.pdf", width=7, height=3)
+ggplot(a, aes(fill=subtype, y=freq, x=rownames.FinalNew.)) + 
+  geom_bar(position="fill", stat="identity")+scale_fill_manual(values=c("red","black"))
+
+ggplot(b, aes(fill=subtype, y=freq, x=rownames.FinalNew.)) + 
+  geom_bar(position="fill", stat="identity")+scale_fill_manual(values=c("red","black"))
+dev.off()
 
