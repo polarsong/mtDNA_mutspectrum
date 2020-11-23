@@ -387,7 +387,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="365.83015"
-     inkscape:cy="149.13166"
+     inkscape:cy="27.913354"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -406,7 +406,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -464,7 +464,7 @@
          id="tspan204-5-0-2-7-6"
          x="11.000707"
          y="306.44415"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666718px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.22934239">Figure 4</tspan>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666718px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.22934239">Figure 3</tspan>
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:3.46923685px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.07227578"
@@ -8737,7 +8737,7 @@
 </tspan>
     </text>
     <g
-       transform="matrix(0.28175602,0,0,-0.28175602,87.732917,304.4622)"
+       transform="matrix(0.28175602,0,0,-0.28175602,-13.692278,304.63598)"
        inkscape:label="WholeGenomeAnalyses.NoOverlapAgAlongGenome"
        id="g17166">
       <g
@@ -9988,7 +9988,7 @@
          id="g18032" />
       <g
          id="g18034"
-         transform="translate(1132.6105,210.58587)">
+         transform="translate(1515.6863,209.63729)">
         <g
            clip-path="url(#clipPath18040)"
            id="g18036">
@@ -11175,18 +11175,18 @@
            id="text18560"
            style="font-variant:normal;font-weight:normal;font-size:13px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="scale(1,-1)"
-           x="28.193888"
-           y="-491.20224">
+           x="411.26968"
+           y="-490.25366">
           <tspan
              id="tspan18558"
              sodipodi:role="line"
-             y="-491.20224"
-             x="28.193888 36.864819 44.0928 46.978775 54.206726 61.434677 68.662636 75.890594 79.504601 90.138573 96.638527 103.13851 106.75247 109.63847 116.13846 123.36642 126.98042 134.20839 140.51334 144.12732 147.7413 154.96921 162.19717 169.42509 176.65306 183.88097 187.49495 194.72292 201.56081 208.06076">Balaena mysticetus, 18980 days</tspan>
+             y="-490.25366"
+             x="411.26968 419.94061 427.16858 430.05457 437.2825 444.51047 451.73843 458.9664 462.58041 473.21439 479.71432 486.21432 489.82828 492.71426 499.21426 506.4422 510.05618 517.28412 523.58911 527.20306 530.81708 538.04498 545.27295 552.50085 559.72882 566.95673 570.57068 577.79865 584.63654 591.13654">Balaena mysticetus, 18980 days</tspan>
         </text>
         <g
            id="layer1-7"
            inkscape:label="Layer 1"
-           transform="matrix(0.73643097,0,0,-0.73643097,293.06407,794.33034)">
+           transform="matrix(0.73643097,0,0,-0.73643097,-66.911114,793.71358)">
           <path
              sodipodi:nodetypes="ssssssssssssscsccsss"
              inkscape:connector-curvature="0"
@@ -14043,7 +14043,7 @@
         <g
            id="layer1-1"
            inkscape:label="Layer 1"
-           transform="matrix(0.90532277,0.05334746,0.05334746,-0.90532277,-87.458679,784.22677)">
+           transform="matrix(0.90532277,0.05334746,0.05334746,-0.90532277,295.61711,783.27819)">
           <path
              sodipodi:nodetypes="scsccssssscccczszsssscccssscs"
              inkscape:connector-curvature="0"
