@@ -1,3 +1,6 @@
 # mtDNA_mutspectrum 
 
-it's a project for developing mutational spectrum of mtDNA 
+this project  is aimed for reconstructing and analysing mitochondrial mutational spectra.
+
+main analyses and scripts are located in "HEAD" directory 
+all databases, figures and supplements you can find in "BODY" directory
