@@ -45,9 +45,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="273.28355"
-     inkscape:cy="1020.0043"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="249.82129"
+     inkscape:cy="719.963"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -64,7 +64,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -78,27 +78,36 @@
        id="path3403"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 117.57295,64.107484 2.26885,-0.174776"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3405"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3417"
        x="122.11395"
        y="64.562584"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="122.11395"
          y="64.562584"
          sodipodi:role="line"
          id="tspan3415"
-         style="stroke-width:0.32977444">T_G</tspan>
+         style="stroke-width:0.32977444">T<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2811">H</tspan>
+_G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2813">H</tspan>
+</tspan>
     </text>
     <path
        d="m 117.16073,60.601985 -0.26051,-1.510367 -0.31329,-1.497175 -0.36276,-1.487288 -0.40891,-1.474088 -0.46169,-1.460899 -0.51114,-1.441115 -0.55734,-1.424628 -0.60677,-1.408129 -0.65296,-1.381755 -0.69911,-1.361971 -0.7453,-1.33889 -0.78816,-1.312499 -0.83103,-1.282824 -0.87389,-1.256437 -0.91679,-1.226766 -0.95964,-1.193773 -0.99591,-1.160813 -1.0355,-1.127829 -1.07176,-1.091556 -1.10804,-1.055274 -1.14432,-1.019002 -1.1773,-0.979425 -1.210258,-0.936562 -27.328408,36.463153 z"
@@ -106,27 +115,36 @@
        id="path3427"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 111.19512,44.156133 1.95225,-1.173999"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3429"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3441"
        x="115.09966"
        y="42.616081"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="115.09966"
          y="42.616081"
          sodipodi:role="line"
          id="tspan3439"
-         style="stroke-width:0.32977444">T_C</tspan>
+         style="stroke-width:0.32977444">T<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2807">H</tspan>
+_C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2809">H</tspan>
+</tspan>
     </text>
     <path
        d="M 99.468352,31.17292 98.070098,30.163805 96.632277,29.207468 95.158195,28.310472 93.651119,27.466256 92.114368,26.681391 72.139944,67.636073 Z"
@@ -134,27 +152,36 @@
        id="path3451"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 95.900175,28.752372 1.187197,-1.945665"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3453"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3465"
        x="98.274574"
        y="25.645863"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="98.274574"
          y="25.645863"
          sodipodi:role="line"
          id="tspan3463"
-         style="stroke-width:0.32977444">T_A</tspan>
+         style="stroke-width:0.32977444">T<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2803">H</tspan>
+_A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2805">H</tspan>
+</tspan>
     </text>
     <path
        d="M 92.114368,26.681391 90.65347,25.99876 89.169484,25.368892 87.66242,24.791785 86.135565,24.270744 84.59222,23.802463 l -1.559835,-0.412222 -1.569729,-0.359458 -1.586211,-0.30009 -7.736501,44.90538 z"
@@ -162,27 +189,36 @@
        id="path3475"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 86.135565,24.270744 0.699117,-2.166619"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3477"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3489"
        x="87.537086"
        y="20.742105"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="87.537086"
          y="20.742105"
          sodipodi:role="line"
          id="tspan3487"
-         style="stroke-width:0.32977444">G_T</tspan>
+         style="stroke-width:0.32977444">G<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2799">H</tspan>
+_T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2801">H</tspan>
+</tspan>
     </text>
     <path
        d="M 79.876445,22.730693 78.062687,22.453681 72.139944,67.636073 Z"
@@ -190,27 +226,36 @@
        id="path3499"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 78.969575,22.582291 0.342963,-2.252359"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3501"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3513"
        x="79.652214"
        y="18.885538"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="79.652214"
          y="18.885538"
          sodipodi:role="line"
          id="tspan3511"
-         style="stroke-width:0.32977444">G_C</tspan>
+         style="stroke-width:0.32977444">G<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2795">H</tspan>
+_C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2797">H</tspan>
+</tspan>
     </text>
     <path
        d="m 78.062687,22.453681 -1.47079,-0.168181 -1.477394,-0.118725 -1.477385,-0.07256 -1.48069,-0.02636 -1.480683,0.02314 -1.480692,0.07256 -1.474087,0.118726 -1.4741,0.168179 -1.464197,0.217661 -1.457594,0.260523 -1.447715,0.30998 -1.437821,0.35616 -1.424618,0.405617 -1.40814,0.448498 -1.39825,0.494666 -1.378447,0.54082 -1.358671,0.58371 -1.342188,0.629868 -1.319092,0.672734 -1.29602,0.71232 -1.272922,0.758479 -1.249847,0.794753 -1.220168,0.837627 -1.193777,0.877202 -1.16411,0.913479 -1.134418,0.953044 -1.101446,0.989324 -1.071768,1.022299 -1.035494,1.058572 -1.002512,1.091553 -0.962943,1.124533 -0.929967,1.150911 -0.890389,1.183889 -0.850813,1.213573 -0.811245,1.23665 -0.76838,1.266341 -0.7321,1.286117 -0.685928,1.312505 -0.643064,1.335585 -0.60018,1.352075 -0.557325,1.371856 -0.511147,1.391647 -0.464982,1.40484 -0.418813,1.418033 43.899569,12.208248 z"
@@ -218,27 +263,36 @@
        id="path3523"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="M 46.991344,29.636171 45.734905,27.736665"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3525"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3537"
        x="39.492275"
        y="26.645128"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="39.492275"
          y="26.645128"
          sodipodi:role="line"
          id="tspan3535"
-         style="stroke-width:0.32977444">G_A</tspan>
+         style="stroke-width:0.32977444">G<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2791">H</tspan>
+_A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2793">H</tspan>
+</tspan>
     </text>
     <path
        d="m 28.240375,55.427821 -0.37595,1.437816 -0.326472,1.451013 -0.280311,1.457605 -0.230844,1.467496 -0.184673,1.474085 -0.138507,1.477398 -0.08572,1.483979 -0.03961,1.483988 0.0067,1.483982 0.05939,1.483988 0.105541,1.483979 0.1517,1.474099 0.201156,1.474087 0.250632,1.464198 0.296793,1.454308 0.34627,1.444409 0.389127,1.431224 0.438601,1.421323 0.484774,1.404845 0.527636,1.385048 0.573808,1.371859 0.619979,1.348781 0.662844,1.32899 0.705717,1.309207 0.745286,1.282827 0.791464,1.256438 0.827726,1.233355 0.870613,1.203677 0.906872,1.177292 0.946451,1.144322 0.982732,1.114624 1.019003,1.078362 1.051979,1.048695 1.088259,1.0124 1.117938,0.97614 1.150911,0.93985 1.180592,0.90028 1.206974,0.86402 1.236649,0.82112 1.263044,0.78158 1.289415,0.74199 1.309203,0.69912 1.33229,0.65294 1.355373,0.6101 1.371853,0.5672 16.696487,-42.395787 z"
@@ -246,27 +300,36 @@
        id="path3547"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 31.356741,87.956773 -2.041303,1.015706"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3549"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3561"
        x="21.997755"
        y="90.796089"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="21.997755"
          y="90.796089"
          sodipodi:role="line"
          id="tspan3559"
-         style="stroke-width:0.32977444;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">C_T</tspan>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';stroke-width:0.32977444">C<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2835">H</tspan>
+_T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2837">H</tspan>
+</tspan>
     </text>
     <path
        d="m 55.443461,110.03186 2.611812,0.93986 14.084671,-43.335647 z"
@@ -274,27 +337,36 @@
        id="path3571"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 56.742774,110.51994 -0.771678,2.14682"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3573"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3585"
        x="49.77792"
        y="115.6182"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="49.77792"
          y="115.6182"
          sodipodi:role="line"
          id="tspan3583"
-         style="stroke-width:0.32977444">C_G</tspan>
+         style="stroke-width:0.32977444">C<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2831">H</tspan>
+_G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2833">H</tspan>
+</tspan>
     </text>
     <path
        d="m 58.055273,110.97172 2.014922,0.60348 12.069749,-43.939127 z"
@@ -302,27 +374,36 @@
        id="path3595"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 59.061084,111.28501 -0.656254,2.18311"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3597"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3609"
        x="52.620579"
        y="116.45587"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="52.620579"
          y="116.45587"
          sodipodi:role="line"
          id="tspan3607"
-         style="stroke-width:0.32977444">C_A</tspan>
+         style="stroke-width:0.32977444">C<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2827">Н</tspan>
+_A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2829">Н</tspan>
+</tspan>
     </text>
     <path
        d="m 60.070195,111.5752 1.76099,0.44519 1.774191,0.37596 1.787382,0.30338 1.800562,0.23415 1.807172,0.1616 1.810459,0.089 1.328993,-45.548446 z"
@@ -330,27 +411,36 @@
        id="path3619"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 65.392758,112.69973 -0.336369,2.25238"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3621"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3633"
        x="59.878918"
        y="117.98929"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          sodipodi:role="line"
          id="tspan3631"
          style="stroke-width:0.32977444"
          x="59.878918"
-         y="117.98929">A_T</tspan>
+         y="117.98929">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2825">Н</tspan>
+_T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2823">Н</tspan>
+</tspan>
     </text>
     <path
        d="m 70.810951,113.18451 1.490578,0.0165 1.487286,-0.0297 1.487283,-0.0758 1.48398,-0.1286 1.477392,-0.17478 1.47409,-0.22426 1.464192,-0.27042 1.454308,-0.31987 1.444412,-0.36605 1.431223,-0.41222 1.414732,-0.4617 1.401535,-0.50454 1.381763,-0.55073 1.365273,-0.59689 1.345465,-0.63976 1.322401,-0.68593 1.2993,-0.7255 1.276234,-0.77168 1.246548,-0.80795 1.223458,-0.85081 1.193783,-0.89039 1.164103,-0.92997 1.13442,-0.96623 1.09815,-1.00251 1.06848,-1.038793 1.03219,-1.071768 0.99922,-1.108036 0.95964,-1.137731 0.92338,-1.167393 0.88378,-1.197082 0.84423,-1.226761 0.80465,-1.253144 0.76507,-1.279526 0.71891,-1.302612 0.67933,-1.325683 0.63318,-1.348783 0.59029,-1.368564 0.54412,-1.385053 0.49797,-1.404839 0.45179,-1.418029 0.40893,-1.431222 0.35945,-1.444413 0.30998,-1.457602 0.26382,-1.464198 0.21766,-1.474085 0.16818,-1.480692 0.11875,-1.48399 0.0692,-1.487277 -45.545121,-1.421329 z"
@@ -358,27 +448,36 @@
        id="path3643"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 103.37286,100.81467 1.56314,1.65876"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3645"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3657"
        x="106.49918"
        y="104.94016"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          x="106.49918"
          y="104.94016"
          sodipodi:role="line"
          id="tspan3655"
-         style="stroke-width:0.32977444;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">A_G</tspan>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';stroke-width:0.32977444">A<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2819">Н</tspan>
+_G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2821">Н</tspan>
+</tspan>
     </text>
     <path
        d="m 117.68507,69.057406 0.0231,-1.421333 H 72.139992 Z"
@@ -386,27 +485,36 @@
        id="path3667"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        d="m 117.70157,68.345084 2.27874,0.03627"
        style="fill:none;stroke:#000000;stroke-width:0.2473308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path3669"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        y="69.281715"
        x="121.89208"
        style="font-variant:normal;font-weight:normal;font-size:2.63819551px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.32977444"
        id="text3709-3-6"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.32977444"
          x="121.89208"
          sodipodi:role="line"
          id="tspan3707-5-2"
-         y="69.281715">A_C</tspan>
+         y="69.281715">A<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan2815">H</tspan>
+_C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2817">H</tspan>
+</tspan>
     </text>
     <path
        inkscape:connector-curvature="0"
@@ -414,41 +522,49 @@
        style="fill:#1a1a1a;fill-opacity:0.50199998;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 151.01662,114.04675 h 28.13578 v -4.00102 h -28.13578 z"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7095"
        style="fill:#1a1aff;fill-opacity:0.50199998;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="M 151.01662,110.0465 H 179.1524 V 93.145199 h -28.13578 z"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7097"
        style="fill:#1aff1a;fill-opacity:0.50199998;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="M 151.01662,93.144443 H 179.1524 V 65.837795 h -28.13578 z"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7099"
        style="fill:#ff1a1a;fill-opacity:0.50199998;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="M 151.01662,65.837795 H 179.1524 V 16.022826 h -28.13578 z"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        y="113.16621"
        x="183.84148"
        id="text7129-5"
        style="font-variant:normal;font-weight:bold;font-size:4.02946997px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.33578914"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          y="113.16621"
          x="183.84148"
          style="stroke-width:0.33578914"
          id="tspan7127-9"
-         sodipodi:role="line">G</tspan>
+         sodipodi:role="line">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2845">H</tspan>
+</tspan>
     </text>
     <text
        y="104.32982"
@@ -456,13 +572,17 @@
        id="text7129-5-2"
        style="font-variant:normal;font-weight:bold;font-size:4.02946997px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.33578914"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          y="104.32982"
          x="183.84148"
          style="stroke-width:0.33578914"
          id="tspan7127-9-2"
-         sodipodi:role="line">T</tspan>
+         sodipodi:role="line">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2843">H</tspan>
+</tspan>
     </text>
     <text
        y="81.837227"
@@ -470,13 +590,17 @@
        id="text7129-5-2-8"
        style="font-variant:normal;font-weight:bold;font-size:4.02946997px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.33578914"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          y="81.837227"
          x="183.84148"
          style="stroke-width:0.33578914"
          id="tspan7127-9-2-9"
-         sodipodi:role="line">C</tspan>
+         sodipodi:role="line">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2841">H</tspan>
+</tspan>
     </text>
     <text
        y="40.065243"
@@ -484,13 +608,17 @@
        id="text7129-5-2-8-7"
        style="font-variant:normal;font-weight:bold;font-size:4.02946997px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.33578914"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          y="40.065243"
          x="183.84148"
          style="stroke-width:0.33578914"
          id="tspan7127-9-2-9-3"
-         sodipodi:role="line">A</tspan>
+         sodipodi:role="line">T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2839">H</tspan>
+</tspan>
     </text>
     <path
        inkscape:connector-curvature="0"
@@ -498,49 +626,56 @@
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="M 145.79071,114.04675 V 16.022826"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7137"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,114.04675 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7139"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,94.44227 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7141"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,74.837032 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7143"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,55.232545 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7145"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,35.627307 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <path
        inkscape:connector-curvature="0"
        id="path7147"
        style="fill:none;stroke:#000000;stroke-width:0.05678949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        d="m 145.79071,16.022826 h -0.54517"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png" />
     <text
        y="145.34691"
        x="-114.72722"
@@ -548,7 +683,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.14692163px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.17891015"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.17891015"
          id="tspan7149"
@@ -563,7 +699,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.14532208px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.17877685"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.17877685"
          id="tspan7153"
@@ -578,7 +715,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.09003496px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.17416957"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.17416957"
          id="tspan7157"
@@ -593,7 +731,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.13894653px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.17824556"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.17824556"
          id="tspan7161"
@@ -608,7 +747,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.13024235px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.17752017"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.17752017"
          id="tspan7165"
@@ -623,7 +763,8 @@
        style="font-variant:normal;font-weight:bold;font-size:2.18604493px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.18217041"
        transform="rotate(-90)"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\polar\Desktop\text7171.png">
       <tspan
          style="stroke-width:0.18217041"
          id="tspan7169"
