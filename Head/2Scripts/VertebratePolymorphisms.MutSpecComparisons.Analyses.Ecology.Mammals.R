@@ -93,24 +93,74 @@ cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman'
 #################### PICs
 
 library(ape)
+library(geiger)
+library(caper)
 
 tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
 
-data = MamGt[which(as.character(MamGt$Species) %in% tree$tip.label),]
+row.names(MamGt) = MamGt$Species
 
-df_vec <- as.character(MamGt$Species)
-tree_vec <- tree$tip.label
+tree_w = treedata(tree, MamGt[, c('Species', 'TsTv', 'T_C', 'GenerationLength_d')], 
+                  sort=T, warnings=T)$phy
 
-a <- setdiff(df_vec, tree_vec)
-b <- setdiff(tree_vec, df_vec)
+data<-as.data.frame(treedata(tree_w, MamGt[, c('Species', 'TsTv', 'T_C', 'GenerationLength_d')], 
+                             sort=T, warnings=T)$data)
 
-row.names(data) = data$Species
+################# why only 227 species???
 
-tree2 <- drop.tip(tree, b)
+# setdiff(MamGt$Species, data$Species)
 
-TempData = data[, c('TsTv', 'GenerationLength_d', 'T_C')]
-contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
-names(contrasts) = names(TempData)
+data$Species = as.character(data$Species)
+
+data$TsTv = as.numeric(as.character(data$TsTv))
+data$T_C = as.numeric(as.character(data$T_C))
+data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
+
+cor.test(pic(data$TsTv, tree_w), pic(data$GenerationLength_d, tree_w), method = 'spearman')
+# cor 
+# 0.0756906 
+# p-value = 0.2571
+
+cor.test(pic(data$T_C, tree_w), pic(data$GenerationLength_d, tree_w), method = 'spearman')
+# rho 
+# -0.02597262 
+# p-value = 0.6978
+
+
+MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
+
+model1 = pgls(GenerationLength_d ~ TsTv, MutComp, lambda="ML")
+summary(model1)
+
+# lambda [ ML]  : 0.965
+# (Intercept) 2154.5743  1126.2118  1.9131   0.0570 .
+# TsTv           2.3081     2.9994  0.7695   0.4424  
+
+model2 = pgls(GenerationLength_d ~ T_C, MutComp, lambda="ML")
+summary(model2)
+
+# lambda [ ML]  : 0.966
+# (Intercept)  2260.16    1133.19  1.9945   0.0473 *
+#   T_C          -602.59     821.15 -0.7338   0.4638  
+
+
+# OLD 
+
+# data = MamGt[which(as.character(MamGt$Species) %in% tree$tip.label),]
+# 
+# df_vec <- as.character(MamGt$Species)
+# tree_vec <- tree$tip.label
+# 
+# a <- setdiff(df_vec, tree_vec)
+# b <- setdiff(tree_vec, df_vec)
+# 
+# row.names(data) = data$Species
+# 
+# tree2 <- drop.tip(tree, b)
+# 
+# TempData = data[, c('TsTv', 'GenerationLength_d', 'T_C')]
+# contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
+# names(contrasts) = names(TempData)
 
 cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
 cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
