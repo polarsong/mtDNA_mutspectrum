@@ -85,6 +85,50 @@ A<-lm(log2(Mam$GenerationLength_d) ~ Mam$CTSkew +  Mam$CASkew + Mam$TGSkew + Mam
 # Multiple R-squared:  0.2435,	Adjusted R-squared:  0.2388 
 # F-statistic: 51.91 on 4 and 645 DF,  p-value: < 2.2e-16
 
+
+##################### PICs
+
+library(ape)
+library(geiger)
+library(caper)
+
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+
+Mam = Mam[-404,]
+row.names(Mam) = Mam$Species
+
+tree_w = treedata(tree, Mam, sort=T, warnings=T)$phy
+
+data<-as.data.frame(treedata(tree_w, Mam, sort=T, warnings=T)$data)
+
+data$Species = as.character(data$Species)
+
+data$CTSkew = as.numeric(as.character(data$CTSkew))
+data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
+
+cor.test(pic(data$CTSkew, tree_w), pic(data$GenerationLength_d, tree_w), method = 'spearman')
+
+# rho 
+# 0.0942479 
+# p-value = 0.0164
+
+MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
+
+model = pgls(scale(GenerationLength_d) ~ scale(CTSkew), MutComp, lambda="ML")
+summary(model)
+
+# lambda [ ML]  : 0.920
+# (Intercept)   0.037040   0.387705  0.0955 0.9239175    
+# scale(CTSkew) 0.134009   0.036792  3.6423 0.0002918 ***
+
+crunch(scale(GenerationLength_d) ~ scale(CTSkew), MutComp)
+
+# S = 41138230, p-value = 0.01806
+# alternative hypothesis: true rho is not equal to 0
+# sample estimates:
+#   rho 
+# 0.09286304 
+
 ###### plot 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NoOverlap.AGSkew.R.01.pdf", height = 10, width = 20)
 
