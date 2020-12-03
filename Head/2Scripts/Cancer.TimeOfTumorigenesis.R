@@ -22,11 +22,11 @@ par(mfrow=c(2,2), cex = 1.5)
 nrow(ALL)                           # 7611
 nrow(ALL[ALL$NormalVarFreq == 0,])  # 2265
 nrow(ALL[ALL$NormalVarFreq >  0,])  # 5436
-wilcox.test(ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq == 0,]$TumorVarFreq) # 0.005325
+wilcox.test(ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq == 0,]$TumorVarFreq) # 0.005325 PAPER
 boxplot(ALL[ALL$NormalVarFreq ==  0,]$TumorVarFreq,ALL[ALL$NormalVarFreq > 0,]$TumorVarFreq, outline = FALSE, notch = TRUE, names = c("ZeroInNormal\nN=2265","NonZeroInNormal\nN=5436"), ylab = 'VafInCancer')
 
-cor.test(ALL$NormalVarFreq,ALL$TumorVarFreq,method = 'spearman') # Rho = 0.06958285, p =  1.226e-09
-cor.test(ALL[ALL$NormalVarFreq >  0,]$NormalVarFreq,ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq, method = 'spearman') # Rho = 0.0883715, p =  9.638e-11
+cor.test(ALL$NormalVarFreq,ALL$TumorVarFreq,method = 'spearman') # Rho = 0.06958285, p =  1.226e-09 PAPER
+cor.test(ALL[ALL$NormalVarFreq >  0,]$NormalVarFreq,ALL[ALL$NormalVarFreq >  0,]$TumorVarFreq, method = 'spearman') # Rho = 0.0883715, p =  9.638e-11 PAPER
 
 ALL$Subs = paste(ALL$ref,ALL$var, sep = '_'); table(ALL$Subs)
 VecOfTransitionSubstitutions = c('A_G','G_A','C_T','T_C') # all tr
@@ -248,7 +248,6 @@ wilcox.test(Final$RatioVafTsVafTv, mu = 0)
 hist(Final$RatioVafTsVafTv, breaks = 50, main = '', xlab = 'log2(VAF(Ts)/VAF(Tv))') # I can color or plot separately different types of cancers
 abline(v = 0, col = 'red', lwd = 3)
 Final$DiffVafTsVafTv = Final$VafTs - Final$VafTv; summary(Final$DiffVafTsVafTv) # 0.054
-
 
 
 ### T>C only:

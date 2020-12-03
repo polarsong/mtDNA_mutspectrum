@@ -309,6 +309,9 @@ boxplot(VecFastGAOtherTs,VecMiddleGAOtherTs,VecSlowGAOtherTs, notch = TRUE, name
 boxplot(VecFastTCOtherTs,VecFastGAOtherTs,VecMiddleTCOtherTs,VecMiddleGAOtherTs,VecSlowTCOtherTs,VecSlowGAOtherTs, notch = TRUE, names = c('FastTC','FastGA','MiddleTC','MiddleGA','SlowTC','SlowGA'), outline = FALSE, ylab = 'Common Transition / Other Ts', col = c(rgb(0.1,1,0.1,0.3),rgb(1,0.1,0.1,0.3))) # dev.off()
 boxplot(VecFastTCGA,VecMiddleTCGA,VecSlowTCGA, notch = TRUE, names = c('Fast','Middle','Slow'), outline = FALSE, ylab = 'TC/GA', col = rgb(0.1,1,0.1,0.3)) # dev.off()
 wilcox.test(VecFastTCGA,VecMiddleTCGA); wilcox.test(VecMiddleTCGA,VecSlowTCGA); 
+wilcox.test(VecMiddleGAOtherTs,VecSlowGAOtherTs);
+wilcox.test(VecMiddleTCOtherTs,VecSlowTCOtherTs);
+
 
 ####### logistic regression with all 21 Turnovers and 2 Dummy 
 summary(ALL$TumorVarFreq)
@@ -327,7 +330,7 @@ cor.test(ALL$mt_copies,ALL$TumorVarFreq, method = 'spearman') # a bit positive
 
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1) # MODEL 1
+summary(glm_1) # MODEL 1 PAPER
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays)*scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1) # MODEL 1 - there is no interaction between TurnOverDays and TumorVarFreq
@@ -387,16 +390,16 @@ glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast)*scale(ALL$GAPDH) + scale(ALL$
 
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq) + scale(ALL$Consensus_age) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1) # MODEL 1 intermediate
+summary(glm_1) # MODEL 2A PAPER
 
 glm_1 <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TumorVarFreq) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
-summary(glm_1) # MODEL 1 final
+summary(glm_1) # MODEL 2B PAPER
 
 glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDays) + scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1a) # TurnOverDummyFast is more significant than ALL$TurnOverDays => remove ALL$TurnOverDays
 
 glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq) , family = binomial())  # total number of mutations? total disruption?
-summary(glm_1a) # MODEL 1A intermediate
+summary(glm_1a) # MODEL 2 PAPER
 
 glm_1a <-glm(ALL$T_C ~ scale(ALL$TurnOverDummyFast) + scale(ALL$TumorVarFreq) + scale(ALL$Consensus_age) + scale(ALL$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1a) # MODEL 1A intermediate
@@ -406,6 +409,7 @@ summary(glm_1a) # MODEL 1A final
 
 glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1b)  # MODEL 1B
+nrow(ALL[ALL$TumorVarFreq > 0.01738204,]) # PAPER
 
 glm_1b <-glm(ALL[ALL$TumorVarFreq > 0.01738204,]$T_C ~ scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TurnOverDummyFast) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$TumorVarFreq) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$Consensus_age) + scale(ALL[ALL$TumorVarFreq > 0.01738204,]$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_1b)  # MODEL 1B Intermediate
@@ -420,7 +424,8 @@ summary(glm_1b)  # MODEL 1B Final mtcopies are not significant anymore!!! becaus
 
 ALL1 = ALL[ALL$Subs %in% c('T_C','C_T','G_A','A_G'),] 
 glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq), family = binomial())  # total number of mutations? total disruption?
-summary(glm_2) # both! THE FIRST BEST
+summary(glm_2) # both! THE FIRST BEST PAPER
+nrow(ALL1)
 
 glm_2 <-glm(ALL1$T_C ~ scale(ALL1$TurnOverDummyFast) + scale(ALL1$TumorVarFreq) + scale(ALL1$Consensus_age) + scale(ALL1$mt_copies), family = binomial())  # total number of mutations? total disruption?
 summary(glm_2) # both! THE FIRST BEST
