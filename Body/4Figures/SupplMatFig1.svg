@@ -74,9 +74,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="214.22798"
-     inkscape:cy="868.47684"
+     inkscape:zoom="1.4"
+     inkscape:cx="415.78971"
+     inkscape:cy="455.71286"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -93,7 +93,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1543,8 +1543,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,-55.059602,302.11804)"
        id="g140"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <g
          id="g142"
          clip-path="url(#clipPath146)">
@@ -1868,8 +1869,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,-55.059602,302.11804)"
        id="g274"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 817.46,1128.47 h 544.09"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -1944,8 +1946,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,-55.059602,302.11804)"
        id="g364"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 758.97,1128.47 h 661.07 v 992.56 H 758.97 v -992.56"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -1955,8 +1958,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,11.235178,207.18397)"
        id="g584"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <g
          id="g586"
          clip-path="url(#clipPath590)">
@@ -2175,8 +2179,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,11.235178,207.18397)"
        id="g676"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 834.46,48.47 h 510.09"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2292,7 +2297,13 @@
            x="807.04767"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1416">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1414">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2305,7 +2316,13 @@
            x="908.41254"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-5-0"
-           style="font-size:20.12311554px;stroke-width:1.87969136">CT/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1412">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1410">H</tspan>
+</tspan>
       </text>
       <text
          xml:space="preserve"
@@ -2354,7 +2371,13 @@
            x="1008.5684"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8-2"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1408">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1406">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2367,7 +2390,13 @@
            x="1109.9341"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-5-0-3"
-           style="font-size:20.12311554px;stroke-width:1.87969136">CT/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1404">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1402">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2380,7 +2409,13 @@
            x="1213.8247"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8-2-0"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1400">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1398">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2393,7 +2428,13 @@
            x="1315.1906"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-5-0-3-0"
-           style="font-size:20.12311554px;stroke-width:1.87969136">CT/Ts</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1396">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1394">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2445,7 +2486,19 @@
            x="1622.3741"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8-9"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/CT</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan1418">H</tspan>
+&gt;G<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan1420">H</tspan>
+/C<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan1428">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1430">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2458,7 +2511,19 @@
            x="1825.6631"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8-9-8"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/CT</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1432">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1434">H</tspan>
+/C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1436">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1438">H</tspan>
+</tspan>
       </text>
       <text
          style="font-variant:normal;font-weight:normal;font-size:33.83444214px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87969136"
@@ -2471,14 +2536,27 @@
            x="2030.9196"
            sodipodi:role="line"
            id="tspan126-2-3-6-6-6-8-9-8-8"
-           style="font-size:20.12311554px;stroke-width:1.87969136">AG/CT</tspan>
+           style="font-size:20.12311554px;stroke-width:1.87969136">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1440">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1442">H</tspan>
+/C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1444">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1446">H</tspan>
+</tspan>
       </text>
     </g>
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,11.235178,207.18397)"
        id="g760"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 758.97,48.47 h 661.07 v 992.56 H 758.97 V 48.47"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2488,8 +2566,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,15.468512,207.18397)"
        id="g764"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <g
          id="g766"
          clip-path="url(#clipPath770)">
@@ -2603,8 +2682,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,15.468512,207.18397)"
        id="g814"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 1605.47,48.47 h 408.07"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2659,8 +2739,9 @@
     <g
        transform="matrix(0.08765486,0,0,-0.08765486,15.468512,207.18397)"
        id="g880"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292"
+       inkscape:export-ydpi="292"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <path
          d="m 1478.97,48.47 h 661.07 v 992.56 H 1478.97 V 48.47"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2672,8 +2753,9 @@
        id="text128-1-9-5"
        x="19.897573"
        y="210.55968"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="210.55968"
          x="19.897573"
@@ -2686,8 +2768,9 @@
        id="text128-1-9-1-6"
        x="30.122824"
        y="210.50337"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="210.50337"
          x="30.122824"
@@ -2700,8 +2783,9 @@
        id="text128-1-9-1-4-0"
        x="54.77066"
        y="210.79465"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="210.79465"
          x="54.77066"
@@ -2714,8 +2798,9 @@
        id="text128-1-9-5-4"
        x="14.427641"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="14.427641"
@@ -2728,28 +2813,42 @@
        id="text128-1-9-5-4-2"
        x="20.165255"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="20.165255"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6"
-         style="font-size:1.76388884px;stroke-width:0.16476408">AG/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1372">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1370">H</tspan>
+</tspan>
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.96575332px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16476408"
        id="text128-1-9-5-4-2-7"
        x="26.128786"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="26.128786"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6-5"
-         style="font-size:1.76388884px;stroke-width:0.16476408">CT/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1376">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1374">H</tspan>
+</tspan>
     </text>
     <text
        xml:space="preserve"
@@ -2758,8 +2857,9 @@
        y="9.1030807"
        id="text9088"
        transform="matrix(0,-0.32651157,3.0626786,0,0,0)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png"><tspan
          sodipodi:role="line"
          id="tspan9086"
          x="-635.49213"
@@ -2770,8 +2870,9 @@
        id="text128-1-9-5-4-6"
        x="32.234993"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="32.234993"
@@ -2784,28 +2885,42 @@
        id="text128-1-9-5-4-2-8"
        x="37.972626"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="37.972626"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6-7"
-         style="font-size:1.76388884px;stroke-width:0.16476408">AG/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1382">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1384">H</tspan>
+</tspan>
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.96575332px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16476408"
        id="text128-1-9-5-4-2-7-2"
        x="43.93615"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="43.93615"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6-5-8"
-         style="font-size:1.76388884px;stroke-width:0.16476408">CT/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1388">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1386">H</tspan>
+</tspan>
     </text>
     <text
        xml:space="preserve"
@@ -2814,8 +2929,9 @@
        y="14.917389"
        id="text9088-2"
        transform="matrix(0,-0.32651157,3.0626786,0,0,0)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png"><tspan
          sodipodi:role="line"
          id="tspan9086-9"
          x="-635.49213"
@@ -2826,8 +2942,9 @@
        id="text128-1-9-5-4-6-9"
        x="50.155319"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="50.155319"
@@ -2840,28 +2957,42 @@
        id="text128-1-9-5-4-2-8-0"
        x="55.892944"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="55.892944"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6-7-2"
-         style="font-size:1.76388884px;stroke-width:0.16476408">AG/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">A<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1380">H</tspan>
+&gt;G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1378">H</tspan>
+</tspan>
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:2.96575332px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16476408"
        id="text128-1-9-5-4-2-7-2-7"
        x="61.856468"
        y="205.5271"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="205.5271"
          x="61.856468"
          sodipodi:role="line"
          id="tspan126-2-3-6-6-6-5-8-6"
-         style="font-size:1.76388884px;stroke-width:0.16476408">CT/Tv</tspan>
+         style="font-size:1.76388884px;stroke-width:0.16476408">C<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1390">H</tspan>
+&gt;T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1392">H</tspan>
+</tspan>
     </text>
     <text
        xml:space="preserve"
@@ -2870,8 +3001,9 @@
        y="20.768587"
        id="text9088-2-1"
        transform="matrix(0,-0.32651157,3.0626786,0,0,0)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png"><tspan
          sodipodi:role="line"
          id="tspan9086-9-3"
          x="-635.49213"
@@ -2883,8 +3015,9 @@
        x="-187.23701"
        y="7.5959458"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="7.5959458"
          x="-187.23701"
@@ -2898,8 +3031,9 @@
        x="-185.90088"
        y="10.413847"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="10.413847"
          x="-185.90088"
@@ -2913,8 +3047,9 @@
        x="-161.07166"
        y="10.413847"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="10.413847"
          x="-161.07166"
@@ -2928,8 +3063,9 @@
        x="-135.743"
        y="10.413847"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="10.413847"
          x="-135.743"
@@ -2943,8 +3079,9 @@
        x="-194.51909"
        y="76.926804"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="76.926804"
          x="-194.51909"
@@ -2958,8 +3095,9 @@
        x="-176.95567"
        y="76.926804"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="76.926804"
          x="-176.95567"
@@ -2973,8 +3111,9 @@
        x="-159.26672"
        y="76.926804"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="76.926804"
          x="-159.26672"
@@ -2988,8 +3127,9 @@
        x="-141.8042"
        y="76.926804"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="76.926804"
          x="-141.8042"
@@ -3003,8 +3143,9 @@
        x="-124.16568"
        y="76.926804"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="76.926804"
          x="-124.16568"
@@ -3018,8 +3159,9 @@
        x="-175.10779"
        y="74.27095"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="74.27095"
          x="-175.10779"
@@ -3033,8 +3175,9 @@
        x="-183.57445"
        y="141.47511"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="141.47511"
          x="-183.57445"
@@ -3048,8 +3191,9 @@
        x="-190.3096"
        y="144.24988"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="144.24988"
          x="-190.3096"
@@ -3063,8 +3207,9 @@
        x="-173.60274"
        y="144.24988"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="144.24988"
          x="-173.60274"
@@ -3078,8 +3223,9 @@
        x="-156.82076"
        y="144.24988"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="144.24988"
          x="-156.82076"
@@ -3093,8 +3239,9 @@
        x="-140.03877"
        y="144.24988"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="144.24988"
          x="-140.03877"
@@ -3108,8 +3255,9 @@
        x="-123.30723"
        y="144.24988"
        transform="rotate(-90)"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-xdpi="292.69739"
+       inkscape:export-ydpi="292.69739"
+       inkscape:export-filename="C:\Users\polar\Desktop\texewt4270-я3-1.png">
       <tspan
          y="144.24988"
          x="-123.30723"
