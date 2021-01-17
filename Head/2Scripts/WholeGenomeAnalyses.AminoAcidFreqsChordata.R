@@ -1,15 +1,19 @@
+rm(list=ls(all=TRUE))
+
 library(dplyr)
 library(Biostrings)
 
-codons = read.table('~/Desktop/AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep='\t')
+unzip('../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip', 
+          exdir = '../../Body/3Results/')
+
+codons = read.table('../../Body/3Results/AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep='\t')
 
 codons$AminoNoOverlap = as.character(codons$AminoNoOverlap)
 codons$Species = as.character(codons$Species)
 codons$Gene = as.character(codons$Gene)
 
 aa = codons %>%
-  select(Species, AminoNoOverlap, Taxonomy, Class, Gene) %>%
-  filter(Gene != 'ND6')
+  select(Species, AminoNoOverlap, Taxonomy, Class, Gene)
 
 
 # as.data.frame(t(alphabetFrequency(AAString(aa$AminoNoOverlap[1000]))))
