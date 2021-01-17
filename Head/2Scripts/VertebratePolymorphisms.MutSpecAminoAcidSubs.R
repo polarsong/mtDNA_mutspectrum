@@ -33,7 +33,8 @@ AACart = read.table("../../Body/1Raw/AminoAcidTranslation.txt")
 ##### FILTER 2: Type of Substitutions - NonSyn 
 MUT$MutTypeAA = "S"
 MUT[MUT$AncestralAA != MUT$DescendantAA,]$MutTypeAA = "N"
-MUT$AASub = paste(MUT$AncestralAA, MUT$DescendantAA, sep = "_")
+MUT = MUT[MUT$AncestralAA != "*",]
+MUT = MUT[MUT$DescendantAA != "*",]
 NonSMut = MUT[MUT$MutTypeAA == "N",]
 NonSMut$AncesralAATriple = "None"
 NonSMut$DescendantAATriple = "Nonå"
@@ -92,11 +93,12 @@ length(table(NonSMut$DescendantAATriple))
 
 
 ### counting numbers of AA substitutions in each species
-InterData = data.frame(NonSMut$Species, NonSMut$AncesralAATriple, NonSMut$DescendantAATriple,
-                         NonSMut$AASub, Number = 1)
+InterData = data.frame(NonSMut$Species, NonSMut$Gene, NonSMut$AncesralAATriple, NonSMut$DescendantAATriple,
+                         Number = 1)
 InterData$AASub = paste(InterData$NonSMut.AncesralAATriple, InterData$NonSMut.DescendantAATriple, sep = "_")
 TypesOfSub = data.frame(table(InterData$AASub))
 TypesOfSub = TypesOfSub$Var1
+InterData = InterData[InterData$NonSMut.Gene != "ND6",]
 
 
 Final = c()
@@ -106,11 +108,44 @@ for (i in 1:length(TypesOfSub)){
   AGG = aggregate(InterData[InterData$AASub == Type,]$Number, by = list(InterData[InterData$AASub == Type,]$NonSMut.Species), FUN = sum); AGG$Type = Type
   Final = rbind(Final, AGG)
   }
+
 names(Final) = c ("Species", "FreqOfAASub", "TypeOfSub")
 
 table(Final$TypeOfSub)
 
 
 
+################### merge with classes (from Taxa & MoreTaxa), average A T G C for each species, average it for classes and draw it.
+#### associate species name with Class
+### Taxa 1, Cut out the third word!!!!!!!!!!!!!!!!!
+Taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = '\t',header = FALSE) 
+Taxa$Species = gsub(";.*",'',Taxa$V1); 
+for (i in (1:nrow(Taxa)))  {Taxa$Species[i] = paste(unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[1],unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[2], sep = '_')}
+Taxa$Class = gsub(";Chordata;.*",'',Taxa$V1); Taxa$Class = gsub(".*;",'',Taxa$Class); table(Taxa$Class)
+Taxa$Class = gsub('Actinopteri','Actinopterygii',Taxa$Class)
+Taxa$Class = gsub("Testudines|Squamata|Crocodylia|Sphenodontia",'Reptilia',Taxa$Class)
+length(unique(Taxa$Species)) # 1708
+table(Taxa$Class)
+Taxa = Taxa[,-1]
+
+### Taxa 2, Cut out the third word!!!!!!!!!!!!!!!!!
+TaxaMore = read.table("../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt", sep = '\t',header = FALSE) 
+TaxaMore$Species = ''
+for (i in (1:nrow(TaxaMore)))  
+{TaxaMore$Species[i] = paste(unlist(strsplit(as.character(TaxaMore$V1[i]),split = ' '))[1],unlist(strsplit(as.character(TaxaMore$V1[i]),split = ' '))[2], sep = '_')}
+TaxaMore$Class = gsub("; Chordata;.*",'',TaxaMore$V2); 
+TaxaMore$Class = gsub(".*; ",'',TaxaMore$Class); 
+TaxaMore$Class = gsub('Actinopteri','Actinopterygii',TaxaMore$Class)
+TaxaMore$Class = gsub("Testudines|Squamata|Crocodylia",'Reptilia',TaxaMore$Class)
+table(TaxaMore$Class)
+TaxaMore = TaxaMore[,-c(1,2)]
+
+Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
+
+Final = merge(Final, Taxa, all.x = TRUE)
+table(Final$Class)
+
+
 write.table(Final, file = '../../Body/3Results/VertebratePolymorphisms.MutSpecAminoAcidSubs.txt', quote = FALSE)
+write.table(Taxa, file = '../../Body/3Results/TaxaWithClasses.txt', quote = FALSE)
 
