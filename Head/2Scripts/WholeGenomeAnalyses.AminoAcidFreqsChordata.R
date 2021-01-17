@@ -35,4 +35,4 @@ names(df)[3:22] = three_letter
 
 final = distinct(inner_join(df, codons[, c('Species', 'Class')]))
 
-write.csv(final, '~/Alina/Kostya/AminoAcidFreqsChordata.csv', quote = FALSE, row.names = FALSE)
+write.csv(final, '../../Body/3Results/AminoAcidFreqsChordata.csv', quote = FALSE, row.names = FALSE)
