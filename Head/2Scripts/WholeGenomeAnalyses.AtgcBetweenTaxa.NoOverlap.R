@@ -134,3 +134,17 @@ boxplot(FrC ~ TAXON*Gene, data = SynNuc,  notch = TRUE, outline = FALSE, las = 2
 dev.off()
 
 ## 
+
+svg("../../Body/4Figures/Ecologyanalyses.MaximumLongevity.svg", height = 9, width = 12)
+AnAge = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
+names(AnAge)
+AnAge = AnAge[!is.na(AnAge$Maximum.longevity..yrs.),] 
+table(AnAge$Class)
+boxplot(AnAge[AnAge$Class == 'Actinopterygii',]$Maximum.longevity..yrs., AnAge[AnAge$Class == 'Amphibia',]$Maximum.longevity..yrs.,AnAge[AnAge$Class == 'Reptilia',]$Maximum.longevity..yrs.,AnAge[AnAge$Class == 'Mammalia',]$Maximum.longevity..yrs.,AnAge[AnAge$Class == 'Aves',]$Maximum.longevity..yrs., names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), ylab = 'Maximum longevity, years', notch = TRUE)
+dev.off()
+nrow(AnAge[AnAge$Class == 'Actinopterygii',])
+nrow(AnAge[AnAge$Class == 'Amphibia',])
+nrow(AnAge[AnAge$Class == 'Reptilia',])
+nrow(AnAge[AnAge$Class == 'Mammalia',])
+nrow(AnAge[AnAge$Class == 'Aves',])
+
