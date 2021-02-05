@@ -62,26 +62,30 @@ M$FreqOfSubBackward
 
 Final = c()
 ListOfSpecies = as.character(unique(M$Species))
-#y="Abbottina_rivularis" 
-#z = "LeuCT_Phe"
+
+str(M)
+M = M[,c("Species", "TypesOfAASub", "FreqOfSub", "NumberAncAA", "TypesOfAASubBackward", "NumberAncAABackward")]
+#TempFrame = M[M$Species == "Abbottina_rivularis",]
+
 for (y in ListOfSpecies){
   TempFrame = M[M$Species == y,]
   for (i in 1:nrow(TempFrame)){
-    for (z in as.character(TempFrame$TypesOfAASub)){
-    if(TempFrame$TypesOfAASubBackward[i] == z){
-      TempFrame$FreqOfSubBackward[i] = as.character(TempFrame[TempFrame$TypesOfAASub == z,]$FreqOfSub) 
-      } else {
-      TempFrame$FreqOfSubBackward[i] = 0
-      }
+    ourindex = match(TRUE, TempFrame$TypesOfAASubBackward[i] == TempFrame$TypesOfAASub)
+    if (!is.na(ourindex)){
+    TempFrame$FreqOfSubBackward[i] = TempFrame$FreqOfSub[ourindex]
+    }else{
+    TempFrame$FreqOfSubBackward[i] = 0
     }
   }
   Final = rbind(Final, TempFrame)
 }
 
+
+
 table(Final$FreqOfSubBackward)
 
 names(Final)
 
-FinalToWrite=Final[,c("Species", "TypesOfAASub", "FreqOfSub", "NumberAncAA", "TypesOfAASubBackward", "FreqOfSubBackward", "NumberAncAABackward")]
+FinalToWrite=Final[,c(1,2,3,4,5,7,6)]
 write.table(FinalToWrite, file = '../../Body/3Results/VertebratePolymorphisms.MutSpecAminoAcidSubsWithRefSeqData.txt', quote = FALSE)
 
