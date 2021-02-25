@@ -24,9 +24,9 @@ for (i in 1:length(VecOfSamples))
   TotalMut = nrow(temp)
   TotalMutOld = nrow(temp[temp$tumor_var_freq > 5.7,])
   TotalMutYoung = nrow(temp[temp$tumor_var_freq <= 5.7,])
-  Final = rbind(Final,c(AhGhfr,TotalMut,TotalMutOld,TotalMutYoung,temp$hypoxia_score_winter[1],temp$hypoxia_score_buffa[1],temp$hypoxia_score_ragnum[1]))
+  Final = rbind(Final,c(VecOfSamples[i],AhGhfr,TotalMut,TotalMutOld,TotalMutYoung,temp$hypoxia_score_winter[1],temp$hypoxia_score_buffa[1],temp$hypoxia_score_ragnum[1]))
 }  
-names(Final)=c('AhGhfr','TotalMut','TotalMutOld','TotalMutYoung','hypoxia_score_winter','hypoxia_score_buffa','hypoxia_score_ragnum')  
+names(Final)=c('SampleId','AhGhfr','TotalMut','TotalMutOld','TotalMutYoung','hypoxia_score_winter','hypoxia_score_buffa','hypoxia_score_ragnum')  
 
 ##### all hypoxia scores well correlate with each other
 cor.test(Final$hypoxia_score_buffa,Final$hypoxia_score_winter,method = 'spearman')
