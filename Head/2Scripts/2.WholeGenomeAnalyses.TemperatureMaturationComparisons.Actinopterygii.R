@@ -4,15 +4,16 @@ library(ggpubr)
 library(caper)
 library(geiger)
 
-setwd("../../Body/3Results")
+
+### reading whole genomes database
+#setwd("../../Body/3Results")
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
 
-# SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE)
-names(SynNuc)
 SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
 
+####### obtaining neutral nucleotide fractions
 SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species), FUN = sum)
 names(SynNuc) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
 SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
@@ -20,13 +21,12 @@ SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 
-### merge with temperature
+### merge whole genomes with temperature
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperature)
 SynNuc = merge(TEMPE,SynNuc, by = 'Species', all = TRUE); summary(SynNuc$Temperature)
 
-###### merge with fishbase maturation
-
+###### merge whole genomes and temperature with time of maturation
 MATUTM = read.table('../../Body/1Raw/FishBaseMaturity_Tm.txt',  header = TRUE)
 MATUTM = aggregate(Tm ~ ., median, data = MATUTM) 
 SynNuc = merge(MATUTM,SynNuc, by = 'Species', all = TRUE); nrow(SynNuc)
@@ -59,7 +59,7 @@ summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
 
 
-######### phylogenetic inertia analysis
+###################################################### phylogenetic inertia analysis
 
 tree = read.tree('../1Raw/mtalign.aln.treefile.rooted')
 
@@ -114,7 +114,8 @@ summary(model4)
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
 
-##### plotting scatter with temperature and two groups
+
+######### plotting scatter with temperature and two groups
 medianTm = median(SynNuc[!is.na(SynNuc$Tm),]$Tm)
 SynNuc$Lifespan = "Na"
 
