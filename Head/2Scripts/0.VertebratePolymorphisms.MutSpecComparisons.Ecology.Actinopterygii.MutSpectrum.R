@@ -35,8 +35,9 @@ MUTACTINOPTERITAXAFROMK = merge(MUT, Taxa)
 MUTACTINOPTERITAXAFROMK = MUTACTINOPTERITAXAFROMK[MUTACTINOPTERITAXAFROMK$Class == "Actinopterygii",]
 #names(MUTACTINOPTERITAXAFROMK) = c("T_G", "T_C", "T_A", "G_T", "G_C", "G_A", "C_T", "C_G", "C_A", "A_T", "A_G", "A_C")
 
-MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-1]
-MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-13]
+
+
+MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-c(1,14)]
 temp = data.frame(t(MUTACTINOPTERITAXAFROMK))
 a=c()
 
@@ -45,6 +46,16 @@ for(i in 1:ncol(temp)){
   colnames(b)=c("Freq", "Sub")
   a = rbind(a, b)
 }
+
+n=names(MUTACTINOPTERITAXAFROMK)
+m=c()
+i="A_T"
+for(i in n){
+  t=c(i, gsub(":", "", strsplit(summary(MUTACTINOPTERITAXAFROMK[i])[4], split=" ")[[1]][4]))
+  m=rbind(m, t)
+}
+m=data.frame(m, row.names = NULL)
+summary(MUTACTINOPTERITAXAFROMK)
 
 #c("TH>GH", "TH>CH", "TH>AH", "GH>TH", "GH>CH", "GH>AH", "CH>TH", "CH>GH", "CH>AH", "AH>TH", "AH>GH", "AH>CH")
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
