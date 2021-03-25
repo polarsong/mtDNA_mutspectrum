@@ -267,3 +267,56 @@ allparameters$TemperatureK = 273.15 + allparameters$Temperature
 allparameters$B=allparameters$MR * exp(-1.2/((8.617*10^-5)*allparameters$TemperatureK))
 cor.test(allparameters$B, allparameters$T_C, method="spearman") #rho 0.4075402 
 cor.test(allparameters$Temperature, allparameters$T_C, method = "spearman")
+
+
+
+####################################
+####################################
+###Full ecology for Kuptsov
+###########Taxonomy###################################################################
+Taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = '\t',header = FALSE) 
+Taxa$Species = gsub(";.*",'',Taxa$V1); 
+for (i in (1:nrow(Taxa)))  {Taxa$Species[i] = paste(unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[1],unlist(strsplit(as.character(Taxa$Species[i]),split = ' '))[2], sep = '_')}
+Taxa$Class = gsub(";Chordata;.*",'',Taxa$V1); Taxa$Class = gsub(".*;",'',Taxa$Class); table(Taxa$Class)
+Taxa$Class = gsub('Actinopteri','Actinopterygii',Taxa$Class)
+Taxa$Class = gsub("Testudines|Squamata|Crocodylia|Sphenodontia",'Reptilia',Taxa$Class)
+length(unique(Taxa$Species)) # 1708
+table(Taxa$Class)
+Taxa = Taxa[,-1]
+
+TaxaMore = read.table("../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt", sep = '\t',header = FALSE) 
+TaxaMore$Species = ''
+for (i in (1:nrow(TaxaMore)))  
+{TaxaMore$Species[i] = paste(unlist(strsplit(as.character(TaxaMore$V1[i]),split = ' '))[1],unlist(strsplit(as.character(TaxaMore$V1[i]),split = ' '))[2], sep = '_')}
+TaxaMore$Class = gsub("; Chordata;.*",'',TaxaMore$V2); 
+TaxaMore$Class = gsub(".*; ",'',TaxaMore$Class); 
+TaxaMore$Class = gsub('Actinopteri','Actinopterygii',TaxaMore$Class)
+TaxaMore$Class = gsub("Testudines|Squamata|Crocodylia",'Reptilia',TaxaMore$Class)
+table(TaxaMore$Class)
+TaxaMore = TaxaMore[,-c(1,2)]
+
+Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
+
+
+
+
+FISHsystematix= merge(TEMPE, MUT, all = T)
+FISHsystematix= merge(FISHsystematix, MATULM, all = T)
+FISHsystematix= merge(FISHsystematix, MATUTM, all = T)
+FISHsystematix$TemperatureC=FISHsystematix$Temperature
+FISHsystematix = FISHsystematix[,-2]
+str(FISHsystematix)
+
+FISHsystematix= merge(FISHsystematix, Taxa, by="Species", all = T)
+
+table(FISHsystematix$Class)
+
+
+my = c("Ceratodontiformes", "Chondrichthyes", "Actinopterygii", "Cladistia")
+FISHsystematix = FISHsystematix[FISHsystematix$Class %in% my,]
+FISHsystematix = FISHsystematix[!is.na(FISHsystematix$A_G),]
+FISHsystematix = FISHsystematix[order(FISHsystematix$A_G),]
+
+table(FISHsystematix$Class)
+write.csv(FISHsystematix, file = '../../Body/3Results/VertebratePolymorphisms.AllActinopterygiiSystematix.csv', quote = FALSE)
+
