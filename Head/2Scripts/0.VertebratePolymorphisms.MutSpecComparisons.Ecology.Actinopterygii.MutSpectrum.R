@@ -32,6 +32,7 @@ Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
 ###########################MUT spectrum in Actinoptery##################################
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 MUTACTINOPTERITAXAFROMK = merge(MUT, Taxa)
+MUTSPEC= MUTACTINOPTERITAXAFROMK
 MUTACTINOPTERITAXAFROMK = MUTACTINOPTERITAXAFROMK[MUTACTINOPTERITAXAFROMK$Class == "Actinopterygii",]
 #names(MUTACTINOPTERITAXAFROMK) = c("T_G", "T_C", "T_A", "G_T", "G_C", "G_A", "C_T", "C_G", "C_A", "A_T", "A_G", "A_C")
 
@@ -71,3 +72,74 @@ ggbarplot(a, x = "Sub", y = "Freq", fill = "Sub", color = "Sub",
           xlab="Substitution types", ylab="Normalised frequencies", add = "mean_se")
 dev.off()
 
+
+
+#####Absolute numbers
+ABSOLUTEMUT = read.table('../../Body/2Derived/VertebratePolymorphisms.MutSpecData.txt', header = TRUE)
+AGG = ABSOLUTEMUT[ABSOLUTEMUT$MutType == "FourFold",]; AGG$N = 1
+AGG = aggregate(AGG$N, by=list(AGG$Species, AGG$Subs), FUN=sum)
+
+nam=unique(AGG$Group.1)
+
+final=c()
+for (i in nam){
+  TEMP=AGG[AGG$Group.1 == i,]
+  TEMP=t(TEMP)
+  TEMP2=data.frame()
+  TEMP2=rbind(TEMP2, TEMP[-c(1,2),])
+  names(TEMP2)=TEMP[2,]
+  TEMP2$Species=i
+  final=dplyr::bind_rows(final, TEMP2)
+  print(i)
+}
+final[is.na(final)] <- 0
+str(final)
+
+MUTSPEC = merge(MUTSPEC, final, by="Species")
+str(MUTSPEC)
+summary(MUTSPEC)
+
+#######check for zeroes
+for (i in 1:nrow(MUTSPEC)){
+  if (MUTSPEC$A_T.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$A_T.x[i]) == as.numeric(MUTSPEC$A_T.y[i]))
+  }
+  if (MUTSPEC$A_G.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$A_G.x[i]) == as.numeric(MUTSPEC$A_G.y[i]))
+  }
+  if (MUTSPEC$A_C.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$A_C.x[i]) == as.numeric(MUTSPEC$A_C.y[i]))
+  }
+  if (MUTSPEC$C_A.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$C_A.x[i]) == as.numeric(MUTSPEC$C_A.y[i]))
+  }
+  if (MUTSPEC$C_G.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$C_G.x[i]) == as.numeric(MUTSPEC$C_G.y[i]))
+  }
+  if (MUTSPEC$C_T.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$C_T.x[i]) == as.numeric(MUTSPEC$C_T.y[i]))
+  }
+  if (MUTSPEC$G_A.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$G_A.x[i]) == as.numeric(MUTSPEC$G_A.y[i]))
+  }
+  if (MUTSPEC$G_T.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$G_T.x[i]) == as.numeric(MUTSPEC$G_T.y[i]))
+  }
+  if (MUTSPEC$G_C.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$G_C.x[i]) == as.numeric(MUTSPEC$G_C.y[i]))
+  }
+  if (MUTSPEC$T_A.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$T_A.x[i]) == as.numeric(MUTSPEC$T_A.y[i]))
+  }
+  if (MUTSPEC$T_G.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$T_G.x[i]) == as.numeric(MUTSPEC$T_G.y[i]))
+  }
+  if (MUTSPEC$T_C.x[i] == 0){
+    MUTSPEC$Check[i] = print(as.numeric(MUTSPEC$T_C.x[i]) == as.numeric(MUTSPEC$T_C.y[i]))
+  }
+}
+
+table(MUTSPEC$Check)
+MUTSPEC=MUTSPEC[,-27]
+str(MUTSPEC)
+write.table(MUT, file = '../../Body/3Results/VertebratePolymorphisms.MutSpecData.with.AbsoluteNumbers.txt', quote = FALSE)
