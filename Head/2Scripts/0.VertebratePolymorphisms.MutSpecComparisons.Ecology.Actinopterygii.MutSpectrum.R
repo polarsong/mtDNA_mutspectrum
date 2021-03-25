@@ -142,4 +142,4 @@ for (i in 1:nrow(MUTSPEC)){
 table(MUTSPEC$Check)
 MUTSPEC=MUTSPEC[,-27]
 str(MUTSPEC)
-write.table(MUT, file = '../../Body/3Results/VertebratePolymorphisms.MutSpecData.with.AbsoluteNumbers.txt', quote = FALSE)
+write.table(MUTSPEC, file = '../../Body/3Results/VertebratePolymorphisms.MutSpecData.with.AbsoluteNumbers.txt', quote = FALSE)
