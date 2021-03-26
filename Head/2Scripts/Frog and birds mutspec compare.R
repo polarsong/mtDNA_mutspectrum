@@ -92,8 +92,9 @@ to_change = c(birds_with_pheno_and_mutspec$Name)
 to_change[31] = 'Pygoscelis_papua1'
 to_change[38] = 'Tetraogallus_himalayensis1'
 row.names(birds_draw, ) = to_change
+row.names(birds_with_pheno_and_mutspec) = to_change
 birds_draw$Name = NULL
-
+heatmaply(birds_with_pheno_and_mutspec, file = "birds heatmaps/bird mutspec no normalize.html")
 
 
 birds_draw = normalize(birds_with_pheno_and_mutspec)
@@ -132,3 +133,4 @@ anura$Type_of_clutch = NULL
 anura1 = normalize(anura)
 dir.create("frog heatmaps")
 heatmaply(anura1, file = "frog heatmaps/frog mutspec.html")
+heatmaply(anura, file = "frog heatmaps/frog mutspec no normalize.html")
