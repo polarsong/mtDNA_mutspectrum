@@ -8,7 +8,7 @@ SimulationLengthNumberOfGenerations = 1000000
 
 ##### A: INITIALIZE GENOME
 
-for (MutSpecProb in c('cold-water fish','warm-water fish'))
+for (MutSpecProb in c('average fish','cold-water fish','warm-water fish'))
 {
 ### choose initial nucleotide frequencies: equal to 25% if InitGenome == 1 or random if InitGenome > 1
 for (InitGenome in 1:10)
@@ -31,6 +31,22 @@ length(genome) # should be equal GenomeLength
 # Take MutSpec from this file:
 # https://github.com/polarsong/mtDNA_mutspectrum/blob/TemperatureVSVertabrates/Body/2Derived/ActinopterMutSpec.txt
 # and modify +/- 2.5%  for A>G and T>C for cold- and warm-blooded (5% difference is taken visually from figure 1B)
+
+if (MutSpecProb == 'average fish')
+{ VecMutSpec = c(  
+  "T","A",0.009953,
+  "T","C",0.07020, # add 2.5% for cold-blooded (0.07020 + 0.025 = 0.0952) and extract 2.5% for warm-blooded (0.07020 - 0.025 = 0.0452)
+  "T","G",0.013630,
+  "A","T",0.02742,
+  "A","C",0.008847,
+  "A","G",0.1422, # extract 2.5% for cold-blooded (0.1422 - 0.025 = 0.1172) and add 2.5 for warm-blooded (0.1422 + 0.025 = 0.1672)
+  "C","T",0.536696, # decreased it by 0.000004 to make a sum == 1 (0.5367 - 0.000004 = 0.536696)
+  "C","A",0.025616,
+  "C","G",0.05079,
+  "G","T",0.026663,
+  "G","A",0.07799,
+  "G","C",0.009995)} 
+
 
 if (MutSpecProb == 'cold-water fish')
 { VecMutSpec = c(  
@@ -65,6 +81,7 @@ if (MutSpecProb == 'warm-water fish')
 MutSpec = data.frame(matrix(VecMutSpec, ncol = 3, nrow = 12, byrow = TRUE))
 names(MutSpec) = c('From','To','Prob')
 MutSpec$Prob = as.numeric(MutSpec$Prob)
+sum(MutSpec$Prob)
 
 ExpectedFrA = sum(MutSpec[MutSpec$To == 'A',]$Prob)/sum(MutSpec[MutSpec$From == 'A',]$Prob)
 ExpectedFrT = sum(MutSpec[MutSpec$To == 'T',]$Prob)/sum(MutSpec[MutSpec$From == 'T',]$Prob)
