@@ -2,23 +2,21 @@ rm(list=ls(all=TRUE))
 
 if (!require(caper)) install.packages("caper")
 if (!require(geiger)) install.packages("geiger")
-
+if (!require(geiger)) install.packages("ggpubr")
 library(caper)
 library(geiger)
 library("ggpubr")
 
 
-###Reading MutSpec DataBase
+##########Reading MutSpec DataBase
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 
-
-##########obtaining median TEMPERATURE 
+##########Obtaining median TEMPERATURE 
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 class(TEMPE$Temperature)
 class(TEMPE$Species)
 TEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
 TemperMut = merge(MUT, TEMPE) 
-
 
 #####correlation of mutspec with temperature in fishes
 cor.test(TemperMut$A_T,TemperMut$Temperature, method = 'spearman')   #rho  
@@ -34,9 +32,9 @@ cor.test(TemperMut$C_A,TemperMut$Temperature, method = 'spearman')   #rho
 cor.test(TemperMut$C_T,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$C_G,TemperMut$Temperature, method = 'spearman')   #rho   
 
-
+##Figures
 samplesize = paste("N=", as.character(nrow(TemperMut)), sep="")
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B.pdf")
+#pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B.pdf")
 ggscatter(TemperMut, x = "Temperature", y = "T_C",
           color = "#036a5b", # Points color, shape and size
           add = "reg.line",  # Add regressin line
@@ -56,9 +54,9 @@ ggscatter(TemperMut, x = "Temperature", y = "A_G",
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
-dev.off()
+#dev.off()
 
-svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B1.svg")
+#svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B1.svg")
 ggscatter(TemperMut, x = "Temperature", y = "T_C",
           color = "#036a5b", # Points color, shape and size
           add = "reg.line",  # Add regressin line
@@ -68,9 +66,9 @@ ggscatter(TemperMut, x = "Temperature", y = "T_C",
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
-dev.off()
-svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B2.svg")
+#dev.off()
 
+#svg("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1B2.svg")
 ggscatter(TemperMut, x = "Temperature", y = "A_G",
           color = "#73514f", # Points color, shape and size
           add = "reg.line",  # Add regressin line
@@ -80,7 +78,7 @@ ggscatter(TemperMut, x = "Temperature", y = "A_G",
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
-dev.off()
+#dev.off()
 
 
 ##########obtaining maturation time: Lm (mean length at first maturity)  and Tm (Mean or median age at first maturity)
@@ -123,6 +121,36 @@ cor.test(MATUTmmut$C_A,MATUTmmut$Tm, method = 'spearman')   #rho
 cor.test(MATUTmmut$C_T,MATUTmmut$Tm, method = 'spearman')   #rho    
 cor.test(MATUTmmut$C_G,MATUTmmut$Tm, method = 'spearman')   #rho   
 
+##########Obtaining median oxygen consumption
+
+MetabolicData = read.csv("../../Body/2Derived/FishBaseMetabolicData.csv", sep = ";")
+MetabolicData$OxyCon.mg.kg.h.= gsub(",", ".", MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= gsub(",", ".", MetabolicData$OnyCon.at20C.)
+str(MetabolicData)
+MetabolicData$OxyCon.mg.kg.h.= as.numeric(MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= as.numeric(MetabolicData$OnyCon.at20C.)
+str(MetabolicData)
+length(unique(MetabolicData$Spece)) #206
+table(MetabolicData$Applied_stress)
+table(MetabolicData$Activity)
+
+
+HypoxicFishes = MetabolicData[MetabolicData$Applied_stress == "hypoxia",]
+summary(HypoxicFishes)
+OxConAgg = aggregate(HypoxicFishes$OxyCon.mg.kg.h., by=list(HypoxicFishes$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
+TempMerge = merge(OxConAgg, MUT)
+nrow(TempMerge)
+plot(TempMerge$OxCon, TempMerge$T_C)
+abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))
+NonHypoxicFishes = MetabolicData[MetabolicData$Applied_stress != "hypoxia",]
+summary(NonHypoxicFishes)
+
+
+MetDataRoutine = MetabolicData[MetabolicData$Activity == "routine",]
+OxConAgg = aggregate(MetDataRoutine$OxyCon.mg.kg.h., by=list(MetDataRoutine$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
+TempMerge = merge(OxConAgg, MUT)
+nrow(TempMerge)
+plot(TempMerge$OxCon, TempMerge$T_C)
+abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))
+
 
 ############Multiple models
 allparameters=TemperMut #128 species
@@ -160,7 +188,8 @@ summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature) + scale(Tm), data = allparameters))
 samplesize = paste("N==", as.character(nrow(allparameters)), sep="")
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1C.pdf")
+##Figures
+#pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1C.pdf")
 ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
           color = c("#814194"), # Points color, shape and size
           add = "reg.line",  # Add regressin line
@@ -170,13 +199,13 @@ ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
   aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
   label.x = 3
 )
-dev.off()
+#dev.off()
 
 
 
 ########################################################################################################
-### PICs
-
+### PICs ###############################################################################################
+########################################################################################################
 tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
 
 row.names(allparameters) = allparameters$Species
@@ -273,6 +302,7 @@ cor.test(allparameters$Temperature, allparameters$T_C, method = "spearman")
 ####################################
 ####################################
 ###Full ecology for Kuptsov
+####################################
 ###########Taxonomy###################################################################
 Taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = '\t',header = FALSE) 
 Taxa$Species = gsub(";.*",'',Taxa$V1); 
@@ -283,7 +313,6 @@ Taxa$Class = gsub("Testudines|Squamata|Crocodylia|Sphenodontia",'Reptilia',Taxa$
 length(unique(Taxa$Species)) # 1708
 table(Taxa$Class)
 Taxa = Taxa[,-1]
-
 TaxaMore = read.table("../../Body/1Raw/TaxaFromKostya.2NeedTaxa.tax.txt", sep = '\t',header = FALSE) 
 TaxaMore$Species = ''
 for (i in (1:nrow(TaxaMore)))  
@@ -294,11 +323,7 @@ TaxaMore$Class = gsub('Actinopteri','Actinopterygii',TaxaMore$Class)
 TaxaMore$Class = gsub("Testudines|Squamata|Crocodylia",'Reptilia',TaxaMore$Class)
 table(TaxaMore$Class)
 TaxaMore = TaxaMore[,-c(1,2)]
-
 Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
-
-
-
 
 FISHsystematix= merge(TEMPE, MUT, all = T)
 FISHsystematix= merge(FISHsystematix, MATULM, all = T)
@@ -306,11 +331,8 @@ FISHsystematix= merge(FISHsystematix, MATUTM, all = T)
 FISHsystematix$TemperatureC=FISHsystematix$Temperature
 FISHsystematix = FISHsystematix[,-2]
 str(FISHsystematix)
-
 FISHsystematix= merge(FISHsystematix, Taxa, by="Species", all = T)
-
 table(FISHsystematix$Class)
-
 
 my = c("Ceratodontiformes", "Chondrichthyes", "Actinopterygii", "Cladistia")
 FISHsystematix = FISHsystematix[FISHsystematix$Class %in% my,]
