@@ -63,4 +63,20 @@ cor.test(aves_anage_and_ratio_and_mutspec$RatioA, aves_anage_and_ratio_and_mutsp
 cor.test(aves_anage_and_ratio_and_mutspec$RatioC, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
 cor.test(aves_anage_and_ratio_and_mutspec$RatioG, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
 cor.test(aves_anage_and_ratio_and_mutspec$RatioT, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
+
+
+cor.test(aves_anage_and_ratio_and_mutspec$G_A, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$T_C, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioA, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioC, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioG, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioT, aves_anage_and_ratio_and_mutspec$Metabolic.rate..W., method = 'spearman')
+
+
+cor.test(aves_anage_and_ratio_and_mutspec$G_A, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$T_C, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioA, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioC, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioG, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
+cor.test(aves_anage_and_ratio_and_mutspec$RatioT, aves_anage_and_ratio_and_mutspec$Body.mass..g., method = 'spearman')
 #i can do more analysis, but what parameters are better to choose?
