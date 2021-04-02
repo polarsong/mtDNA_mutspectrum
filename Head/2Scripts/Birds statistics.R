@@ -1,14 +1,20 @@
 #statistics for birds with pheno, ratio and AnAge
 rm(list=ls(all=TRUE))
-aves_pheno = read.table('../../Body/1Raw/DataFromValya/ALL_PHENOTYPES.txt')
+#reading aves phenotypes
+aves_pheno = read.table('../../Body/1Raw/DataFromValya/ALL_PHENOTYPES.txt') 
+#reading anage
 anage = read.table('../../Body/1Raw/anage_data.txt', header = TRUE, sep = '\t')
-anage$Species = paste(anage$Genus, anage$Species, sep = '_')
+#connecting genus and species names
+anage$Species = paste(anage$Genus, anage$Species, sep = '_') #
+#reading Codon usage
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip") 
 codon_usage = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t') 
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")} 
+#deleting ND6
 codon_usage[codon_usage$Gene == 'ND6',] = NA
 codon_usage = na.omit(codon_usage)
 unique_names = unique(codon_usage$Species)
+#shenanigans to count Ratio of all nucleotides, for each  Ratio refreshing the counter is needed
 counter = 1
 RatioA = c()
 RatioG = c()
@@ -27,16 +33,18 @@ for (i in unique_names)
   RatioT[counter] = Ti
   counter = counter + 1
 }
+#creating df with all species and Ratio of each nucleotide
 all_ratio = data.frame(unique_names)
 names(all_ratio) = 'Species'
 all_ratio$RatioA = RatioA
 all_ratio$RatioC = RatioC
 all_ratio$RatioG = RatioG
 all_ratio$RatioT = RatioT
+#creating df for aves with phenotypes, ratio and anage
 names(aves_pheno) = c('Species', 'Phenotype')
 aves_ratio_and_pheno = merge(aves_pheno, all_ratio, by = 'Species' )
 aves_ratio_and_pheno_and_anage = merge(aves_ratio_and_pheno, anage, by = 'Species')
-
+#doing some cor.test
 cor.test(aves_ratio_and_pheno_and_anage$RatioG, aves_ratio_and_pheno_and_anage$Maximum.longevity..yrs.., method = 'spearman')
 #cannot be counted, because some birds have several phenotypes
 
@@ -44,9 +52,12 @@ cor.test(aves_ratio_and_pheno_and_anage$RatioG, aves_ratio_and_pheno_and_anage$M
 
 
 #statistics for birds with pheno, mutspec and AnAge
+#reading mutspec file
 mutspec = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
+#creating df for aves with phenotypes, mutspec and anage
 birds_mutspec_and_pheno = merge(mutspec, aves_pheno, by = 'Species')
 birds_mutspec_and_pheno_and_anage = merge(birds_mutspec_and_pheno, anage, by = 'Species')
+#doing some cor.tests
 cor.test(birds_mutspec_and_pheno_and_anage$G_A, birds_mutspec_and_pheno_and_anage$Maximum.longevity..yrs., method = 'spearman')
 cor.test(birds_mutspec_and_pheno_and_anage$T_C, birds_mutspec_and_pheno_and_anage$Maximum.longevity..yrs., method = 'spearman')
 #i can do more analysis, but what parameters are better to choose?
@@ -54,9 +65,11 @@ cor.test(birds_mutspec_and_pheno_and_anage$T_C, birds_mutspec_and_pheno_and_anag
 
 
 #statistics for birds with ratio, mutspec and anage
+#creating df for aves with anage, mutspec and ratio
 aves_anage = anage[anage$Class == 'Aves',]
 aves_anage_and_ratio = merge(aves_anage, all_ratio, by = 'Species')
 aves_anage_and_ratio_and_mutspec = merge(aves_anage_and_ratio, mutspec, by = 'Species')
+#doing some cro.tests
 cor.test(aves_anage_and_ratio_and_mutspec$G_A, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
 cor.test(aves_anage_and_ratio_and_mutspec$T_C, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
 cor.test(aves_anage_and_ratio_and_mutspec$RatioA, aves_anage_and_ratio_and_mutspec$Maximum.longevity..yrs., method = 'spearman')
