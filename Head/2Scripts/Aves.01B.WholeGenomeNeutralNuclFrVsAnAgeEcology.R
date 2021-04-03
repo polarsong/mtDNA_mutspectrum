@@ -23,7 +23,34 @@ SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
 SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
 
-### read Bird phenotypes from AnAge
+### estimate GhAhSkew
+# from our BioRxiv with mammals:
+# An excess of GH and deficit of AH in long-lived species determines the GHAH nucleotide skew which approximates the level of asymmetry in the distribution of these two nucleotides and is calculated as 
+# (GH-AH)/(GH+AH). As expected we observed positive correlation between GHAH skew and generation length of mammalian species
+# in our case we have light chain notation => 
+SynNuc$GhAhSkew = (SynNuc$NeutralC-SynNuc$NeutralT)/(SynNuc$NeutralC+SynNuc$NeutralT)
+summary(SynNuc$GhAhSkew)
+
+#### keep only Aves and order by GhAhSkew
+table(SynNuc$Class) # 432 Aves
+SynNuc = SynNuc[SynNuc$Class =='Aves',]
+SynNuc=SynNuc[order(SynNuc$GhAhSkew),]
+
+### derive Dummy Variable - Passeriformes
+SynNuc$Passeriformes = 0
+for (i in 1:nrow(SynNuc))
+{ # i = 1
+  SynNuc$Passeriformes[i] = as.numeric(grepl('Passeriformes',SynNuc$Taxonomy[i]))
+}
+table(SynNuc$Passeriformes)
+wilcox.test(SynNuc[SynNuc$Passeriformes == 0,]$GhAhSkew,SynNuc[SynNuc$Passeriformes == 1,]$GhAhSkew)
+boxplot(SynNuc[SynNuc$Passeriformes == 0,]$GhAhSkew,SynNuc[SynNuc$Passeriformes == 1,]$GhAhSkew, notch = TRUE, outline = FALSE)
+
+#### save data.frame for meditation of Valya and Sasha and all of us:
+
+write.table(SynNuc, file = "../../Body/3Results/Aves.01B.WholeGenomeNeutralNuclFrVsAnAgeEcology.AllAvesForMeditation.csv", sep = ',', row.names = FALSE, quote = FALSE)
+
+#### read Bird phenotypes from AnAge
 anage = read.table('../../Body/1Raw/anage_data.txt', header = TRUE, sep = '\t')
 anage$Species = paste(anage$Genus, anage$Species, sep = '_')
 table(anage$Class)
@@ -34,54 +61,16 @@ SynNucPhe = merge(SynNuc,anage, by = 'Species')
 
 ### descriptive analyses: go column by column and if there are many notNA run cor test:
 names(SynNucPhe)
-for (i in 20:40)
-{ # i = 40
+for (i in c(21:32,37:41))
+{ # i = 32
   if (length(SynNucPhe[!is.na(SynNucPhe[,i]),][,i]) > 10)
   {
+    if (as.numeric(cor.test(SynNucPhe$GhAhSkew,SynNucPhe[,i], method = 'spearman')[3]) < 0.1)
+    {
     print(names(SynNucPhe)[i])
     print(length(SynNucPhe[!is.na(SynNucPhe[,i]),][,i]))
-    print(cor.test(SynNucPhe$FrT,SynNucPhe[,i], method = 'spearman'))
+    print(cor.test(SynNucPhe$GhAhSkew,SynNucPhe[,i], method = 'spearman'))
+    }
   }
 }
-
-### main results: if Ah>Gh is higher in species with high clutch size, Ah can be:
-### 1) less in species with high clutch size (r strategy?)
-### 2) less in species with fast growth rate (the more th clutch size the faster should be growth rate ~ r strategy?)
-### 3) higher in species with long maturation period (K strategy?)
-
-"Growth.rate..1.days.
-[1] 76
-
-	Spearman's rank correlation rho
-
-data:  SynNucPhe$FrT and SynNucPhe[, i]
-S = 92314, p-value = 0.02225
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-       rho 
--0.2619764 
-
-[1] Litter.Clutch.size
-[1] 72
-
-	Spearman's rank correlation rho
-
-data:  SynNucPhe$FrT and SynNucPhe[, i]
-S = 76484, p-value = 0.05223
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-       rho 
--0.2297272 
-
-[1] Female.maturity..days.
-[1] 111
-
-	Spearman's rank correlation rho
-
-data:  SynNucPhe$FrT and SynNucPhe[, i]
-S = 178156, p-value = 0.02133
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-      rho 
-0.2183384 "
 
