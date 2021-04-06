@@ -1,4 +1,4 @@
-Order              Family          Species                       Clutch   Range Traits
+Order              Family          Species                       Clutch   Range  Traits
 Struthioniformes   Struthionidae   Struthio camelus                7.4        1   HBW1
 Struthioniformes   Rheidae         Rhea americana                 19.7        1   HBW1
 Struthioniformes   Rheidae         Rhea pennata                   17.3        1   HBW1
@@ -1352,28 +1352,28 @@ Strigiformes   Aegothelidae     Aegotheles cristatus         3.5        1   HBW5
 Strigiformes   Podargidae       Podargus strigoides          1.7        1   HBW5
 Strigiformes   Podargidae       Podargus papuensis           1.0        1   HBW5
 Strigiformes   Podargidae       Podargus ocellatus           1.0        1   HBW5
-Strigiformes   Batrachostomidae Batrachostomus hodgsoni      1.4        1   HBW5
-Strigiformes   Batrachostomidae Batrachostomus javensis      1.4        1   HBW5
-Strigiformes   Steatornithidae Steatornis caripensis         2.8        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus argus             1.0        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus mystacalis        1.0        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus diabolicus        1.0        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus papuensis         1.0        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus archboldi         1.0        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus temminckii        1.4        1   HBW5
-Strigiformes   Eurostopodidae Eurostopodus macrotis          1.0        1   HBW5
-Strigiformes   Caprimulgidae Lurocalis semitorquatus         1.0        1   HBW5
+Strigiformes   Batrachostomidae	Batrachostomus hodgsoni      1.4        1   HBW5
+Strigiformes   Batrachostomidae	Batrachostomus javensis      1.4        1   HBW5
+Strigiformes   Steatornithidae	Steatornis caripensis         2.8        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus argus             1.0        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus mystacalis        1.0        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus diabolicus        1.0        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus papuensis         1.0        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus archboldi         1.0        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus temminckii        1.4        1   HBW5
+Strigiformes   Eurostopodidae	Eurostopodus macrotis          1.0        1   HBW5
+Strigiformes   Caprimulgidae	Lurocalis semitorquatus         1.0        1   HBW5
 Strigiformes   Caprimulgidae    Chordeiles pusillus          1.0        1   HBW5
 Strigiformes   Caprimulgidae    Chordeiles rupestris         1.4        1   HBW5
 Strigiformes   Caprimulgidae    Chordeiles acutipennis       1.4        1   HBW5
 Strigiformes   Caprimulgidae    Chordeiles minor             1.7        1   HBW5
 Strigiformes   Caprimulgidae    Chordeiles gundlachii        1.4        1   HBW5
-Strigiformes   Caprimulgidae Podager nacunda                 1.4        1   HBW5
+Strigiformes   Caprimulgidae	Podager nacunda                 1.4        1   HBW5
 Strigiformes   Caprimulgidae    Nyctidromus albicollis       1.4        1   HBW5
 Strigiformes   Caprimulgidae    Phalaenoptilus nuttallii     2.0        1   HBW5
 Strigiformes   Caprimulgidae    Nyctiphrynus mcleodii        2.0        1   HBW5
 Strigiformes   Caprimulgidae    Nyctiphrynus ocellatus       2.0        1   HBW5
-Strigiformes   Caprimulgidae Caprimulgus carolinensis        2.0        1   HBW5
+Strigiformes   Caprimulgidae	Caprimulgus carolinensis        2.0        1   HBW5
 Strigiformes   Caprimulgidae    Caprimulgus rufus            1.4        1   HBW5
 Strigiformes   Caprimulgidae    Caprimulgus cubanensis       1.4        1   HBW5
 Strigiformes   Caprimulgidae    Caprimulgus salvini          2.0        1   HBW5
@@ -3813,15 +3813,13 @@ Passeriformes   Sturnidae   Sturnus sturninus                4.6               4
 Passeriformes   Sturnidae   Sturnus philippensis             4.6                 7   Starlings & Mynas
 Passeriformes   Sturnidae   Sturnus sinensis                 4.0                 7   Starlings & Mynas
 Passeriformes   Sturnidae   Sturnus roseus                   4.2           3,4,5,7   Starlings & Mynas
-Passeriformes   Sturnidae   Sturnus vulgaris              2,3,4,5,7,8,10,11,12,13
-                                                             5.9                     Starlings & Mynas, Birds of the West Indies
+Passeriformes   Sturnidae   Sturnus vulgaris                 5.9              2,3,4,5,7,8,10,11,12,13  Starlings & Mynas, Birds of the West Indies
 Passeriformes   Sturnidae   Sturnus unicolor                 3.2             3,4,5   Starlings & Mynas
 Passeriformes   Sturnidae   Sturnus cineraceus               3.2                 7   Starlings & Mynas
 Passeriformes   Sturnidae   Sturnus contra                   4.5                 7   Starlings & Mynas, Birds of Southeast Asia
 Passeriformes   Sturnidae   Sturnus nigricollis              3.9                 7   Starlings & Mynas, Birds of Southeast Asia
 Passeriformes   Sturnidae   Sturnus melanopterus             3.5                 7   Starlings & Mynas, Birds of Southeast Asia
-Passeriformes   Sturnidae   Acridotheres tristis          2,4,5,6,7,9,10,11,12,13
-                                                             3.5                     Starlings & Mynas
+Passeriformes   Sturnidae   Acridotheres tristis             3.5                 2,4,5,6,7,9,10,11,12,13    Starlings & Mynas
 Passeriformes   Sturnidae   Acridotheres ginginianus         4.9               4,7   Starlings & Mynas
 Passeriformes   Sturnidae   Acridotheres fuscus              4.2              7,11   Starlings & Mynas
 Passeriformes   Sturnidae   Acridotheres grandis             4.9                 7   Starlings & Mynas, Birds of Southeast Asia
@@ -4030,8 +4028,7 @@ Passeriformes   Hirundinidae   Hirundo rupestris             3.2             3,4
 Passeriformes   Hirundinidae   Hirundo obsoleta              2.4                   4   HBW9, BA
 Passeriformes   Hirundinidae   Hirundo fuligula              3.9             3,4,5,7   HBW9, BA, EMN
 Passeriformes   Hirundinidae   Hirundo concolor              2.8                   7   HBW9, Birds of Southeast Asia
-Passeriformes   Hirundinidae   Hirundo rustica               4.5
-                                                               2,3,4,5,6,7,8,10,11     HBW9, BA, EMN
+Passeriformes   Hirundinidae   Hirundo rustica               4.5     2,3,4,5,6,7,8,10,11     HBW9, BA, EMN
 Passeriformes   Hirundinidae   Hirundo lucida                3.5                   5   HBW9, BA
 Passeriformes   Hirundinidae   Hirundo aethiopica            2.8                 4,5   HBW9, BA
 Passeriformes   Hirundinidae   Hirundo angolensis            2.4                   5   HBW9, BA
@@ -4587,8 +4584,7 @@ Passeriformes   Alaudidae       Galerida deva                  2.8              
 Passeriformes   Alaudidae       Galerida modesta               1.0                 5   HBW9, BA
 Passeriformes   Alaudidae       Galerida magnirostris          2.8                 5   HBW9, BA
 Passeriformes   Alaudidae       Lullula arborea                3.5             3,4,5   HBW9, BA, EMN
-Passeriformes   Alaudidae       Alauda arvensis                2.6
-                                                                2,3,4,7,10,11,12,13    HBW9, BA, EMN
+Passeriformes   Alaudidae       Alauda arvensis                2.6       2,3,4,7,10,11,12,13    HBW9, BA, EMN
 Passeriformes   Alaudidae       Alauda japonica                3.9                 7   HBW9, BJAP
 Passeriformes   Alaudidae       Alauda gulgula                 3.2               4,7   HBW9, EMN; Birds of Southeast Asia, HBW9
 Passeriformes   Alaudidae       Eremophila alpestris           3.2           2,3,4,7   HBW9, BA, EMN
@@ -4696,8 +4692,7 @@ Passeriformes   Nectariniidae      Arachnothera everetti             1.4        
 Passeriformes   Nectariniidae      Arachnothera magna                2.4                  7   Sunbirds
 Passeriformes   Melanocharitidae   Toxorhamphus poliopterus          1.0                  8   BPNG
 Passeriformes   Melanocharitidae   Toxorhamphus iliolophus           1.0                  8   BPNG
-Passeriformes   Passeridae         Passer domesticus          2,3,4,5,6,7,8,9,10,11,12,13
-                                                                     3.7                      Finches & sparrows; EMN
+Passeriformes   Passeridae         Passer domesticus                 3.7          2,3,4,5,6,7,8,9,10,11,12,13            Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer hispaniolensis             4.9            3,4,5,7   Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer rutilans                   4.5                  7   Finches & sparrows; Birds of Southeast Asia
 Passeriformes   Passeridae         Passer flaveolus                  2.8                  7   Finches & sparrows; Birds of Southeast Asia
@@ -4706,7 +4701,7 @@ Passeriformes   Passeridae         Passer motitensis                 3.2        
 Passeriformes   Passeridae         Passer melanurus                  3.5                  5   Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer griseus                    3.2                  5   Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer simplex                    3.2              3,4,5   Finches & sparrows; EMN
-Passeriformes   Passeridae         Passer montanus                   3.7 2,3,4,5,7,8,10,11    Finches & sparrows; EMN
+Passeriformes   Passeridae         Passer montanus                   3.7  2,3,4,5,7,8,10,11    Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer luteus                     3.9                4,5   Finches & sparrows; EMN
 Passeriformes   Passeridae         Passer eminibey                   3.5                  5   Finches & sparrows; EMN
 Passeriformes   Passeridae         Petronia xanthocollis             3.5                4,7   Finches & sparrows; EMN
@@ -4722,7 +4717,7 @@ Passeriformes   Passeridae         Motacilla aguimp                  3.5        
 Passeriformes   Passeridae         Motacilla capensis                2.0                  5   HBW9, BA
 Passeriformes   Passeridae         Motacilla flaviventris            2.0                  6   HBW9, Guide to the Birds of Madagascar
 Passeriformes   Passeridae   Motacilla citreola            4.2            3,4,5,7   HBW9, BA, EMN
-Passeriformes   Passeridae   Motacilla flava               4.9 2,3,4,5,7,8,10,11    HBW9, BA, EMN
+Passeriformes   Passeridae   Motacilla flava               4.9  2,3,4,5,7,8,10,11    HBW9, BA, EMN
 Passeriformes   Passeridae   Motacilla cinerea             4.6        2,3,4,5,7,8   HBW9, BA, EMN
 Passeriformes   Passeridae   Motacilla clara               2.4                  5   HBW9, BA
 Passeriformes   Passeridae   Tmetothylacus tenellus        2.8                4,5   HBW9, BA
@@ -4871,7 +4866,7 @@ Passeriformes   Passeridae   Estrilda melanotis            5.2                5 
 Passeriformes   Passeridae   Estrilda paludicola           4.9                5   Finches & Sparrows; Estrildid finches of the world
 Passeriformes   Passeridae   Estrilda melpoda              4.9       2,5,11,13    Finches & Sparrows; Estrildid finches of the world
 Passeriformes   Passeridae   Estrilda troglodytes          4.5              2,5   Finches & Sparrows; Estrildid finches of the world
-Passeriformes   Passeridae   Estrilda astrild              4.9 2,3,5,6,9,11,13    Finches & Sparrows; EMN; Estrildid finches of the world
+Passeriformes   Passeridae   Estrilda astrild              4.9  2,3,5,6,9,11,13    Finches & Sparrows; EMN; Estrildid finches of the world
 Passeriformes   Passeridae   Estrilda nonnula              5.5                5   Finches & Sparrows; Estrildid finches of the world
 Passeriformes   Passeridae   Estrilda atricapilla          2.0                5   Finches & Sparrows; Estrildid finches of the world
 Passeriformes   Passeridae   Estrilda charmosyna           4.0                5   Finches & Sparrows; Estrildid finches of the world
@@ -4953,7 +4948,7 @@ Passeriformes   Fringillidae   Serinus leucopterus          2.8                 
 Passeriformes   Fringillidae   Serinus totta                3.9                  5   Finches & sparrows; EMN
 Passeriformes   Fringillidae   Serinus alario               2.8                  5   Finches & sparrows; EMN
 Passeriformes   Fringillidae   Linurgus olivaceus           2.4                  5   Finches & sparrows
-Passeriformes   Fringillidae   Carduelis chloris            4.9 3,4,5,10,12,13       Finches & sparrows; EMN
+Passeriformes   Fringillidae   Carduelis chloris            4.9  3,4,5,10,12,13       Finches & sparrows; EMN
 Passeriformes   Fringillidae   Carduelis sinica             3.2                  7   Finches & sparrows; Birds of Southeast Asia
 Passeriformes   Fringillidae   Carduelis spinoides          3.9                  7   Finches & sparrows; Birds of Southeast Asia
 Passeriformes   Fringillidae   Carduelis ambigua            3.5                  7   Finches & sparrows; Birds of Southeast Asia
@@ -4965,7 +4960,7 @@ Passeriformes   Fringillidae   Carduelis tristis            4.9                 
 Passeriformes   Fringillidae   Carduelis psaltria           3.5                  2   Finches & sparrows; Birds of Costa Rica
 Passeriformes   Fringillidae   Carduelis lawrencei          4.5                  2   Finches & sparrows
 Passeriformes   Fringillidae   Carduelis dominicensis       2.4                  2   Finches & sparrows, Birds of the West Indies
-Passeriformes   Fringillidae   Carduelis carduelis          4.92,3,4,5,7,10,12,13    Finches & sparrows; EMN
+Passeriformes   Fringillidae   Carduelis carduelis          4.9  2,3,4,5,7,10,12,13    Finches & sparrows; EMN
 Passeriformes   Fringillidae   Carduelis hornemanni         4.5              2,3,7   Finches & sparrows; EMN
 Passeriformes   Fringillidae   Carduelis flammea            4.9     2,3,4,7,12,13    Finches & sparrows; EMN
 Passeriformes   Fringillidae   Carduelis flavirostris       4.9              3,4,7   Finches & sparrows; EMN
