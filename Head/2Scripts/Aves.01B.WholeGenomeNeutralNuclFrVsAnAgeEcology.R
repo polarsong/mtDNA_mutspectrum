@@ -74,3 +74,13 @@ for (i in c(21:32,37:41))
   }
 }
 
+
+#Yury's part, merging ALL with data from Valya
+phenotypes = read.table('../../Body/1Raw/DataFromValya/ALL_PHENOTYPES.txt')
+names(phenotypes) = c('Species', 'Phenotype')
+synnuc_and_pheno = merge(phenotypes, SynNuc, by = 'Species')
+#adding extra columns
+synnuc_and_pheno$locomotive_type = NA
+synnuc_and_pheno$locomotive_tools = NA
+#saving to fill table by hands
+write.table(synnuc_and_pheno, file = "../../Body/3Results/AvesPhenoRatioPlusLocomotiveSpeed.csv", sep = ',', row.names = FALSE, quote = FALSE)
