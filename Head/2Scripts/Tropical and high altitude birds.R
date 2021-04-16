@@ -13,7 +13,7 @@ only_altitude = pheno[pheno$Phenotype == ",\"HI\"",]
 #reading codon usage
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip") 
 codus = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t') 
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")} codus = codus[codus$Gene != 'ND6',]
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")} 
 codus = codus[codus$Gene != 'ND6',]
 #### aggregate (summ up) neutral nucleotides for each species
 SynNuc = aggregate(list(codus$NeutralA,codus$NeutralT,codus$NeutralG,codus$NeutralC), by = list(codus$Species,codus$Class,codus$Taxonomy), FUN = sum)
@@ -39,3 +39,37 @@ boxplot(altitude_and_fr$FrA, random_birds_from_tropical$FrA)
 boxplot(altitude_and_fr$FrG, random_birds_from_tropical$FrG)
 boxplot(altitude_and_fr$FrC, random_birds_from_tropical$FrC)
 boxplot(altitude_and_fr$FrT, random_birds_from_tropical$FrT)
+
+boxplot(altitude_and_fr$FrA, tropical_and_fr$FrA)
+boxplot(altitude_and_fr$FrG, tropical_and_fr$FrG)
+boxplot(altitude_and_fr$FrC, tropical_and_fr$FrC)
+boxplot(altitude_and_fr$FrT, tropical_and_fr$FrT)
+
+
+#getting some extra groups
+pheno1 = pheno[pheno$Phenotype != ",\"HI\"",]
+pheno1 = pheno1[pheno1$Phenotype != ",\"WI\"",]
+pheno1 = pheno1[pheno1$Phenotype != ",\"AI\"",]
+pheno1 = pheno1[pheno1$Phenotype != ",\"DI\"",]
+pheno1 = pheno1[pheno1$Phenotype != ",\"FM\"",]
+nf_and_tropic_ratio = merge(pheno1, SynNuc, by = 'Species')
+pheno2 = pheno[pheno$Phenotype != ",\"DI\"",]
+pheno2 = pheno2[pheno2$Phenotype != ",\"FM\"",]
+pheno2 = pheno2[pheno2$Phenotype != ",\"TROPIC\"",]
+pheno2 = pheno2[pheno2$Phenotype != ",\"NF\"",]
+pheno2 = pheno2[pheno2$Phenotype != ",\"AI\"",]
+hi_and_wintering_ratio = merge(pheno2, SynNuc, by = 'Species')
+#boxploting
+boxplot(nf_and_tropic_ratio$FrA, hi_and_wintering_ratio$FrA)
+boxplot(nf_and_tropic_ratio$FrG, hi_and_wintering_ratio$FrG)
+boxplot(nf_and_tropic_ratio$FrC, hi_and_wintering_ratio$FrC)
+boxplot(nf_and_tropic_ratio$FrT, hi_and_wintering_ratio$FrT)
+
+
+#looking at birds from lipid paper
+first_species = SynNuc[SynNuc$Species == 'Tachycineta_bicolor',]
+second_species = SynNuc[SynNuc$Species == 'Tachycineta_albilinea',]
+boxplot(first_species$FrA, second_species$FrA)
+boxplot(first_species$FrG, second_species$FrG)
+boxplot(first_species$FrC, second_species$FrC)
+boxplot(first_species$FrT, second_species$FrT)
