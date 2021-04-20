@@ -1,16 +1,18 @@
 rm(list=ls(all=TRUE))
 
-pdf('../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Mammals.R.01.pdf')
+pdf('../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Mammals.R.01.pdf', width = 70, height = 50)
+par(mfrow=c(2,2))
 
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegCytb.txt', header = TRUE) # OnlyFourFoldDegCytb
 MUT$TsTv = (MUT$T_C + MUT$C_T + MUT$G_A + MUT$A_G) / (MUT$T_A + MUT$A_T + MUT$G_C + MUT$C_G + MUT$G_T + MUT$T_G + MUT$C_A + MUT$A_C)
+MUT$TC_TATGTC = (MUT$T_C) / (MUT$T_A + MUT$T_G + MUT$T_C)
+summary(MUT$TC_TATGTC)
 summary(MUT$TsTv)
 MUT = MUT[MUT$TsTv < Inf,]
+MUT = MUT[!is.na(MUT$TC_TATGTC),]
 
 GT = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', sep = '\t', header = TRUE)
 GT$Species = gsub(' ','_',GT$Scientific_name)
-
-Temper = read.table('../../Body/1Raw/BodyParametersForAllClasses.txt', header = TRUE)
 
 MamGt = merge(GT,MUT, by = 'Species') # 426
 Qual = data.frame(table(MamGt$Species))
@@ -21,23 +23,26 @@ MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A) #  424
 ######## add the number of mutations per species
 Number = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt')
 Number = data.frame(Number$Species,Number$NumOfFourFoldMutInCytB); names(Number)=c('Species','NumOfFourFoldMutInCytB')
-Number = unique(Number) # 2118
-nrow(MamGt) # 424
+Number = unique(Number)
+nrow(MamGt)
 MamGt = merge(MamGt,Number, by ='Species')
-nrow(MamGt) # 424
+nrow(MamGt)
+
+summary(MamGt$NumOfFourFoldMutInCytB); # dev.off()
+hist(MamGt$NumOfFourFoldMutInCytB,breaks=100)
+MamGt = MamGt[MamGt$NumOfFourFoldMutInCytB >= 15,]
+hist(MamGt$NumOfFourFoldMutInCytB,breaks=100)
 
 ######## TC_TCGA and Generation length
-summary(MamGt$TC_TCGA) #  0.0000  0.1335  0.2007  0.2196  0.2815  1.0000 
-cor.test(MamGt$TC_TCGA,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.21, p = 8.441e-06 PAPER
+summary(MamGt$TC_TCGA) 
+cor.test(MamGt$TC_TCGA,MamGt$GenerationLength_d, method = 'spearman')
 
-######## TsTv and Generation length - significant
-nrow(MamGt)  # 424
-cor.test(MamGt$TsTv,MamGt$GenerationLength_d, method = 'spearman') # rho = 0.228, p = 2.021e-06
+######## TsTv and Generation length -
+nrow(MamGt) 
+cor.test(MamGt$TsTv,MamGt$GenerationLength_d, method = 'spearman')
 a <- lm(log2(MamGt$TsTv) ~ log2(MamGt$GenerationLength_d)); 
 summary(a)
-# (Intercept)                     0.97246    0.56084   1.734   0.0837 .  
-# log2(MamGt$GenerationLength_d)  0.23602    0.05361   4.402 1.36e-05 ***
-plot(log2(MamGt$GenerationLength_d),log2(MamGt$TsTv))
+plot(log2(MamGt$GenerationLength_d),log2(MamGt$TsTv))   ### PAPER
 abline(a, col = 'red', lwd = 2)
 
 #### Generation length ~ T>C + A>G
@@ -63,193 +68,152 @@ a<-lm(MamGt$GenerationLength_d ~ MamGt$A_T +  MamGt$A_G + MamGt$T_C + MamGt$G_T 
 a<-lm(MamGt$GenerationLength_d ~ MamGt$A_T +  MamGt$T_C + MamGt$G_T + MamGt$C_A); summary(a) # T>C is the most significant
 a<-lm(MamGt$GenerationLength_d ~ MamGt$A_T +  MamGt$T_C + MamGt$G_T); summary(a) # T>C is the most significant
 a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + scale(MamGt$G_T)); summary(a) # T>C is the most significant#
-# (Intercept)      10.39025    0.05584 186.064  < 2e-16 ***
-#  scale(MamGt$A_T) -0.18037    0.05603  -3.219  0.00138 ** 
-#  scale(MamGt$T_C)  0.26205    0.05734   4.570 6.42e-06 ***
-#  scale(MamGt$G_T) -0.18386    0.05723  -3.213  0.00142 ** 
 
-cor.test(MamGt$GenerationLength_d,MamGt$T_C, method = 'spearman') # positive, rho = 0.2536943, p = 1.188e-07
+cor.test(MamGt$GenerationLength_d,MamGt$T_C, method = 'spearman')
 a<-lm(MamGt$T_C ~ log2(MamGt$GenerationLength_d))
 summary(a)
-# (Intercept)                    -0.030871   0.036446  -0.847    0.397    
-# log2(MamGt$GenerationLength_d)  0.019082   0.003484   5.477 7.44e-08 ***
 plot(log2(MamGt$GenerationLength_d),MamGt$T_C)
 abline(a, col = 'red', lwd = 2)
 
 #### ADD NUMBER OF MUTATIONS USED TO ESTIMATE MUT SPEC
-summary(MamGt$NumOfFourFoldMutInCytB) # 5.00   33.75   58.50   84.34  117.50  403.00
+summary(MamGt$NumOfFourFoldMutInCytB)
 a<-lm(log2(MamGt$GenerationLength_d) ~ scale(MamGt$A_T) +  scale(MamGt$T_C) + scale(MamGt$G_T) + scale(MamGt$NumOfFourFoldMutInCytB)); summary(a)
 
 ### remove effect of ancestral nucleotide frequency (WORKS!!!!!)
 MamGt$T_C.NoEffectOfTFreq = MamGt$T_C / (MamGt$T_C + MamGt$T_A + MamGt$T_G); summary(MamGt$T_C.NoEffectOfTFreq)
 cor.test(MamGt$GenerationLength_d,MamGt$T_C.NoEffectOfTFreq, method = 'spearman') # positive and significant!!!! rho = 0.164, p = 0.0007114
 
+########### BOXPLOTS BY FAMILIES
+par(mar = c(10, 10, 10, 10))
+par(cex.lab=10) # is for y-axis
+par(cex.axis=10) # is for x-axis
+##### boxplots by quartiles
+boxplot(MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.25),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.25) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.5) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.75),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.75),]$TsTv,
+        names=c('1','2','3','4'), outline = FALSE, notch = TRUE)
 
-#### ALINA, PICS - MamGt dataset:
-#1)  MamGt$TsTv versus MamGt$GenerationLength_d
-#2)  MamGt$T_C versus MamGt$GenerationLength_d
+wilcox.test(
+        MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.25),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.25) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv)
+wilcox.test(
+        MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.25),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.5) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.75),]$TsTv)
+wilcox.test(
+        MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.25),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.75),]$TsTv)
+wilcox.test(
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.25) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.5) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.75),]$TsTv)
+wilcox.test(
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.25) & MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.75),]$TsTv)
+
+
+##### boxplots by median
+boxplot(MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv,
+        MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.5),]$TsTv,
+        names=c('short-lived','long-lived'), outline = FALSE, notch = TRUE, cex = 3)
+quantile(MamGt$GenerationLength_d,0.5) # 1497 days
+wilcox.test(MamGt[MamGt$GenerationLength_d<=quantile(MamGt$GenerationLength_d,0.5),]$TsTv,MamGt[MamGt$GenerationLength_d>quantile(MamGt$GenerationLength_d,0.5),]$TsTv) # 1.687e-06
+
+##### boxplots by families
+par(mfrow=c(1,1))
+### derive families 
+taxa = read.table("../../Body/1Raw/TaxaFromKostya.Names.stat", sep = "\t") 
+taxa = as.data.frame(taxa[grepl('Mammalia',taxa$V1),])
+names(taxa) = 'taxa'
+taxa$Species = gsub(";(.*)",'',taxa$taxa);
+taxa$Species = gsub(" ",'_',taxa$Species);
+taxa$Family = gsub(";Mammalia(.*)",'',taxa$taxa)
+taxa$Family = gsub("(.*);",'',taxa$Family)
+table(taxa$Family)
+### merge (perfect merge! no species without taxa)
+nrow(MamGt)
+MamGt = merge(MamGt,taxa,by='Species') #, all.x=TRUE)
+nrow(MamGt)
+for (i in 1:nrow(MamGt))   {  MamGt$FamilyShort[i] = paste(unlist(strsplit(MamGt$Family[i],''))[c(1:3)],collapse = '')  }
+
+FamFreq = data.frame(table(MamGt$Family));
+FrequentFamilies = FamFreq[FamFreq$Freq >= 3,]$Var1; length(FrequentFamilies) # 3!!!
+FamFreq = FamFreq[FamFreq$Var1 %in% FrequentFamilies,]
+names(FamFreq)=c('Family','NumberOfSpecies')
+
+Mammalia = MamGt[MamGt$Family %in% FrequentFamilies,]
+agg = aggregate(list(Mammalia$TsTv,Mammalia$GenerationLength_d), by = list(Mammalia$Family), FUN = median)
+names(agg) = c('Family','TsTv','GenerationLength_d')
+cor.test(agg$TsTv,agg$GenerationLength_d,method = 'spearman') ### 0.001649, Rho = 0.8545455 PAPER!!!
+plot(agg$GenerationLength_d,agg$TsTv)
+agg = merge(agg,FamFreq)
+agg = agg[order(agg$GenerationLength_d),]
+agg$TsTv = round(agg$TsTv,2)
+agg$GenerationLength_d = round(agg$GenerationLength_d,0)
+
+
+library(boxplotdbl) # install.packages('boxplotdbl')
+X = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$TsTv)
+Y = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$GenerationLength_d)
+par(mar = c(10, 10, 10, 10))
+boxplotdou(Y,X,ylim = c(0,50), xlim = c(0,8000), name.on.axis = FALSE, cex = 6, pch = 0, cex.lab = 5, cex.axis = 5, col = rainbow(11)) # name.on.axis = FALSE factor.labels = FALSE,  draw.legend = TRUE
+
+X = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$T_C)
+Y = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$GenerationLength_d)
+par(mar = c(10, 10, 10, 10))
+boxplotdou(Y,X, xlim = c(0,8000), name.on.axis = FALSE, cex = 6, pch = 0, cex.lab = 5, cex.axis = 5, col = rainbow(11)) # name.on.axis = FALSE factor.labels = FALSE,  draw.legend = TRUE
+
+X = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$TC_TCGA)
+Y = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$GenerationLength_d)
+par(mar = c(10, 10, 10, 10))
+boxplotdou(Y,X, xlim = c(0,8000), name.on.axis = FALSE, cex = 6, pch = 0, cex.lab = 5, cex.axis = 5, col = rainbow(11)) # name.on.axis = FALSE factor.labels = FALSE,  draw.legend = TRUE
+
+X = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$TC_TATGTC)
+Y = data.frame(as.factor(Mammalia$FamilyShort),Mammalia$GenerationLength_d)
+par(mar = c(10, 10, 10, 10))
+boxplotdou(Y,X, xlim = c(0,8000), name.on.axis = FALSE, cex = 6, pch = 0, cex.lab = 5, cex.axis = 5, col = rainbow(11)) # name.on.axis = FALSE factor.labels = FALSE,  draw.legend = TRUE
+
+# we can see that the strong increasing effect is starting from the animals with > 1000 days of generation length
+dev.off()
 
 ##########################################################################################
-#################### PICs
+#################### PICs, Alina+Kostya
 
 library(ape)
 library(geiger)
 library(caper)
 
+names(MamGt)
+summary(MamGt$GenerationLength_d)
 tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
-
 row.names(MamGt) = MamGt$Species
-
-tree_w = treedata(tree, MamGt[, c('Species', 'TsTv', 'T_C', 'GenerationLength_d')], 
-                  sort=T, warnings=T)$phy
-
-data<-as.data.frame(treedata(tree_w, MamGt[, c('Species', 'TsTv', 'T_C', 'GenerationLength_d')], 
-                             sort=T, warnings=T)$data)
-
-################# why only 227 species???
-
-# setdiff(MamGt$Species, data$Species)
-
+tree_w = treedata(tree, MamGt[, c('Species', 'TsTv', 'T_C', 'TC_TCGA', 'G_A','TC_TATGTC','GenerationLength_d','NumOfFourFoldMutInCytB')], 
+                sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_w, MamGt[, c('Species', 'TsTv', 'T_C', 'TC_TCGA','G_A','TC_TATGTC','GenerationLength_d','NumOfFourFoldMutInCytB')], 
+                 sort=T, warnings=T)$data)
+nrow(data)
 data$Species = as.character(data$Species)
-
 data$TsTv = as.numeric(as.character(data$TsTv))
 data$T_C = as.numeric(as.character(data$T_C))
+data$G_A = as.numeric(as.character(data$G_A))
+data$TC_TCGA = as.numeric(as.character(data$TC_TCGA))
+data$TC_TATGTC = as.numeric(as.character(data$TC_TATGTC))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
-
-cor.test(pic(data$TsTv, tree_w), pic(data$GenerationLength_d, tree_w), method = 'spearman')
-# cor 
-# 0.0756906 
-# p-value = 0.2571
-
-cor.test(pic(data$T_C, tree_w), pic(data$GenerationLength_d, tree_w), method = 'spearman')
-# rho 
-# -0.02597262 
-# p-value = 0.6978
-
+data$NumOfFourFoldMutInCytB = as.numeric(as.character(data$NumOfFourFoldMutInCytB))
 
 MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
-
-model1 = pgls(GenerationLength_d ~ TsTv, MutComp, lambda="ML")
-summary(model1)
-
-# lambda [ ML]  : 0.965
-# (Intercept) 2154.5743  1126.2118  1.9131   0.0570 .
-# TsTv           2.3081     2.9994  0.7695   0.4424  
-
-model2 = pgls(GenerationLength_d ~ T_C, MutComp, lambda="ML")
-summary(model2)
-
-# lambda [ ML]  : 0.966
-# (Intercept)  2260.16    1133.19  1.9945   0.0473 *
-#   T_C          -602.59     821.15 -0.7338   0.4638  
-
-
-# OLD 
-
-# data = MamGt[which(as.character(MamGt$Species) %in% tree$tip.label),]
-# 
-# df_vec <- as.character(MamGt$Species)
-# tree_vec <- tree$tip.label
-# 
-# a <- setdiff(df_vec, tree_vec)
-# b <- setdiff(tree_vec, df_vec)
-# 
-# row.names(data) = data$Species
-# 
-# tree2 <- drop.tip(tree, b)
-# 
-# TempData = data[, c('TsTv', 'GenerationLength_d', 'T_C')]
-# contrasts <- as.data.frame(apply(TempData, 2, pic, tree2))
-# names(contrasts) = names(TempData)
-
-cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.09273606, pvalue = 0.2811
-
-cor.test(MamGt$T_C, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.08338287, pvalue = 0.3327
-
-plot(contrasts$T_C, contrasts$GenerationLength_d)
-plot(MamGt$T_C, MamGt$GenerationLength_d)
-
-summary(contrasts)
-
-##### take into account number of mutations
-
-####### more than 20
-
-TempData20 = data[data$NumOfFourFoldMutInCytB > 20, ]
-
-df_vec <- as.character(TempData20$Species)
-tree_vec <- tree$tip.label
-
-a <- setdiff(df_vec, tree_vec)
-b <- setdiff(tree_vec, df_vec)
-
-row.names(data) = data$Species
-
-tree2 <- drop.tip(tree, b)
-
-TempData20 = TempData20[, c('TsTv', 'GenerationLength_d', 'T_C')]
-contrasts <- as.data.frame(apply(TempData20, 2, pic, tree2))
-names(contrasts) = names(TempData20)
-
-cor.test(MamGt$TsTv, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.06804767, pvalue = 0.4699
-
-cor.test(MamGt$T_C, MamGt$GenerationLength_d, method = 'spearman')
-cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.1806132, pvalue = 0.05341
-
-
-########## more than 30
-
-TempData30 = data[data$NumOfFourFoldMutInCytB > 30, ]
-
-df_vec <- as.character(TempData30$Species)
-tree_vec <- tree$tip.label
-
-a <- setdiff(df_vec, tree_vec)
-b <- setdiff(tree_vec, df_vec)
-
-tree2 <- drop.tip(tree, b)
-
-TempData30 = TempData30[, c('TsTv', 'GenerationLength_d', 'T_C')]
-contrasts <- as.data.frame(apply(TempData30, 2, pic, tree2))
-names(contrasts) = names(TempData20)
-
-cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.09088164, pvalue = 0.371
-
-cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.1670086, pvalue = 0.09849
-
-########## more than 60
-
-TempData60 = data[data$NumOfFourFoldMutInCytB > 60, ]
-
-df_vec <- as.character(TempData60$Species)
-tree_vec <- tree$tip.label
-
-a <- setdiff(df_vec, tree_vec)
-b <- setdiff(tree_vec, df_vec)
-
-tree2 <- drop.tip(tree, b)
-
-TempData60 = TempData60[, c('TsTv', 'GenerationLength_d', 'T_C')]
-contrasts <- as.data.frame(apply(TempData60, 2, pic, tree2))
-names(contrasts) = names(TempData20)
-
-cor.test(contrasts$TsTv, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.1502864, pvalue = 0.2437
-
-cor.test(contrasts$T_C, log(contrasts$GenerationLength_d), method = 'spearman')
-# rho = 0.1670086, pvalue = 0.2102
+summary(pgls(TsTv ~ log2(GenerationLength_d), MutComp, lambda="ML")) # 1A
+summary(pgls(TsTv ~ log2(GenerationLength_d) + log2(NumOfFourFoldMutInCytB), MutComp, lambda="ML")) # 1B
+summary(pgls(TsTv ~ 0 + log2(GenerationLength_d) + log2(NumOfFourFoldMutInCytB), MutComp, lambda="ML")) # 1C
+summary(pgls(T_C ~ log2(GenerationLength_d), MutComp, lambda="ML")) # 2A
+summary(pgls(T_C ~ 0 + log2(GenerationLength_d), MutComp, lambda="ML")) # 2B
+summary(pgls(T_C ~ 0 + log2(GenerationLength_d)  + log2(NumOfFourFoldMutInCytB), MutComp, lambda="ML")) # 2C
+summary(pgls(TC_TCGA ~ log2(GenerationLength_d), MutComp, lambda="ML")) # 3A
+summary(pgls(TC_TCGA ~ 0 + log2(GenerationLength_d), MutComp, lambda="ML")) # 3B
+summary(pgls(TC_TCGA ~ 0 + log2(GenerationLength_d) + log2(NumOfFourFoldMutInCytB), MutComp, lambda="ML")) # 3C
+summary(pgls(TC_TATGTC ~ log2(GenerationLength_d), MutComp, lambda="ML")) # 4A
+summary(pgls(TC_TATGTC ~ log2(GenerationLength_d) + log2(NumOfFourFoldMutInCytB), MutComp, lambda="ML")) # 4B
 
 ####################################################################################
-
 ##### Body Mass (N = 426)
 
 cor.test(MamGt$AdultBodyMass_g,MamGt$A_T, method = 'spearman')
@@ -272,60 +236,6 @@ a<-lm(log2(MamGt$AdultBodyMass_g) ~ MamGt$A_C + MamGt$T_C + MamGt$G_T + MamGt$C_
 a<-lm(log2(MamGt$AdultBodyMass_g) ~ MamGt$T_C + MamGt$G_T + MamGt$C_A); summary(a)   # T>C is the most significant
 a<-lm(log2(MamGt$AdultBodyMass_g) ~ MamGt$T_C + MamGt$C_A); summary(a)   # T>C is the most significant
 a<-lm(log2(MamGt$AdultBodyMass_g) ~ scale(MamGt$T_C) + scale(MamGt$C_A)); summary(a)   # T>C is the most significant
-
-
-#########
-#### MAMMALS: Body Temperature  (N = 84) - nothing
-#########
-
-table(Temper$Class)
-Temper = Temper[Temper$Class == 'Mammalia',]
-MamTemper = merge(Temper,MUT, by = 'Species') # 84 just
-
-cor.test(MamTemper$Temp,MamTemper$A_T, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$A_G, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$A_C, method = 'spearman') #  a bit negative
-cor.test(MamTemper$Temp,MamTemper$T_A, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$T_G, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$T_C, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$G_A, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$G_T, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$G_C, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$C_A, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$C_T, method = 'spearman')
-cor.test(MamTemper$Temp,MamTemper$C_G, method = 'spearman')
-
-
-#########
-#### MAMMALS: HIBERNATION  ~ NOTHING
-#########
-
-Hib = read.table('../../Body/1Raw/HibernatingMammals.txt', sep = '\t')
-names(Hib) = c('Species')
-Hib$Species = gsub(' ','_',Hib$Species)
-
-MamGt$G_A.NoEffectOfGFreq = MamGt$G_A / (MamGt$G_A + MamGt$G_T + MamGt$G_C); summary(MamGt$G_A.NoEffectOfGFreq)
-nrow(MamGt[MamGt$Species %in% Hib$Species,]) # N = 35
-MamGt = MamGt[MamGt$G_A.NoEffectOfGFreq < 1,]
-wilcox.test(MamGt[MamGt$Species %in% Hib$Species,]$G_A.NoEffectOfGFreq,MamGt[!MamGt$Species %in% Hib$Species,]$G_A.NoEffectOfGFreq, alternative = 'less')
-MamGtTemper = merge(MamGt,Temper) # 78
-a<-lm(MamGtTemper$G_A ~ MamGtTemper$GenerationLength_d*MamGtTemper$Temp); summary(a)
-
-#########
-#### MAMMALS: BMR from AN AGE
-#########
-
-AnAge = read.table('../../Body/1Raw/anage_data.txt', sep = '\t', header = TRUE)
-AnAge$Species = paste(AnAge$Genus,AnAge$Species,sep = '_')
-AnAgeMammals = AnAge[AnAge$Class == 'Mammalia',]
-AnAgeMammals = merge(MUT,AnAgeMammals)
-
-cor.test(AnAgeMammals$G_A,AnAgeMammals$Temperature..K., method = 'spearman')
-cor.test(AnAgeMammals$G_A,AnAgeMammals$Metabolic.rate..W., method = 'spearman') # a bit negative
-cor.test(AnAgeMammals$A_G,AnAgeMammals$Metabolic.rate..W., method = 'spearman') #
-cor.test(AnAgeMammals$T_C,AnAgeMammals$Metabolic.rate..W., method = 'spearman') # a bit positive
-cor.test(AnAgeMammals$G_A,AnAgeMammals$Body.mass..g., method = 'spearman') # a bit negative!
-
 
 #########
 #### MAMMALS: PRCOMP
