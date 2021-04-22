@@ -73,3 +73,22 @@ boxplot(first_species$FrA, second_species$FrA)
 boxplot(first_species$FrG, second_species$FrG)
 boxplot(first_species$FrC, second_species$FrC)
 boxplot(first_species$FrT, second_species$FrT)
+
+unique(pheno$Phenotype)
+#lots of drawing
+pheno_and_SynNuc = merge(SynNuc, pheno, by = 'Species')
+pdf("../../Body/3Results/birds boxplots.pdf")
+par(mfrow)=c(1,4) #didn't work
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrA,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrA, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrA, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrA')
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrG,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrG, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrG, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrG')
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrC,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrC, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrC, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrC')
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrT,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrT, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrT, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrT')
+dev.off()
