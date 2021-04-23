@@ -77,18 +77,153 @@ boxplot(first_species$FrT, second_species$FrT)
 unique(pheno$Phenotype)
 #lots of drawing
 pheno_and_SynNuc = merge(SynNuc, pheno, by = 'Species')
-pdf("../../Body/3Results/birds boxplots.pdf")
+pdf("../../Body/3Results/birds boxplots no notch.pdf")
 par(mfrow)=c(1,4) #didn't work
 boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrA,
         pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrA, 
-        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrA, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrA')
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrA, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrA')
 boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrG,
         pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrG, 
-        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrG, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrG')
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrG, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrG')
 boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrC,
         pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrC, 
-        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrC, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrC')
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrC, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrC')
 boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrT,
         pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrT, 
-        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrT, names=c('Trop','Wint','HiAlt', 'Long-Dist', 'No Flying', 'Divers', 'Cool Fliers'), ylab = 'FrT')
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrT, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrT')
 dev.off()
+
+
+
+
+
+pdf("../../Body/3Results/birds boxplots with notch.pdf")
+par(mfrow)=c(1,4) #didn't work
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrA,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrA, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrA, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrA, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrA',notch = TRUE, outline = FALSE)
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrG,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrG, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrG, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrG, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrG',notch = TRUE, outline = FALSE)
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrC,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrC, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrC, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrC, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrC',notch = TRUE, outline = FALSE)
+boxplot(pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"TROPIC\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"WI\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"HI\"",]$FrT,
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"FM\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"NF\"",]$FrT, pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"DI\"",]$FrT, 
+        pheno_and_SynNuc[pheno_and_SynNuc$Phenotype == ",\"AI\"",]$FrT, names=c('Trop94','Wint13','HiAlt18', 'LD64', 'NF20', 'DI10', 'AI45'), ylab = 'FrT',notch = TRUE, outline = FALSE)
+dev.off()
+
+
+#working with mutspec
+#transitions
+MutSpec = read.table("../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt", header = TRUE) 
+mutspec_and_pheno = merge(MutSpec, pheno, by = 'Species')
+pdf("../../Body/3Results/birds boxplots mutspec no notch correct.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->G')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->A')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->C')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->T')
+dev.off()
+
+pdf("../../Body/3Results/birds boxplots mutspec with notch correct.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->G', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->A', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->C', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->T', notch = TRUE, outline = FALSE)
+dev.off()
+
+#transvertions
+pdf("../../Body/3Results/birds boxplots mutspec transvertions no notch correct.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->T')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->C')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->C')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->T')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->G')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->A')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->A')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->G')
+dev.off()
+
+pdf("../../Body/3Results/birds boxplots mutspec transvertions with notch correct.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->T', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$A_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$A_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$A_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$A_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$A_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'A->C', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_C, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_C, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_C,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_C, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->C', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$G_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$G_T, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$G_T, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$G_T,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$G_T, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'G->T', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->G', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$T_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$T_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$T_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$T_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$T_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'T->A', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_A, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_A, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_A,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_A, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->A', notch = TRUE, outline = FALSE)
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$C_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$C_G, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$C_G, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$C_G,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->G', notch = TRUE, outline = FALSE)
+dev.off()
+
