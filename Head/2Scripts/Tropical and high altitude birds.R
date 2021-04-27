@@ -230,3 +230,5 @@ dev.off()
 #tables for Valya
 write.table(mutspec_and_pheno, file = "../../Body/3Results/Mutspec birds.csv", sep = ',', row.names = FALSE, quote = FALSE)
 write.table(pheno_and_SynNuc, file = "../../Body/3Results/Codon Usage birds.csv", sep = ',', row.names = FALSE, quote = FALSE)
+SybNuc_aves = SynNuc[SynNuc$Class == 'Aves',]
+write.table(SybNuc_aves, file = "../../Body/3Results/Codon Usage birds extra.csv", sep = ',', row.names = FALSE, quote = FALSE)
