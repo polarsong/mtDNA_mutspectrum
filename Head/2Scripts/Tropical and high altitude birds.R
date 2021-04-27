@@ -227,3 +227,6 @@ boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$C_G, mu
         mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$C_G, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'C->G', notch = TRUE, outline = FALSE)
 dev.off()
 
+#tables for Valya
+write.table(mutspec_and_pheno, file = "../../Body/3Results/Mutspec birds.csv", sep = ',', row.names = FALSE, quote = FALSE)
+write.table(pheno_and_SynNuc, file = "../../Body/3Results/Codon Usage birds.csv", sep = ',', row.names = FALSE, quote = FALSE)
