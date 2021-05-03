@@ -232,3 +232,36 @@ write.table(mutspec_and_pheno, file = "../../Body/3Results/Mutspec birds.csv", s
 write.table(pheno_and_SynNuc, file = "../../Body/3Results/Codon Usage birds.csv", sep = ',', row.names = FALSE, quote = FALSE)
 SybNuc_aves = SynNuc[SynNuc$Class == 'Aves',]
 write.table(SybNuc_aves, file = "../../Body/3Results/Codon Usage birds extra.csv", sep = ',', row.names = FALSE, quote = FALSE)
+
+sum(mutspec_and_pheno$A_G, mutspec_and_pheno$G_A, mutspec_and_pheno$T_C, mutspec_and_pheno$C_T)
+#transitions/transvertions
+mutspec_and_pheno$transition_summ = NA
+for (i in c(mutspec_and_pheno$Species))
+{
+ mutspec_and_pheno[mutspec_and_pheno$Species == i,]$transition_summ = sum(mutspec_and_pheno[mutspec_and_pheno$Species == i,]$A_G, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$G_A, 
+                                                                          mutspec_and_pheno[mutspec_and_pheno$Species == i,]$T_C, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$C_T)
+}
+mutspec_and_pheno$tranvertions_summ = NA
+for (i in c(mutspec_and_pheno$Species))
+{
+  mutspec_and_pheno[mutspec_and_pheno$Species == i,]$tranvertions_summ = sum(mutspec_and_pheno[mutspec_and_pheno$Species == i,]$A_T, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$A_C, 
+                                                                             mutspec_and_pheno[mutspec_and_pheno$Species == i,]$G_C, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$G_T,
+                                                                             mutspec_and_pheno[mutspec_and_pheno$Species == i,]$T_G, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$T_A, 
+                                                                             mutspec_and_pheno[mutspec_and_pheno$Species == i,]$C_A, mutspec_and_pheno[mutspec_and_pheno$Species == i,]$C_G)
+}
+mutspec_and_pheno$transitions_on_transverions = NA
+for (i in c(mutspec_and_pheno$Species))
+{
+  mutspec_and_pheno[mutspec_and_pheno$Species == i,]$transitions_on_transverions = mutspec_and_pheno[mutspec_and_pheno$Species == i,]$transition_summ/mutspec_and_pheno[mutspec_and_pheno$Species == i,]$tranvertions_summ
+}
+pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$transitions_on_transverions,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$transitions_on_transverions, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$transitions_on_transverions,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'transitions_on_transverions')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$transitions_on_transverions,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$transitions_on_transverions, 
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$transitions_on_transverions,
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'transitions_on_transverions', notch = TRUE, outline = FALSE)
+
+dev.off()
