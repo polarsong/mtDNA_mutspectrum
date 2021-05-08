@@ -254,19 +254,19 @@ for (i in c(mutspec_and_pheno$Species))
 {
   mutspec_and_pheno[mutspec_and_pheno$Species == i,]$transitions_on_transverions = mutspec_and_pheno[mutspec_and_pheno$Species == i,]$transition_summ/mutspec_and_pheno[mutspec_and_pheno$Species == i,]$tranvertions_summ
 }
-pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions.pdf")
+pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions extra for MCCMB.pdf")
 boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$transitions_on_transverions,
         mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$transitions_on_transverions, 
         mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$transitions_on_transverions,
-        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'transitions_on_transverions')
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'Transitions on transversions')
 boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"TROPIC\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"WI\"",]$transitions_on_transverions,
         mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"HI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"FM\"",]$transitions_on_transverions, 
         mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"NF\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"DI\"",]$transitions_on_transverions,
-        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'transitions_on_transverions', notch = TRUE, outline = FALSE)
+        mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, names=c('Trop14','Wint7','HiAlt3', 'LD10', 'NF1', 'DI1', 'AI5'), ylab = 'Transitions on transversions', notch = TRUE, outline = FALSE)
 dev.off()
 
 #AI against ALL
-pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions all against cool fliers.pdf")
-boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'transitions_on_transvertions')
-boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'transitions_on_transvertions', notch = TRUE, outline = FALSE)
+pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions all against cool fliers extra for MCCMB.pdf")
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'Transitions on transversions')
+boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'Transitions on transversions', notch = TRUE, outline = FALSE)
 dev.off()
