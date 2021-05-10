@@ -270,3 +270,6 @@ pdf("../../Body/3Results/birds boxplots mutspec transitions on transvertions all
 boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'Transitions on transversions')
 boxplot(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions, names = c('Outstanding flight abilities', 'All others'), ylab = 'Transitions on transversions', notch = TRUE, outline = FALSE)
 dev.off()
+
+
+wilcox.test(mutspec_and_pheno[mutspec_and_pheno$Phenotype == ",\"AI\"",]$transitions_on_transverions, mutspec_and_pheno[mutspec_and_pheno$Phenotype != ",\"AI\"",]$transitions_on_transverions)
