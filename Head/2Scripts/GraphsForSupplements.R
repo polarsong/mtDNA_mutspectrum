@@ -4,7 +4,7 @@ library(ggplot2)
 
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 
-TEMPE = read.table('../../mtDNA_mutspectrum/Body/1Raw/FishBaseTemperature.txt', header = TRUE)
+TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 class(TEMPE$Temperature)
 class(TEMPE$Species)
 TEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
@@ -47,26 +47,18 @@ Fishes = Fishes[Fishes$A_G.T_C < Inf,]
 Fishes = Fishes[Fishes$TsTv < Inf,]
 
 agg = aggregate(list(Fishes$TsTv,Fishes$A_G.T_C,Fishes$Temperature), by = list(Fishes$Family), FUN = median)
-
 names(agg) = c('Family','TsTv','A_G.T_C','Temperature')
+for (i in 1:nrow(agg))   {  agg$FamilyShort[i] = paste(unlist(strsplit(agg$Family[i],''))[c(1:3)],collapse = '')  }
 
-cor.test(agg$TsTv,agg$Temperature,method = 'spearman')
-a =cor.test(agg$A_G.T_C,agg$Temperature,method = 'spearman')
+cor.test(agg$A_G.T_C, agg$Temperature,method = 'spearman') ### positive and good p - value = 0.0227
 
-(a$estimate)^2
-ggplot(data = agg, aes(x = Temperature, y = A_G.T_C))+
+ggplot(data = agg, aes(x = Temperature, y = A_G.T_C, label = FamilyShort, color = Family))+
   geom_point()+
-  geom_smooth(method="lm", se=T, col = 'red')+
+  geom_smooth(method="lm", se=F, col = 'red')+
   theme_classic()+
-  labs(x = 'Mean annual water temperature, Â°C', y = 'A>G/T>C')
-
-ggplot(data = agg, aes(x = Temperature, y = TsTv))+
-  geom_point()+
-  geom_smooth(method="lm", se=T)+
-  theme_classic()+
-  labs(x = 'Mean annual water temperature, Â°C', y = 'TsTv')
-
-
+  labs(x = 'Median annual water temperature, °C', y = 'Median A>G/T>C')+
+  geom_text(aes(label=FamilyShort),hjust=-0.15, vjust=-0.5, show.legend = F)
+  
 
 #plots for Families
 ggplot(data = Fishes, aes(x = Temperature, y = A_G.T_C, group = FamilyShort, fill = FamilyShort))+
@@ -84,41 +76,37 @@ ggplot(data = Fishes, aes(x = Temperature, y = TsTv, group = FamilyShort, fill =
 
 
 ##### boxplots by quartiles
-boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$TsTv,
-        Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv,
-        Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$TsTv,
-        Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$TsTv,
-        names=c('1','2','3','4'), outline = FALSE, notch = TRUE, ylab = 'TsTv')
 
 boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
         Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
         Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C,
         Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C,
-        names=c('1','2','3','4'), outline = FALSE, notch = TRUE, ylab = 'A>G/T>C')
+        names=c('1','2','3','4'), outline = FALSE, notch = FALSE, ylab = 'A>G/T>C')
 
 
 
 wilcox.test(
-  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$TsTv,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv)
+  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C) # p -value 0.025
+
 wilcox.test(
-  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$TsTv,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$TsTv)
+  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.006
+
 wilcox.test(
-  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$TsTv,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$TsTv)
+  Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = almost 0.000
+
 wilcox.test(
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$TsTv)
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.93
+
 wilcox.test(
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$TsTv)
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.016
 
 
 ##### boxplots by median
-boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv,
-        Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$TsTv,
-        names=c('colder fishes','warmer fishes'), outline = FALSE, notch = TRUE, cex = 3, ylab = 'TsTv')
 
 boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
         Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$A_G.T_C,
@@ -127,8 +115,8 @@ boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
 
 quantile(Fishes$Temperature,0.5) # 15 days
 
-wilcox.test(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$TsTv,Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$TsTv) # p-value = 0,0755
-wilcox.test(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$A_G.T_C) # 1.687e-06
+wilcox.test(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
+            Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$A_G.T_C) # p-value = 0.00026
 
 
 ### reading whole genomes database
@@ -166,28 +154,45 @@ SynNuc$AC = SynNuc$FrA+SynNuc$FrC
 SynNuc$TG_ACSkew = (SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$TG_ACSkew)
 SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew)
 
-medmatur = median(SynNuc$Tm.x)
+medmatur = median(SynNuc$Tm)
 
 #### function to separate by Maturated
 mmm = function(x)
 {
-  if (x < medmatur){return(0)}
-  else{return(1)}
+  if (x < medmatur){return('Short Maturated')}
+  else{return('Long Maturated')}
 }
 
-SynNuc$Maturated = apply(as.matrix(SynNuc$Tm.x),1,mmm)
+SynNuc$Maturated = apply(as.matrix(SynNuc$Tm),1,mmm)
 
-ShortMaturated = SynNuc[SynNuc$Maturated == 0,]
+for ( i in 1:nrow(SynNuc)){
+  if (SynNuc$Temperature.x[i]<=median(SynNuc$Temperature.x)){SynNuc$Temp[i] = 'Colder Fishes'}
+  else {SynNuc$Temp[i] = 'Warmer Fishes'}
+}
 
-LongMaturated = SynNuc[SynNuc$Maturated == 1,]
+ggplot(data = SynNuc, aes(x = Temp, y = AC_TGSkew))+
+  geom_boxplot()+
+  facet_wrap(~Maturated)+
+  theme_test()+
+  labs(y = 'ACí-TGí skew')
+  
 
+wilcox.test(SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0057
 
-boxplot(ShortMaturated[ShortMaturated$Temperature.x<=quantile(ShortMaturated$Temperature.x,0.5),]$AC_TGSkew,
-        ShortMaturated[ShortMaturated$Temperature.x>quantile(ShortMaturated$Temperature.x,0.5),]$AC_TGSkew,
-        names=c('colder fishes','warmer fishes'), outline = FALSE, notch = TRUE, cex = 3, ylab = 'AC-TG skew', main = 'ShortMaturated')
+wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0039
 
-boxplot(LongMaturated[LongMaturated$Temperature.x<=quantile(LongMaturated$Temperature.x,0.5),]$AC_TGSkew,
-        LongMaturated[LongMaturated$Temperature.x>quantile(LongMaturated$Temperature.x,0.5),]$AC_TGSkew,
-        names=c('colder fishes','warmer fishes'), outline = FALSE, notch = TRUE, cex = 3, ylab = 'AC-TG skew', main = 'LongMaturated')
+wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated just cold p - value = 0.16 
+
+wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated just warm p - value = 0.4545
+
+wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.0003
+
+wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.04
 
 
