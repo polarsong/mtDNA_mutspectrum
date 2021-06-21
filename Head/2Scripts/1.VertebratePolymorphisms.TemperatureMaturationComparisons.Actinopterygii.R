@@ -164,7 +164,8 @@ allparameters=allparameters[order(allparameters$A_G),]
 
 
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
-summary(lm(formula = log2(TCdivAG) ~ scale(Temperature) + scale(Tm), data = allparameters))
+summary(lm(formula = log2(TCdivAG) ~ scale(Temperature), data = allparameters))
+
 samplesize = paste("N==", as.character(nrow(allparameters)), sep="")
 
 ##Figures
