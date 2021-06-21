@@ -118,10 +118,25 @@ cor.test(MATUTmmut$T_G,MATUTmmut$Tm, method = 'spearman')   #rho
 cor.test(MATUTmmut$T_C,MATUTmmut$Tm, method = 'spearman')   #rho       
 cor.test(MATUTmmut$G_A,MATUTmmut$Tm, method = 'spearman')   #rho   
 cor.test(MATUTmmut$G_T,MATUTmmut$Tm, method = 'spearman')   #rho   
+###SupplMat 1f
 cor.test(MATUTmmut$G_C,MATUTmmut$Tm, method = 'spearman')   #rho  -0.2219755     p-value = 0.0222
 cor.test(MATUTmmut$C_A,MATUTmmut$Tm, method = 'spearman')   #rho     
 cor.test(MATUTmmut$C_T,MATUTmmut$Tm, method = 'spearman')   #rho    
 cor.test(MATUTmmut$C_G,MATUTmmut$Tm, method = 'spearman')   #rho   
+
+########Supplementary table 2
+allatall=merge(MUT, TEMPE, all = TRUE)
+allatall=merge(allatall, MATUTM, all = TRUE)
+allatall=allatall[!is.na(allatall$Temperature) | !is.na(allatall$Tm),]
+allatall=allatall[!is.na(allatall$A_G) & !is.na(allatall$A_T),]
+
+allatall1=allatall[allatall$A_G != 0,]
+allatall1=allatall1[allatall1$T_C != 0,]
+allatall1$AGdivTC=allatall1$T_C/allatall1$A_G
+allatall=merge(allatall, allatall1, all = TRUE)
+allatall=allatall[order(allatall$AGdivTC),]
+write.table(allatall, file = "../../Body/2Derived/Supplementary_table_2.txt", row.names = FALSE)
+
 
 
 #####################################################
@@ -146,9 +161,6 @@ allparameters$TCdivAG=allparameters$T_C/allparameters$A_G
 ###SupplMat 1a
 cor.test(allparameters$TCdivAG,allparameters$Temperature, method = 'spearman')  
 
-#allparameters=allparameters[order(allparameters$A_G),]
-#write.csv(allparameters, file = "../../Body/2Derived/128speciesoffishes.csv")
-#write.csv(allparameters, file = "../../Body/2Derived/123speciesoffishes.csv")
 
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature), data = allparameters))
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
@@ -159,10 +171,8 @@ allparameters=allparameters[allparameters$A_G != 0,]
 allparameters=allparameters[allparameters$T_C != 0,]
 allparameters$TCdivAG=allparameters$T_C/allparameters$A_G
 allparameters=allparameters[order(allparameters$A_G),]
-#write.csv(allparameters, file = "../../Body/2Derived/65speciesoffishes.csv")
-#write.csv(allparameters, file = "../../Body/2Derived/62speciesoffishes.csv")
 
-
+###SupplMat 1e
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature), data = allparameters))
 
