@@ -2,7 +2,7 @@ rm(list=ls(all=TRUE))
 
 if (!require(caper)) install.packages("caper")
 if (!require(geiger)) install.packages("geiger")
-if (!require(geiger)) install.packages("ggpubr")
+if (!require(ggpubr)) install.packages("ggpubr")
 library(caper)
 library(geiger)
 library("ggpubr")
@@ -19,11 +19,13 @@ TEMPE = aggregate(Temperature ~ ., median, data = TEMPE)
 TemperMut = merge(MUT, TEMPE) 
 
 #####correlation of mutspec with temperature in fishes
-cor.test(TemperMut$A_T,TemperMut$Temperature, method = 'spearman')   #rho  
+cor.test(TemperMut$A_T,TemperMut$Temperature, method = 'spearman')   #rho
+###SupplMat 1a
 cor.test(TemperMut$A_G,TemperMut$Temperature, method = 'spearman')   #rho     -0.3581037 p-value = 3.321e-05
 cor.test(TemperMut$A_C,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$T_A,TemperMut$Temperature, method = 'spearman')   #rho   
-cor.test(TemperMut$T_G,TemperMut$Temperature, method = 'spearman')   #rho   
+cor.test(TemperMut$T_G,TemperMut$Temperature, method = 'spearman')   #rho  
+###SupplMat 1a
 cor.test(TemperMut$T_C,TemperMut$Temperature, method = 'spearman')   #rho     0.2648037 p-value = 0.002522
 cor.test(TemperMut$G_A,TemperMut$Temperature, method = 'spearman')   #rho   
 cor.test(TemperMut$G_T,TemperMut$Temperature, method = 'spearman')   #rho  
@@ -121,69 +123,46 @@ cor.test(MATUTmmut$C_A,MATUTmmut$Tm, method = 'spearman')   #rho
 cor.test(MATUTmmut$C_T,MATUTmmut$Tm, method = 'spearman')   #rho    
 cor.test(MATUTmmut$C_G,MATUTmmut$Tm, method = 'spearman')   #rho   
 
-##########Obtaining median oxygen consumption
 
-MetabolicData = read.csv("../../Body/2Derived/FishBaseMetabolicData.csv", sep = ";")
-MetabolicData$OxyCon.mg.kg.h.= gsub(",", ".", MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= gsub(",", ".", MetabolicData$OnyCon.at20C.)
-str(MetabolicData)
-MetabolicData$OxyCon.mg.kg.h.= as.numeric(MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= as.numeric(MetabolicData$OnyCon.at20C.)
-str(MetabolicData)
-length(unique(MetabolicData$Spece)) #206
-table(MetabolicData$Applied_stress)
-table(MetabolicData$Activity)
-
-
-HypoxicFishes = MetabolicData[MetabolicData$Applied_stress == "hypoxia",]
-summary(HypoxicFishes)
-OxConAgg = aggregate(HypoxicFishes$OxyCon.mg.kg.h., by=list(HypoxicFishes$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
-TempMerge = merge(OxConAgg, MUT)
-nrow(TempMerge)
-plot(TempMerge$OxCon, TempMerge$T_C)
-abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))
-NonHypoxicFishes = MetabolicData[MetabolicData$Applied_stress != "hypoxia",]
-summary(NonHypoxicFishes)
-
-
-MetDataRoutine = MetabolicData[MetabolicData$Activity == "routine",]
-OxConAgg = aggregate(MetDataRoutine$OxyCon.mg.kg.h., by=list(MetDataRoutine$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
-TempMerge = merge(OxConAgg, MUT)
-nrow(TempMerge)
-plot(TempMerge$OxCon, TempMerge$T_C)
-abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))
-
-
-############Multiple models
+#####################################################
+############Multiple models##########################
 allparameters=TemperMut #128 species
-
+###SupplMat 1b
 summary(lm(formula = Temperature ~ scale(T_C) + scale(A_G), data = allparameters))
-
+###SupplMat 1d
 allparameters=merge(TemperMut, MATUTM)#65 species
-
-summary(lm(formula = Temperature ~ scale(T_C) + scale(A_G), data = allparameters))
-
+summary(lm(formula = T_C ~ scale(Temperature) * scale(Tm), data = allparameters))
 summary(lm(formula = T_C ~ scale(Temperature) + scale(Tm), data = allparameters))
-
-summary(lm(formula = A_G ~ scale(Temperature) + scale(Tm), data = allparameters))
-
 summary(lm(formula = T_C ~ scale(Temperature), data = allparameters))
-
+summary(lm(formula = A_G ~ scale(Temperature) + scale(Tm), data = allparameters))
 summary(lm(formula = A_G ~ scale(Temperature), data = allparameters))
 
 
-### TC divided by AG rank corr and log2 models
+### TC / AG rank corr and log2 models
 allparameters=TemperMut #128 species
 allparameters=allparameters[allparameters$A_G != 0,]
 allparameters=allparameters[allparameters$T_C != 0,]
 allparameters$TCdivAG=allparameters$T_C/allparameters$A_G
-#cor.test(allparameters$TCdivAG,allparameters$Temperature, method = 'spearman')  
+###SupplMat 1a
+cor.test(allparameters$TCdivAG,allparameters$Temperature, method = 'spearman')  
+
+#allparameters=allparameters[order(allparameters$A_G),]
+#write.csv(allparameters, file = "../../Body/2Derived/128speciesoffishes.csv")
+#write.csv(allparameters, file = "../../Body/2Derived/123speciesoffishes.csv")
 
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature), data = allparameters))
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
 
 allparameters=merge(TemperMut, MATUTM)#65 species
+
 allparameters=allparameters[allparameters$A_G != 0,]
 allparameters=allparameters[allparameters$T_C != 0,]
 allparameters$TCdivAG=allparameters$T_C/allparameters$A_G
+allparameters=allparameters[order(allparameters$A_G),]
+#write.csv(allparameters, file = "../../Body/2Derived/65speciesoffishes.csv")
+#write.csv(allparameters, file = "../../Body/2Derived/62speciesoffishes.csv")
+
+
 summary(lm(formula = Temperature ~ scale(TCdivAG), data = allparameters))
 summary(lm(formula = log2(TCdivAG) ~ scale(Temperature) + scale(Tm), data = allparameters))
 samplesize = paste("N==", as.character(nrow(allparameters)), sep="")
@@ -200,6 +179,13 @@ ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
   label.x = 3
 )
 #dev.off()
+
+
+
+
+
+
+
 
 
 
@@ -289,6 +275,21 @@ summary(lm(pic(data$TCdivAG, tree_pruned) ~ pic(data$Temperature, tree_pruned) +
 # pic(data$Tm, tree_pruned)           0.110200   0.127524   0.864    0.392
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #################################metabolic rate approximation
 allparameters = merge (TemperMut, MATUTM)
 allparameters$MR=(allparameters$Tm+1)^0.75
@@ -342,3 +343,37 @@ FISHsystematix = FISHsystematix[order(FISHsystematix$A_G),]
 table(FISHsystematix$Class)
 write.csv(FISHsystematix, file = '../../Body/3Results/VertebratePolymorphisms.AllActinopterygiiSystematix.csv', quote = FALSE)
 
+
+install.packages("xlsx")
+library("xlsx")
+
+
+##########Obtaining median oxygen consumption
+
+MetabolicData = read.csv("../../Body/2Derived/FishBaseMetabolicData.csv", sep = ";")
+MetabolicData$OxyCon.mg.kg.h.= gsub(",", ".", MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= gsub(",", ".", MetabolicData$OnyCon.at20C.)
+str(MetabolicData)
+MetabolicData$OxyCon.mg.kg.h.= as.numeric(MetabolicData$OxyCon.mg.kg.h.); MetabolicData$OnyCon.at20C.= as.numeric(MetabolicData$OnyCon.at20C.)
+str(MetabolicData)
+length(unique(MetabolicData$Spece)) #206
+table(MetabolicData$Applied_stress)
+table(MetabolicData$Activity)
+
+
+HypoxicFishes = MetabolicData[MetabolicData$Applied_stress == "hypoxia",]
+summary(HypoxicFishes)
+OxConAgg = aggregate(HypoxicFishes$OxyCon.mg.kg.h., by=list(HypoxicFishes$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
+TempMerge = merge(OxConAgg, MUT)
+nrow(TempMerge)
+plot(TempMerge$OxCon, TempMerge$T_C)
+abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))
+NonHypoxicFishes = MetabolicData[MetabolicData$Applied_stress != "hypoxia",]
+summary(NonHypoxicFishes)
+
+
+MetDataRoutine = MetabolicData[MetabolicData$Activity == "routine",]
+OxConAgg = aggregate(MetDataRoutine$OxyCon.mg.kg.h., by=list(MetDataRoutine$Spece), FUN=median); names(OxConAgg) <- c("Species", "OxCon")
+TempMerge = merge(OxConAgg, MUT)
+nrow(TempMerge)
+plot(TempMerge$OxCon, TempMerge$T_C)
+abline(lm(formula = TempMerge$T_C ~ TempMerge$OxCon))

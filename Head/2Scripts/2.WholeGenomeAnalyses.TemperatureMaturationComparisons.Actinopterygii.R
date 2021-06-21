@@ -13,7 +13,7 @@ if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.re
 
 SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
 
-####### obtaining neutral nucleotide fractions
+####### obtaining neutral nucleotide fractions in whole genomes
 SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species), FUN = sum)
 names(SynNuc) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
 SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
@@ -24,21 +24,22 @@ SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 ### merge whole genomes with temperature
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperature)
-SynNuc = merge(TEMPE,SynNuc, by = 'Species', all = TRUE); summary(SynNuc$Temperature)
+SynNuc = merge(TEMPE,SynNuc, by = 'Species'); summary(SynNuc$Temperature)
 
 ###### merge whole genomes and temperature with time of maturation
 MATUTM = read.table('../../Body/1Raw/FishBaseMaturity_Tm.txt',  header = TRUE)
 MATUTM = aggregate(Tm ~ ., median, data = MATUTM) 
-SynNuc = merge(MATUTM,SynNuc, by = 'Species', all = TRUE); nrow(SynNuc)
+SynNuc = merge(SynNuc, MATUTM, by = 'Species'); nrow(SynNuc)
 
 SynNuc$CtoTSkew = (SynNuc$FrC-SynNuc$FrT)/(SynNuc$FrC+SynNuc$FrT); summary(SynNuc$CtoTSkew) 
 SynNuc$GtoASkew = (SynNuc$FrG-SynNuc$FrA)/(SynNuc$FrG+SynNuc$FrA); summary(SynNuc$GtoASkew)
 SynNuc$AtoGSkew = (SynNuc$FrA-SynNuc$FrG)/(SynNuc$FrA+SynNuc$FrG); summary(SynNuc$AtoGSkew)
 SynNuc$TtoCSkew = (SynNuc$FrT-SynNuc$FrC)/(SynNuc$FrT+SynNuc$FrC); summary(SynNuc$TtoCSkew)
+
 SynNuc$TG = SynNuc$FrT+SynNuc$FrG
 SynNuc$AC = SynNuc$FrA+SynNuc$FrC
 SynNuc$TG_ACSkew = (SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$TG_ACSkew)
-SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew)
+SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew) #OUR
 
 
 
@@ -57,6 +58,16 @@ summary(lm(TG_ACSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
+
+
+
+
+
+
+
+
+
+
 
 
 ###################################################### phylogenetic inertia analysis
@@ -113,6 +124,22 @@ summary(model4)
 
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ######### plotting scatter with temperature and two groups
