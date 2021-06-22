@@ -57,7 +57,7 @@ ggplot(data = agg, aes(x = Temperature, y = A_G.T_C, label = FamilyShort, color 
   geom_point()+
   geom_smooth(method="lm", se=F, col = 'red')+
   theme_classic()+
-  labs(x = 'Median annual water temperature, �C', y = 'Median A>G/T>C')+
+  labs(x = 'Median annual water temperature, °C', y = 'Median A>G/T>C')+
   geom_text(aes(label=FamilyShort),hjust=-0.15, vjust=-0.5, show.legend = F)
   
 
@@ -65,14 +65,14 @@ ggplot(data = agg, aes(x = Temperature, y = A_G.T_C, label = FamilyShort, color 
 ggplot(data = Fishes, aes(x = Temperature, y = A_G.T_C, group = FamilyShort, fill = FamilyShort))+
   geom_boxplot(alpha=0.3)+
   theme_classic()+
-  labs(x = 'Temperature, °C', y = 'A>G/T>C')
+  labs(x = 'Temperature, Â°C', y = 'A>G/T>C')
   
 
 ggplot(data = Fishes, aes(x = Temperature, y = TsTv, group = FamilyShort, fill = FamilyShort))+
   geom_boxplot(alpha=0.3)+
   theme(legend.position="none")+
   theme_classic()+
-  labs(x = 'Temperature, °C', y = 'TsTv')
+  labs(x = 'Temperature, Â°C', y = 'TsTv')
 
 
 
@@ -175,7 +175,7 @@ ggplot(data = SynNuc, aes(x = Temp, y = AC_TGSkew))+
   geom_boxplot()+
   facet_wrap(~Maturated)+
   theme_test()+
-  labs(y = 'AC�-TG� skew')
+  labs(y = 'ACí-TGí skew')
   
 
 wilcox.test(SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
@@ -195,6 +195,60 @@ wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder
 
 wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.04
+
+#### reading df for drawing mammals plots
+
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
+
+kuptsovtable = read.table("../../Body/2Derived/EcologyMammalianTable01_KuptsovA_ver2_Full.txt", sep='\t', header=TRUE)
+
+SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
+SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species), FUN = sum)
+names(SynNuc) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
+SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+
+kuptsovtable$FrT= NULL
+allparameters = merge(kuptsovtable, SynNuc, by="Species")
+allparameters$Temper = as.numeric(gsub(",", ".", allparameters$Temperature.C._White2003.2006.other.close.species))
+allparameters$GenerationLength_d = as.numeric(gsub(",", ".", allparameters$GenerationLength_d))
+allparameters$TG = allparameters$FrT+allparameters$FrG
+allparameters$AC = allparameters$FrA+allparameters$FrC
+allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
+allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
+
+allparameters$MarsMono = allparameters$Mars + allparameters$Mono
+table(allparameters$MarsMono)
+
+formediantemperature = allparameters[!is.na(allparameters$Temper),]$Temper
+coldspeciesnames = allparameters[allparameters$Temper <= mean(formediantemperature) & !is.na(allparameters$Temper),]$Species
+allparameters$colddummy = 0
+allparameters[allparameters$Species %in% coldspeciesnames,]$colddummy = 1
+
+allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Daily.unconfirmedDaily + allparameters$MarsMono + allparameters$colddummy
+table(allparameters$allcolddummy)
+allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
+
+for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Colder mammals'} else {allparameters$allcolddummy[i] = 'Warmer mammals'}}
+
+medGL = median(allparameters$GenerationLength_d)
+allparameters$GLgroups = "Long-lived mammals"
+allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "Short-lived mammals"
+
+
+#pdf('../../Body/4Figures/Supplements_Fig4.pdf')
+
+ggplot(data = allparameters, aes(x = allcolddummy, y = TG_ACSkew))+
+  geom_boxplot()+
+  facet_wrap(~GLgroups)+
+  theme_test()+
+  labs(x = '',y = 'ACн-TGн skew')
+
+#dev.off()
 
 
 
