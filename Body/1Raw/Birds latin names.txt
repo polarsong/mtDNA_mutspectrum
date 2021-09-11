@@ -1,0 +1,3821 @@
+
+1. Corvus frugilegus mitochondrion, complete genome
+16,931 bp circular DNA 
+NC_002069.2 GI:294489414
+
+2. Laterallus spilonota voucher CAS:ORN:274 mitochondrion, complete genome
+17,045 bp circular DNA 
+NC_056095.1 GI:2055401748
+
+3. Halcyon pileata mitochondrion, complete genome
+17,612 bp circular DNA 
+NC_024198.1 GI:642277293
+
+4. Aptenodytes forsteri mitochondrion, complete genome
+17,301 bp circular DNA 
+NC_027938.1 GI:937407893
+
+5. Dicrurus macrocercus mitochondrion, complete genome
+17,056 bp circular DNA 
+NC_056389.1 GI:2055417902
+
+6. Tringa stagnatilis mitochondrion, complete genome
+16,799 bp circular DNA 
+NC_056273.1 GI:2055412296
+
+7. Pluvialis squatarola mitochondrion, complete genome
+16,860 bp circular DNA 
+NC_056257.1 GI:2055411788
+
+8. Jynx torquilla mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_056091.1 GI:2055401545
+
+9. Phasianus colchicus mitochondrion, complete genome
+16,692 bp circular DNA 
+NC_015526.1 GI:333236109
+
+10. Pseudopodoces humilis mitochondrion, complete genome
+16,809 bp circular DNA 
+NC_014341.1 GI:301353259
+
+11. Columba livia mitochondrion, complete genome
+17,229 bp circular DNA 
+NC_013978.1 GI:291612274
+
+12. Cygnus atratus mitochondrion, complete genome
+16,748 bp circular DNA 
+NC_012843.1 GI:240266654
+
+13. Anas platyrhynchos mitochondrion, complete genome
+16,604 bp circular DNA 
+NC_009684.1 GI:154125702
+
+14. Nipponia nippon mitochondrion, complete genome
+16,732 bp circular DNA 
+NC_008132.1 GI:108793406
+
+15. Taeniopygia guttata mitochondrion, complete genome
+16,853 bp circular DNA 
+NC_007897.1 GI:89274114
+
+16. Gavia stellata mitochondrion, complete genome
+17,573 bp circular DNA 
+NC_007007.1 GI:66276072
+
+17. Coturnix japonica mitochondrion, complete genome
+16,697 bp circular DNA 
+NC_003408.1 GI:18767647
+
+18. Struthio camelus mitochondrion, complete genome
+16,595 bp circular DNA 
+NC_002785.1 GI:14141905
+
+19. Dromaius novaehollandiae mitochondrion, complete genome
+16,711 bp circular DNA 
+NC_002784.1 GI:14141877
+
+20. Falco peregrinus mitochondrion, complete genome
+18,068 bp circular DNA 
+NC_000878.1 GI:5835946
+
+21. Falco naumanni isolate bFalNau1 mitochondrion, complete sequence
+17,652 bp circular DNA 
+NC_054728.1 GI:2035912794
+
+22. Psephotellus pulcherrimus mitochondrion, complete genome
+17,130 bp circular DNA 
+NC_031358.1 GI:1079485719
+
+23. Prunella rubeculoides mitochondrion, complete genome
+16,796 bp circular DNA 
+NC_054361.1 GI:2026161066
+
+24. Zoothera aurea mitochondrion, complete genome
+16,712 bp circular DNA 
+NC_054298.1 GI:2026157158
+
+25. Eudyptes chrysolophus mitochondrion, complete genome
+17,059 bp circular DNA 
+NC_054275.1 GI:2026155898
+
+26. Aerodramus fuciphagus mitochondrion, complete genome
+16,921 bp circular DNA 
+NC_054244.1 GI:2026154804
+
+27. Nesotrochis steganinos voucher UF431763 mitochondrion, complete genome
+15,576 bp circular DNA 
+NC_054210.1 GI:2026152881
+
+28. Psittacula cyanocephala mitochondrion, complete genome
+16,814 bp circular DNA 
+NC_054153.1 GI:2026149348
+
+29. Phoenicurus frontalis mitochondrion, complete genome
+16,776 bp circular DNA 
+NC_053917.1 GI:2018130639
+
+30. Anhinga melanogaster mitochondrion, complete genome
+17,561 bp circular DNA 
+NC_053867.1 GI:2018127586
+
+31. Porzana pusilla mitochondrion, complete genome
+16,966 bp circular DNA 
+NC_053843.1 GI:2018126190
+
+32. Certhia himalayana mitochondrion, complete genome
+16,852 bp circular DNA 
+NC_053710.1 GI:2018119405
+
+33. Rhodinocichla rosea mitochondrion, complete genome
+16,765 bp circular DNA 
+NC_053645.1 GI:2017999313
+
+34. Gallus gallus isolate bGalGal1 mitochondrion, complete sequence, whole genome shotgun sequence
+16,784 bp circular DNA 
+NC_053523.1 GI:2017807015
+
+35. Lepidothrix coronata mitochondrion, complete genome
+17,187 bp circular DNA 
+NC_053111.1 GI:1998563924
+
+36. Zonotrichia albicollis mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_053110.1 GI:1998563910
+
+37. Chloropsis hardwickii mitochondrion, complete genome
+16,813 bp circular DNA 
+NC_053109.1 GI:1998563896
+
+38. Pteruthius melanotis mitochondrion, complete genome
+16,862 bp circular DNA 
+NC_053108.1 GI:1998563882
+
+39. Sapayoa aenigma mitochondrion, complete genome
+16,945 bp circular DNA 
+NC_053107.1 GI:1998563868
+
+40. Panurus biarmicus mitochondrion, complete genome
+17,009 bp circular DNA 
+NC_053106.1 GI:1998563854
+
+41. Drymodes brunneopygia mitochondrion, complete genome
+16,851 bp circular DNA 
+NC_053105.1 GI:1998563840
+
+42. Falcunculus frontatus mitochondrion, complete genome
+16,604 bp circular DNA 
+NC_053104.1 GI:1998563826
+
+43. Horornis vulcanius mitochondrion, complete genome
+16,990 bp circular DNA 
+NC_053103.1 GI:1998563812
+
+44. Atrichornis clamosus mitochondrion, complete genome
+17,284 bp circular DNA 
+NC_053102.1 GI:1998563798
+
+45. Climacteris rufus mitochondrion, complete genome
+16,866 bp circular DNA 
+NC_053101.1 GI:1998563784
+
+46. Origma solitaria mitochondrion, complete genome
+16,846 bp circular DNA 
+NC_053100.1 GI:1998563770
+
+47. Pardalotus punctatus mitochondrion, complete genome
+16,919 bp circular DNA 
+NC_053099.1 GI:1998563756
+
+48. Grantiella picta mitochondrion, complete genome
+16,831 bp circular DNA 
+NC_053098.1 GI:1998563742
+
+49. Dasyornis broadbenti mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_053097.1 GI:1998563728
+
+50. Daphoenositta chrysoptera mitochondrion, complete genome
+16,915 bp circular DNA 
+NC_053096.1 GI:1998563714
+
+51. Erythrogenys gravivox dedekensi mitochondrion, complete genome
+16,996 bp circular DNA 
+NC_050259.1 GI:1904804400
+
+52. Centropus bengalensis mitochondrion, complete genome
+17,117 bp circular DNA 
+NC_050049.1 GI:1883997537
+
+53. Columba hodgsonii mitochondrion, complete genome
+17,477 bp circular DNA 
+NC_048989.1 GI:1863125866
+
+54. Hirundo tahitica voucher LSU B-61614 mitochondrion, complete genome
+18,038 bp circular DNA 
+NC_048497.1 GI:1847692293
+
+55. Calidris pugnax mitochondrion, complete genome
+16,902 bp circular DNA 
+NC_046877.1 GI:1829774965
+
+56. Limosa lapponica mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_046765.1 GI:1829767340
+
+57. Calidris tenuirostris mitochondrion, complete genome
+16,732 bp circular DNA 
+NC_046764.1 GI:1829767326
+
+58. Corvus dauuricus mitochondrion, complete genome
+16,921 bp circular DNA 
+NC_046029.1 GI:1819289682
+
+59. Aethia cristatella voucher IN4608 mitochondrion, complete genome
+16,848 bp circular DNA 
+NC_045517.1 GI:1796333162
+
+60. Fulvetta ruficapilla mitochondrion, complete genome
+16,941 bp circular DNA 
+NC_045401.1 GI:1783499052
+
+61. Siva cyanouroptera mitochondrion, complete genome
+17,862 bp circular DNA 
+NC_045387.1 GI:1783497862
+
+62. Corvus pectoralis mitochondrion, complete genome
+16,857 bp circular DNA 
+NC_045381.1 GI:1783497558
+
+63. Aptenodytes patagonicus mitochondrion, complete genome
+17,477 bp circular DNA 
+NC_045377.1 GI:1783497429
+
+64. Dendrocitta formosae mitochondrion, complete genome
+16,875 bp circular DNA 
+NC_045376.1 GI:1783497415
+
+65. Muscicapa latirostris mitochondrion, complete genome
+18,026 bp circular DNA 
+NC_045375.1 GI:1783497401
+
+66. Muscicapa sibirica mitochondrion, complete genome
+17,879 bp circular DNA 
+NC_045374.1 GI:1783497387
+
+67. Mareca strepera mitochondrion, complete genome
+16,600 bp circular DNA 
+NC_045373.1 GI:1783497373
+
+68. Picus canus mitochondrion, complete genome
+17,103 bp circular DNA 
+NC_045372.1 GI:1783497359
+
+69. Aratinga nenday mitochondrion, complete genome
+16,983 bp circular DNA 
+NC_045371.1 GI:1783497345
+
+70. Rupicola peruvianus mitochondrion, complete genome
+17,035 bp circular DNA 
+NC_045370.1 GI:1783497331
+
+71. Agapornis lilianae mitochondrion, complete genome
+16,720 bp circular DNA 
+NC_045369.1 GI:1783497317
+
+72. Agapornis pullarius mitochondrion, complete genome
+16,722 bp circular DNA 
+NC_045368.1 GI:1783497303
+
+73. Agapornis nigrigenis mitochondrion, complete genome
+16,718 bp circular DNA 
+NC_045367.1 GI:1783497289
+
+74. Saltator similis voucher UFMG<BRA>:DZ7289 mitochondrion, complete genome
+16,750 bp circular DNA 
+NC_045366.1 GI:1783497275
+
+75. Accipiter trivirgatus mitochondrion, complete genome
+18,454 bp circular DNA 
+NC_045364.1 GI:1783497247
+
+76. Sterna paradisaea mitochondrion, complete genome
+16,708 bp circular DNA 
+NC_045282.1 GI:1783490774
+
+77. Muscicapa griseisticta mitochondrion, complete genome
+17,897 bp circular DNA 
+NC_045181.1 GI:1778127440
+
+78. Aquila nipalensis mitochondrion, complete genome
+18,450 bp circular DNA 
+NC_045042.1 GI:1770689647
+
+79. Polyplectron malacense mitochondrion, complete genome
+16,691 bp circular DNA 
+NC_044743.1 GI:1747255339
+
+80. Tringa nebularia mitochondrion, complete genome
+16,682 bp circular DNA 
+NC_044651.1 GI:1747250989
+
+81. Tringa totanus mitochondrion, complete genome
+16,818 bp circular DNA 
+NC_044648.1 GI:1747250947
+
+82. Pionites leucogaster isolate HSZ-PL-01 mitochondrion, complete genome
+18,858 bp circular DNA 
+NC_044184.1 GI:1714607516
+
+83. Poicephalus senegalus mitochondrion, complete genome
+18,022 bp circular DNA 
+NC_044083.1 GI:1714234679
+
+84. Montifringilla henrici mitochondrion, complete genome
+16,924 bp circular DNA 
+NC_042414.1 GI:1678641830
+
+85. Psittacula derbiana mitochondrion, complete genome
+16,887 bp circular DNA 
+NC_042409.1 GI:1678641698
+
+86. Daption capense mitochondrion, complete genome
+17,312 bp circular DNA 
+NC_043899.1 GI:1707501904
+
+87. Psittacula eupatria mitochondrion, complete genome
+17,139 bp circular DNA 
+NC_042765.1 GI:1693291463
+
+88. Culicicapa ceylonensis mitochondrion, complete genome
+16,851 bp circular DNA 
+NC_042191.1 GI:1642521191
+
+89. Otus sunia mitochondrion, complete genome
+17,835 bp circular DNA 
+NC_041422.1 GI:1610617534
+
+90. Psittacara leucophthalmus mitochondrion, complete genome
+16,966 bp circular DNA 
+NC_041257.1 GI:1600727585
+
+91. Hydrobates castro mitochondrion, complete genome
+17,065 bp circular DNA 
+NC_041251.1 GI:1600727180
+
+92. Artamus cinereus mitochondrion, complete genome
+16,896 bp circular DNA 
+NC_041197.1 GI:1593555270
+
+93. Trochalopteron milnei mitochondrion, complete genome
+17,871 bp circular DNA 
+NC_041141.1 GI:1593552176
+
+94. Dendrocopos canicapillus mitochondrion, complete genome
+16,843 bp circular DNA 
+NC_041121.1 GI:1593550748
+
+95. Cardellina canadensis mitochondrion, complete genome
+16,807 bp circular DNA 
+NC_041111.1 GI:1593550385
+
+96. Anthus richardi mitochondrion, complete genome
+16,871 bp circular DNA 
+NC_041109.1 GI:1593550283
+
+97. Turdus kessleri mitochondrion, complete genome
+16,754 bp circular DNA 
+NC_041095.1 GI:1593549692
+
+98. Aratinga solstitialis mitochondrion, complete genome
+16,984 bp circular DNA 
+NC_026039.1 GI:745999273
+
+99. Guaruba guarouba mitochondrion, complete genome
+17,008 bp circular DNA 
+NC_026031.1 GI:745999189
+
+100. Haliaeetus albicilla voucher IN1796 mitochondrion, complete genome
+17,719 bp circular DNA 
+NC_040858.1 GI:1573131883
+
+101. Yuhina nigrimenta mitochondrion, complete genome
+17,817 bp circular DNA 
+NC_040991.1 GI:1583107105
+
+102. Calidris ruficollis mitochondrion, complete genome
+16,860 bp circular DNA 
+NC_040990.1 GI:1583107091
+
+103. Carpodacus rubicilloides mitochondrion, complete genome
+16,805 bp circular DNA 
+NC_040975.1 GI:1583106545
+
+104. Rhagologus leucostigma mitochondrion, complete genome
+17,044 bp circular DNA 
+NC_040956.1 GI:1583105633
+
+105. Lophophorus impejanus mitochondrion, complete genome
+16,709 bp circular DNA 
+NC_040850.1 GI:1573131500
+
+106. Oenanthe isabellina mitochondrion, complete genome
+16,812 bp circular DNA 
+NC_040290.1 GI:1567481340
+
+107. Rhyticeros undulatus mitochondrion, complete genome
+17,842 bp circular DNA 
+NC_039950.1 GI:1526691143
+
+108. Anser albifrons frontalis mitochondrion, complete genome
+16,740 bp circular DNA 
+NC_039888.1 GI:1511251967
+
+109. Falco amurensis mitochondrion, complete genome
+17,464 bp circular DNA 
+NC_039842.1 GI:1511250530
+
+110. Geospiza magnirostris mitochondrion, complete genome
+16,798 bp circular DNA 
+NC_039770.1 GI:1511246485
+
+111. Asio otus voucher IN830 mitochondrion, complete genome
+17,555 bp circular DNA 
+NC_039736.1 GI:1511243906
+
+112. Ixos mcclellandii mitochondrion, complete genome
+17,838 bp circular DNA 
+NC_039396.1 GI:1488175836
+
+113. Buceros bicornis mitochondrion, complete genome
+17,117 bp circular DNA 
+NC_038201.1 GI:1442329436
+
+114. Ara tricolor isolate Atri569592 mitochondrion, complete genome
+16,985 bp circular DNA 
+NC_037895.1 GI:1418581665
+
+115. Streptopelia decaocto mitochondrion, complete genome
+17,160 bp circular DNA 
+NC_037513.1 GI:1381394236
+
+116. Urocissa caerulea mitochondrion, complete genome
+16,928 bp circular DNA 
+NC_037486.1 GI:1381392825
+
+117. Abrornis proregulus mitochondrion, complete genome
+16,880 bp circular DNA 
+NC_037189.1 GI:1369121774
+
+118. Corvus cryptoleucus isolate 83690 mitochondrion, complete genome
+16,928 bp circular DNA 
+NC_034839.1 GI:1199862401
+
+119. Melanocorypha mongolica mitochondrion, complete genome
+17,358 bp circular DNA 
+NC_036760.1 GI:1331216636
+
+120. Corvus corax isolate 70173 mitochondrion, complete genome
+16,928 bp circular DNA 
+NC_034838.1 GI:1199862387
+
+121. Tringa semipalmata mitochondrion, complete genome
+16,603 bp circular DNA 
+NC_036016.1 GI:1252316388
+
+122. Corvus coronoides mitochondrion, complete genome
+16,925 bp circular DNA 
+NC_035877.1 GI:1241932133
+
+123. Aquila heliaca mitochondrion, complete genome
+18,067 bp circular DNA 
+NC_035806.1 GI:1241928774
+
+124. Circus melanoleucos mitochondrion, complete genome
+17,749 bp circular DNA 
+NC_035801.1 GI:1241928638
+
+125. Alcedo atthis mitochondrion, complete genome
+17,383 bp circular DNA 
+NC_035868.1 GI:1241922958
+
+126. Prunella fulvescens isolate PF201601 mitochondrion, complete genome
+16,837 bp circular DNA 
+NC_035747.1 GI:1238822178
+
+127. Halcyon smyrnensis mitochondrion, complete genome
+17,892 bp circular DNA 
+NC_035746.1 GI:1238812724
+
+128. Sporophila maximiliani mitochondrion, complete genome
+16,801 bp circular DNA 
+NC_035673.1 GI:1237410872
+
+129. Megaceryle lugubris mitochondrion, complete genome
+17,223 bp circular DNA 
+NC_035658.1 GI:1237410371
+
+130. Napothera epilepidota mitochondrion, complete genome
+17,913 bp circular DNA 
+NC_035626.1 GI:1237408426
+
+131. Lagopus lagopus mitochondrion, complete genome
+16,677 bp circular DNA 
+NC_035568.1 GI:1236517500
+
+132. Amazona ventralis mitochondrion, complete genome
+18,571 bp circular DNA 
+NC_034679.1 GI:1199303852
+
+133. Merops viridis mitochondrion, complete genome
+18,295 bp circular DNA 
+NC_034642.1 GI:1197509696
+
+134. Garrulax elliotii mitochondrion, complete genome
+17,873 bp circular DNA 
+NC_034373.1 GI:1182637059
+
+135. Garrulax formosus voucher B36 mitochondrion, complete genome
+17,869 bp circular DNA 
+NC_034353.1 GI:1181494134
+
+136. Glaucidium cuculoides mitochondrion, complete genome
+17,392 bp circular DNA 
+NC_034296.1 GI:1181491791
+
+137. Campephilus imperialis mitochondrion, complete genome
+16,858 bp circular DNA 
+NC_034278.1 GI:1181491214
+
+138. Haematopus ostralegus mitochondrion, complete genome
+16,798 bp circular DNA 
+NC_034237.1 GI:1168043929
+
+139. Tringa ochropus mitochondrion, complete genome
+16,906 bp circular DNA 
+NC_033974.1 GI:1150150585
+
+140. Pluvialis fulva mitochondrion, complete genome
+16,854 bp circular DNA 
+NC_033966.1 GI:1150150403
+
+141. Xenus cinereus mitochondrion, complete genome
+16,817 bp circular DNA 
+NC_033973.1 GI:1150084237
+
+142. Ninox strenua mitochondrion, complete genome
+16,206 bp circular DNA 
+NC_033967.1 GI:1150084209
+
+143. Monticola gularis mitochondrion, complete genome
+16,801 bp circular DNA 
+NC_033536.1 GI:1134945619
+
+144. Amazilia brevirostris mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_033406.1 GI:1133410759
+
+145. Amazilia millerii mitochondrion, complete genome
+16,821 bp circular DNA 
+NC_033405.1 GI:1133410745
+
+146. Amazilia rondoniae mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_033404.1 GI:1133410731
+
+147. Amazona aestiva mitochondrion, complete genome
+18,853 bp circular DNA 
+NC_033336.1 GI:1133406999
+
+148. Schoeniclus siemsseni voucher LSIEM20160726 mitochondrion, complete genome
+16,780 bp circular DNA 
+NC_032304.1 GI:1125812565
+
+149. Caloenas maculata mitochondrion, complete genome
+17,036 bp circular DNA 
+NC_031870.1 GI:1102549184
+
+150. Caloenas nicobarica mitochondrion, complete genome
+17,090 bp circular DNA 
+NC_031869.1 GI:1102549170
+
+151. Didunculus strigirostris mitochondrion, complete genome
+17,071 bp circular DNA 
+NC_031866.1 GI:1102549142
+
+152. Raphus cucullatus mitochondrion, complete genome
+17,092 bp circular DNA 
+NC_031864.1 GI:1102549128
+
+153. Pycnonotus xanthorrhous mitochondrion, complete genome
+16,952 bp circular DNA 
+NC_031830.1 GI:1102548396
+
+154. Prunella strophiata isolate 20151201 mitochondrion, complete genome
+16,830 bp circular DNA 
+NC_031819.1 GI:1102548024
+
+155. Columba rupestris mitochondrion, complete genome
+17,201 bp circular DNA 
+NC_031867.1 GI:1102547316
+
+156. Goura cristata mitochondrion, complete genome
+17,082 bp circular DNA 
+NC_031865.1 GI:1102547302
+
+157. Zenaida macroura mitochondrion, complete genome
+17,132 bp circular DNA 
+NC_031863.1 GI:1102547288
+
+158. Alopecoenas salamonis mitochondrion, complete genome
+17,141 bp circular DNA 
+NC_031871.1 GI:1102549198
+
+159. Columba jouyi mitochondrion, complete genome
+17,179 bp circular DNA 
+NC_031868.1 GI:1102549156
+
+160. Streptopelia orientalis voucher zjbj2 mitochondrion, complete genome
+17,130 bp circular DNA 
+NC_031447.1 GI:1079489693
+
+161. Psittirostra psittacea mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_031353.1 GI:1079485433
+
+162. Myadestes myadestinus mitochondrion, complete genome
+16,641 bp circular DNA 
+NC_031352.1 GI:1079485419
+
+163. Heteralocha acutirostris mitochondrion, complete genome
+16,766 bp circular DNA 
+NC_031351.1 GI:1079485405
+
+164. Callaeas cinereus mitochondrion, complete genome
+16,711 bp circular DNA 
+NC_031350.1 GI:1079485391
+
+165. Akialoa obscura mitochondrion, complete genome
+16,838 bp circular DNA 
+NC_031349.1 GI:1079485377
+
+166. Moho braccatus mitochondrion, complete genome
+16,804 bp circular DNA 
+NC_031348.1 GI:1079485363
+
+167. Pinguinus impennis mitochondrion, complete genome
+16,784 bp circular DNA 
+NC_031347.1 GI:1079485349
+
+168. Primolius maracana mitochondrion, complete genome
+16,999 bp circular DNA 
+NC_029322.1 GI:1002160292
+
+169. Ara ararauna mitochondrion, complete genome
+16,982 bp circular DNA 
+NC_029319.1 GI:1002160250
+
+170. Orthopsittaca manilata mitochondrion, complete genome
+16,985 bp circular DNA 
+NC_029161.1 GI:992331333
+
+171. Pyrrhura rupicola mitochondrion, complete genome
+16,994 bp circular DNA 
+NC_028404.1 GI:953244216
+
+172. Psittacara rubritorquis isolate POTNW102 mitochondrion, complete genome
+16,979 bp circular DNA 
+NC_026042.1 GI:745999287
+
+173. Ara glaucogularis mitochondrion, complete genome
+16,983 bp circular DNA 
+NC_026029.1 GI:745999161
+
+174. Primolius couloni mitochondrion, complete genome
+16,995 bp circular DNA 
+NC_025742.1 GI:726972105
+
+175. Rhynchopsitta terrisi mitochondrion, complete genome
+17,027 bp circular DNA 
+NC_021771.1 GI:525341184
+
+176. Psittacara brevipes isolate POTNW2.1 mitochondrion, complete genome
+16,972 bp circular DNA 
+NC_021764.1 GI:525341086
+
+177. Psittacara acuticaudatus acuticaudatus mitochondrion, complete genome
+16,998 bp circular DNA 
+NC_020325.1 GI:452849234
+
+178. Lanius schach voucher HS15003 mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_030604.1 GI:1043378464
+
+179. Copsychus saularis voucher HS15011 mitochondrion, complete genome
+16,827 bp circular DNA 
+NC_030603.1 GI:1043378450
+
+180. Minla ignotincta mitochondrion, complete genome
+17,868 bp circular DNA 
+NC_030588.1 GI:1043377950
+
+181. Tringa erythropus mitochondrion, complete genome
+16,683 bp circular DNA 
+NC_030585.1 GI:1043377908
+
+182. Numenius phaeopus mitochondrion, complete genome
+17,091 bp circular DNA 
+NC_030507.1 GI:1043373313
+
+183. Arborophila rufipectus mitochondrion, complete genome
+16,728 bp circular DNA 
+NC_012453.1 GI:225697458
+
+184. Periparus ater mitochondrion, complete genome
+16,783 bp circular DNA 
+NC_026223.1 GI:749112221
+
+185. Polyplectron napoleonis mitochondrion, complete genome
+16,710 bp circular DNA 
+NC_024615.1 GI:669032303
+
+186. Dendrocopos leucotos mitochondrion, complete genome
+16,838 bp circular DNA 
+NC_029862.1 GI:1016881151
+
+187. Pomatorhinus ruficollis mitochondrion, complete genome
+17,009 bp circular DNA 
+NC_029769.1 GI:1011059203
+
+188. Nannopterum brasilianus mitochondrion, complete genome
+19,042 bp circular DNA 
+NC_029758.1 GI:1011058769
+
+189. Campylorhynchus brunneicapillus voucher CBRUN20150809 mitochondrion, complete genome
+16,786 bp circular DNA 
+NC_029482.1 GI:1002166060
+
+190. Lonchura striata mitochondrion, complete genome
+16,813 bp circular DNA 
+NC_029475.1 GI:1002165963
+
+191. Yuhina diademata mitochondrion, complete genome
+17,834 bp circular DNA 
+NC_029462.1 GI:1002165577
+
+192. Garrulax affinis mitochondrion, complete genome
+17,856 bp circular DNA 
+NC_029402.1 GI:1002163242
+
+193. Buteo hemilasius mitochondrion, complete genome
+18,079 bp circular DNA 
+NC_029377.1 GI:1002162217
+
+194. Falco rusticolus mitochondrion, complete genome
+18,218 bp circular DNA 
+NC_029359.1 GI:1002161555
+
+195. Passer ammodendri mitochondrion, complete genome
+16,782 bp circular DNA 
+NC_029344.1 GI:1002161245
+
+196. Synthliboramphus wumizusume mitochondrion, complete genome
+16,714 bp circular DNA 
+NC_029328.1 GI:1002160376
+
+197. Spizixos semitorques mitochondrion, complete genome
+17,045 bp circular DNA 
+NC_029321.1 GI:1002160278
+
+198. Motacilla alba mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_029229.1 GI:992330618
+
+199. Megalurus pryeri mitochondrion, complete genome
+17,968 bp circular DNA 
+NC_029151.1 GI:992329275
+
+200. Chaetura pelagica mitochondrion, complete genome
+16,896 bp circular DNA 
+NC_028545.1 GI:959123453
+
+201. Paradoxornis fulvifrons voucher PFUL20150817V2 mitochondrion, complete genome
+17,059 bp circular DNA 
+NC_028436.1 GI:953245136
+
+202. Cuculus poliocephalus mitochondrion, complete genome
+17,508 bp circular DNA 
+NC_028414.1 GI:953244499
+
+203. Gallicrex cinerea mitochondrion, complete genome
+17,184 bp circular DNA 
+NC_028408.1 GI:953244272
+
+204. Paradoxornis nipalensis voucher PNIP20150817V2 mitochondrion, complete genome
+16,996 bp circular DNA 
+NC_028437.1 GI:953245150
+
+205. Anas clypeata mitochondrion, complete genome
+16,599 bp circular DNA 
+NC_028346.1 GI:948299546
+
+206. Lanius cristatus mitochondrion, complete genome
+16,821 bp circular DNA 
+NC_028333.1 GI:948299366
+
+207. Turdus eunomus mitochondrion, complete genome
+16,737 bp circular DNA 
+NC_028273.1 GI:948298407
+
+208. Gorsachius melanolophus voucher T-10358 mitochondrion, complete genome
+18,470 bp circular DNA 
+NC_028195.1 GI:944542359
+
+209. Gorsachius goisagi voucher AV8716 mitochondrion, complete genome
+18,562 bp circular DNA 
+NC_028194.1 GI:944542345
+
+210. Gorsachius magnificus voucher JXJAGM0701 mitochondrion, complete genome
+19,212 bp circular DNA 
+NC_028193.1 GI:944542330
+
+211. Turdus merula voucher TMER20150704V3 mitochondrion, complete genome
+16,733 bp circular DNA 
+NC_028188.1 GI:944542180
+
+212. Parus monticolus voucher PMON20150704V1 mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_028187.1 GI:944542166
+
+213. Garrulax sannio voucher GSAN20150704V3 mitochondrion, complete genome
+17,848 bp circular DNA 
+NC_028186.1 GI:944542152
+
+214. Turdus rufiventris voucher MCP 3253 mitochondrion, complete genome
+16,669 bp circular DNA 
+NC_028179.1 GI:944541983
+
+215. Garrulax poecilorhynchus voucher B33 mitochondrion, complete genome
+17,814 bp circular DNA 
+NC_028082.1 GI:938340429
+
+216. Poospiza lateralis isolate FRA46 mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_028039.1 GI:937547611
+
+217. Poospiza cabanisi isolate FRA67 mitochondrion, complete genome
+16,768 bp circular DNA 
+NC_028038.1 GI:937547597
+
+218. Poospiza thoracica isolate SC04 mitochondrion, complete genome
+16,772 bp circular DNA 
+NC_028037.1 GI:937547583
+
+219. Lonchura punctulata mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_028036.1 GI:937547569
+
+220. Campephilus guatemalensis voucher MHNG 1934.028 mitochondrion, complete genome
+16,856 bp circular DNA 
+NC_028020.1 GI:937547035
+
+221. Sasia ochracea voucher MNHN CG 2005-2676 mitochondrion, complete genome
+16,908 bp circular DNA 
+NC_028019.1 GI:937547021
+
+222. Zosterops erythropleurus mitochondrion, complete genome
+17,811 bp circular DNA 
+NC_027942.1 GI:937408094
+
+223. Aptenodytes forsteri mitochondrion, complete genome
+17,301 bp circular DNA 
+NC_027938.1 GI:937407893
+
+224. Picoides pubescens mitochondrion, complete genome
+16,840 bp circular DNA 
+NC_027936.1 GI:937407865
+
+225. Phoenicopterus ruber mitochondrion, complete genome
+17,476 bp circular DNA 
+NC_027934.1 GI:937407837
+
+226. Motacilla cinerea mitochondrion, complete genome
+16,835 bp circular DNA 
+NC_027933.1 GI:937407823
+
+227. Cygnus olor mitochondrion, complete genome
+16,739 bp circular DNA 
+NC_027096.1 GI:821318271
+
+228. Garrulax ocellatus mitochondrion, complete genome
+17,828 bp circular DNA 
+NC_027657.1 GI:906476648
+
+229. Cygnus cygnus mitochondrion, complete genome
+16,724 bp circular DNA 
+NC_027095.1 GI:821318257
+
+230. Amazilia versicolor mitochondrion, complete genome
+16,861 bp circular DNA 
+NC_024156.1 GI:642276340
+
+231. Asio flammeus mitochondrion, complete genome
+18,966 bp circular DNA 
+NC_027606.1 GI:902686875
+
+232. Eudocimus ruber mitochondrion, complete genome
+16,697 bp circular DNA 
+NC_027504.1 GI:885000469
+
+233. Eurynorhynchus pygmeus voucher NJNU:SBS01 mitochondrion, complete genome
+16,707 bp circular DNA 
+NC_027496.1 GI:885000357
+
+234. Falco columbarius mitochondrion, complete genome
+17,516 bp circular DNA 
+NC_025579.1 GI:722490289
+
+235. Recurvirostra avosetta voucher NJNU:ZBHH-2014002 mitochondrion, complete genome
+16,897 bp circular DNA 
+NC_027420.1 GI:849123660
+
+236. Acanthis flammea mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_027285.1 GI:836643924
+
+237. Phalacrocorax carbo mitochondrion, complete genome
+18,995 bp circular DNA 
+NC_027267.1 GI:836643581
+
+238. Tinamus guttatus mitochondrion, complete genome
+16,750 bp circular DNA 
+NC_027260.1 GI:836643456
+
+239. Prunella montanella mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_027284.1 GI:836614609
+
+240. Tetraogallus himalayensis voucher THIM20150414 mitochondrion, complete genome
+16,692 bp circular DNA 
+NC_027279.1 GI:836614565
+
+241. Aethopyga gouldiae mitochondrion, complete genome
+16,893 bp circular DNA 
+NC_027241.1 GI:836614093
+
+242. Corvus macrorhynchos isolate SRI37 mitochondrion, complete genome
+16,927 bp circular DNA 
+NC_027173.1 GI:827045938
+
+243. Poecile palustris voucher CEH14022 mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_026911.1 GI:813559879
+
+244. Tadorna ferruginea mitochondrion, complete genome
+16,639 bp circular DNA 
+NC_024640.1 GI:671729212
+
+245. Aegithalos glaucogularis mitochondrion, complete genome
+17,937 bp circular DNA 
+NC_024268.1 GI:651424401
+
+246. Aegithalos bonvaloti mitochondrion, complete genome
+17,953 bp circular DNA 
+NC_024267.1 GI:651424375
+
+247. Aegithalos fuliginosus mitochondrion, complete genome
+17,953 bp circular DNA 
+NC_024266.1 GI:651424353
+
+248. Arborophila ardens voucher B032 mitochondrion, complete genome
+16,728 bp circular DNA 
+NC_022683.1 GI:556505644
+
+249. Sylviparus modestus voucher IZCAS:IOZ8837 mitochondrion, complete genome
+17,086 bp circular DNA 
+NC_026793.1 GI:803432154
+
+250. Falco cherrug mitochondrion, complete genome
+18,059 bp circular DNA 
+NC_026715.1 GI:769829600
+
+251. Parus venustulus mitochondrion, complete genome
+16,778 bp circular DNA 
+NC_026701.1 GI:769829418
+
+252. Corvus brachyrhynchos mitochondrion, complete genome
+16,917 bp circular DNA 
+NC_026461.1 GI:755292067
+
+253. Streptopelia chinensis mitochondrion, complete genome
+16,966 bp circular DNA 
+NC_026459.1 GI:755292039
+
+254. Accipiter virgatus mitochondrion, complete genome
+17,952 bp circular DNA 
+NC_026082.1 GI:745999762
+
+255. Stercorarius maccormicki mitochondrion, complete genome
+16,669 bp circular DNA 
+NC_026125.1 GI:746000321
+
+256. Garrulax perspicillatus mitochondrion, complete genome
+17,873 bp circular DNA 
+NC_026068.1 GI:745999581
+
+257. Luscinia cyanura mitochondrion, complete genome
+16,803 bp circular DNA 
+NC_026067.1 GI:745999567
+
+258. Phoenicurus auroreus mitochondrion, complete genome
+16,772 bp circular DNA 
+NC_026066.1 GI:745999553
+
+259. Ixobrychus sinensis mitochondrion, complete genome
+19,493 bp circular DNA 
+NC_025925.1 GI:733386507
+
+260. Ixobrychus eurhythmus mitochondrion, complete genome
+19,509 bp circular DNA 
+NC_025924.1 GI:733386492
+
+261. Botaurus stellaris mitochondrion, complete genome
+20,350 bp circular DNA 
+NC_025923.1 GI:733386477
+
+262. Butorides striata mitochondrion, complete genome
+19,087 bp circular DNA 
+NC_025922.1 GI:733386462
+
+263. Ardeola bacchus mitochondrion, complete genome
+19,341 bp circular DNA 
+NC_025921.1 GI:733386447
+
+264. Egretta sacra mitochondrion, complete genome
+19,656 bp circular DNA 
+NC_025920.1 GI:733386432
+
+265. Ardea purpurea mitochondrion, complete genome
+18,722 bp circular DNA 
+NC_025919.1 GI:733386418
+
+266. Ardea intermedia mitochondrion, complete genome
+18,543 bp circular DNA 
+NC_025918.1 GI:733386404
+
+267. Bubulcus ibis mitochondrion, complete genome
+18,959 bp circular DNA 
+NC_025917.1 GI:733386390
+
+268. Ardea modesta mitochondrion, complete genome
+19,212 bp circular DNA 
+NC_025916.1 GI:733386376
+
+269. Chrysolampis mosquitus mitochondrion, complete genome
+16,767 bp circular DNA 
+NC_025786.1 GI:726972665
+
+270. Caprimulgus indicus mitochondrion, complete genome
+17,536 bp circular DNA 
+Record removed. This record was removed by RefSeq staff. Please contact info@ncbi.nlm.nih.gov for further details.
+NC_025773.1 GI:726972482
+
+271. Anser indicus mitochondrion, complete genome
+16,731 bp circular DNA 
+NC_025654.1 GI:722491577
+
+272. Chroicocephalus ridibundus mitochondrion, complete genome
+16,807 bp circular DNA 
+NC_025649.1 GI:722491535
+
+273. Vanellus vanellus mitochondrion, complete genome
+16,795 bp circular DNA 
+NC_025637.1 GI:722491326
+
+274. Accipiter nisus mitochondrion, complete genome
+18,647 bp circular DNA 
+NC_025580.1 GI:722490308
+
+275. Larus crassirostris mitochondrion, complete genome
+16,746 bp circular DNA 
+NC_025556.1 GI:722489893
+
+276. Scolopax rusticola mitochondrion, complete genome
+16,984 bp circular DNA 
+NC_025521.1 GI:722489748
+
+277. Vanellus cinereus mitochondrion, complete genome
+17,074 bp circular DNA 
+NC_025514.1 GI:722489612
+
+278. Tetrastes sewerzowi voucher 7783 mitochondrion, complete genome
+16,658 bp circular DNA 
+NC_025318.1 GI:699256842
+
+279. Ardea cinerea mitochondrion, complete genome
+18,703 bp circular DNA 
+NC_025900.1 GI:731978958
+
+280. Passer montanus mitochondrion, complete genome
+16,887 bp circular DNA 
+NC_024821.1 GI:685496633
+
+281. Netta rufina mitochondrion, complete genome
+16,625 bp circular DNA 
+NC_024922.1 GI:688074671
+
+282. Tadorna tadorna mitochondrion, complete genome
+16,604 bp circular DNA 
+NC_024750.1 GI:674840596
+
+283. Pycnonotus melanicterus voucher AHNU:A0014 mitochondrion, complete genome
+17,011 bp circular DNA 
+NC_024730.1 GI:674840236
+
+284. Phylloscopus inornatus voucher AHU-bird20121022 mitochondrion, complete genome
+16,875 bp circular DNA 
+NC_024726.1 GI:674840194
+
+285. Colinus virginianus mitochondrion, complete genome
+16,702 bp circular DNA 
+NC_024620.1 GI:669032373
+
+286. Caloperdix oculeus mitochondrion, complete genome
+16,488 bp circular DNA 
+NC_024619.1 GI:669032359
+
+287. Crax rubra mitochondrion, complete genome
+16,666 bp circular DNA 
+NC_024618.1 GI:669032345
+
+288. Crax daubentoni mitochondrion, complete genome
+16,684 bp circular DNA 
+NC_024617.1 GI:669032331
+
+289. Ptilopachus petrosus mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_024616.1 GI:669032317
+
+290. Corvus splendens mitochondrion, complete genome
+16,926 bp circular DNA 
+NC_024607.1 GI:669032233
+
+291. Aythya ferina mitochondrion, complete genome
+16,616 bp circular DNA 
+NC_024602.1 GI:669032163
+
+292. Aythya fuligula voucher JS04 mitochondrion, complete genome
+16,616 bp circular DNA 
+NC_024595.1 GI:669032065
+
+293. Lyrurus tetrix mitochondrion, complete genome
+16,677 bp circular DNA 
+NC_024554.1 GI:669026421
+
+294. Garrulax cineraceus mitochondrion, complete genome
+17,800 bp circular DNA 
+NC_024553.1 GI:669026407
+
+295. Turdus hortulorum mitochondrion, complete genome
+16,759 bp circular DNA 
+NC_024552.1 GI:669026393
+
+296. Paradoxornis webbianus mitochondrion, complete genome
+16,960 bp circular DNA 
+NC_024539.1 GI:669017703
+
+297. Pavo cristatus mitochondrion, complete genome
+16,686 bp circular DNA 
+NC_024533.1 GI:669017619
+
+298. Emberiza cioides mitochondrion, complete genome
+16,765 bp circular DNA 
+NC_024524.1 GI:669017493
+
+299. Pericrocotus ethologus mitochondrion, complete genome
+16,935 bp circular DNA 
+NC_024257.1 GI:651424145
+
+300. Jacana jacana voucher STRI:BC4055 mitochondrion, complete genome
+16,975 bp circular DNA 
+NC_024069.1 GI:628972808
+
+301. Fringilla montifringilla voucher AHNU:A0112 mitochondrion, complete genome
+16,807 bp circular DNA 
+NC_024048.1 GI:628972668
+
+302. Jacana spinosa voucher STRI:BC3332 mitochondrion, complete genome
+17,079 bp circular DNA 
+NC_024068.1 GI:628971407
+
+303. Cecropis daurica mitochondrion, complete genome
+17,949 bp circular DNA 
+NC_024107.1 GI:635172070
+
+304. Amaurornis akool mitochondrion, complete genome
+16,950 bp circular DNA 
+NC_023982.1 GI:608788306
+
+305. Ciconia nigra mitochondrion, complete genome
+17,795 bp circular DNA 
+NC_023946.1 GI:608787844
+
+306. Polyplectron germaini mitochondrion, complete genome
+16,699 bp circular DNA 
+NC_023264.1 GI:570700673
+
+307. Spheniscus demersus mitochondrion, complete genome
+17,346 bp circular DNA 
+NC_022817.1 GI:558603183
+
+308. Cairina moschata mitochondrion, complete genome
+16,610 bp circular DNA 
+NC_010965.1 GI:190349328
+
+309. Anser cygnoides mitochondrion, complete genome
+16,739 bp circular DNA 
+NC_023832.1 GI:598324080
+
+310. Podoces hendersoni mitochondrion, complete genome
+16,867 bp circular DNA 
+NC_014879.1 GI:317097312
+
+311. Arborophila brunneopectus voucher AB01 mitochondrion, complete genome
+16,719 bp circular DNA 
+NC_022684.1 GI:556505658
+
+312. Anas poecilorhyncha mitochondrion, complete genome
+16,608 bp circular DNA 
+NC_022418.1 GI:545601028
+
+313. Lanius tephronotus mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_021105.1 GI:482651045
+
+314. Remiz consobrinus mitochondrion, complete genome
+16,737 bp circular DNA 
+NC_021641.1 GI:521258284
+
+315. Grus vipio mitochondrion, complete genome
+16,678 bp circular DNA 
+NC_021368.1 GI:511347505
+
+316. Alauda arvensis mitochondrion, complete genome
+17,018 bp circular DNA 
+NC_020425.1 GI:456351384
+
+317. Anthropoides virgo mitochondrion, complete genome
+16,541 bp circular DNA 
+NC_020573.1 GI:475655966
+
+318. Anthropoides paradiseus mitochondrion, complete genome
+16,696 bp circular DNA 
+NC_020572.1 GI:475655952
+
+319. Progne chalybea mitochondrion, complete genome
+18,030 bp circular DNA 
+NC_020605.1 GI:470227507
+
+320. Tachycineta meyeni mitochondrion, complete genome
+18,012 bp circular DNA 
+NC_020604.1 GI:470227446
+
+321. Tachycineta leucorrhoa mitochondrion, complete genome
+17,965 bp circular DNA 
+NC_020603.1 GI:470227393
+
+322. Tachycineta albiventer mitochondrion, complete genome
+17,916 bp circular DNA 
+NC_020602.1 GI:470227330
+
+323. Tachycineta albilinea mitochondrion, complete genome
+17,923 bp circular DNA 
+NC_020601.1 GI:470227273
+
+324. Tachycineta stolzmanni mitochondrion, complete genome
+17,932 bp circular DNA 
+NC_020600.1 GI:470227215
+
+325. Tachycineta cyaneoviridis mitochondrion, complete genome
+18,154 bp circular DNA 
+NC_020599.1 GI:470227156
+
+326. Tachycineta euchrysea mitochondrion, complete genome
+17,929 bp circular DNA 
+NC_020598.1 GI:470227100
+
+327. Tachycineta thalassina mitochondrion, complete genome
+18,118 bp circular DNA 
+NC_020597.1 GI:470227063
+
+328. Tachycineta bicolor mitochondrion, complete genome
+17,945 bp circular DNA 
+NC_020596.1 GI:470227023
+
+329. Grus canadensis mitochondrion, complete genome
+16,697 bp circular DNA 
+NC_020582.1 GI:470226164
+
+330. Grus antigone mitochondrion, complete genome
+16,549 bp circular DNA 
+NC_020581.1 GI:470226101
+
+331. Grus rubicunda mitochondrion, complete genome
+16,693 bp circular DNA 
+NC_020580.1 GI:470226041
+
+332. Grus nigricollis mitochondrion, complete genome
+16,646 bp circular DNA 
+NC_020579.1 GI:470225939
+
+333. Grus monacha mitochondrion, complete genome
+16,650 bp circular DNA 
+NC_020578.1 GI:470225887
+
+334. Grus grus mitochondrion, complete genome
+16,649 bp circular DNA 
+NC_020577.1 GI:470225787
+
+335. Grus americana mitochondrion, complete genome
+16,651 bp circular DNA 
+NC_020576.1 GI:470225771
+
+336. Grus japonensis mitochondrion, complete genome
+16,715 bp circular DNA 
+NC_020575.1 GI:470225757
+
+337. Grus leucogeranus mitochondrion, complete genome
+16,688 bp circular DNA 
+NC_020574.1 GI:470225743
+
+338. Grus carunculatus mitochondrion, complete genome
+16,677 bp circular DNA 
+NC_020571.1 GI:470225729
+
+339. Balearica pavonina mitochondrion, complete genome
+16,786 bp circular DNA 
+NC_020570.1 GI:470225715
+
+340. Balearica regulorum mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_020569.1 GI:470225701
+
+341. Emberiza tristrami mitochondrion, complete genome
+16,789 bp circular DNA 
+NC_015234.1 GI:326535895
+
+342. Sturnus sericeus mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_014455.1 GI:304322908
+
+343. Oriolus chinensis mitochondrion, complete genome
+16,803 bp circular DNA 
+NC_020424.1 GI:456351370
+
+344. Sturnus nigricollis mitochondrion, complete genome
+16,839 bp circular DNA 
+NC_020423.1 GI:456351356
+
+345. Garrulax canorus mitochondrion, complete genome
+17,785 bp circular DNA 
+NC_020429.1 GI:456351440
+
+346. Leiothrix lutea mitochondrion, complete genome
+17,615 bp circular DNA 
+NC_020427.1 GI:456351412
+
+347. Urocissa erythrorhyncha mitochondrion, complete genome
+16,930 bp circular DNA 
+NC_020426.1 GI:456351398
+
+348. Neophema chrysogaster mitochondrion, complete genome
+18,043 bp circular DNA 
+NC_019804.1 GI:429222017
+
+349. Tetraophasis obscurus mitochondrion, complete genome
+16,707 bp circular DNA 
+NC_018034.1 GI:391223864
+
+350. Cygnus columbianus bewickii mitochondrion, complete genome
+16,727 bp circular DNA 
+NC_017604.1 GI:383931270
+
+351. Mergus squamatus mitochondrion, complete genome
+16,595 bp circular DNA 
+NC_016723.1 GI:372292047
+
+352. Crossoptilon crossoptilon mitochondrion, complete genome
+16,680 bp circular DNA 
+NC_016679.1 GI:372291180
+
+353. Gracula religiosa mitochondrion, complete genome
+16,818 bp circular DNA 
+NC_015898.1 GI:342240331
+
+354. Crossoptilon auritum mitochondrion, complete genome
+16,687 bp circular DNA 
+NC_015897.1 GI:342240317
+
+355. Spilornis cheela mitochondrion, complete genome
+18,291 bp circular DNA 
+NC_015887.1 GI:342240217
+
+356. Cyanopica cyanus mitochondrion, complete genome
+16,893 bp circular DNA 
+NC_015824.1 GI:339906733
+
+357. Garrulus glandarius mitochondrion, complete genome
+16,930 bp circular DNA 
+NC_015810.1 GI:339906585
+
+358. Nycticorax nycticorax mitochondrion, complete genome
+17,829 bp circular DNA 
+NC_015807.1 GI:339906543
+
+359. Ficedula zanthopygia mitochondrion, complete genome
+16,794 bp circular DNA 
+NC_015802.1 GI:339906418
+
+360. Acridotheres cristatellus mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_015613.1 GI:334362142
+
+361. Anas formosa mitochondrion, complete genome
+16,594 bp circular DNA 
+NC_015482.1 GI:331746922
+
+362. Sturnus cineraceus mitochondrion, complete genome
+16,821 bp circular DNA 
+NC_015237.1 GI:326535937
+
+363. Gallinula chloropus mitochondrion, complete genome
+17,027 bp circular DNA 
+NC_015236.1 GI:326535923
+
+364. Emberiza chrysophrys mitochondrion, complete genome
+16,803 bp circular DNA 
+NC_015233.1 GI:326535881
+
+365. Cyanoptila cyanomelana mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_015232.1 GI:326535867
+
+366. Pica pica mitochondrion, complete genome
+16,939 bp circular DNA 
+NC_015200.1 GI:325126788
+
+367. Carduelis spinus mitochondrion, complete genome
+16,828 bp circular DNA 
+NC_015198.1 GI:325126760
+
+368. Sturnus tristis mitochondrion, complete genome
+16,822 bp circular DNA 
+NC_015195.1 GI:325126718
+
+369. Leiothrix argentauris mitochondrion, complete genome
+17,833 bp circular DNA 
+NC_015114.1 GI:322422840
+
+370. Ixobrychus cinnamomeus mitochondrion, complete genome
+17,180 bp circular DNA 
+NC_015077.1 GI:322422392
+
+371. Luscinia calliope mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_015074.1 GI:322422350
+
+372. Otis tarda mitochondrion, complete genome
+16,849 bp circular DNA 
+NC_014046.1 GI:295065524
+
+373. Lophophorus lhuysii mitochondrion, complete genome
+16,712 bp circular DNA 
+NC_013979.1 GI:291612288
+
+374. Tragopan caboti mitochondrion, complete genome
+16,727 bp circular DNA 
+NC_013619.1 GI:280978293
+
+375. Dendrocygna javanica mitochondrion, complete genome
+16,753 bp circular DNA 
+NC_012844.1 GI:240266668
+
+376. Casuarius casuarius mitochondrion, complete genome
+16,756 bp circular DNA 
+NC_002778.2 GI:48864618
+
+377. Eudromia elegans mitochondrion, complete genome
+18,305 bp circular DNA 
+NC_002772.2 GI:46358645
+
+378. Tinamus major mitochondrion, complete genome
+16,701 bp circular DNA 
+NC_002781.3 GI:46326805
+
+379. Apteryx haastii mitochondrion, complete genome
+16,980 bp circular DNA 
+NC_002782.2 GI:46255316
+
+380. Pterocnemia pennata mitochondrion, complete genome
+16,749 bp circular DNA 
+NC_002783.2 GI:30387848
+
+381. Coturnix chinensis mitochondrion, complete genome
+16,687 bp circular DNA 
+NC_004575.1 GI:28603653
+
+382. Haematopus ater mitochondrion, complete genome
+16,791 bp circular DNA 
+NC_003713.2 GI:27881475
+
+383. Vidua chalybeata mitochondrion, complete genome
+16,895 bp circular DNA 
+NC_000880.1 GI:5835974
+
+384. Smithornis sharpei mitochondrion, complete genome
+17,344 bp circular DNA 
+NC_000879.1 GI:5835960
+
+385. Aythya americana mitochondrion, complete genome
+16,616 bp circular DNA 
+NC_000877.1 GI:5835932
+
+386. Rhea americana mitochondrion, complete genome
+16,714 bp circular DNA 
+NC_000846.1 GI:5835498
+
+387. Anser anser mitochondrion, complete genome
+16,738 bp circular DNA 
+NC_011196.1 GI:197935720
+
+388. Platalea minor mitochondrion, complete genome
+16,918 bp circular DNA 
+NC_010962.1 GI:190349468
+
+389. Syrmaticus soemmerringi ijimae mitochondrion, complete genome
+16,690 bp circular DNA 
+NC_010767.1 GI:189095598
+
+390. Syrmaticus reevesii mitochondrion, complete genome
+16,678 bp circular DNA 
+NC_010770.1 GI:189095528
+
+391. Syrmaticus humiae mitochondrion, complete genome
+16,686 bp circular DNA 
+NC_010774.1 GI:189095514
+
+392. Syrmaticus ellioti mitochondrion, complete genome
+16,688 bp circular DNA 
+NC_010771.1 GI:189095500
+
+393. Phasianus versicolor mitochondrion, complete genome
+16,690 bp circular DNA 
+NC_010778.1 GI:189095486
+
+394. Lophura ignita mitochondrion, complete genome
+16,688 bp circular DNA 
+NC_010781.1 GI:189095472
+
+395. Egretta eulophotes mitochondrion, complete genome
+17,579 bp circular DNA 
+NC_009736.1 GI:154937308
+
+396. Melopsittacus undulatus mitochondrion, complete genome
+18,193 bp linear DNA 
+NC_009134.1 GI:134034920
+
+397. Arenaria interpres mitochondrion, complete genome
+16,725 bp circular DNA 
+NC_003712.2 GI:21593906
+
+398. Buteo buteo mitochondrion, complete genome
+18,674 bp circular DNA 
+NC_003128.3 GI:16306596
+
+399. Anomalopteryx didiformis mitochondrion, complete genome
+16,716 bp circular DNA 
+NC_002779.1 GI:14141919
+
+400. Emeus crassus mitochondrion, complete genome
+17,061 bp circular DNA 
+NC_002673.1 GI:13116573
+
+401. Dinornis giganteus mitochondrion, complete genome
+17,070 bp circular DNA 
+NC_002672.1 GI:13116556
+
+402. Taeniopygia guttata mitochondrion, complete genome
+16,853 bp circular DNA 
+NC_007897.1 GI:89274114
+
+403. Gavia stellata mitochondrion, complete genome
+17,573 bp circular DNA 
+NC_007007.1 GI:66276072
+
+404. Falco peregrinus mitochondrion, complete genome
+18,068 bp circular DNA 
+NC_000878.1 GI:5835946
+
+405. Falco naumanni isolate bFalNau1 mitochondrion, complete sequence
+17,652 bp circular DNA 
+NC_054728.1 GI:2035912794
+
+406. Aerodramus fuciphagus mitochondrion, complete genome
+16,921 bp circular DNA 
+NC_054244.1 GI:2026154804
+
+407. Nesotrochis steganinos voucher UF431763 mitochondrion, complete genome
+15,576 bp circular DNA 
+NC_054210.1 GI:2026152881
+
+408. Certhia himalayana mitochondrion, complete genome
+16,852 bp circular DNA 
+NC_053710.1 GI:2018119405
+
+409. Rhodinocichla rosea mitochondrion, complete genome
+16,765 bp circular DNA 
+NC_053645.1 GI:2017999313
+
+410. Gallus gallus isolate bGalGal1 mitochondrion, complete sequence, whole genome shotgun sequence
+16,784 bp circular DNA 
+NC_053523.1 GI:2017807015
+
+411. Lepidothrix coronata mitochondrion, complete genome
+17,187 bp circular DNA 
+NC_053111.1 GI:1998563924
+
+412. Zonotrichia albicollis mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_053110.1 GI:1998563910
+
+413. Chloropsis hardwickii mitochondrion, complete genome
+16,813 bp circular DNA 
+NC_053109.1 GI:1998563896
+
+414. Pteruthius melanotis mitochondrion, complete genome
+16,862 bp circular DNA 
+NC_053108.1 GI:1998563882
+
+415. Sapayoa aenigma mitochondrion, complete genome
+16,945 bp circular DNA 
+NC_053107.1 GI:1998563868
+
+416. Panurus biarmicus mitochondrion, complete genome
+17,009 bp circular DNA 
+NC_053106.1 GI:1998563854
+
+417. Drymodes brunneopygia mitochondrion, complete genome
+16,851 bp circular DNA 
+NC_053105.1 GI:1998563840
+
+418. Falcunculus frontatus mitochondrion, complete genome
+16,604 bp circular DNA 
+NC_053104.1 GI:1998563826
+
+419. Horornis vulcanius mitochondrion, complete genome
+16,990 bp circular DNA 
+NC_053103.1 GI:1998563812
+
+420. Atrichornis clamosus mitochondrion, complete genome
+17,284 bp circular DNA 
+NC_053102.1 GI:1998563798
+
+421. Climacteris rufus mitochondrion, complete genome
+16,866 bp circular DNA 
+NC_053101.1 GI:1998563784
+
+422. Origma solitaria mitochondrion, complete genome
+16,846 bp circular DNA 
+NC_053100.1 GI:1998563770
+
+423. Pardalotus punctatus mitochondrion, complete genome
+16,919 bp circular DNA 
+NC_053099.1 GI:1998563756
+
+424. Grantiella picta mitochondrion, complete genome
+16,831 bp circular DNA 
+NC_053098.1 GI:1998563742
+
+425. Dasyornis broadbenti mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_053097.1 GI:1998563728
+
+426. Daphoenositta chrysoptera mitochondrion, complete genome
+16,915 bp circular DNA 
+NC_053096.1 GI:1998563714
+
+427. Malurus elegans mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_053095.1 GI:1998563700
+
+428. Machaerirhynchus nigripectus mitochondrion, complete genome
+16,883 bp circular DNA 
+NC_053094.1 GI:1998563686
+
+429. Oreocharis arfaki mitochondrion, complete genome
+17,391 bp circular DNA 
+NC_053093.1 GI:1998563672
+
+430. Ifrita kowaldi mitochondrion, complete genome
+16,925 bp circular DNA 
+NC_053092.1 GI:1998563658
+
+431. Eulacestoma nigropectus mitochondrion, complete genome
+16,986 bp circular DNA 
+NC_053091.1 GI:1998563644
+
+432. Cnemophilus loriae mitochondrion, complete genome
+16,848 bp circular DNA 
+NC_053090.1 GI:1998563630
+
+433. Melanocharis versteri mitochondrion, complete genome
+16,752 bp circular DNA 
+NC_053089.1 GI:1998563616
+
+434. Aleadryas rufinucha mitochondrion, complete genome
+16,933 bp circular DNA 
+NC_053088.1 GI:1998563602
+
+435. Struthidea cinerea mitochondrion, complete genome
+16,931 bp circular DNA 
+NC_053087.1 GI:1998563588
+
+436. Orthonyx spaldingii mitochondrion, complete genome
+16,916 bp circular DNA 
+NC_053086.1 GI:1998563574
+
+437. Onychorhynchus coronatus mitochondrion, complete genome
+17,033 bp circular DNA 
+NC_053085.1 GI:1998563560
+
+438. Spizella passerina mitochondrion, complete genome
+16,806 bp circular DNA 
+NC_053084.1 GI:1998563546
+
+439. Calcarius ornatus mitochondrion, complete genome
+16,815 bp circular DNA 
+NC_053083.1 GI:1998563532
+
+440. Prunella himalayana mitochondrion, complete genome
+16,842 bp circular DNA 
+NC_053082.1 GI:1998563518
+
+441. Tichodroma muraria mitochondrion, complete genome
+16,801 bp circular DNA 
+NC_053081.1 GI:1998563504
+
+442. Chaetops frenatus mitochondrion, complete genome
+16,795 bp circular DNA 
+NC_053080.1 GI:1998563490
+
+443. Urocynchramus pylzowi mitochondrion, complete genome
+16,879 bp circular DNA 
+NC_053079.1 GI:1998563476
+
+444. Picathartes gymnocephalus mitochondrion, complete genome
+16,887 bp circular DNA 
+NC_053078.1 GI:1998563462
+
+445. Buphagus erythrorhynchus mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_053077.1 GI:1998563448
+
+446. Anthoscopus minutus mitochondrion, complete genome
+16,760 bp circular DNA 
+NC_053076.1 GI:1998563434
+
+447. Neopipo cinnamomea mitochondrion, complete genome
+17,059 bp circular DNA 
+NC_053075.1 GI:1998563420
+
+448. Furnarius figulus mitochondrion, complete genome
+16,947 bp circular DNA 
+NC_053074.1 GI:1998563406
+
+449. Hypocryptadius cinnamomeus mitochondrion, complete genome
+16,864 bp circular DNA 
+NC_053073.1 GI:1998563392
+
+450. Mystacornis crossleyi mitochondrion, complete genome
+16,915 bp circular DNA 
+NC_053072.1 GI:1998563378
+
+451. Neodrepanis coruscans mitochondrion, complete genome
+16,950 bp circular DNA 
+NC_053071.1 GI:1998563364
+
+452. Erythrocercus mccallii mitochondrion, complete genome
+16,878 bp circular DNA 
+NC_053070.1 GI:1998563350
+
+453. Erpornis zantholeuca mitochondrion, complete genome
+16,903 bp circular DNA 
+NC_053069.1 GI:1998563336
+
+454. Chloropsis cyanopogon mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_053068.1 GI:1998563322
+
+455. Dryoscopus gambensis mitochondrion, complete genome
+16,854 bp circular DNA 
+NC_053067.1 GI:1998563308
+
+456. Peucedramus taeniatus mitochondrion, complete genome
+16,817 bp circular DNA 
+NC_053066.1 GI:1998563294
+
+457. Vidua macroura mitochondrion, complete genome
+16,874 bp circular DNA 
+NC_053065.1 GI:1998563280
+
+458. Scytalopus superciliaris mitochondrion, complete genome
+16,883 bp circular DNA 
+NC_053064.1 GI:1998563266
+
+459. Pycnonotus jocosus mitochondrion, complete genome
+16,928 bp circular DNA 
+NC_053063.1 GI:1998563252
+
+460. Nicator chloris mitochondrion, complete genome
+17,006 bp circular DNA 
+NC_053062.1 GI:1998563238
+
+461. Phainopepla nitens mitochondrion, complete genome
+16,847 bp circular DNA 
+NC_053061.1 GI:1998563224
+
+462. Rhadina sibilatrix mitochondrion, complete genome
+16,876 bp circular DNA 
+NC_053060.1 GI:1998563210
+
+463. Sitta europaea mitochondrion, complete genome
+16,827 bp circular DNA 
+NC_053059.1 GI:1998563196
+
+464. Oriolus oriolus mitochondrion, complete genome
+16,794 bp circular DNA 
+NC_053058.1 GI:1998563182
+
+465. Bombycilla garrulus mitochondrion, complete genome
+16,875 bp circular DNA 
+NC_053057.1 GI:1998563168
+
+466. Paradisaea raggiana mitochondrion, complete genome
+16,910 bp circular DNA 
+NC_053056.1 GI:1998563154
+
+467. Certhia brachydactyla mitochondrion, complete genome
+16,920 bp circular DNA 
+NC_053055.1 GI:1998563140
+
+468. Sylvia borin mitochondrion, complete genome
+17,971 bp circular DNA 
+NC_053054.1 GI:1998563126
+
+469. Toxostoma redivivum mitochondrion, complete genome
+16,780 bp circular DNA 
+NC_053053.1 GI:1998563112
+
+470. Oxyruncus cristatus mitochondrion, complete genome
+17,089 bp circular DNA 
+NC_053052.1 GI:1998563098
+
+471. Serilophus lunatus mitochondrion, complete genome
+16,990 bp circular DNA 
+NC_053051.1 GI:1998563084
+
+472. Leucopsar rothschildi mitochondrion, complete genome
+16,845 bp circular DNA 
+NC_053050.1 GI:1998563070
+
+473. Turdus abyssinicus isolate EB006 mitochondrion, complete genome
+16,707 bp circular DNA 
+NC_052843.1 GI:1980529612
+
+474. Parophasma galinieri isolate EB004 mitochondrion, complete genome
+16,685 bp circular DNA 
+NC_052842.1 GI:1980529588
+
+475. Melaenornis chocolatinus isolate EB002 mitochondrion, complete genome
+16,582 bp circular DNA 
+NC_052841.1 GI:1980529564
+
+476. Crithagra tristriata isolate EB007 mitochondrion, complete genome
+16,704 bp circular DNA 
+NC_052840.1 GI:1980529536
+
+477. Cossypha semirufa isolate EB008 mitochondrion, complete genome
+16,564 bp circular DNA 
+NC_052839.1 GI:1980529508
+
+478. Asarcornis scutulata mitochondrion, complete genome
+16,542 bp circular DNA 
+NC_052827.1 GI:1980529011
+
+479. Nothoprocta perdicaria mitochondrion, complete genome
+16,964 bp circular DNA 
+NC_052826.1 GI:1980528989
+
+480. Crypturellus cinnamomeus mitochondrion, complete genome
+16,870 bp circular DNA 
+NC_052825.1 GI:1980528963
+
+481. Apteryx rowi mitochondrion, complete genome
+16,972 bp circular DNA 
+NC_052824.1 GI:1980528938
+
+482. Steatornis caripensis mitochondrion, complete genome
+16,908 bp circular DNA 
+NC_052823.1 GI:1980528910
+
+483. Nannopterum auritus mitochondrion, complete genome
+16,646 bp circular DNA 
+NC_052822.1 GI:1980528885
+
+484. Nothoprocta pentlandii mitochondrion, complete genome
+17,013 bp circular DNA 
+NC_052821.1 GI:1980528859
+
+485. Nothoprocta ornata mitochondrion, complete genome
+17,012 bp circular DNA 
+NC_052820.1 GI:1980528837
+
+486. Nothocercus nigrocapillus mitochondrion, complete genome
+16,637 bp circular DNA 
+NC_052819.1 GI:1980528818
+
+487. Nothocercus julius mitochondrion, complete genome
+16,695 bp circular DNA 
+NC_052818.1 GI:1980528792
+
+488. Urocolius indicus mitochondrion, complete genome
+17,267 bp circular DNA 
+NC_052817.1 GI:1980528759
+
+489. Aegotheles bennettii mitochondrion, complete genome
+16,810 bp circular DNA 
+NC_052816.1 GI:1980528730
+
+490. Turnix velox mitochondrion, complete genome
+16,972 bp circular DNA 
+NC_052815.1 GI:1980528705
+
+491. Pterocles burchelli mitochondrion, complete genome
+18,290 bp circular DNA 
+NC_052814.1 GI:1980528679
+
+492. Halcyon senegalensis mitochondrion, complete genome
+17,211 bp circular DNA 
+NC_052813.1 GI:1980528657
+
+493. Chroicocephalus maculipennis mitochondrion, complete genome
+16,792 bp circular DNA 
+NC_052812.1 GI:1980528631
+
+494. Centropus unirufus mitochondrion, complete genome
+17,089 bp circular DNA 
+NC_052811.1 GI:1980528613
+
+495. Brachypteracias leptosomus mitochondrion, complete genome
+17,205 bp circular DNA 
+NC_052810.1 GI:1980528588
+
+496. Pelecanoides urinatrix mitochondrion, complete genome
+17,077 bp circular DNA 
+NC_052809.1 GI:1980528560
+
+497. Zapornia atra mitochondrion, complete genome
+16,968 bp circular DNA 
+NC_052808.1 GI:1980528540
+
+498. Chauna torquata mitochondrion, complete genome
+16,766 bp circular DNA 
+NC_052807.1 GI:1980528509
+
+499. Corythaixoides concolor mitochondrion, complete genome
+16,967 bp circular DNA 
+NC_052806.1 GI:1980528481
+
+500. Circaetus pectoralis mitochondrion, complete genome
+17,473 bp circular DNA 
+NC_052805.1 GI:1980528464
+
+501. Piaya cayana mitochondrion, complete genome
+17,007 bp circular DNA 
+NC_052804.1 GI:1980528442
+
+502. Spizaetus tyrannus mitochondrion, complete genome
+17,479 bp circular DNA 
+NC_052803.1 GI:1980528421
+
+503. Trogon melanurus mitochondrion, complete genome
+17,280 bp circular DNA 
+NC_052802.1 GI:1980528396
+
+504. Herpetotheres cachinnans mitochondrion, complete genome
+17,329 bp circular DNA 
+NC_052801.1 GI:1980528376
+
+505. Crotophaga sulcirostris mitochondrion, complete genome
+16,933 bp circular DNA 
+NC_052800.1 GI:1980528347
+
+506. Todus mexicanus mitochondrion, complete genome
+16,998 bp circular DNA 
+NC_052799.1 GI:1980528328
+
+507. Eurystomus gularis mitochondrion, complete genome
+17,379 bp circular DNA 
+NC_052798.1 GI:1980528311
+
+508. Fregata magnificens mitochondrion, complete genome
+16,788 bp circular DNA 
+NC_052797.1 GI:1980528284
+
+509. Rhinopomastus cyanomelas mitochondrion, complete genome
+16,778 bp circular DNA 
+NC_052796.1 GI:1980528264
+
+510. Aramus guarauna mitochondrion, complete genome
+16,665 bp circular DNA 
+NC_052795.1 GI:1980528242
+
+511. Burhinus bistriatus mitochondrion, complete genome
+16,856 bp circular DNA 
+NC_052794.1 GI:1980528214
+
+512. Chloroceryle aenea mitochondrion, complete genome
+17,789 bp circular DNA 
+NC_052793.1 GI:1980528190
+
+513. Psophia crepitans mitochondrion, complete genome
+17,138 bp circular DNA 
+NC_052785.1 GI:1980527428
+
+514. Odontophorus gujanensis mitochondrion, complete genome
+16,705 bp circular DNA 
+NC_052784.1 GI:1980527401
+
+515. Amazona guildingii mitochondrion, complete genome
+19,229 bp circular DNA 
+NC_052783.1 GI:1980527375
+
+516. Hydrobates tethys mitochondrion, complete genome
+17,782 bp circular DNA 
+NC_052782.1 GI:1980527348
+
+517. Psilopogon haemacephalus mitochondrion, complete genome
+16,839 bp circular DNA 
+NC_052781.1 GI:1980527321
+
+518. Stercorarius parasiticus mitochondrion, complete genome
+16,672 bp circular DNA 
+NC_052780.1 GI:1980527294
+
+519. Bucco capensis mitochondrion, complete genome
+16,679 bp circular DNA 
+NC_052779.1 GI:1980527269
+
+520. Penelope pileata mitochondrion, complete genome
+16,660 bp circular DNA 
+NC_052778.1 GI:1980527244
+
+521. Oceanites oceanicus mitochondrion, complete genome
+17,655 bp circular DNA 
+NC_052777.1 GI:1980527226
+
+522. Ceuthmochares aereus mitochondrion, complete genome
+17,187 bp circular DNA 
+NC_052776.1 GI:1980527199
+
+523. Ardeotis kori mitochondrion, complete genome
+17,288 bp circular DNA 
+NC_052775.1 GI:1980527170
+
+524. Crypturellus undulatus mitochondrion, complete genome
+17,096 bp circular DNA 
+NC_052774.1 GI:1980527144
+
+525. Crypturellus soui mitochondrion, complete genome
+16,705 bp circular DNA 
+NC_052773.1 GI:1980527119
+
+526. Colius striatus mitochondrion, complete genome
+17,283 bp circular DNA 
+NC_052772.1 GI:1980527090
+
+527. Charadrius vociferus mitochondrion, complete genome
+16,808 bp circular DNA 
+NC_052771.1 GI:1980527065
+
+528. Diopsittaca nobilis mitochondrion, complete genome
+16,992 bp circular DNA 
+NC_052711.1 GI:1980523999
+
+529. Cinclosoma castanotum voucher B38006 mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_052013.1 GI:1942107245
+
+530. Cinclosoma clarum voucher B31224 mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_052012.1 GI:1942107231
+
+531. Cinclosoma punctatum voucher B29240 mitochondrion, complete genome
+16,849 bp circular DNA 
+NC_052011.1 GI:1942107217
+
+532. Acanthorhynchus tenuirostris mitochondrion, complete genome
+16,614 bp circular DNA 
+NC_051552.1 GI:1935448479
+
+533. Corvus moneduloides mitochondrion, complete genome
+16,894 bp circular DNA 
+NC_051471.1 GI:1935445243
+
+534. Xiphorhynchus elegans mitochondrion, complete genome
+16,943 bp circular DNA 
+NC_051470.1 GI:1935445229
+
+535. Nesospiza acunhae mitochondrion, complete genome
+16,783 bp circular DNA 
+NC_051469.1 GI:1935445215
+
+536. Molothrus ater mitochondrion, complete genome
+16,758 bp circular DNA 
+NC_051468.1 GI:1935445201
+
+537. Aphelocoma coerulescens mitochondrion, complete genome
+16,907 bp circular DNA 
+NC_051467.1 GI:1935445187
+
+538. Rhegmatorhina hoffmannsi mitochondrion, complete genome
+16,891 bp circular DNA 
+NC_051466.1 GI:1935445173
+
+539. Sporophila hypoxantha mitochondrion, complete genome
+16,778 bp circular DNA 
+NC_051465.1 GI:1935445159
+
+540. Pomatostomus ruficeps mitochondrion, complete genome
+15,673 bp circular DNA 
+NC_051464.1 GI:1935445145
+
+541. Pitta sordida mitochondrion, complete genome
+17,733 bp circular DNA 
+NC_051463.1 GI:1935445131
+
+542. Gymnorhina tibicen mitochondrion, complete genome
+16,866 bp circular DNA 
+NC_051462.1 GI:1935445117
+
+543. Ploceus nigricollis mitochondrion, complete genome
+16,903 bp circular DNA 
+NC_051038.1 GI:1919576932
+
+544. Cinclus mexicanus mitochondrion, complete genome
+16,818 bp circular DNA 
+NC_051037.1 GI:1919576918
+
+545. Oenanthe oenanthe mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_051036.1 GI:1919576904
+
+546. Pachyramphus minor mitochondrion, complete genome
+17,019 bp circular DNA 
+NC_051035.1 GI:1919576890
+
+547. Dyaphorophyia castanea mitochondrion, complete genome
+16,909 bp circular DNA 
+NC_051034.1 GI:1919576876
+
+548. Hylia prasina mitochondrion, complete genome
+16,891 bp circular DNA 
+NC_051033.1 GI:1919576862
+
+549. Thryothorus ludovicianus mitochondrion, complete genome
+16,794 bp circular DNA 
+NC_051032.1 GI:1919576848
+
+550. Polioptila caerulea mitochondrion, complete genome
+16,764 bp circular DNA 
+NC_051031.1 GI:1919576834
+
+551. Lanius ludovicianus mitochondrion, complete genome
+16,947 bp circular DNA 
+NC_051030.1 GI:1919576820
+
+552. Rhipidura dahli mitochondrion, complete genome
+16,870 bp circular DNA 
+NC_051029.1 GI:1919576806
+
+553. Dicrurus megarhynchus mitochondrion, complete genome
+16,979 bp circular DNA 
+NC_051028.1 GI:1919576792
+
+554. Setophaga kirtlandii mitochondrion, complete genome
+16,807 bp circular DNA 
+NC_051027.1 GI:1919576778
+
+555. Formicarius rufipectus mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_051026.1 GI:1919576764
+
+556. Tyrannus savana mitochondrion, complete genome
+17,112 bp circular DNA 
+NC_051025.1 GI:1919576750
+
+557. Leptocoma aspasia mitochondrion, complete genome
+16,919 bp circular DNA 
+NC_051024.1 GI:1919576736
+
+558. Dicaeum eximium mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_051023.1 GI:1919576722
+
+559. Myiagra hebetior mitochondrion, complete genome
+16,928 bp circular DNA 
+NC_051022.1 GI:1919576708
+
+560. Quiscalus mexicanus mitochondrion, complete genome
+16,772 bp circular DNA 
+NC_051021.1 GI:1919576694
+
+561. Rhabdornis inornatus mitochondrion, complete genome
+16,840 bp circular DNA 
+NC_051020.1 GI:1919576680
+
+562. Pachycephala philippinensis mitochondrion, complete genome
+16,893 bp circular DNA 
+NC_051019.1 GI:1919576666
+
+563. Irena cyanogastra mitochondrion, complete genome
+16,837 bp circular DNA 
+NC_051018.1 GI:1919576652
+
+564. Edolisoma coerulescens mitochondrion, complete genome
+16,925 bp circular DNA 
+NC_051017.1 GI:1919576638
+
+565. Vireo altiloquus mitochondrion, complete genome
+17,193 bp circular DNA 
+NC_051016.1 GI:1919576624
+
+566. Loxia leucoptera mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_051015.1 GI:1919576610
+
+567. Regulus satrapa mitochondrion, complete genome
+16,854 bp circular DNA 
+NC_051014.1 GI:1919576596
+
+568. Catharus fuscescens mitochondrion, complete genome
+16,766 bp circular DNA 
+NC_051013.1 GI:1919576582
+
+569. Campylorhamphus procurvoides mitochondrion, complete genome
+16,936 bp circular DNA 
+NC_051012.1 GI:1919576568
+
+570. Sakesphorus luctuosus mitochondrion, complete genome
+16,940 bp circular DNA 
+NC_051011.1 GI:1919576554
+
+571. Sclerurus mexicanus mitochondrion, complete genome
+16,930 bp circular DNA 
+NC_051010.1 GI:1919576540
+
+572. Grallaria varia mitochondrion, complete genome
+16,901 bp circular DNA 
+NC_051009.1 GI:1919576526
+
+573. Cephalopterus ornatus mitochondrion, complete genome
+17,003 bp circular DNA 
+NC_051008.1 GI:1919576512
+
+574. Chaetorhynchus papuensis mitochondrion, complete genome
+16,956 bp circular DNA 
+NC_051007.1 GI:1919576498
+
+575. Ptilorrhoa leucosticta mitochondrion, complete genome
+16,874 bp circular DNA 
+NC_051006.1 GI:1919576484
+
+576. Tachuris rubrigastra mitochondrion, complete genome
+17,134 bp circular DNA 
+NC_051005.1 GI:1919576470
+
+577. Acanthisitta chloris mitochondrion, complete genome
+16,935 bp circular DNA 
+NC_051004.1 GI:1919576456
+
+578. Mesembrinibis cayennensis mitochondrion, complete genome
+16,738 bp circular DNA 
+NC_050835.1 GI:1919567948
+
+579. Ptilorrhoa caerulescens voucher B27057 mitochondrion, complete genome
+16,878 bp circular DNA 
+NC_050688.1 GI:1915406919
+
+580. Eremophila alpestris isolate J3 mitochondrion, complete genome
+17,855 bp circular DNA 
+NC_048470.1 GI:1847690984
+
+581. Calandrella cinerea isolate D3 mitochondrion, complete genome
+17,383 bp circular DNA 
+NC_048469.1 GI:1847690970
+
+582. Geopelia cuneata mitochondrion, complete genome
+17,880 bp circular DNA 
+NC_047279.1 GI:1834966136
+
+583. Ara chloropterus mitochondrion, complete genome
+16,991 bp circular DNA 
+NC_047199.1 GI:1834960871
+
+584. Turdus cardis mitochondrion, complete genome
+16,761 bp circular DNA 
+NC_046948.1 GI:1829777408
+
+585. Paradoxornis heudei mitochondrion, complete genome
+16,924 bp circular DNA 
+NC_046943.1 GI:1829777191
+
+586. Phylloscopus fuscatus mitochondrion, complete genome
+16,922 bp circular DNA 
+NC_046416.1 GI:1824667414
+
+587. Alaudala cheleensis mitochondrion, complete genome
+17,021 bp circular DNA 
+NC_046419.1 GI:1824661865
+
+588. Acrocephalus orientalis mitochondrion, complete genome
+17,960 bp circular DNA 
+NC_046418.1 GI:1824661851
+
+589. Sylvia curruca mitochondrion, complete genome
+17,959 bp circular DNA 
+NC_046417.1 GI:1824661837
+
+590. Seicercus borealis mitochondrion, complete genome
+16,881 bp circular DNA 
+NC_045526.1 GI:1796333498
+
+591. Seicercus tenellipes mitochondrion, complete genome
+16,904 bp circular DNA 
+NC_045525.1 GI:1796333484
+
+592. Psittacula roseata mitochondrion, complete genome
+16,814 bp circular DNA 
+NC_045379.1 GI:1783497457
+
+593. Psittacula alexandri mitochondrion, complete genome
+16,883 bp circular DNA 
+NC_045378.1 GI:1783497443
+
+594. Dromaius baudinianus mitochondrion, complete genome
+16,713 bp circular DNA 
+NC_045365.1 GI:1783497261
+
+595. Ara macao mitochondrion, complete genome
+16,970 bp circular DNA 
+NC_045076.1 GI:1770691503
+
+596. Caracara creightoni voucher UF:241647 mitochondrion, complete genome
+16,931 bp circular DNA 
+NC_044674.1 GI:1747251592
+
+597. Caracara cheriway voucher UF:Ornithology:50406 mitochondrion, complete genome
+17,077 bp circular DNA 
+NC_044673.1 GI:1747251578
+
+598. Caracara plancus voucher UF:Ornithology:38951 mitochondrion, complete genome
+17,077 bp circular DNA 
+NC_044672.1 GI:1747251564
+
+599. Ectopistes migratorius voucher BMNH1149 mitochondrion, complete genome
+17,026 bp linear DNA 
+NC_042502.1 GI:1679362904
+
+600. Tetrao parvirostris kamtschaticus isolate 1-1 mitochondrion, complete genome
+16,684 bp circular DNA 
+NC_043950.1 GI:1707504990
+
+601. Tetrao parvirostris parvirostris isolate 2318 mitochondrion, complete genome
+16,688 bp circular DNA 
+NC_043949.1 GI:1707504976
+
+602. Dicrurus hottentottus mitochondrion, complete genome
+16,963 bp circular DNA 
+NC_043948.1 GI:1707504962
+
+603. Sitta nagaensis mitochondrion, complete genome
+16,828 bp circular DNA 
+NC_042731.1 GI:1693289872
+
+604. Sitta himalayensis mitochondrion, complete genome
+16,822 bp circular DNA 
+NC_042730.1 GI:1693289854
+
+605. Dendrocopos darjellensis voucher AHNU:A0328 mitochondrion, complete genome
+16,864 bp circular DNA 
+NC_042683.1 GI:1693286542
+
+606. Numenius tenuirostris isolate lib4-2 mitochondrion, complete genome
+16,705 bp circular DNA 
+NC_042233.1 GI:1642524951
+
+607. Piranga leucoptera isolate fmnh481795 mitochondrion, complete genome
+16,795 bp circular DNA 
+NC_041668.1 GI:1610635778
+
+608. Piranga rubriceps isolate lsu266 mitochondrion, complete genome
+16,809 bp circular DNA 
+NC_041667.1 GI:1610635762
+
+609. Piranga erythrocephala isolate fmnh343371 mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_041666.1 GI:1610635747
+
+610. Piranga bidentata isolate tepe59 mitochondrion, complete genome
+16,808 bp circular DNA 
+NC_041665.1 GI:1610635732
+
+611. Piranga ludoviciana isolate sdsu2385 mitochondrion, complete genome
+16,804 bp circular DNA 
+NC_041664.1 GI:1610635716
+
+612. Piranga olivacea isolate ku2699 mitochondrion, complete genome
+16,810 bp circular DNA 
+NC_041663.1 GI:1610635700
+
+613. Piranga hepatica isolate ku4970 mitochondrion, complete genome
+16,806 bp circular DNA 
+NC_041662.1 GI:1610635685
+
+614. Piranga flava isolate ku90809 mitochondrion, complete genome
+16,814 bp circular DNA 
+NC_041661.1 GI:1610635670
+
+615. Piranga lutea isolate ku89864 mitochondrion, complete genome
+16,803 bp circular DNA 
+NC_041660.1 GI:1610635654
+
+616. Piranga rubra isolate ku7046 mitochondrion, complete genome
+16,805 bp circular DNA 
+NC_041659.1 GI:1610635639
+
+617. Piranga roseogularis isolate ku2049 mitochondrion, complete genome
+16,782 bp circular DNA 
+NC_041658.1 GI:1610635624
+
+618. Rallus aquaticus mitochondrion, complete genome
+17,149 bp circular DNA 
+NC_041578.1 GI:1610629407
+
+619. Gallirallus striatus mitochondrion, complete genome
+17,647 bp circular DNA 
+NC_041577.1 GI:1610629391
+
+620. Hydrophasianus chirurgus mitochondrion, complete genome
+16,855 bp circular DNA 
+NC_041576.1 GI:1610629376
+
+621. Gavia arctica mitochondrion, complete genome
+17,066 bp circular DNA 
+NC_041165.1 GI:1593553006
+
+622. Charadrius alexandrinus mitochondrion, complete genome
+16,905 bp circular DNA 
+NC_041118.1 GI:1593550633
+
+623. Chloris sinica mitochondrion, complete genome
+16,812 bp circular DNA 
+NC_041094.1 GI:1593549678
+
+624. Corvus cornix cornix isolate S_Up_H32 mitochondrion, complete genome
+16,946 bp circular DNA 
+NC_024698.1 GI:672551335
+
+625. Mergus merganser mitochondrion, complete genome
+16,630 bp circular DNA 
+NC_040986.1 GI:1583107605
+
+626. Parus major mitochondrion, complete genome
+16,777 bp circular DNA 
+NC_040875.1 GI:1573132663
+
+627. Gallus gallus spadiceus isolate YP19903 breed Red jungle fowl mitochondrion, complete genome
+16,784 bp circular DNA 
+NC_040902.1 GI:1579200795
+
+628. Eolophus roseicapillus mitochondrion, complete genome
+18,982 bp circular DNA 
+NC_040154.1 GI:1535791457
+
+629. Cacatua pastinator mitochondrion, complete genome
+19,041 bp circular DNA 
+NC_040142.1 GI:1535790845
+
+630. Erythrogenys gravivox mitochondrion, complete genome
+16,963 bp circular DNA 
+NC_040006.1 GI:1526694852
+
+631. Indicator xanthonotus mitochondrion, complete genome
+17,603 bp circular DNA 
+NC_040005.1 GI:1526694838
+
+632. Ardea insignis mitochondrion, complete genome
+18,656 bp circular DNA 
+NC_040004.1 GI:1526694824
+
+633. Prodotiscus insignis voucher FMNH 440484 mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_039892.1 GI:1511252022
+
+634. Megalaima virens voucher LSUMNS B20788 mitochondrion, complete genome
+16,788 bp circular DNA 
+NC_039891.1 GI:1511252008
+
+635. Jynx ruficollis voucher FMNH 390085 mitochondrion, complete genome
+16,825 bp circular DNA 
+NC_039890.1 GI:1511251994
+
+636. Indicator maculatus voucher FMNH 429419 mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_039889.1 GI:1511251980
+
+637. Perdix perdix mitochondrion, complete genome
+16,699 bp circular DNA 
+NC_039843.1 GI:1511250544
+
+638. Lanius tigrinus mitochondrion, complete genome
+16,817 bp circular DNA 
+NC_039818.1 GI:1511249695
+
+639. Atlantisia rogersi voucher SAFRING_4H544305 mitochondrion, complete genome
+17,337 bp circular DNA 
+NC_039814.1 GI:1511249419
+
+640. Picumnus innominatus mitochondrion, complete genome
+17,180 bp circular DNA 
+NC_039537.1 GI:1509835901
+
+641. Tringa glareola mitochondrion, complete genome
+16,804 bp circular DNA 
+NC_039096.1 GI:1464311689
+
+642. Bubo bubo isolate D166 mitochondrion, complete genome
+18,952 bp circular DNA 
+NC_038219.1 GI:1442330093
+
+643. Bubo scandiacus isolate X3 mitochondrion, complete genome
+18,734 bp circular DNA 
+NC_038220.1 GI:1442313535
+
+644. Strix uralensis isolate C5 mitochondrion, complete genome
+18,708 bp circular DNA 
+NC_038218.1 GI:1442313521
+
+645. Milvus migrans voucher IN1594 mitochondrion, complete genome
+18,016 bp circular DNA 
+NC_038195.1 GI:1442313153
+
+646. Anthracoceros coronatus mitochondrion, complete genome
+17,216 bp circular DNA 
+NC_038152.1 GI:1436053784
+
+647. Serinus canaria mitochondrion, complete genome
+16,805 bp circular DNA 
+NC_037521.1 GI:1381394712
+
+648. Porzana paykullii mitochondrion, complete genome
+16,955 bp circular DNA 
+NC_037406.1 GI:1381386126
+
+649. Hemiphaga novaeseelandiae mitochondrion, complete genome
+17,264 bp circular DNA 
+NC_013244.1 GI:258649476
+
+650. Pygoscelis papua isolate 12 mitochondrion, complete genome
+16,712 bp circular DNA 
+NC_037702.1 GI:1418575889
+
+651. Emberiza leucocephalos mitochondrion, complete genome
+16,754 bp circular DNA 
+NC_037692.1 GI:1418575399
+
+652. Garrulax albogularis mitochondrion, complete genome
+17,870 bp circular DNA 
+NC_037464.1 GI:1381390578
+
+653. Lepidocolaptes angustirostris voucher MPEG_68210 mitochondrion, complete genome
+16,973 bp circular DNA 
+NC_037154.1 GI:1369119991
+
+654. Sicalis olivascens voucher MACN_1307 mitochondrion, complete genome
+16,768 bp circular DNA 
+NC_037153.1 GI:1369119977
+
+655. Lonchura grandis isolate JSB013 mitochondrion, complete genome
+16,830 bp circular DNA 
+NC_036401.1 GI:1299049207
+
+656. Sterna hirundo mitochondrion, complete genome
+16,707 bp circular DNA 
+NC_036345.1 GI:1284805023
+
+657. Goura victoria voucher MZB:14482 mitochondrion, complete genome
+17,743 bp circular DNA 
+NC_036613.1 GI:1330355552
+
+658. Otidiphaps nobilis voucher AMNH:DOT9510 mitochondrion, complete genome
+17,346 bp circular DNA 
+NC_036612.1 GI:1330355523
+
+659. Trugon terrestris voucher ZMUC:131708 mitochondrion, complete genome
+17,405 bp circular DNA 
+NC_036611.1 GI:1330355493
+
+660. Lonchura stygia isolate KFS192 mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_036408.1 GI:1299049350
+
+661. Lonchura spectabilis isolate KFS094 mitochondrion, complete genome
+16,825 bp circular DNA 
+NC_036407.1 GI:1299049327
+
+662. Lonchura nigerrima isolate CMK022 mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_036406.1 GI:1299049304
+
+663. Lonchura nevermanni isolate KFS190 mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_036405.1 GI:1299049285
+
+664. Lonchura melaena isolate CMK017 mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_036404.1 GI:1299049264
+
+665. Lonchura grandis x castaneothorax isolate KFS109 mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_036403.1 GI:1299049245
+
+666. Lonchura hunsteini isolate CMK018 mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_036402.1 GI:1299049225
+
+667. Lonchura forbesi isolate KFS177 mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_036400.1 GI:1299049188
+
+668. Lonchura flaviprymna isolate KFS001 mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_036399.1 GI:1299049166
+
+669. Lonchura castaneothorax isolate B29859 voucher CSIRO:29859 mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_036398.1 GI:1299049146
+
+670. Lonchura caniceps isolate KFS121 mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_036397.1 GI:1299049129
+
+671. Lonchura leucosticta isolate WAMB56389 voucher CSIRO:B56389 mitochondrion, complete genome
+16,833 bp circular DNA 
+NC_036396.1 GI:1299049110
+
+672. Gelochelidon nilotica mitochondrion, complete genome
+16,748 bp circular DNA 
+NC_036344.1 GI:1284805009
+
+673. Spheniscus humboldti mitochondrion, complete genome
+16,658 bp circular DNA 
+NC_036337.1 GI:1277626501
+
+674. Spheniscus mendiculus mitochondrion, complete genome
+16,367 bp circular DNA 
+NC_036297.1 GI:1277625536
+
+675. Spheniscus magellanicus isolate 2 mitochondrion, complete genome
+16,546 bp circular DNA 
+NC_036264.1 GI:1277625102
+
+676. Gyps fulvus mitochondrion, complete genome
+18,094 bp circular DNA 
+NC_036050.1 GI:1267170560
+
+677. Himantopus himantopus mitochondrion, complete genome
+17,378 bp circular DNA 
+NC_035423.1 GI:1215852940
+
+678. Cypseloides fumigatus isolate LGEMA 11411 mitochondrion, complete genome
+16,850 bp circular DNA 
+NC_034933.1 GI:1199894901
+
+679. Gallinago stenura mitochondrion, complete genome
+16,899 bp circular DNA 
+NC_034741.1 GI:1197511638
+
+680. Sarothrura ayresi mitochondrion, complete genome
+16,767 bp circular DNA 
+NC_034316.1 GI:1181492581
+
+681. Numida meleagris isolate 19003 mitochondrion, complete genome
+16,785 bp circular DNA 
+NC_034374.1 GI:1182972644
+
+682. Haematortyx sanguiniceps voucher LSUMZ B-52646 mitochondrion, complete genome
+16,692 bp circular DNA 
+NC_034001.1 GI:1150151055
+
+683. Lagopus muta voucher UWBM 51660 mitochondrion, complete genome
+16,683 bp circular DNA 
+NC_034002.1 GI:1150084380
+
+684. Lophornis magnificus mitochondrion, complete genome
+16,499 bp circular DNA 
+NC_033414.1 GI:1133411107
+
+685. Glaucis hirsutus mitochondrion, complete genome
+16,815 bp circular DNA 
+NC_033413.1 GI:1133411093
+
+686. Emberiza fucata mitochondrion, complete genome
+16,752 bp circular DNA 
+NC_033338.1 GI:1133407098
+
+687. Terpsiphone atrocaudata mitochondrion, complete genome
+16,954 bp circular DNA 
+NC_032725.1 GI:1128273463
+
+688. Zosterops poliogastrus mitochondrion, complete genome
+17,974 bp circular DNA 
+NC_032059.1 GI:1111670093
+
+689. Zosterops abyssinicus mitochondrion, complete genome
+17,827 bp circular DNA 
+NC_032058.1 GI:1111670079
+
+690. Phalcoboenus australis mitochondrion, complete genome
+17,074 bp circular DNA 
+NC_031897.1 GI:1102549446
+
+691. Melophus lathami mitochondrion, complete genome
+16,799 bp circular DNA 
+NC_031845.1 GI:1102547001
+
+692. Corvus moriorum mitochondrion, complete genome
+15,593 bp circular DNA 
+NC_031518.1 GI:1088474439
+
+693. Eophona migratoria mitochondrion, complete genome
+16,798 bp circular DNA 
+NC_031374.1 GI:1079486391
+
+694. Fringilla polatzeki mitochondrion, complete genome
+16,785 bp circular DNA 
+NC_031157.1 GI:1070108610
+
+695. Stachyris ruficeps mitochondrion, complete genome
+16,885 bp circular DNA 
+NC_030771.1 GI:1052488395
+
+696. Psittrichas fulgidus mitochondrion, complete genome
+16,776 bp circular DNA 
+NC_027848.1 GI:927372448
+
+697. Psittacus erithacus mitochondrion, complete genome
+17,962 bp circular DNA 
+NC_027847.1 GI:927372435
+
+698. Prioniturus luconensis mitochondrion, complete genome
+18,525 bp circular DNA 
+NC_027846.1 GI:927372422
+
+699. Myiopsitta monachus mitochondrion, complete genome
+16,755 bp circular DNA 
+NC_027844.1 GI:927372394
+
+700. Forpus passerinus mitochondrion, complete genome
+18,461 bp circular DNA 
+NC_027843.1 GI:927372380
+
+701. Eclectus roratus mitochondrion, complete genome
+16,842 bp circular DNA 
+NC_027842.1 GI:927372366
+
+702. Coracopsis vasa mitochondrion, complete genome
+16,902 bp circular DNA 
+NC_027841.1 GI:927372352
+
+703. Amazona ochrocephala mitochondrion, complete genome
+18,909 bp circular DNA 
+NC_027840.1 GI:927372338
+
+704. Ara militaris mitochondrion, complete genome
+16,990 bp circular DNA 
+NC_027839.1 GI:927372324
+
+705. Zenaida auriculata mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_015203.1 GI:325149516
+
+706. Geotrygon violacea mitochondrion, complete genome
+16,864 bp circular DNA 
+NC_015207.1 GI:325126930
+
+707. Bycanistes brevis mitochondrion, complete genome
+17,591 bp circular DNA 
+NC_015201.1 GI:325126802
+
+708. Bucorvus leadbeateri mitochondrion, complete genome
+17,061 bp circular DNA 
+NC_015199.1 GI:325126774
+
+709. Eupsittula pertinax chrysogenys voucher Coleccion Ornithologica Phelps ML683 mitochondrion, complete genome
+16,980 bp circular DNA 
+NC_015197.1 GI:325126746
+
+710. Nymphicus hollandicus mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_015192.1 GI:325126676
+
+711. Leptotila verreauxi mitochondrion, complete genome
+17,176 bp circular DNA 
+NC_015190.1 GI:325126648
+
+712. Emberiza elegans mitochondrion, complete genome
+16,779 bp circular DNA 
+NC_030368.1 GI:1037242791
+
+713. Phaethornis malaris mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_030288.1 GI:1033320320
+
+714. Florisuga fusca mitochondrion, complete genome
+16,810 bp circular DNA 
+NC_030287.1 GI:1033320306
+
+715. Calliphlox amethystina mitochondrion, complete genome
+16,871 bp circular DNA 
+NC_030286.1 GI:1033320292
+
+716. Heliodoxa aurescens mitochondrion, complete genome
+16,718 bp circular DNA 
+NC_030285.1 GI:1033320278
+
+717. Sagittarius serpentarius mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_023788.1 GI:594448869
+
+718. Phodilus badius mitochondrion, complete genome
+17,086 bp circular DNA 
+NC_023787.1 GI:594448846
+
+719. Philesturnus carunculatus mitochondrion, complete genome
+16,827 bp circular DNA 
+NC_029143.1 GI:992331291
+
+720. Turdus philomelos mitochondrion, complete genome
+18,540 bp circular DNA 
+NC_029147.1 GI:992329232
+
+721. Zosterops lateralis mitochondrion, complete genome
+17,821 bp circular DNA 
+NC_029146.1 GI:992329218
+
+722. Rhipidura fuliginosa mitochondrion, complete genome
+16,886 bp circular DNA 
+NC_029145.1 GI:992329204
+
+723. Prosthemadera novaeseelandiae mitochondrion, complete genome
+16,849 bp circular DNA 
+NC_029144.1 GI:992329190
+
+724. Petroica macrocephala mitochondrion, complete genome
+16,861 bp circular DNA 
+NC_029142.1 GI:992329176
+
+725. Petroica australis mitochondrion, complete genome
+16,912 bp circular DNA 
+NC_029141.1 GI:992329162
+
+726. Notiomystis cincta mitochondrion, complete genome
+18,645 bp circular DNA 
+NC_029140.1 GI:992329147
+
+727. Gerygone igata mitochondrion, complete genome
+16,871 bp circular DNA 
+NC_029139.1 GI:992329133
+
+728. Megalurus punctatus mitochondrion, complete genome
+17,973 bp circular DNA 
+NC_029138.1 GI:992329119
+
+729. Anthus novaeseelandiae mitochondrion, complete genome
+16,851 bp circular DNA 
+NC_029137.1 GI:992329105
+
+730. Regulus regulus mitochondrion, complete genome
+16,847 bp circular DNA 
+NC_029837.1 GI:1016472487
+
+731. Turnagra capensis mitochondrion, complete genome
+16,994 bp circular DNA 
+NC_028336.1 GI:948299407
+
+732. Motacilla lugens mitochondrion, complete genome
+16,834 bp circular DNA 
+NC_029703.1 GI:1011056576
+
+733. Ninox scutulata mitochondrion, complete genome
+16,208 bp circular DNA 
+NC_029384.1 GI:1002162463
+
+734. Larus vegae mitochondrion, complete genome
+16,379 bp circular DNA 
+NC_029383.1 GI:1002162449
+
+735. Callipepla squamata mitochondrion, complete genome
+16,701 bp circular DNA 
+NC_029340.1 GI:1002161189
+
+736. Sturnus vulgaris isolate sv009 mitochondrion, complete genome
+16,793 bp circular DNA 
+NC_029360.1 GI:1002161569
+
+737. Hieraaetus fasciatus voucher AHNU:A0318 mitochondrion, complete genome
+18,513 bp circular DNA 
+NC_029188.1 GI:992331375
+
+738. Buteo lagopus voucher AHNU:A0381 mitochondrion, complete genome
+18,559 bp circular DNA 
+NC_029189.1 GI:992329818
+
+739. Pygoscelis adeliae mitochondrion, complete genome
+17,486 bp circular DNA 
+NC_021137.1 GI:482651473
+
+740. Padda oryzivora mitochondrion, complete genome
+16,817 bp circular DNA 
+NC_028441.1 GI:953245192
+
+741. Upupa epops mitochondrion, complete genome
+16,562 bp circular DNA 
+NC_028178.1 GI:944541969
+
+742. Halcyon coromanda mitochondrion, complete genome
+16,542 bp circular DNA 
+NC_028177.1 GI:944541955
+
+743. Sternula albifrons mitochondrion, complete genome
+16,357 bp circular DNA 
+NC_028176.1 GI:944541941
+
+744. Dendrocopos major mitochondrion, complete genome
+16,845 bp circular DNA 
+NC_028174.1 GI:944541913
+
+745. Otus bakkamoena mitochondrion, complete genome
+17,389 bp circular DNA 
+NC_028163.1 GI:944541700
+
+746. Otus scops mitochondrion, complete genome
+17,413 bp circular DNA 
+NC_028162.1 GI:944541686
+
+747. Aegotheles cristatus mitochondrion, complete genome
+16,914 bp circular DNA 
+NC_011718.2 GI:938206253
+
+748. Eurystomus orientalis mitochondrion, complete genome
+17,210 bp circular DNA 
+NC_011716.2 GI:938206113
+
+749. Goura scheepmakeri voucher BMNH:89.2.12.421 mitochondrion, complete genome
+17,131 bp circular DNA 
+NC_027947.1 GI:937408163
+
+750. Nestor notabilis mitochondrion, complete genome
+16,818 bp circular DNA 
+NC_027845.1 GI:927372408
+
+751. Arremon aurantiirostris voucher UWBM 106601 mitochondrion, complete genome
+16,785 bp circular DNA 
+NC_027731.1 GI:918020533
+
+752. Lanius isabellinus mitochondrion, complete genome
+16,819 bp circular DNA 
+NC_027655.1 GI:906476609
+
+753. Florisuga mellivora mitochondrion, complete genome
+16,739 bp circular DNA 
+NC_027455.1 GI:884997609
+
+754. Oreotrochilus melanogaster mitochondrion, complete genome
+16,859 bp circular DNA 
+NC_027454.1 GI:884997595
+
+755. Hylocharis cyanus mitochondrion, complete genome
+16,817 bp circular DNA 
+NC_027453.1 GI:884997581
+
+756. Phaethon lepturus mitochondrion, complete genome
+17,773 bp circular DNA 
+NC_027275.1 GI:836643779
+
+757. Emberiza jankowskii isolate GHT-LB-07 mitochondrion, complete genome
+16,776 bp circular DNA 
+NC_027251.1 GI:836643327
+
+758. Tregellasia capito voucher B31376 mitochondrion, complete genome
+16,764 bp circular DNA 
+NC_027231.1 GI:836642980
+
+759. Eopsaltria georgiana voucher B31892 mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_027230.1 GI:836642966
+
+760. Eopsaltria griseogularis voucher B31918 mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_027229.1 GI:836642952
+
+761. Hyliota flavigaster voucher FMNH 440798 mitochondrion, complete genome
+16,218 bp circular DNA 
+NC_024868.1 GI:685497217
+
+762. Corvus hawaiiensis isolate SB33 mitochondrion, complete genome
+16,898 bp circular DNA 
+NC_026783.1 GI:803666071
+
+763. Crossoptilon mantchuricum voucher 11798 mitochondrion, complete genome
+16,690 bp circular DNA 
+NC_026548.1 GI:761546377
+
+764. Crossoptilon harmani voucher M10 mitochondrion, complete genome
+16,682 bp circular DNA 
+NC_026547.1 GI:761546363
+
+765. Phoebastria albatrus mitochondrion, complete genome
+19,097 bp circular DNA 
+NC_026190.1 GI:749111586
+
+766. Phoebastria immutabilis mitochondrion, complete genome
+19,088 bp circular DNA 
+NC_026189.1 GI:749111571
+
+767. Phoebastria nigripes mitochondrion, complete genome
+19,072 bp circular DNA 
+NC_026188.1 GI:749111556
+
+768. Pyrrhocorax graculus mitochondrion, complete genome
+16,905 bp circular DNA 
+NC_025927.1 GI:733386536
+
+769. Pyrrhocorax pyrrhocorax mitochondrion, complete genome
+16,889 bp circular DNA 
+NC_025926.1 GI:733386522
+
+770. Montifringilla taczanowskii mitochondrion, complete genome
+16,917 bp circular DNA 
+NC_025914.1 GI:733386348
+
+771. Montifringilla adamsi mitochondrion, complete genome
+16,912 bp circular DNA 
+NC_025913.1 GI:733386334
+
+772. Pyrgilauda blanfordi mitochondrion, complete genome
+16,913 bp circular DNA 
+NC_025912.1 GI:733386320
+
+773. Montifringilla nivalis mitochondrion, complete genome
+16,923 bp circular DNA 
+NC_025911.1 GI:733386306
+
+774. Pyrgilauda davidiana mitochondrion, complete genome
+16,912 bp circular DNA 
+NC_025915.1 GI:733386362
+
+775. Fringilla coelebs mitochondrion, complete genome
+16,801 bp circular DNA 
+NC_025599.1 GI:722498548
+
+776. Pseudonestor xanthophrys mitochondrion, complete genome
+16,830 bp circular DNA 
+NC_025630.1 GI:722491186
+
+777. Oreomystis bairdi mitochondrion, complete genome
+16,833 bp circular DNA 
+NC_025628.1 GI:722491154
+
+778. Carduelis psaltria mitochondrion, complete genome
+16,812 bp circular DNA 
+NC_025627.1 GI:722491134
+
+779. Pyrrhula pyrrhula mitochondrion, complete genome
+16,831 bp circular DNA 
+NC_025625.1 GI:722491102
+
+780. Hemignathus stejnegeri mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_025624.1 GI:722491083
+
+781. Loxia curvirostra mitochondrion, complete genome
+16,805 bp circular DNA 
+NC_025623.1 GI:722491064
+
+782. Hemignathus parvus mitochondrion, complete genome
+16,833 bp circular DNA 
+NC_025622.1 GI:722491046
+
+783. Serinus dorsostriatus mitochondrion, complete genome
+16,804 bp circular DNA 
+NC_025621.1 GI:722491025
+
+784. Vestiaria coccinea mitochondrion, complete genome
+16,830 bp circular DNA 
+NC_025620.1 GI:722491005
+
+785. Cardinalis cardinalis mitochondrion, complete genome
+16,779 bp circular DNA 
+NC_025618.1 GI:722490964
+
+786. Melamprosops phaeosoma mitochondrion, complete genome
+16,840 bp circular DNA 
+NC_025617.1 GI:722490941
+
+787. Eremopsaltria mongolica mitochondrion, complete genome
+16,811 bp circular DNA 
+NC_025616.1 GI:722490922
+
+788. Leucosticte arctoa mitochondrion, complete genome
+16,801 bp circular DNA 
+NC_025615.1 GI:722490902
+
+789. Coccothraustes coccothraustes mitochondrion, complete genome
+16,823 bp circular DNA 
+NC_025614.1 GI:722490882
+
+790. Haemorhous cassinii mitochondrion, complete genome
+16,812 bp circular DNA 
+NC_025613.1 GI:722490857
+
+791. Loxops coccineus mitochondrion, complete genome
+15,589 bp circular DNA 
+NC_025612.1 GI:722490838
+
+792. Passer domesticus mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_025611.1 GI:722490819
+
+793. Haemorhous mexicanus mitochondrion, complete genome
+16,822 bp circular DNA 
+NC_025610.1 GI:722490799
+
+794. Pinicola enucleator mitochondrion, complete genome
+16,818 bp circular DNA 
+NC_025609.1 GI:722490780
+
+795. Hemignathus flavus mitochondrion, complete genome
+16,835 bp circular DNA 
+NC_025608.1 GI:722490761
+
+796. Carpodacus roseus mitochondrion, complete genome
+16,796 bp circular DNA 
+NC_025607.1 GI:722490743
+
+797. Chlorophanes spiza mitochondrion, complete genome
+16,824 bp circular DNA 
+NC_025606.1 GI:722490726
+
+798. Loxops caeruleirostris mitochondrion, complete genome
+16,829 bp circular DNA 
+NC_025605.1 GI:722490711
+
+799. Leucosticte brandti mitochondrion, complete genome
+16,798 bp circular DNA 
+NC_025604.1 GI:722490693
+
+800. Himatione sanguinea mitochondrion, complete genome
+16,840 bp circular DNA 
+NC_025602.1 GI:722490659
+
+801. Paroreomyza montana mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_025601.1 GI:722490643
+
+802. Hesperiphona vespertina mitochondrion, complete genome
+16,810 bp circular DNA 
+NC_025600.1 GI:722490624
+
+803. Loxops mana mitochondrion, complete genome
+16,714 bp circular DNA 
+NC_025598.1 GI:722490601
+
+804. Thraupis episcopus mitochondrion, complete genome
+16,757 bp circular DNA 
+NC_025596.1 GI:722490570
+
+805. Serinus albogularis mitochondrion, complete genome
+16,810 bp circular DNA 
+NC_025595.1 GI:722490550
+
+806. Uragus sibiricus mitochondrion, complete genome
+16,802 bp circular DNA 
+NC_025594.1 GI:722490534
+
+807. Porphyrio porphyrio mitochondrion, complete genome
+17,020 bp circular DNA 
+NC_025508.1 GI:722489498
+
+808. Gallirallus philippensis mitochondrion, complete genome
+17,359 bp circular DNA 
+NC_025507.1 GI:722489481
+
+809. Lewinia muelleri mitochondrion, complete genome
+17,313 bp circular DNA 
+NC_025502.1 GI:722489418
+
+810. Eulabeornis castaneoventris mitochondrion, complete genome
+17,421 bp circular DNA 
+NC_025501.1 GI:722489401
+
+811. Fulica atra mitochondrion, complete genome
+17,029 bp circular DNA 
+NC_025500.1 GI:722489385
+
+812. Heliornis fulica mitochondrion, complete genome
+17,009 bp circular DNA 
+NC_025499.1 GI:722489363
+
+813. Carpodacus erythrinus mitochondrion, complete genome
+16,820 bp circular DNA 
+NC_025597.1 GI:722490585
+
+814. Malurus melanocephalus voucher AMNH Lab1109 mitochondrion, complete genome
+15,568 bp circular DNA 
+NC_024873.1 GI:685497287
+
+815. Turdus migratorius voucher MMNH 46438 mitochondrion, complete genome
+16,669 bp circular DNA 
+NC_024872.1 GI:685497273
+
+816. Tregellasia leucops voucher AMNH AM819 mitochondrion, complete genome
+16,759 bp circular DNA 
+NC_024871.1 GI:685497259
+
+817. Sitta carolinensis voucher MMNH 47277 mitochondrion, complete genome
+16,826 bp circular DNA 
+NC_024870.1 GI:685497245
+
+818. Vireo olivaceus voucher MMNH 47300 mitochondrion, complete genome
+17,295 bp circular DNA 
+NC_024869.1 GI:685497231
+
+819. Oedistoma iliolophum voucher AMNH AM956 mitochondrion, complete genome
+16,831 bp circular DNA 
+NC_024865.1 GI:685497175
+
+820. Emberiza rutila mitochondrion, complete genome
+16,803 bp linear DNA 
+NC_024925.1 GI:688074743
+
+821. Emberiza rustica voucher AHHF01 mitochondrion, complete genome
+16,798 bp circular DNA 
+NC_024924.1 GI:688074714
+
+822. Regulus calendula voucher MMNH FKB243 mitochondrion, complete genome
+16,859 bp circular DNA 
+NC_024866.1 GI:685497189
+
+823. Emberiza spodocephala mitochondrion, complete genome
+16,796 bp circular DNA 
+NC_021445.1 GI:511348827
+
+824. Poecile atricapilla voucher MMNH 47022 mitochondrion, complete genome
+16,765 bp circular DNA 
+NC_024867.1 GI:685497203
+
+825. Mionectes oleagineus voucher MJM2008 mitochondrion, complete genome
+17,023 bp circular DNA 
+NC_024682.1 GI:671729669
+
+826. Henicorhina leucosticta mitochondrion, complete genome
+16,727 bp circular DNA 
+NC_024673.1 GI:671729557
+
+827. Anas acuta mitochondrion, complete genome
+16,599 bp circular DNA 
+NC_024631.1 GI:671729102
+
+828. Tachybaptus ruficollis mitochondrion, complete genome
+16,688 bp circular DNA 
+NC_024594.1 GI:669032051
+
+829. Amaurornis phoenicurus mitochondrion, complete genome
+17,213 bp circular DNA 
+NC_024593.1 GI:669032037
+
+830. Dupetor flavicollis mitochondrion, complete genome
+17,016 bp circular DNA 
+NC_024575.1 GI:669026716
+
+831. Ceryle rudis mitochondrion, complete genome
+17,355 bp circular DNA 
+NC_024280.1 GI:651424639
+
+832. Ficedula albicollis mitochondrion, complete genome
+16,787 bp circular DNA 
+NC_021621.1 GI:518869867
+
+833. Aquila chrysaetos mitochondrion, complete genome
+17,332 bp circular DNA 
+NC_024087.1 GI:635155020
+
+834. Egretta garzetta mitochondrion, complete genome
+17,361 bp circular DNA 
+NC_023981.1 GI:608788292
+
+835. Aix galericulata mitochondrion, complete genome
+16,605 bp circular DNA 
+NC_023969.1 GI:608788124
+
+836. Perdix hodgsoniae mitochondrion, complete genome
+16,699 bp circular DNA 
+NC_023940.1 GI:608787759
+
+837. Tetraogallus tibetanus mitochondrion, complete genome
+16,692 bp circular DNA 
+NC_023939.1 GI:608787745
+
+838. Anas falcata mitochondrion, complete genome
+16,601 bp linear DNA 
+NC_023352.1 GI:575669457
+
+839. Lophura swinhoii mitochondrion, complete genome
+16,693 bp circular DNA 
+NC_023779.1 GI:594448695
+
+840. Campylorhynchus zonatus mitochondrion, complete genome
+16,780 bp circular DNA 
+NC_022840.1 GI:558603509
+
+841. Nucifraga columbiana mitochondrion, complete genome
+16,905 bp circular DNA 
+NC_022839.1 GI:558603495
+
+842. Montifringilla ruficollis mitochondrion, complete genome
+16,909 bp circular DNA 
+NC_022815.1 GI:558603155
+
+843. Anas crecca mitochondrion, complete genome
+16,601 bp circular DNA 
+NC_022452.1 GI:546143674
+
+844. Emberiza aureola mitochondrion, complete genome
+16,800 bp circular DNA 
+NC_022150.1 GI:533206442
+
+845. Emberiza pusilla mitochondrion, complete genome
+16,790 bp circular DNA 
+NC_021408.1 GI:511348103
+
+846. Pygoscelis antarcticus mitochondrion, complete genome
+15,972 bp circular DNA 
+NC_021474.1 GI:511674893
+
+847. Calyptorhynchus latirostris mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_020595.1 GI:470226965
+
+848. Calyptorhynchus baudinii mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_020594.1 GI:470226926
+
+849. Calyptorhynchus lathami mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_020593.1 GI:470226874
+
+850. Cacatua moluccensis mitochondrion, complete genome
+16,828 bp circular DNA 
+NC_020592.1 GI:470226821
+
+851. Tetrastes bonasia mitochondrion, complete genome
+16,673 bp circular DNA 
+NC_020591.1 GI:475655980
+
+852. Tetraophasis szechenyii mitochondrion, complete genome
+16,709 bp circular DNA 
+NC_020613.1 GI:470228194
+
+853. Chrysolophus amherstiae mitochondrion, complete genome
+16,677 bp circular DNA 
+NC_020590.1 GI:470226781
+
+854. Lophophorus sclateri mitochondrion, complete genome
+16,707 bp circular DNA 
+NC_020589.1 GI:470226715
+
+855. Perdix dauurica mitochondrion, complete genome
+16,695 bp circular DNA 
+NC_020588.1 GI:470226668
+
+856. Pucrasia macrolopha mitochondrion, complete genome
+16,696 bp circular DNA 
+NC_020587.1 GI:470226602
+
+857. Tragopan temminckii mitochondrion, complete genome
+16,728 bp circular DNA 
+NC_020586.1 GI:470226476
+
+858. Alectoris chukar mitochondrion, complete genome
+16,686 bp circular DNA 
+NC_020585.1 GI:470226427
+
+859. Arborophila rufogularis mitochondrion, complete genome
+16,726 bp circular DNA 
+NC_020584.1 GI:470226378
+
+860. Bambusicola fytchii mitochondrion, complete genome
+16,726 bp circular DNA 
+NC_020583.1 GI:470226260
+
+861. Petroica phoenicea mitochondrion, complete genome
+16,873 bp linear DNA 
+NC_019668.1 GI:426406901
+
+862. Petroica goodenovii mitochondrion, complete genome
+16,891 bp linear DNA 
+NC_019667.1 GI:426406887
+
+863. Petroica boodang mitochondrion, complete genome
+16,844 bp linear DNA 
+NC_019666.1 GI:426406873
+
+864. Eopsaltria australis mitochondrion, complete genome
+16,768 bp linear DNA 
+NC_019665.1 GI:426406859
+
+865. Epthianura albifrons mitochondrion, complete genome
+16,868 bp linear DNA 
+NC_019664.1 GI:426406845
+
+866. Euphagus cyanocephalus mitochondrion, complete genome
+16,765 bp circular DNA 
+NC_018827.1 GI:408772979
+
+867. Chrysomus cyanopus mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_018813.1 GI:408772783
+
+868. Gymnomystax mexicanus mitochondrion, complete genome
+16,781 bp circular DNA 
+NC_018812.1 GI:408772769
+
+869. Molothrus badius mitochondrion, complete genome
+16,774 bp circular DNA 
+NC_018811.1 GI:408772755
+
+870. Macroagelaius imthurni mitochondrion, complete genome
+16,768 bp circular DNA 
+NC_018810.1 GI:408772741
+
+871. Pseudoleistes guirahuro mitochondrion, complete genome
+16,770 bp circular DNA 
+NC_018809.1 GI:408772727
+
+872. Curaeus curaeus mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_018808.1 GI:408772713
+
+873. Chrysomus thilius mitochondrion, complete genome
+16,771 bp circular DNA 
+NC_018807.1 GI:408772699
+
+874. Molothrus aeneus mitochondrion, complete genome
+16,757 bp circular DNA 
+NC_018806.1 GI:408772685
+
+875. Pseudoleistes virescens mitochondrion, complete genome
+16,769 bp circular DNA 
+NC_018805.1 GI:408772671
+
+876. Xanthopsar flavus mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_018804.1 GI:408772657
+
+877. Quiscalus quiscula mitochondrion, complete genome
+16,768 bp circular DNA 
+NC_018803.1 GI:408772643
+
+878. Amblyramphus holosericeus mitochondrion, complete genome
+16,768 bp circular DNA 
+NC_018802.1 GI:408772629
+
+879. Agelaius phoeniceus mitochondrion, complete genome
+16,775 bp circular DNA 
+NC_018801.1 GI:408772615
+
+880. Dives dives mitochondrion, complete genome
+16,766 bp circular DNA 
+NC_018800.1 GI:408772601
+
+881. Chrysomus icterocephalus mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_018799.1 GI:408772587
+
+882. Chrysomus xanthophthalmus mitochondrion, complete genome
+16,769 bp circular DNA 
+NC_018798.1 GI:408772573
+
+883. Oreopsar bolivianus mitochondrion, complete genome
+16,777 bp circular DNA 
+NC_018797.1 GI:408772559
+
+884. Chrysomus ruficapillus mitochondrion, complete genome
+16,773 bp circular DNA 
+NC_018796.1 GI:408772545
+
+885. Gnorimopsar chopi mitochondrion, complete genome
+16,775 bp circular DNA 
+NC_018795.1 GI:408772531
+
+886. Nesopsar nigerrimus mitochondrion, complete genome
+16,780 bp circular DNA 
+NC_018794.1 GI:408772517
+
+887. Accipiter gentilis mitochondrion, complete genome
+18,266 bp circular DNA 
+NC_011818.1 GI:219524160
+
+888. Brotogeris cyanoptera mitochondrion, complete genome
+17,369 bp circular DNA 
+NC_015530.1 GI:333236165
+
+889. Meleagris gallopavo mitochondrion, complete genome
+16,719 bp circular DNA 
+NC_010195.2 GI:323690831
+
+890. Penelopides panini mitochondrion, complete genome
+22,737 bp circular DNA 
+NC_015087.1 GI:322422507
+
+891. Aceros waldeni mitochondrion, complete genome
+21,657 bp circular DNA 
+NC_015085.1 GI:322422478
+
+892. Chrysolophus pictus mitochondrion, complete genome
+16,678 bp circular DNA 
+NC_014576.1 GI:308745790
+
+893. Acryllium vulturinum mitochondrion, complete genome
+16,748 bp circular DNA 
+NC_014180.1 GI:296940293
+
+894. Pycnonotus taivanus mitochondrion, complete genome
+16,923 bp circular DNA 
+NC_013483.2 GI:291165484
+
+895. Pycnonotus sinensis mitochondrion, complete genome
+16,923 bp circular DNA 
+NC_013838.1 GI:288903492
+
+896. Apteryx owenii mitochondrion, complete genome
+17,020 bp circular DNA 
+NC_013806.1 GI:288900678
+
+897. Threskiornis aethiopicus mitochondrion, complete genome
+16,960 bp circular DNA 
+NC_013146.1 GI:256427285
+
+898. Polyplectron bicalcaratum mitochondrion, complete genome
+16,702 bp circular DNA 
+NC_012900.1 GI:242624216
+
+899. Pavo muticus mitochondrion, complete genome
+16,698 bp circular DNA 
+NC_012897.1 GI:242616507
+
+900. Cnemotriccus fuscatus mitochondrion, complete genome
+17,171 bp circular DNA 
+NC_007975.1 GI:94490693
+
+901. Phaethon rubricauda mitochondrion, complete genome
+17,777 bp circular DNA 
+NC_007979.1 GI:94490679
+
+902. Synthliboramphus antiquus mitochondrion, complete genome
+16,730 bp circular DNA 
+NC_007978.1 GI:94490651
+
+903. Menura novaehollandiae mitochondrion, complete genome
+17,839 bp circular DNA 
+NC_007883.1 GI:89255421
+
+904. Cygnus columbianus mitochondrion, complete genome
+16,728 bp circular DNA 
+NC_007691.1 GI:84488706
+
+905. Cathartes aura mitochondrion, complete genome
+16,779 bp circular DNA 
+NC_007628.1 GI:83309057
+
+906. Nisaetus alboniger mitochondrion, complete genome
+17,977 bp circular DNA 
+NC_007599.1 GI:81230457
+
+907. Nisaetus nipalensis mitochondrion, complete genome
+17,667 bp circular DNA 
+NC_007598.1 GI:81230415
+
+908. Alectura lathami mitochondrion, complete genome
+16,698 bp circular DNA 
+NC_007227.1 GI:71658022
+
+909. Gallus varius mitochondrion, complete genome
+16,783 bp circular DNA 
+NC_007238.1 GI:71657993
+
+910. Gallus sonneratii mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_007240.1 GI:71657970
+
+911. Gallus lafayetii mitochondrion, complete genome
+16,841 bp circular DNA 
+NC_007239.1 GI:71657952
+
+912. Pterodroma brevirostris mitochondrion, complete genome
+16,414 bp circular DNA 
+NC_007174.1 GI:68989146
+
+913. Larus dominicanus mitochondrion, complete genome
+16,701 bp circular DNA 
+NC_007006.1 GI:66276058
+
+914. Branta canadensis mitochondrion, complete genome
+16,760 bp circular DNA 
+NC_007011.1 GI:66276016
+
+915. Strigops habroptilus mitochondrion, complete genome
+15,599 bp circular DNA 
+NC_005931.1 GI:49146712
+
+916. Ninox novaeseelandiae mitochondrion, complete genome
+16,223 bp circular DNA 
+NC_005932.1 GI:49146676
+
+917. Anseranas semipalmata mitochondrion, complete genome
+16,870 bp circular DNA 
+NC_005933.1 GI:49146194
+
+918. Eudyptula minor mitochondrion, complete genome
+17,611 bp circular DNA 
+NC_004538.1 GI:27819314
+
+919. Ciconia boyciana mitochondrion, complete genome
+17,622 bp circular DNA 
+NC_002196.1 GI:7555761
+
+920. Ciconia ciconia mitochondrion, complete genome
+17,347 bp circular DNA 
+NC_002197.1 GI:7549724
+
+921. Lophura nycthemera mitochondrion, complete genome
+16,680 bp circular DNA 
+NC_012895.1 GI:242610516
+
+922. Platalea leucorodia mitochondrion, complete genome
+16,715 bp circular DNA 
+NC_012772.1 GI:238908453
+
+923. Coturnicops exquisitus mitochondrion, complete genome
+17,136 bp circular DNA 
+NC_012143.1 GI:224588046
+
+924. Rallina eurizonoides sepiaria mitochondrion, complete genome
+16,942 bp circular DNA 
+NC_012142.1 GI:224588032
+
+925. Gallirallus okinawae mitochondrion, complete genome
+18,404 bp circular DNA 
+NC_012140.1 GI:224588004
+
+926. Francolinus pintadeanus mitochondrion, complete genome
+16,694 bp circular DNA 
+NC_011817.1 GI:219524146
+
+927. Bambusicola thoracica mitochondrion, complete genome
+16,726 bp circular DNA 
+NC_011816.1 GI:219524132
+
+928. Trogon viridis mitochondrion, complete genome
+17,751 bp circular DNA 
+NC_011714.1 GI:218157329
+
+929. Todiramphus sanctus vagans mitochondrion, complete genome
+17,549 bp circular DNA 
+NC_011712.1 GI:218157315
+
+930. Geococcyx californianus mitochondrion, complete genome
+17,091 bp circular DNA 
+NC_011711.1 GI:218157301
+
+931. Eudynamys taitensis mitochondrion, complete genome
+17,559 bp circular DNA 
+NC_011709.1 GI:218157273
+
+932. Agapornis roseicollis mitochondrion, complete genome
+16,732 bp circular DNA 
+NC_011708.1 GI:218157259
+
+933. Falco tinnunculus mitochondrion, complete genome
+17,663 bp circular DNA 
+NC_011307.1 GI:207266417
+
+934. Sylvia crassirostris mitochondrion, complete genome
+17,207 bp circular DNA 
+NC_010229.1 GI:164449777
+
+935. Acrocephalus scirpaceus mitochondrion, complete genome
+17,903 bp circular DNA 
+NC_010227.1 GI:164449763
+
+936. Sylvia atricapilla mitochondrion, complete genome
+17,937 bp circular DNA 
+NC_010228.1 GI:164422147
+
+937. Porphyrio hochstetteri mitochondrion, complete genome
+16,988 bp circular DNA 
+NC_010092.1 GI:161561808
+
+938. Phoenicopterus roseus mitochondrion, complete genome
+17,446 bp circular DNA 
+NC_010089.1 GI:161561794
+
+939. Tachybaptus novaehollandiae mitochondrion, complete genome
+18,002 bp circular DNA 
+NC_010095.1 GI:161561780
+
+940. Archilochus colubris mitochondrion, complete genome
+16,356 bp circular DNA 
+NC_010094.1 GI:161561752
+
+941. Rhynochetos jubatus mitochondrion, complete genome
+16,937 bp circular DNA 
+NC_010091.1 GI:161561738
+
+942. Thalassarche melanophrys mitochondrion, complete genome
+18,967 bp circular DNA 
+NC_007172.2 GI:124056423
+
+943. Pteroglossus azara flavirostris mitochondrion, complete genome
+18,736 bp circular DNA 
+NC_008549.1 GI:116734800
+
+944. Ardea novaehollandiae mitochondrion, complete genome
+17,511 bp circular DNA 
+NC_008551.1 GI:116734786
+
+945. Falco sparverius mitochondrion, complete genome
+17,507 bp circular DNA 
+NC_008547.1 GI:116734765
+
+946. Micrastur gilvicollis mitochondrion, complete genome
+17,344 bp circular DNA 
+NC_008548.1 GI:116734751
+
+947. Pandion haliaetus mitochondrion, complete genome
+17,864 bp circular DNA 
+NC_008550.1 GI:116734737
+
+948. Dryocopus pileatus mitochondrion, complete genome
+16,832 bp circular DNA 
+NC_008546.1 GI:116734723
+
+949. Apus apus mitochondrion, complete genome
+17,037 bp circular DNA 
+NC_008540.1 GI:116668504
+
+950. Podiceps cristatus mitochondrion, complete genome
+16,134 bp linear DNA 
+NC_008140.1 GI:108793504
+
+951. Gavia pacifica mitochondrion, complete genome
+15,574 bp linear DNA 
+NC_008139.1 GI:108793364
+
+952. Eudyptes chrysocome mitochondrion, complete genome
+16,930 bp linear DNA 
+NC_008138.1 GI:108793350
+
+953. Anser albifrons mitochondrion, complete genome
+16,737 bp circular DNA 
+NC_004539.1 GI:27819328
+
+954. Aptenodytes forsteri mitochondrion, complete genome
+17,301 bp circular DNA 
+KT159230.1 GI:918051572
+
+955. Limosa haemastica mitochondrion, partial genome
+16,695 bp linear DNA 
+NC_053923.1 GI:2018130874
