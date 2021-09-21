@@ -6,7 +6,6 @@ library(geiger)
 
 
 ### reading whole genomes database
-#setwd("../../Body/3Results")
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
@@ -25,6 +24,14 @@ SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperature)
 SynNuc = merge(TEMPE,SynNuc, by = 'Species'); summary(SynNuc$Temperature)
+
+##############Rank corr 
+#Suppl. mat. 2.a
+cor.test(log2(SynNuc$Temperature),SynNuc$FrA, method = "spearman")
+cor.test(log2(SynNuc$Temperature),SynNuc$FrT, method = "spearman")
+cor.test(log2(SynNuc$Temperature),SynNuc$FrG, method = "spearman")
+cor.test(log2(SynNuc$Temperature),SynNuc$FrC, method = "spearman")
+
 
 ###### merge whole genomes and temperature with time of maturation
 MATUTM = read.table('../../Body/1Raw/FishBaseMaturity_Tm.txt',  header = TRUE)
@@ -46,23 +53,21 @@ SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$
 ### ANALYSES:
 summary(SynNuc$Temperature)
 summary(SynNuc$Tm)
+#Suppl. Mat. 2d
 summary(lm(FrT ~ scale(Temperature)+scale(Tm), data = SynNuc))
 summary(lm(FrT ~ log2(Temperature + 2)*log2(Tm), data = SynNuc))  # keep it for presentation!!!
 summary(lm(FrT ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(FrG ~ log2(Temperature + 2)+log2(Tm), data = SynNuc)) # strong
 summary(lm(FrA ~ log2(Temperature + 2)+log2(Tm), data = SynNuc)) # strong
+
 summary(lm(GtoASkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc)) # the highest R^2 = 0.17 
 summary(lm(CtoTSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TtoCSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
-summary(lm(AC_TGSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
+#Suppl. Mat. 2b
+summary(lm(AC_TGSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
-
-
-
-
-
 
 
 

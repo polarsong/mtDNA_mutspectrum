@@ -301,6 +301,44 @@ summary(lm(pic(data$TCdivAG, tree_pruned) ~ pic(data$Temperature, tree_pruned) +
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #################################metabolic rate approximation
 allparameters = merge (TemperMut, MATUTM)
 allparameters$MR=(allparameters$Tm+1)^0.75

@@ -1,0 +1,680 @@
+Ichthyomyzon unicuspis	Ichthyomyzon; Petromyzontidae; Petromyzontiformes; Chordata; Metazoa; Eukaryota
+Lampetra aepyptera	Lampetra; Petromyzontidae; Petromyzontiformes; Chordata; Metazoa; Eukaryota
+Petromyzon marinus	Petromyzon; Petromyzontidae; Petromyzontiformes; Chordata; Metazoa; Eukaryota
+Dasyatis zugei	Dasyatis; Dasyatidae; Myliobatiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Himantura gerrardi	Himantura; Dasyatidae; Myliobatiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Himantura uarnak	Himantura; Dasyatidae; Myliobatiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Taeniura lymma	Taeniura; Potamotrygonidae; Myliobatiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Mobula japanica	Mobula; Myliobatidae; Myliobatiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Rhinobatos hynnicephalus	Rhinobatos; Rhinobatidae; Pristiformes/Rhiniformes group; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Rhinobatos schlegelii	Rhinobatos; Rhinobatidae; Pristiformes/Rhiniformes group; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Zapteryx exasperata	Zapteryx; Rhinobatidae; Pristiformes/Rhiniformes group; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Dipturus kwangtungensis	Dipturus; Rajidae; Rajiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Carcharhinus amblyrhynchoides	Carcharhinus; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Carcharhinus obscurus	Carcharhinus; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Carcharhinus sorrah	Carcharhinus; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Glyphis fowlerae	Glyphis; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Glyphis gangeticus	Glyphis; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Glyphis glyphis	Glyphis; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Scoliodon macrorhynchos	Scoliodon; Carcharhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Proscyllium habereri	Proscyllium; Proscylliidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Cephaloscyllium umbratile	Cephaloscyllium; Scyliorhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Scyliorhinus canicula	Scyliorhinus; Scyliorhinidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Hemitriakis japanica	Hemitriakis; Triakidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Mustelus manazo	Mustelus; Triakidae; Carcharhiniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Alopias pelagicus	Alopias; Alopiidae; Lamniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Isurus oxyrinchus	Isurus; Alopiidae; Lamniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Carcharias taurus	Carcharias; Odontaspididae; Lamniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Pseudocarcharias kamoharai	Pseudocarcharias; Pseudocarchariidae; Lamniformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Stegostoma fasciatum	Stegostoma; Stegostomatidae; Orectolobiformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Squalus montalbani	Squalus; Squalidae; Squaliformes; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Squatina nebulosa	Squatina; Squatinidae; Chondrichthyes; Chordata; Metazoa; Eukaryota
+Scaphirhynchus albus	Scaphirhynchus; Acipenseridae; Acipenseriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Polyodon spathula	Polyodon; Polyodontidae; Acipenseriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Anguilla australis australis	Anguilla australis; Anguilla; Anguillidae; Anguilliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Anguilla australis schmidti	Anguilla australis; Anguilla; Anguillidae; Anguilliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Anguilla bicolor bicolor	Anguilla bicolor; Anguilla; Anguillidae; Anguilliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Anguilla bicolor pacifica	Anguilla bicolor; Anguilla; Anguillidae; Anguilliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Conger myriaster	Conger; Congridae; Anguilliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Myripristis berndti	Myripristis; Holocentridae; Holocentriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Channa marulius	Channa; Channidae; Anabantiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Channa striata	Channa; Channidae; Anabantiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coryphaena hippurus	Coryphaena; Coryphaenidae; Carangiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Rachycentron canadum	Rachycentron; Rachycentridae; Carangiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Istiompax indica	Istiompax; Istiophoridae; Istiophoriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Tetrapturus georgii	Tetrapturus; Istiophoridae; Istiophoriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Tetrapturus pfluegeri	Tetrapturus; Istiophoridae; Istiophoriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Paralichthys olivaceus	Paralichthys; Paralichthyidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Glyptocephalus stelleri	Glyptocephalus; Pleuronectidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hippoglossoides elassodon	Hippoglossoides; Pleuronectidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lepidopsetta polyxystra	Lepidopsetta; Pleuronectidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Zebrias crossolepis	Zebrias; Soleidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Zebrias quagga	Zebrias; Soleidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Zebrias zebrinus	Zebrias; Soleidae; Pleuronectiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Acanthurus nigricans	Acanthurus; Acanthuridae; Acanthuriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Acanthurus triostegus	Acanthurus; Acanthuridae; Acanthuriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Zanclus cornutus	Zanclus; Zanclidae; Acanthuriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cirrhitichthys oxycephalus	Cirrhitichthys; Cirrhitidae; Centrarchiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Macquaria australasica	Macquaria; Percichthyidae; Centrarchiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Nannoperca vittata	Nannoperca; Percichthyidae; Centrarchiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Kuhlia rupestris	Kuhlia; Kuhliidae; Centrarchiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Forcipiger flavissimus	Forcipiger; Chaetodontidae; Chaetodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scarus ghobban	Scarus; Labridae; Labriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scarus rubroviolaceus	Scarus; Labridae; Labriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lutjanus fulviflamma	Lutjanus; Lutjanidae; Lutjaniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lutjanus vitta	Lutjanus; Lutjanidae; Lutjaniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cottus asperrimus	Cottus; Cottidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cottus bairdii	Cottus; Cottidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cottus carolinae	Cottus; Cottidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Culaea inconstans	Culaea; Gasterosteidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Dolloidraco longedorsalis	Dolloidraco; Artedidraconidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chaenodraco wilsoni	Chaenodraco; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chionodraco hamatus	Chionodraco; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chionodraco myersi	Chionodraco; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chionodraco rastrospinosus	Chionodraco; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cryodraco antarcticus	Cryodraco; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Neopagetopsis ionah	Neopagetopsis; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pagetopsis macropterus	Pagetopsis; Channichthyidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Dissostichus eleginoides	Dissostichus; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Gobionotothen gibberifrons	Gobionotothen; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lepidonotothen larseni	Lepidonotothen; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lepidonotothen squamifrons	Lepidonotothen; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pagothenia borchgrevinki	Pagothenia; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pleuragramma antarctica	Pleuragramma; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Trematomus bernacchii	Trematomus; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Trematomus newnesi	Trematomus; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Trematomus nicolai	Trematomus; Nototheniidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hypoplectrus indigo	Hypoplectrus; Serranidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hypoplectrus nigricans	Hypoplectrus; Serranidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hypoplectrus puella	Hypoplectrus; Serranidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hypoplectrus unicolor	Hypoplectrus; Serranidae; Perciformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Ostracion meleagris	Ostracion; Ostraciidae; Tetraodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Diodon holocanthus	Diodon; Diodontidae; Tetraodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Colomesus asellus	Colomesus; Tetraodontidae; Tetraodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Plagioscion squamosissimus	Plagioscion; Sciaenidae; Actinopteri; Chordata; Metazoa; Eukaryota
+Sillago ciliata	Sillago; Sillaginidae; Actinopteri; Chordata; Metazoa; Eukaryota
+Oxyeleotris selheimi	Oxyeleotris; Eleotridae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Mogurnda adspersa	Mogurnda; Eleotridae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Amblyeleotris wheeleri	Amblyeleotris; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cryptocentrus cinctus	Cryptocentrus; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Ctenogobiops feroculus	Ctenogobiops; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chaenogobius annularis	Chaenogobius; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Sicydium buscki	Sicydium; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Sicydium punctatum	Sicydium; Gobiidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Odontobutis potamophila	Odontobutis; Odontobutidae; Gobiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lucifuga dentata	Lucifuga; Bythitidae; Ophidiiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Chirostoma humboldtianum	Chirostoma; Atherinopsidae; Atheriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Tylosurus acus	Tylosurus; Belonidae; Beloniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Kryptolebias marmoratus	Kryptolebias; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cyprinodon nevadensis	Cyprinodon; Cyprinodontidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cyprinodon rubrofluviatilis	Cyprinodon; Cyprinodontidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Aphanius anatoliae	Aphanius; Cyprinodontidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Aphanius iberus	Aphanius; Cyprinodontidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Orestias ascotanensis	Orestias; Cyprinodontidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Gambusia affinis	Gambusia; Poeciliidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Gambusia holbrooki	Gambusia; Poeciliidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Profundulus labialis	Profundulus; Profundulidae; Cyprinodontiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Alticus arnoldorum	Alticus; Blenniidae; Blenniiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cyprichromis leptosoma	Cyprichromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Astatotilapia calliptera	Astatotilapia; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Ctenochromis horei	Ctenochromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Haplochromis burtoni	Haplochromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Maylandia zebra	Maylandia; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Serranochromis macrocephalus	Serranochromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lamprologus callipterus	Lamprologus; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Neolamprologus brichardi	Neolamprologus; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Telmatochromis temporalis	Telmatochromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Perissodus microlepis	Perissodus; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Petrochromis trewavasae	Petrochromis; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Tropheus duboisi	Tropheus; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Tropheus moorii	Tropheus; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Andinoacara coeruleopunctatus	Andinoacara; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Andinoacara rivulatus	Andinoacara; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cichla monoculus	Cichla; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cichla ocellaris	Cichla; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cichla orinocensis	Cichla; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cichla pinima	Cichla; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Satanoperca jurupari	Satanoperca; Cichlidae; Cichliformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Abudefduf saxatilis	Abudefduf; Pomacentridae; Actinopteri; Chordata; Metazoa; Eukaryota
+Abudefduf vaigiensis	Abudefduf; Pomacentridae; Actinopteri; Chordata; Metazoa; Eukaryota
+Amphiprion percula	Amphiprion; Pomacentridae; Actinopteri; Chordata; Metazoa; Eukaryota
+Amphiprion perideraion	Amphiprion; Pomacentridae; Actinopteri; Chordata; Metazoa; Eukaryota
+Amphiprion sebae	Amphiprion; Pomacentridae; Actinopteri; Chordata; Metazoa; Eukaryota
+Psenopsis anomala	Psenopsis; Centrolophidae; Scombriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scomberomorus munroi	Scomberomorus; Scombridae; Scombriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scomberomorus munroi x Scomberomorus semifasciatus	Scomberomorus; Scombridae; Scombriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scomberomorus semifasciatus	Scomberomorus; Scombridae; Scombriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Trichiurus lepturus nanhaiensis	Trichiurus lepturus; Trichiurus; Trichiuridae; Scombriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Mulloidichthys dentatus	Mulloidichthys; Mullidae; Syngnathiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Mulloidichthys flavolineatus	Mulloidichthys; Mullidae; Syngnathiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Mulloidichthys martinicus	Mulloidichthys; Mullidae; Syngnathiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Mulloidichthys vanicolensis	Mulloidichthys; Mullidae; Syngnathiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Doryrhamphus excisus	Doryrhamphus; Syngnathidae; Syngnathiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Typhlichthys subterraneus	Typhlichthys; Amblyopsidae; Percopsiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coregonus albula	Coregonus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coregonus chadary	Coregonus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coregonus peled	Coregonus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coregonus ussuriensis	Coregonus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Oncorhynchus masou ishikawae	Oncorhynchus masou; Oncorhynchus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Oncorhynchus masou masou	Oncorhynchus masou; Oncorhynchus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Salvelinus fontinalis	Salvelinus; Salmonidae; Salmoniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Alosa alosa	Alosa; Clupeidae; Clupeiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Alosa pseudoharengus	Alosa; Clupeidae; Clupeiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Alosa sapidissima	Alosa; Clupeidae; Clupeiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Nematalosa erebi	Nematalosa; Clupeidae; Clupeiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Coilia dussumieri	Coilia; Engraulidae; Clupeiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Astyanax fasciatus	Astyanax; Characidae; Characiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Prochilodus argenteus	Prochilodus; Prochilodontidae; Characiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Prochilodus lineatus	Prochilodus; Prochilodontidae; Characiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Prochilodus nigricans	Prochilodus; Prochilodontidae; Characiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Hypostomus ancistroides	Hypostomus; Loricariidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Arius maculatus	Arius; Ariidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Bagre bagre	Bagre; Ariidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Centromochlus existimatus	Centromochlus; Auchenipteridae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pimelodella chagresi	Pimelodella; Heptapteridae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Heteropneustes fossilis	Heteropneustes; Heteropneustidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pangasianodon gigas	Pangasianodon; Pangasiidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pimelodus maculatus	Pimelodus; Pimelodidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Rhamdia quelen	Rhamdia; Pimelodidae; Siluriformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus catostomus	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus clarkii	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus discobolus	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus platyrhynchus	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus plebeius	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus santaanae	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Catostomus virescens	Catostomus; Catostomidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cobitis bilineata	Cobitis; Cobitidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cobitis biwae	Cobitis; Cobitidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cobitis melanoleuca granoei	Cobitis melanoleuca; Cobitis; Cobitidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cobitis striata	Cobitis; Cobitidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Sabanejewia balcanica	Sabanejewia; Cobitidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Triplophysa yarkandensis	Triplophysa; Nemacheilidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Barbus petenyi	Barbus; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Blicca bjoerkna	Blicca; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Carassius auratus auratus	Carassius auratus; Carassius; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Carassius carassius	Carassius; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cirrhinus molitorella	Cirrhinus; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cyprinella caerulea	Cyprinella; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Cyprinus carpio carpio	Cyprinus carpio; Cyprinus; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Gymnocypris przewalskii ganzihonensis	Gymnocypris przewalskii; Gymnocypris; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Labeo calbasu	Labeo; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Lythrurus roseipinnis	Lythrurus; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Megalobrama skolkovii	Megalobrama; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Nipponocypris temminckii	Nipponocypris; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Onychostoma gerlachi	Onychostoma; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pteronotropis hypselopterus	Pteronotropis; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Pteronotropis signipinnis	Pteronotropis; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Rhinichthys osculus	Rhinichthys; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Rhodeus ocellatus kurumeus	Rhodeus ocellatus; Rhodeus; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Rhynchocypris lagowskii	Rhynchocypris; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Sarcocheilichthys variegatus microoculus	Sarcocheilichthys variegatus; Sarcocheilichthys; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Saurogobio dabryi	Saurogobio; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Schizopyge niger	Schizopyge; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Schizothorax progastus	Schizothorax; Cyprinidae; Cypriniformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Notopterus notopterus	Notopterus; Notopteridae; Osteoglossiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Arapaima gigas	Arapaima; Osteoglossidae; Osteoglossiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Osteoglossum bicirrhosum	Osteoglossum; Osteoglossidae; Osteoglossiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Scleropages jardinii	Scleropages; Osteoglossidae; Osteoglossiformes; Actinopteri; Chordata; Metazoa; Eukaryota
+Polypterus palmas buettikoferi	Polypterus palmas; Polypterus; Polypteridae; Polypteriformes; Cladistia; Chordata; Metazoa; Eukaryota
+Neoceratodus forsteri	Neoceratodus; Ceratodontidae; Ceratodontiformes; Chordata; Metazoa; Eukaryota
+Amblysomus hottentotus	Amblysomus; Chrysochloridae; Mammalia; Chordata; Metazoa; Eukaryota
+Echinops telfairi	Echinops; Tenrecidae; Mammalia; Chordata; Metazoa; Eukaryota
+Lepus comus	Lepus; Leporidae; Lagomorpha; Mammalia; Chordata; Metazoa; Eukaryota
+Chaetodipus intermedius	Chaetodipus; Heteromyidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Microtus oeconomus	Microtus; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Habromys lophurus	Habromys; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Peromyscus aztecus	Peromyscus; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Peromyscus furvus	Peromyscus; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Peromyscus melanophrys	Peromyscus; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Peromyscus perfulvus	Peromyscus; Cricetidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Mus musculus castaneus	Mus musculus; Mus; Muridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Mus musculus domesticus	Mus musculus; Mus; Muridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Mus musculus molossinus	Mus musculus; Mus; Muridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Mus musculus musculus	Mus musculus; Mus; Muridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Nannospalax golani	Nannospalax; Spalacidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Nannospalax judaei	Nannospalax; Spalacidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Spalax carmeli	Spalax; Spalacidae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Tamias cinereicollis	Tamias; Sciuridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Tamias quadrivittatus	Tamias; Sciuridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Tamias umbrinus	Tamias; Sciuridae; Rodentia; Mammalia; Chordata; Metazoa; Eukaryota
+Macaca nigra	Macaca; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Rungwecebus kipunji	Rungwecebus; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Colobus guereza	Colobus; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Nasalis larvatus	Nasalis; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Pygathrix nemaeus	Pygathrix; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Trachypithecus francoisi	Trachypithecus; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Trachypithecus hatinhensis	Trachypithecus; Cercopithecidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Gorilla gorilla	Gorilla; Hominidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Gorilla gorilla gorilla	Gorilla gorilla; Gorilla; Hominidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Pongo abelii	Pongo; Hominidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Pongo pygmaeus	Pongo; Hominidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Aotus azarai azarai	Aotus azarai; Aotus; Aotidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Cebus capucinus	Cebus; Cebidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Cheirogaleus crossleyi	Cheirogaleus; Cheirogaleidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Cheirogaleus major	Cheirogaleus; Cheirogaleidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Cheirogaleus medius	Cheirogaleus; Cheirogaleidae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Eulemur fulvus fulvus	Eulemur fulvus; Eulemur; Lemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Eulemur mongoz	Eulemur; Lemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Hapalemur griseus	Hapalemur; Lemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Prolemur simus	Prolemur; Lemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Varecia variegata variegata	Varecia variegata; Varecia; Lemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Lepilemur mustelinus	Lepilemur; Lepilemuridae; Primates; Mammalia; Chordata; Metazoa; Eukaryota
+Ailurus fulgens	Ailurus; Ailuridae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Canis lupus familiaris	Canis lupus; Canis; Canidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Vulpes zerda	Vulpes; Canidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Melogale moschata	Melogale; Mustelidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Lontra longicaudis	Lontra; Mustelidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Mustela itatsi	Mustela; Mustelidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Odobenus rosmarus rosmarus	Odobenus rosmarus; Odobenus; Odobenidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Halichoerus grypus	Halichoerus; Phocidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Ursus thibetanus ussuricus	Ursus thibetanus; Ursus; Ursidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Catopuma badia	Catopuma; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Leopardus geoffroyi	Leopardus; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Leopardus tigrinus	Leopardus; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Lynx canadensis	Lynx; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Neofelis nebulosa	Neofelis; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Pardofelis marmorata	Pardofelis; Felidae; Carnivora; Mammalia; Chordata; Metazoa; Eukaryota
+Globicephala melas	Globicephala; Delphinidae; Cetacea; Mammalia; Chordata; Metazoa; Eukaryota
+Orcaella heinsohni	Orcaella; Delphinidae; Cetacea; Mammalia; Chordata; Metazoa; Eukaryota
+Tursiops australis	Tursiops; Delphinidae; Cetacea; Mammalia; Chordata; Metazoa; Eukaryota
+Cervus elaphus xanthopygus	Cervus elaphus; Cervus; Cervidae; Mammalia; Chordata; Metazoa; Eukaryota
+Hydropotes inermis argyropus	Hydropotes inermis; Hydropotes; Cervidae; Mammalia; Chordata; Metazoa; Eukaryota
+Muntiacus reevesi	Muntiacus; Cervidae; Mammalia; Chordata; Metazoa; Eukaryota
+Giraffa camelopardalis angolensis	Giraffa camelopardalis; Giraffa; Giraffidae; Mammalia; Chordata; Metazoa; Eukaryota
+Moschus chrysogaster	Moschus; Moschidae; Mammalia; Chordata; Metazoa; Eukaryota
+Sus scrofa domesticus	Sus scrofa; Sus; Suidae; Mammalia; Chordata; Metazoa; Eukaryota
+Mystacina tuberculata	Mystacina; Mystacinidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Mesophylla macconnelli	Mesophylla; Phyllostomidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Eptesicus serotinus	Eptesicus; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Lasiurus blossevillii	Lasiurus; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Murina cyclotis	Murina; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Myotis brandtii	Myotis; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Myotis daubentonii	Myotis; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Nyctalus noctula	Nyctalus; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Otonycteris hemprichii	Otonycteris; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Plecotus auritus	Plecotus; Vespertilionidae; Chiroptera; Mammalia; Chordata; Metazoa; Eukaryota
+Crocidura russula	Crocidura; Soricidae; Insectivora; Mammalia; Chordata; Metazoa; Eukaryota
+Episoriculus caudatus	Episoriculus; Soricidae; Insectivora; Mammalia; Chordata; Metazoa; Eukaryota
+Tapirus terrestris	Tapirus; Tapiridae; Perissodactyla; Mammalia; Chordata; Metazoa; Eukaryota
+Sarcophilus harrisii	Sarcophilus; Dasyuridae; Dasyuromorphia; Mammalia; Chordata; Metazoa; Eukaryota
+Trichosurus vulpecula	Trichosurus; Phalangeridae; Diprotodontia; Mammalia; Chordata; Metazoa; Eukaryota
+Potorous tridactylus	Potorous; Potoroidae; Diprotodontia; Mammalia; Chordata; Metazoa; Eukaryota
+Isoodon macrourus	Isoodon; Peramelidae; Peramelemorphia; Mammalia; Chordata; Metazoa; Eukaryota
+Perameles gunnii	Perameles; Peramelidae; Peramelemorphia; Mammalia; Chordata; Metazoa; Eukaryota
+Crocodylus mindorensis	Crocodylus; Crocodylidae; Crocodylia; Chordata; Metazoa; Eukaryota
+Crocodylus novaeguineae	Crocodylus; Crocodylidae; Crocodylia; Chordata; Metazoa; Eukaryota
+Crocodylus porosus	Crocodylus; Crocodylidae; Crocodylia; Chordata; Metazoa; Eukaryota
+Crocodylus siamensis	Crocodylus; Crocodylidae; Crocodylia; Chordata; Metazoa; Eukaryota
+Apus affinis	Apus; Apodidae; Apodiformes; Aves; Chordata; Metazoa; Eukaryota
+Aegotheles cristatus	Aegotheles; Aegothelidae; Caprimulgiformes; Aves; Chordata; Metazoa; Eukaryota
+Larus novaehollandiae	Larus; Laridae; Charadriiformes; Aves; Chordata; Metazoa; Eukaryota
+Thalasseus sandvicensis	Thalasseus; Laridae; Charadriiformes; Aves; Chordata; Metazoa; Eukaryota
+Numenius phaeopus	Numenius; Scolopacidae; Charadriiformes; Aves; Chordata; Metazoa; Eukaryota
+Cathartes aura	Cathartes; Cathartidae; Ciconiiformes; Aves; Chordata; Metazoa; Eukaryota
+Columbina passerina	Columbina; Columbidae; Columbiformes; Aves; Chordata; Metazoa; Eukaryota
+Geotrygon montana	Geotrygon; Columbidae; Columbiformes; Aves; Chordata; Metazoa; Eukaryota
+Leptotila verreauxi	Leptotila; Columbidae; Columbiformes; Aves; Chordata; Metazoa; Eukaryota
+Ceyx lepidus	Ceyx; Alcedinidae; Coraciiformes; Aves; Chordata; Metazoa; Eukaryota
+Todiramphus chloris	Todiramphus; Alcedinidae; Coraciiformes; Aves; Chordata; Metazoa; Eukaryota
+Eurystomus orientalis	Eurystomus; Coraciidae; Coraciiformes; Aves; Chordata; Metazoa; Eukaryota
+Cercococcyx montanus	Cercococcyx; Cuculidae; Cuculiformes; Aves; Chordata; Metazoa; Eukaryota
+Accipiter nisus	Accipiter; Accipitridae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Circus pygargus	Circus; Accipitridae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Hieraaetus fasciatus	Hieraaetus; Accipitridae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Leucopternis albicollis	Leucopternis; Accipitridae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Leucopternis melanops	Leucopternis; Accipitridae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Micrastur gilvicollis	Micrastur; Falconidae; Falconiformes; Aves; Chordata; Metazoa; Eukaryota
+Cairina moschata	Cairina; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Anas crecca	Anas; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Anas poecilorhyncha	Anas; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Clangula hyemalis	Clangula; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Cygnus columbianus	Cygnus; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Anser anser	Anser; Anatidae; Anseriformes; Aves; Chordata; Metazoa; Eukaryota
+Crax rubra	Crax; Cracidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Alectura lathami	Alectura; Megapodiidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Tetraogallus tibetanus	Tetraogallus; Phasianidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Tetraophasis obscurus	Tetraophasis; Phasianidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Tetraophasis szechenyii	Tetraophasis; Phasianidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Crossoptilon auritum	Crossoptilon; Phasianidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Pucrasia macrolopha	Pucrasia; Phasianidae; Galliformes; Aves; Chordata; Metazoa; Eukaryota
+Gallinula chloropus	Gallinula; Rallidae; Gruiformes; Aves; Chordata; Metazoa; Eukaryota
+Xanthomixis zosterops	Xanthomixis; Bernieridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Certhia americana	Certhia; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Certhia familiaris	Certhia; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Henicorhina leucophrys	Henicorhina; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pheugopedius coraya	Pheugopedius; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Thryothorus nigricapillus	Thryothorus; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Troglodytes aedon	Troglodytes; Certhiidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Orthotomus sericeus	Orthotomus; Cisticolidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Aegithalos bonvaloti	Aegithalos; Aegithalidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Aegithalos fuliginosus	Aegithalos; Aegithalidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Artamus personatus	Artamus; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Artamus superciliosus	Artamus; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Cyanocitta stelleri	Cyanocitta; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Oriolus chinensis	Oriolus; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Perisoreus canadensis	Perisoreus; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pyrrhocorax pyrrhocorax	Pyrrhocorax; Corvidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Dicrurus forficatus	Dicrurus; Dicruridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Dicrurus hottentottus	Dicrurus; Dicruridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Lanius collaris	Lanius; Laniidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Arses telescopthalmus	Arses; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Hypothymis azurea	Hypothymis; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Monarcha castaneiventris	Monarcha; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Myiagra rubecula	Myiagra; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Myiagra ruficollis	Myiagra; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Terpsiphone paradisi	Terpsiphone; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Terpsiphone rufiventer	Terpsiphone; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Terpsiphone viridis	Terpsiphone; Monarchidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pachycephala caledonica	Pachycephala; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pachycephala graeffii	Pachycephala; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pachycephala macrorhyncha	Pachycephala; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pachycephala philippinensis	Pachycephala; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Cyclarhis gujanensis	Cyclarhis; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Hylophilus ochraceiceps	Hylophilus; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo altiloquus	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo atricapilla	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo bellii	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo flavoviridis	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo gilvus	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Vireo olivaceus	Vireo; Vireonidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Sittasomus griseicapillus	Sittasomus; Dendrocolaptidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Automolus ochrolaemus	Automolus; Furnariidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Automolus rubiginosus	Automolus; Furnariidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Cinclodes fuscus	Cinclodes; Furnariidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Synallaxis albescens	Synallaxis; Furnariidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Xenops minutus	Xenops; Furnariidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Riparia riparia	Riparia; Hirundinidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Tachycineta bicolor	Tachycineta; Hirundinidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Garrulax affinis	Garrulax; Leiothrichidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leiothrix argentauris	Leiothrix; Leiothrichidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leiothrix lutea	Leiothrix; Leiothrichidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Gerygone igata	Gerygone; Acanthizidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Malurus leucopterus	Malurus; Maluridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Malurus melanocephalus	Malurus; Maluridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Prosthemadera novaeseelandiae	Prosthemadera; Meliphagidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Margarops fuscus	Margarops; Mimidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Mimus gilvus	Mimus; Mimidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Enicurus leschenaulti	Enicurus; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Eumyias panayensis	Eumyias; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Ficedula hypoleuca	Ficedula; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Ficedula parva	Ficedula; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Ficedula zanthopygia	Ficedula; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Muscicapa striata	Muscicapa; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Phoenicurus auroreus	Phoenicurus; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Phoenicurus ochruros	Phoenicurus; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Phoenicurus phoenicurus	Phoenicurus; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Saxicola rubetra	Saxicola; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Saxicola rubicola	Saxicola; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Saxicola torquata	Saxicola; Muscicapidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Parus monticolus	Parus; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Periparus ater	Periparus; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Periparus elegans	Periparus; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Poecile montanus	Poecile; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Poecile palustris	Poecile; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Poecile varius	Poecile; Paridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Arremon aurantiirostris	Arremon; Passerellidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Alauda arvensis	Alauda; Alaudidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Eremophila alpestris	Eremophila; Alaudidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Carduelis carduelis	Carduelis; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Carpodacus pulcherrimus	Carpodacus; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Carpodacus vinaceus	Carpodacus; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Coccothraustes coccothraustes	Coccothraustes; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leucosticte arctoa	Leucosticte; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leucosticte brandti	Leucosticte; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leucosticte tephrocotis	Leucosticte; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pyrrhula pyrrhula	Pyrrhula; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Spinus spinus	Spinus; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Fringilla coelebs	Fringilla; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Fringilla teydea	Fringilla; Fringillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Motacilla alba	Motacilla; Motacillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Motacilla cinerea	Motacilla; Motacillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Motacilla flava	Motacilla; Motacillidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Aethopyga gouldiae	Aethopyga; Nectariniidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Aethopyga pulcherrima	Aethopyga; Nectariniidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Basileuterus tristriatus	Basileuterus; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Geothlypis trichas	Geothlypis; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Mniotilta varia	Mniotilta; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Oreothlypis virginiae	Oreothlypis; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Seiurus aurocapilla	Seiurus; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Setophaga petechia	Setophaga; Parulidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Padda oryzivora	Padda; Passeridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Passer domesticus	Passer; Passeridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Passer hispaniolensis	Passer; Passeridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Passer italiae	Passer; Passeridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Prunella modularis	Prunella; Passeridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Foudia aldabrana	Foudia; Ploceidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Foudia madagascariensis	Foudia; Ploceidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Eopsaltria georgiana	Eopsaltria; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Petroica boodang	Petroica; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Petroica goodenovii	Petroica; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Petroica macrocephala	Petroica; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Petroica phoenicea	Petroica; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Tregellasia capito	Tregellasia; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Tregellasia leucops	Tregellasia; Petroicidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Phylloscopus cebuensis	Phylloscopus; Phylloscopidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Phylloscopus trivirgatus	Phylloscopus; Phylloscopidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Alophoixus pallidus	Alophoixus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Iole propinqua	Iole; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pycnonotus barbatus	Pycnonotus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pycnonotus plumosus	Pycnonotus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pycnonotus sinensis	Pycnonotus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pycnonotus taivanus	Pycnonotus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Pycnonotus urostictus	Pycnonotus; Pycnonotidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Rhipidura cyaniceps	Rhipidura; Rhipiduridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Rhipidura superciliaris	Rhipidura; Rhipiduridae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Sitta carolinensis	Sitta; Sittidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Acridotheres cristatellus	Acridotheres; Sturnidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Gracula religiosa	Gracula; Sturnidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Sturnus vulgaris	Sturnus; Sturnidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Acrocephalus scirpaceus	Acrocephalus; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Bradypterus graueri	Bradypterus; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Locustella certhiola	Locustella; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Locustella ochotensis	Locustella; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Nesillas typica	Nesillas; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Sylvia atricapilla	Sylvia; Sylviidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Loxigilla violacea	Loxigilla; Thraupidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Iridosornis analis	Iridosornis; Thraupidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Catharus frantzii	Catharus; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Monticola sharpei	Monticola; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Monticola solitarius	Monticola; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Myadestes occidentalis	Myadestes; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Stiphrornis erythrothorax	Stiphrornis; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Turdus ignobilis	Turdus; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Turdus merula	Turdus; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Turdus philomelos	Turdus; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Turdus poliocephalus	Turdus; Turdidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Cnemotriccus fuscatus	Cnemotriccus; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Elaenia flavogaster	Elaenia; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Empidonax difficilis	Empidonax; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Leptopogon superciliaris	Leptopogon; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Mionectes macconnelli	Mionectes; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Myiarchus ferox	Myiarchus; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Myiarchus swainsoni	Myiarchus; Tyrannidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops capensis	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops flavifrons	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops lateralis	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops luteus	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops maderaspatanus	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops montanus	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Zosterops pallidus	Zosterops; Zosteropidae; Passeriformes; Aves; Chordata; Metazoa; Eukaryota
+Platalea minor	Platalea; Threskiornithidae; Pelecaniformes; Aves; Chordata; Metazoa; Eukaryota
+Campethera caroli	Campethera; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Campethera nivosa	Campethera; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Celeus elegans	Celeus; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Celeus flavus	Celeus; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Dendrocopos major	Dendrocopos; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Picoides pubescens	Picoides; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Picus viridis	Picus; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Sasia ochracea	Sasia; Picidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Pteroglossus inscriptus	Pteroglossus; Ramphastidae; Piciformes; Aves; Chordata; Metazoa; Eukaryota
+Ara ararauna	Ara; Psittacidae; Psittaciformes; Aves; Chordata; Metazoa; Eukaryota
+Ara militaris	Ara; Psittacidae; Psittaciformes; Aves; Chordata; Metazoa; Eukaryota
+Melopsittacus undulatus	Melopsittacus; Psittaculidae; Psittaciformes; Aves; Chordata; Metazoa; Eukaryota
+Bubo virginianus	Bubo; Strigidae; Strigiformes; Aves; Chordata; Metazoa; Eukaryota
+Ninox novaeseelandiae	Ninox; Strigidae; Strigiformes; Aves; Chordata; Metazoa; Eukaryota
+Archilochus colubris	Archilochus; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Chrysolampis mosquitus	Chrysolampis; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Coeligena coeligena	Coeligena; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Coeligena torquata	Coeligena; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Florisuga mellivora	Florisuga; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Metallura tyrianthina	Metallura; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Phaethornis striigularis	Phaethornis; Trochilidae; Trochiliformes; Aves; Chordata; Metazoa; Eukaryota
+Trogon collaris	Trogon; Trogonidae; Trogoniformes; Aves; Chordata; Metazoa; Eukaryota
+Trogon rufus	Trogon; Trogonidae; Trogoniformes; Aves; Chordata; Metazoa; Eukaryota
+Trogon violaceus	Trogon; Trogonidae; Trogoniformes; Aves; Chordata; Metazoa; Eukaryota
+Trogon viridis	Trogon; Trogonidae; Trogoniformes; Aves; Chordata; Metazoa; Eukaryota
+Apteryx australis	Apteryx; Apterygidae; Apterygiformes; Aves; Chordata; Metazoa; Eukaryota
+Dromaius novaehollandiae	Dromaius; Dromaiidae; Casuariiformes; Aves; Chordata; Metazoa; Eukaryota
+Malaclemys terrapin	Malaclemys; Emydidae; Testudines; Chordata; Metazoa; Eukaryota
+Cuora bourreti	Cuora; Geoemydidae; Testudines; Chordata; Metazoa; Eukaryota
+Platemys platycephala	Platemys; Chelidae; Testudines; Chordata; Metazoa; Eukaryota
+Cnemaspis limi	Cnemaspis; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Cnemaspis peninsularis	Cnemaspis; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Gekko chinensis	Gekko; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Gekko vittatus	Gekko; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Hemidactylus frenatus	Hemidactylus; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Lepidodactylus lugubris	Lepidodactylus; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Paroedura picta	Paroedura; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Uroplatus ebenaui	Uroplatus; Gekkonidae; Squamata; Chordata; Metazoa; Eukaryota
+Rhacodactylus auriculatus	Rhacodactylus; Diplodactylidae; Squamata; Chordata; Metazoa; Eukaryota
+Geocalamus acutus	Geocalamus; Amphisbaenidae; Squamata; Chordata; Metazoa; Eukaryota
+Bipes biporus	Bipes; Bipedidae; Squamata; Chordata; Metazoa; Eukaryota
+Blanus cinereus	Blanus; Blanidae; Squamata; Chordata; Metazoa; Eukaryota
+Lacerta viridis viridis	Lacerta viridis; Lacerta; Lacertidae; Squamata; Chordata; Metazoa; Eukaryota
+Anguis cephallonica	Anguis; Anguidae; Squamata; Chordata; Metazoa; Eukaryota
+Anguis fragilis	Anguis; Anguidae; Squamata; Chordata; Metazoa; Eukaryota
+Barisia imbricata	Barisia; Anguidae; Squamata; Chordata; Metazoa; Eukaryota
+Gerrhonotus infernalis	Gerrhonotus; Anguidae; Squamata; Chordata; Metazoa; Eukaryota
+Anniella pulchra	Anniella; Anniellidae; Squamata; Chordata; Metazoa; Eukaryota
+Heloderma suspectum	Heloderma; Helodermatidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus cumingi	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus gouldii	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus niloticus	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus nuchalis	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus salvator	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Varanus varius	Varanus; Varanidae; Squamata; Chordata; Metazoa; Eukaryota
+Phrynocephalus helioscopus	Phrynocephalus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Phrynocephalus mystaceus	Phrynocephalus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Phrynocephalus przewalskii	Phrynocephalus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Phrynocephalus versicolor	Phrynocephalus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Pseudotrapelus sinaitus	Pseudotrapelus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Chlamydosaurus kingii	Chlamydosaurus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Lophognathus gilberti	Lophognathus; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Tympanocryptis cephalus	Tympanocryptis; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Tympanocryptis tetraporophora	Tympanocryptis; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Bronchocela cristatella	Bronchocela; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Calotes versicolor	Calotes; Agamidae; Squamata; Chordata; Metazoa; Eukaryota
+Brookesia decaryi	Brookesia; Chamaeleonidae; Squamata; Chordata; Metazoa; Eukaryota
+Chamaeleo africanus	Chamaeleo; Chamaeleonidae; Squamata; Chordata; Metazoa; Eukaryota
+Chamaeleo dilepis	Chamaeleo; Chamaeleonidae; Squamata; Chordata; Metazoa; Eukaryota
+Furcifer oustaleti	Furcifer; Chamaeleonidae; Squamata; Chordata; Metazoa; Eukaryota
+Kinyongia fischeri	Kinyongia; Chamaeleonidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis allisoni	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis allogus	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis carolinensis	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis homolechis	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis jubar	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis porcatus	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Anolis sagrei	Anolis; Dactyloidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotaphytus bicinctores	Crotaphytus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotaphytus collaris	Crotaphytus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotaphytus nebrius	Crotaphytus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotaphytus vestigium	Crotaphytus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Gambelia sila	Gambelia; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Gambelia wislizenii	Gambelia; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Chalarodon madagascariensis	Chalarodon; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Oplurus cuvieri	Oplurus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Oplurus grandidieri	Oplurus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Leiocephalus personatus	Leiocephalus; Iguanidae; Squamata; Chordata; Metazoa; Eukaryota
+Callisaurus draconoides	Callisaurus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus aeneus	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus bicanthalis	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus cowlesi	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus occidentalis	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus scalaris	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus slevini	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus tristichus	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Sceloporus undulatus	Sceloporus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Urosaurus nigricaudus	Urosaurus; Phrynosomatidae; Squamata; Chordata; Metazoa; Eukaryota
+Polychrus marmoratus	Polychrus; Polychrotidae; Squamata; Chordata; Metazoa; Eukaryota
+Pituophis catenifer	Pituophis; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Pituophis deppei	Pituophis; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Pituophis lineaticollis	Pituophis; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Nerodia fasciata	Nerodia; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Nerodia sipedon	Nerodia; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Thamnophis rufipunctatus	Thamnophis; Colubridae; Squamata; Chordata; Metazoa; Eukaryota
+Hypsiglena unaocularus	Hypsiglena; Dipsadidae; Squamata; Chordata; Metazoa; Eukaryota
+Thermophis zhaoermii	Thermophis; Dipsadidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus aquilus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus cerberus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus lepidus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus oreganus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus pricei	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus ravus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Crotalus triseriatus	Crotalus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Deinagkistrodon acutus	Deinagkistrodon; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Protobothrops cornutus	Protobothrops; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Protobothrops tokarensis	Protobothrops; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Sistrurus catenatus	Sistrurus; Viperidae; Squamata; Chordata; Metazoa; Eukaryota
+Xerotyphlops vermicularis	Xerotyphlops; Typhlopidae; Squamata; Chordata; Metazoa; Eukaryota
+Eutropis multicarinata	Eutropis; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Eutropis multifasciata	Eutropis; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Brachymeles bonitae	Brachymeles; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Brachymeles boulengeri	Brachymeles; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Brachymeles gracilis	Brachymeles; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Brachymeles schadenbergi	Brachymeles; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Plestiodon brevirostris	Plestiodon; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Plestiodon chinensis	Plestiodon; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Plestiodon elegans	Plestiodon; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Plestiodon marginatus	Plestiodon; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Plestiodon stimpsonii	Plestiodon; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Parvoscincus jimmymcguirei	Parvoscincus; Scincidae; Squamata; Chordata; Metazoa; Eukaryota
+Discoglossus galganoi	Discoglossus; Alytidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Eupsophus calcaratus	Eupsophus; Alsodidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Ansonia muelleri	Ansonia; Bufonidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Duttaphrynus melanostictus	Duttaphrynus; Bufonidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Thoropa miliaris	Thoropa; Cycloramphidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Dendropsophus reticulatus	Dendropsophus; Hylidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Hyla meridionalis	Hyla; Hylidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Osteocephalus buckleyi	Osteocephalus; Hylidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Osteocephalus taurinus	Osteocephalus; Hylidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Crinia georgiana	Crinia; Myobatrachidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Nanorana quadranus	Nanorana; Dicroglossidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Nanorana taihangnica	Nanorana; Dicroglossidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Nanorana sichuanensis	Nanorana; Dicroglossidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Mantidactylus femoralis	Mantidactylus; Mantellidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Mantidactylus majori	Mantidactylus; Mantellidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Amolops wuyiensis	Amolops; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Odorrana graminea	Odorrana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Odorrana margaretae	Odorrana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Odorrana morafkai	Odorrana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Odorrana schmackeri	Odorrana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Rana yavapaiensis	Rana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Rana amurensis	Rana; Ranidae; Anura; Amphibia; Chordata; Metazoa; Eukaryota
+Batrachuperus pinchonii	Batrachuperus; Hynobiidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Batrachuperus yenyuanensis	Batrachuperus; Hynobiidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Eurycea bislineata	Eurycea; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Eurycea chamberlaini	Eurycea; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Eurycea quadridigitata	Eurycea; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Eurycea wilderae	Eurycea; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Gyrinophilus porphyriticus	Gyrinophilus; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Desmognathus fuscus	Desmognathus; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Desmognathus wrighti	Desmognathus; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Plethodon albagula	Plethodon; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Plethodon cinereus	Plethodon; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Plethodon elongatus	Plethodon; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Plethodon metcalfi	Plethodon; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Plethodon stormi	Plethodon; Plethodontidae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Lissotriton italicus	Lissotriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Lissotriton vulgaris	Lissotriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Paramesotriton hongkongensis	Paramesotriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Triturus carnifex	Triturus; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Triturus cristatus	Triturus; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Triturus dobrogicus	Triturus; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Triturus karelinii	Triturus; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Triturus marmoratus	Triturus; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Tylototriton kweichowensis	Tylototriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Tylototriton shanjing	Tylototriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Tylototriton taliangensis	Tylototriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Tylototriton verrucosus	Tylototriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
+Tylototriton wenxianensis	Tylototriton; Salamandridae; Caudata; Amphibia; Chordata; Metazoa; Eukaryota
