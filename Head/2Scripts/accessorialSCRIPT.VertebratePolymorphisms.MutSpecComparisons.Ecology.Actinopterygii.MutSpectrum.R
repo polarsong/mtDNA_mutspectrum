@@ -62,7 +62,7 @@ summary(MUTACTINOPTERITAXAFROMK)
 #c("TH>GH", "TH>CH", "TH>AH", "GH>TH", "GH>CH", "GH>AH", "CH>TH", "CH>GH", "CH>AH", "AH>TH", "AH>GH", "AH>CH")
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
 ggbarplot(a, x = "Sub", y = "Freq", fill = "Sub", color = "Sub",
-          palette = c("#bdbdbd", "#73514f", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#055088", "#9c3d37", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#036a5b", "#bdbdbd"), 
+          palette = c("#bdbdbd", "#036A5B", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#73514F", "#055088", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#9C3D37", "#bdbdbd"), 
           xlab="Substitution types", ylab="Normalised frequencies", add = "mean_se", legend = "none")  
 dev.off()
 ##########################################################################################
