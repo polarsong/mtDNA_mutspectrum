@@ -39,10 +39,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.81"
-     inkscape:cx="542.93956"
+     inkscape:cx="305.28524"
      inkscape:cy="352.86776"
      inkscape:document-units="mm"
-     inkscape:current-layer="g24"
+     inkscape:current-layer="g1462"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1920"
@@ -65,7 +65,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -548,19 +548,19 @@
                clip-path="url(#clipPath1466)">
               <path
                  d="M 179.51,41.618142 H 353.33 V 352.66816 H 179.51 Z"
-                 style="fill:#73514f;fill-opacity:0.8;fill-rule:nonzero;stroke:#73514f;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+                 style="fill:#73514f;fill-opacity:1;fill-rule:nonzero;stroke:#73514f;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
                  id="path1468" />
               <path
                  d="m 179.51,357.49816 h 173.82 v 190.87 H 179.51 Z"
-                 style="fill:#73514f;fill-opacity:0.8;fill-rule:nonzero;stroke:#73514f;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+                 style="fill:#73514f;fill-opacity:1;fill-rule:nonzero;stroke:#73514f;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
                  id="path1470" />
               <path
                  d="M 358.39,41.618142 H 686.25 V 234.00816 H 358.39 Z"
-                 style="fill:#036a5b;fill-opacity:0.8;fill-rule:nonzero;stroke:#036a5b;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+                 style="fill:#036a5b;fill-opacity:1;fill-rule:nonzero;stroke:#036a5b;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
                  id="path1472" />
               <path
                  d="m 358.39,238.84816 h 327.86 v 309.53 H 358.39 Z"
-                 style="fill:#036a5b;fill-opacity:0.8;fill-rule:nonzero;stroke:#036a5b;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+                 style="fill:#036a5b;fill-opacity:1;fill-rule:nonzero;stroke:#036a5b;stroke-width:0.21;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
                  id="path1474" />
               <text
                  transform="scale(0.96123272,-1.0403308)"
