@@ -2,10 +2,10 @@ rm(list=ls(all=TRUE))
 
 library(ggplot2)
 
-fishA = read.table('cytba.csv', sep = ';')
+fishA = read.table('../../Body/2Derived/Anchovies_Cytb_Clade_a.csv', sep = ';')
 names(fishA) = c('codon_number','sub','freq','anc','dec','ancA','decA','typeSub')
 
-fishB = read.table('cytbb.csv', sep = ';')
+fishB = read.table('../../Body/2Derived/Anchovies_Cytb_Clade_b.csv', sep = ';')
 names(fishB) = c('codon_number','sub','freq','anc','dec','ancA','decA','typeSub')
 
 ### delete nonSyn Subs
@@ -28,7 +28,7 @@ dfB$class = 'B'
 
 allinone = rbind(dfA,dfB)
 
-### GRAPH FOR Ch>Th on heavy chain
+### GRAPH FOR C>T on heavy chain
 ggplot(data = allinone[allinone$Var1 == 'G>A',], aes(x = class, y = percent)) +
   geom_bar(position="dodge", stat="identity", fill = '#055088')+
   theme_void()+
@@ -40,7 +40,7 @@ ggplot(data = allinone[allinone$Var1 == 'G>A',], aes(x = class, y = percent)) +
   geom_text(x = 'B', y = 16.5 , label = 'clade B', size = 5)+
   ylim(0,50)
 
-### GRAPH FOR Gh>Ah on heavy chain
+### GRAPH FOR G>A on heavy chain
 ggplot(data = allinone[allinone$Var1 == 'C>T',], aes(x = class, y = percent)) +
   geom_bar(position="dodge", stat="identity", fill = '#9c3d37')+
   theme_void()+
@@ -53,7 +53,7 @@ ggplot(data = allinone[allinone$Var1 == 'C>T',], aes(x = class, y = percent)) +
   ylim(0,50)
 
 
-### GRAPH FOR Ah>Gh on heavy chain
+### GRAPH FOR A>G on heavy chain
 ggplot(data = allinone[allinone$Var1 == 'T>C',], aes(x = class, y = percent)) +
   geom_bar(position="dodge", stat="identity", fill = '#73514f')+
   theme_void()+
@@ -65,7 +65,7 @@ ggplot(data = allinone[allinone$Var1 == 'T>C',], aes(x = class, y = percent)) +
   geom_text(x = 'B', y = 16 , label = 'clade B', size = 5)+
   ylim(0,50)
 
-### GRAPH FOR Th>Ch on heavy chain
+### GRAPH FOR T>C on heavy chain
 ggplot(data = allinone[allinone$Var1 == 'A>G',], aes(x = class, y = percent)) +
   geom_bar(position="dodge", stat="identity", fill = '#036a5b')+
   theme_void()+
@@ -78,7 +78,7 @@ ggplot(data = allinone[allinone$Var1 == 'A>G',], aes(x = class, y = percent)) +
   ylim(0,50)
 
 
-## create df for Ah>Gh and Th>Ch heavy chain to create mosaic plot
+## create df for A>G and T>C heavy chain to create mosaic plot
 
 #install.packages("devtools")
 #devtools::install_github("haleyjeppson/ggmosaic")
