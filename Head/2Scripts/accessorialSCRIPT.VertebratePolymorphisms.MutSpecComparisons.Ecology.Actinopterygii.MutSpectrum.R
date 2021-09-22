@@ -36,7 +36,8 @@ MUTSPEC= MUTACTINOPTERITAXAFROMK
 MUTACTINOPTERITAXAFROMK = MUTACTINOPTERITAXAFROMK[MUTACTINOPTERITAXAFROMK$Class == "Actinopterygii",]
 #names(MUTACTINOPTERITAXAFROMK) = c("T_G", "T_C", "T_A", "G_T", "G_C", "G_A", "C_T", "C_G", "C_A", "A_T", "A_G", "A_C")
 ########Supplementary table 1
-write.table(MUTACTINOPTERITAXAFROMK, file = "../../Body/2Derived/Supplementary_table_1.txt", row.names = FALSE)
+MUTACTINOPTERITAXAFROMK = MUTACTINOPTERITAXAFROMK[order(MUTACTINOPTERITAXAFROMK$T_C),]
+write.table(MUTACTINOPTERITAXAFROMK, file = "../../Body/2Derived/Supplementary_table_3_ordered_by_A_G.txt", row.names = FALSE)
 
 
 MUTACTINOPTERITAXAFROMK=MUTACTINOPTERITAXAFROMK[,-c(1,14)]
