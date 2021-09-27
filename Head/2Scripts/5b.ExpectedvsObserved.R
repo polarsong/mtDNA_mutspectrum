@@ -5,7 +5,7 @@ ColorT = rgb(0,1,0,0.3)
 ColorG = rgb(0,0,1,0.3)
 ColorC = rgb(0,1,1,0.3)
 
-Final = read.table("../../Body/2Derived/5A.FromMutSpecToNucContent.R.FinalTable.txt", header = TRUE)
+Final = read.table("/../../Body/2Derived/5A.FromMutSpecToNucContent.R.FinalTable.txt", header = TRUE)
 
 ###: PLOT
 

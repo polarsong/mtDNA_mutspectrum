@@ -19,7 +19,7 @@ SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$Neutr
 SynNuc = SynNuc[,c(1,6,7,8,9)]
 
 ##Temperature for fishes
-muttemp = read.table('../../mtDNA_mutspectrum/Body/2Derived/Supplementary_table_2.txt', header =TRUE) ## ../../
+muttemp = read.table('../../Body/2Derived/Supplementary_table_2.txt', header =TRUE) ## ../../
 
 muttemp = muttemp[is.na(muttemp$Temperature) != T,] # delete bad rows
 
@@ -35,6 +35,9 @@ warm = muttemp[muttemp$Temperature >= quant[[2]],]
 
 cold_fish = apply(as.matrix(cold[,2:16]), 2, mean)
 warm_fish = apply(as.matrix(warm[,2:16]), 2, mean)
+
+names(cold_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C','Temp','Tm','AGdivTC')
+names(warm_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C','Temp','Tm','AGdivTC')
 
 ### check mean_mut == 1 in both
 sum(cold_fish[1:12], na.rm = T)
@@ -89,18 +92,18 @@ for (MutSpecProb in c('cold-water fish','warm-water fish'))
     if (MutSpecProb == 'warm-water fish')
     { #warm_fish
       VecMutSpec = c(  
-        "T","A",warm_fish[['T_A']],
-        "T","C",warm_fish[['T_C']], 
-        "T","G",warm_fish[['T_G']],
-        "A","T",warm_fish[['A_T']],
-        "A","C",warm_fish[['A_C']],
-        "A","G",warm_fish[['A_G']], 
-        "C","T",warm_fish[['C_T']],
-        "C","A",warm_fish[['C_A']],
-        "C","G",warm_fish[['C_G']],
-        "G","T",warm_fish[['G_T']],
-        "G","A",warm_fish[['G_A']],
-        "G","C",warm_fish[['G_C']])} 
+        "T","A",cold_fish[['T_A']],
+        "T","C",cold_fish[['T_C']], 
+        "T","G",cold_fish[['T_G']],
+        "A","T",cold_fish[['A_T']],
+        "A","C",cold_fish[['A_C']],
+        "A","G",cold_fish[['A_G']], 
+        "C","T",cold_fish[['C_T']],
+        "C","A",cold_fish[['C_A']],
+        "C","G",cold_fish[['C_G']],
+        "G","T",cold_fish[['G_T']],
+        "G","A",cold_fish[['G_A']],
+        "G","C",cold_fish[['G_C']])} 
     
     MutSpec = data.frame(matrix(VecMutSpec, ncol = 3, nrow = 12, byrow = TRUE))
     names(MutSpec) = c('From','To','Prob')
