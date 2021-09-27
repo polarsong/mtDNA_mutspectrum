@@ -38,9 +38,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.81"
-     inkscape:cx="305.28524"
-     inkscape:cy="352.86776"
+     inkscape:zoom="0.76"
+     inkscape:cx="916.92317"
+     inkscape:cy="244.24707"
      inkscape:document-units="mm"
      inkscape:current-layer="g24"
      inkscape:document-rotation="0"
@@ -817,6 +817,66 @@
              sodipodi:role="line"
              id="tspan62-2-1-24"
              style="stroke-width:1.80927">clade A</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:28.4268px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:2.13201"
+           x="312.03333"
+           y="-122.34962"
+           id="text446"
+           transform="scale(1,-1)"><tspan
+             sodipodi:role="line"
+             id="tspan444"
+             x="312.03333"
+             y="-122.34962"
+             style="font-size:28.4268px;stroke-width:2.13201">**</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:28.4268px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:2.13201"
+           x="764.48358"
+           y="-121.38282"
+           id="text446-8"
+           transform="scale(1,-1)"><tspan
+             sodipodi:role="line"
+             id="tspan444-8"
+             x="764.48358"
+             y="-121.38282"
+             style="font-size:28.4268px;stroke-width:2.13201">*</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:22.7414px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:2.13201"
+           x="1202.4753"
+           y="-130.2233"
+           id="text522"
+           transform="scale(1,-1)"><tspan
+             sodipodi:role="line"
+             id="tspan520"
+             x="1202.4753"
+             y="-130.2233"
+             style="font-size:22.7414px;stroke-width:2.13201">NS</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:22.7414px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:2.13201"
+           x="1657.8584"
+           y="-126.61243"
+           id="text522-0"
+           transform="scale(1,-1)"><tspan
+             sodipodi:role="line"
+             id="tspan520-5"
+             x="1657.8584"
+             y="-126.61243"
+             style="font-size:22.7414px;stroke-width:2.13201">NS</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:22.7414px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:2.13201"
+           x="2182.822"
+           y="-132.06488"
+           id="text522-0-9"
+           transform="scale(1,-1)"><tspan
+             sodipodi:role="line"
+             id="tspan520-5-4"
+             x="2182.822"
+             y="-132.06488"
+             style="font-size:22.7414px;stroke-width:2.13201">NS</tspan></text>
       </g>
       <g
          id="g78" />
