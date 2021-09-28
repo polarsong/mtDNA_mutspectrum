@@ -26,11 +26,11 @@ muttemp = muttemp[is.na(muttemp$Temperature) != T,] # delete bad rows
 nuc_and_temp = merge(muttemp, SynNuc, by = 'Species') ## take fishes that have codons and temperature
 
 #### take 10% of cold and warm fishes
-quant = quantile(muttemp$Temperature, probs = c(0.1, 0.9))
+quant = quantile(nuc_and_temp$Temperature, probs = c(0.1, 0.9))
 
-cold = muttemp[muttemp$Temperature <= quant[[1]],]
+cold = muttemp[nuc_and_temp$Temperature <= quant[[1]],]
 
-warm = muttemp[muttemp$Temperature >= quant[[2]],]
+warm = muttemp[nuc_and_temp$Temperature >= quant[[2]],]
 
 
 cold_fish = apply(as.matrix(cold[,2:16]), 2, mean)
@@ -125,7 +125,7 @@ for (MutSpecProb in c('cold-water fish','warm-water fish'))
     ExpectedFrG 
     ExpectedFrC 
     
-    sum(MutSpec$Prob)
+    sum(MutSpec$Prob) 
     
     for (i in 1:nrow(MutSpec))
     { # i = 1

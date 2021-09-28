@@ -52,10 +52,24 @@ warm_fish = (apply(as.matrix(warm[,17:20]), 2, mean))
 observed = cbind(t(as.matrix(cold_fish)), t(as.matrix(warm_fish)))
 observed = t(as.matrix(observed))
 
-observed = cbind(observed, c('FrA', 'FrT', 'FrG', 'FrC', 'FrA', 'FrT', 'FrG', 'FrC'))
+observed = cbind(observed, c('FrT', 'FrA', 'FrC', 'FrG', 'FrT', 'FrA', 'FrC', 'FrG')) ### CHANGE TO HEAVY CHAIN!!!
 observed = cbind(observed, c('cold_fish','cold_fish','cold_fish','cold_fish','warm_fish','warm_fish','warm_fish','warm_fish'))
 colnames(observed) = c('observed','mutation','type_of_fish')
-expectedvsoberved = merge(expected_all, observed, by = c('mutation','type_of_fish'))
 
-ggplot(data = expectedvsoberved, aes(x = observed, y = expected, group=type_of_fish, col = type_of_fish, label = mutation))+
-  geom_label()
+expectedvsoberved = merge(expected_all, observed, by = c('mutation','type_of_fish'))
+expectedvsoberved$observed =as.numeric(as.character(expectedvsoberved$observed))
+expectedvsoberved$expected =as.numeric(as.character(expectedvsoberved$expected))
+
+pdf("../../Body/4Figures/5c.ExpectedvsObserved.pdf")
+
+exvsobs = ggplot(data = expectedvsoberved, aes(x = observed, y = expected, group=type_of_fish, col = type_of_fish))+
+  geom_point(size = 3.5)+
+  geom_abline(col = 'gray3', linetype="longdash", size = 0.6)+
+  theme_bw()+
+  scale_color_manual(name="Type of Fish", labels = c('Cold fish', 'Warm fish'), values = c('cold_fish'='deepskyblue4', 'warm_fish' = 'firebrick3'))+
+  geom_line(aes(group = mutation), col = 'black', size = 0.7)+
+  geom_text(aes(label=mutation),hjust=-0.35, vjust=-0.35)
+
+print(exvsobs)
+dev.off()
+
