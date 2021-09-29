@@ -1,0 +1,68 @@
+from Bio import SeqIO
+from Bio.Data import CodonTable
+import numpy as np
+import pandas as pd
+from Bio.Data import CodonTable
+
+translation = CodonTable.standard_dna_table.forward_table
+for g in CodonTable.standard_dna_table.stop_codons:
+    translation[g] = '_'
+
+#bc = SeqIO.read('Birds mtDNA 955.gb','genbank')
+item_table = ['Species name','GenbankID', 'Taxonomy', 'Gene name','Gene start/end and trend', 'GeneID', 'Amonoacids from genbank',
+             'Translated aminoacids by Python', 'Not standart codons']
+cl = list(CodonTable.standard_dna_table.forward_table.keys())
+full_items = item_table + cl
+items_manage = {}
+for item in full_items:
+    items_manage[item] = 0
+
+btable = pd.DataFrame(columns=full_items)    
+    
+counter = 0
+codon_list = []
+triplet = ''
+codons = []
+trnsl_amino = ''
+kl = 0
+for bc in SeqIO.parse('Birds mtDNA 963.gb', format='genbank'):
+    for i in bc.features:
+        if i.type == 'CDS':
+            items_manage['Species name'] = bc.annotations['organism']
+            items_manage['GenbankID'] = bc.annotations['accessions']
+            items_manage['Taxonomy'] = bc.annotations['taxonomy']
+            if 'gene' not in i.qualifiers:
+                items_manage['Gene name'] = 'NA'
+            else:   
+                items_manage['Gene name'] = i.qualifiers['gene']
+            items_manage['Gene start/end and trend'] = i.location
+            if 'db_xref' not in i.qualifiers:
+                items_manage['GeneID'] = 'NA'
+            else:
+                items_manage['GeneID'] = i.qualifiers['db_xref'][-1]
+            items_manage['Amonoacids from genbank'] = i.qualifiers['translation']
+            a = list(i.location.extract(bc).seq)
+            for j in a:
+                triplet = triplet + j
+                counter += 1
+                if counter == 3:
+                    codon_list.append(triplet)
+                    counter = 0
+                    triplet = ''
+            codons.append(codon_list)
+            codon_list = [] 
+            for lst in codons:
+                for trpl in lst:
+                    if trpl not in cl:
+                        items_manage['Not standart codons'] += 1
+                        trnsl_amino += 'NA'
+                    else:
+                        items_manage[trpl] += 1
+                        trnsl_amino += translation[trpl]
+            items_manage['Translated aminoacids by Python'] = trnsl_amino
+            trnsl_amino = ''
+            codons = []
+            btable = btable.append(items_manage, ignore_index = True)
+            for k in items_manage:
+                items_manage[k] = 0
+btable 
