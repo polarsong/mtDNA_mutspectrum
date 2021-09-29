@@ -7,6 +7,7 @@ ColorC = rgb(0,1,1,0.3)
 
 Final = read.table("../../Body/2Derived/5A.FromMutSpecToNucContent.R.FinalTable.txt", header = TRUE)
 
+Final = Final[Final$Gener <= 600000,]
 ###: PLOT
 
 pdf("../../Body/4Figures/5B.FromMutSpecToNucContent.R.pdf",  width = 20, height = 10) # dev.off()
