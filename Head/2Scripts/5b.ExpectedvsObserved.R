@@ -20,12 +20,12 @@ for (InitGenome in 1:10)
   plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'cold-water fish',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'cold-water fish',]$FrC, ylim = c(0,0.6), pch = '.', col = ColorC, main = 'Cold-water, neutral equilibrium, heavy chain', xlab = '', ylab = ''); par(new=TRUE)
 }
 
-#G = 0.2775772029; T= 0.4598399750; C=0.07858235961 # data from Valerian
-#A = 1 - G - C - T # 0.1840005
-#abline(h = A, col = ColorA, lwd = 3, lt = 2)
-#abline(h = T, col = ColorT, lwd = 3, lt = 2)
-#abline(h = G, col = ColorG, lwd = 3, lt = 2)
-#abline(h = C, col = ColorC, lwd = 3, lt = 2)
+G = 0.2378578262; T= 0.5271436896; C=0.07049385836 # data from Valerian
+A =  0.1645046270
+abline(h = A, col = ColorA, lwd = 3, lt = 2)
+abline(h = T, col = ColorT, lwd = 3, lt = 2)
+abline(h = G, col = ColorG, lwd = 3, lt = 2)
+abline(h = C, col = ColorC, lwd = 3, lt = 2)
 
 legend(1,0.6, legend = c('A','T','G','C'), col = c(ColorA, ColorT, ColorG, ColorC), pch = 16)
 
@@ -36,11 +36,11 @@ for (InitGenome in 1:10)
   plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'warm-water fish',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'warm-water fish',]$FrG, ylim = c(0,0.6), pch = '.', col = ColorG, main = '', xlab = '', ylab = ''); par(new=TRUE)
   plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'warm-water fish',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'warm-water fish',]$FrC, ylim = c(0,0.6), pch = '.', col = ColorC, main = 'Warm-water, neutral equilibrium, heavy chain', xlab = '', ylab = ''); par(new=TRUE)
 }
-#A=0.1423421338; G=0.2897844548; T=0.5225696239; C=0.04530378870; # data from Valerian:
-#abline(h = A, col = ColorA, lwd = 3, lt = 2)
-#abline(h = T, col = ColorT, lwd = 3, lt = 2)
-#abline(h = G, col = ColorG, lwd = 3, lt = 2)
-#abline(h = C, col = ColorC, lwd = 3, lt = 2)
+A = 0.1518187869; G=0.3236389788; T = 0.4862288867; C = 0.03831334710 # data from Valerian:
+abline(h = A, col = ColorA, lwd = 3, lt = 2)
+abline(h = T, col = ColorT, lwd = 3, lt = 2)
+abline(h = G, col = ColorG, lwd = 3, lt = 2)
+abline(h = C, col = ColorC, lwd = 3, lt = 2)
 legend(1,0.6, legend = c('A','T','G','C'), col = c(ColorA, ColorT, ColorG, ColorC), pch = 16)
 
 dev.off()

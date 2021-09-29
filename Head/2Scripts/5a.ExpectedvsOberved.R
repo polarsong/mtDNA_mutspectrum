@@ -28,16 +28,16 @@ nuc_and_temp = merge(muttemp, SynNuc, by = 'Species') ## take fishes that have c
 #### take 10% of cold and warm fishes
 quant = quantile(nuc_and_temp$Temperature, probs = c(0.1, 0.9))
 
-cold = muttemp[nuc_and_temp$Temperature <= quant[[1]],]
+cold = nuc_and_temp[nuc_and_temp$Temperature <= quant[[1]],]
 
-warm = muttemp[nuc_and_temp$Temperature >= quant[[2]],]
+warm = nuc_and_temp[nuc_and_temp$Temperature >= quant[[2]],]
 
 
-cold_fish = apply(as.matrix(cold[,2:16]), 2, mean)
-warm_fish = apply(as.matrix(warm[,2:16]), 2, mean)
+cold_fish = apply(as.matrix(cold[,2:13]), 2, mean)
+warm_fish = apply(as.matrix(warm[,2:13]), 2, mean)
 
-names(cold_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C','Temp','Tm','AGdivTC')
-names(warm_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C','Temp','Tm','AGdivTC')
+names(cold_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C')
+names(warm_fish) = c('T_A','T_C','T_G','A_T','A_C','A_G','C_T','C_A','C_G','G_T','G_A','G_C')
 
 ### check mean_mut == 1 in both
 sum(cold_fish[1:12], na.rm = T)
@@ -92,18 +92,18 @@ for (MutSpecProb in c('cold-water fish','warm-water fish'))
     if (MutSpecProb == 'warm-water fish')
     { #warm_fish
       VecMutSpec = c(  
-        "T","A",cold_fish[['T_A']],
-        "T","C",cold_fish[['T_C']], 
-        "T","G",cold_fish[['T_G']],
-        "A","T",cold_fish[['A_T']],
-        "A","C",cold_fish[['A_C']],
-        "A","G",cold_fish[['A_G']], 
-        "C","T",cold_fish[['C_T']],
-        "C","A",cold_fish[['C_A']],
-        "C","G",cold_fish[['C_G']],
-        "G","T",cold_fish[['G_T']],
-        "G","A",cold_fish[['G_A']],
-        "G","C",cold_fish[['G_C']])} 
+        "T","A",warm_fish[['T_A']],
+        "T","C",warm_fish[['T_C']], 
+        "T","G",warm_fish[['T_G']],
+        "A","T",warm_fish[['A_T']],
+        "A","C",warm_fish[['A_C']],
+        "A","G",warm_fish[['A_G']], 
+        "C","T",warm_fish[['C_T']],
+        "C","A",warm_fish[['C_A']],
+        "C","G",warm_fish[['C_G']],
+        "G","T",warm_fish[['G_T']],
+        "G","A",warm_fish[['G_A']],
+        "G","C",warm_fish[['G_C']])} 
     
     MutSpec = data.frame(matrix(VecMutSpec, ncol = 3, nrow = 12, byrow = TRUE))
     names(MutSpec) = c('From','To','Prob')
@@ -171,7 +171,7 @@ Final$FrT = as.numeric(as.character(Final$T))/length(genome)
 Final$FrG = as.numeric(as.character(Final$G))/length(genome)
 Final$FrC = as.numeric(as.character(Final$C))/length(genome)
 
-write.table(Final, "../../Body/2Derived/5A.FromMutSpecToNucContent.R.FinalTable.txt")
+write.table(Final, "../../Body/Body/2Derived/5A.FromMutSpecToNucContent.R.FinalTable.txt")
 
 
 
