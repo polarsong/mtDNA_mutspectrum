@@ -1,0 +1,19 @@
+rm(list=ls(all=TRUE)) 
+install.packages("seqinr")
+library("seqinr")
+setwd("C:/Users/polar/Documents/mtDNA_mutspectrum/Body")
+
+file <- "1Raw/CytB.fasta"
+CytBRefSeq <- read.fasta(file, as.string = TRUE, set.attributes = FALSE)
+SpNames <- names(CytBRefSeq)
+
+Data=c()
+
+for (i in SpNames){
+  Data <- rbind(Data, c(i, unlist(unname(CytBRefSeq[i]))))
+}
+
+Data = data.frame(Data)
+names(Data) <- c("SpeciesName", "AAseq")
+Data$GeneName <- "CytB"
+write.table(Data, file = "C:/Users/polar/Documents/mtDNA_mutspectrum/Body/2Derived/VertebratePolymorphisms.AllSpRefseqCytB.txt", row.names = F)
