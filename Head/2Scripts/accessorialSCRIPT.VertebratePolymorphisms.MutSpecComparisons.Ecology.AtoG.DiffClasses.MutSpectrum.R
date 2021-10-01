@@ -34,9 +34,9 @@ Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 MUTFROMK = merge(MUT, Taxa)
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
+#pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
 
-dev.off()
+#dev.off()
 ##########################################################################################
 
 table(MUTFROMK$Class)
@@ -63,21 +63,6 @@ ALL$TCdivAG = ALL$T_C / (ALL$A_G + ALL$T_C)
 #CLORD = MUTFROMK[order(MUTFROMK$Class, MUTFROMK$T_C),]
 #write.table(CLORD, file = "../../Body/3Results/AllmutspecforKuptsov.txt", row.names = FALSE)
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.AtoG.DiffClasses.MutSpectrum.VIOLIN.pdf")
-ggviolin(MUTFROMK, x = "Class", y = "T_C", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH",
-         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
-MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 30,]
-
-length(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$T_C) #551
-length(MUTFROMK[MUTFROMK$Class == "Amphibia",]$T_C) #79
-length(MUTFROMK[MUTFROMK$Class == "Reptilia",]$T_C) #200
-length(MUTFROMK[MUTFROMK$Class == "Mammalia",]$T_C) #526
-length(MUTFROMK[MUTFROMK$Class == "Aves",]$T_C) #210
-
-ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
-         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
-dev.off()
-
 AA = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
 AA$Species = paste(AA$Genus,AA$Species,sep = '_')
 
@@ -93,7 +78,39 @@ TEMPE$Class = "Actinopterygii"
 Alltemp = data.frame(AA$Species, AA$Class, AA$TemperatureC); names(Alltemp) = c("Species", "Class", "Temperature")
 Alltemp = rbind(Alltemp, TEMPE)
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.MeanTemp.DiffClasses.MutSpectrum.Boxplots.pdf")
-ggboxplot(Alltemp, x = "Class", y = "Temperature", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "Body temperature, °C",
+colder <- c("Actinopterygii", "Amphibia", "Reptilia")
+warmer <- c("Mammalia","Aves")
+
+
+wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$T_C, MUTFROMK[MUTFROMK$Class %in% warmer,]$T_C, paired=F) #p-value = 2.574e-13
+wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$A_G, MUTFROMK[MUTFROMK$Class %in% warmer,]$A_G, paired=F)  #p-value < 2.2e-16
+wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$TCdivAG, MUTFROMK[MUTFROMK$Class %in% warmer,]$TCdivAG, paired=F) #p-value < 2.2e-16
+
+pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.AtoG.DiffClasses.ViolinPlots.pdf", width = 10, height = 5.3)
+MUTFROMK = MUTFROMK[MUTFROMK$T_C < 0.45,]
+ggviolin(MUTFROMK, x = "Class", y = "T_C", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+MUTFROMK = MUTFROMK[MUTFROMK$A_G < 0.15,]
+ggviolin(MUTFROMK, x = "Class", y = "A_G", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "TH>CH",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 20,]
+ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+ggviolin(Alltemp, x = "Class", y = "Temperature", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "Body temperature, °C",
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
 dev.off()
+
+ac <- nrow(MUTFROMK[MUTFROMK$Class == "Actinopterygii"  & !is.na(MUTFROMK$T_C),]) #460
+a <- nrow(MUTFROMK[MUTFROMK$Class == "Amphibia" & !is.na(MUTFROMK$T_C),]) #70
+r <- nrow(MUTFROMK[MUTFROMK$Class == "Reptilia" & !is.na(MUTFROMK$T_C),]) #183
+m <- nrow(MUTFROMK[MUTFROMK$Class == "Mammalia" & !is.na(MUTFROMK$T_C),]) #467
+av <- nrow(MUTFROMK[MUTFROMK$Class == "Aves" & !is.na(MUTFROMK$T_C),]) #170
+ourdataset <- ac + a + r + m + av #1350
+nrow(MUTFROMK)
+
+ac <- nrow(Alltemp[Alltemp$Class == "Actinopterygii" & !is.na(Alltemp$Temperature),]) #1590
+a <- nrow(Alltemp[Alltemp$Class == "Amphibia" & !is.na(Alltemp$Temperature),]) #18
+r <- nrow(Alltemp[Alltemp$Class == "Reptilia" & !is.na(Alltemp$Temperature),]) #16
+m <- nrow(Alltemp[Alltemp$Class == "Mammalia" & !is.na(Alltemp$Temperature),]) #457
+av <- nrow(Alltemp[Alltemp$Class == "Aves" & !is.na(Alltemp$Temperature),]) #3
+ourdataset <- ac + a + r + m + av #2084
