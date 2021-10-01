@@ -68,10 +68,13 @@ exvsobs = ggplot(data = expectedvsoberved, aes(x = observed, y = expected, group
   theme_bw()+
   scale_color_manual(name="Type of Fish", labels = c('Cold fish', 'Warm fish'), values = c('cold_fish'='deepskyblue4', 'warm_fish' = 'firebrick3'))+
   geom_line(aes(group = mutation), col = 'black', size = 0.7)+
-  geom_text(aes(label=mutation),hjust=-0.35, vjust=-0.35)+
-  xlim(0, 0.6)
+  geom_text(aes(label=mutation),hjust=-0.40, vjust=-0.40)+
+  xlim(0, 0.55)+
+  ylim(0,0.55)+
+  labs(x = 'Observed Nucleotide Content',y = 'Expected Nucleotide Content')
   
 
 print(exvsobs)
+
 dev.off()
 
