@@ -52,7 +52,7 @@ for (i in 1:nrow(agg))   {  agg$FamilyShort[i] = paste(unlist(strsplit(agg$Famil
 
 cor.test(agg$A_G.T_C, agg$Temperature,method = 'spearman') ### positive and good p - value = 0.0227
 
-svg("../../Body/4Figures/.svg")
+
 ggplot(data = agg, aes(x = Temperature, y = A_G.T_C, label = FamilyShort, color = Family))+
   geom_point()+
   geom_smooth(method="lm", se=F, col = 'red')+
