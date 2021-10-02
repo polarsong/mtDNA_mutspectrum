@@ -84,28 +84,32 @@ boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
         Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C,
         names=c('1','2','3','4'), outline = FALSE, notch = FALSE, ylab = 'A>G/T>C')
 
-
-
-wilcox.test(
+t1 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C) # p -value 0.025
 
-wilcox.test(
+t2 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.006
 
-wilcox.test(
+t3 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = almost 0.000
 
-wilcox.test(
+t4 = wilcox.test(
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.93
 
-wilcox.test(
+t5 = wilcox.test(
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.016
 
+t6 = wilcox.test(
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C,
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.002
+
+
+round(p.adjust(c(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value), method = "bonferroni"), 3)
 
 ##### boxplots by median
 
