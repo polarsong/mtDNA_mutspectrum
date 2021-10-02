@@ -104,40 +104,6 @@ summary(ltest)
 allparameters$residuals = ltest$residuals ## residuals added
 
 
-
-
-
-#################Lm ~ Xen
-allparameters$Xen = 0
-allparameters[allparameters$Superorder == "Xenarthra", ]$Xen = 1
-summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(Xen), data = allparameters))
-
-summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(Xen)+scale(allcolddummy), data = allparameters))
-
-
-##############################
-####Fraction G
-##############################
-
-ltest = lm(formula = FrG ~ scale(GenerationLength_d), data = allparameters)
-summary(ltest)
-
-#######Lm ~ hiber
-
-ltest = lm(formula = FrG ~ scale(GenerationLength_d)+scale(Hib.unconfirmedHib), data = allparameters)
-summary(ltest)
-
-#########Lm ~ allcold
-
-ltest = lm(formula = FrG ~ scale(allcolddummy), data = allparameters)
-summary(ltest)
-
-ltest = lm(formula = FrG ~ scale(GenerationLength_d)*scale(allcolddummy), data = allparameters)
-summary(ltest)
-
-
-
-
 ##### phylogenetic inertia analysis
 
 tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
@@ -220,6 +186,12 @@ summary(model4)
 
 
 
+
+
+
+
+
+
 ##################Figures
 allparameters$TwoMammaliaGroups = as.character(allparameters$allcolddummy)
 for (i in 1:nrow(allparameters)){
@@ -229,6 +201,93 @@ for (i in 1:nrow(allparameters)){
     allparameters$TwoMammaliaGroups[i] = "Colder mammals"
   }
 }
+
+
+################### one model
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
+SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
+SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species), FUN = sum)
+names(SynNuc) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
+SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
+TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperature)
+SynNuc = merge(TEMPE,SynNuc, by = 'Species'); summary(SynNuc$Temperature)
+MATUTM = read.table('../../Body/1Raw/FishBaseMaturity_Tm.txt',  header = TRUE)
+MATUTM = aggregate(Tm ~ ., median, data = MATUTM) 
+SynNuc = merge(SynNuc, MATUTM, by = 'Species'); nrow(SynNuc)
+SynNuc$CtoTSkew = (SynNuc$FrC-SynNuc$FrT)/(SynNuc$FrC+SynNuc$FrT); summary(SynNuc$CtoTSkew) 
+SynNuc$GtoASkew = (SynNuc$FrG-SynNuc$FrA)/(SynNuc$FrG+SynNuc$FrA); summary(SynNuc$GtoASkew)
+SynNuc$AtoGSkew = (SynNuc$FrA-SynNuc$FrG)/(SynNuc$FrA+SynNuc$FrG); summary(SynNuc$AtoGSkew)
+SynNuc$TtoCSkew = (SynNuc$FrT-SynNuc$FrC)/(SynNuc$FrT+SynNuc$FrC); summary(SynNuc$TtoCSkew)
+SynNuc$TG = SynNuc$FrT+SynNuc$FrG
+SynNuc$AC = SynNuc$FrA+SynNuc$FrC
+SynNuc$TG_ACSkew = (SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$TG_ACSkew)
+SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew) #OUR
+
+
+
+temp = SynNuc
+temp$Lifespan = "Short"
+temp[temp$Tm > median(temp$Tm),]$Lifespan = "Long"
+temp$Termo = "Cold"
+temp[temp$Temperature > median(temp$Temperature),]$Termo = "Warm"
+
+allparameters$GLgroups = "Short"
+allparameters[allparameters$GenerationLength_d > median(allparameters$GenerationLength_d),]$GLgroups = "Long"
+
+
+
+
+
+
+
+
+
+
+
+onedatasetF = data.frame(temp$Species, temp$Termo, temp$Lifespan, temp$AC_TGSkew)
+onedatasetF$Longevity = 0
+onedatasetF[onedatasetF$temp.Lifespan == "Long",]$Longevity=1
+onedatasetF$temp.Lifespan = NULL
+names(onedatasetF)=c("Species", "Temperature", "AC_TGSkew", "Longevity")
+onedatasetF$Ectothermy = 1
+onedatasetF$Class = "Actinopterygii"
+
+
+onedatasetM = data.frame(allparameters$Species, allparameters$Temper, allparameters$GLgroups, allparameters$AC_TGSkew)
+onedatasetM$Longevity = 0
+onedatasetM[onedatasetM$allparameters.GLgroups == "Long",]$Longevity = 1
+onedatasetM$allparameters.GLgroups = NULL
+names(onedatasetM)=c("Species", "Temperature", "AC_TGSkew", "Longevity")
+onedatasetM$Ectothermy = 0
+onedatasetM$Class = "Mammalia"
+
+onedata = rbind(onedatasetF, onedatasetM)
+table(onedata$Ectothermy)
+summary(lm(formula = AC_TGSkew ~ Temperature + Longevity + Ectothermy, data = onedata))
+nrow(onedata[!is.na(onedata$Temperature) & !is.na(onedata$AC_TGSkew),])
+
+pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 7, height = 8.5)
+plot(allparameters[allparameters$GLgroups == "LongGL",]$Temper, allparameters[allparameters$GLgroups == "LongGL",]$TG_ACSkew*-1, col="#121d2e", xlab="Temperature", ylab="STG-SAC", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
+abline(0.362350, 0.004390, col="black", lwd = 2)
+par(new=TRUE)
+plot(allparameters[allparameters$GLgroups == "ShortGL",]$Temper, allparameters[allparameters$GLgroups == "ShortGL",]$TG_ACSkew*-1, col="#d7badb", xlab=" ", ylab="", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
+abline((0.362350-0.043854), 0.004390, col="#d7badb", lwd = 2)
+par(new=TRUE)
+plot(temp[temp$Lifespan == "ShortMaturated",]$Temperature, temp[temp$Lifespan == "ShortMaturated",]$TG_ACSkew*-1, col="#4da36c", xlab=" ", ylab="  ", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
+abline((0.331911-0.049196), 0.006172, col="#4da36c", lwd = 2)
+par(new=TRUE)
+plot(temp[temp$Lifespan == "LongMaturated",]$Temperature, temp[temp$Lifespan == "LongMaturated",]$TG_ACSkew*-1, col="#42cbf5", xlab=" ", ylab= "", xlim = c(0, 41), ylim = c(0.1, 0.75),  pch = 16)
+abline(0.331911, 0.006172, col="#42cbf5", lwd = 2)
+legend("bottomright", legend=c("Mammals, Long GL", "Mammals, Short GL", "Fishes, Long TM", "Fishes, Short TM"), col=c("black", "#d7badb", "#42cbf5", "#4da36c"), pch = 16)
+dev.off()
+
+
 
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.TemperatureHist.pdf", width = 9, height = 5.5)
@@ -252,11 +311,6 @@ ggscatter(allparameters, x = "GenerationLength_d", y = "TG_ACSkew",
 dev.off()
 
 plot(allparameters$Temper, allparameters$GenerationLength_d, col="#42cbf5", xlab="Temperature", ylab="GL, days", pch = 1, cex = (allparameters$TG_ACSkew*-7), ylim = c(0, 11000))
-
-
-medGL = median(allparameters$GenerationLength_d)
-allparameters$GLgroups = "LongGL"
-allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "ShortGL"
 
 
 
@@ -377,26 +431,6 @@ summary(allparameters[allparameters$Order..or.infraorder.for.Cetacea. == "Artiod
 
 
 
-#################################metabolic rate approximation
-
-allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
-
-allparameters$MR=(allparameters$GenerationLength_d+1)^0.75
-allparameters$TemperatureK = 273.15 + allparameters$Temper
-allparameters$B=allparameters$MR * exp(-1.2/((8.617*10^-5)*allparameters$TemperatureK))
-cor.test(allparameters$B, allparameters$TtoCSkew, method="spearman") #rho  -0.4568971 
-cor.test(allparameters$Temper, allparameters$TtoCSkew, method = "spearman")
-
-allparameters$TemperatureK = 273.15 + allparameters$Temper
-form=allparameters[!is.na(allparameters$GenerationLength_d),]
-form=form[!is.na(form$TG_ACSkew),]
-form=form[!is.na(form$TemperatureK),]
-form$TG_ACSkew=form$TG_ACSkew * (-1)
-
-form$x = (1/log(form$GenerationLength_d))*(log(form$TG_ACSkew)+0.2/((8.617*10^-5)*form$TemperatureK))
-bodymassgenlpred=((form$GenerationLength_d/365)/(6.10*10^6))^(1/0.2)
-form$x = log(form$TG_ACSkew * exp(0.62/((8.617*10^-5)*form$TemperatureK))) / log(bodymassgenlpred)
-summary(form$x)
 
 
 ################### one model
