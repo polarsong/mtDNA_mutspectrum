@@ -30,46 +30,34 @@ TaxaMore = TaxaMore[,-c(1,2)]
 Taxa = rbind(Taxa,TaxaMore); Taxa = unique(Taxa)
 #########################################################################################
 
-###########################MUT spectrum in Actinoptery##################################
 MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
 MUTFROMK = merge(MUT, Taxa)
-
-#pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Analyses.Ecology.Actinopterygii.FishBaseData.FIGURE1A.pdf")
-
-#dev.off()
-##########################################################################################
-
 table(MUTFROMK$Class)
 MUTFROMK = merge(MUT, Taxa)
 MUTFROMK = MUTFROMK[MUTFROMK$T_C > 0,]
 MUTFROMK = MUTFROMK[MUTFROMK$A_G > 0,]
 MUTFROMK$TCdivAG = MUTFROMK$T_C / MUTFROMK$A_G
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.AtoG.DiffClasses.MutSpectrum.pdf")
-boxplot(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$T_C, MUTFROMK[MUTFROMK$Class == "Amphibia",]$T_C, MUTFROMK[MUTFROMK$Class == "Reptilia",]$T_C, MUTFROMK[MUTFROMK$Class == "Mammalia",]$T_C, MUTFROMK[MUTFROMK$Class == "Aves",]$T_C,
-        names = c(  "Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH", notch = TRUE)
-boxplot(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Amphibia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Reptilia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Mammalia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Aves",]$TCdivAG, 
-        names = c(  "Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH", outline = FALSE, notch = TRUE)
-dev.off()
+#pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.Ecology.AtoG.DiffClasses.MutSpectrum.pdf")
+#boxplot(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$T_C, MUTFROMK[MUTFROMK$Class == "Amphibia",]$T_C, MUTFROMK[MUTFROMK$Class == "Reptilia",]$T_C, MUTFROMK[MUTFROMK$Class == "Mammalia",]$T_C, MUTFROMK[MUTFROMK$Class == "Aves",]$T_C,
+#        names = c(  "Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH", notch = TRUE)
+#boxplot(MUTFROMK[MUTFROMK$Class == "Actinopterygii",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Amphibia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Reptilia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Mammalia",]$TCdivAG, MUTFROMK[MUTFROMK$Class == "Aves",]$TCdivAG, 
+#        names = c(  "Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH", outline = FALSE, notch = TRUE)
+#dev.off()
+#HG = MUTFROMK[MUTFROMK$Species == "Heterocephalus_glaber",]
+#MM = MUTFROMK[MUTFROMK$Species == "Mus_musculus",]
+#CH = MUTFROMK[MUTFROMK$Species == "Cryptomys_hottentotus",]
+#ALL = rbind(HG, CH)
+#ALL = rbind(ALL, MM)
+#ALL$TCdivAG = ALL$T_C / (ALL$A_G + ALL$T_C)
 
-
-HG = MUTFROMK[MUTFROMK$Species == "Heterocephalus_glaber",]
-MM = MUTFROMK[MUTFROMK$Species == "Mus_musculus",]
-CH = MUTFROMK[MUTFROMK$Species == "Cryptomys_hottentotus",]
-ALL = rbind(HG, CH)
-ALL = rbind(ALL, MM)
-ALL$TCdivAG = ALL$T_C / (ALL$A_G + ALL$T_C)
-
-#CLORD = MUTFROMK[order(MUTFROMK$Class, MUTFROMK$T_C),]
-#write.table(CLORD, file = "../../Body/3Results/AllmutspecforKuptsov.txt", row.names = FALSE)
-
+########AnAge data reading
 AA = read.table("../../Body/1Raw/anage_data.txt", header = TRUE, sep = '\t')
 AA$Species = paste(AA$Genus,AA$Species,sep = '_')
-
 AA$TemperatureC = AA$Temperature..K. - 273.15
 summary(AA$TemperatureC)
 table(AA[AA$Class == "Aves",]$Temperature..K.)
-
+######mergw with temperatures
 TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
 class(TEMPE$Temperature)
 class(TEMPE$Species)
@@ -78,13 +66,13 @@ TEMPE$Class = "Actinopterygii"
 Alltemp = data.frame(AA$Species, AA$Class, AA$TemperatureC); names(Alltemp) = c("Species", "Class", "Temperature")
 Alltemp = rbind(Alltemp, TEMPE)
 
+####U tests
 colder <- c("Actinopterygii", "Amphibia", "Reptilia")
 warmer <- c("Mammalia","Aves")
-
-
 wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$T_C, MUTFROMK[MUTFROMK$Class %in% warmer,]$T_C, paired=F) #p-value = 2.574e-13
 wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$A_G, MUTFROMK[MUTFROMK$Class %in% warmer,]$A_G, paired=F)  #p-value < 2.2e-16
 wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$TCdivAG, MUTFROMK[MUTFROMK$Class %in% warmer,]$TCdivAG, paired=F) #p-value < 2.2e-16
+wilcox.test(Alltemp[Alltemp$Class %in% colder,]$Temperature, Alltemp[Alltemp$Class %in% warmer,]$Temperature, paired=F) #p-value < 2.2e-16
 
 pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.AtoG.DiffClasses.ViolinPlots.pdf", width = 10, height = 5.3)
 MUTFROMK = MUTFROMK[MUTFROMK$T_C < 0.45,]

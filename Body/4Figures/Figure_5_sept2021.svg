@@ -13,7 +13,7 @@
    version="1.1"
    id="svg2673"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="Figure_5abc_sept2021.svg">
+   sodipodi:docname="Figure_5_sept2021.svg">
   <defs
      id="defs2667">
     <clipPath
@@ -294,7 +294,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -312,7 +312,7 @@
          id="tspan8000"
          x="4.4967694"
          y="289.51178"
-         style="font-size:5.92271px;stroke-width:0.222102">Figure 5</tspan></text>
+         style="font-size:5.92271px;stroke-width:0.222102">Figure 4</tspan></text>
     <g
        transform="matrix(0.39426706,0,0,-0.39426706,3.8564979,252.53174)"
        inkscape:label="WholeGenomeAnalyses.EcologyAndMutSpecChordata.Mammals.KuptsovData.FIGURE2B.withoutEllipse"
