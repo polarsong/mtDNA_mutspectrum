@@ -74,7 +74,7 @@ wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$A_G, MUTFROMK[MUTFROMK$Class %
 wilcox.test(MUTFROMK[MUTFROMK$Class %in% colder,]$TCdivAG, MUTFROMK[MUTFROMK$Class %in% warmer,]$TCdivAG, paired=F) #p-value < 2.2e-16
 wilcox.test(Alltemp[Alltemp$Class %in% colder,]$Temperature, Alltemp[Alltemp$Class %in% warmer,]$Temperature, paired=F) #p-value < 2.2e-16
 
-pdf("../../Body/4Figures/VertebratePolymorphisms.MutSpecComparisons.AtoG.DiffClasses.ViolinPlots.pdf", width = 10, height = 5.3)
+pdf("../../Body/4Figures/5d.VertebratePolymorphisms.MutSpecComparisons.AtoG.DiffClasses.ViolinPlots.pdf", width = 10, height = 5.3)
 MUTFROMK = MUTFROMK[MUTFROMK$T_C < 0.45,]
 ggviolin(MUTFROMK, x = "Class", y = "T_C", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH",
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
@@ -84,8 +84,10 @@ ggviolin(MUTFROMK, x = "Class", y = "A_G", select = c("Actinopterygii", "Amphibi
 MUTFROMK = MUTFROMK[MUTFROMK$TCdivAG < 20,]
 ggviolin(MUTFROMK, x = "Class", y = "TCdivAG", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "AH>GH div TH>CH",
          order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+Alltemp=Alltemp[!is.na(Alltemp$Temperature),]
+table(Alltemp[Alltemp$Class == "Aves",]$Temperature)
 ggviolin(Alltemp, x = "Class", y = "Temperature", select = c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), ylab = "Body temperature, °C",
-         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"))
+         order=c("Actinopterygii", "Amphibia", "Reptilia", "Mammalia","Aves"), add = "boxplot", fill="Class", palette=c("#6760db", "#7849bf", "#9145c4", "#c73a69", "#c2464c"),  ylim = c(0, 50))
 dev.off()
 
 ac <- nrow(MUTFROMK[MUTFROMK$Class == "Actinopterygii"  & !is.na(MUTFROMK$T_C),]) #460
