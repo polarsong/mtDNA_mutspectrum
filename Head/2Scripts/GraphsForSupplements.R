@@ -167,7 +167,7 @@ mmm = function(x)
 SynNuc$Maturated = apply(as.matrix(SynNuc$Tm),1,mmm)
 
 for ( i in 1:nrow(SynNuc)){
-  if (SynNuc$Temperature.x[i]<=median(SynNuc$Temperature.x)){SynNuc$Temp[i] = 'Colder Fishes'}
+  if (SynNuc$Temperature[i]<=median(SynNuc$Temperature)){SynNuc$Temp[i] = 'Colder Fishes'}
   else {SynNuc$Temp[i] = 'Warmer Fishes'}
 }
 
@@ -178,23 +178,25 @@ ggplot(data = SynNuc, aes(x = Temp, y = AC_TGSkew))+
   labs(y = 'ACí-TGí skew')
   
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+t1 = wilcox.test(SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0057
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+t2 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0039
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+t3 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated just cold p - value = 0.16 
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
+t4 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated just warm p - value = 0.4545
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
+t5 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.0003
 
-wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
+t6 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
             SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.04
+
+p.adjust(c(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value), method = "bonferroni")
 
 #### reading df for drawing mammals plots
 
@@ -220,6 +222,7 @@ allparameters$TG = allparameters$FrT+allparameters$FrG
 allparameters$AC = allparameters$FrA+allparameters$FrC
 allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
 allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
+allparameters$AC_TGSkew = -(allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$AC_TGSkew)
 
 allparameters$MarsMono = allparameters$Mars + allparameters$Mono
 table(allparameters$MarsMono)
@@ -236,19 +239,39 @@ allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Colder mammals'} else {allparameters$allcolddummy[i] = 'Warmer mammals'}}
 
 medGL = median(allparameters$GenerationLength_d)
+
 allparameters$GLgroups = "Long-lived mammals"
 allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "Short-lived mammals"
 
 
 #pdf('../../Body/4Figures/Supplements_Fig4.pdf')
 
-ggplot(data = allparameters, aes(x = allcolddummy, y = TG_ACSkew))+
+ggplot(data = allparameters, aes(x = allcolddummy, y = AC_TGSkew))+
   geom_boxplot()+
   facet_wrap(~GLgroups)+
   theme_test()+
-  labs(x = '',y = 'ACн-TGн skew')
+  labs(x = '',y = 'TGh_ACH skew')
 
 #dev.off()
 
+t1 = wilcox.test(allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew) ### inside lifespan 
+
+t2 = wilcox.test(allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew) ### inside lifespan 
+
+t3 = wilcox.test(allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew) ### between lifespan just cold 
+
+t4 = wilcox.test(allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew) ### between lifespan just warm 
+
+t5 = wilcox.test(allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew) ### between lifespan warm and cold 
+
+t6 = wilcox.test(allparameters[allparameters$GLgroups =='Short-lived mammals' & allparameters$allcolddummy == 'Warmer mammals',]$AC_TGSkew,
+                 allparameters[allparameters$GLgroups =='Long-lived mammals' & allparameters$allcolddummy == 'Colder mammals',]$AC_TGSkew) ### between lifespan warm and cold 
+
+round(p.adjust(c(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value), method = "bonferroni"), 10)
 
 
