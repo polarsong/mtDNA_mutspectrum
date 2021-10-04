@@ -1,0 +1,112 @@
+from Bio import SeqIO
+from Bio.Data import CodonTable
+import numpy as np
+import pandas as pd
+from Bio.Data import CodonTable
+
+translation = CodonTable.standard_dna_table.forward_table
+for g in CodonTable.standard_dna_table.stop_codons:
+    translation[g] = '_'
+translation['TGA'] = 'W'
+translation['ATA'] = 'M'
+translation['AGA'] = '_'
+translation['AGG'] = '_'
+
+#bc = SeqIO.read('Birds mtDNA 955.gb','genbank')
+item_table = ['Species name','GenbankID', 'Taxonomy', 'Gene name','Gene start/end and trend', 'GeneID', 'Aminoacids from genbank',
+             'Translated aminoacids by Python', 'Not standart codons', 'Sequence','mtDNA length','nA','nT','nC','nG','nNA','%A','%T','%C','%G','%NA',
+             'wrong amino %']
+cl = list(CodonTable.standard_dna_table.forward_table.keys())
+full_items = item_table + cl
+items_manage = {}
+for item in full_items:
+    items_manage[item] = 0
+
+btable = pd.DataFrame(columns=full_items)    
+    
+counter = 0
+start_c = 0
+proc_c = 0
+codon_list = []
+triplet = ''
+codons = []
+trnsl_amino = ''
+kl = 0
+proc_c = 0
+nucl_c = 0
+
+
+for bc in SeqIO.parse('Birds mtDNA 963.gb', format='genbank'):
+    for i in bc.features:
+        if i.type == 'CDS':
+            items_manage['Species name'] = bc.annotations['organism']
+            items_manage['GenbankID'] = bc.annotations['accessions']
+            items_manage['Taxonomy'] = bc.annotations['taxonomy']
+            if 'gene' not in i.qualifiers:
+                items_manage['Gene name'] = 'NA'
+            else:   
+                items_manage['Gene name'] = i.qualifiers['gene']
+            items_manage['Gene start/end and trend'] = i.location
+            if 'db_xref' not in i.qualifiers:
+                items_manage['GeneID'] = 'NA'
+            else:
+                items_manage['GeneID'] = i.qualifiers['db_xref'][-1]
+            items_manage['Aminoacids from genbank'] = i.qualifiers['translation'][0]
+            items_manage['Sequence'] = i.location.extract(bc).seq
+            items_manage['mtDNA length'] = len(i.location.extract(bc).seq)
+            for nucl in i.location.extract(bc).seq:
+                if nucl == 'A':
+                    items_manage['nA'] += 1
+                if nucl == 'T':
+                    items_manage['nT'] += 1
+                if nucl == 'C':
+                    items_manage['nC'] += 1
+                if nucl == 'G':
+                    items_manage['nG'] += 1
+                if nucl !='A' and nucl !='G' and nucl !='C'and nucl !='T':
+                    items_manage['nNA'] += 1
+            items_manage['%A'] = (items_manage['nA'])/(len(i.location.extract(bc).seq))
+            items_manage['%T'] = (items_manage['nT'])/(len(i.location.extract(bc).seq))
+            items_manage['%C'] = (items_manage['nC'])/(len(i.location.extract(bc).seq))
+            items_manage['%G'] = (items_manage['nG'])/(len(i.location.extract(bc).seq))
+            items_manage['%NA'] = (items_manage['nNA'])/(len(i.location.extract(bc).seq))
+            a = list(i.location.extract(bc).seq)
+            for j in a:
+                triplet = triplet + j
+                counter += 1
+                if counter == 3:
+                    codon_list.append(triplet)
+                    counter = 0
+                    triplet = ''
+            triplet = ''
+            counter = 0
+            codons.append(codon_list)
+            codon_list = [] 
+            a = 0 
+            for lst in codons:
+                for trpl in lst:
+                    start_c +=1
+                    if trpl not in cl:
+                        items_manage['Not standart codons'] += 1
+                        trnsl_amino += 'Ю'
+                    else:
+                        if start_c == 1 and translation[trpl] != 'M':
+                            trnsl_amino += 'M'
+                        else:
+                            trnsl_amino += translation[trpl]
+                            items_manage[trpl] += 1
+            items_manage['Translated aminoacids by Python'] = trnsl_amino
+            for nuc in (items_manage['Aminoacids from genbank']):
+                if nuc != items_manage['Translated aminoacids by Python'][nucl_c]:
+                    proc_c += 1
+                nucl_c += 1
+            items_manage['wrong amino %'] = proc_c*100/len(items_manage['Translated aminoacids by Python'])
+            proc_c = 0
+            nucl_c = 0
+            start_c = 0
+            trnsl_amino = ''
+            codons = []
+            btable = btable.append(items_manage, ignore_index = True)
+            for k in items_manage:
+                items_manage[k] = 0
+btable 
