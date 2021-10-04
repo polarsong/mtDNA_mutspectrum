@@ -8,8 +8,7 @@ unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
 
-
-######ecology table from us + Kuptsov 
+######reading ecology table from us + Kuptsov 
 kuptsovtable = read.table("../../Body/2Derived/EcologyMammalianTable01_KuptsovA_ver2_Full.txt", sep='\t', header=TRUE)
 
 ####### obtaining neutral nucleotide fractions in whole genomes
@@ -203,74 +202,7 @@ for (i in 1:nrow(allparameters)){
 }
 
 
-################### one model
-unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
-SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
-SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species), FUN = sum)
-names(SynNuc) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
-SynNuc$FrA = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
-SynNuc$FrT = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
-SynNuc$FrG = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
-SynNuc$FrC = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
-TEMPE = read.table('../../Body/1Raw/FishBaseTemperature.txt', header = TRUE)
-TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperature)
-SynNuc = merge(TEMPE,SynNuc, by = 'Species'); summary(SynNuc$Temperature)
-MATUTM = read.table('../../Body/1Raw/FishBaseMaturity_Tm.txt',  header = TRUE)
-MATUTM = aggregate(Tm ~ ., median, data = MATUTM) 
-SynNuc = merge(SynNuc, MATUTM, by = 'Species'); nrow(SynNuc)
-SynNuc$CtoTSkew = (SynNuc$FrC-SynNuc$FrT)/(SynNuc$FrC+SynNuc$FrT); summary(SynNuc$CtoTSkew) 
-SynNuc$GtoASkew = (SynNuc$FrG-SynNuc$FrA)/(SynNuc$FrG+SynNuc$FrA); summary(SynNuc$GtoASkew)
-SynNuc$AtoGSkew = (SynNuc$FrA-SynNuc$FrG)/(SynNuc$FrA+SynNuc$FrG); summary(SynNuc$AtoGSkew)
-SynNuc$TtoCSkew = (SynNuc$FrT-SynNuc$FrC)/(SynNuc$FrT+SynNuc$FrC); summary(SynNuc$TtoCSkew)
-SynNuc$TG = SynNuc$FrT+SynNuc$FrG
-SynNuc$AC = SynNuc$FrA+SynNuc$FrC
-SynNuc$TG_ACSkew = (SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$TG_ACSkew)
-SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$AC_TGSkew) #OUR
 
-
-
-temp = SynNuc
-temp$Lifespan = "Short"
-temp[temp$Tm > median(temp$Tm),]$Lifespan = "Long"
-temp$Termo = "Cold"
-temp[temp$Temperature > median(temp$Temperature),]$Termo = "Warm"
-
-allparameters$GLgroups = "Short"
-allparameters[allparameters$GenerationLength_d > median(allparameters$GenerationLength_d),]$GLgroups = "Long"
-
-
-
-
-
-
-
-
-
-
-
-onedatasetF = data.frame(temp$Species, temp$Termo, temp$Lifespan, temp$AC_TGSkew)
-onedatasetF$Longevity = 0
-onedatasetF[onedatasetF$temp.Lifespan == "Long",]$Longevity=1
-onedatasetF$temp.Lifespan = NULL
-names(onedatasetF)=c("Species", "Temperature", "AC_TGSkew", "Longevity")
-onedatasetF$Ectothermy = 1
-onedatasetF$Class = "Actinopterygii"
-
-
-onedatasetM = data.frame(allparameters$Species, allparameters$Temper, allparameters$GLgroups, allparameters$AC_TGSkew)
-onedatasetM$Longevity = 0
-onedatasetM[onedatasetM$allparameters.GLgroups == "Long",]$Longevity = 1
-onedatasetM$allparameters.GLgroups = NULL
-names(onedatasetM)=c("Species", "Temperature", "AC_TGSkew", "Longevity")
-onedatasetM$Ectothermy = 0
-onedatasetM$Class = "Mammalia"
-
-onedata = rbind(onedatasetF, onedatasetM)
-table(onedata$Ectothermy)
-summary(lm(formula = AC_TGSkew ~ Temperature + Longevity + Ectothermy, data = onedata))
-nrow(onedata[!is.na(onedata$Temperature) & !is.na(onedata$AC_TGSkew),])
 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates.pdf", width = 7, height = 8.5)
 plot(allparameters[allparameters$GLgroups == "LongGL",]$Temper, allparameters[allparameters$GLgroups == "LongGL",]$TG_ACSkew*-1, col="#121d2e", xlab="Temperature", ylab="STG-SAC", xlim = c(0, 41), ylim = c (0.1, 0.75),  pch = 16)
