@@ -360,6 +360,34 @@
          id="path4580-9-8-8"
          d="M 59.04,73.44 H 473.76 V 552.96 H 59.04 Z" />
     </clipPath>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path895-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path895" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -370,9 +398,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.61164737"
      inkscape:cx="503.07885"
-     inkscape:cy="466.01088"
+     inkscape:cy="531.40804"
      inkscape:document-units="mm"
-     inkscape:current-layer="g5002"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -408,29 +436,29 @@
          id="tspan8000"
          x="4.4967694"
          y="289.51178"
-         style="font-size:5.92271px;stroke-width:0.222102">Figure 5</tspan></text>
+         style="font-size:5.92271px;stroke-width:0.222102">Figure 6</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.20314px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.478581"
-       x="-148.11528"
-       y="12.266794"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.14176px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.288976"
+       x="-85.200478"
+       y="49.551476"
        id="text19468"
        transform="rotate(-90)"><tspan
          sodipodi:role="line"
          id="tspan19466"
-         x="-148.11528"
-         y="12.266794"
-         style="stroke-width:0.478581"><tspan
-           style="font-size:10.2097px;stroke-width:0.478581"
+         x="-85.200478"
+         y="49.551476"
+         style="stroke-width:0.288976"><tspan
+           style="font-size:6.16481px;stroke-width:0.288976"
            id="tspan19470">S</tspan><tspan
-           style="font-size:6.38109px;stroke-width:0.478581"
+           style="font-size:3.85302px;stroke-width:0.288976"
            id="tspan19476">TG</tspan><tspan
-           style="font-size:10.2097px;stroke-width:0.478581"
+           style="font-size:6.16481px;stroke-width:0.288976"
            id="tspan19472">-S</tspan><tspan
-           style="font-size:6.38109px;stroke-width:0.478581"
+           style="font-size:3.85302px;stroke-width:0.288976"
            id="tspan19474">AC</tspan></tspan></text>
     <g
-       transform="matrix(0.39152346,0,0,-0.39152346,1.0099276,251.81388)"
+       transform="matrix(0.23640938,0,0,-0.23640938,42.754364,147.81568)"
        inkscape:label="WholeGenomeAnalyses.EcologyAndMutSpecChordata.FIGURE.AllVertebrates"
        id="g3478">
       <g
@@ -3540,5 +3568,260 @@
         </g>
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50709px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.202332"
+       x="15.58836"
+       y="20.279749"
+       id="text9243"><tspan
+         sodipodi:role="line"
+         id="tspan9241"
+         x="15.58836"
+         y="20.279749"
+         style="font-size:7.55374px;stroke-width:0.202332"> A.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50709px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.202332"
+       x="15.332272"
+       y="154.46147"
+       id="text9243-2"><tspan
+         sodipodi:role="line"
+         id="tspan9241-2"
+         x="15.332272"
+         y="154.46147"
+         style="font-size:7.55374px;stroke-width:0.202332"> B.</tspan></text>
+    <g
+       id="g14"
+       transform="matrix(0.26458333,0,0,0.26458333,35.810462,163.91878)">
+      <path
+         class="st1"
+         d="M 234.73,98.15"
+         id="path12" />
+    </g>
+    <g
+       id="g18"
+       transform="matrix(0.26458333,0,0,0.26458333,35.810462,163.91878)">
+      <path
+         class="st1"
+         d="M 234.73,381.61"
+         id="path16" />
+    </g>
+    <g
+       id="g22"
+       transform="matrix(0.26458333,0,0,0.26458333,35.810462,163.91878)">
+      <path
+         class="st1"
+         d="M 518.2,381.61"
+         id="path20" />
+    </g>
+    <g
+       id="g26"
+       transform="matrix(0.26458333,0,0,0.26458333,35.810462,163.91878)">
+      <path
+         class="st1"
+         d="M 233.6,381.61"
+         id="path24" />
+    </g>
+    <path
+       class="st1"
+       d="M 150.15809,212.64709"
+       id="path28"
+       style="fill:none;stroke:#000000;stroke-width:0.132292;stroke-miterlimit:10" />
+    <path
+       class="st1"
+       d="M 97.617128,265.1907"
+       id="path30"
+       style="fill:none;stroke:#000000;stroke-width:0.132292;stroke-miterlimit:10" />
+    <path
+       class="st2"
+       d="m 49.463533,250.12003 c 0,-30.26958 0,-54.80464 0,-54.80464 55.178807,0 99.910457,24.53893 99.910457,54.80464"
+       id="path32"
+       style="fill:#d26c67;fill-opacity:1;stroke:none;stroke-width:0.369178;stroke-miterlimit:10;stroke-opacity:1" />
+    <path
+       class="st3"
+       d="m 49.111066,250.12003 c 0,-24.21412 0,-43.84604 0,-43.84604 44.143038,0 79.929074,19.62805 79.929074,43.84604"
+       id="path34"
+       style="opacity:0.3;fill:#efefef;stroke-width:0.369178" />
+    <path
+       class="st4"
+       d="m 49.111066,250.12003 c 0,-18.16252 0,-32.88356 0,-32.88356 33.10728,0 59.947684,14.72104 59.947684,32.88356"
+       id="path36"
+       style="opacity:0.3;fill:#ffffff;stroke-width:0.369178" />
+    <path
+       class="st4"
+       d="m 49.111066,250.12003 c 0,-12.10706 0,-21.92108 0,-21.92108 22.071518,0 39.966302,9.81402 39.966302,21.92108"
+       id="path38"
+       style="opacity:0.3;fill:#ffffff;stroke-width:0.369178" />
+    <path
+       class="st4"
+       d="m 69.092457,250.12003 c 0,-6.05546 -8.945631,-10.96247 -19.981391,-10.96247 v 10.96247 h 19.981391"
+       id="path40"
+       style="opacity:0.3;fill:#ffffff;stroke-width:0.369178"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 49.111066,250.12003 H 168.2287"
+       id="path1266" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-8)"
+       d="M 49.111066,250.12003 V 173.08881"
+       id="path1266-1"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="fill:#c1a6a4;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-opacity:1"
+       id="path1416"
+       cx="75.84388"
+       cy="240.39288"
+       r="1.2831225" />
+    <circle
+       style="fill:#9e7876;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-opacity:1"
+       id="path1416-4"
+       cx="101.07656"
+       cy="240.37695"
+       r="1.2831225" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="52.829212"
+       y="245.50946"
+       id="text1440"><tspan
+         sodipodi:role="line"
+         id="tspan1438"
+         x="52.829212"
+         y="245.50946"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">Hippocampus erectus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="90.728104"
+       y="245.50945"
+       id="text1446"><tspan
+         sodipodi:role="line"
+         id="tspan1444"
+         x="90.728104"
+         y="245.50945"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">Hippocampus kuda</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="65.819611"
+       y="237.58594"
+       id="text1450"><tspan
+         sodipodi:role="line"
+         id="tspan1448"
+         x="65.819611"
+         y="237.58594"
+         style="stroke-width:0.264583">A<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1452">H</tspan>&gt;G<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1466">H</tspan> 0,01</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="92.667801"
+       y="237.84058"
+       id="text1450-1"><tspan
+         sodipodi:role="line"
+         id="tspan1448-0"
+         x="92.667801"
+         y="237.84058"
+         style="stroke-width:0.264583">A<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1452-5">H</tspan>&gt;G<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1466-2">H</tspan> 0,1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.62385px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.354848"
+       x="87.751877"
+       y="261.55139"
+       id="text1502"><tspan
+         sodipodi:role="line"
+         id="tspan1500"
+         x="87.751877"
+         y="261.55139"
+         style="stroke-width:0.354848">Temperature</tspan></text>
+    <circle
+       style="fill:#af8b89;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-opacity:1"
+       id="path1416-5"
+       cx="113.25166"
+       cy="222.97426"
+       r="1.2831225" />
+    <circle
+       style="fill:#73514f;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-opacity:1"
+       id="path1416-4-0"
+       cx="139.48677"
+       cy="236.2869"
+       r="1.2831225" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="105.03838"
+       y="220.13348"
+       id="text1450-1-6"><tspan
+         sodipodi:role="line"
+         id="tspan1448-0-5"
+         x="105.03838"
+         y="220.13348"
+         style="stroke-width:0.264583">A<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1452-5-4">H</tspan>&gt;G<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1466-2-0">H</tspan> 0,11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.264583"
+       x="129.72879"
+       y="233.22134"
+       id="text1450-1-6-1"><tspan
+         sodipodi:role="line"
+         id="tspan1448-0-5-0"
+         x="129.72879"
+         y="233.22134"
+         style="stroke-width:0.264583">A<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1452-5-4-7">H</tspan>&gt;G<tspan
+   style="font-size:2.52237px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan1466-2-0-7">H</tspan> 0,15</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;stroke-width:0.264583"
+       x="128.14752"
+       y="241.38754"
+       id="text1621"><tspan
+         sodipodi:role="line"
+         id="tspan1619"
+         x="128.14752"
+         y="241.38754"
+         style="stroke-width:0.264583">Cryptomys hottentotus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;stroke-width:0.264583"
+       x="92.524475"
+       y="223.71228"
+       id="text1625"><tspan
+         sodipodi:role="line"
+         id="tspan1623"
+         x="92.524475"
+         y="223.71228"
+         style="stroke-width:0.264583">	</tspan><tspan
+         sodipodi:role="line"
+         x="92.524475"
+         y="228.12199"
+         id="tspan1627"
+         style="stroke-width:0.264583">Heterocephalus glaber</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.62385px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;stroke-width:0.354848"
+       x="-228.92549"
+       y="42.055374"
+       id="text1502-3"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan1500-8"
+         x="-228.92549"
+         y="42.055374"
+         style="stroke-width:0.354848">Longevity</tspan></text>
   </g>
 </svg>
