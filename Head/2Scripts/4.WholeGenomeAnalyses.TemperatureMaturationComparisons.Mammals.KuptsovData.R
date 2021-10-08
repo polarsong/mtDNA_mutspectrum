@@ -89,10 +89,7 @@ allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Da
 table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
-summary(lm(formula = TG_ACSkew ~ log2(GenerationLength_d)+allcolddummy, data = allparameters))
-summary(lm(formula = TG_ACSkew ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters))
-summary(lm(formula = TG_ACSkew ~ GenerationLength_d+allcolddummy, data = allparameters))
-#Supl mat. 3e
+#Supl mat. 4b
 summary(lm(formula = AC_TGSkew ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
 #Supl.mat. 3f
 summary(lm(formula = FrT ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
@@ -104,7 +101,7 @@ allparameters$residuals = ltest$residuals ## residuals added
 
 
 ##### phylogenetic inertia analysis
-
+#allparameters = allparameters[!is.na(allparameters$Temper) & !is.na(allparameters$GenerationLength_d),]
 tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
 
 row.names(allparameters) = allparameters$Species
@@ -119,9 +116,21 @@ data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
 data$allcolddummy = as.numeric(as.character(data$allcolddummy))
 
+
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'GenerationLength_d', 'Temper',
-                                                    'allcolddummy')], Species, vcv=TRUE)
+                                                    'GenerationLength_d', 'Temper', 'allcolddummy')], Species, vcv=TRUE)
+
+model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
+
+model = pgls(AC_TGSkew ~ allcolddummy + scale(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
+model = pgls(AC_TGSkew ~ allcolddummy + GenerationLength_d, data_comp, lambda="ML")
+summary(model)
+model = pgls(AC_TGSkew ~ allcolddummy + log2(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
+model = pgls(AC_TGSkew ~ allcolddummy + log2(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
@@ -156,8 +165,12 @@ summary(model3)
 
 cor.test(pic(data$AC_TGSkew, tree_pruned), pic(data$GenerationLength_d, tree_pruned))
 # 0.08146519, p-value 0.03815
+cor.test(pic(data$AC_TGSkew, tree_pruned), pic(data$allcolddummy, tree_pruned))
 
-model4 = pgls(AC_TGSkew ~ GenerationLength_d + allcolddummy, data_comp, lambda="ML")
+summary(lm(pic(data$AC_TGSkew, tree_pruned) ~ pic(data$Temper, tree_pruned) + pic(data$GenerationLength_d, tree_pruned)))
+summary(lm(pic(data$AC_TGSkew, tree_pruned) ~ pic(data$allcolddummy, tree_pruned) + pic(data$GenerationLength_d, tree_pruned)))
+
+model4 = pgls(AC_TGSkew ~ GenerationLength_d, data_comp, lambda="ML")
 summary(model4)
 
 # lambda [ ML]  : 1.000

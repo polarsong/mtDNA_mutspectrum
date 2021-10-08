@@ -72,12 +72,10 @@ summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PIC
 
 
 
-
-
-
+getwd()
 ###################################################### phylogenetic inertia analysis
 
-tree = read.tree('../1Raw/mtalign.aln.treefile.rooted')
+tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
 
 row.names(SynNuc) = SynNuc$Species
 
@@ -89,12 +87,17 @@ data$Species = as.character(data$Species)
 
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temperature = as.numeric(as.character(data$Temperature))
-data$Tm = as.numeric(as.character(data$Tm))
 
-data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'Temperature', 'Tm')], Species, vcv=TRUE)
 
-model = pgls(AC_TGSkew ~ scale(Temperature+2) + scale(Tm), data_comp, lambda="ML")
+data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew','Temperature')], Species, vcv=TRUE)
+
+model = pgls(AC_TGSkew ~ log2(Temperature+2), data_comp, lambda="ML")
+summary(model)
+
+model = pgls(log2(AC_TGSkew) ~ log2(Temperature+2), data_comp, lambda="ML")
+summary(model)
+
+model = pgls(log2(Temperature+2) ~ AC_TGSkew, data_comp, lambda="ML")
 summary(model)
 
 # lambda [ ML]  : 0.992
@@ -104,7 +107,8 @@ summary(model)
 #   scale(Temperature + 2) 0.0125032  0.0063876  1.9574 0.0524728 .  
 # scale(Tm)              0.0050481  0.0051593  0.9784 0.3296996    
 
-model2 = pgls(AC_TGSkew ~ scale(Temperature+2), data_comp, lambda="ML")
+######Supplementary 3d
+model2 = pgls(AC_TGSkew ~ scale(Temperature), data_comp, lambda="ML")
 summary(model2)
 
 # Coefficients:

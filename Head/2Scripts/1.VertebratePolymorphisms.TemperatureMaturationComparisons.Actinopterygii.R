@@ -230,10 +230,9 @@ data$Species = as.character(data$Species)
 
 data$TCdivAG = as.numeric(as.character(data$TCdivAG))
 data$Temperature = as.numeric(as.character(data$Temperature))
-data$Tm = as.numeric(as.character(data$Tm))
 
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
-
+ ##Supplementary 1d
 model = pgls(TCdivAG ~ scale(Temperature), data_comp, lambda="ML")
 summary(model)
 
