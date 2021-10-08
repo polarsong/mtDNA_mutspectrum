@@ -234,7 +234,7 @@ data$Tm = as.numeric(as.character(data$Tm))
 
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-model = pgls(TCdivAG ~ scale(Temperature) + scale(Tm), data_comp, lambda="ML")
+model = pgls(TCdivAG ~ scale(Temperature), data_comp, lambda="ML")
 summary(model)
 
 # lambda [ ML]  : 0.731
