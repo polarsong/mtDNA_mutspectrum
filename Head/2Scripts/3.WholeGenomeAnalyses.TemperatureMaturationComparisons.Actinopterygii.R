@@ -26,7 +26,7 @@ TEMPE = aggregate(Temperature ~ ., median, data = TEMPE); summary(TEMPE$Temperat
 SynNuc = merge(TEMPE,SynNuc, by = 'Species'); summary(SynNuc$Temperature)
 
 ##############Rank corr 
-#Suppl. mat. 2.a
+#Suppl. mat. 2.b
 cor.test(log2(SynNuc$Temperature),SynNuc$FrA, method = "spearman")
 cor.test(log2(SynNuc$Temperature),SynNuc$FrT, method = "spearman")
 cor.test(log2(SynNuc$Temperature),SynNuc$FrG, method = "spearman")
@@ -53,7 +53,6 @@ SynNuc$AC_TGSkew = -(SynNuc$TG-SynNuc$AC)/(SynNuc$TG+SynNuc$AC); summary(SynNuc$
 ### ANALYSES:
 summary(SynNuc$Temperature)
 summary(SynNuc$Tm)
-#Suppl. Mat. 2d
 summary(lm(FrT ~ scale(Temperature)+scale(Tm), data = SynNuc))
 summary(lm(FrT ~ log2(Temperature + 2)*log2(Tm), data = SynNuc))  # keep it for presentation!!!
 summary(lm(FrT ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
@@ -65,11 +64,10 @@ summary(lm(CtoTSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TtoCSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(TG_ACSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))
-#Suppl. Mat. 2b
+#Suppl. Mat. 2ñ
 summary(lm(AC_TGSkew ~ log2(Temperature + 2)+log2(Tm), data = SynNuc))
 summary(lm(AC_TGSkew ~ scale(Temperature + 2)+scale(Tm), data = SynNuc))# ###PICS
-
-
+summary(lm(AC_TGSkew ~ Temperature, data = SynNuc))
 
 
 getwd()

@@ -81,3 +81,5 @@ nrow(onedata[!is.na(onedata$Temperature) & !is.na(onedata$AC_TGSkew),])
 summary(onedata$Temperature)
 summary(onedata$Longevity)
 onedata[onedata$Longevity == 18980,]
+
+#write.table(onedata, file="../../Body/2Derived/ForKGAllClasses.txt", row.names = F)

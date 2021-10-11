@@ -30,6 +30,7 @@ allparameters$AC = allparameters$FrA+allparameters$FrC
 allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
 allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
 allparameters$AC_TGSkew = allparameters$TG_ACSkew *-1 
+allparameters$TCskew = (allparameters$FrT - allparameters$FrC)/(allparameters$FrT + allparameters$FrC)
 summary(allparameters$Temper)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 #30.70   35.90   37.00   36.80   38.08   40.10     425 
@@ -40,8 +41,11 @@ nrow(allparameters[!is.na(allparameters$Temper),]) #224
 summary(lm(TG_ACSkew ~ log2(Temper)+log2(GenerationLength_d), data = allparameters))
 summary(lm(TtoCSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
 summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
-#Supl mat. 3 d
+#Supl mat. 4 a
 summary(lm(AC_TGSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters)) ###PICS
+#Supl mat. Fig 4.2
+summary(lm(TCskew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
+
 
 ########################
 ###ANALYSES WITH DUMMY VARIABLES
@@ -91,7 +95,7 @@ allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
 #Supl mat. 4b
 summary(lm(formula = AC_TGSkew ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
-#Supl.mat. 3f
+
 summary(lm(formula = FrT ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
 summary(lm(formula = FrT ~ scale(GenerationLength_d)+scale(allcolddummy), data = allparameters))
 
@@ -104,6 +108,10 @@ allparameters$residuals = ltest$residuals ## residuals added
 #allparameters = allparameters[!is.na(allparameters$Temper) & !is.na(allparameters$GenerationLength_d),]
 tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
 
+
+#ForG = data.frame(allparameters$Species, allparameters$Temper, allparameters$AC_TGSkew, allparameters$GenerationLength_d, allparameters$allcolddummy)
+#names(ForG) = c("Species", "TemperatureC", "SAG_STC", "LongevityDAYS", "DummyCOLDER")
+#write.table(ForG, file="../../Body/2Derived/ForKGMammaliaDataSet.txt", row.names = F)
 row.names(allparameters) = allparameters$Species
 
 tree_pruned = treedata(tree, allparameters, sort=T, warnings=T)$phy 
@@ -114,14 +122,19 @@ data$Species = as.character(data$Species)
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
-data$allcolddummy = as.numeric(as.character(data$allcolddummy))
+data$TCskew = as.numeric(as.character(data$TCskew))
 
 
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'GenerationLength_d', 'Temper', 'allcolddummy')], Species, vcv=TRUE)
+                                                    'GenerationLength_d', 'Temper', 'TCskew')], Species, vcv=TRUE)
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
+model = pgls(TCskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
+summary(model)
+model = pgls(TCskew ~ Temper + GenerationLength_d, data_comp, lambda="ML")
+summary(model)
+nrow(data[!is.na(data$Temper) & !is.na(data$GenerationLength_d),])
 
 model = pgls(AC_TGSkew ~ allcolddummy + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
