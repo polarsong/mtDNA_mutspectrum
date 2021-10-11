@@ -1,7 +1,11 @@
 rm(list=ls(all=TRUE))
-library(ggpubr)
+
+if (!require(caper)) install.packages("caper")
+if (!require(geiger)) install.packages("geiger")
+if (!require(ggpubr)) install.packages("ggpubr")
 library(caper)
 library(geiger)
+library("ggpubr")
 
 ### reading whole genomes database
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
@@ -31,6 +35,7 @@ allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+
 allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
 allparameters$AC_TGSkew = allparameters$TG_ACSkew *-1 
 allparameters$TCskew = (allparameters$FrT - allparameters$FrC)/(allparameters$FrT + allparameters$FrC)
+allparameters$CTskew = (allparameters$FrC - allparameters$FrT)/(allparameters$FrT + allparameters$FrC)
 summary(allparameters$Temper)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 #30.70   35.90   37.00   36.80   38.08   40.10     425 
@@ -45,7 +50,7 @@ summary(lm(TG_ACSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparame
 summary(lm(AC_TGSkew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters)) ###PICS
 #Supl mat. Fig 4.2
 summary(lm(TCskew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
-
+summary(lm(CTskew ~ scale(Temper)+scale(GenerationLength_d), data = allparameters))
 
 ########################
 ###ANALYSES WITH DUMMY VARIABLES
@@ -122,15 +127,15 @@ data$Species = as.character(data$Species)
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
-data$TCskew = as.numeric(as.character(data$TCskew))
+data$CTskew = as.numeric(as.character(data$CTskew))
 
 
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'GenerationLength_d', 'Temper', 'TCskew')], Species, vcv=TRUE)
+                                                    'GenerationLength_d', 'Temper', 'CTskew')], Species, vcv=TRUE)
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
-model = pgls(TCskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
+model = pgls(CTCskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
 model = pgls(TCskew ~ Temper + GenerationLength_d, data_comp, lambda="ML")
 summary(model)
