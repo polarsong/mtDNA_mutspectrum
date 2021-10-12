@@ -240,19 +240,19 @@ allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Da
 table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
-for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Colder mammals'} else {allparameters$allcolddummy[i] = 'Warmer mammals'}}
+for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Warmer mammals'} else {allparameters$allcolddummy[i] = 'Colder mammals'}}
 
 medGL = median(allparameters$GenerationLength_d)
 
 allparameters$GLgroups = "Long-lived mammals"
 allparameters[allparameters$GenerationLength_d < medGL,]$GLgroups = "Short-lived mammals"
-
+allparameters$gl_f = factor(allparameters$GLgroups, levels = c('Short-lived mammals','Long-lived mammals'))
 
 #pdf('../../Body/4Figures/Supplements_Fig4.pdf')
 
 ggplot(data = allparameters, aes(x = allcolddummy, y = AC_TGSkew))+
   geom_boxplot()+
-  facet_wrap(~GLgroups)+
+  facet_wrap(~gl_f)+
   theme_test()+
   labs(x = '',y = 'TGh_ACH skew')
 
