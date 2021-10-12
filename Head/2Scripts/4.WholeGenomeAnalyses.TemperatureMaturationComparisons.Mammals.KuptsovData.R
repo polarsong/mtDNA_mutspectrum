@@ -109,6 +109,11 @@ summary(ltest)
 allparameters$residuals = ltest$residuals ## residuals added
 
 
+
+
+allparameters=allparameters[allparameters$Order..or.infraorder.for.Cetacea. != "Chiroptera",]
+allparameters=allparameters[allparameters$MarsMono != 1,]
+
 ##### phylogenetic inertia analysis
 #allparameters = allparameters[!is.na(allparameters$Temper) & !is.na(allparameters$GenerationLength_d),]
 tree = read.tree('../../Body/1Raw/mtalign.aln.treefile.rooted')
@@ -135,10 +140,9 @@ data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
-model = pgls(CTCskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
+model = pgls(CTskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
-model = pgls(TCskew ~ Temper + GenerationLength_d, data_comp, lambda="ML")
-summary(model)
+
 nrow(data[!is.na(data$Temper) & !is.na(data$GenerationLength_d),])
 
 model = pgls(AC_TGSkew ~ allcolddummy + scale(GenerationLength_d), data_comp, lambda="ML")
