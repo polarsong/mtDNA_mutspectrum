@@ -86,28 +86,27 @@ boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
 
 t1 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C) # p -value 0.025
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C) 
 
 t2 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.006
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) 
 
 t3 = wilcox.test(
   Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.25),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = almost 0.000
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) 
 
 t4 = wilcox.test(
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.93
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C) 
 
 t5 = wilcox.test(
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.25) & Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.016
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) 
 
 t6 = wilcox.test(
   Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5) & Fishes$Temperature<=quantile(Fishes$Temperature,0.75),]$A_G.T_C,
-  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) # p-value = 0.002
-
+  Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.75),]$A_G.T_C) 
 
 round(p.adjust(c(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value), method = "bonferroni"), 3)
 
@@ -121,7 +120,7 @@ boxplot(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
 quantile(Fishes$Temperature,0.5) # 15 days
 
 wilcox.test(Fishes[Fishes$Temperature<=quantile(Fishes$Temperature,0.5),]$A_G.T_C,
-            Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$A_G.T_C) # p-value = 0.00026
+            Fishes[Fishes$Temperature>quantile(Fishes$Temperature,0.5),]$A_G.T_C) 
 
 
 ### reading whole genomes database
@@ -170,11 +169,22 @@ mmm = function(x)
 
 SynNuc$Maturated = apply(as.matrix(SynNuc$Tm),1,mmm)
 
-for ( i in 1:nrow(SynNuc)){
-  if (SynNuc$Temperature[i]<=median(SynNuc$Temperature)){SynNuc$Temp[i] = 'Colder Fishes'}
-  else {SynNuc$Temp[i] = 'Warmer Fishes'}
-}
+m_temp_s = median(SynNuc[SynNuc$Maturated == 'Short Maturated',]$Temperature)
+m_temp_l = median(SynNuc[SynNuc$Maturated == 'Long Maturated',]$Temperature)
 
+for (i in 1:nrow(SynNuc))
+{
+  if (SynNuc$Maturated[i] == 'Short Maturated')
+  {
+    if (SynNuc$Temperature[i] <= m_temp_s) {SynNuc$Temp[i] = 'Colder Fishes'}
+    else {SynNuc$Temp[i] = 'Warmer Fishes'}
+  }
+  else if (SynNuc$Maturated[i] == 'Long Maturated') 
+  {
+    if (SynNuc$Temperature[i] <= m_temp_l) {SynNuc$Temp[i] = 'Colder Fishes'}
+    else {SynNuc$Temp[i] = 'Warmer Fishes'}
+  }
+}
 ggplot(data = SynNuc, aes(x = Temp, y = AC_TGSkew))+
   geom_boxplot()+
   facet_wrap(~Maturated)+
@@ -240,7 +250,7 @@ allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Da
 table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
-for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Warmer mammals'} else {allparameters$allcolddummy[i] = 'Colder mammals'}}
+for (i in 1:nrow(allparameters)){if(allparameters$allcolddummy[i] == 0) {allparameters$allcolddummy[i] = 'Colder mammals'} else {allparameters$allcolddummy[i] = 'Warmer mammals'}}
 
 medGL = median(allparameters$GenerationLength_d)
 
