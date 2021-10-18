@@ -193,22 +193,22 @@ ggplot(data = SynNuc, aes(x = Temp, y = AC_TGSkew))+
   
 
 t1 = wilcox.test(SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0057
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated 
 
 t2 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated p - value = 0.0039
+            SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### inside maturated 
 
 t3 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated just cold p - value = 0.16 
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated just cold 
 
 t4 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated just warm p - value = 0.4545
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated just warm 
 
 t5 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.0003
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew) ### between maturated warm and cold 
 
 t6 = wilcox.test(SynNuc[SynNuc$Maturated =='Short Maturated' & SynNuc$Temp == 'Warmer Fishes',]$AC_TGSkew,
-            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated warm and cold p - value = 0.04
+            SynNuc[SynNuc$Maturated =='Long Maturated' & SynNuc$Temp == 'Colder Fishes',]$AC_TGSkew) ### between maturated warm and cold 
 
 p.adjust(c(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value), method = "bonferroni")
 
