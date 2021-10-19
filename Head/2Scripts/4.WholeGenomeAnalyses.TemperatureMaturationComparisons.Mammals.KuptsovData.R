@@ -98,6 +98,8 @@ allparameters$allcolddummy = allparameters$Hib.unconfirmedHib + allparameters$Da
 table(allparameters$allcolddummy)
 allparameters[allparameters$allcolddummy > 0,]$allcolddummy = 1
 
+
+
 #Supl mat. 4b
 summary(lm(formula = AC_TGSkew ~ log2(GenerationLength_d)+scale(allcolddummy), data = allparameters))
 

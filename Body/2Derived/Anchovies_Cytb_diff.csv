@@ -1,0 +1,34 @@
+pos;codA;codB;aminoA;aminoB;Syn
+131;GGG;GGA;G;G;True
+137;CTT;CTA;L;L;True
+173;TTT;TTC;F;F;True
+185;ATT;ATC;I;I;True
+203;CGG;CGA;R;R;True
+383;TTG;TTA;L;L;True
+386;GTC;GTG;V;V;True
+389;CAA;CAG;Q;Q;True
+455;TTG;TTA;L;L;True
+467;GTC;GTT;V;V;True
+530;GCG;GCA;A;A;True
+596;GGG;GGA;G;G;True
+617;GCA;GCG;A;A;True
+626;TCA;TCG;S;S;True
+638;TTT;TTC;F;F;True
+719;TGG;TGA;W;W;True
+749;CGG;CGA;R;R;True
+752;TCT;TCC;S;S;True
+758;CCG;CCA;P;P;True
+770;GGT;GGC;G;G;True
+797;ATT;ATC;I;I;True
+;;;;;
+All the differences;A;T;G;C;
+B from A;3;7;9;2;
+A from B;10;1;4;6;
+;;;;;
+Synonymous only;A;T;G;C;
+B from A;3;7;9;2;
+A from B;10;1;4;6;
+;;;;;
+Only four times degenerate;A;T;G;C;
+B from A;2;3;6;2;
+A from B;7;1;3;2;

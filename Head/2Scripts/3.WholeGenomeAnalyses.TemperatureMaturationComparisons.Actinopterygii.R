@@ -85,9 +85,10 @@ data$Species = as.character(data$Species)
 
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temperature = as.numeric(as.character(data$Temperature))
+data$Tm= as.numeric(as.character(data$Tm))
 
 
-data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew','Temperature')], Species, vcv=TRUE)
+data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew','Temperature', "Tm")], Species, vcv=TRUE)
 
 model = pgls(AC_TGSkew ~ log2(Temperature+2), data_comp, lambda="ML")
 summary(model)
@@ -128,7 +129,8 @@ summary(model3)
 model4 = pgls(AC_TGSkew ~ Temperature, data_comp, lambda="ML")
 summary(model4)
 
-
+model3 = pgls(AC_TGSkew ~ Temperature + Tm, data_comp, lambda="ML")
+summary(model3)
 
 #xlim = c(8, 14.5), ylim = c(-0.75, -0.25)
 
