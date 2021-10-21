@@ -34,12 +34,12 @@ allparameters$AC = allparameters$FrA+allparameters$FrC
 allparameters$TG_ACSkew = (allparameters$TG-allparameters$AC)/(allparameters$TG+allparameters$AC); summary(allparameters$TG_ACSkew)
 allparameters$TtoCSkew = (allparameters$FrT-allparameters$FrC)/(allparameters$FrT+allparameters$FrC); summary(allparameters$TtoCSkew)
 allparameters$AC_TGSkew = allparameters$TG_ACSkew *-1 
-allparameters$TCskew = (allparameters$FrT - allparameters$FrC)/(allparameters$FrT + allparameters$FrC)
-allparameters$CTskew = (allparameters$FrC - allparameters$FrT)/(allparameters$FrT + allparameters$FrC)
+#allparameters$TCskew = (allparameters$FrT - allparameters$FrC)/(allparameters$FrT + allparameters$FrC)
+#allparameters$CTskew = (allparameters$FrC - allparameters$FrT)/(allparameters$FrT + allparameters$FrC)
 summary(allparameters$Temper)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 #30.70   35.90   37.00   36.80   38.08   40.10     425 
-nrow(allparameters[!is.na(allparameters$Temper),]) #224
+nrow(allparameters[!is.na(allparameters$Temper) & !is.na(allparameters$GenerationLength_d),]) #224
 
 
 ###### Multiple models 
@@ -134,18 +134,21 @@ data$Species = as.character(data$Species)
 data$AC_TGSkew = as.numeric(as.character(data$AC_TGSkew))
 data$Temper = as.numeric(as.character(data$Temper))
 data$GenerationLength_d = as.numeric(as.character(data$GenerationLength_d))
-data$CTskew = as.numeric(as.character(data$CTskew))
-
+data$allcolddummy = as.numeric(as.character(data$allcolddummy))
 
 data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
-                                                    'GenerationLength_d', 'Temper', 'CTskew')], Species, vcv=TRUE)
+                                                    'GenerationLength_d', "Temper")], Species, vcv=TRUE)
 
 model = pgls(AC_TGSkew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
 model = pgls(CTskew ~ scale(Temper) + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
 
-nrow(data[!is.na(data$Temper) & !is.na(data$GenerationLength_d),])
+
+data_comp <- comparative.data(tree_pruned, data[, c('Species', 'AC_TGSkew',
+                                                    'GenerationLength_d', "allcolddummy")], Species, vcv=TRUE)
+
+nrow(data[!is.na(data$allcolddummy) & !is.na(data$GenerationLength_d),])
 
 model = pgls(AC_TGSkew ~ allcolddummy + scale(GenerationLength_d), data_comp, lambda="ML")
 summary(model)
