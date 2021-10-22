@@ -22,10 +22,11 @@ df[10973, "Gene.name"] = "[COX3]"
 
 #NA deleting
 nal = df[is.na(df$Gene.name),] #24 birds
+which(is.na(df), arr.ind=TRUE)
 for (i in unique(nal$Species.name)) #removing NA birds
 {
 df = df[!(df$Species.name == i),]  
 }
 unique(df$Gene.name) #checking
-write.table(df, file = "../../Body/3Results/Golden birds dataset.csv", sep = ',', row.names = FALSE, quote = FALSE)
+write.csv(df, file = "../../Body/3Results/Golden birds dataset.csv", sep = ',', row.names = FALSE)
 
