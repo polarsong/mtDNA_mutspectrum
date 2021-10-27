@@ -20,3 +20,7 @@ ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralC))+
 ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralT))+
   geom_boxplot(notch = TRUE)
 
+ggplot(data = brds_clsup, aes(x = Gene.name , y = neutralA))+
+  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+
+brds_clsup$Gene.name
