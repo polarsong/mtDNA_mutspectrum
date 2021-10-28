@@ -11,16 +11,25 @@ names(brds) = c('Species.name')
 brds_clsup = merge(clsup, gold) #merge golden dataset and supplements materials
 
 #comparing neutral nucleotides in genes
-ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralA))+
-  geom_boxplot(notch = TRUE)
-ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralG))+
-  geom_boxplot(notch = TRUE)
-ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralC))+
-  geom_boxplot(notch = TRUE)
-ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralT))+
-  geom_boxplot(notch = TRUE)
-
-ggplot(data = brds_clsup, aes(x = Gene.name , y = neutralA))+
+#neutralA graph
+grafA = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralA))+
   geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+grafA + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#neutralG graph
+grafG = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralG))+
+  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+grafG + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#neutralC graph
+grafC = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralC))+
+  geom_boxplot(aes(fill = TrophicLevel),notch = TRUE)
+grafC + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#neutralT graph
+grafT = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralT))+
+  geom_boxplot(aes(fill = TrophicLevel),notch = TRUE)
+grafT + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
 
-brds_clsup$Gene.name
+
+brds_clsup$GhAhSkew = ((brds_clsup$neutralC - brds_clsup$neutralT)/(brds_clsup$neutralC + brds_clsup$neutralT))
+GhAhgraf = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+GhAhgraf + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
