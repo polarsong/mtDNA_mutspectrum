@@ -28,8 +28,20 @@ grafT = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralT))+
   geom_boxplot(aes(fill = TrophicLevel),notch = TRUE)
 grafT + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
 
-
+#GhAhSkew for birds with different trophic levels.
 brds_clsup$GhAhSkew = ((brds_clsup$neutralC - brds_clsup$neutralT)/(brds_clsup$neutralC + brds_clsup$neutralT))
 GhAhgraf = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
   geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
 GhAhgraf + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#GhAhSkew for birds with different trophic niche
+GhAhgrafTN = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = TrophicNiche), notch = TRUE)
+GhAhgrafTN + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#GhAhSkew for birds with different foraging niche 
+GhAhgrafFN = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = ForagingNiche), notch = TRUE)
+GhAhgrafFN + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
+#GhAhSkew for birds with different realm
+GhAhgrafR = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = Realm), notch = TRUE)
+GhAhgrafR + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
