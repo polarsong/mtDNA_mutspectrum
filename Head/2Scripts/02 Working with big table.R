@@ -45,3 +45,32 @@ GhAhgrafFN + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4
 GhAhgrafR = ggplot(data = brds_clsup, aes(x = Gene.name, y = GhAhSkew))+
   geom_boxplot(aes(fill = Realm), notch = TRUE)
 GhAhgrafR + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+
+
+#Stg-Sac
+brds_clsup$frneuA = brds_clsup$neutralA/brds_clsup$Neutral.count
+brds_clsup$frneuG = brds_clsup$neutralG/brds_clsup$Neutral.count
+brds_clsup$frneuC = brds_clsup$neutralC/brds_clsup$Neutral.count
+brds_clsup$frneuT = brds_clsup$neutralT/brds_clsup$Neutral.count
+brds_clsup$Stg = ((brds_clsup$frneuA + brds_clsup$frneuC)-(brds_clsup$frneuG+brds_clsup$frneuT))
+#trophiclevel
+Stlgraph = ggplot(data = brds_clsup, aes(x = Gene.name, y = Stg))+
+  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+Stlgraph + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+#trophicniche
+Stngraph = ggplot(data = brds_clsup, aes(x = Gene.name, y = Stg))+
+  geom_boxplot(aes(fill = TrophicNiche), notch = TRUE)
+Stngraph + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+#foragingniche
+Sfngraph = ggplot(data = brds_clsup, aes(x = Gene.name, y = Stg))+
+  geom_boxplot(aes(fill = ForagingNiche), notch = TRUE)
+Sfngraph + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+#realm
+Srgraph = ggplot(data = brds_clsup, aes(x = Gene.name, y = Stg))+
+  geom_boxplot(aes(fill = Realm), notch = TRUE)
+Srgraph + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+
+#lines
+brds_clsup$neutralF = brds_clsup$Neutral.count/brds_clsup$mtDNA.length
+ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralF))+
+  geom_dotplot(binaxis = 'y', binwidth = 0.0001)
