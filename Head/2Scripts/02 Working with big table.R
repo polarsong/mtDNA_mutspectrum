@@ -72,5 +72,6 @@ Srgraph + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]"
 
 #lines
 brds_clsup$neutralF = brds_clsup$Neutral.count/brds_clsup$mtDNA.length
-ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralF))+
-  geom_dotplot(binaxis = 'y', binwidth = 0.0001)
+
+ggplot(data = brds_clsup)+
+  geom_point(mapping = aes(x = Gene.name, y = neutralF))
