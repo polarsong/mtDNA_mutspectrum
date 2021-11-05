@@ -13,6 +13,7 @@ Mut = MUT[MUT$MutType == 'FourFold',]
   
 Mut = Mut[(Mut$NumOfFourFoldMut) >= 15,] 
 
+#Mut = Mut[Mut$Gene == "CytB",]
 #### generate MutSpec for each species
 
 ## get ancestral nucleotide 
@@ -33,6 +34,7 @@ names(agg)=c('Species','Subs','Freq')
 ## make vector of 12 Subs for each species
 Template = data.frame(unique(Mut$Subs)); names(Template) = c('Subs'); Template$Freq = 0;
 VecOfSpecies = unique(agg$Species)
+
 for (i in 1:length(VecOfSpecies))
 { # i = 2
   Temp = agg[agg$Species == VecOfSpecies[i],]
@@ -48,4 +50,5 @@ for (i in 1:length(VecOfSpecies))
   if (i >  1) {Final = rbind(Final,Line)}
 }
 
+#write.table(Final, '../../Body/3Results/VertebratePolymorphisms.MutSpecData.FourFoldSynMutationsOnlyCytB.txt', quote = FALSE, row.names = FALSE)
 write.table(Final, '../../Body/3Results/VertebratePolymorphisms.MutSpecData.FourFoldSynMutationsAllGenes.txt', quote = FALSE, row.names = FALSE)
