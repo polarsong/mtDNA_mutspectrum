@@ -1,7 +1,9 @@
 rm(list = ls(all.names = TRUE))
 gc() 
 install.packages('ggplot2')
+install.packages('ggpubr')
 library('ggplot2')
+library('ggpubr')
 sup = read.table("../../Body/3Results/Birds supplementary materials - DatabaseS1.csv", header = TRUE, sep = ',') #supplements materials
 gold = read.table("../../Body/3Results/Golden birds dataset.csv", header = TRUE, sep = ',') #reading golden dataset
 clsup = data.frame(sup$Binomial, sup$Realm, sup$TrophicLevel, sup$TrophicNiche, sup$ForagingNiche) #get rid of PC
@@ -75,3 +77,21 @@ brds_clsup$neutralF = brds_clsup$Neutral.count/brds_clsup$mtDNA.length
 
 ggplot(data = brds_clsup)+
   geom_point(mapping = aes(x = Gene.name, y = neutralF))
+
+#lines 
+Atl = ggplot(data = brds_clsup, aes(x = Gene.name, y = frneuA))+ 
+  geom_boxplot()
+Atl = Atl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+Gtl = ggplot(data = brds_clsup, aes(x = Gene.name, y = frneuG))+ 
+  geom_boxplot()
+Gtl = Gtl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+Ctl = ggplot(data = brds_clsup, aes(x = Gene.name, y = frneuC))+ 
+  geom_boxplot()
+Ctl = Ctl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+Ttl = ggplot(data = brds_clsup, aes(x = Gene.name, y = frneuT))+ 
+  geom_boxplot()
+Ttl = Ttl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]","[ND1]","[ND2]"))
+
+ggarrange(Atl, Gtl, Ctl, Ttl, 
+          labels = c("A", "B", "C","D"),
+          ncol = 2, nrow = 2)
