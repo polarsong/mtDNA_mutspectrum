@@ -11,6 +11,9 @@ names(clsup) = c('Species.name','Realm', 'TrophicLevel', 'TrophicNiche', 'Foragi
 clsup$Species.name = gsub("_", " ", clsup$Species.name)
 names(brds) = c('Species.name')
 brds_clsup = merge(clsup, gold) #merge golden dataset and supplements materials
+brds_clsup$temp = 1
+df2 = aggregate(brds_clsup$temp,by = list(brds_clsup$Species.name), FUN = sum)
+df3 = brds_clsup[brds_clsup$Species.name == 'Sarothrura ayresi',]
 
 #comparing neutral nucleotides in genes
 #neutralA graph
