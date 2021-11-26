@@ -98,3 +98,5 @@ Ttl = Ttl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L
 ggarrange(Atl, Gtl, Ctl, Ttl, 
           labels = c("A", "B", "C","D"),
           ncol = 2, nrow = 2)
+
+write.csv(brds_clsup, "birds_list.csv")
