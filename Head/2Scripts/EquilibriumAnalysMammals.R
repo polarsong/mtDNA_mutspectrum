@@ -24,7 +24,7 @@ gen_len$Scientific_name = gsub(' ','_',gen_len$Scientific_name)
 
 ## Read polymorphism
 
-poly = read.table('../../Body/3DerivedVertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE) 
+poly = read.table('../../Body/3Derived/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE) 
 
 polygen = merge(poly, gen_len, by.x = 'Species', by.y = 'Scientific_name')
 
@@ -204,8 +204,8 @@ expected_all = cbind(expected_all, c('FrA','FrG','FrT','FrC','FrA','FrG','FrT','
 colnames(expected_all) = c('expected', 'type_of_mam','mutation')
 
 
-short_mam = (apply(as.matrix(short[,19:22]), 2, mean))
-long_mam = (apply(as.matrix(long[,19:22]), 2, mean))
+short_mam = (apply(as.matrix(short[,15:18]), 2, mean))
+long_mam = (apply(as.matrix(long[,15:18]), 2, mean))
 observed = cbind(t(as.matrix(short_mam)), t(as.matrix(long_mam)))
 observed = t(as.matrix(observed))
 
