@@ -170,7 +170,15 @@ M = M[!M$Gene %in% c('ND6','ND1','ND2'),]
 M$Gene =  ordered(M$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','CytB'))
 boxplot(CTSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col = c('red','green'), main = 'Mammalia, GA skew')
 
-
+Taxa = read.table("../../Body/2Derived/MammalianTaxonomy.txt", header = TRUE)
+TaxaSpFam=data.frame(Taxa$Species, Taxa$Family)
+#TaxaSpOrd=data.frame(Taxa$Species, Taxa$Order)
+names(TaxaSpFam) = c("Species", "Family")
+#names(TaxaSpOrd) = c("Species", "Order")
+M = merge(M, TaxaSpFam)
+#M = merge(M, TaxaSpOrd)
+unique(M$Family)
+#unique(M$Order)
 
 
 
