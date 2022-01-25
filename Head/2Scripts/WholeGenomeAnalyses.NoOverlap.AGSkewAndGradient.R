@@ -238,7 +238,29 @@ Strep$GL = "Middle"
 Strep[Strep$GenerationLength_d <= quantile(Strep$GenerationLength_d)["25%"],]$GL = "ShortLived"
 Strep[Strep$GenerationLength_d >= quantile(Strep$GenerationLength_d)["75%"],]$GL = "LongLived"
 
+mu_df = rbind(Laurasia, Afro, Ceta, Hapl, Strep)
+mu_df = mu_df[mu_df$GL != 'Middle',]
 
+out_m = data.frame()
+
+for (ord in unique(mu_df$Order))
+{
+  for (gen in unique(mu_df$Gene))
+  {
+    subs = mu_df %>% filter(Order == ord, Gene == gen)
+    test = wilcox.test(subs[subs$GL == 'ShortLived',]$CTSkew, subs[subs$GL == 'LongLived',]$CTSkew, paired = FALSE)
+    out_m = rbind(out_m, data.frame(ord, gen, test$p.value))
+    
+  }
+}
+
+out_m = data.frame()
+for (gen in unique(man_M$Gene))
+{
+  subs = man_M %>% filter(Gene == gen)
+  test = wilcox.test(subs[subs$GL == 'ShortLived',]$CTSkew, subs[subs$GL == 'LongLived',]$CTSkew, paired = FALSE)
+  out_m = rbind(out_m, data.frame(gen, test$p.value)) 
+}
 
 
 
