@@ -170,15 +170,74 @@ M = M[!M$Gene %in% c('ND6','ND1','ND2'),]
 M$Gene =  ordered(M$Gene, levels = c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','CytB'))
 boxplot(CTSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col = c('red','green'), main = 'Mammalia, GA skew')
 
+
+########By Order analyses######################
+###############################################
 Taxa = read.table("../../Body/2Derived/MammalianTaxonomy.txt", header = TRUE)
-TaxaSpFam=data.frame(Taxa$Species, Taxa$Family)
-#TaxaSpOrd=data.frame(Taxa$Species, Taxa$Order)
-names(TaxaSpFam) = c("Species", "Family")
-#names(TaxaSpOrd) = c("Species", "Order")
-M = merge(M, TaxaSpFam)
-#M = merge(M, TaxaSpOrd)
-unique(M$Family)
-#unique(M$Order)
+TaxaSpOrd=data.frame(Taxa$Species, Taxa$Order)
+names(TaxaSpOrd) = c("Species", "Order")
+M = merge(M, TaxaSpOrd)
+Orders = unique(M$Order)
+M$GT = NULL
+table(M$Order)
+
+#Afrotheria       Caniformia          Cetacea   Dasyuromorphia  Didelphimorphia    Diprotodontia 
+#110              240              430               50               50              120 
+#Euarchontoglires       Feliformia      Haplorrhini   Laurasiatheria   Megachiroptera   Microbiotheria 
+#150              370              840             1260               70               10 
+#Microchiroptera      Monotremata Notoryctemorphia Paucituberculata  Peramelemorphia         Rodentia 
+#160               20               10               20               30              910 
+#Ruminantia    Strepsirrhini        Xenarthra 
+#1120              250              230 
+
+for ( i in unique(M$Order)){
+  out = ''
+  out = paste(i, IQR(M[M$Order == i,]$GenerationLength_d), sep = ' ')
+  print(out)
+}
+#[1] "Feliformia 773.05315"
+#[1] "Rodentia 478.73066123767"
+#[1] "Ruminantia 799.3417708285"
+#[1] "Laurasiatheria 2447.0747625"
+#[1] "Haplorrhini 1150.105875"
+#[1] "Microchiroptera 662.2593"
+#[1] "Caniformia 832.217431938"
+#[1] "Strepsirrhini 1371.624375"
+#[1] "Cetacea 2664.5"
+#[1] "Xenarthra 336.6637"
+#[1] "Paucituberculata 0"
+#[1] "Afrotheria 6993.4424166715"
+#[1] "Megachiroptera 1120.91840714286"
+#[1] "Diprotodontia 896.200516485402"
+#[1] "Didelphimorphia 103.149975"
+#[1] "Microbiotheria 0"
+#[1] "Euarchontoglires 60.1993"
+#[1] "Peramelemorphia 560.1198"
+#[1] "Dasyuromorphia 291.8336"
+#[1] "Notoryctemorphia 0"
+#[1] "Monotremata 2808.2654"
+
+Laurasia = M[M$Order == "Laurasiatheria",]
+Laurasia$GL = "Middle"
+Laurasia[Laurasia$GenerationLength_d <= quantile(Laurasia$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Laurasia[Laurasia$GenerationLength_d >= quantile(Laurasia$GenerationLength_d)["75%"],]$GL = "LongLived"
+Afro = M[M$Order == "Afrotheria",]
+Afro$GL = "Middle"
+Afro[Afro$GenerationLength_d <= quantile(Afro$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Afro[Afro$GenerationLength_d >= quantile(Afro$GenerationLength_d)["75%"],]$GL = "LongLived"
+Ceta =  M[M$Order == "Cetacea",]
+Ceta$GL = "Middle"
+Ceta[Ceta$GenerationLength_d <= quantile(Ceta$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Ceta[Ceta$GenerationLength_d >= quantile(Ceta$GenerationLength_d)["75%"],]$GL = "LongLived"
+Hapl =  M[M$Order == "Haplorrhini",]
+Hapl$GL = "Middle"
+Hapl[Hapl$GenerationLength_d <= quantile(Hapl$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Hapl[Hapl$GenerationLength_d >= quantile(Hapl$GenerationLength_d)["75%"],]$GL = "LongLived"
+Strep = M[M$Order == "Strepsirrhini",]
+Strep$GL = "Middle"
+Strep[Strep$GenerationLength_d <= quantile(Strep$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Strep[Strep$GenerationLength_d >= quantile(Strep$GenerationLength_d)["75%"],]$GL = "LongLived"
+
 
 
 
