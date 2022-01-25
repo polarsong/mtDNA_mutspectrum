@@ -192,30 +192,31 @@ table(M$Order)
 
 for ( i in unique(M$Order)){
   out = ''
-  out = paste(i, IQR(M[M$Order == i,]$GenerationLength_d), sep = ' ')
+  out = paste(i, IQR(M[M$Order == i,]$GenerationLength_d), sep = ' ', nrow(M[M$Order == i,]))
   print(out)
 }
-#[1] "Feliformia 773.05315"
-#[1] "Rodentia 478.73066123767"
-#[1] "Ruminantia 799.3417708285"
-#[1] "Laurasiatheria 2447.0747625"
-#[1] "Haplorrhini 1150.105875"
-#[1] "Microchiroptera 662.2593"
-#[1] "Caniformia 832.217431938"
-#[1] "Strepsirrhini 1371.624375"
-#[1] "Cetacea 2664.5"
-#[1] "Xenarthra 336.6637"
-#[1] "Paucituberculata 0"
-#[1] "Afrotheria 6993.4424166715"
-#[1] "Megachiroptera 1120.91840714286"
-#[1] "Diprotodontia 896.200516485402"
-#[1] "Didelphimorphia 103.149975"
-#[1] "Microbiotheria 0"
-#[1] "Euarchontoglires 60.1993"
-#[1] "Peramelemorphia 560.1198"
-#[1] "Dasyuromorphia 291.8336"
-#[1] "Notoryctemorphia 0"
-#[1] "Monotremata 2808.2654"
+
+#[1] "Feliformia 773.05315 370"
+#[1] "Rodentia 478.73066123767 910"
+#[1] "Ruminantia 799.3417708285 1120"
+#[1] "Laurasiatheria 2447.0747625 1260"
+#[1] "Haplorrhini 1150.105875 840"
+#[1] "Microchiroptera 662.2593 160"
+#[1] "Caniformia 832.217431938 240"
+#[1] "Strepsirrhini 1371.624375 250"
+#[1] "Cetacea 2664.5 430"
+#[1] "Xenarthra 336.6637 230"
+#[1] "Paucituberculata 0 20"
+#[1] "Afrotheria 6993.4424166715 110"
+#[1] "Megachiroptera 1120.91840714286 70"
+#[1] "Diprotodontia 896.200516485402 120"
+#[1] "Didelphimorphia 103.149975 50"
+#[1] "Microbiotheria 0 10"
+#[1] "Euarchontoglires 60.1993 150"
+#[1] "Peramelemorphia 560.1198 30"
+#[1] "Dasyuromorphia 291.8336 50"
+#[1] "Notoryctemorphia 0 10"
+#[1] "Monotremata 2808.2654 20"
 
 Laurasia = M[M$Order == "Laurasiatheria",]
 Laurasia$GL = "Middle"
@@ -238,6 +239,7 @@ Strep$GL = "Middle"
 Strep[Strep$GenerationLength_d <= quantile(Strep$GenerationLength_d)["25%"],]$GL = "ShortLived"
 Strep[Strep$GenerationLength_d >= quantile(Strep$GenerationLength_d)["75%"],]$GL = "LongLived"
 
+### Made MU test inside families
 mu_df = rbind(Laurasia, Afro, Ceta, Hapl, Strep)
 mu_df = mu_df[mu_df$GL != 'Middle',]
 
@@ -254,6 +256,7 @@ for (ord in unique(mu_df$Order))
   }
 }
 
+### Made MU test between families
 out_m = data.frame()
 for (gen in unique(man_M$Gene))
 {
