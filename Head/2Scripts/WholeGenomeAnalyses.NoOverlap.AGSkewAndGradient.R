@@ -173,6 +173,7 @@ boxplot(CTSkew ~ GT*Gene, data = M,  notch = TRUE, outline = FALSE, las = 2, col
 
 ########By Order analyses######################
 ###############################################
+library(dplyr)
 Taxa = read.table("../../Body/2Derived/MammalianTaxonomy.txt", header = TRUE)
 TaxaSpOrd=data.frame(Taxa$Species, Taxa$Order)
 names(TaxaSpOrd) = c("Species", "Order")
@@ -222,25 +223,13 @@ Laurasia = M[M$Order == "Laurasiatheria",]
 Laurasia$GL = "Middle"
 Laurasia[Laurasia$GenerationLength_d <= quantile(Laurasia$GenerationLength_d)["25%"],]$GL = "ShortLived"
 Laurasia[Laurasia$GenerationLength_d >= quantile(Laurasia$GenerationLength_d)["75%"],]$GL = "LongLived"
-Afro = M[M$Order == "Afrotheria",]
-Afro$GL = "Middle"
-Afro[Afro$GenerationLength_d <= quantile(Afro$GenerationLength_d)["25%"],]$GL = "ShortLived"
-Afro[Afro$GenerationLength_d >= quantile(Afro$GenerationLength_d)["75%"],]$GL = "LongLived"
-Ceta =  M[M$Order == "Cetacea",]
-Ceta$GL = "Middle"
-Ceta[Ceta$GenerationLength_d <= quantile(Ceta$GenerationLength_d)["25%"],]$GL = "ShortLived"
-Ceta[Ceta$GenerationLength_d >= quantile(Ceta$GenerationLength_d)["75%"],]$GL = "LongLived"
-Hapl =  M[M$Order == "Haplorrhini",]
-Hapl$GL = "Middle"
-Hapl[Hapl$GenerationLength_d <= quantile(Hapl$GenerationLength_d)["25%"],]$GL = "ShortLived"
-Hapl[Hapl$GenerationLength_d >= quantile(Hapl$GenerationLength_d)["75%"],]$GL = "LongLived"
-Strep = M[M$Order == "Strepsirrhini",]
-Strep$GL = "Middle"
-Strep[Strep$GenerationLength_d <= quantile(Strep$GenerationLength_d)["25%"],]$GL = "ShortLived"
-Strep[Strep$GenerationLength_d >= quantile(Strep$GenerationLength_d)["75%"],]$GL = "LongLived"
+Rumi = M[M$Order == "Ruminantia",]
+Rumi$GL = "Middle"
+Rumi[Rumi$GenerationLength_d <= quantile(Rumi$GenerationLength_d)["25%"],]$GL = "ShortLived"
+Rumi[Rumi$GenerationLength_d >= quantile(Rumi$GenerationLength_d)["75%"],]$GL = "LongLived"
 
 ### Made MU test inside families
-mu_df = rbind(Laurasia, Afro, Ceta, Hapl, Strep)
+mu_df = rbind(Laurasia, Rumi)
 mu_df = mu_df[mu_df$GL != 'Middle',]
 
 out_m = data.frame()
@@ -251,20 +240,27 @@ for (ord in unique(mu_df$Order))
   {
     subs = mu_df %>% filter(Order == ord, Gene == gen)
     test = wilcox.test(subs[subs$GL == 'ShortLived',]$CTSkew, subs[subs$GL == 'LongLived',]$CTSkew, paired = FALSE)
-    out_m = rbind(out_m, data.frame(ord, gen, test$p.value))
+    med_sh = median(subs[subs$GL == 'ShortLived',]$CTSkew)
+    med_ln = median(subs[subs$GL == 'LongLived',]$CTSkew)
+    out_m = rbind(out_m, data.frame(ord, gen, test$p.value, med_sh, med_ln))
     
   }
 }
 
+names(out_m) = c('Order', 'Gene', 'p-value','median_short','median_long')
+
 ### Made MU test between families
 out_m = data.frame()
-for (gen in unique(man_M$Gene))
+for (gen in unique(mu_df$Gene))
 {
-  subs = man_M %>% filter(Gene == gen)
+  subs = mu_df %>% filter(Gene == gen)
   test = wilcox.test(subs[subs$GL == 'ShortLived',]$CTSkew, subs[subs$GL == 'LongLived',]$CTSkew, paired = FALSE)
-  out_m = rbind(out_m, data.frame(gen, test$p.value)) 
+  med_sh = median(subs[subs$GL == 'ShortLived',]$CTSkew)
+  med_ln = median(subs[subs$GL == 'LongLived',]$CTSkew)
+  out_m = rbind(out_m, data.frame(gen, test$p.value, med_sh, med_ln)) 
 }
 
+names(out_m) = c('Gene', 'p-value','median_short','median_long')
 
 
 ####### naive multiple linear model, assigning numbers to order of genes. We can improve it substituting integers by real time or using more correct stat
