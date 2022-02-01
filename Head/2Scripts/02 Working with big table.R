@@ -5,7 +5,7 @@ install.packages('ggpubr')
 library('ggplot2')
 library('ggpubr')
 sup = read.table("../../Body/3Results/Birds supplementary materials - DatabaseS1.csv", header = TRUE, sep = ',') #supplements materials
-gold = read.table("../../Body/3Results/Golden birds dataset.csv", header = TRUE, sep = ',') #reading golden dataset
+gold = read.table("../../Body/3Results/birds_list.csv", header = TRUE, sep = ',') #reading golden dataset
 clsup = data.frame(sup$Binomial, sup$Realm, sup$TrophicLevel, sup$TrophicNiche, sup$ForagingNiche) #get rid of PC
 names(clsup) = c('Species.name','Realm', 'TrophicLevel', 'TrophicNiche', 'ForagingNiche')
 clsup$Species.name = gsub("_", " ", clsup$Species.name)
@@ -98,5 +98,6 @@ Ttl = Ttl + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L
 ggarrange(Atl, Gtl, Ctl, Ttl, 
           labels = c("A", "B", "C","D"),
           ncol = 2, nrow = 2)
+brds_clsup = brds_clsup[!(brds_clsup$Species.name == 'Paradoxornis heudei'),]  
 
-write.csv(brds_clsup, "birds_list.csv")
+write.csv(brds_clsup, "final_birds_list_with_no_mistakes.csv")
