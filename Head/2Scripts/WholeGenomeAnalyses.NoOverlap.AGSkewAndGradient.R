@@ -31,6 +31,7 @@ table(SynNuc$Class)/13
 AGG = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species,SynNuc$Class), FUN = sum)
 names(AGG) = c('Species','Class','NeutralA','NeutralT','NeutralG','NeutralC')
 
+
 ## all six different skews
 AGG$CTSkew = (AGG$NeutralC - AGG$NeutralT)/(AGG$NeutralC + AGG$NeutralT); summary(AGG$CTSkew) # GA on heavy
 AGG$CGSkew = (AGG$NeutralC - AGG$NeutralG)/(AGG$NeutralC + AGG$NeutralG); summary(AGG$CGSkew) # 
@@ -41,6 +42,13 @@ AGG$GASkew = (AGG$NeutralG - AGG$NeutralA)/(AGG$NeutralG + AGG$NeutralA); summar
 
 AGG$TCSkew = (AGG$NeutralT - AGG$NeutralC)/(AGG$NeutralT + AGG$NeutralC); summary(AGG$CTSkew) # AG on heavy. Added it for fun, just to be sure, that it is opposite to CT (GA on heavy) 
 
+#######opening MutSpec data
+MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE)
+MutCTskew = merge(MUT, AGG)
+cor.test(MutCTskew$T_C, MutCTskew$CTSkew, method = "spearman")
+summary(lm(CTSkew ~ T_C, data=MutCTskew))
+
+
 GT = read.table("../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt", header = TRUE, sep = '\t')
 GT$Species = gsub(' ','_',GT$Scientific_name)
 length(unique(GT$Species))
@@ -50,6 +58,8 @@ GT = GT[,c(11,13)]
 summary(GT$GenerationLength_d)
 
 Mam = merge(AGG,GT, by ='Species')
+
+
 
 ############### generation length versus all six skews: 6 rank correlations and one multiple model:
 ###### pairwise rank corr:
@@ -250,8 +260,7 @@ names(out_m) = c('Order', 'Gene', 'p-value','median_short','median_long')
 
 ### Made MU test between families
 out_m = data.frame()
-for (gen in unique(mu_df$Gene))
-{
+for (gen in unique(mu_df$Gene)){
   subs = mu_df %>% filter(Gene == gen)
   test = wilcox.test(subs[subs$GL == 'ShortLived',]$CTSkew, subs[subs$GL == 'LongLived',]$CTSkew, paired = FALSE)
   med_sh = median(subs[subs$GL == 'ShortLived',]$CTSkew)
