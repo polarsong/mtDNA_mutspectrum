@@ -101,3 +101,10 @@ ggarrange(Atl, Gtl, Ctl, Ttl,
 brds_clsup = brds_clsup[!(brds_clsup$Species.name == 'Paradoxornis heudei'),]  
 
 write.csv(brds_clsup, "final_birds_list_with_no_mistakes.csv")
+
+
+
+tree = read.csv("../../Body/3Results/skeleton.csv")
+names(tree) = c('Species.name')
+tree$Species.name = gsub("_", " ", tree$Species.name)
+brd_tree = merge(brds_clsup, tree)
