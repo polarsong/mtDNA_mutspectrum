@@ -273,74 +273,43 @@ names(out_m) = c('Gene', 'p-value','median_short','median_long')
 
 ####### naive multiple linear model, assigning numbers to order of genes. We can improve it substituting integers by real time or using more correct stat
 FromGenesToNumbers = data.frame(c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L','ND4','ND5','CytB'),seq(1:10)); names(FromGenesToNumbers)=c('Gene','TSSS') # time spend single stranded
-M=merge(M,FromGenesToNumbers) 
-M$GT = as.factor(M$GT)
-cold_dum = M %>% mutate(dummy = as.numeric(GT)) %>% mutate(dummy = dummy - 1)
+FromGenesToNumbers = cbind(FromGenesToNumbers, rep(c(0,1), each = 5))
+names(FromGenesToNumbers)=c('Gene','TBSS','DummyHighTbss') # time spend single stranded
+gl_and_tbss = merge(M,FromGenesToNumbers) 
+gl_and_tbss$GT = factor(gl_and_tbss$GT, levels = c('short_lived','long_lived'))
 
-A = lm(cold_dum$CTSkew ~ cold_dum$TSSS + cold_dum$dummy); summary(A)
-# (Intercept)     0.021023   0.006871    3.06  0.00223 ** 
-# cold_dum$TSSS   0.038732   0.001004   38.59  < 2e-16 ***
-# cold_dum$dummy -0.138582   0.005765  -24.04  < 2e-16 ***
+gl_and_tbss = gl_and_tbss %>% mutate(DummyLonglived = as.numeric(GT)) %>% mutate(DummyLonglived = DummyLonglived - 1)
 
-A = lm(cold_dum$CTSkew ~ cold_dum$TSSS * cold_dum$dummy); summary(A)
+summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived + gl_and_tbss$TBSS))
+summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived * gl_and_tbss$TBSS))
 
-# (Intercept)                   0.0226618  0.0088412   2.563   0.0104 *  
-# cold_dum$TSSS                 0.0384343  0.0014249  26.974   <2e-16 ***
-# cold_dum$dummy               -0.1418332  0.0124551 -11.388   <2e-16 ***
-# cold_dum$TSSS:cold_dum$dummy  0.0005912  0.0020073   0.295   0.7684  
+summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived + gl_and_tbss$DummyHighTbss))
+summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived * gl_and_tbss$DummyHighTbss))
 
-##### make tsss and dummy by two orders
+## complete lm for big orders
 
-Laurasia = cold_dum[cold_dum$Order == "Laurasiatheria",]
-Rumi = cold_dum[cold_dum$Order == "Ruminantia",]
+Laura = gl_and_tbss[gl_and_tbss$Order == 'Laurasiatheria',]
 
-A<-lm(Laurasia$CTSkew ~ Laurasia$dummy +  Laurasia$TSSS); summary(A)
-
-# (Intercept)    -0.011721   0.015660  -0.748    0.454    
-# Laurasia$dummy -0.250637   0.013003 -19.276   <2e-16 ***
-# Laurasia$TSSS   0.042084   0.002256  18.651   <2e-16 ***
-
-A<-lm(Laurasia$CTSkew ~ Laurasia$dummy *  Laurasia$TSSS); summary(A)
-
-# (Intercept)                  -0.018999   0.020641  -0.920    0.358    
-# Laurasia$dummy               -0.237152   0.028097  -8.441   <2e-16 ***
-# Laurasia$TSSS                 0.043407   0.003327  13.049   <2e-16 ***
-# Laurasia$dummy:Laurasia$TSSS -0.002452   0.004528  -0.541    0.588   
-
-A<-lm(Rumi$CTSkew ~ Rumi$dummy +  Rumi$TSSS); summary(A)
-
-# (Intercept) -0.024224   0.014381  -1.684   0.0924 .  
-# Rumi$dummy  -0.066891   0.013133  -5.093 4.13e-07 ***
-# Rumi$TSSS    0.043887   0.002191  20.032  < 2e-16 ***
-
-A<-lm(Rumi$CTSkew ~ Rumi$dummy *  Rumi$TSSS); summary(A)
-
-# (Intercept)          -0.012730   0.016950  -0.751 0.452785    
-# Rumi$dummy           -0.099073   0.028363  -3.493 0.000496 ***
-# Rumi$TSSS             0.041797   0.002732  15.301  < 2e-16 ***
-# Rumi$dummy:Rumi$TSSS  0.005851   0.004571   1.280 0.200779 
+summary(lm(Laura$CTSkew ~ Laura$DummyLonglived + Laura$TBSS))
+summary(lm(Laura$CTSkew ~ Laura$DummyLonglived * Laura$TBSS))
 
 
-A<-lm(M$CTSkew ~ log2(M$GenerationLength_d) +  M$TSSS); summary(A)
-#  (Intercept)                -0.8477990  0.0283319  -29.92   <2e-16 ***
-#  log2(M$GenerationLength_d)  0.0722798  0.0025027   28.88   <2e-16 ***
-#  M$TSSS                      0.0387429  0.0009798   39.54   <2e-16 ***
+Rumi = gl_and_tbss[gl_and_tbss$Order == 'Ruminantia',]
 
-A<-lm(M$CTSkew ~ log2(M$GenerationLength_d) +  scale(M$TSSS)); summary(A) # unique(scale(M$TSSS))
-# (Intercept)                -0.634713   0.027815  -22.82   <2e-16 ***
-#  log2(M$GenerationLength_d)  0.072280   0.002503   28.88   <2e-16 ***
-#  scale(M$TSSS)               0.111289   0.002815   39.54   <2e-16 ***
+summary(lm(Rumi$CTSkew ~ Rumi$DummyLonglived + Rumi$TBSS))
+summary(lm(Rumi$CTSkew ~ Rumi$DummyLonglived * Rumi$TBSS))
 
-A<-lm(M$CTSkew ~ scale(M$GenerationLength_d) +  scale(M$TSSS)); summary(A)
-# (Intercept)                 0.164476   0.002865   57.41   <2e-16 ***
-#  scale(M$GenerationLength_d) 0.068882   0.002865   24.04   <2e-16 ***
-#  scale(M$TSSS)               0.111289   0.002865   38.84   <2e-16 ***
 
-A<-lm(M$CTSkew ~ scale(M$GenerationLength_d)*scale(M$TSSS)); summary(A)  # interaction is not significant for CT.
-# (Intercept)                                0.164476   0.002865  57.412   <2e-16 ***
-#  scale(M$GenerationLength_d)                0.068882   0.002865  24.042   <2e-16 ***
-#  scale(M$TSSS)                              0.111289   0.002865  38.844   <2e-16 ***
-#  scale(M$GenerationLength_d):scale(M$TSSS) -0.002585   0.002865  -0.902    0.367  
+Rodent = gl_and_tbss[gl_and_tbss$Order == 'Rodentia',]
+
+summary(lm(Rodent$CTSkew ~ Rodent$DummyLonglived + Rodent$TBSS))
+summary(lm(Rodent$CTSkew ~ Rodent$DummyLonglived * Rodent$TBSS))
+
+Haplo = gl_and_tbss[gl_and_tbss$Order == 'Haplorrhini',] 
+
+summary(lm(Haplo$CTSkew ~ Haplo$DummyLonglived + Haplo$TBSS))
+summary(lm(Haplo$CTSkew ~ Haplo$DummyLonglived * Haplo$TBSS))
+
 
 dev.off()
 
