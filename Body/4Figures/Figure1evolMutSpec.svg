@@ -1114,8 +1114,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.60659828"
-     inkscape:cx="297.56102"
-     inkscape:cy="580.2852"
+     inkscape:cx="391.52765"
+     inkscape:cy="576.98812"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1574,7 +1574,7 @@
        transform="matrix(-0.00797196,0.05545385,-0.05545385,-0.00797196,94.014066,83.648162)" />
     <g
        id="g1572"
-       transform="translate(-5.2916669,12.170835)">
+       transform="translate(-4.2333335,12.170835)">
       <path
          style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.700012;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="path817"
@@ -1709,7 +1709,7 @@
            style="fill:#eee183;fill-opacity:1">
           <polygon
              style="fill:#eee183;fill-opacity:1"
-             points="311.656,0 157.055,0 90.798,196.319 164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 "
+             points="90.798,196.319 164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 311.656,0 157.055,0 "
              id="polygon2635" />
         </g>
         <g
@@ -1764,7 +1764,7 @@
          transform="matrix(-0.01369201,0.0367727,-0.0367727,-0.01369201,71.369035,66.01324)">
         <polygon
            style="fill:#eee183;fill-opacity:1"
-           points="157.055,0 90.798,196.319 164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 311.656,0 "
+           points="164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 311.656,0 157.055,0 90.798,196.319 "
            id="polygon2635-2" />
       </g>
       <text
@@ -2157,31 +2157,6 @@
            style="font-size:3.52778px;stroke-width:0.422196"
            x="66.513817"
            y="262.15866">H. Sapiens</tspan></text>
-    </g>
-    <g
-       id="g54015-8-9"
-       transform="matrix(1.3998739,0,0,1.3998739,72.004818,-90.420354)">
-      <text
-         style="font-variant:normal;font-weight:normal;font-size:3.2941px;line-height:1.05;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.394229"
-         id="text2549-2-6"
-         x="23.213173"
-         y="263.39175"><tspan
-           sodipodi:role="line"
-           id="tspan2547-8-7"
-           style="font-size:3.2941px;stroke-width:0.394229"
-           x="23.213173"
-           y="263.39175"
-           dy="-0.0099999998">H. Sapiens</tspan><tspan
-           sodipodi:role="line"
-           style="font-size:3.2941px;stroke-width:0.394229"
-           x="23.213173"
-           y="266.85056"
-           id="tspan10393">Old mice</tspan><tspan
-           sodipodi:role="line"
-           style="font-size:3.2941px;stroke-width:0.394229"
-           x="23.213173"
-           y="270.30936"
-           id="tspan11187">Young mice</tspan></text>
     </g>
     <g
        id="g54897"
@@ -3647,44 +3622,73 @@
            id="path3704" />
       </g>
     </g>
-    <rect
-       style="fill:none;stroke:#00000e;stroke-width:0.419962;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect6720"
-       width="2.6589048"
-       height="2.6589048"
-       x="99.18615"
-       y="275.39761" />
-    <path
-       sodipodi:type="star"
-       style="fill:none;stroke:#00000e;stroke-width:2.42983;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path6860"
-       inkscape:flatsided="true"
-       sodipodi:sides="3"
-       sodipodi:cx="484.18036"
-       sodipodi:cy="1093.5981"
-       sodipodi:r1="8.941433"
-       sodipodi:r2="4.4707165"
-       sodipodi:arg1="-2.6179939"
-       sodipodi:arg2="-1.5707963"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       transform="matrix(0.16070131,0,0,0.18588671,22.792253,82.928103)"
-       inkscape:transform-center-x="4.0844242e-06"
-       inkscape:transform-center-y="0.41551143"
-       d="m 476.43685,1089.1274 15.48702,0 -7.74351,13.4122 z" />
-    <path
-       style="fill:none;stroke:#00000e;stroke-width:0.42;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path6964"
-       sodipodi:type="arc"
-       sodipodi:cx="100.65154"
-       sodipodi:cy="281.45145"
-       sodipodi:rx="1.3294507"
-       sodipodi:ry="1.3294507"
-       sodipodi:start="5.8270261"
-       sodipodi:end="5.8257984"
-       sodipodi:open="true"
-       sodipodi:arc-type="arc"
-       d="m 101.84506,280.86582 a 1.3294507,1.3294507 0 0 1 -0.60752,1.77896 1.3294507,1.3294507 0 0 1 -1.779153,-0.60697 1.3294507,1.3294507 0 0 1 0.606433,-1.77934 1.3294507,1.3294507 0 0 1 1.77952,0.60588" />
+    <g
+       id="g2170"
+       transform="matrix(0.82123215,0,0,0.82123215,20.296074,-201.45319)">
+      <g
+         id="g54015-8-9"
+         transform="matrix(1.3998739,0,0,1.3998739,72.004818,-90.420354)">
+        <text
+           style="font-variant:normal;font-weight:normal;font-size:3.2941px;line-height:1.05;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.394229"
+           id="text2549-2-6"
+           x="23.213173"
+           y="263.39175"><tspan
+             sodipodi:role="line"
+             id="tspan2547-8-7"
+             style="font-size:3.2941px;stroke-width:0.394229"
+             x="23.213173"
+             y="263.39175"
+             dy="-0.0099999998">H. Sapiens</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:3.2941px;stroke-width:0.394229"
+             x="23.213173"
+             y="266.85056"
+             id="tspan10393">Old mice</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:3.2941px;stroke-width:0.394229"
+             x="23.213173"
+             y="270.30936"
+             id="tspan11187">Young mice</tspan></text>
+      </g>
+      <rect
+         style="fill:none;stroke:#00000e;stroke-width:0.419962;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect6720"
+         width="2.6589048"
+         height="2.6589048"
+         x="99.18615"
+         y="275.39761" />
+      <path
+         sodipodi:type="star"
+         style="fill:none;stroke:#00000e;stroke-width:2.42983;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path6860"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="484.18036"
+         sodipodi:cy="1093.5981"
+         sodipodi:r1="8.941433"
+         sodipodi:r2="4.4707165"
+         sodipodi:arg1="-2.6179939"
+         sodipodi:arg2="-1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         transform="matrix(0.16070131,0,0,0.18588671,22.792253,82.928103)"
+         inkscape:transform-center-x="4.0844242e-06"
+         inkscape:transform-center-y="0.41551143"
+         d="m 476.43685,1089.1274 15.48702,0 -7.74351,13.4122 z" />
+      <path
+         style="fill:none;stroke:#00000e;stroke-width:0.42;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path6964"
+         sodipodi:type="arc"
+         sodipodi:cx="100.65154"
+         sodipodi:cy="281.45145"
+         sodipodi:rx="1.3294507"
+         sodipodi:ry="1.3294507"
+         sodipodi:start="5.8270261"
+         sodipodi:end="5.8257984"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="m 101.84506,280.86582 a 1.3294507,1.3294507 0 0 1 -0.60752,1.77896 1.3294507,1.3294507 0 0 1 -1.779153,-0.60697 1.3294507,1.3294507 0 0 1 0.606433,-1.77934 1.3294507,1.3294507 0 0 1 1.77952,0.60588" />
+    </g>
     <g
        id="g11258"
        transform="matrix(1.4130688,0,0,1.4130688,-63.458608,-147.36613)">
