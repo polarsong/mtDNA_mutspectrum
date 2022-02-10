@@ -24,7 +24,7 @@ gen_len$Scientific_name = gsub(' ','_',gen_len$Scientific_name)
 
 ## Read polymorphism
 
-poly = read.table('../../Body/3Derived/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE) 
+poly = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFourFoldDegAllGenes.txt', header = TRUE) 
 
 polygen = merge(poly, gen_len, by.x = 'Species', by.y = 'Scientific_name')
 
