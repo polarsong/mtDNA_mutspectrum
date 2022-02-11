@@ -276,9 +276,12 @@ FromGenesToNumbers = data.frame(c('COX1','COX2','ATP8','ATP6','COX3','ND3','ND4L
 FromGenesToNumbers = cbind(FromGenesToNumbers, rep(c(0,1), each = 5))
 names(FromGenesToNumbers)=c('Gene','TBSS','DummyHighTbss') # time spend single stranded
 gl_and_tbss = merge(M,FromGenesToNumbers) 
-gl_and_tbss$GT = factor(gl_and_tbss$GT, levels = c('short_lived','long_lived'))
+gl_and_tbss$GT = factor(gl_and_tbss$GT, levels = c('short lived','long lived'))
 
 gl_and_tbss = gl_and_tbss %>% mutate(DummyLonglived = as.numeric(GT)) %>% mutate(DummyLonglived = DummyLonglived - 1)
+
+summary(lm(gl_and_tbss$CTSkew ~ log2(gl_and_tbss$GenerationLength_d) + gl_and_tbss$TBSS))
+summary(lm(gl_and_tbss$CTSkew ~ log2(gl_and_tbss$GenerationLength_d) * gl_and_tbss$TBSS))
 
 summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived + gl_and_tbss$TBSS))
 summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived * gl_and_tbss$TBSS))
@@ -290,14 +293,17 @@ summary(lm(gl_and_tbss$CTSkew ~ gl_and_tbss$DummyLonglived * gl_and_tbss$DummyHi
 
 Laura = gl_and_tbss[gl_and_tbss$Order == 'Laurasiatheria',]
 
+summary(lm(Laura$CTSkew ~ log2(Laura$GenerationLength_d) + Laura$TBSS))
 summary(lm(Laura$CTSkew ~ Laura$DummyLonglived + Laura$TBSS))
-summary(lm(Laura$CTSkew ~ Laura$DummyLonglived * Laura$TBSS))
+summary(lm(Laura$CTSkew ~ Laura$DummyLonglived + Laura$DummyHighTbss))
 
 
 Rumi = gl_and_tbss[gl_and_tbss$Order == 'Ruminantia',]
 
+
+summary(lm(Rumi$CTSkew ~ log2(Rumi$GenerationLength_d) + Rumi$TBSS))
 summary(lm(Rumi$CTSkew ~ Rumi$DummyLonglived + Rumi$TBSS))
-summary(lm(Rumi$CTSkew ~ Rumi$DummyLonglived * Rumi$TBSS))
+summary(lm(Laura$CTSkew ~ Laura$DummyLonglived + Laura$DummyHighTbss))
 
 
 Rodent = gl_and_tbss[gl_and_tbss$Order == 'Rodentia',]
