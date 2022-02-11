@@ -178,6 +178,38 @@ Final$FrC = as.numeric(as.character(Final$C))/length(genome)
 
 write.table(Final, "/../../Body/3Results/EquilibriumMammals.txt")
 
+### draw simulation saturation
+
+ColorA = rgb(1,0,0,0.3)
+ColorT = rgb(0,1,0,0.3)
+ColorG = rgb(0,0,1,0.3)
+ColorC = rgb(0,1,1,0.3)
+
+Final = Final[Final$Gener <= 600000,]
+###: PLOT
+
+for (InitGenome in 1:10)
+{
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$FrA, ylim = c(0,0.6), pch = '.', col = ColorA, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$FrT, ylim = c(0,0.6), pch = '.', col = ColorT, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$FrG, ylim = c(0,0.6), pch = '.', col = ColorG, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'short-matu mam',]$FrC, ylim = c(0,0.6), pch = '.', col = ColorC, main = 'Short lived mammals, neutral equilibrium, heavy chain', xlab = '', ylab = ''); par(new=TRUE)
+}
+
+legend(1,0.6, legend = c('A','T','G','C'), col = c(ColorA, ColorT, ColorG, ColorC), pch = 16)
+
+for (InitGenome in 1:10)
+{
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$FrA, ylim = c(0,0.6), pch = '.', col = ColorA, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$FrT, ylim = c(0,0.6), pch = '.', col = ColorT, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$FrG, ylim = c(0,0.6), pch = '.', col = ColorG, main = '', xlab = '', ylab = ''); par(new=TRUE)
+  plot(Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$Gener,Final[Final$InitGenome == InitGenome & Final$MutSpecProb == 'long-matu mam',]$FrC, ylim = c(0,0.6), pch = '.', col = ColorC, main = 'Long lived mammals, neutral equilibrium, heavy chain', xlab = '', ylab = ''); par(new=TRUE)
+}
+
+legend(1,0.6, legend = c('A','T','G','C'), col = c(ColorA, ColorT, ColorG, ColorC), pch = 16)
+
+## second picture preparations 
+
 expected = Final %>%
   group_by(MutSpecProb) %>% 
   mutate(mFrA = median(FrA)) %>%
