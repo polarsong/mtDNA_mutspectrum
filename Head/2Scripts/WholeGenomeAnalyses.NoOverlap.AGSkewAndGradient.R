@@ -6,7 +6,7 @@ rm(list=ls(all=TRUE))
 ############ Syn mut
 unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.zip")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")){file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
+#if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")){file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
 
 names(SynNuc)
 
@@ -52,8 +52,7 @@ MUT = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.OnlyFo
 MutCTskew = merge(MUT, AGG)
 ######mut spec with nuc content analyses
 cor.test(MutCTskew$T_C, MutCTskew$CTSkew, method = "spearman")
-summary(lm(CTSkew ~ T_C, data=MutCTskew))
-summary(lm(T_C ~ FrT + FrC, data=MutCTskew))
+
 
 GT = read.table("../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt", header = TRUE, sep = '\t')
 GT$Species = gsub(' ','_',GT$Scientific_name)
@@ -64,8 +63,13 @@ GT = GT[,c(11,13)]
 summary(GT$GenerationLength_d)
 
 Mam = merge(AGG,GT, by ='Species')
-
-
+MutCTskew = merge(MutCTskew, GT)
+summary(lm(CTSkew ~ T_C, data=MutCTskew))
+summary(lm(T_C ~ FrT + FrC, data=MutCTskew))
+cor.test(MutCTskew$T_C, MutCTskew$FrT, method = "spearman")
+cor.test(MutCTskew$T_C, MutCTskew$FrC, method = "spearman")
+MutCTskew$FrCFrT = MutCTskew$FrC/MutCTskew$FrT
+cor.test(MutCTskew$T_C, MutCTskew$FrCFrT, method = "spearman")
 
 ############### generation length versus all six skews: 6 rank correlations and one multiple model:
 ###### pairwise rank corr:
@@ -150,24 +154,30 @@ library(ape)
 library(geiger)
 library(caper)
 
+MutCTskew = MutCTskew[-156,]
+MutCTskew$FrCFrT = MutCTskew$FrC/MutCTskew$FrT
 tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
-
-
 row.names(MutCTskew) = MutCTskew$Species
-
 tree_w = treedata(tree, MutCTskew, sort=T, warnings=T)$phy
 
+
 data<-as.data.frame(treedata(tree_w, MutCTskew, sort=T, warnings=T)$data)
-
 data$Species = as.character(data$Species)
-
 data$T_C = as.numeric(as.character(data$T_C))
 data$FrT = as.numeric(as.character(data$FrT))
 data$FrC = as.numeric(as.character(data$FrC))
+data$FrCFrT = as.numeric(as.character(data$FrCFrT))
+data$CTSkew = as.numeric(as.character(data$CTSkew))
 
 MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
 summary(pgls(T_C ~ FrT + FrC, MutComp, lambda="ML"))
+summary(pgls(T_C ~ FrCFrT, MutComp, lambda="ML"))
+summary(pgls(T_C ~ FrC, MutComp, lambda="ML"))
+summary(pgls(T_C ~ FrT, MutComp, lambda="ML"))
+summary(pgls(T_C ~ FrT * FrC, MutComp, lambda="ML"))
+summary(pgls(T_C ~ CTSkew, MutComp, lambda="ML"))
 
+str(MutComp)
 
 ###### plot 
 pdf("../../Body/4Figures/WholeGenomeAnalyses.NoOverlap.AGSkew.R.01.pdf", height = 10, width = 20)
