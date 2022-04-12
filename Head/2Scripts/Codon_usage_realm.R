@@ -91,3 +91,15 @@ write.csv(final, 'birds_med_and_realm.csv')
 
 cor.test(final$med_c,final$realm, method = 'spearman')
 cor.test(final$med_a,final$realm, method = 'spearman')
+
+violin_c = ggplot(final, aes(x = realm, y = med_c)) +
+  geom_violin()
+violin_a = ggplot(final, aes(x = realm, y = med_a)) +
+  geom_violin()
+box_c = ggplot(final, aes(x = realm, y = med_c)) +
+  geom_boxplot()
+box_a = ggplot(final, aes(x = realm, y = med_a)) +
+  geom_boxplot()
+
+
+
