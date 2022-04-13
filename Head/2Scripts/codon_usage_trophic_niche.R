@@ -29,14 +29,14 @@ needed_codons = c('TTC','TCC','TAC','TGC',
                   'GTC','GCC','GAC','GGC',
                   'GTA','GCA','GAA','GGA')
 
-df_codons_realm = df_sgc %>% select(species_name, gene_name, realm,all_of(vec_all))
+df_codons_trophl = df_sgc %>% select(species_name, gene_name, trophic_niche,all_of(vec_all))
 
-sp_sum_gen = data.frame(unique(df_codons_realm$species_name))
+sp_sum_gen = data.frame(unique(df_codons_trophl$species_name))
 
 for ( codon in vec_all)
 {
   
-  sum_of_codon = aggregate(df_codons_realm[ ,codon], by = list(df_codons_realm$species_name), FUN = 'sum')[2]
+  sum_of_codon = aggregate(df_codons_trophl[ ,codon], by = list(df_codons_trophl$species_name), FUN = 'sum')[2]
   sp_sum_gen = cbind(sp_sum_gen, sum_of_codon)
   
 }
@@ -65,7 +65,7 @@ for (i in 1:nrow(sp_sum_gen))
 
 names(codon_norm) = c('species_name', needed_codons)
 codon_norm = codon_norm %>% select(-c('TAA','AGA'))
-df_eco = df_codons_realm[,c(1,3)]
+df_eco = df_codons_trophl[,c(1,3)]
 codon_norm = merge(codon_norm, df_eco)
 
 df_try = data.frame(unique(codon_norm))
@@ -83,23 +83,24 @@ for (org in 1:nrow(df_try))
   
   med_c = median(as.numeric(vec_of_c), na.rm = TRUE)
   med_a = median(as.numeric(vec_of_a), na.rm = TRUE)
-  sp_out = data.frame(sp_r$species_name, med_c, med_a, sp_r$realm) 
+  sp_out = data.frame(sp_r$species_name, med_c, med_a, sp_r$trophic_niche) 
   final = rbind(final,sp_out)
 }
-names(final) = c('species_name', 'med_c', 'med_a', 'realm')
-write.csv(final, 'birds_med_and_realm.csv')
+names(final) = c('species_name', 'med_c', 'med_a', 'trophic_niche')
+#write.csv(final, 'birds_med_and_realm.csv')
 
-cor.test(final$med_c,final$realm, method = 'spearman')
-cor.test(final$med_a,final$realm, method = 'spearman')
+#cor.test(final$med_c,final$realm, method = 'spearman')
+#cor.test(final$med_a,final$realm, method = 'spearman')
 
-violin_c = ggplot(final, aes(x = realm, y = med_c)) +
-  geom_violin()
-violin_a = ggplot(final, aes(x = realm, y = med_a)) +
-  geom_violin()
-box_c = ggplot(final, aes(x = realm, y = med_c)) +
-  geom_boxplot()
-box_a = ggplot(final, aes(x = realm, y = med_a)) +
-  geom_boxplot()
-
-
-
+violin_c = ggplot(final, aes(x = trophic_niche, y = med_c)) +
+  geom_violin() + 
+  theme(axis.text.x = element_text(angle = 90)) 
+violin_a = ggplot(final, aes(x = trophic_niche, y = med_a)) +
+  geom_violin() + 
+  theme(axis.text.x = element_text(angle = 90))
+box_c = ggplot(final, aes(x = trophic_niche, y = med_c)) +
+  geom_boxplot() + 
+  theme(axis.text.x = element_text(angle = 90))
+box_a = ggplot(final, aes(x = trophic_niche, y = med_a)) +
+  geom_boxplot() + 
+  theme(axis.text.x = element_text(angle = 90))
