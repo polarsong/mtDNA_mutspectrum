@@ -108,3 +108,42 @@ tree = read.csv("../../Body/3Results/skeleton.csv")
 names(tree) = c('Species.name')
 tree$Species.name = gsub("_", " ", tree$Species.name)
 brd_tree = merge(brds_clsup, tree)
+
+
+chdf = read.csv("../../Body/3Results/For_Bogdan.csv")
+chdf$GhAhSkew = ((chdf$neutral_c - chdf$neutral_T)/(chdf$neutral_c + chdf$neutral_T))
+GhAhgraf = ggplot(data = chdf, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = trophic_level), notch = TRUE)
+GhAhgraf + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+GhAhgraf1 = ggplot(data = chdf, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = realm), notch = TRUE)
+GhAhgraf1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+
+
+chdf$frneuA = chdf$neutral_A/chdf$neutral_amount
+chdf$frneuG = chdf$neutral_g/chdf$neutral_amount
+chdf$frneuC = chdf$neutral_c/chdf$neutral_amount
+chdf$frneuT = chdf$neutral_T/chdf$neutral_amount
+chdf$Stg = ((chdf$frneuA + chdf$frneuC)-(chdf$frneuG+chdf$frneuT))
+Stggraph = ggplot(data = chdf, aes(x = gene_name, y = Stg))+
+  geom_boxplot(aes(fill = trophic_level), notch = TRUE)
+Stggraph + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+Stggraph1 = ggplot(data = chdf, aes(x = gene_name, y = Stg))+
+  geom_boxplot(aes(fill = realm), notch = TRUE)
+Stggraph1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+Ab = ggplot(data = chdf, aes(x = gene_name, y = frneuA))+
+  geom_boxplot()
+Ab = Ab + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+Gb = ggplot(data = chdf, aes(x = gene_name, y = frneuG))+
+  geom_boxplot()
+Gb = Gb + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+Cb = ggplot(data = chdf, aes(x = gene_name, y = frneuC))+
+  geom_boxplot()
+Cb = Cb + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+Tb = ggplot(data = chdf, aes(x = gene_name, y = frneuT))+
+  geom_boxplot()
+Tb = Tb + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+all = ggarrange(Ab, Gb, Cb, Tb, 
+          labels = c("A", "B", "C","D"),
+          ncol = 2, nrow = 2)
+all
