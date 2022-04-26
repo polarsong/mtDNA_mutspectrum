@@ -100,3 +100,19 @@ df_all = rbind(df_antarctic, df_every)
 
 
 #Alya's script
+library(ape)
+library(geiger)
+library(caper)
+tree <- read.tree("../../Body/3Results/phylo.treefile")
+df_all$species_name = gsub(' ','_', df_all$species_name)
+df_all$species_name = as.character(df_all$species_name)
+row.names(df_all) = NULL
+
+#The following tips were not found in 'data' and were dropped from 'phy' не может найти птиц в датасете, 
+#хотя все птицы, которые в дереве, есть и в датасете
+tree_w = treedata(tree, df_all, sort = T, warnings = T)$phy
+
+
+data = as.data.frame(treedata(tree_w, df_all, sort = T, warnings = T)$data)
+
+df_all$species_name %in% tree$tip.label
