@@ -1179,11 +1179,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3303617"
-     inkscape:cx="189.798"
-     inkscape:cy="861.41986"
+     inkscape:zoom="0.85491827"
+     inkscape:cx="383.07755"
+     inkscape:cy="359.09865"
      inkscape:document-units="mm"
-     inkscape:current-layer="g75046"
+     inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -2298,13 +2298,13 @@
       <text
          style="font-variant:normal;font-weight:normal;font-size:3.52778px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.422196"
          id="text2549-2"
-         x="78.684662"
+         x="81.859665"
          y="262.15866"><tspan
            sodipodi:role="line"
            id="tspan2547-8"
            style="font-size:3.52778px;stroke-width:0.422196"
-           x="78.684662"
-           y="262.15866">H. Sapiens</tspan></text>
+           x="81.859665"
+           y="262.15866">Human</tspan></text>
     </g>
     <g
        id="g54015-8-3"
@@ -2332,13 +2332,13 @@
       <text
          style="font-variant:normal;font-weight:normal;font-size:3.52778px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.422196"
          id="text2549-2-4"
-         x="89.268005"
+         x="92.972176"
          y="261.10031"><tspan
            sodipodi:role="line"
            id="tspan2547-8-2"
            style="font-size:3.52778px;stroke-width:0.422196"
-           x="89.268005"
-           y="261.10031">H. Sapiens</tspan></text>
+           x="92.972176"
+           y="261.10031">Human</tspan></text>
     </g>
     <g
        id="g54897"
@@ -3838,7 +3838,7 @@
              style="font-size:3.4639px;stroke-width:0.394229"
              x="23.213173"
              y="263.39175"
-             dy="-0.0099999998">H. Sapiens</tspan><tspan
+             dy="-0.0099999998">Human</tspan><tspan
              sodipodi:role="line"
              style="font-size:3.4639px;stroke-width:0.394229"
              x="23.213173"
@@ -5466,7 +5466,7 @@
          id="tspan71907-5"
          style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.25158"
          x="161.35143"
-         y="207.79166">H. Sapiens:</tspan><tspan
+         y="207.79166">Human</tspan><tspan
          sodipodi:role="line"
          style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.25158"
          x="161.35143"
@@ -5481,7 +5481,7 @@
          id="tspan71919-0"
          style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.25158"
          x="187.28705"
-         y="207.66716">H. Sapiens:</tspan><tspan
+         y="207.66716">Human</tspan><tspan
          sodipodi:role="line"
          style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.25158"
          x="187.28705"
