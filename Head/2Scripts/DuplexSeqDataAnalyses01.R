@@ -275,7 +275,7 @@ as.numeric(coefficients(MusOldMajorArc.ChTh)[1])/as.numeric(coefficients(MusYoun
 as.numeric(coefficients(MusOldMajorArc.AhGh)[1])/as.numeric(coefficients(MusYoungMajorArc.AhGh)[1]) # 2.25
 
 
-###### BOXPLOTES
+###### BOXPLOTES AND ANALYSES
 pdf("../../Body/4Figures/DuplexSeqDataAnalyses02.R.pdf")
 par(mfrow=c(2,2))
 boxplot(CytbYoungMouseAhGhRelFreqPerBins,CytbOldMouseAhGhRelFreqPerBins,CytbHomoAhGhRelFreqPerBins,names=c('young mice','old mice','human'), notch = TRUE, main = 'Ah>Gh freq in spectrum', col = c(rgb(1,0,0,0.2),rgb(1,0,0,0.6),rgb(1,0,0,0.9)))
@@ -283,6 +283,14 @@ boxplot(CytbYoungMouseChThRelFreqPerBins,CytbOldMouseChThRelFreqPerBins,CytbHomo
 #boxplot(CytbYoungMouseAhGhRelFreqPerBins[50:100],CytbOldMouseAhGhRelFreqPerBins[50:100],CytbHomoAhGhRelFreqPerBins[25:50],names=c('young mice','old mice','human'), notch = TRUE)
 #boxplot(CytbYoungMouseChThRelFreqPerBins[50:100],CytbOldMouseChThRelFreqPerBins[50:100],CytbHomoChThRelFreqPerBins[25:50],names=c('young mice','old mice','human'), notch = TRUE)
 dev.off()
+
+wilcox.test(CytbYoungMouseAhGhRelFreqPerBins,CytbOldMouseAhGhRelFreqPerBins) # 1.583e-08
+wilcox.test(CytbOldMouseAhGhRelFreqPerBins,CytbHomoAhGhRelFreqPerBins)       # 2.2e-16
+wilcox.test(CytbYoungMouseAhGhRelFreqPerBins,CytbHomoAhGhRelFreqPerBins)     # 2.2e-16  
+
+wilcox.test(CytbYoungMouseChThRelFreqPerBins,CytbOldMouseChThRelFreqPerBins) # 2.2e-16
+wilcox.test(CytbOldMouseChThRelFreqPerBins,CytbHomoChThRelFreqPerBins)       # 2.2e-16
+wilcox.test(CytbYoungMouseChThRelFreqPerBins,CytbHomoChThRelFreqPerBins)     # 1.805e-05  
 
 ######### SCATTERPLOTS AND BINS:
 
