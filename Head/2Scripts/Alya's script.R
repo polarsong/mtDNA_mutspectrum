@@ -97,3 +97,6 @@ df_antarctic$point = 1
 df_every$point = 0
 df_all = data.frame()
 df_all = rbind(df_antarctic, df_every)
+
+
+#Alya's script
