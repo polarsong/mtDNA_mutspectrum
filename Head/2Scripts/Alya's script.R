@@ -1,5 +1,6 @@
 #changing data and PGLS analysis
 #1 - antarctic 0 - afrotropic
+
 rm(list=ls(all=T))
 
 #Dima's analysis
@@ -36,8 +37,7 @@ df_codons_realm = df_sgc %>% select(species_name, gene_name, realm,all_of(vec_al
 
 sp_sum_gen = data.frame(unique(df_codons_realm$species_name))
 
-for ( codon in vec_all)
-{
+for ( codon in vec_all){
   
   sum_of_codon = aggregate(df_codons_realm[ ,codon], by = list(df_codons_realm$species_name), FUN = 'sum')[2]
   sp_sum_gen = cbind(sp_sum_gen, sum_of_codon)
@@ -48,13 +48,11 @@ names(sp_sum_gen) = c('Species', vec_all)
 
 codon_norm = data.frame()
 
-for (i in 1:nrow(sp_sum_gen))
-{
+for (i in 1:nrow(sp_sum_gen)){
   org_gen = sp_sum_gen[i,]
   org_gen = as.vector(org_gen)
   df_out= data.frame(sp_sum_gen[i,]$Species) 
-  for (codon in seq(from = 2, to = 65, by = 2))
-  {
+  for (codon in seq(from = 2, to = 65, by = 2)){
     if (org_gen[1,codon] == 0) {df_out = cbind(df_out, 0)}
     else {
       norm_cod = org_gen[1,codon] / (org_gen[1,codon+1] + org_gen[1,codon])
@@ -75,8 +73,7 @@ df_try = data.frame(unique(codon_norm))
 
 
 final = data.frame()
-for (org in 1:nrow(df_try))
-{
+for (org in 1:nrow(df_try)){
   sp_r = df_try[org,]
   
   vec_of_c = sp_r %>% select(TTC, TCC, TAC, TGC, CTC, CCC, CAC, CGC,
@@ -89,7 +86,7 @@ for (org in 1:nrow(df_try))
   sp_out = data.frame(sp_r$species_name, med_c, med_a, sp_r$realm) 
   final = rbind(final,sp_out)
 }
-names(final) = c('species_name', 'med_c', 'med_a', 'realm')
+names(final) = c('Species', 'med_c', 'med_a', 'realm')
 
 df_antarctic = final[final$realm == 'Antarctic',]
 df_every = final[final$realm != 'Antarctic', ]
@@ -97,22 +94,27 @@ df_antarctic$point = 1
 df_every$point = 0
 df_all = data.frame()
 df_all = rbind(df_antarctic, df_every)
+df_all$Species = gsub(' ','_', df_all$Species)
+df_all$Species = as.character(df_all$Species)
 
 
 #Alya's script
 library(ape)
 library(geiger)
 library(caper)
-tree <- read.tree("../../Body/3Results/phylo.treefile")
-df_all$species_name = gsub(' ','_', df_all$species_name)
-df_all$species_name = as.character(df_all$species_name)
-row.names(df_all) = NULL
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+row.names(df_all) = df_all$Species
+tree_w = treedata(tree, df_all, sort=T, warnings=T)$phy
 
-#The following tips were not found in 'data' and were dropped from 'phy' не может найти птиц в датасете, 
-#хотя все птицы, которые в дереве, есть и в датасете
-tree_w = treedata(tree, df_all, sort = T, warnings = T)$phy
+data<-as.data.frame(treedata(tree_w, df_all, sort=T, warnings=T)$data)
 
+data$med_c = as.numeric(as.character(data$med_c))
+data$med_a = as.numeric(as.character(data$med_a))
+data$point= as.numeric(as.character(data$point))
+data$realm= as.character(data$realm)
+table(data$point)
 
-data = as.data.frame(treedata(tree_w, df_all, sort = T, warnings = T)$data)
+MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
 
-df_all$species_name %in% tree$tip.label
+model = pgls(point ~ med_a + med_c, MutComp, lambda="ML")
+summary(model)
