@@ -118,3 +118,20 @@ MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
 
 model = pgls(point ~ med_a + med_c, MutComp, lambda="ML")
 summary(model)
+
+#new birds data
+avonet = read.csv2("../../Body/1Raw/Avonet_data.csv", header = TRUE, sep = ",")
+names(avonet) = c('Species', 'Family', 'Order', 'Total_individuals', 'Female', 'Male', 'Unknown', 'Complete_measures',
+                  'Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length', 'Wing_length',
+                  'Kipps_distance', 'Secondary1', 'Hand_wing_index', 'Tail_length', 'Mass', 'Mass_source', 'Mass_refs_other',
+                  'Inference', 'Treits_inferred', 'Reference_species', 'Habitat', 'Habitat_density', 'Migration', 'Trophic_level',
+                  'Trophic_niche', 'Primary_lifestyle', 'Min_latitude', 'Max_latitude', 'Centroid_latitude', 'Centroid_longitude',
+                  'Range_size', 'Species_status')
+avonet$Species = gsub(' ','_', avonet$Species)
+df_all1 = merge(df_all, avonet, by = 'Species')
+#new PGLS
+tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
+row.names(df_all1) = df_all1$Species
+tree_w1 = treedata(tree, df_all1, sort=T, warnings=T)$phy
+data1<-as.data.frame(treedata(tree_w1, df_all1, sort=T, warnings=T)$data)
+data1$Beak_width = as.numeric(as.character(data1$Beak_width))
