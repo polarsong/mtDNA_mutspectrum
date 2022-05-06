@@ -168,3 +168,4 @@ ggplot(df_all1, aes(x = med_c, y = med_a))+
 plot(df_all1$med_c, df_all1$med_a)
 ggplot(df_all1, aes(x = med_c, y = med_a))+
   geom_point()
+
