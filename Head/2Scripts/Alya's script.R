@@ -87,7 +87,9 @@ for (org in 1:nrow(df_try)){
   final = rbind(final,sp_out)
 }
 names(final) = c('Species', 'med_c', 'med_a', 'realm')
+#End of analysis
 
+#Making points with realms
 df_antarctic = final[final$realm == 'Antarctic' | final$realm == 'Nearctic' | final$realm == 'Palearctic',]
 df_every = final[final$realm != 'Antarctic' & final$realm != 'Nearctic' & final$realm != 'Palearctic',]
 df_antarctic$point = 1
@@ -96,7 +98,7 @@ df_all = data.frame()
 df_all = rbind(df_antarctic, df_every)
 df_all$Species = gsub(' ','_', df_all$Species)
 df_all$Species = as.character(df_all$Species)
-
+#end
 
 
 
@@ -108,27 +110,24 @@ library(caper)
 tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
 row.names(df_all) = df_all$Species
 tree_w = treedata(tree, df_all, sort=T, warnings=T)$phy
-
 data<-as.data.frame(treedata(tree_w, df_all, sort=T, warnings=T)$data)
-
 data$med_c = as.numeric(as.character(data$med_c))
 data$med_a = as.numeric(as.character(data$med_a))
 data$point= as.numeric(as.character(data$point))
 data$realm= as.character(data$realm)
 table(data$point)
+MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
+model = pgls(point ~ med_a + med_c, MutComp, lambda="ML")
+summary(model)
+#end of Alya's script
+
 #Bogdan tree
 tree1 = read.tree("../../Body/3Results/phylo.treefile")
 tree_w3 = treedata(tree1, df_all, sort=T, warnings=T)$phy
-
 data3 = as.data.frame(treedata(tree_w3, df_all, sort=T, warnings=T)$data)
-
 MutComp3 = comparative.data(tree_w3, data3, Species, vcv = TRUE)
 #end
 
-MutComp = comparative.data(tree_w, data, Species, vcv=TRUE)
-
-model = pgls(point ~ med_a + med_c, MutComp, lambda="ML")
-summary(model)
 
 #new birds data
 avonet = read.csv2("../../Body/1Raw/Avonet_data.csv", header = TRUE, sep = ",")
@@ -140,37 +139,10 @@ names(avonet) = c('Species', 'Family', 'Order', 'Total_individuals', 'Female', '
                   'Range_size', 'Species_status')
 avonet$Species = gsub(' ','_', avonet$Species)
 df_all1 = merge(df_all, avonet, by = 'Species')
-#new PGLS
-tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
-row.names(df_all1) = df_all1$Species
-tree_w1 = treedata(tree, df_all1, sort=T, warnings=T)$phy
-data1<-as.data.frame(treedata(tree_w1, df_all1, sort=T, warnings=T)$data)
-data1$Beak_width = as.numeric(as.character(data1$Beak_width))
-
-#rooting tree
-phy=multi2di(tree1)
-row.names(df_all) = df_all$Species
-tree_w3 = treedata(phy, df_all, sort=T, warnings=T)$phy
-
-data3 = as.data.frame(treedata(tree_w3, df_all, sort=T, warnings=T)$data)
-data3$med_c = as.numeric(as.character(data3$med_c))
-data3$med_a = as.numeric(as.character(data3$med_a))
-data3$point= as.numeric(as.character(data3$point))
-data3$realm= as.character(data3$realm)
-data3$norm = as.numeric(as.character(data3$norm))
-
-MutComp3 = comparative.data(tree_w3, data3, Species, vcv = TRUE)
-model3 = pgls(point ~ med_a + med_c, MutComp3, lambda="ML")
-model4 = pgls(norm ~ point, MutComp3, lambda = "ML")
-#log
-df_all$norm = log2(df_all$med_c)
+#end
 
 
-summary(model4)
-table(final$realm)
-
-
-#all ecology analysis
+#all ecology PGLS analysis
 tree <- read.tree("../../Body/1Raw/mtalign.aln.treefile.rooted")
 phy=multi2di(tree1)
 row.names(df_all1) = df_all1$Species
@@ -183,17 +155,16 @@ data_all$med_a = as.numeric(as.character(data_all$med_a))
 data_all$point= as.numeric(as.character(data_all$point))
 data_all$realm= as.character(data_all$realm)
 data_all$Tail_length = as.numeric(as.character(data_all$Tail_length))
-summary(data_all$Beak_width)
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
 model_all = pgls(med_c ~ Beak_width + Tail_length, MutComp_all, lambda = "ML")
 
 summary(model_all)
 
-#New analysis Medc (+GhAhSkew, Stg-Sac, frequencies) ~ ecology
-#new 1 
-#task 
-#all ecology ~ med_c 
+#med_c against med_a
 ggplot(df_all1, aes(x = med_c, y = med_a))+
   geom_point()+
-  geom_smooth(method = lm)
+  geom_smooth(method = lm)+
+  geom_text(label=rownames(df_all1))
 plot(df_all1$med_c, df_all1$med_a)
+ggplot(df_all1, aes(x = med_c, y = med_a))+
+  geom_point()
