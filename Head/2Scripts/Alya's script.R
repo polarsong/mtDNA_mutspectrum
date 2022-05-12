@@ -169,3 +169,18 @@ plot(df_all1$med_c, df_all1$med_a)
 ggplot(df_all1, aes(x = med_c, y = med_a))+
   geom_point()
 
+#PGLS table 
+eco_vec = c('point', 'Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
+            'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass')
+pgls_eco = data.frame(eco_vec)
+names(pgls_eco) = 'Ecology'
+pgls_eco$p_meda = ''
+if (pgls_eco[pgls_eco$Ecology == 'point',])
+{
+pgls_eco$ pgls_eco$p_meda = 15
+}
+
+#rm(ab)
+#ab = data.frame()
+#a = subset(pgls_eco, Ecology == 'point')
+#ab = rbind(ab, a)
