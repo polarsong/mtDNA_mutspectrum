@@ -185,3 +185,5 @@ pgls_eco$ pgls_eco$p_meda = 15
 #a = subset(pgls_eco, Ecology == 'point')
 #ab = rbind(ab, a)
 model_all$bounds
+p = summary(model_all)
+p
