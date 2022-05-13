@@ -184,3 +184,4 @@ pgls_eco$ pgls_eco$p_meda = 15
 #ab = data.frame()
 #a = subset(pgls_eco, Ecology == 'point')
 #ab = rbind(ab, a)
+model_all$bounds
