@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
    height="297mm"
    viewBox="0 0 210 297"
    version="1.1"
    id="svg9030"
-   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="SupplFigure_1_sept2021.svg">
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   sodipodi:docname="SupplFigure_1_sept2021.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs9024">
     <clipPath
@@ -80,20 +80,21 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0645786"
-     inkscape:cx="254.64667"
-     inkscape:cy="264.61149"
+     inkscape:zoom="0.55300503"
+     inkscape:cx="557.86111"
+     inkscape:cy="537.06564"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3532"
      inkscape:document-rotation="0"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1512"
+     inkscape:window-height="916"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
   <metadata
      id="metadata9027">
     <rdf:RDF>
@@ -102,7 +103,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -137,10 +138,16 @@
          d="M 28.234,5.477 H 382.925 V 472.508 H 28.234 Z"
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9070"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <g
          id="g9072"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 192.875,215.563 c 0,2.605 -3.906,2.605 -3.906,0 0,-2.606 3.906,-2.606 3.906,0"
            style="fill:#f8756b;fill-opacity:1;fill-rule:nonzero;stroke:#f8756b;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -148,7 +155,10 @@
       </g>
       <g
          id="g9076"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 151.84,226.551 c 0,2.605 -3.91,2.605 -3.91,0 0,-2.606 3.91,-2.606 3.91,0"
            style="fill:#de8a00;fill-opacity:1;fill-rule:nonzero;stroke:#de8a00;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -156,7 +166,10 @@
       </g>
       <g
          id="g9080"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 123.258,83.688 c 0,2.605 -3.91,2.605 -3.91,0 0,-2.606 3.91,-2.606 3.91,0"
            style="fill:#b59e00;fill-opacity:1;fill-rule:nonzero;stroke:#b59e00;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -164,7 +177,10 @@
       </g>
       <g
          id="g9084"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 165.762,451.281 c 0,2.606 -3.91,2.606 -3.91,0 0,-2.605 3.91,-2.605 3.91,0"
            style="fill:#7aae00;fill-opacity:1;fill-rule:nonzero;stroke:#7aae00;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -172,7 +188,10 @@
       </g>
       <g
          id="g9088"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 225.855,172.379 c 0,2.605 -3.91,2.605 -3.91,0 0,-2.609 3.91,-2.609 3.91,0"
            style="fill:#00b835;fill-opacity:1;fill-rule:nonzero;stroke:#00b835;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -180,7 +199,10 @@
       </g>
       <g
          id="g9092"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 46.313,283.488 c 0,2.61 -3.911,2.61 -3.911,0 0,-2.605 3.911,-2.605 3.911,0"
            style="fill:#00bf8a;fill-opacity:1;fill-rule:nonzero;stroke:#00bf8a;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -188,7 +210,10 @@
       </g>
       <g
          id="g9096"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 192.875,290.422 c 0,2.605 -3.906,2.605 -3.906,0 0,-2.606 3.906,-2.606 3.906,0"
            style="fill:#00bdc2;fill-opacity:1;fill-rule:nonzero;stroke:#00bdc2;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -196,7 +221,10 @@
       </g>
       <g
          id="g9100"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 90.281,371.359 c 0,2.606 -3.91,2.606 -3.91,0 0,-2.605 3.91,-2.605 3.91,0"
            style="fill:#00b3f0;fill-opacity:1;fill-rule:nonzero;stroke:#00b3f0;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -204,7 +232,10 @@
       </g>
       <g
          id="g9104"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 92.48,361.832 c 0,2.606 -3.91,2.606 -3.91,0 0,-2.609 3.91,-2.609 3.91,0"
            style="fill:#619cff;fill-opacity:1;fill-rule:nonzero;stroke:#619cff;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -212,7 +243,10 @@
       </g>
       <g
          id="g9108"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 310.129,142.594 c 0,2.605 -3.91,2.605 -3.91,0 0,-2.606 3.91,-2.606 3.91,0"
            style="fill:#c77aff;fill-opacity:1;fill-rule:nonzero;stroke:#c77aff;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -220,7 +254,10 @@
       </g>
       <g
          id="g9112"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 368.758,53.668 c 0,2.605 -3.91,2.605 -3.91,0 0,-2.609 3.91,-2.609 3.91,0"
            style="fill:#f563e3;fill-opacity:1;fill-rule:nonzero;stroke:#f563e3;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -228,7 +265,10 @@
       </g>
       <g
          id="g9116"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 244.176,26.707 c 0,2.609 -3.91,2.609 -3.91,0 0,-2.605 3.91,-2.605 3.91,0"
            style="fill:#ff63b0;fill-opacity:1;fill-rule:nonzero;stroke:#ff63b0;stroke-width:0.708661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -236,7 +276,10 @@
       </g>
       <g
          id="g9120"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 44.355,344.836 12.247,-10.828 4.082,-3.613 4.082,-3.61 4.078,-3.609 4.082,-3.613 12.246,-10.829 4.082,-3.613 12.246,-10.828 4.078,-3.613 12.246,-10.828 4.082,-3.614 12.246,-10.828 4.082,-3.613 4.079,-3.609 8.164,-7.219 4.082,-3.614 8.164,-7.218 4.082,-3.614 4.082,-3.609 4.078,-3.609 4.082,-3.61 4.082,-3.613 12.246,-10.828 4.082,-3.613 8.164,-7.219 4.078,-3.609 4.082,-3.614 12.246,-10.828 4.082,-3.613 12.246,-10.828 4.079,-3.614 8.164,-7.218 4.082,-3.614 12.246,-10.828 4.082,-3.613 4.078,-3.609 8.164,-7.219 4.082,-3.613 12.246,-10.829 4.082,-3.613 4.082,-3.609 4.078,-3.61 4.082,-3.609 4.082,-3.613 12.246,-10.828 4.083,-3.614 8.164,-7.218 4.078,-3.614 12.246,-10.828"
            style="fill:none;stroke:#ff0000;stroke-width:2.13396;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -246,185 +289,296 @@
          d="m 193.207,211.609 3.035,-7.902 h 1.125 l 3.235,7.902 h -1.192 l -0.922,-2.394 h -3.304 l -0.868,2.394 z m 2.281,-3.246 h 2.676 l -0.824,-2.187 c -0.254,-0.66 -0.442,-1.207 -0.559,-1.641 -0.105,0.512 -0.246,1.016 -0.426,1.512 z"
          style="fill:#f8756b;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9124"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 205.051,209.512 0.953,0.125 c -0.106,0.66 -0.371,1.176 -0.801,1.543 -0.43,0.375 -0.957,0.558 -1.582,0.558 -0.785,0 -1.418,-0.254 -1.891,-0.765 -0.48,-0.512 -0.718,-1.246 -0.714,-2.203 -0.004,-0.618 0.101,-1.161 0.308,-1.625 0.203,-0.461 0.512,-0.809 0.934,-1.043 0.414,-0.231 0.871,-0.344 1.367,-0.348 0.621,0.004 1.129,0.16 1.527,0.473 0.391,0.316 0.645,0.761 0.758,1.339 l -0.941,0.145 c -0.094,-0.379 -0.254,-0.668 -0.481,-0.863 -0.226,-0.192 -0.504,-0.289 -0.824,-0.293 -0.492,0.004 -0.887,0.179 -1.191,0.527 -0.305,0.352 -0.457,0.906 -0.457,1.66 0,0.774 0.144,1.332 0.441,1.676 0.289,0.352 0.676,0.523 1.152,0.523 0.379,0 0.696,-0.117 0.954,-0.351 0.253,-0.235 0.417,-0.594 0.488,-1.078 z"
          style="fill:#f8756b;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9126"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 206.84,204.824 v -1.117 h 0.969 v 1.117 z m 0,6.785 v -5.726 h 0.969 v 5.726 z"
          style="fill:#f8756b;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9128"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 159.039,219.832 1.047,0.262 c -0.219,0.859 -0.613,1.515 -1.184,1.965 -0.57,0.449 -1.265,0.671 -2.086,0.675 -0.855,-0.004 -1.55,-0.175 -2.082,-0.519 -0.535,-0.344 -0.941,-0.844 -1.214,-1.504 -0.282,-0.656 -0.418,-1.363 -0.418,-2.121 0,-0.82 0.156,-1.539 0.468,-2.152 0.313,-0.61 0.758,-1.075 1.344,-1.395 0.578,-0.32 1.219,-0.48 1.918,-0.48 0.785,0 1.449,0.203 1.992,0.605 0.535,0.406 0.91,0.973 1.129,1.699 l -1.031,0.242 c -0.188,-0.57 -0.453,-0.988 -0.797,-1.254 -0.352,-0.257 -0.789,-0.39 -1.316,-0.394 -0.61,0.004 -1.118,0.148 -1.524,0.437 -0.41,0.29 -0.695,0.68 -0.859,1.172 -0.164,0.493 -0.246,1 -0.246,1.516 0,0.676 0.097,1.262 0.293,1.762 0.195,0.504 0.5,0.879 0.914,1.121 0.414,0.25 0.859,0.371 1.34,0.371 0.582,0 1.078,-0.168 1.488,-0.504 0.402,-0.336 0.676,-0.836 0.824,-1.504 z"
          style="fill:#de8a00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9130"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 164.988,221.895 c -0.359,0.308 -0.707,0.523 -1.039,0.648 -0.336,0.125 -0.691,0.187 -1.07,0.187 -0.629,0 -1.113,-0.152 -1.449,-0.46 -0.34,-0.305 -0.508,-0.696 -0.508,-1.176 0,-0.278 0.062,-0.535 0.191,-0.77 0.125,-0.23 0.293,-0.418 0.5,-0.558 0.207,-0.141 0.438,-0.246 0.7,-0.317 0.187,-0.051 0.476,-0.097 0.863,-0.148 0.781,-0.086 1.359,-0.199 1.73,-0.332 0,-0.133 0,-0.215 0.004,-0.254 -0.004,-0.391 -0.094,-0.672 -0.273,-0.836 -0.25,-0.219 -0.621,-0.328 -1.106,-0.328 -0.461,0 -0.797,0.082 -1.011,0.242 -0.219,0.16 -0.379,0.441 -0.481,0.848 l -0.949,-0.129 c 0.082,-0.407 0.223,-0.735 0.426,-0.985 0.195,-0.25 0.48,-0.441 0.855,-0.578 0.371,-0.133 0.805,-0.199 1.301,-0.203 0.484,0.004 0.883,0.063 1.191,0.176 0.301,0.117 0.524,0.262 0.672,0.433 0.141,0.18 0.242,0.399 0.305,0.661 0.027,0.168 0.043,0.464 0.047,0.894 v 1.293 c -0.004,0.906 0.019,1.477 0.062,1.711 0.039,0.242 0.121,0.469 0.246,0.688 h -1.015 c -0.102,-0.2 -0.164,-0.434 -0.192,-0.707 z m -0.082,-2.168 c -0.351,0.148 -0.883,0.269 -1.586,0.367 -0.402,0.058 -0.683,0.125 -0.847,0.195 -0.168,0.074 -0.297,0.18 -0.383,0.316 -0.094,0.141 -0.137,0.293 -0.133,0.461 -0.004,0.258 0.094,0.477 0.293,0.649 0.191,0.176 0.477,0.262 0.859,0.258 0.371,0.004 0.704,-0.078 0.996,-0.246 0.29,-0.161 0.504,-0.387 0.645,-0.672 0.102,-0.219 0.156,-0.539 0.156,-0.969 z"
          style="fill:#de8a00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9132"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 167.383,222.602 v -5.727 h 0.871 v 0.871 c 0.219,-0.402 0.426,-0.672 0.617,-0.805 0.188,-0.128 0.395,-0.191 0.621,-0.195 0.324,0.004 0.656,0.106 1,0.313 l -0.336,0.902 c -0.238,-0.141 -0.476,-0.211 -0.711,-0.211 -0.215,0 -0.406,0.066 -0.57,0.191 -0.172,0.133 -0.293,0.309 -0.363,0.532 -0.11,0.347 -0.16,0.726 -0.16,1.132 v 2.997 z"
          style="fill:#de8a00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9134"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 130.832,76.965 1.047,0.262 c -0.219,0.859 -0.613,1.515 -1.184,1.964 -0.57,0.45 -1.265,0.672 -2.086,0.676 -0.855,-0.004 -1.55,-0.176 -2.082,-0.519 -0.535,-0.344 -0.941,-0.844 -1.214,-1.504 -0.282,-0.656 -0.418,-1.364 -0.418,-2.121 0,-0.821 0.156,-1.539 0.468,-2.153 0.313,-0.609 0.758,-1.074 1.344,-1.394 0.578,-0.321 1.219,-0.481 1.918,-0.481 0.785,0 1.449,0.203 1.992,0.606 0.535,0.406 0.91,0.972 1.129,1.699 l -1.031,0.242 c -0.188,-0.57 -0.453,-0.988 -0.797,-1.254 -0.352,-0.258 -0.789,-0.39 -1.316,-0.394 -0.61,0.004 -1.118,0.148 -1.524,0.437 -0.41,0.289 -0.695,0.68 -0.859,1.172 -0.164,0.492 -0.246,1 -0.246,1.516 0,0.676 0.097,1.261 0.293,1.761 0.195,0.504 0.5,0.879 0.914,1.122 0.414,0.25 0.859,0.371 1.34,0.371 0.582,0 1.078,-0.168 1.488,-0.504 0.402,-0.336 0.676,-0.836 0.824,-1.504 z"
          style="fill:#b59e00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9136"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 136.965,77.891 1,0.125 c -0.16,0.589 -0.453,1.043 -0.879,1.363 -0.43,0.324 -0.977,0.484 -1.637,0.484 -0.84,0 -1.504,-0.258 -1.996,-0.773 -0.492,-0.516 -0.738,-1.238 -0.734,-2.168 -0.004,-0.961 0.242,-1.707 0.742,-2.242 0.492,-0.532 1.137,-0.797 1.934,-0.801 0.761,0.004 1.386,0.266 1.875,0.785 0.48,0.524 0.722,1.254 0.726,2.195 -0.004,0.063 -0.004,0.149 -0.004,0.262 h -4.269 c 0.035,0.629 0.211,1.113 0.535,1.445 0.316,0.336 0.715,0.5 1.195,0.5 0.352,0 0.656,-0.093 0.91,-0.281 0.25,-0.187 0.45,-0.484 0.602,-0.894 z m -3.188,-1.571 h 3.196 c -0.043,-0.476 -0.164,-0.836 -0.368,-1.082 -0.308,-0.367 -0.71,-0.554 -1.199,-0.558 -0.449,0.004 -0.824,0.152 -1.125,0.449 -0.308,0.297 -0.476,0.695 -0.504,1.191 z"
          style="fill:#b59e00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9138"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 139.184,79.734 v -5.726 h 0.875 v 0.816 c 0.414,-0.629 1.023,-0.941 1.82,-0.945 0.344,0.004 0.66,0.066 0.953,0.187 0.285,0.129 0.5,0.289 0.648,0.489 0.141,0.203 0.243,0.441 0.301,0.715 0.035,0.179 0.055,0.496 0.055,0.945 v 3.519 h -0.969 v -3.48 c -0.004,-0.395 -0.043,-0.688 -0.113,-0.887 -0.078,-0.195 -0.211,-0.351 -0.402,-0.469 -0.196,-0.113 -0.422,-0.171 -0.676,-0.175 -0.418,0.004 -0.774,0.132 -1.071,0.394 -0.3,0.262 -0.449,0.762 -0.449,1.492 v 3.125 z"
          style="fill:#b59e00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9140"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 172.781,444.559 1.047,0.261 c -0.219,0.86 -0.613,1.516 -1.183,1.965 -0.571,0.449 -1.266,0.672 -2.086,0.676 -0.856,-0.004 -1.551,-0.176 -2.082,-0.52 -0.536,-0.343 -0.942,-0.843 -1.215,-1.503 -0.282,-0.657 -0.418,-1.364 -0.418,-2.122 0,-0.82 0.156,-1.539 0.469,-2.152 0.312,-0.609 0.757,-1.074 1.343,-1.394 0.578,-0.321 1.219,-0.481 1.918,-0.481 0.785,0 1.449,0.203 1.992,0.606 0.536,0.406 0.911,0.972 1.129,1.699 l -1.031,0.242 c -0.187,-0.57 -0.453,-0.988 -0.797,-1.254 -0.351,-0.258 -0.789,-0.391 -1.316,-0.394 -0.61,0.003 -1.117,0.148 -1.524,0.437 -0.41,0.289 -0.695,0.68 -0.859,1.172 -0.164,0.492 -0.246,1 -0.246,1.516 0,0.675 0.098,1.261 0.293,1.761 0.195,0.504 0.5,0.879 0.914,1.121 0.414,0.25 0.859,0.371 1.34,0.371 0.582,0 1.078,-0.168 1.488,-0.503 0.402,-0.336 0.676,-0.836 0.824,-1.504 z"
          style="fill:#7aae00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9142"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 174.973,439.426 h 0.969 v 7.902 h -0.969 z"
          style="fill:#7aae00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9144"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 181.199,447.328 v -0.84 c -0.449,0.649 -1.054,0.969 -1.816,0.969 -0.34,0 -0.656,-0.062 -0.949,-0.191 -0.293,-0.129 -0.512,-0.293 -0.653,-0.489 -0.144,-0.195 -0.242,-0.433 -0.297,-0.722 -0.043,-0.188 -0.062,-0.492 -0.058,-0.907 v -3.546 h 0.969 v 3.175 c 0,0.512 0.019,0.852 0.058,1.024 0.063,0.258 0.192,0.457 0.391,0.601 0.195,0.149 0.437,0.223 0.73,0.219 0.289,0.004 0.563,-0.07 0.821,-0.223 0.25,-0.144 0.433,-0.347 0.543,-0.609 0.105,-0.254 0.156,-0.625 0.16,-1.117 v -3.07 h 0.968 v 5.726 z"
          style="fill:#7aae00;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9146"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 233.332,165.656 1.047,0.262 c -0.219,0.859 -0.613,1.516 -1.184,1.965 -0.57,0.449 -1.265,0.672 -2.086,0.676 -0.855,-0.004 -1.55,-0.176 -2.082,-0.52 -0.535,-0.344 -0.941,-0.844 -1.214,-1.504 -0.282,-0.656 -0.418,-1.363 -0.418,-2.121 0,-0.82 0.156,-1.539 0.468,-2.152 0.313,-0.61 0.758,-1.074 1.344,-1.395 0.578,-0.32 1.219,-0.48 1.918,-0.48 0.785,0 1.449,0.203 1.992,0.605 0.535,0.406 0.91,0.973 1.129,1.699 l -1.031,0.243 c -0.188,-0.571 -0.453,-0.989 -0.797,-1.254 -0.352,-0.258 -0.789,-0.391 -1.316,-0.395 -0.61,0.004 -1.118,0.149 -1.524,0.438 -0.41,0.289 -0.695,0.679 -0.859,1.172 -0.164,0.492 -0.246,1 -0.246,1.515 0,0.676 0.097,1.262 0.293,1.762 0.195,0.504 0.5,0.879 0.914,1.121 0.414,0.25 0.859,0.371 1.34,0.371 0.582,0 1.078,-0.168 1.488,-0.504 0.402,-0.336 0.676,-0.836 0.824,-1.504 z"
          style="fill:#00b835;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9148"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 235.5,170.629 -0.105,-0.91 c 0.207,0.054 0.39,0.082 0.554,0.086 0.211,-0.004 0.383,-0.039 0.516,-0.11 0.125,-0.074 0.234,-0.175 0.32,-0.3 0.059,-0.102 0.156,-0.34 0.297,-0.723 0.012,-0.055 0.039,-0.133 0.086,-0.234 l -2.172,-5.739 h 1.043 l 1.191,3.317 c 0.157,0.425 0.293,0.867 0.415,1.328 0.109,-0.442 0.242,-0.875 0.402,-1.305 l 1.223,-3.34 h 0.968 l -2.175,5.824 c -0.235,0.625 -0.418,1.059 -0.547,1.297 -0.176,0.321 -0.375,0.555 -0.594,0.703 -0.227,0.149 -0.492,0.223 -0.797,0.227 -0.187,-0.004 -0.395,-0.043 -0.625,-0.121 z"
          style="fill:#00b835;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9150"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 241.063,170.621 v -7.922 h 0.886 v 0.746 c 0.203,-0.289 0.438,-0.507 0.703,-0.656 0.258,-0.144 0.578,-0.215 0.957,-0.219 0.485,0.004 0.914,0.129 1.289,0.379 0.372,0.254 0.653,0.61 0.848,1.067 0.188,0.457 0.285,0.957 0.289,1.504 -0.004,0.585 -0.109,1.113 -0.316,1.582 -0.215,0.468 -0.52,0.828 -0.918,1.078 -0.403,0.25 -0.824,0.375 -1.262,0.375 -0.328,0 -0.621,-0.067 -0.875,-0.203 -0.258,-0.137 -0.465,-0.309 -0.629,-0.52 v 2.789 z m 0.878,-5.023 c 0,0.738 0.149,1.281 0.446,1.632 0.297,0.352 0.656,0.528 1.086,0.528 0.429,0 0.8,-0.18 1.109,-0.547 0.305,-0.359 0.457,-0.926 0.461,-1.695 -0.004,-0.727 -0.152,-1.274 -0.453,-1.637 -0.301,-0.363 -0.66,-0.543 -1.074,-0.547 -0.418,0.004 -0.786,0.195 -1.098,0.582 -0.32,0.387 -0.477,0.949 -0.477,1.684 z"
          style="fill:#00b835;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9152"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 52.035,276.441 v -0.929 l 3.348,-0.004 v 2.93 c -0.516,0.414 -1.047,0.722 -1.594,0.925 -0.547,0.203 -1.109,0.305 -1.68,0.309 -0.781,-0.004 -1.484,-0.168 -2.117,-0.496 -0.633,-0.332 -1.113,-0.813 -1.437,-1.442 -0.325,-0.629 -0.485,-1.332 -0.485,-2.109 0,-0.766 0.16,-1.48 0.481,-2.152 0.32,-0.664 0.781,-1.16 1.39,-1.485 0.602,-0.324 1.297,-0.488 2.086,-0.488 0.571,0 1.09,0.094 1.551,0.281 0.461,0.188 0.82,0.446 1.086,0.774 0.258,0.332 0.457,0.765 0.598,1.293 l -0.942,0.257 c -0.121,-0.398 -0.269,-0.714 -0.445,-0.949 -0.176,-0.226 -0.426,-0.41 -0.754,-0.551 -0.328,-0.132 -0.691,-0.203 -1.086,-0.207 -0.48,0.004 -0.894,0.079 -1.242,0.219 -0.352,0.149 -0.633,0.336 -0.844,0.571 -0.215,0.238 -0.379,0.5 -0.496,0.785 -0.203,0.488 -0.305,1.019 -0.305,1.59 0,0.707 0.122,1.296 0.364,1.765 0.242,0.477 0.593,0.828 1.062,1.059 0.461,0.23 0.953,0.343 1.477,0.343 0.449,0 0.89,-0.085 1.324,-0.261 0.43,-0.172 0.758,-0.36 0.98,-0.559 v -1.469 z"
          style="fill:#00bf8a;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9154"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 60.535,278.832 c -0.359,0.309 -0.707,0.523 -1.039,0.648 -0.336,0.125 -0.691,0.188 -1.07,0.188 -0.629,0 -1.113,-0.152 -1.449,-0.461 -0.34,-0.305 -0.508,-0.695 -0.508,-1.176 0,-0.277 0.062,-0.535 0.191,-0.769 0.125,-0.231 0.293,-0.418 0.5,-0.559 0.207,-0.14 0.438,-0.246 0.699,-0.316 0.188,-0.051 0.477,-0.098 0.864,-0.149 0.781,-0.086 1.359,-0.199 1.73,-0.332 0,-0.133 0,-0.215 0.004,-0.254 -0.004,-0.39 -0.094,-0.672 -0.273,-0.836 -0.25,-0.218 -0.621,-0.328 -1.106,-0.328 -0.461,0 -0.797,0.082 -1.012,0.242 -0.218,0.161 -0.378,0.442 -0.48,0.848 l -0.949,-0.129 c 0.082,-0.406 0.222,-0.734 0.426,-0.984 0.195,-0.25 0.48,-0.442 0.855,-0.578 0.371,-0.133 0.805,-0.199 1.301,-0.203 0.484,0.004 0.883,0.062 1.191,0.175 0.301,0.118 0.524,0.262 0.672,0.434 0.141,0.18 0.242,0.398 0.305,0.66 0.027,0.168 0.043,0.465 0.047,0.895 v 1.293 c -0.004,0.906 0.019,1.476 0.062,1.711 0.039,0.242 0.121,0.468 0.246,0.687 h -1.015 c -0.102,-0.199 -0.164,-0.434 -0.192,-0.707 z m -0.082,-2.168 c -0.351,0.149 -0.883,0.27 -1.586,0.367 -0.402,0.059 -0.683,0.125 -0.847,0.196 -0.168,0.074 -0.297,0.179 -0.383,0.316 -0.094,0.141 -0.137,0.293 -0.133,0.461 -0.004,0.258 0.094,0.476 0.293,0.648 0.191,0.176 0.476,0.262 0.859,0.258 0.371,0.004 0.703,-0.078 0.996,-0.246 0.289,-0.16 0.504,-0.387 0.645,-0.672 0.101,-0.219 0.156,-0.539 0.156,-0.969 z"
          style="fill:#00bf8a;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9156"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 66.652,279.539 v -0.723 c -0.363,0.571 -0.898,0.852 -1.601,0.852 -0.457,0 -0.875,-0.125 -1.258,-0.375 -0.383,-0.25 -0.68,-0.602 -0.891,-1.055 -0.211,-0.449 -0.316,-0.965 -0.312,-1.554 -0.004,-0.571 0.09,-1.09 0.285,-1.555 0.188,-0.465 0.473,-0.82 0.855,-1.07 0.375,-0.246 0.801,-0.371 1.278,-0.375 0.344,0.004 0.652,0.074 0.922,0.218 0.269,0.149 0.488,0.34 0.66,0.571 v -2.836 h 0.965 v 7.902 z m -3.066,-2.855 c -0.004,0.734 0.148,1.281 0.461,1.644 0.305,0.363 0.672,0.543 1.098,0.543 0.421,0 0.781,-0.172 1.078,-0.519 0.293,-0.344 0.441,-0.875 0.445,-1.59 -0.004,-0.782 -0.156,-1.356 -0.453,-1.723 -0.305,-0.367 -0.676,-0.551 -1.113,-0.551 -0.438,0 -0.797,0.176 -1.082,0.528 -0.293,0.351 -0.438,0.91 -0.434,1.668 z"
          style="fill:#00bf8a;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9158"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 194.352,286.473 v -7.903 h 2.98 c 0.523,0.004 0.922,0.028 1.203,0.075 0.383,0.066 0.707,0.191 0.973,0.371 0.258,0.183 0.469,0.437 0.633,0.765 0.156,0.328 0.238,0.688 0.242,1.074 -0.004,0.676 -0.219,1.247 -0.641,1.708 -0.429,0.468 -1.199,0.699 -2.316,0.699 h -2.028 v 3.211 z m 1.046,-4.145 h 2.043 c 0.672,0.004 1.153,-0.121 1.438,-0.375 0.281,-0.25 0.422,-0.605 0.426,-1.066 -0.004,-0.328 -0.086,-0.614 -0.25,-0.848 -0.168,-0.234 -0.391,-0.387 -0.66,-0.465 -0.18,-0.043 -0.504,-0.066 -0.977,-0.07 h -2.02 z"
          style="fill:#00bdc2;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9160"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 205.512,284.629 1,0.125 c -0.16,0.59 -0.453,1.043 -0.879,1.363 -0.43,0.324 -0.977,0.485 -1.637,0.485 -0.84,0 -1.504,-0.258 -1.996,-0.774 -0.492,-0.515 -0.738,-1.238 -0.734,-2.168 -0.004,-0.961 0.242,-1.707 0.742,-2.242 0.492,-0.531 1.137,-0.797 1.933,-0.801 0.762,0.004 1.387,0.266 1.875,0.785 0.481,0.524 0.723,1.254 0.727,2.196 -0.004,0.062 -0.004,0.148 -0.004,0.261 h -4.269 c 0.035,0.629 0.21,1.114 0.535,1.446 0.316,0.336 0.715,0.5 1.195,0.5 0.352,0 0.656,-0.094 0.91,-0.282 0.25,-0.187 0.449,-0.484 0.602,-0.894 z m -3.188,-1.57 h 3.196 c -0.043,-0.477 -0.165,-0.836 -0.368,-1.082 -0.308,-0.368 -0.711,-0.555 -1.199,-0.559 -0.449,0.004 -0.824,0.152 -1.125,0.449 -0.308,0.297 -0.476,0.696 -0.504,1.192 z"
          style="fill:#00bdc2;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9162"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 207.723,286.473 v -5.727 h 0.871 v 0.871 c 0.219,-0.402 0.426,-0.672 0.617,-0.804 0.187,-0.129 0.394,-0.192 0.621,-0.196 0.324,0.004 0.656,0.106 1,0.313 l -0.336,0.902 c -0.238,-0.141 -0.476,-0.211 -0.711,-0.211 -0.215,0 -0.406,0.067 -0.57,0.192 -0.172,0.132 -0.293,0.308 -0.363,0.531 -0.11,0.347 -0.161,0.726 -0.161,1.133 v 2.996 z"
          style="fill:#00bdc2;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9164"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 91.57,367.406 v -7.902 h 2.981 c 0.523,0.004 0.922,0.027 1.203,0.074 0.383,0.067 0.707,0.192 0.973,0.371 0.257,0.184 0.468,0.438 0.632,0.766 0.157,0.328 0.239,0.687 0.243,1.074 -0.004,0.676 -0.219,1.246 -0.641,1.707 -0.43,0.469 -1.199,0.699 -2.316,0.699 h -2.028 v 3.211 z m 1.047,-4.144 h 2.043 c 0.672,0.004 1.153,-0.121 1.438,-0.375 0.281,-0.25 0.422,-0.606 0.425,-1.067 -0.003,-0.328 -0.085,-0.613 -0.25,-0.847 -0.168,-0.235 -0.39,-0.387 -0.66,-0.465 -0.179,-0.043 -0.504,-0.067 -0.976,-0.07 h -2.02 z"
          style="fill:#00b3f0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9166"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 98.789,359.504 h 0.969 v 7.902 h -0.969 z"
          style="fill:#00b3f0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9168"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 105.184,365.563 1,0.125 c -0.161,0.589 -0.454,1.042 -0.879,1.363 -0.43,0.324 -0.977,0.484 -1.637,0.484 -0.84,0 -1.504,-0.258 -1.996,-0.773 -0.492,-0.516 -0.738,-1.239 -0.734,-2.168 -0.004,-0.961 0.242,-1.707 0.742,-2.242 0.492,-0.532 1.136,-0.797 1.933,-0.801 0.762,0.004 1.387,0.265 1.875,0.785 0.481,0.523 0.723,1.254 0.727,2.195 -0.004,0.063 -0.004,0.149 -0.004,0.262 h -4.27 c 0.036,0.629 0.211,1.113 0.536,1.445 0.316,0.336 0.714,0.5 1.195,0.5 0.351,0 0.656,-0.093 0.91,-0.281 0.25,-0.187 0.449,-0.484 0.602,-0.894 z m -3.188,-1.571 h 3.195 c -0.043,-0.476 -0.164,-0.836 -0.367,-1.082 -0.308,-0.367 -0.711,-0.555 -1.199,-0.558 -0.449,0.003 -0.824,0.152 -1.125,0.449 -0.309,0.297 -0.477,0.695 -0.504,1.191 z"
          style="fill:#00b3f0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9170"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 93.414,355.34 0.984,-0.086 c 0.043,0.398 0.153,0.723 0.329,0.973 0.168,0.253 0.433,0.461 0.796,0.613 0.356,0.16 0.758,0.238 1.211,0.234 0.395,0.004 0.746,-0.054 1.055,-0.176 0.305,-0.117 0.535,-0.281 0.684,-0.488 0.148,-0.203 0.222,-0.43 0.222,-0.676 0,-0.246 -0.074,-0.461 -0.215,-0.648 -0.148,-0.184 -0.382,-0.34 -0.71,-0.469 -0.211,-0.082 -0.68,-0.211 -1.407,-0.383 -0.726,-0.171 -1.238,-0.336 -1.527,-0.496 -0.383,-0.195 -0.664,-0.441 -0.844,-0.734 -0.187,-0.293 -0.277,-0.621 -0.277,-0.984 0,-0.399 0.113,-0.77 0.34,-1.118 0.226,-0.347 0.554,-0.613 0.992,-0.793 0.43,-0.179 0.914,-0.269 1.449,-0.269 0.582,0 1.098,0.098 1.551,0.285 0.445,0.191 0.789,0.469 1.031,0.832 0.238,0.371 0.371,0.785 0.391,1.246 l -1.004,0.074 c -0.059,-0.5 -0.242,-0.875 -0.547,-1.132 -0.313,-0.25 -0.77,-0.379 -1.379,-0.383 -0.633,0.004 -1.094,0.121 -1.383,0.347 -0.289,0.235 -0.433,0.512 -0.433,0.84 0,0.285 0.101,0.52 0.308,0.699 0.199,0.188 0.723,0.375 1.574,0.567 0.848,0.191 1.434,0.359 1.75,0.504 0.461,0.211 0.801,0.48 1.02,0.804 0.219,0.329 0.328,0.704 0.328,1.125 0,0.422 -0.121,0.817 -0.363,1.188 -0.242,0.375 -0.59,0.664 -1.035,0.867 -0.453,0.203 -0.961,0.305 -1.524,0.309 -0.718,-0.004 -1.316,-0.106 -1.797,-0.313 -0.484,-0.207 -0.863,-0.519 -1.136,-0.937 -0.278,-0.418 -0.422,-0.891 -0.434,-1.422 z"
          style="fill:#619cff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9172"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 104.746,357.172 c -0.359,0.308 -0.707,0.523 -1.039,0.648 -0.336,0.125 -0.691,0.188 -1.07,0.188 -0.629,0 -1.114,-0.153 -1.449,-0.461 -0.34,-0.305 -0.508,-0.695 -0.508,-1.176 0,-0.277 0.062,-0.535 0.191,-0.769 0.125,-0.231 0.293,-0.418 0.5,-0.559 0.207,-0.141 0.438,-0.246 0.699,-0.316 0.188,-0.051 0.477,-0.098 0.864,-0.149 0.781,-0.086 1.359,-0.199 1.73,-0.332 0,-0.133 0,-0.215 0.004,-0.254 -0.004,-0.39 -0.094,-0.672 -0.273,-0.836 -0.25,-0.218 -0.622,-0.328 -1.106,-0.328 -0.461,0 -0.797,0.082 -1.012,0.242 -0.218,0.16 -0.379,0.442 -0.48,0.848 l -0.949,-0.129 c 0.082,-0.406 0.222,-0.734 0.425,-0.984 0.196,-0.25 0.481,-0.442 0.856,-0.578 0.371,-0.133 0.805,-0.2 1.301,-0.204 0.484,0.004 0.883,0.063 1.191,0.176 0.301,0.117 0.524,0.262 0.672,0.434 0.141,0.18 0.242,0.398 0.305,0.66 0.027,0.168 0.043,0.465 0.047,0.895 v 1.292 c -0.004,0.907 0.019,1.477 0.062,1.711 0.039,0.243 0.121,0.469 0.246,0.688 h -1.015 c -0.102,-0.199 -0.165,-0.434 -0.192,-0.707 z m -0.082,-2.168 c -0.351,0.148 -0.883,0.269 -1.586,0.367 -0.402,0.059 -0.683,0.125 -0.848,0.195 -0.167,0.075 -0.296,0.18 -0.382,0.317 -0.094,0.14 -0.137,0.293 -0.133,0.461 -0.004,0.258 0.094,0.476 0.293,0.648 0.191,0.176 0.476,0.262 0.859,0.258 0.371,0.004 0.703,-0.078 0.996,-0.246 0.289,-0.16 0.504,-0.387 0.645,-0.672 0.101,-0.219 0.156,-0.539 0.156,-0.969 z"
          style="fill:#619cff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9174"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 107.129,349.977 h 0.969 v 7.902 h -0.969 z"
          style="fill:#619cff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9176"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 311.523,136.102 0.985,-0.086 c 0.043,0.398 0.152,0.722 0.328,0.972 0.168,0.254 0.434,0.461 0.797,0.614 0.355,0.16 0.758,0.238 1.211,0.234 0.394,0.004 0.746,-0.055 1.054,-0.176 0.305,-0.117 0.536,-0.281 0.684,-0.488 0.148,-0.203 0.223,-0.43 0.223,-0.676 0,-0.246 -0.075,-0.461 -0.215,-0.648 -0.149,-0.184 -0.383,-0.34 -0.711,-0.469 -0.211,-0.082 -0.68,-0.211 -1.406,-0.383 -0.727,-0.172 -1.239,-0.336 -1.528,-0.496 -0.382,-0.195 -0.664,-0.441 -0.843,-0.734 -0.188,-0.293 -0.278,-0.621 -0.278,-0.985 0,-0.398 0.114,-0.769 0.34,-1.117 0.227,-0.348 0.555,-0.613 0.992,-0.793 0.43,-0.18 0.914,-0.269 1.449,-0.269 0.583,0 1.098,0.097 1.551,0.285 0.446,0.191 0.789,0.468 1.032,0.832 0.238,0.371 0.371,0.785 0.39,1.246 l -1.004,0.074 c -0.058,-0.5 -0.242,-0.875 -0.547,-1.133 -0.312,-0.25 -0.769,-0.379 -1.379,-0.383 -0.632,0.004 -1.093,0.122 -1.382,0.348 -0.289,0.234 -0.434,0.512 -0.434,0.84 0,0.285 0.102,0.519 0.309,0.699 0.199,0.188 0.722,0.375 1.574,0.567 0.848,0.191 1.433,0.359 1.75,0.503 0.461,0.211 0.801,0.481 1.019,0.805 0.219,0.328 0.329,0.703 0.329,1.125 0,0.422 -0.122,0.817 -0.364,1.188 -0.242,0.375 -0.59,0.664 -1.035,0.867 -0.453,0.203 -0.961,0.305 -1.523,0.308 -0.719,-0.003 -1.317,-0.105 -1.797,-0.312 -0.485,-0.207 -0.864,-0.52 -1.137,-0.938 -0.277,-0.418 -0.422,-0.89 -0.434,-1.421 z"
          style="fill:#c77aff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9178"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 322.855,136.543 0.954,0.125 c -0.106,0.66 -0.371,1.176 -0.801,1.543 -0.43,0.375 -0.957,0.559 -1.582,0.559 -0.785,0 -1.418,-0.254 -1.891,-0.766 -0.48,-0.512 -0.719,-1.246 -0.715,-2.203 -0.004,-0.617 0.102,-1.16 0.309,-1.625 0.203,-0.461 0.512,-0.809 0.934,-1.043 0.414,-0.231 0.871,-0.344 1.367,-0.348 0.621,0.004 1.129,0.16 1.527,0.473 0.391,0.316 0.645,0.762 0.758,1.34 l -0.942,0.144 c -0.093,-0.379 -0.253,-0.668 -0.48,-0.863 -0.227,-0.191 -0.504,-0.289 -0.824,-0.293 -0.492,0.004 -0.887,0.18 -1.192,0.527 -0.304,0.352 -0.457,0.907 -0.457,1.66 0,0.774 0.145,1.332 0.442,1.676 0.289,0.352 0.676,0.524 1.152,0.524 0.379,0 0.695,-0.118 0.953,-0.352 0.254,-0.234 0.418,-0.594 0.488,-1.078 z"
          style="fill:#c77aff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9180"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 324.277,135.777 c -0.004,-1.058 0.289,-1.843 0.883,-2.355 0.488,-0.422 1.09,-0.633 1.801,-0.637 0.785,0.004 1.43,0.262 1.93,0.774 0.5,0.519 0.75,1.23 0.75,2.14 0,0.735 -0.114,1.317 -0.332,1.739 -0.227,0.425 -0.547,0.753 -0.965,0.984 -0.426,0.234 -0.887,0.348 -1.383,0.348 -0.805,0 -1.453,-0.254 -1.945,-0.77 -0.496,-0.512 -0.743,-1.254 -0.739,-2.223 z m 0.996,0 c -0.003,0.739 0.157,1.289 0.481,1.649 0.316,0.367 0.719,0.547 1.207,0.547 0.48,0 0.883,-0.184 1.203,-0.551 0.32,-0.367 0.481,-0.926 0.481,-1.676 0,-0.707 -0.165,-1.242 -0.485,-1.609 -0.324,-0.364 -0.722,-0.547 -1.199,-0.547 -0.488,0 -0.891,0.183 -1.207,0.547 -0.324,0.363 -0.484,0.91 -0.481,1.64 z"
          style="fill:#c77aff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9182"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 361.11583,47.176 0.985,-0.086 c 0.043,0.398 0.152,0.723 0.328,0.973 0.168,0.253 0.434,0.46 0.797,0.613 0.355,0.16 0.758,0.238 1.211,0.234 0.394,0.004 0.746,-0.055 1.054,-0.176 0.305,-0.117 0.536,-0.281 0.684,-0.488 0.148,-0.203 0.223,-0.43 0.223,-0.676 0,-0.246 -0.075,-0.461 -0.215,-0.648 -0.149,-0.184 -0.383,-0.34 -0.711,-0.469 -0.211,-0.082 -0.68,-0.211 -1.406,-0.383 -0.727,-0.172 -1.239,-0.336 -1.528,-0.496 -0.383,-0.195 -0.664,-0.441 -0.843,-0.734 -0.188,-0.293 -0.278,-0.621 -0.278,-0.985 0,-0.398 0.113,-0.769 0.34,-1.117 0.227,-0.347 0.555,-0.613 0.992,-0.793 0.43,-0.179 0.914,-0.269 1.449,-0.269 0.582,0 1.098,0.097 1.551,0.285 0.446,0.191 0.789,0.469 1.031,0.832 0.239,0.371 0.372,0.785 0.391,1.246 l -1.004,0.074 c -0.058,-0.5 -0.242,-0.875 -0.547,-1.133 -0.312,-0.25 -0.769,-0.378 -1.379,-0.382 -0.632,0.004 -1.093,0.121 -1.382,0.347 -0.289,0.235 -0.434,0.512 -0.434,0.84 0,0.285 0.102,0.52 0.309,0.699 0.199,0.188 0.722,0.375 1.574,0.567 0.847,0.191 1.433,0.359 1.75,0.504 0.461,0.211 0.801,0.48 1.019,0.804 0.219,0.329 0.328,0.704 0.328,1.125 0,0.422 -0.121,0.817 -0.363,1.188 -0.242,0.375 -0.59,0.664 -1.035,0.867 -0.453,0.203 -0.961,0.305 -1.523,0.309 -0.719,-0.004 -1.317,-0.106 -1.797,-0.313 -0.485,-0.207 -0.864,-0.519 -1.137,-0.937 -0.277,-0.418 -0.422,-0.891 -0.434,-1.422 z"
          style="fill:#f563e3;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9184"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 368.71783,42.93 v -1.117 h 0.969 v 1.117 z m 0,6.785 v -5.727 h 0.969 v 5.727 z"
          style="fill:#f563e3;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9186"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 370.98783,50.188 0.941,0.14 c 0.035,0.289 0.144,0.5 0.328,0.637 0.238,0.176 0.566,0.265 0.988,0.269 0.446,-0.004 0.793,-0.093 1.039,-0.269 0.243,-0.184 0.407,-0.434 0.496,-0.754 0.047,-0.199 0.071,-0.613 0.071,-1.246 -0.43,0.5 -0.957,0.75 -1.586,0.75 -0.789,0 -1.399,-0.281 -1.828,-0.852 -0.434,-0.562 -0.649,-1.246 -0.645,-2.043 -0.004,-0.547 0.094,-1.05 0.297,-1.511 0.195,-0.461 0.484,-0.817 0.859,-1.071 0.375,-0.25 0.817,-0.375 1.325,-0.379 0.672,0.004 1.226,0.278 1.672,0.821 v -0.692 h 0.894 v 4.95 c 0,0.894 -0.094,1.523 -0.273,1.894 -0.188,0.371 -0.473,0.664 -0.864,0.883 -0.394,0.211 -0.879,0.32 -1.453,0.324 -0.683,-0.004 -1.238,-0.156 -1.656,-0.461 -0.422,-0.308 -0.621,-0.773 -0.605,-1.39 z m 0.8,-3.438 c -0.004,0.75 0.145,1.301 0.446,1.645 0.296,0.347 0.671,0.519 1.125,0.515 0.441,0.004 0.816,-0.168 1.121,-0.512 0.3,-0.339 0.449,-0.878 0.453,-1.617 -0.004,-0.699 -0.16,-1.226 -0.469,-1.582 -0.312,-0.355 -0.684,-0.535 -1.121,-0.535 -0.434,0 -0.801,0.176 -1.102,0.527 -0.304,0.352 -0.457,0.872 -0.453,1.559 z"
          style="fill:#f563e3;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9188"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 245.66,20.219 0.985,-0.086 c 0.043,0.398 0.152,0.722 0.328,0.972 0.168,0.254 0.433,0.461 0.797,0.614 0.355,0.16 0.757,0.238 1.21,0.234 0.395,0.004 0.747,-0.055 1.055,-0.176 0.305,-0.117 0.535,-0.281 0.684,-0.488 0.148,-0.203 0.222,-0.43 0.222,-0.676 0,-0.246 -0.074,-0.461 -0.214,-0.648 -0.149,-0.184 -0.383,-0.34 -0.711,-0.469 -0.211,-0.082 -0.68,-0.211 -1.407,-0.383 -0.726,-0.172 -1.238,-0.336 -1.527,-0.496 -0.383,-0.195 -0.664,-0.441 -0.844,-0.734 -0.187,-0.293 -0.277,-0.621 -0.277,-0.985 0,-0.398 0.113,-0.769 0.34,-1.117 0.226,-0.347 0.554,-0.613 0.992,-0.793 0.43,-0.179 0.914,-0.269 1.449,-0.269 0.582,0 1.098,0.097 1.551,0.285 0.445,0.191 0.789,0.469 1.031,0.832 0.239,0.371 0.371,0.785 0.391,1.246 l -1.004,0.074 c -0.059,-0.5 -0.242,-0.875 -0.547,-1.133 -0.312,-0.25 -0.769,-0.378 -1.379,-0.382 -0.633,0.004 -1.094,0.121 -1.383,0.347 -0.289,0.235 -0.433,0.512 -0.433,0.84 0,0.285 0.101,0.52 0.308,0.699 0.2,0.188 0.723,0.375 1.575,0.567 0.847,0.191 1.433,0.359 1.75,0.504 0.461,0.211 0.8,0.48 1.019,0.804 0.219,0.328 0.328,0.703 0.328,1.125 0,0.422 -0.121,0.817 -0.363,1.188 -0.242,0.375 -0.59,0.664 -1.035,0.867 -0.453,0.203 -0.961,0.305 -1.524,0.309 -0.718,-0.004 -1.316,-0.106 -1.797,-0.313 -0.484,-0.207 -0.863,-0.519 -1.136,-0.937 -0.278,-0.418 -0.422,-0.891 -0.434,-1.422 z"
          style="fill:#ff63b0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9190"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 253.254,24.953 v -7.922 h 0.887 v 0.746 c 0.203,-0.289 0.437,-0.507 0.703,-0.656 0.258,-0.144 0.578,-0.215 0.957,-0.219 0.484,0.004 0.914,0.129 1.289,0.379 0.371,0.254 0.652,0.61 0.848,1.067 0.187,0.457 0.285,0.957 0.289,1.504 -0.004,0.586 -0.11,1.113 -0.317,1.582 -0.215,0.468 -0.519,0.828 -0.918,1.078 -0.402,0.25 -0.824,0.375 -1.262,0.375 -0.328,0 -0.621,-0.067 -0.875,-0.203 -0.257,-0.137 -0.464,-0.309 -0.628,-0.52 v 2.789 z m 0.879,-5.023 c 0,0.738 0.148,1.281 0.445,1.633 0.297,0.351 0.656,0.527 1.086,0.527 0.43,0 0.801,-0.18 1.109,-0.547 0.305,-0.359 0.457,-0.926 0.461,-1.695 -0.004,-0.727 -0.152,-1.274 -0.453,-1.637 -0.301,-0.363 -0.66,-0.543 -1.074,-0.547 -0.418,0.004 -0.785,0.195 -1.098,0.582 -0.32,0.387 -0.476,0.949 -0.476,1.684 z"
          style="fill:#ff63b0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9192"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 263.133,22.051 c -0.36,0.308 -0.707,0.523 -1.039,0.648 -0.336,0.125 -0.692,0.188 -1.071,0.188 -0.628,0 -1.113,-0.153 -1.449,-0.461 -0.34,-0.305 -0.508,-0.696 -0.508,-1.176 0,-0.277 0.063,-0.535 0.192,-0.77 0.125,-0.23 0.293,-0.417 0.5,-0.558 0.207,-0.141 0.437,-0.246 0.699,-0.317 0.188,-0.05 0.477,-0.097 0.863,-0.148 0.782,-0.086 1.36,-0.199 1.731,-0.332 0,-0.133 0,-0.215 0.004,-0.254 -0.004,-0.391 -0.094,-0.672 -0.274,-0.836 -0.25,-0.219 -0.621,-0.328 -1.105,-0.328 -0.461,0 -0.797,0.082 -1.012,0.242 -0.219,0.16 -0.379,0.442 -0.48,0.848 l -0.95,-0.129 c 0.082,-0.406 0.223,-0.734 0.426,-0.984 0.195,-0.25 0.481,-0.442 0.856,-0.579 0.371,-0.132 0.804,-0.199 1.3,-0.203 0.485,0.004 0.883,0.063 1.192,0.176 0.301,0.117 0.523,0.262 0.672,0.434 0.14,0.179 0.242,0.398 0.304,0.66 0.028,0.168 0.043,0.465 0.047,0.894 v 1.293 c -0.004,0.907 0.02,1.477 0.063,1.711 0.039,0.243 0.121,0.469 0.246,0.688 h -1.016 c -0.101,-0.199 -0.164,-0.434 -0.191,-0.707 z m -0.082,-2.168 c -0.352,0.148 -0.883,0.269 -1.586,0.367 -0.402,0.059 -0.684,0.125 -0.848,0.195 -0.168,0.075 -0.297,0.18 -0.383,0.317 -0.093,0.14 -0.136,0.293 -0.132,0.461 -0.004,0.257 0.093,0.476 0.293,0.648 0.191,0.176 0.476,0.262 0.859,0.258 0.371,0.004 0.703,-0.078 0.996,-0.246 0.289,-0.16 0.504,-0.387 0.645,-0.672 0.101,-0.219 0.156,-0.539 0.156,-0.969 z"
          style="fill:#ff63b0;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path9194"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)" />
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528218,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <g
          id="g9198"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="M 28.234,472.508 V 5.48"
            style="fill:none;stroke:#000000;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -433,18 +587,30 @@
       <path
          d="m 12.113767,100.88578 h -0.244652 v -1.558314 c -0.05911,0.0569 -0.135909,0.11254 -0.230743,0.169427 -0.0964,0.0566 -0.182699,0.0986 -0.258243,0.1258 v -0.235797 c 0.135909,-0.0629 0.255714,-0.14066 0.358125,-0.23327 0.10241,-0.0914 0.175429,-0.18049 0.218734,-0.266783 h 0.156774 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.316088"
-         id="path9202" />
+         id="path9202"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 12.477899,75.031135 v 0.234537 h -1.316188 c -0.0026,-0.05942 0.0073,-0.116001 0.02844,-0.170364 0.03319,-0.08914 0.08629,-0.176692 0.160564,-0.26425 0.0727,-0.0866 0.180169,-0.186491 0.320828,-0.30123 0.216205,-0.176694 0.36192,-0.317351 0.438413,-0.422293 0.07396,-0.102734 0.11221,-0.201347 0.113474,-0.293962 -0.0013,-0.0964 -0.03572,-0.177955 -0.103674,-0.244334 -0.07048,-0.06669 -0.160564,-0.100207 -0.270254,-0.100207 -0.118528,0 -0.212411,0.03572 -0.282898,0.1062 -0.07144,0.07048 -0.107463,0.167838 -0.107463,0.292696 l -0.250657,-0.02592 c 0.01605,-0.186491 0.08028,-0.328415 0.194078,-0.427351 0.110947,-0.09736 0.261719,-0.146973 0.451688,-0.148253 0.190285,0.0013 0.342007,0.05436 0.453269,0.159317 0.110947,0.106201 0.166574,0.237066 0.167838,0.392896 -0.0013,0.08124 -0.01738,0.158993 -0.04931,0.235802 -0.03224,0.07649 -0.0866,0.158037 -0.161827,0.243071 -0.07649,0.08534 -0.202297,0.201347 -0.37646,0.349592 -0.148237,0.123274 -0.242123,0.207354 -0.284163,0.251922 -0.04173,0.04426 -0.07649,0.08882 -0.10241,0.132119 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.316088"
-         id="path9204" />
+         id="path9204"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 11.194901,48.59138 0.244652,-0.03193 c 0.02718,0.139392 0.07523,0.239278 0.143183,0.299966 0.06669,0.06164 0.148253,0.09135 0.245601,0.09135 0.113798,0 0.211146,-0.03951 0.291431,-0.119791 0.07902,-0.07902 0.118528,-0.177958 0.119792,-0.29649 -0.0013,-0.110947 -0.03825,-0.20356 -0.111272,-0.276577 -0.07396,-0.0727 -0.166574,-0.10842 -0.278789,-0.109684 -0.04709,0.0013 -0.104937,0.0097 -0.1729,0.02718 l 0.02718,-0.21494 c 0.01605,0.0026 0.02845,0.0038 0.03951,0.0026 0.103673,0.0013 0.197555,-0.02592 0.281318,-0.08154 0.08155,-0.0531 0.123599,-0.13719 0.124862,-0.250657 -0.0013,-0.08882 -0.03224,-0.163108 -0.09135,-0.22221 -0.06164,-0.05815 -0.139716,-0.08755 -0.234535,-0.08882 -0.0964,0.0013 -0.175429,0.03067 -0.238331,0.09008 -0.06416,0.05911 -0.104937,0.149193 -0.122319,0.267726 l -0.244336,-0.04299 c 0.0294,-0.163091 0.09736,-0.290168 0.203562,-0.380252 0.1062,-0.09041 0.238329,-0.134663 0.396373,-0.135926 0.108728,0.0013 0.208617,0.02465 0.299967,0.07048 0.09135,0.04678 0.160581,0.109683 0.208617,0.189968 0.04837,0.08155 0.07301,0.166899 0.07301,0.25698 0,0.08629 -0.02339,0.16531 -0.06922,0.234537 -0.04678,0.07144 -0.114737,0.127065 -0.204825,0.169101 0.117265,0.02718 0.208617,0.08407 0.274049,0.169101 0.06543,0.0866 0.09736,0.193761 0.09862,0.321145 -0.0013,0.175113 -0.06416,0.322093 -0.189967,0.441889 -0.127389,0.121055 -0.287641,0.180486 -0.481718,0.181436 -0.175113,-9.5e-4 -0.320827,-0.05184 -0.435884,-0.15551 -0.116001,-0.103674 -0.181434,-0.239595 -0.19629,-0.406172 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.316088"
-         id="path9206" />
+         id="path9206"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <g
          id="g9208"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 25.492,385.551 h 2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -452,7 +618,10 @@
       </g>
       <g
          id="g9212"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 25.492,245.906 h 2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -460,7 +629,10 @@
       </g>
       <g
          id="g9216"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 25.492,106.262 h 2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -468,7 +640,10 @@
       </g>
       <g
          id="g9220"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="M 28.234,472.508 H 382.922"
            style="fill:none;stroke:#000000;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -476,7 +651,10 @@
       </g>
       <g
          id="g9224"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 29.699,475.25 v -2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -484,7 +662,10 @@
       </g>
       <g
          id="g9228"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 102.98,475.25 v -2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -492,7 +673,10 @@
       </g>
       <g
          id="g9232"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 176.266,475.25 v -2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -500,7 +684,10 @@
       </g>
       <g
          id="g9236"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 249.547,475.25 v -2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -508,7 +695,10 @@
       </g>
       <g
          id="g9240"
-         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)">
+         transform="matrix(0.18512765,0,0,0.18512765,8.4528219,28.569026)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <path
            d="m 322.832,475.25 v -2.742"
            style="fill:none;stroke:#333333;stroke-width:1.06698;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -517,41 +707,71 @@
       <path
          d="m 13.566233,117.81721 0.149768,-0.013 c 0.01074,0.0737 0.03684,0.12866 0.07738,0.1655 0.04036,0.0368 0.0896,0.055 0.147547,0.055 0.06868,0 0.126442,-0.0261 0.174946,-0.0781 0.04702,-0.052 0.0709,-0.1207 0.07164,-0.20679 -7.4e-4,-0.0811 -0.02388,-0.14532 -0.06942,-0.19309 -0.04628,-0.047 -0.106448,-0.0709 -0.180129,-0.0709 -0.04628,0 -0.08757,0.0109 -0.124406,0.0318 -0.03758,0.0209 -0.06646,0.0478 -0.08756,0.0809 l -0.134403,-0.0172 0.112743,-0.59963 h 0.580005 v 0.13755 h -0.465781 l -0.06276,0.31305 c 0.06942,-0.0478 0.143104,-0.0724 0.220487,-0.0729 0.101265,5.5e-4 0.18735,0.0361 0.257513,0.10552 0.06998,0.0709 0.104782,0.16125 0.105523,0.27195 -7.41e-4,0.10627 -0.0311,0.19735 -0.09256,0.27399 -0.07516,0.094 -0.177167,0.14107 -0.305831,0.14181 -0.106448,-7.4e-4 -0.193088,-0.0296 -0.260475,-0.0891 -0.0672,-0.0592 -0.105522,-0.1381 -0.114223,-0.23641 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9244" />
+         id="path9244"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 27.217916,118.12231 h -0.143104 v -0.9125 c -0.0348,0.0331 -0.07961,0.0657 -0.135328,0.099 -0.05628,0.0331 -0.107004,0.0578 -0.151064,0.0737 v -0.13811 c 0.07961,-0.0368 0.149768,-0.0824 0.209749,-0.13662 0.05998,-0.0535 0.102561,-0.10553 0.127924,-0.15625 h 0.09182 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9246" />
+         id="path9246"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 27.585394,117.54748 c -7.4e-4,-0.13736 0.01296,-0.24807 0.04184,-0.33267 0.02758,-0.0839 0.07016,-0.14903 0.126627,-0.19457 0.05572,-0.0455 0.125887,-0.0679 0.211046,-0.0687 0.0622,7.4e-4 0.117186,0.013 0.164949,0.0376 0.04702,0.0254 0.08608,0.0615 0.116445,0.10922 0.03036,0.0478 0.05424,0.10553 0.07238,0.17365 0.01722,0.068 0.02592,0.15977 0.02666,0.27547 -7.4e-4,0.13663 -0.01444,0.24733 -0.04258,0.3312 -0.02832,0.0846 -0.07016,0.14958 -0.125887,0.19531 -0.05646,0.0455 -0.127368,0.0679 -0.211971,0.0687 -0.112743,-7.4e-4 -0.200864,-0.0405 -0.264547,-0.12163 -0.07738,-0.0961 -0.115705,-0.25455 -0.114965,-0.47356 z m 0.146806,0 c 0,0.19161 0.0224,0.31953 0.0672,0.38248 0.0448,0.0637 0.09978,0.0948 0.165504,0.0948 0.06591,0 0.121629,-0.0318 0.16643,-0.0955 0.0448,-0.0635 0.0672,-0.19087 0.0672,-0.38174 0,-0.19234 -0.0224,-0.31971 -0.0672,-0.38266 -0.0448,-0.0628 -0.101265,-0.0946 -0.167726,-0.0946 -0.06665,0 -0.118667,0.0281 -0.157729,0.0831 -0.04924,0.0724 -0.07368,0.20327 -0.07368,0.39413 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9248" />
+         id="path9248"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 40.784996,118.12231 h -0.143104 v -0.9125 c -0.03462,0.0331 -0.07961,0.0657 -0.135143,0.099 -0.05646,0.0331 -0.107189,0.0578 -0.151249,0.0737 v -0.13811 c 0.0796,-0.0368 0.149768,-0.0824 0.209749,-0.13662 0.05998,-0.0535 0.102746,-0.10553 0.127923,-0.15625 h 0.09182 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9250" />
+         id="path9250"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 41.152474,117.81721 0.149583,-0.013 c 0.01092,0.0737 0.03703,0.12866 0.07738,0.1655 0.04054,0.0368 0.08979,0.055 0.147546,0.055 0.06868,0 0.126628,-0.0261 0.175131,-0.0781 0.04684,-0.052 0.07072,-0.1207 0.07146,-0.20679 -7.4e-4,-0.0811 -0.02388,-0.14532 -0.06942,-0.19309 -0.04628,-0.047 -0.106263,-0.0709 -0.179944,-0.0709 -0.04628,0 -0.08756,0.0109 -0.124405,0.0318 -0.03758,0.0209 -0.06665,0.0478 -0.08757,0.0809 l -0.134402,-0.0172 0.112742,-0.59963 h 0.580005 v 0.13755 h -0.465781 l -0.06294,0.31305 c 0.06942,-0.0478 0.143288,-0.0724 0.220672,-0.0729 0.101265,5.5e-4 0.187164,0.0361 0.257327,0.10552 0.07016,0.0709 0.104968,0.16125 0.105708,0.27195 -7.4e-4,0.10627 -0.0311,0.19735 -0.09256,0.27399 -0.07535,0.094 -0.177167,0.14107 -0.306016,0.14181 -0.106263,-7.4e-4 -0.193088,-0.0296 -0.260289,-0.0891 -0.0672,-0.0592 -0.105523,-0.1381 -0.114224,-0.23641 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9252" />
+         id="path9252"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 54.564787,117.98494 v 0.13737 h -0.770871 c -0.0015,-0.0346 0.0043,-0.0679 0.01666,-0.0998 0.01944,-0.052 0.05054,-0.1033 0.09405,-0.15477 0.04258,-0.0505 0.105523,-0.10922 0.187905,-0.17642 0.126627,-0.1033 0.211971,-0.18587 0.256772,-0.24733 0.04332,-0.06 0.06572,-0.11774 0.06646,-0.17199 -7.4e-4,-0.0565 -0.02092,-0.10422 -0.06072,-0.14328 -0.0411,-0.0391 -0.09405,-0.0585 -0.158285,-0.0585 -0.06942,0 -0.124405,0.0209 -0.165689,0.0622 -0.04184,0.0411 -0.06294,0.0983 -0.06294,0.17124 l -0.146806,-0.0152 c 0.0094,-0.10904 0.04702,-0.19235 0.113668,-0.25011 0.06498,-0.0572 0.153286,-0.0861 0.264547,-0.0868 0.111447,7.4e-4 0.200308,0.0318 0.265473,0.0933 0.06517,0.0622 0.09756,0.13885 0.0983,0.22993 -7.4e-4,0.0478 -0.01,0.0933 -0.02888,0.13811 -0.01888,0.0448 -0.05054,0.0926 -0.09479,0.14254 -0.0448,0.0498 -0.118482,0.11793 -0.220487,0.20457 -0.08683,0.0724 -0.141808,0.12163 -0.16643,0.14755 -0.02444,0.0261 -0.0448,0.052 -0.05998,0.0774 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9254" />
+         id="path9254"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 54.718813,117.54748 c -7.4e-4,-0.13736 0.01296,-0.24807 0.04202,-0.33267 0.0274,-0.0839 0.07016,-0.14903 0.126443,-0.19457 0.05572,-0.0455 0.125886,-0.0679 0.21123,-0.0687 0.0622,7.4e-4 0.117186,0.013 0.164764,0.0376 0.04702,0.0254 0.08608,0.0615 0.116445,0.10922 0.03036,0.0478 0.05424,0.10553 0.07238,0.17365 0.0174,0.068 0.0261,0.15977 0.02684,0.27547 -7.41e-4,0.13663 -0.01463,0.24733 -0.04277,0.3312 -0.02814,0.0846 -0.07016,0.14958 -0.125887,0.19531 -0.05628,0.0455 -0.127182,0.0679 -0.211786,0.0687 -0.112928,-7.4e-4 -0.201048,-0.0405 -0.264732,-0.12163 -0.07738,-0.0961 -0.115705,-0.25455 -0.114965,-0.47356 z m 0.146807,0 c 0,0.19161 0.0224,0.31953 0.0672,0.38248 0.04499,0.0637 0.09978,0.0948 0.165689,0.0948 0.06572,0 0.121444,-0.0318 0.166245,-0.0955 0.0448,-0.0635 0.06739,-0.19087 0.06739,-0.38174 0,-0.19234 -0.02258,-0.31971 -0.06739,-0.38266 -0.0448,-0.0628 -0.101265,-0.0946 -0.167726,-0.0946 -0.06646,0 -0.118667,0.0281 -0.157729,0.0831 -0.04906,0.0724 -0.07368,0.20327 -0.07368,0.39413 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9256" />
+         id="path9256"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 68.131867,117.98494 v 0.13737 h -0.770871 c -0.0015,-0.0346 0.0044,-0.0679 0.01666,-0.0998 0.01944,-0.052 0.05054,-0.1033 0.09404,-0.15477 0.04258,-0.0505 0.105523,-0.10922 0.187904,-0.17642 0.126628,-0.1033 0.211972,-0.18587 0.256772,-0.24733 0.04351,-0.06 0.06591,-0.11774 0.06665,-0.17199 -7.4e-4,-0.0565 -0.0211,-0.10422 -0.06091,-0.14328 -0.0411,-0.0391 -0.09386,-0.0585 -0.158284,-0.0585 -0.06942,0 -0.124406,0.0209 -0.165689,0.0622 -0.04184,0.0411 -0.06276,0.0983 -0.06276,0.17124 l -0.146806,-0.0152 c 0.0093,-0.10904 0.04684,-0.19235 0.113483,-0.25011 0.06498,-0.0572 0.153285,-0.0861 0.264732,-0.0868 0.111262,7.4e-4 0.200308,0.0318 0.265288,0.0933 0.06516,0.0622 0.09756,0.13885 0.0983,0.22993 -7.4e-4,0.0478 -0.01,0.0933 -0.02888,0.13811 -0.0187,0.0448 -0.05054,0.0926 -0.09479,0.14254 -0.0448,0.0498 -0.118482,0.11793 -0.220487,0.20457 -0.08682,0.0724 -0.141808,0.12163 -0.166245,0.14755 -0.02462,0.0261 -0.04499,0.052 -0.06017,0.0774 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9258" />
+         id="path9258"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <path
          d="m 68.285893,117.81721 0.149769,-0.013 c 0.01074,0.0737 0.03684,0.12866 0.07738,0.1655 0.04054,0.0368 0.0896,0.055 0.147547,0.055 0.06868,0 0.126442,-0.0261 0.174945,-0.0781 0.04702,-0.052 0.0709,-0.1207 0.07165,-0.20679 -7.41e-4,-0.0811 -0.02388,-0.14532 -0.06942,-0.19309 -0.04628,-0.047 -0.106449,-0.0709 -0.180129,-0.0709 -0.04628,0 -0.08757,0.0109 -0.124406,0.0318 -0.03758,0.0209 -0.06646,0.0478 -0.08738,0.0809 l -0.134588,-0.0172 0.112742,-0.59963 h 0.580005 v 0.13755 h -0.465596 l -0.06294,0.31305 c 0.06942,-0.0478 0.143104,-0.0724 0.220487,-0.0729 0.101265,5.5e-4 0.187349,0.0361 0.257513,0.10552 0.07016,0.0709 0.104782,0.16125 0.105522,0.27195 -7.4e-4,0.10627 -0.0311,0.19735 -0.09256,0.27399 -0.07516,0.094 -0.177167,0.14107 -0.30583,0.14181 -0.106449,-7.4e-4 -0.193089,-0.0296 -0.260475,-0.0891 -0.0672,-0.0592 -0.105523,-0.1381 -0.114224,-0.23641 z"
          style="fill:#4c4c4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.185128"
-         id="path9260" />
+         id="path9260"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" />
       <g
-         id="g2997">
+         id="g2997"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <g
            id="g3177">
           <g
@@ -1294,7 +1514,10 @@
       </g>
       <g
          id="g11617-2"
-         transform="matrix(0.23973998,0,0,-0.23973998,5.9530693,140.77257)">
+         transform="matrix(0.23973998,0,0,-0.23973998,5.9530693,140.77257)"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300">
         <text
            id="text11621-4"
            style="font-variant:normal;font-weight:normal;font-size:17.658px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -1319,19 +1542,25 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264582"
          x="16.482286"
          y="123.23418"
-         id="text13625-2"><tspan
+         id="text13625-2"
+         inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300"><tspan
            sodipodi:role="line"
            id="tspan13623-5"
            x="16.482286"
            y="123.23418"
-           style="font-size:4.23333px;stroke-width:0.264582">Mean annual water temperature, °C </tspan></text>
+           style="font-size:4.23333px;stroke-width:0.264582">Median annual water temperature, °C </tspan></text>
     </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50708px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.202332"
        x="7.8757577"
        y="20.123213"
-       id="text9243"><tspan
+       id="text9243"
+       inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan9241"
          x="7.8757577"
@@ -1342,7 +1571,10 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50708px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.202332"
        x="116.03702"
        y="20.123213"
-       id="text9243-2"><tspan
+       id="text9243-2"
+       inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan9241-2"
          x="116.03702"
@@ -1353,7 +1585,10 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50708px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.202332"
        x="48.507191"
        y="137.36212"
-       id="text9243-2-9"><tspan
+       id="text9243-2-9"
+       inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan9241-2-5"
          x="48.507191"
@@ -1361,7 +1596,10 @@
          style="font-size:7.55375px;stroke-width:0.202332"> C.</tspan></text>
     <g
        id="g4240"
-       transform="translate(0,5.8208336)">
+       transform="translate(0,5.8208336)"
+       inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
       <g
          id="g12848"
          transform="matrix(0.20310305,0,0,0.231578,107.04882,7.0441723)">
@@ -1615,7 +1853,10 @@
     </g>
     <g
        id="g4172"
-       transform="translate(0,-6.3500003)">
+       transform="translate(0,-6.3500003)"
+       inkscape:export-filename="/Users/sneg/Documents/mtDNA_mutspectrum/Body/4Figures/SF1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
       <g
          id="g3900"
          transform="translate(1.0583333,4.2333335)">
