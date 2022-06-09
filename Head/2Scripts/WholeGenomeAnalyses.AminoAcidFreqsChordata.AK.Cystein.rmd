@@ -1,0 +1,211 @@
+---
+title: "Deficit of cysteine in mtDNA of longlived mammals - selection or mutagenesis"
+author: "Konstantin Popadin"
+date: "7 June 2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+```
+
+<br><br><br>
+
+#### 1. Read AA content, merge it with generation length of mammals (N = 650) and derive frequencies of some amino-acids for each of 13 proteins
+#### in comparative species analyses it is possible to work just with real numbers of amino acids - withount any frequencies
+
+***
+```{r}
+rm(list=ls(all=TRUE))
+
+AA = read.csv('../../Body/3Results/AminoAcidFreqsChordata.csv')
+names(AA)
+table(AA$Class)
+AA = AA[AA$Class == 'Mammalia',]
+
+GenTime = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', sep = '\t', header = TRUE)
+GenTime$Species = gsub(' ','_',GenTime$Scientific_name)
+GenTime = GenTime[colnames(GenTime) %in% c('Species','Genus','GenerationLength_d')]
+
+dim(AA)
+AA = merge(AA,GenTime)
+dim(AA)
+
+AA$CysFr = 0
+AA$ArgFr = 0
+AA$HisFr = 0
+names(AA)
+for (i in 1:nrow(AA))
+{ # i = 2
+AA$CysFr[i] = AA$Cys[i]/sum(as.numeric(AA[i,3:22]))  # 1/115
+AA$ArgFr[i] = AA$Arg[i]/sum(as.numeric(AA[i,3:22]))  # 1/115
+AA$HisFr[i] = AA$His[i]/sum(as.numeric(AA[i,3:22]))  # 1/115
+}
+summary(AA$CysFr)
+summary(AA$ArgFr)
+summary(AA$HisFr)
+nrow(AA)/13
+
+```
+
+<br><br><br>
+
+#### 2. compare Cys frequency across genes. 
+### 2A: Cys is a loser on light chain but should be gainer on heavy => higher expected frequency in ND6. Indeed ND6 is the second top gene with maximal CysFr.
+### 2B: Probably CysFr among 12 genes, coded on light chain, is the lowest in low-constrained genes (loser should go to zero unless there is selection): we can find dn/ds for each mtDNA gene, but from my experience it seems that ATP (6 and 8) are low constrained and exactly they have zero Cys. Need to continue this analysis
+
+***
+```{r}
+
+AGG = aggregate(AA$CysFr,by = list(AA$Gene), FUN = mean)
+names(AGG) = c('Gene','MeanCysFr')
+AGG = AGG[order(AGG$MeanCysFr),]
+AGG
+
+boxplot(AA$CysFr ~ AA$Gene, las = 2)  
+
+AA$GeneFactor <- factor(AA$Gene, levels=c("COX1", "COX2", "ATP8", "ATP6","COX3","ND3","ND4L","ND4","ND5","ND6","CytB","ND1","ND2"))
+table(AA$GeneFactor)
+boxplot(AA$CysFr ~ AA$GeneFactor, las = 2)  # boxplot arranged according to TBSS (from)
+# only several genes show some variation in CysFr
+
+```
+
+<br><br><br>
+
+#### 3. compare correlation of CysFr with generation length for each gene
+### why there is a variation in the strength of the correlations?
+### ND6 shows the best negative correlation with GT - why? (if MutSpec ~ increased Ah>Gh in long-lived ~ the main factor, we expect positive correlation with GT, something is not so simple)
+
+***
+```{r}
+a = cor.test(AA[AA$Gene == 'COX1',]$CysFr,AA[AA$Gene == 'COX1',]$GenerationLength_d); a$p.value; a$estimate
+cor.test(AA[AA$Gene == 'COX2',]$CysFr,AA[AA$Gene == 'COX2',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ATP8',]$CysFr,AA[AA$Gene == 'ATP8',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ATP6',]$CysFr,AA[AA$Gene == 'ATP6',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'COX3',]$CysFr,AA[AA$Gene == 'COX3',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND3',]$CysFr,AA[AA$Gene == 'ND3',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND4L',]$CysFr,AA[AA$Gene == 'ND4L',]$GenerationLength_d) 
+cor.test(AA[AA$Gene == 'ND4',]$CysFr,AA[AA$Gene == 'ND4',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND5',]$CysFr,AA[AA$Gene == 'ND5',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND1',]$CysFr,AA[AA$Gene == 'ND1',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND2',]$CysFr,AA[AA$Gene == 'ND2',]$GenerationLength_d)
+cor.test(AA[AA$Gene == 'ND6',]$CysFr,AA[AA$Gene == 'ND6',]$GenerationLength_d)  # opposite chain!! did we use reverse complement?
+cor.test(AA[AA$Gene == 'CytB',]$CysFr,AA[AA$Gene == 'CytB',]$GenerationLength_d)
+plot(AA[AA$Gene == 'ND6',]$CysFr,log2(AA[AA$Gene == 'ND6',]$GenerationLength_d))
+plot(AA[AA$Gene == 'ND6',]$Cys,log2(AA[AA$Gene == 'ND6',]$GenerationLength_d))
+
+
+```
+
+
+<br><br><br>
+
+#### 4. compare Cys frequency among light chain genes and ND6 - it is positive! unusual! 
+
+***
+```{r}
+AGG2 = aggregate(AA[AA$Gene != 'ND6',]$CysFr, by = list(AA[AA$Gene != 'ND6',]$Species), FUN = mean)
+names(AGG2) = c('Species','CysFr12genes')
+AGG3 = AA[AA$Gene == 'ND6',];
+AGG3= AGG3[colnames(AGG3) %in% c('Species','CysFr','GenerationLength_d')]
+AGG4 = merge(AGG2,AGG3, by = 'Species')
+names(AGG4)[4]='CysFrNd6'
+str(AGG4)
+cor.test(AGG4$CysFr12genes, AGG4$CysFrNd6, method = 'spearman') # positive and significant. unusual.
+
+```
+
+
+<br><br><br>
+
+#### 5. I am not sure that for ND6 we used correct aminoacids (reverse compliment from GenBank) - test it in two ways (from another dataset and GenBank): IT IS CORRECT!!!
+
+***
+```{r}
+
+Test = read.table('../../Body/3Results/AllGenesCodonUsageNoOverlap.txt', sep = '\t', header = TRUE)
+Test1 = Test[Test$Gene == 'ND6',]
+Test1 = Test1[names(Test1) %in% c('Species','AminoNoOverlap')]
+
+Test3 = Test1[Test1$Species == 'Acinonyx_jubatus',]
+table(unlist(strsplit(Test3$AminoNoOverlap,''))) # it is the same as in AA data frame for the same species => so everithing is correct
+
+# from web page https://www.ncbi.nlm.nih.gov/protein/NP_941389.1
+Nd6AcinonyxJubatus = 'mmtyivfils tifvvsfvsf sskpspiygg fglivaggig cgivlnfggs flglmvfliy lggmlvvfgy ttamatepyp eawtsnkavl gmfitgvlae lltacyilke eevevvfkfngagdwviydt gdsgffseeamgiaalysyg twlvvvtgws lligvlvime vtrgn'
+table(unlist(strsplit(Nd6AcinonyxJubatus,''))) # it is the same with little deviations (probably because of overlapping regions), SO everithing is correct!!!
+
+```
+
+<br><br><br>
+
+### 6. epistatic trajectories: Cys is in the corner of the genetic code (see the butterfly scheme here: https://docs.google.com/presentation/d/1KsieoHhePhRG5m1Bg32j9p6jLH7qkeukW1jtuZcBRy8/edit?usp=sharing)
+### its neighbors are rare and unusual: Arg (CGX) is highly mutated and goes to His+Gln unless it is very constrained. 
+### its neighbors are rare and unusual: A stop codon from other cite!
+### In ND6 the rarest amino acid is Arg (R) and the second most rare is Cys (C)
+### where was ND6 in invertebrates? what was his starting point in the evolution?
+
+***
+```{r}
+
+cor.test(AA$CysFr,AA$ArgFr, method = 'spearman') # positive but weak
+cor.test(AA[AA$Gene == 'ND6',]$CysFr,AA[AA$Gene == 'ND6',]$ArgFr, method = 'spearman') # NO CORR
+cor.test(AA[AA$Gene != 'ND6',]$CysFr,AA[AA$Gene != 'ND6',]$ArgFr, method = 'spearman') # GOOD POSITIVE
+
+### Cys is rarer than Arg among 12 genes (as expected according to the MutSpec). Cys < Arg, Cys < His
+summary(AA[AA$Gene != 'ND6',]$CysFr)
+summary(AA[AA$Gene != 'ND6',]$ArgFr)
+summary(AA[AA$Gene != 'ND6',]$HisFr)
+
+### But Cys is more common than Arg in ND6 (as expected according to the MutSpec). Cys > Arg, Cys > His
+summary(AA[AA$Gene == 'ND6',]$CysFr)
+summary(AA[AA$Gene == 'ND6',]$ArgFr)
+summary(AA[AA$Gene == 'ND6',]$HisFr)
+
+```
+
+<br><br><br>
+
+### 7. gainers and losers altogether stronger describe correlation with Generation Time as compared to Cys (see example with CytB).
+### so - can we say that Cys is somehow special among other losers?
+### Cys and Trp sit together and both of them unusual (in Cytb Trp is positive with GT, Cys is weakly negative) 
+
+***
+```{r}
+# Gainers versus losers
+AA$NumberOfGainers = AA$Pro + AA$His + AA$Gln + AA$Asn + AA$Lys + AA$Thr
+summary(AA$NumberOfGainers)
+AA$NumberOfLosers = AA$Phe + AA$Cys + AA$Trp + AA$Gly + AA$Val
+summary(AA$NumberOfLosers)
+
+cor.test(AA[AA$Gene == 'ND6',]$NumberOfGainers,AA[AA$Gene == 'ND6',]$NumberOfLosers, method = 'spearman')
+cor.test(AA[AA$Gene == 'COX1',]$NumberOfGainers,AA[AA$Gene == 'COX1',]$NumberOfLosers, method = 'spearman')
+cor.test(AA[AA$Gene == 'CytB',]$NumberOfGainers,AA[AA$Gene == 'CytB',]$NumberOfLosers, method = 'spearman')
+cor.test(AA[AA$Gene == 'ND1',]$NumberOfGainers,AA[AA$Gene == 'ND1',]$NumberOfLosers, method = 'spearman')
+
+### try CytB with generation length
+cor.test(AA[AA$Gene == 'CytB',]$NumberOfGainers,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman') # 0.42
+cor.test(AA[AA$Gene == 'CytB',]$NumberOfLosers,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  # -0.51
+cor.test(AA[AA$Gene == 'CytB',]$Cys,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  # -0.13
+cor.test(AA[AA$Gene == 'CytB',]$Trp,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  #  0.18
+cor.test(AA[AA$Gene == 'CytB',]$Phe,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  # -0.46
+cor.test(AA[AA$Gene == 'CytB',]$Gly,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  # -0.348
+cor.test(AA[AA$Gene == 'CytB',]$Val,AA[AA$Gene == 'CytB',]$GenerationLength_d, method = 'spearman')  # -0.345
+
+### try ND6 with generation length
+cor.test(AA[AA$Gene == 'ND6',]$NumberOfGainers,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman') # 0.06
+cor.test(AA[AA$Gene == 'ND6',]$NumberOfLosers,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  # 0.41 (due to Val and Gly, aminoacids shaped by Ch>Th on the first codon position!) 
+cor.test(AA[AA$Gene == 'ND6',]$Cys,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  # -0.38
+cor.test(AA[AA$Gene == 'ND6',]$Trp,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  # -0.14
+cor.test(AA[AA$Gene == 'ND6',]$Phe,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  # -0.04
+cor.test(AA[AA$Gene == 'ND6',]$Gly,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  #  0.33
+cor.test(AA[AA$Gene == 'ND6',]$Val,AA[AA$Gene == 'ND6',]$GenerationLength_d, method = 'spearman')  #  0.43
+
+
+```
