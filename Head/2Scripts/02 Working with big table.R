@@ -15,9 +15,10 @@ brds_clsup$temp = 1
 df2 = aggregate(brds_clsup$temp,by = list(brds_clsup$Species.name), FUN = sum)
 df3 = brds_clsup[brds_clsup$Species.name == 'Sarothrura ayresi',]
 
+brds_clsup = read.csv("../../Body/3Results/For_Bogdan.csv")
 #comparing neutral nucleotides in genes
 #neutralA graph
-grafA = ggplot(data = brds_clsup, aes(x = Gene.name, y = neutralA))+
+grafA = ggplot(data = brds_clsup, aes(x = gene_name, y = neutral_A))+
   geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
 grafA + xlim(c("[COX1]","[COX2]","[ATP8]","[ATP6]","[COX3]", "[ND3]", "[ND4L]","[ND4]","[ND5]","[CYTB]","[ND6]"))
 #neutralG graph
@@ -147,3 +148,71 @@ all = ggarrange(Ab, Gb, Cb, Tb,
           labels = c("A", "B", "C","D"),
           ncol = 2, nrow = 2)
 all
+
+
+
+#course work grafs
+extradf = brds_clsup
+extradf$nA_fraction = extradf$neutral_A/extradf$neutral_amount
+extradf$nG_fraction = extradf$neutral_g/extradf$neutral_amount
+extradf$nC_fraction = extradf$neutral_c/extradf$neutral_amount
+extradf$nT_fraction = extradf$neutral_T/extradf$neutral_amount
+g1 = ggplot(data = extradf, aes(x = gene_name, y = nA_fraction))+
+  geom_boxplot()+
+  xlab('Митохондриальные гены')+
+  ylab('Частота Аденина')
+g1 = g1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g1
+g2 = ggplot(data = extradf, aes(x = gene_name, y = nG_fraction))+
+  geom_boxplot()+
+  xlab('Митохондриальные гены')+
+  ylab('Частота Гуанина')
+g2 = g2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g2
+g3 = ggplot(data = extradf, aes(x = gene_name, y = nC_fraction))+
+  geom_boxplot()+
+  xlab('Митохондриальные гены')+
+  ylab('Частота Цитозина')
+g3 = g3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g3
+g4 = ggplot(data = extradf, aes(x = gene_name, y = nT_fraction))+
+  geom_boxplot()+
+  xlab('Митохондриальные гены')+
+  ylab('Частота Тимина')
+g4 = g4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g4
+g5 = ggarrange(g1, g2, g3, g4, 
+                labels = c("A", "B", "C","D"),
+                ncol = 2, nrow = 2)
+g5
+ecology = sup = read.table("../../Body/3Results/Birds supplementary materials - DatabaseS1.csv", header = TRUE, sep = ',') 
+ecology = ecology[c(1,15,16)]
+names(ecology) = c('species_name', 'Realm', "Trophic_level" )
+extradf$species_name = gsub(' ','_', extradf$species_name)
+extradf = merge(extradf, ecology, by = 'species_name')
+extradf$GhAhSkew = (extradf$neutral_c - extradf$neutral_T)/(extradf$neutral_c + extradf$neutral_T)
+extradf$Stg_ac = (extradf$nA_fraction + extradf$nC_fraction) - (extradf$nT_fraction + extradf$nG_fraction)
+g6 = ggplot(data = extradf, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = Realm))+
+  xlab('Митохондриальные гены')+
+  ylab('Скос аденина и гуанина')
+g6 = g6 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g6
+g7 = ggplot(data = extradf, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Митохондриальные гены')+
+  ylab('Скос аденина и гуанина')
+g7 = g7 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g7
+g8 = ggplot(data = extradf, aes(x = gene_name, y = Stg_ac))+
+  geom_boxplot(aes(fill = Realm))+
+  xlab('Митохондриальные гены')+
+  ylab('Stg - Sac')
+g8 = g8 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g8
+g9 = ggplot(data = extradf, aes(x = gene_name, y = Stg_ac))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Митохондриальные гены')+
+  ylab('Stg - Sac')
+g9 = g9 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g9
