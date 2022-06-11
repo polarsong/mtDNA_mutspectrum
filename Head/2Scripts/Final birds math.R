@@ -127,43 +127,23 @@ g5 = ggplot(data = final, aes(x = trophic_level, y = med_a))+
   ylab('Медиана Аденина')
 g5
 #work here
-g2 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
+g6 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
   geom_violin()+
-  xlab("Экозона")+
+  xlab("Трофический уровень")+
   ylab('Медиана Цитозина')
-g2
+g6
 
-g3 = ggplot(data = final, aes(x = trophic_level, y = med_a))+
+g7 = ggplot(data = final, aes(x = trophic_level, y = med_a))+
   geom_boxplot()+
-  xlab("Экозона")+
+  xlab("Трофический уровень")+
   ylab('Медиана Аденина')
-g3
-g4 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
+g7
+g8 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
   geom_boxplot()+
-  xlab("Экозона")+
+  xlab("Трофический уровень")+
   ylab('Медиана Цитозина')
-g4
-g1 = ggplot(data = final, aes(x = realm, y = med_a))+
-  geom_violin()+
-  xlab("Экозона")+
-  ylab('Медиана Аденина')
-g1
-g2 = ggplot(data = final, aes(x = realm, y = med_c))+
-  geom_violin()+
-  xlab("Экозона")+
-  ylab('Медиана Цитозина')
-g2
+g8
 
-g3 = ggplot(data = final, aes(x = realm, y = med_a))+
-  geom_boxplot()+
-  xlab("Экозона")+
-  ylab('Медиана Аденина')
-g3
-g4 = ggplot(data = final, aes(x = realm, y = med_c))+
-  geom_boxplot()+
-  xlab("Экозона")+
-  ylab('Медиана Цитозина')
-g4
 
 
 #Alya's PGLS
