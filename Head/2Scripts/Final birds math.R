@@ -29,7 +29,7 @@ needed_codons = c('TTC','TCC','TAC','TGC',
                   'GTC','GCC','GAC','GGC',
                   'GTA','GCA','GAA','GGA')
 
-df_codons_realm = df_sgc %>% select(species_name, gene_name, realm,all_of(vec_all))
+df_codons_realm = df_sgc %>% select(species_name, gene_name, realm, trophic_niche, trophic_level, all_of(vec_all))
 
 sp_sum_gen = data.frame(unique(df_codons_realm$species_name))
 
@@ -65,7 +65,7 @@ for (i in 1:nrow(sp_sum_gen))
 
 names(codon_norm) = c('species_name', needed_codons)
 codon_norm = codon_norm %>% select(-c('TAA','AGA'))
-df_eco = df_codons_realm[,c(1,3)]
+df_eco = df_codons_realm[,c(1,3,4,5)]
 codon_norm = merge(codon_norm, df_eco)
 
 df_try = data.frame(unique(codon_norm))
@@ -83,10 +83,10 @@ for (org in 1:nrow(df_try))
   
   med_c = median(as.numeric(vec_of_c), na.rm = TRUE)
   med_a = median(as.numeric(vec_of_a), na.rm = TRUE)
-  sp_out = data.frame(sp_r$species_name, med_c, med_a, sp_r$realm) 
+  sp_out = data.frame(sp_r$species_name, med_c, med_a, sp_r$realm, sp_r$trophic_level, sp_r$trophic_niche) 
   final = rbind(final,sp_out)
 }
-names(final) = c('species_name', 'med_c', 'med_a', 'realm')
+names(final) = c('species_name', 'med_c', 'med_a', 'realm', 'trophic_level', 'trophic_niche')
 
 
 df_antarctic = final[final$realm == 'Antarctic',]
@@ -98,10 +98,72 @@ sample(df_afrotropic$med_c, 8)
 
 cor.test(df_antarctic$med_c,sample(df_afrotropic$med_c, 8), method = 'spearman')
 
+#course work
+g1 = ggplot(data = final, aes(x = realm, y = med_a))+
+  geom_violin()+
+  xlab("Экозона")+
+  ylab('Медиана Аденина')
+g1
+g2 = ggplot(data = final, aes(x = realm, y = med_c))+
+  geom_violin()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g2
 
+g3 = ggplot(data = final, aes(x = realm, y = med_a))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Аденина')
+g3
+g4 = ggplot(data = final, aes(x = realm, y = med_c))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g4
 
+g5 = ggplot(data = final, aes(x = trophic_level, y = med_a))+
+  geom_violin()+
+  xlab("Трофический уровень")+
+  ylab('Медиана Аденина')
+g5
+#work here
+g2 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
+  geom_violin()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g2
 
+g3 = ggplot(data = final, aes(x = trophic_level, y = med_a))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Аденина')
+g3
+g4 = ggplot(data = final, aes(x = trophic_level, y = med_c))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g4
+g1 = ggplot(data = final, aes(x = realm, y = med_a))+
+  geom_violin()+
+  xlab("Экозона")+
+  ylab('Медиана Аденина')
+g1
+g2 = ggplot(data = final, aes(x = realm, y = med_c))+
+  geom_violin()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g2
 
+g3 = ggplot(data = final, aes(x = realm, y = med_a))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Аденина')
+g3
+g4 = ggplot(data = final, aes(x = realm, y = med_c))+
+  geom_boxplot()+
+  xlab("Экозона")+
+  ylab('Медиана Цитозина')
+g4
 
 
 #Alya's PGLS
