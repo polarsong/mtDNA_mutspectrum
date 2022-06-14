@@ -148,6 +148,9 @@ phy=multi2di(tree1)
 row.names(df_all1) = df_all1$Species
 tree_all = treedata(phy, df_all1, sort=T, warnings=T)$phy
 data_all<-as.data.frame(treedata(tree_all, df_all1, sort=T, warnings=T)$data)
+
+
+
 data_all[is.na(data_all)] <- 0
 data_all$Beak_width = as.numeric(as.character(data_all$Beak_width))
 data_all$med_c = as.numeric(as.character(data_all$med_c))
@@ -169,21 +172,55 @@ plot(df_all1$med_c, df_all1$med_a)
 ggplot(df_all1, aes(x = med_c, y = med_a))+
   geom_point()
 
+
+
+
+#new work
+tree1 = read.tree("../../Body/3Results/phylo.treefile")
+phy=multi2di(tree1)
+row.names(df_all1) = df_all1$Species
+tree_all = treedata(phy, df_all1, sort=T, warnings=T)$phy
+data_all<-as.data.frame(treedata(tree_all, df_all1, sort=T, warnings=T)$data)
+
+data_all = data_all[,c(1,2,3,4,6,7,13,14,15,16,17,18,19,21,22,23,29,32,33,34,40)]
+data_all$Beak_width = as.numeric(as.character(data_all$Beak_width))
+data_all$med_c = as.numeric(as.character(data_all$med_c))
+data_all$med_a = as.numeric(as.character(data_all$med_a))
+data_all$realm= as.character(data_all$realm)
+data_all$Tail_length = as.numeric(as.character(data_all$Tail_length))
+data_all$Family = as.character(data_all$realm)
+data_all$Order = as.character(data_all$Order)
+data_all$Beak_length_Culmen = as.numeric(as.character(data_all$Beak_length_Culmen))
+data_all$Beak_length_Nares = as.numeric(as.character(data_all$Beak_length_Nares))
+data_all$Beak_depth = as.numeric(as.character(data_all$Beak_depth))
+data_all$Tarsus_length = as.numeric(as.character(data_all$Tarsus_length))
+data_all$Wing_length = as.numeric(as.character(data_all$Wing_length))
+data_all$Kipps_distance = as.numeric(as.character(data_all$Kipps_distance))
+data_all$Hand_wing_index = as.numeric(as.character(data_all$Hand_wing_index))
+data_all$Mass = as.numeric(as.character(data_all$Mass))
+data_all$Habitat = as.character(data_all$Habitat)
+data_all$Trophic_level = as.character(data_all$Trophic_level)
+data_all$Trophic_niche = as.character(data_all$Trophic_niche)
+data_all$Primary_lifestyle = as.character(data_all$Primary_lifestyle)
+data_all$Species_status = as.character(data_all$Species_status)
+
+MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
+model_all = pgls(med_c ~ Beak_width + Tail_length, MutComp_all, lambda = "ML")
+
+summary(model_all)
+#end
+
+
+
 #PGLS table 
-eco_vec = c('point', 'Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
+eco_vec = c('Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
             'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass')
 pgls_eco = data.frame(eco_vec)
 names(pgls_eco) = 'Ecology'
 pgls_eco$p_meda = ''
-if (pgls_eco[pgls_eco$Ecology == 'point',])
-{
-pgls_eco$ pgls_eco$p_meda = 15
-}
+pgls_eco$p_medc = ''
 
-#rm(ab)
-#ab = data.frame()
-#a = subset(pgls_eco, Ecology == 'point')
-#ab = rbind(ab, a)
-model_all$bounds
-p = summary(model_all)
-p
+
+temp = data.frame()
+temp = subset(pgls_eco, Ecology == 'Beak_length_Culmen')
+
