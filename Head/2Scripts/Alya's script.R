@@ -205,9 +205,10 @@ data_all$Primary_lifestyle = as.character(data_all$Primary_lifestyle)
 data_all$Species_status = as.character(data_all$Species_status)
 
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model_all = pgls(med_c ~ Beak_width + Tail_length, MutComp_all, lambda = "ML")
-
+model_all = pgls(med_c ~ Beak_width, MutComp_all, lambda = "ML")
 summary(model_all)
+a = summary(model_all)$coefficients[,4] 
+a[2]
 #end
 
 
@@ -215,12 +216,12 @@ summary(model_all)
 #PGLS table 
 eco_vec = c('Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
             'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass')
-pgls_eco = data.frame(eco_vec)
-names(pgls_eco) = 'Ecology'
-pgls_eco$p_meda = ''
-pgls_eco$p_medc = ''
+medapgls = data.frame()
+for (i in eco_vec)
+{
+  model_meda = pgls(med_a ~ data_all[,i], MutComp_all, lambda = 'ML')
+  temp = summary(model_meda)$coefficients[,4]
+  medapgls = rbind(medapgls, c(i, temp[2]))
+}
 
-
-temp = data.frame()
-temp = subset(pgls_eco, Ecology == 'Beak_length_Culmen')
 
