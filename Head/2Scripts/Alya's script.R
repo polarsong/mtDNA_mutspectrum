@@ -205,7 +205,7 @@ data_all$Primary_lifestyle = as.character(data_all$Primary_lifestyle)
 data_all$Species_status = as.character(data_all$Species_status)
 
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model_all = pgls(med_c ~ Beak_width, MutComp_all, lambda = "ML")
+model_all = pgls(med_a ~ Beak_width, MutComp_all, lambda = "ML")
 summary(model_all)
 a = summary(model_all)$coefficients[,4] 
 a[2]
@@ -223,5 +223,5 @@ for (i in eco_vec)
   temp = summary(model_meda)$coefficients[,4]
   medapgls = rbind(medapgls, c(i, temp[2]))
 }
-
-
+names(medapgls) = c("ecology", "p-value")
+write.csv(medapgls, "med_a_pgls.csv")
