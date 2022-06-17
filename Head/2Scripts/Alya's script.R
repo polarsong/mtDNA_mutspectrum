@@ -216,12 +216,52 @@ a[2]
 #PGLS table 
 eco_vec = c('Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
             'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass')
-medapgls = data.frame()
-for (i in eco_vec)
+gen_vec = c('med_a', 'med_c')
+megapgls = data.frame()
+for (i in gen_vec)
 {
-  model_meda = pgls(med_a ~ data_all[,i], MutComp_all, lambda = 'ML')
-  temp = summary(model_meda)$coefficients[,4]
-  medapgls = rbind(medapgls, c(i, temp[2]))
+  for (j in eco_vec)
+  {
+    model_meda = pgls(data_all[,i] ~ data_all[,j], MutComp_all, lambda = 'ML')
+    temp = summary(model_meda)$coefficients[,4]
+    megapgls = rbind(megapgls, c(j, temp[2]))
+  }
+  names(megapgls) = c("ecology", "p-value")
+  write.table(megapgls,
+              file = 'all_pgls.txt',
+              append = F,
+              sep = ",",
+              row.names = F,
+              col.names = T,
+              na="",
+              quote = F)
+  write( "\n Next Dataframe \n", file = "all_pgls.txt", append = T)
 }
-names(medapgls) = c("ecology", "p-value")
-write.csv(medapgls, "med_a_pgls.csv")
+
+effect_size() - ?
+
+#names(medapgls) = c("ecology", "p-value")
+#write.csv(medapgls, "med_a_pgls.csv")
+
+
+
+#one file 
+write.table( df,
+             file = "dataframes.txt", 
+             append = F,
+             sep = ",",
+             row.names = F,
+             col.names = T,
+             na="",
+             quote = F)
+write( "\n Next Dataframe \n", file = "dataframes.txt", append = T)
+write.table( df1,
+             file = "dataframes.txt", 
+             append = T,
+             sep = ",",
+             row.names = F,
+             col.names = T,
+             na="",
+             quote = F)
+
+
