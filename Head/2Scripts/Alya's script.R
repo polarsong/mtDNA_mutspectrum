@@ -207,7 +207,7 @@ data_all$Species_status = as.character(data_all$Species_status)
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
 model_all = pgls(med_a ~ Beak_width, MutComp_all, lambda = "ML")
 summary(model_all)
-a = summary(model_all)$coefficients[,4] 
+summary(model_all)$r.squared #to get r squared
 a[2]
 #end
 
