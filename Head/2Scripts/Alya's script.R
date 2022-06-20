@@ -209,9 +209,12 @@ model_all = pgls(med_a ~ Beak_width, MutComp_all, lambda = "ML")
 summary(model_all)
 summary(model_all)$r.squared #to get r squared
 a[2]
+b = summary(model_all)$coefficients[,1]
+b[2]
 #end
-
-
+summary(model1)
+model1 = pgls(med_a ~ Beak_length_Culmen, MutComp_all, lambda = "ML")
+summary(model1)$coefficients[,1]
 
 #PGLS table 
 eco_vec = c('Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
@@ -223,10 +226,12 @@ for (i in gen_vec)
   for (j in eco_vec)
   {
     model_meda = pgls(data_all[,i] ~ data_all[,j], MutComp_all, lambda = 'ML')
-    temp = summary(model_meda)$coefficients[,4]
-    megapgls = rbind(megapgls, c(j, temp[2]))
+    tempp = summary(model_meda)$coefficients[,4]
+    tempr = summary(model_meda)$r.squared
+    tempin = summary(model_meda)$coefficients[,1]
+    megapgls = rbind(megapgls, c(j, tempp[2], tempr, tempin[2]))
   }
-  names(megapgls) = c("ecology", "p-value")
+  names(megapgls) = c("ecology", "p-value", "r-squared", 'effect size')
   write.table(megapgls,
               file = 'all_pgls.txt',
               append = F,
@@ -238,7 +243,23 @@ for (i in gen_vec)
   write( "\n Next Dataframe \n", file = "all_pgls.txt", append = T)
 }
 
-effect_size() - ?
+megapglsextra = data.frame()
+for (i in gen_vec)
+{
+  for (j in eco_vec)
+  {
+    model_meda = pgls(data_all[,j] ~ data_all[,i], MutComp_all, lambda = 'ML')
+    tempp = summary(model_meda)$coefficients[,4]
+    tempr = summary(model_meda)$r.squared
+    tempin = summary(model_meda)$coefficients[,1]
+    megapglsextra = rbind(megapglsextra, c(j, tempp[2], tempr, tempin[2]))
+  }
+  names(megapglsextra) = c("ecology", "p-value", "r-squared", 'effect size')
+}
+
+
+write.table(megapgls, file = 'all_pgls.txt', append = T)
+write.table(megapglsextra, file = 'all_pgls.txt', append = T)
 
 #names(medapgls) = c("ecology", "p-value")
 #write.csv(medapgls, "med_a_pgls.csv")
