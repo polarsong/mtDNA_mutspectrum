@@ -182,7 +182,7 @@ row.names(df_all1) = df_all1$Species
 tree_all = treedata(phy, df_all1, sort=T, warnings=T)$phy
 data_all<-as.data.frame(treedata(tree_all, df_all1, sort=T, warnings=T)$data)
 
-data_all = data_all[,c(1,2,3,4,6,7,13,14,15,16,17,18,19,21,22,23,29,32,33,34,40)]
+data_all = data_all[,c(1,2,3,4,13,14,15,16,17,18,19,21,22,23,29,32,33,34,40)]
 data_all$Beak_width = as.numeric(as.character(data_all$Beak_width))
 data_all$med_c = as.numeric(as.character(data_all$med_c))
 data_all$med_a = as.numeric(as.character(data_all$med_a))
@@ -203,6 +203,106 @@ data_all$Trophic_level = as.character(data_all$Trophic_level)
 data_all$Trophic_niche = as.character(data_all$Trophic_niche)
 data_all$Primary_lifestyle = as.character(data_all$Primary_lifestyle)
 data_all$Species_status = as.character(data_all$Species_status)
+data_all$rnum = 1
+#realm work
+unique(data_all$realm) 
+df_pal = subset(data_all, data_all$realm == 'Palearctic',)
+df_nea = subset(data_all, data_all$realm == 'Nearctic',)
+df_nea$rnum = 2
+df_indo = subset(data_all, data_all$realm == 'Indo_Malay',)
+df_indo$rnum = 3
+df_afro = subset(data_all, data_all$realm == 'Afrotropic',)
+df_afro$rnum = 4
+df_neot = subset(data_all, data_all$realm == 'Neotropic',)
+df_neot$rnum = 5
+df_mada = subset(data_all, data_all$realm == 'Madagascar',)
+df_mada$rnum = 6
+df_oce = subset(data_all, data_all$realm == 'Oceania',)
+df_oce$rnum = 7
+df_aus = subset(data_all, data_all$realm == 'Australian',)
+df_aus$rnum = 8
+df_anta = subset(data_all, data_all$realm == 'Antarctic',)
+df_anta$rnum = 9
+df_rnum = rbind(df_pal, df_nea, df_indo, df_afro, df_neot, df_mada, df_oce, df_aus, df_anta)
+data_all = df_rnum
+#end
+
+#habitat
+unique(data_all$Habitat)
+data_all$hnum = 1
+df1 = subset(data_all, data_all$Habitat == 'Grassland',)
+df2 = subset(data_all, data_all$Habitat == 'Human Modified',)
+df2$hnum = 2
+df3 = subset(data_all, data_all$Habitat == 'Woodland',)
+df3$hnum = 3
+df4 = subset(data_all, data_all$Habitat == 'Forest',)
+df4$hnum = 4
+df5 = subset(data_all, data_all$Habitat == 'Rock',)
+df5$hnum = 5
+df6 = subset(data_all, data_all$Habitat == 'Shrubland',)
+df6$hnum = 6
+df7 = subset(data_all, data_all$Habitat == 'Desert',)
+df7$hnum = 7
+df8 = subset(data_all, data_all$Habitat == 'Riverine',)
+df8$hnum = 8
+df9 = subset(data_all, data_all$Habitat == 'Wetland',)
+df9$hnum = 9
+df10 = subset(data_all, data_all$Habitat == 'Marine',)
+df10$hnum = 10
+df11 = subset(data_all, data_all$Habitat == 'Coastal',)
+df11$hnum = 11
+df_hnum = rbind(df1, df2, df3 ,df4 ,df5, df6, df7, df8, df9, df10, df11)
+data_all = df_hnum
+#trophic level
+data_all$tlnum = 1
+unique(data_all$Trophic_level)
+df1 = subset(data_all, data_all$Trophic_level == 'Omnivore',)
+df2 = subset(data_all, data_all$Trophic_level == 'Carnivore',)
+df2$tlnum = 2
+df3 = subset(data_all, data_all$Trophic_level == 'Herbivore',)
+df3$tlnum = 3
+df4 = subset(data_all, data_all$Trophic_level == 'Scavenger',)
+df4$tlnum = 4
+df_tlnum = rbind(df1, df2, df3, df4)
+data_all = df_tlnum
+#trophic_niche
+data_all$thnum = 1
+unique(data_all$Trophic_niche)
+df1 = subset(data_all, data_all$Trophic_niche == 'Omnivore',)
+df2 = subset(data_all, data_all$Trophic_niche == 'Granivore',)
+df2$thnum = 2
+df3 = subset(data_all, data_all$Trophic_niche == 'Invertivore',)
+df3$thnum = 3
+df4 = subset(data_all, data_all$Trophic_niche == 'Nectarivore',)
+df4$thnum = 4
+df5 = subset(data_all, data_all$Trophic_niche == 'Frugivore',)
+df5$thnum = 5
+df6 = subset(data_all, data_all$Trophic_niche == 'Herbivore aquatic',)
+df6$thnum = 6
+df7 = subset(data_all, data_all$Trophic_niche == 'Aquatic predator',)
+df7$thnum = 7
+df8 = subset(data_all, data_all$Trophic_niche == 'Vertivore',)
+df8$thnum = 8
+df9 = subset(data_all, data_all$Trophic_niche == 'Herbivore terrestrial',)
+df9$thnum = 9
+df10 = subset(data_all, data_all$Trophic_niche == 'Scavenger',)
+df10$thnum = 10
+df_thnum = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10)
+data_all = df_thnum
+#primary_lifestyle
+data_all$plnum = 1
+unique(data_all$Primary_lifestyle)
+df1 = subset(data_all, data_all$Primary_lifestyle == 'Generalist',)
+df2 = subset(data_all, data_all$Primary_lifestyle == 'Terrestrial',)
+df2$plnum = 2
+df3 = subset(data_all, data_all$Primary_lifestyle == 'Insessorial',)
+df3$plnum = 3
+df4 = subset(data_all, data_all$Primary_lifestyle == 'Aerial',)
+df4$plnum = 4
+df5 = subset(data_all, data_all$Primary_lifestyle == 'Aquatic',)
+df5$plnum = 5
+df_plnum = rbind(df1, df2, df3, df4, df5)
+data_all = df_plnum
 
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
 model_all = pgls(med_a ~ Beak_width, MutComp_all, lambda = "ML")
@@ -216,9 +316,42 @@ summary(model1)
 model1 = pgls(med_a ~ Beak_length_Culmen, MutComp_all, lambda = "ML")
 summary(model1)$coefficients[,1]
 
+#extra
+data_all$rnum = as.numeric(as.character(data_all$rnum))
+data_all$hnum = as.numeric(as.character(data_all$hnum))
+data_all$tlnum = as.numeric(as.character(data_all$tlnum))
+data_all$thnum = as.numeric(as.character(data_all$thnum))
+data_all$plnum = as.numeric(as.character(data_all$plnum))
+data_all$Beak_width = as.numeric(as.character(data_all$Beak_width))
+data_all$med_c = as.numeric(as.character(data_all$med_c))
+data_all$med_a = as.numeric(as.character(data_all$med_a))
+data_all$realm= as.character(data_all$realm)
+data_all$Tail_length = as.numeric(as.character(data_all$Tail_length))
+data_all$Family = as.character(data_all$realm)
+data_all$Beak_length_Culmen = as.numeric(as.character(data_all$Beak_length_Culmen))
+data_all$Beak_length_Nares = as.numeric(as.character(data_all$Beak_length_Nares))
+data_all$Beak_depth = as.numeric(as.character(data_all$Beak_depth))
+data_all$Tarsus_length = as.numeric(as.character(data_all$Tarsus_length))
+data_all$Wing_length = as.numeric(as.character(data_all$Wing_length))
+data_all$Kipps_distance = as.numeric(as.character(data_all$Kipps_distance))
+data_all$Hand_wing_index = as.numeric(as.character(data_all$Hand_wing_index))
+data_all$Mass = as.numeric(as.character(data_all$Mass))
+data_all$Habitat = as.character(data_all$Habitat)
+data_all$Trophic_level = as.character(data_all$Trophic_level)
+data_all$Trophic_niche = as.character(data_all$Trophic_niche)
+data_all$Primary_lifestyle = as.character(data_all$Primary_lifestyle)
+data_all$Species_status = as.character(data_all$Species_status)
+MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
+model_all = pgls(med_a ~ Beak_width, MutComp_all, lambda = "ML")
+summary(model_all)
+m1 = data_all[,'med_a']
+m2 = data_all[,'Beak_width']
+kkk = pgls(med_a ~ Beak_width , MutComp_all, lambda = 'ML')
+summary(kkk)
 #PGLS table 
 eco_vec = c('Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length',
-            'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass')
+            'Wing_length', 'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass', 'rnum', 'hnum', 'tlnum',
+            'thnum', 'plnum')
 gen_vec = c('med_a', 'med_c')
 megapgls = data.frame()
 for (i in gen_vec)
@@ -232,16 +365,17 @@ for (i in gen_vec)
     megapgls = rbind(megapgls, c(j, tempp[2], tempr, tempin[2]))
   }
   names(megapgls) = c("ecology", "p-value", "r-squared", 'effect size')
-  write.table(megapgls,
-              file = 'all_pgls.txt',
-              append = F,
-              sep = ",",
-              row.names = F,
-              col.names = T,
-              na="",
-              quote = F)
-  write( "\n Next Dataframe \n", file = "all_pgls.txt", append = T)
 }
+
+write.table(megapgls,
+            file = 'all_pgls.txt',
+            append = F,
+            sep = ",",
+            row.names = F,
+            col.names = T,
+            na="",
+            quote = F)
+write( "\n Next Dataframe \n", file = "all_pgls.txt", append = T)
 
 megapglsextra = data.frame()
 for (i in gen_vec)
@@ -263,26 +397,26 @@ write.table(megapglsextra, file = 'all_pgls.txt', append = T)
 
 #names(medapgls) = c("ecology", "p-value")
 #write.csv(medapgls, "med_a_pgls.csv")
-
-
-
+data_all = data_all[,c(1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)]
+data_all$realm= as.character(data_all$realm)
+dfrealm = data.frame()
+for (i in gen_vec)
+{
+  model_meda = pgls(data_all[,i] ~ realm, MutComp_all, lambda = 'ML')
+  tempp = summary(model_meda)$coefficients[,4]
+  tempr = summary(model_meda)$r.squared
+  tempin = summary(model_meda)$coefficients[,1]
+  dfrealm = rbind(dfrealm, c('realm', tempp[2], tempr, tempin[2]))
+}
+names(dfrealm) = c('ecology', 'p-value', 'r-squared', 'effect_size')
 #one file 
-write.table( df,
-             file = "dataframes.txt", 
-             append = F,
-             sep = ",",
-             row.names = F,
-             col.names = T,
-             na="",
-             quote = F)
-write( "\n Next Dataframe \n", file = "dataframes.txt", append = T)
-write.table( df1,
-             file = "dataframes.txt", 
-             append = T,
-             sep = ",",
-             row.names = F,
-             col.names = T,
-             na="",
-             quote = F)
+#rnum hnum tlnum thnum plnum
+model1 = pgls(plnum ~ med_c, MutComp_all, lambda = 'ML')
+summary(model1)
+summary(model1)$coefficients[,4][2]
+summary(model1)$r.squared
+summary(model1)$coefficients[,1][2]
+
+
 
 
