@@ -409,9 +409,45 @@ for (i in gen_vec)
   dfrealm = rbind(dfrealm, c('realm', tempp[2], tempr, tempin[2]))
 }
 names(dfrealm) = c('ecology', 'p-value', 'r-squared', 'effect_size')
-#one file 
+#one file
+
+#PGLS for SMBE
+unique(data_all$Trophic_level)
+data_all$Omnivore1 = 0
+data_all$Carnivore1 = 0
+data_all$Herbivore1 = 0
+unique(data_all$realm)
+data_all$Palearctic1 = 0
+data_all$Australian1 = 0
+data_all$Nearctic1 = 0
+data_all$Neotropic1 = 0
+data_all$Indo_Malay1 = 0
+data_all$Afrotropic1 = 0
+data_all$Antarctic1 = 0
+data_all$Madagascar1 = 0
+data_all$Oceania1 = 0
+
+df1 = subset(data_all, data_all$realm == 'Oceania',)
+df2 = subset(data_all, data_all$realm != 'Oceania',)
+df1$Oceania1 = 1
+data_all = rbind(df1, df2)
+
+unique(data_all$Omnivore1)
+unique(data_all$Carnivore1)
+unique(data_all$Herbivore1)
+unique(data_all$Palearctic1)
+unique(data_all$Australian1)
+unique(data_all$Nearctic1) 
+unique(data_all$Neotropic1) 
+unique(data_all$Indo_Malay1)
+unique(data_all$Afrotropic1)
+unique(data_all$Antarctic1) 
+unique(data_all$Madagascar1)
+unique(data_all$Oceania1) 
+
 #rnum hnum tlnum thnum plnum
-model1 = pgls(plnum ~ med_c, MutComp_all, lambda = 'ML')
+MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
+model1 = pgls(Oceania1 ~ med_c, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared
