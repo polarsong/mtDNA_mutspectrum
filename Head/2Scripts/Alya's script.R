@@ -445,9 +445,19 @@ unique(data_all$Antarctic1)
 unique(data_all$Madagascar1)
 unique(data_all$Oceania1) 
 
+#combine realms
+unique(data_all$realm)
+data_all$cold_climate = 0
+data_all$hot_climate = 0
+df1 = subset(data_all, data_all$realm == 'Antarctic' | data_all$realm == 'Nearctic' | data_all$realm == 'Palearctic',)
+df2 = subset(data_all, data_all$realm != 'Antarctic' & data_all$realm != 'Nearctic' & data_all$realm != 'Palearctic',)
+df1$cold_climate = 1
+df2$hot_climate = 1
+data_all = rbind(df1, df2)
+
 #rnum hnum tlnum thnum plnum
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model1 = pgls(Oceania1 ~ med_c, MutComp_all, lambda = 'ML')
+model1 = pgls(hot_climate ~ med_c, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared

@@ -131,3 +131,22 @@ Afrotropic 0.5429074 0.0004859983 -0.1701299
 Antarctic 0.1058423 0.00342842 0.209594
 Madagascar 0.3553173 0.001121335 -0.06075849
 Oceania 0.8979575 2.159659e-05 0.01422394
+
+combined_climate
+combination p-value r-squared effect_size
+
+med_a ~ combination
+Palearctic&Nearctic&Antarctic 0.9183981 1.378371e-05 -0.00016111159
+Hot_climates  0.9183981 1.378371e-05 0.00016111159
+
+med_c ~ combination 
+Palearctic&Nearctic&Antarctic 0.6958979 0.000200603 0.0005164732
+Hot_climates 0.6958979 0.000200603 -0.0005164732
+
+combination ~ med_a 
+Palearctic&Nearctic&Antarctic 0.6244273 0.0003147159 -0.3521753 
+Hot_climate 0.6244273 0.0003147159 0.3521753 
+
+combination ~ med_c
+Palearctic&Nearctic&Antarctic 0.4330581 0.0008067757 0.3501413
+Hot_climate 0.4330581 0.0008067757 -0.3501413
