@@ -455,9 +455,118 @@ df1$cold_climate = 1
 df2$hot_climate = 1
 data_all = rbind(df1, df2)
 
-#rnum hnum tlnum thnum plnum
+#other ecology
+unique(data_all$Habitat)
+unique(data_all$Trophic_niche)
+unique(data_all$Primary_lifestyle)
+#habitat
+data_all$marine1 = 0
+data_all$riverine1 = 0
+data_all$grassland = 0
+data_all$human_modified1 = 0
+data_all$wetland = 0
+data_all$forest = 0
+data_all$shrubland = 0
+data_all$coastal1 = 0
+data_all$woodland1 = 0
+data_all$rock1 = 0
+data_all$desert = 0
+df1 = subset(data_all, data_all$Habitat == 'Marine',)
+df2 = subset(data_all, data_all$Habitat == 'Riverine',)
+df3 = subset(data_all, data_all$Habitat == 'Grassland',)
+df4 = subset(data_all, data_all$Habitat == 'Human Modified',)
+df5 = subset(data_all, data_all$Habitat == 'Wetland',)
+df6 = subset(data_all, data_all$Habitat == 'Forest',)
+df7 = subset(data_all, data_all$Habitat == 'Shrubland',)
+df8 = subset(data_all, data_all$Habitat == 'Coastal',)
+df9 = subset(data_all, data_all$Habitat == 'Woodland',)
+df10 = subset(data_all, data_all$Habitat == 'Rock',)
+df11 = subset(data_all, data_all$Habitat == 'Desert',)
+
+df1$marine1 = 1
+df2$riverine1 = 1
+df3$grassland = 1
+df4$human_modified1 = 1
+df5$wetland = 1
+df6$forest = 1
+df7$shrubland = 1
+df8$coastal1 = 1
+df9$woodland1 = 1
+df10$rock1 = 1
+df11$desert = 1
+
+data_all = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11)
+
+#trophic_niche
+unique(data_all$Trophic_niche)
+data_all$aquatic_predator1 = 0
+data_all$omnivoretn1 = 0
+data_all$invertivore1 = 0
+data_all$vertivore1 = 0
+data_all$herbivore_terrestrial1 = 0
+data_all$granivore1 = 0
+data_all$frugivore1 = 0
+data_all$nectarivore1 = 0
+data_all$scavenger1 = 0
+data_all$herbivore_aquatic1 = 0
+
+
+df1 = subset(data_all, data_all$Trophic_niche == "Aquatic predator",)
+df2 = subset(data_all, data_all$Trophic_niche == "Omnivore",)
+df3 = subset(data_all, data_all$Trophic_niche == "Invertivore",)
+df4 = subset(data_all, data_all$Trophic_niche == "Vertivore",)
+df5 = subset(data_all, data_all$Trophic_niche == "Herbivore terrestrial",)
+df6 = subset(data_all, data_all$Trophic_niche == "Granivore",)
+df7 = subset(data_all, data_all$Trophic_niche == "Frugivore",)
+df8 = subset(data_all, data_all$Trophic_niche == "Nectarivore",)
+df9 = subset(data_all, data_all$Trophic_niche == "Scavenger",)
+df10 = subset(data_all, data_all$Trophic_niche == "Herbivore aquatic",)
+
+df1$aquatic_predator1 = 1
+df2$omnivoretn1 = 1
+df3$invertivore1 = 1
+df4$vertivore1 = 1
+df5$herbivore_terrestrial1 = 1
+df6$granivore1 = 1
+df7$frugivore1 = 1
+df8$nectarivore1 = 1
+df9$scavenger1 = 1
+df10$herbivore_aquatic1 = 1
+
+
+data_all = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10)
+
+
+#primary_lifestyle
+unique(data_all$Primary_lifestyle)
+
+data_all$generalist1 = 0
+data_all$aerial = 0
+data_all$aquatic = 0
+data_all$insessorial = 0
+data_all$terrestrial = 0
+
+df1 = subset(data_all, data_all$Primary_lifestyle == 'Generalist',)
+df2 = subset(data_all, data_all$Primary_lifestyle == 'Aerial',)
+df3 = subset(data_all, data_all$Primary_lifestyle == 'Aquatic',)
+df4 = subset(data_all, data_all$Primary_lifestyle == 'Insessorial',)
+df5 = subset(data_all, data_all$Primary_lifestyle == 'Terrestrial',)
+
+df1$generalist1 = 1
+df2$aerial = 1
+df3$aquatic = 1
+df4$insessorial = 1
+df4$terrestrial = 1
+
+data_all = rbind(df1, df2, df3, df4, df5)
+
+unique(data_all$Habitat)
+
+
+# [1] "Marine"         "Riverine"       "Coastal"        "Grassland"      "Wetland"        "Forest"        
+# [7] "Shrubland"      "Woodland"       "Rock"           "Human Modified" "Desert"
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model1 = pgls(hot_climate ~ med_c, MutComp_all, lambda = 'ML')
+model1 = pgls(med_c ~ desert, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared
