@@ -553,6 +553,11 @@ df4$insessorial = 1
 df4$terrestrial = 1
 
 data_all = rbind(df1, df2, df3, df4, df5)
+data_all$terrestrial = 0
+df1 = subset(data_all, data_all$Primary_lifestyle == 'Terrestrial',)
+df2 = subset(data_all, data_all$Primary_lifestyle != 'Terrestrial',)
+df1$terrestrial = 1
+data_all = rbind(df1, df2)
 
 unique(data_all$Habitat)
 unique(data_all$Trophic_niche)
@@ -565,7 +570,7 @@ unique(data_all$Primary_lifestyle)
 #[1] "Generalist"  "Aerial"      "Aquatic"     "Insessorial" "Terrestrial"
 
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model1 = pgls(terrestrial ~ med_a, MutComp_all, lambda = 'ML')
+model1 = pgls(insessorial ~ med_a, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared
