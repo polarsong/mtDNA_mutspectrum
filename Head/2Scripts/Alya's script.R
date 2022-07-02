@@ -401,13 +401,7 @@ data_all = data_all[,c(1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)]
 data_all$realm= as.character(data_all$realm)
 dfrealm = data.frame()
 for (i in gen_vec)
-{
-  model_meda = pgls(data_all[,i] ~ realm, MutComp_all, lambda = 'ML')
-  tempp = summary(model_meda)$coefficients[,4]
-  tempr = summary(model_meda)$r.squared
-  tempin = summary(model_meda)$coefficients[,1]
-  dfrealm = rbind(dfrealm, c('realm', tempp[2], tempr, tempin[2]))
-}
+
 names(dfrealm) = c('ecology', 'p-value', 'r-squared', 'effect_size')
 #one file
 
@@ -561,12 +555,17 @@ df4$terrestrial = 1
 data_all = rbind(df1, df2, df3, df4, df5)
 
 unique(data_all$Habitat)
-
-
+unique(data_all$Trophic_niche)
+unique(data_all$Primary_lifestyle)
 # [1] "Marine"         "Riverine"       "Coastal"        "Grassland"      "Wetland"        "Forest"        
 # [7] "Shrubland"      "Woodland"       "Rock"           "Human Modified" "Desert"
+#[1] "Aquatic predator"      "Omnivore"              "Invertivore"           "Vertivore"            
+#[5] "Herbivore terrestrial" "Granivore"             "Frugivore"             "Nectarivore"          
+#[9] "Herbivore aquatic"     "Scavenger"  
+#[1] "Generalist"  "Aerial"      "Aquatic"     "Insessorial" "Terrestrial"
+
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model1 = pgls(med_c ~ desert, MutComp_all, lambda = 'ML')
+model1 = pgls(terrestrial ~ med_a, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared
