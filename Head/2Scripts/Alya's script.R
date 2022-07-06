@@ -366,6 +366,27 @@ for (i in gen_vec)
   }
   names(megapgls) = c("ecology", "p-value", "r-squared", 'effect size')
 }
+#LOOP!!!
+a = pgls(med_a ~ med_c, MutComp_all, lambda = 'ML')
+summary(a)
+b = pgls(data_all[,'med_a'] ~ data_all[,'Beak_width'], MutComp_all, lambda = 'ML')
+summary(b)
+head(data_all[,'med_a'])
+head(data_all$med_a)
+c = pgls(data_all$med_a ~ data_all$Beak_width,  MutComp_all, lambda = 'ML')
+summary(c)
+d = pgls(med_a ~ data_all$Beak_width,  MutComp_all, lambda = 'ML')
+summary(d)
+f = pgls(as.numeric(as.character(MutComp_all$data[,'med_a'])) ~ Beak_width,  MutComp_all, lambda = 'ML')
+summary(f)
+g = pgls(as.numeric(as.character(MutComp_all$data[,'med_a'])) ~ as.numeric(as.character(MutComp_all$data[,'Beak_width'])),  MutComp_all, lambda = 'ML')
+summary(g)
+#!LOOP
+
+head(MutComp_all$data[2])
+med_a
+Beak_width
+MutComp_all$med_a
 
 write.table(megapgls,
             file = 'all_pgls.txt',
@@ -570,7 +591,7 @@ unique(data_all$Primary_lifestyle)
 #[1] "Generalist"  "Aerial"      "Aquatic"     "Insessorial" "Terrestrial"
 
 MutComp_all = comparative.data(tree_all, data_all, Species, vcv = TRUE)
-model1 = pgls(insessorial ~ med_a, MutComp_all, lambda = 'ML')
+model1 = pgls(wetland ~ med_a, MutComp_all, lambda = 'ML')
 summary(model1)
 summary(model1)$coefficients[,4][2]
 summary(model1)$r.squared
