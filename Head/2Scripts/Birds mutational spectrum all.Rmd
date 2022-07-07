@@ -1,0 +1,56 @@
+---
+title: "Mitochondrial mutational spectrum of birds is associated with increased metabolism"
+author: 'Yury Gusarov'
+date: '2022-07-07'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls(all=TRUE))
+library(devtools)
+library(ggbiplot)
+library(ggplot2)
+library(dplyr)
+library(ape)
+library(geiger)
+library(caper)
+```
+## Background
+<br>
+Fish and mammals articles: Ah -> Gh + Ch -> Th mutations are signatures of increased metabolism.
+<br>
+Hypothesis: Do birds follow those rules?
+<br><br>
+
+#### 1.Preparing a birds + ecology dataset
+##### 1.1 Read birds mtDNA data and remove extra columns
+***
+```{r}
+df_mtdna = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
+df_mtdna$realm = NA
+df_mtdna$trophic_level = NA
+df_mtdna$trophic_niche = NA
+df_mtdna$foraging_niche = NA
+df_mtdna = df_mtdna[, colSums(is.na(df_mtdna)) < nrow(df_mtdna)]
+```
+<br>
+##### 1.2. Calculate mtDNA describing metrics
+###### All metrics are translated from light to heavy chain
+***
+```{r}
+df_mtdna$ghahSkew = (df_mtdna$neutral_c - df_mtdna$neutral_T)/(df_mtdna$neutral_c + df_mtdna$neutral_T)
+df_mtdna$fAn = df_mtdna$neutral_A/df_mtdna$neutral_amount
+df_mtdna$fGn = df_mtdna$neutral_g/df_mtdna$neutral_amount
+df_mtdna$fCn = df_mtdna$neutral_c/df_mtdna$neutral_amount
+df_mtdna$fTn = df_mtdna$neutral_T/df_mtdna$neutral_amount
+df_mtdna$Stg = df_mtdna$fAn + df_mtdna$fCn 
+df_mtdna$Sac = df_mtdna$fTn + df_mtdna$fGn
+df_mtdna$Stg_Sac = df_mtdna$Stg - df_mtdna$Sac
+```
+<br>
+##### 1.3 Codon normalisation
+***
+```{r}
+df_norm = df_mtdna[df_mtdna$gene_name != 'ND6',] #deleting ND6
+```
