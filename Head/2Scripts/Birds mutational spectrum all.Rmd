@@ -11,6 +11,7 @@ rm(list = ls(all=TRUE))
 library(devtools)
 library(ggbiplot)
 library(ggplot2)
+library(ggpubr)
 library(dplyr)
 library(ape)
 library(geiger)
@@ -23,12 +24,11 @@ Fish and mammals articles: Ah -> Gh + Ch -> Th mutations are signatures of incre
 Hypothesis: Do birds follow those rules?
 <br><br>
 
-#### 1.Preparing a birds + ecology dataset
+#### 1.Preparing a birds genetic + ecology dataset
 ##### 1.1 Read birds mtDNA data and remove extra columns
 ***
 ```{r}
 df_mtdna = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
-df_mtdna$realm = NA
 df_mtdna$trophic_level = NA
 df_mtdna$trophic_niche = NA
 df_mtdna$foraging_niche = NA
@@ -97,5 +97,70 @@ for (i in 1:nrow(sp_sum_gen)){
   names(df_out) = c('Species', needed_codons)
   codon_norm = rbind(codon_norm,df_out)
 }
+names(codon_norm) = c('species_name', needed_codons)
+codon_norm = codon_norm %>% select(-c('TAA','AGA'))
 
+
+
+final = data.frame()
+for (org in 1:nrow(codon_norm)){
+  sp_r = codon_norm[org,]
+  
+  vec_of_c = sp_r %>% select(TTC, TCC, TAC, TGC, CTC, CCC, CAC, CGC,
+                             ATC, ACC, AAC, AGC, GTC, GCC, GAC, GGC)
+  vec_of_a = sp_r %>% select(TTA, TCA, TGA, CTA, CCA, CAA, CGA,
+                             ATA, ACA, AAA, GTA, GCA, GAA, GGA)
+  
+  med_c = median(as.numeric(vec_of_c), na.rm = TRUE)
+  med_a = median(as.numeric(vec_of_a), na.rm = TRUE)
+  sp_out = data.frame(sp_r$species_name, med_c, med_a) 
+  final = rbind(final,sp_out)
+}
+names(final) = c('species_name', 'med_c', 'med_a')
+df_mtdna = merge(df_mtdna, final, by = 'species_name')
+df_eco = read.csv('../../Body/1Raw/Avonet_data.csv')
+df_eco = df_eco[c(1,9,10,11,12,13,14,15,17,18,19,25,28,29,30)]
+names(df_eco) = c('species_name','Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length', 'Wing_length',
+                  'Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass', 'Habitat', 'Trophic_level', 'Trophic_niche', 'Primary_lifestyle')
+df_mtdna = merge(df_mtdna, df_eco, by = 'species_name')
+```
+<br>
+As a result, we got a database of 766 birds species with their genetics and ecology 
+#### 2. Is there a nucleotide content shift in birds mtDNA?
+***
+```{r}
+f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
+  geom_boxplot()+
+  xlab('Mitochondrial genes')+
+  ylab('Thymine frequence')
+f1 = g1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
+  geom_boxplot()+
+  xlab('Mitochondrial genes')+
+  ylab('Cytosine frequence')
+f2 = g2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
+  geom_boxplot()+
+  xlab('Mitochondrial genes')+
+  ylab('Guanine frequence')
+f3 = g3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
+  geom_boxplot()+
+  xlab('Mitochondrial genes')+
+  ylab('Adenine frequence')
+f4 = g4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f5 = ggarrange(g1, g2, g3, g4, 
+                ncol = 2, nrow = 2)
+f5
+
+```
+<br>
+According to our boxplots, we can see that frequencies of
+<br>
+#### 3. What drives those nucleotide shifts?
+To evaluate the influence of ROS on birds mtDNA, we looked at combination of ecology and genetics
+***
+``` {r}
+tl1 = ggplot(data = df_mtdna$, aes(x = gene_name, y = ghahSkew))+
+  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
 ```
