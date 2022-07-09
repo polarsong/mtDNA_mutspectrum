@@ -8,7 +8,7 @@ rm(list=ls(all=T))
 library(dplyr)
 library(ggplot2)
 
-df = read.csv('../../Body/3Results/For_Bogdan.csv') #reading file
+df = read.csv('../../Body/3Results/Birds_mtDNA_data.csv') #reading file
 df = df[df$gene_name != 'ND6',] #deleting ND6
 df_sgc = df[,c(1,2,3,4,5,8, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
                54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,

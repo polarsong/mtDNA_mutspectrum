@@ -133,23 +133,23 @@ f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
   geom_boxplot()+
   xlab('Mitochondrial genes')+
   ylab('Thymine frequence')
-f1 = g1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f1 = f1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
 f2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
   geom_boxplot()+
   xlab('Mitochondrial genes')+
   ylab('Cytosine frequence')
-f2 = g2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f2 = f2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
 f3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
   geom_boxplot()+
   xlab('Mitochondrial genes')+
   ylab('Guanine frequence')
-f3 = g3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f3 = f3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
 f4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot()+
   xlab('Mitochondrial genes')+
   ylab('Adenine frequence')
-f4 = g4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
-f5 = ggarrange(g1, g2, g3, g4, 
+f4 = f4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+f5 = ggarrange(f1, f2, f3, f4, 
                 ncol = 2, nrow = 2)
 f5
 
@@ -158,9 +158,122 @@ f5
 According to our boxplots, we can see that frequencies of
 <br>
 #### 3. What drives those nucleotide shifts?
+##### 3.1 Trophic level
 To evaluate the influence of ROS on birds mtDNA, we looked at combination of ecology and genetics
+First we decided to look at birds Trophic level
 ***
 ``` {r}
-tl1 = ggplot(data = df_mtdna$, aes(x = gene_name, y = ghahSkew))+
-  geom_boxplot(aes(fill = TrophicLevel), notch = TRUE)
+g1 = ggplot(data = df_mtdna, aes(x = gene_name, y = ghahSkew))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Mitochondrial genes')+
+  ylab('GhAhSkew')+
+  guides(fill = guide_legend(title = "Trophic level"))
+g1 = g1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g2 = ggplot(data = df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Mitochondrial genes')+
+  ylab('Stg-Sac')+
+  guides(fill = guide_legend(title = "Trophic level"))
+g2 = g2 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+g3 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_a))+
+  geom_boxplot()+
+  xlab('Trophic level')+
+  ylab('Thymine asymmetry ')+
+  guides(fill = guide_legend(title = "Trophic level"))
+g4 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_c))+
+  geom_boxplot()+
+  xlab('Trophic level')+
+  ylab('Guanine asymmetry ')+
+  guides(fill = guide_legend(title = "Trophic level"))
+g5 = ggarrange(g1, g2, g3, g4,
+               ncol = 2, nrow = 2)
+
+g5
+```
+<br>
+According to our boxplots, we can see that carnivore and omnivore birds have more guanine and thymine in their mtDNA
+<br>
+##### 3.2 Realm 
+Next we decided to look at birds realms or ecozones
+***
+``` {r}
+h1 = ggplot(data = df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(aes(fill = realm))+
+  xlab('Mitochondrial genes')+
+  ylab('GhAhSkew')+
+  guides(fill = guide_legend(title = "Realm"))
+h1 = h1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+h2 = ggplot(data = df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(aes(fill = realm))+
+  xlab('Mitochondrial genes')+
+  ylab('Stg-Sac')+
+  guides(fill = guide_legend(title = "Realm"))
+h2 = h2 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+h3 = ggplot(data = df_mtdna, aes(x = realm, y = med_a))+
+  geom_boxplot()+
+  xlab('Realm')+
+  ylab('Thymine asymmetry')+
+  guides(fill = guide_legend(title = "Realm"))
+h3 = h3 + xlim(c('Antarctic', 'Palearctic', 'Nearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Oceania', 'Australian' ))
+h4 = ggplot(data = df_mtdna, aes(x = realm, y = med_c))+
+  geom_boxplot()+
+  xlab('Realm')+
+  ylab('Guanine asymmetry')+
+  guides(fill = guide_legend(title = "Realm"))
+h4 = h4 + xlim(c('Antarctic', 'Palearctic', 'Nearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Oceania', 'Australian' ))
+h5 = ggarrange(h1, h2, h3, h4,
+               ncol = 2, nrow = 2)
+
+h5
+
+
+```
+<br>
+We can see that Antarctic birds have more guanine and thymine in their mtDNA
+<br>
+#### 4. PCA analysis
+<br> 
+To see, that increase of G and T is driven by mutagenesis, not natural selection, we made a PCA analysis
+<br>
+***
+```{r}
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'med_a', 'med_c')]
+df_pca = df_pca[df_pca$gene_name != 'ND6',]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'med_a', 'med_c')
+gene_stats = data.frame(unique(df_pca$species_name))
+eco = df_mtdna[c('species_name','realm', 'Trophic_level')]
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+gene_stats = merge(gene_stats, eco, by = 'species_name')
+gene_stats = unique(gene_stats)
+row.names(gene_stats) = gene_stats$species_name
+gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+bipl = ggbiplot(stats_pca, groups = gene_stats$realm)
+bipl
+```
+<br> 
+From PCA biplot we can see two orthogonal axes: A -> G mutations, C -> T mutations. This means that all the changes in birds mtDNA are driven by mutagenesis 
+<br>
+#### 5. PGLS analysis
+To do statistic, we constructed a phylogenetic tree claculated PGLS for each ecology and genes characteristic
+***
+```{r}
+tree = read.tree("../../Body/3Results/phylo.treefile")
+phy=multi2di(tree)
+
+
+
+
+
+
+
 ```
