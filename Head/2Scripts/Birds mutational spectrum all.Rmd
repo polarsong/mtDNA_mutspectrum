@@ -209,7 +209,6 @@ g3 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_a))+
   geom_boxplot()+
   xlab('Trophic level')+
   ylab('Thymine asymmetry ')+
-  guides(fill = guide_legend(title = "Trophic level"))
 g3
 ```
 ***
@@ -218,7 +217,6 @@ g4 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_c))+
   geom_boxplot()+
   xlab('Trophic level')+
   ylab('Guanine asymmetry ')+
-  guides(fill = guide_legend(title = "Trophic level"))
 g4
 ```
 
