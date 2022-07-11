@@ -246,3 +246,84 @@ summary(stats_pca)
 
 bipl = ggbiplot(stats_pca, groups = gene_stats$realm)
 bipl
+
+
+#for text 
+k1 = ggplot(df_mtdna, aes(x = gene_name, y = ghahSkew))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Митохондриальные гены')+
+  ylab('Скос цитозина и тимина')+
+  guides(fill = guide_legend(title = "Трофический уровень"))+
+  scale_fill_hue(labels = c('Плотоядные', 'Травоядные', 'Всеядные', 'Падальщики'))
+k1 = k1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+k1
+
+k2 = ggplot(df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(aes(fill = Trophic_level))+
+  xlab('Митохондриальные гены')+
+  ylab('Stg-Sac')+
+  guides(fill = guide_legend(title = "Трофический уровень"))+
+  scale_fill_hue(labels = c('Плотоядные', 'Травоядные', 'Всеядные', 'Падальщики'))
+k2 = k2 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+k2
+
+k3 = ggplot(df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(aes(fill = realm))+
+  xlab('Митохондриальные гены')+
+  ylab('Stg-Sac')+
+  guides(fill = guide_legend(title = "Экозона"))+
+  scale_fill_hue(labels = c("Афротропики", "Антарктика", 'Австралия', 'Индо-Малайзия', 'Мадагаскар', 'Неарктика', 'Неотропики', 'Океания', 'Палеарктика'))
+k3 = k3 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+k3
+
+k4 = ggplot(df_mtdna, aes(x = gene_name, y = ghahSkew))+
+  geom_boxplot(aes(fill = realm))+
+  xlab('Митохондриальные гены')+
+  ylab('Скос цитозина и тимина')+
+  guides(fill = guide_legend(title = "Экозона"))+
+  scale_fill_hue(labels = c("Афротропики", "Антарктика", 'Австралия', 'Индо-Малайзия', 'Мадагаскар', 'Неарктика', 'Неотропики', 'Океания', 'Палеарктика'))
+k4 = k4 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))
+k4
+
+k5 = ggplot(data = df_mtdna, aes(x = Экозона, y = med_a))+
+  geom_violin()+
+  xlab('Экозона')+
+  ylab('Асимметрия аденина')
+k5 = k5 + xlim(c("Антарктика", 'Палеарктика', 'Неарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Океания', 'Австралия'))
+k5
+
+k6 = ggplot(data = df_mtdna, aes(x = Экозона, y = med_c))+
+  geom_violin()+
+  xlab('Экозона')+
+  ylab('Асимметрия цитозина')
+k6 = k6 + xlim(c("Антарктика", 'Палеарктика', 'Неарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Океания', 'Австралия'))
+k6
+
+k7 = ggplot(data = df_mtdna, aes(x = Экозона, y = med_a))+
+  geom_boxplot()+
+  xlab('Экозона')+
+  ylab('Асимметрия аденина')
+k7 = k7 + xlim(c("Антарктика", 'Палеарктика', 'Неарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Океания', 'Австралия'))
+k7
+
+k8 = ggplot(data = df_mtdna, aes(x = Экозона, y = med_c))+
+  geom_violin()+
+  xlab('Экозона')+
+  ylab('Асимметрия цитозина')
+k8 = k8 + xlim(c("Антарктика", 'Палеарктика', 'Неарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Океания', 'Австралия'))
+k8
+
+
+k9 = ggplot(data = df_mtdna, aes(x = Трофический_уровень, y = med_a))+
+  geom_violin()+
+  xlab('Трофический уровень')+
+  ylab('Асимметрия аденина')
+k9 = k9 + xlim(c('Плотоядные', 'Травоядные', 'Всеядные', 'Падальщики'))
+k9
+
+k10 = ggplot(data = df_mtdna, aes(x = Трофический_уровень, y = med_c))+
+  geom_violin()+
+  xlab('Трофический уровень')+
+  ylab('Асимметрия цитозина')
+k10 = k10 + xlim(c('Плотоядные', 'Травоядные', 'Всеядные', 'Падальщики'))
+k10
