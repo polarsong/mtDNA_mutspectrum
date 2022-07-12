@@ -139,7 +139,7 @@ df_mtdna = merge(df_mtdna, df_eco, by = 'species_name')
 
 ***
 ```{r, include=FALSE}
-library(devtools)
+#library(devtools) install this only, if you don't have ggbiplot
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
@@ -508,28 +508,62 @@ df_mtdna = rbind(df1, df2, df3, df4, df5)
 ```{r}
 tree = read.tree("../../Body/3Results/phylo.treefile")
 phy=multi2di(tree)
-df_pgls = df_mtdna[c(1,2,5,96,97,98,99,100,103,104,105,106,107,108,109,110,111,112,113,114,115,120:158)]
-#solve problems with multiple genes
-row.names(df_pgls) = df_pgls$species_name
-df_pgls$gene_name = NA
-df_pgls = df_pgls[, colSums(is.na(df_pgls)) < nrow(df_pgls)]
-tree_all = treedata(phy, df_pgls, sort = T, warnings = T)$phy
-all_pgls = as.data.frame(treedata(tree_all, df_pgls, sort = T, warnings = T)$data)
-MutComp_all = comparative.data(tree_all, all_pgls, species_name, vcv = TRUE)
-vec1 = names()
-vec2 = names()
+df_pgls = df_mtdna[c(1,2,5,26,27,28,29,30)]
+                     #96,97,98,99,100,103,104,105,106,107,108,109,110,111,112,113,114,115,120:158)]
+df_pgls = df_pgls[df_pgls$gene_name != 'ND6',]
+vecn = c('neutral_A', 'neutral_g', 'neutral_c', 'neutral_T', 'neutral_amount')
+sp_sum_nucl = data.frame(unique(df_pgls$species_name))
+for (i in vecn){
+  
+  sum_of_nucl = aggregate(df_pgls[ ,i], by = list(df_pgls$species_name), FUN = 'sum')[2]
+  sp_sum_nucl = cbind(sp_sum_nucl, sum_of_nucl)
+  
+}
+names(sp_sum_nucl) = c('species_name', vecn)
+sp_sum_nucl$fTn = (sp_sum_nucl$neutral_A)/(sp_sum_nucl$neutral_amount)
+sp_sum_nucl$fCn = (sp_sum_nucl$neutral_g)/(sp_sum_nucl$neutral_amount)
+sp_sum_nucl$fAn = (sp_sum_nucl$neutral_T)/(sp_sum_nucl$neutral_amount)
+sp_sum_nucl$fGn = (sp_sum_nucl$neutral_c)/(sp_sum_nucl$neutral_amount)
+sp_sum_nucl$ghahSkew = (sp_sum_nucl$neutral_c - sp_sum_nucl$neutral_T)/(sp_sum_nucl$neutral_c + sp_sum_nucl$neutral_T)
+sp_sum_nucl$Stg_Sac = (sp_sum_nucl$fTn+sp_sum_nucl$fGn)-(sp_sum_nucl$fAn+sp_sum_nucl$fCn)
 
+df_pgls1 = unique(df_mtdna[c(1,2,104,105,106,107,108,109,110,111,112,113,114,115,120:158)])
+df_finale = merge(df_pgls1, sp_sum_nucl)
+df_finale$realm = NA
+df_finale$neutral_A = NA
+df_finale$neutral_c = NA
+df_finale$neutral_g = NA
+df_finale$neutral_T = NA
+df_finale$neutral_amount = NA
+df_finale = df_finale[, colSums(is.na(df_finale)) < nrow(df_finale)]
+
+df_finale$species_name = gsub(" ", "_", df_finale$species_name)
+row.names(df_finale) = df_finale$species_name
+tree_all = treedata(phy, df_finale, sort = T, warnings = T)$phy
+all_pgls = as.data.frame(treedata(tree_all, df_finale, sort = T, warnings = T)$data)
+MutComp_all = comparative.data(tree_all, all_pgls, species_name, vcv = TRUE)
+
+vec1 = names(all_pgls)
+vec1 = vec1[2:58]
+vec2 = names(all_pgls)
+vec2 = vec2[2:58]
 pgls_finale = data.frame()
+
+
+
 #loop
 for (i in vec1)
 {
   for (j in vec2) 
   {
-    model_all = pgls(as.numeric(as.character(MutComp_all$data[,i])) ~ as.numeric(as.character(MutComp_all$data[,j])),  MutComp_all, lambda = 'ML')
-    p = model_all$coefficients[,4][2]
-    r = model_all$r.squared
-    ef = model_all$coefficients[,1][2]
-    pgls_finale = rbind(pgls_finale, c(i, j, p, r, ef))
+    if (i != j)
+    {
+      model_all = pgls(as.numeric(as.character(MutComp_all$data[,i])) ~ as.numeric(as.character(MutComp_all$data[,j])),  MutComp_all, lambda = 'ML')
+      p = summary(model_all)$coefficients[,4][2]
+      r = summary(model_all)$r.squared
+      ef = summary(model_all)$coefficients[,1][2]
+      pgls_finale = rbind(pgls_finale, c(i, j, p, r, ef))
+    }
   }
 }
 #ALL A across genes / ALL AGTC across genes
