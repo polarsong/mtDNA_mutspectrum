@@ -532,6 +532,8 @@ for (i in vec1)
     pgls_finale = rbind(pgls_finale, c(i, j, p, r, ef))
   }
 }
+#ALL A across genes / ALL AGTC across genes
+
 ```
 
 
