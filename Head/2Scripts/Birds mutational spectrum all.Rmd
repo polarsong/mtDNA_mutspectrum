@@ -539,14 +539,32 @@ df_finale = df_finale[, colSums(is.na(df_finale)) < nrow(df_finale)]
 
 df_finale$species_name = gsub(" ", "_", df_finale$species_name)
 row.names(df_finale) = df_finale$species_name
-tree_all = treedata(phy, df_finale, sort = T, warnings = T)$phy
-all_pgls = as.data.frame(treedata(tree_all, df_finale, sort = T, warnings = T)$data)
+#all ecology
+#tree_all = treedata(phy, df_finale, sort = T, warnings = T)$phy
+#all_pgls = as.data.frame(treedata(tree_all, df_finale, sort = T, warnings = T)$data)
+#MutComp_all = comparative.data(tree_all, all_pgls, species_name, vcv = TRUE)
+#vec1 = names(all_pgls)
+#vec1 = vec1[2:58]
+#vec2 = names(all_pgls)
+#vec2 = vec2[2:58]
+#pgls_finale = data.frame()
+#end
+
+#no mistake data_frame
+df_mistake = df_finale
+df_mistake$omnivoretn1 = NA
+df_mistake$insessorial1 = NA
+df_mistake = df_mistake[, colSums(is.na(df_mistake)) < nrow(df_mistake)]
+tree_all = treedata(phy, df_mistake, sort = T, warnings = T)$phy
+all_pgls = as.data.frame(treedata(tree_all, df_mistake, sort = T, warnings = T)$data)
 MutComp_all = comparative.data(tree_all, all_pgls, species_name, vcv = TRUE)
 
+
+
 vec1 = names(all_pgls)
-vec1 = vec1[2:58]
+vec1 = vec1[2:56]
 vec2 = names(all_pgls)
-vec2 = vec2[2:58]
+vec2 = vec2[2:56]
 pgls_finale = data.frame()
 
 
