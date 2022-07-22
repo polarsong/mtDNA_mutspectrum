@@ -176,8 +176,6 @@ Final$FrT = as.numeric(as.character(Final$T))/length(genome)
 Final$FrG = as.numeric(as.character(Final$G))/length(genome)
 Final$FrC = as.numeric(as.character(Final$C))/length(genome)
 
-write.table(Final, "/../../Body/3Results/EquilibriumMammals.txt")
-
 ### draw simulation saturation
 
 ColorA = rgb(1,0,0,0.3)
@@ -209,8 +207,9 @@ for (InitGenome in 1:10)
 legend(1,0.6, legend = c('A','T','G','C'), col = c(ColorA, ColorT, ColorG, ColorC), pch = 16)
 
 ## second picture preparations 
+to_graph_final = Final[Final$Gener == 1000000,]
 
-expected = Final %>%
+expected = to_graph_final %>%
   group_by(MutSpecProb) %>% 
   mutate(mFrA = median(FrA)) %>%
   mutate(mFrT = median(FrT)) %>% 
@@ -219,14 +218,14 @@ expected = Final %>%
   select(MutSpecProb, mFrA, mFrT, mFrG, mFrC) %>% 
   unique()
 
-### take data from simulation 
-expected_short = data.frame(0.1643164, 0.2374237, 0.5838584, 0.01540154)
+### take data from simulation, that we derived from our script above
+expected_short = data.frame(0.16271627, 0.2311731, 0.5903590, 0.01480148)
 names(expected_short) =c('FrA','FrG','FrT','FrC')
 
-expected_long = data.frame(0.1117112, 0.2582258, 0.5892589, 0.04000400)
+expected_long = data.frame(0.09510951, 0.2221222, 0.6368137, 0.04380438)
 names(expected_long) =c('FrA','FrG','FrT','FrC')
 
-### reverse to put in graph
+### reverse to put on plot
 expected_all = cbind(expected_short, expected_long)
 expected_all = t(as.matrix(expected_all))
 
@@ -236,8 +235,8 @@ expected_all = cbind(expected_all, c('FrA','FrG','FrT','FrC','FrA','FrG','FrT','
 colnames(expected_all) = c('expected', 'type_of_mam','mutation')
 
 
-short_mam = (apply(as.matrix(short[,15:18]), 2, mean))
-long_mam = (apply(as.matrix(long[,15:18]), 2, mean))
+short_mam = (apply(as.matrix(short[,15:18]), 2, median))
+long_mam = (apply(as.matrix(long[,15:18]), 2, median))
 observed = cbind(t(as.matrix(short_mam)), t(as.matrix(long_mam)))
 observed = t(as.matrix(observed))
 
@@ -257,6 +256,6 @@ ggplot(data = expvsobs, aes(x = observed, y = expected, group=type_of_mam, col =
   geom_line(aes(group = mutation), col = 'black', size = 0.7)+
   geom_text(aes(label=mutation),hjust=-0.40, vjust=-0.40)+
   xlim(0, 0.60)+
-  ylim(0,0.60)+
+  ylim(0,0.65)+
   labs(x = 'Observed Nucleotide Content',y = 'Expected Nucleotide Content')
 
