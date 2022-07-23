@@ -19,13 +19,13 @@ GT = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', sep = '\t
 GT$Species = gsub(' ','_',GT$Scientific_name)
 
 dim(MUT)
-MamGt = merge(GT,MUT, by = 'Species') # 424
+MamGt = merge(GT,MUT, by = 'Species')
 dim(MamGt)
 Qual = data.frame(table(MamGt$Species))
-UniqueSpecies = Qual[Qual$Freq == 1,]$Var1; length(UniqueSpecies); # 422
+UniqueSpecies = Qual[Qual$Freq == 1,]$Var1; length(UniqueSpecies);
 MamGt = MamGt[MamGt$Species %in% UniqueSpecies,]
 dim(MamGt)
-MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A) #  424
+MamGt$TC_TCGA = MamGt$T_C / (MamGt$T_C + MamGt$G_A)
 
 ##### 3: read the number of mutations per species per gene and keep in MamGt only species with at least 15 fourfold mutations in Cytb
 Number = read.table('../../Body/3Results/VertebratePolymorphisms.MutSpecData.txt')
@@ -50,16 +50,16 @@ nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 36,])
 cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 36,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 36,]$GenerationLength_d, method = 'spearman')
 
 # MoreOrEqual60
-# nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,])
-# cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,]$GenerationLength_d, method = 'spearman')
+nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,])
+cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 60,]$GenerationLength_d, method = 'spearman')
 
 # MoreOrEqual84
 nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 84,])
 cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 84,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 84,]$GenerationLength_d, method = 'spearman')
 
 # MoreOrEqual108
-# nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,])
-# cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,]$GenerationLength_d, method = 'spearman')
+nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,])
+cor.test(MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,]$T_C,MamGt[MamGt$NumOfFourFoldMutInCytB >= 108,]$GenerationLength_d, method = 'spearman')
 
 # MoreOrEqual132
 nrow(MamGt[MamGt$NumOfFourFoldMutInCytB >= 132,])
