@@ -351,7 +351,7 @@ genes characteristic
 library(ape)
 library(geiger)
 library(caper)
-install.packages(nlme)
+#install.packages(nlme)
 ```
 ***
 ```{r, include=FALSE}
@@ -510,7 +510,6 @@ df_mtdna = rbind(df1, df2, df3, df4, df5)
 tree = read.tree("../../Body/3Results/phylo.treefile")
 phy=multi2di(tree)
 df_pgls = df_mtdna[c(1,2,5,26,27,28,29,30)]
-                     #96,97,98,99,100,103,104,105,106,107,108,109,110,111,112,113,114,115,120:158)]
 df_pgls = df_pgls[df_pgls$gene_name != 'ND6',]
 vecn = c('neutral_A', 'neutral_g', 'neutral_c', 'neutral_T', 'neutral_amount')
 sp_sum_nucl = data.frame(unique(df_pgls$species_name))
@@ -611,14 +610,7 @@ for (i in vec_m)
 }
 
   
-a = pgls(as.numeric(as.character(MutComp_all$data[,'med_a'])) ~ as.numeric(as.character(MutComp_all$data[,'med_c'])),  MutComp_all, lambda = 'ML')
-  
-b = as.numeric(summary(a)$coefficients[,4][2])
-c = summary(a)$r.squared
-d = as.numeric(summary(a)$coefficients[,1][2])
-b
-c
-d
+
 
 ```
 
