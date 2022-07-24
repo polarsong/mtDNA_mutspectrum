@@ -463,9 +463,3 @@ y = (A*x+b)*2
 LmRes = lm(y~x)
 LmRes
 
-
-
-
-  
-  
-  
