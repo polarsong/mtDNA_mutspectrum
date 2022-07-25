@@ -3,7 +3,7 @@ rm(list=ls(all=TRUE))
 
 pdf("../../Body/4Figures/DuplexSeqDataAnalyses.Downsampling.Plotting.R.pdf", width = 12, height = 14)
 par(mfrow=c(3,1))
-breaks = seq(-10, 700,2)
+breaks = seq(-10, 1000,4)
 
 LMSlopes = read.table("../../Body/3Results/DuplexSeqDataAnalyses.Downsampling.R.txt", header = TRUE)
 names(LMSlopes)
@@ -11,19 +11,19 @@ LMSlopes = LMSlopes*10^9
 
 summary(LMSlopes)
 
-hist(LMSlopes$MusYoungAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,10), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$MusYoungAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,240), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$MusYoungAhGhDownSampledSlopes), col = 'dark red', lwd = 4, lt = 2); par(new=TRUE)
-hist(LMSlopes$MusYoungChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,10), col = 'dark grey', border = 'dark grey',  breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$MusYoungChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,240), col = 'dark grey', border = 'dark grey',  breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$MusYoungChThDownSampledSlopes), col = 'black', lwd = 4, lt = 2)
 
-hist(LMSlopes$MusOldAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,10), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$MusOldAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,170), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$MusOldAhGhDownSampledSlopes), col = 'dark red', lwd = 4, lt = 2); par(new=TRUE)
-hist(LMSlopes$MusOldChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,10), col = 'dark grey', border = 'dark grey', breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$MusOldChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,170), col = 'dark grey', border = 'dark grey', breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$MusOldChThDownSampledSlopes), col = 'black', lwd = 4, lt = 2)
 
-hist(LMSlopes$HumanAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,3), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$HumanAhGhDownSampledSlopes, xlim = c(0,600), ylim = c(0,25), col = 'red', border = 'red', breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$HumanAhGhDownSampledSlopes), col = 'dark red', lwd = 4, lt = 2); par(new=TRUE)
-hist(LMSlopes$HumanChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,3), col = 'dark grey', border = 'dark grey', breaks = breaks, main = '', xlab = '', ylab = '')
+hist(LMSlopes$HumanChThDownSampledSlopes, xlim = c(0,600), ylim = c(0,25), col = 'dark grey', border = 'dark grey', breaks = breaks, main = '', xlab = '', ylab = '')
 abline(v=median(LMSlopes$HumanChThDownSampledSlopes), col = 'black', lwd = 4, lt = 2)
 
 par(mfrow=c(2,2))
@@ -47,13 +47,13 @@ median(LMSlopes$MusOldChThDownSampledSlopes)/median(LMSlopes$MusYoungChThDownSam
 median(LMSlopes$HumanChThDownSampledSlopes)/median(LMSlopes$MusOldChThDownSampledSlopes)    #  (7.7)
 median(LMSlopes$HumanChThDownSampledSlopes)/median(LMSlopes$MusYoungChThDownSampledSlopes)  #  (14.5)
 
-######### how to compare datasets => how to prove that 8.3 > 1.9 etc..
-#### 1: simple approach: divide vectors normally (each element one by one) and compare results
+######### how to compare data-sets
+#### simple approach: divide vectors normally (each element one by one) and compare results
 # 8.3 > 1.9
 OldToYoungMiceAhGh = LMSlopes$MusOldAhGhDownSampledSlopes/LMSlopes$MusYoungAhGhDownSampledSlopes # 
 OldToYoungMiceChTh = LMSlopes$MusOldChThDownSampledSlopes/LMSlopes$MusYoungChThDownSampledSlopes
 boxplot(OldToYoungMiceAhGh,OldToYoungMiceChTh, notch = TRUE, outline = FALSE, col = c('red','grey'))
-wilcox.test(OldToYoungMiceAhG,OldToYoungMiceChT)
+wilcox.test(OldToYoungMiceAhGh,OldToYoungMiceChTh)
 
 # 11.7 > 7.7
 HumanToOldMiceAhGh = LMSlopes$HumanAhGhDownSampledSlopes/LMSlopes$MusOldAhGhDownSampledSlopes  
@@ -70,20 +70,19 @@ wilcox.test(HumanToYoungMiceAhGh,HumanToYoungMiceChTh)
 #### 2: my approach: divide vectors in all possible combinations (each element of the first vector divide by all elements of the second) and compare results
 
 # 8.3 > 1.9
-OldToYoungMiceAhGh = data.frame(merge(LMSlopes$MusOldAhGhDownSampledSlopes,LMSlopes$MusYoungAhGhDownSampledSlopes))
-names(OldToYoungMiceAhGh)=c('MusOldAhGhDownSampledSlopes','MusYoungAhGhDownSampledSlopes')
-OldToYoungMiceAhGh$OldToYoungMiceAhGh = OldToYoungMiceAhGh$MusOldAhGhDownSampledSlopes/OldToYoungMiceAhGh$MusYoungAhGhDownSampledSlopes
+#OldToYoungMiceAhGh = data.frame(merge(LMSlopes$MusOldAhGhDownSampledSlopes,LMSlopes$MusYoungAhGhDownSampledSlopes))
+#names(OldToYoungMiceAhGh)=c('MusOldAhGhDownSampledSlopes','MusYoungAhGhDownSampledSlopes')
+#OldToYoungMiceAhGh$OldToYoungMiceAhGh = OldToYoungMiceAhGh$MusOldAhGhDownSampledSlopes/OldToYoungMiceAhGh$MusYoungAhGhDownSampledSlopes
 
-OldToYoungMiceChTh = data.frame(merge(LMSlopes$MusOldChThDownSampledSlopes,LMSlopes$MusYoungChThDownSampledSlopes))
-names(OldToYoungMiceChTh)=c('MusOldChThDownSampledSlopes','MusYoungChThDownSampledSlopes')
-OldToYoungMiceChTh$OldToYoungMiceChTh = OldToYoungMiceChTh$MusOldChThDownSampledSlopes/OldToYoungMiceChTh$MusYoungChThDownSampledSlopes
+#OldToYoungMiceChTh = data.frame(merge(LMSlopes$MusOldChThDownSampledSlopes,LMSlopes$MusYoungChThDownSampledSlopes))
+#names(OldToYoungMiceChTh)=c('MusOldChThDownSampledSlopes','MusYoungChThDownSampledSlopes')
+#OldToYoungMiceChTh$OldToYoungMiceChTh = OldToYoungMiceChTh$MusOldChThDownSampledSlopes/OldToYoungMiceChTh$MusYoungChThDownSampledSlopes
 
-boxplot(OldToYoungMiceAhGh$OldToYoungMiceAhGh,OldToYoungMiceChTh$OldToYoungMiceChTh, notch = TRUE, outline = FALSE, col = c('red','grey'))
-wilcox.test(OldToYoungMiceAhGh$OldToYoungMiceAhGh,OldToYoungMiceChTh$OldToYoungMiceChTh)
+#boxplot(OldToYoungMiceAhGh$OldToYoungMiceAhGh,OldToYoungMiceChTh$OldToYoungMiceChTh, notch = TRUE, outline = FALSE, col = c('red','grey'))
+#wilcox.test(OldToYoungMiceAhGh$OldToYoungMiceAhGh,OldToYoungMiceChTh$OldToYoungMiceChTh)
 
 # 11.7 > 7.7
 
 # 96.8 > 14.5
-
 
 dev.off()

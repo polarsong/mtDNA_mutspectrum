@@ -2,36 +2,7 @@
 ################################################### DOWNSAMPLIG OF C>T TOWARDS A>G IN YOUNG MICE
 #############################################################################################################
 
-## IF I DO SAMPLING FROM FREQUENCIES DIRECTLY? IN THIS CASE I DON'T NEED TO COME BACK TO NORMALIZATIONS AND DO EVERYTHING SIMPLER?
-
 rm(list=ls(all=TRUE))
-
-pdf("../../Body/4Figures/DuplexSeqDataAnalyses.Downsampling.02.R.pdf", width = 12, height = 14)
-par(mfrow=c(3,1))
-
-##### YOUNG MICE 
-MusYoung = read.table("../../Body/1Raw/DuplexSeqData/DataS3.txt", sep = '\t', header = TRUE)
-names(MusYoung)
-MusYoungMajorArc=MusYoung[MusYoung$BIN_NUM >= 53 & MusYoung$BIN_NUM <= 153,]
-MusYoungMajorArc$MajorArcBins = seq(1:101)
-
-##################################################
-##### what is the density? 
-##################################################
-
-## it is not relative frequency per bin:
-MusYoungMajorArc$TotalDensity = MusYoungMajorArc$A.T_Density + MusYoungMajorArc$A.G_Density + MusYoungMajorArc$A.C_Density + 
-MusYoungMajorArc$T.A_Density + MusYoungMajorArc$T.G_Density + MusYoungMajorArc$T.C_Density +
-MusYoungMajorArc$C.A_Density + MusYoungMajorArc$C.G_Density + MusYoungMajorArc$C.T_Density + 
-MusYoungMajorArc$G.A_Density + MusYoungMajorArc$G.C_Density + MusYoungMajorArc$G.T_Density
-summary(MusYoungMajorArc$TotalDensity)
-
-## it is not relative DENOM per bin:
-MusYoungMajorArc$TotalDenom =  MusYoungMajorArc$A.T_DENOM + MusYoungMajorArc$A.G_DENOM + MusYoungMajorArc$A.C_DENOM + 
-MusYoungMajorArc$T.A_DENOM + MusYoungMajorArc$T.G_DENOM + MusYoungMajorArc$T.C_DENOM +
-MusYoungMajorArc$C.A_DENOM + MusYoungMajorArc$C.G_DENOM + MusYoungMajorArc$C.T_DENOM + 
-MusYoungMajorArc$G.A_DENOM + MusYoungMajorArc$G.C_DENOM + MusYoungMajorArc$G.T_DENOM
-summary(MusYoungMajorArc$TotalDenom)
 
 ################## START OF SAMPLING ##################
 ####  we assume that in each bin for each type of substitution there are black (COUNT) and white (DENOM) balls.
@@ -50,7 +21,7 @@ min(MusYoungMajorArc$T.C_DENOM)
 
 MusYoungAhGhDownSampledSlopes = c()
 MusYoungChThDownSampledSlopes = c()
-for (iteration in 1:100)
+for (iteration in 1:500)
 {
   NumberOfRandomlySampledMolecules = 400000 # this is less than minimum, however we can change it
   VectorChThDownSampledFreq = c()
@@ -84,7 +55,7 @@ min(MusOldMajorArc$T.C_DENOM)
 
 MusOldAhGhDownSampledSlopes = c()
 MusOldChThDownSampledSlopes = c()
-for (iteration in 1:100)
+for (iteration in 1:500)
 {
   NumberOfRandomlySampledMolecules = 400000 # this is less than minimum, however we can change it
   VectorChThDownSampledFreq = c()
@@ -119,7 +90,7 @@ min(HumanMajorArc$T.C_DENOM) # 1536386
 
 HumanAhGhDownSampledSlopes = c()
 HumanChThDownSampledSlopes = c()
-for (iteration in 1:100)
+for (iteration in 1:500)
 {
   NumberOfRandomlySampledMolecules = 400000 # this is less than minimum, however we can change it
   VectorChThDownSampledFreq = c()
@@ -145,5 +116,4 @@ summary(HumanChThDownSampledSlopes)
 
 AllSlopes = data.frame(MusYoungAhGhDownSampledSlopes, MusYoungChThDownSampledSlopes,MusOldAhGhDownSampledSlopes, MusOldChThDownSampledSlopes, HumanAhGhDownSampledSlopes,HumanChThDownSampledSlopes)
 write.table(AllSlopes,"../../Body/3Results/DuplexSeqDataAnalyses.Downsampling.R.txt")
-
 
