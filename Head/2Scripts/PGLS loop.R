@@ -1,5 +1,7 @@
+#you must always run command below for R to work properly
 rm(list = ls(all=TRUE))
 #installing packages
+#if you installed them before, to do not touch this
 install.packages('ape')
 install.packages('geiger')
 install.packages('caper')
@@ -55,8 +57,13 @@ for (i in vec1)
       }
     }
   }
+  print(i)
+  write.table(pgls_finale, file = 'PGLS.txt')
 }
 #end
 
 #writing table we got
 write.csv(pgls_finale, file = 'Birds_PGLS.csv')
+
+
+
