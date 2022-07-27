@@ -25,7 +25,7 @@ tree_all = treedata(phy, df_all, sort = T, warnings = T)$phy
 all_pgls = as.data.frame(treedata(tree_all, df_all, sort = T, warnings = T)$data)
 MutComp_all = comparative.data(tree_all, all_pgls, species_name, vcv = TRUE)
 vec1 = names(all_pgls)
-vec1 = vec1[2:58]
+vec1 = vec1[48:58]
 vec2 = names(all_pgls)
 vec2 = vec2[2:58]
 pgls_finale = data.frame()
