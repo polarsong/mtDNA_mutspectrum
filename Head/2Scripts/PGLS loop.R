@@ -65,5 +65,15 @@ for (i in vec1)
 #writing table we got
 write.csv(pgls_finale, file = 'Birds_PGLS.csv')
 
+df1 = read.csv('../../Head/2Scripts/Birds_PGLS.csv')
+df2 = read.csv('../../Head/2Scripts/Birds_PGLS2.csv')
+names(df1) = c('Number', 'Ecology1', 'Ecology2', 'p_value', 'mult_r_squared', 'effect_size')
+names(df2) = c('Number', 'Ecology1', 'Ecology2', 'p_value', 'mult_r_squared', 'effect_size')
 
+df1 = df1[df1$Ecology1 != 'insessorial1',]
 
+to_save = rbind(df1, df2)
+to_save$Number = NA
+to_save = to_save[, colSums(is.na(to_save)) < nrow(to_save)]
+
+write.csv(to_save, file = 'Birds_all_PGLS.csv', row.names = FALSE)
