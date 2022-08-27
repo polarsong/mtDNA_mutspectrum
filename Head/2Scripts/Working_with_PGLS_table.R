@@ -3,7 +3,7 @@ library(ggplot2)
 library(heatmaply)
 
 #reading table
-df = read.csv('../../Head/2Scripts/Birds_all_pgls.csv')
+df = read.csv('/../../Head/2Scripts/Birds_all_pgls.csv')
 
 #discarding p-values
 df_disc = df[is.na(df$p_value) == FALSE,]
