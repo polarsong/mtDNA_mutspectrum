@@ -19,7 +19,7 @@ df$p_adj_none = p.adjust(df$p_value, method = 'none')
 #discarding p-values
 df_disc = df[df$p_value <= 0.05,]
 df_disc = df_disc[is.na(df_disc$p_value) == FALSE,]
-df_disc = df_disc[df_disc$p_value != 0,]
+#df_disc = df_disc[df_disc$p_value != 0,]
 
 #genetics df
 df1 = df_disc[df_disc$Ecology1 =='ghahSkew',]
@@ -93,8 +93,17 @@ l3 = l3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 l3
 
 
+# p-value treshhold p-value/3192
+#vulcano plot - intaractive? delete/normalize mass + delete mass
+
+df_bon = df[df$p_adj_bon < 0.8,]
+df_bon = df_bon[is.na(df_bon$p_adj_bon) == FALSE,]
+
+summary(df$effect_size)
 
 
+rnow = read.csv('../../Body/3Results/Birds_mtDna_data.csv')
+a = rnow[rnow$trophic_niche == 'Aquatic predator',]
 
-
-
+df_disc1 = df_disc[df_disc$p_value < 0.001,] #save table
+df_disc2 = df_disc[df_disc$p_value < 0.01,] #save table
