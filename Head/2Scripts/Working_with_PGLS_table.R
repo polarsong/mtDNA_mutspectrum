@@ -107,3 +107,7 @@ a = rnow[rnow$trophic_niche == 'Aquatic predator',]
 
 df_disc1 = df_disc[df_disc$p_value < 0.001,] #save table
 df_disc2 = df_disc[df_disc$p_value < 0.01,] #save table
+
+write.csv(df_disc, 'PGLS_005_lesser.csv')
+write.csv(df_disc1, 'PGLS_0001_lesser.csv')
+write.csv(df_disc2, 'PGLS_001_lesser.csv')
