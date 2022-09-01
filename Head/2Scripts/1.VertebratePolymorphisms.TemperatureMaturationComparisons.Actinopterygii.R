@@ -42,7 +42,7 @@ ggscatter(TemperMut, x = "Temperature", y = "T_C",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="AH>GH") + stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="AH>GH") + stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -52,7 +52,7 @@ ggscatter(TemperMut, x = "Temperature", y = "A_G",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="TH>CH") + stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="TH>CH") + stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -64,7 +64,7 @@ ggscatter(TemperMut, x = "Temperature", y = "T_C",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="AH>GH") + stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="AH>GH") + stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -76,7 +76,7 @@ ggscatter(TemperMut, x = "Temperature", y = "A_G",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          xlab="Mean annual water temperature, °C", ylab="TH>CH")+ stat_cor(
+          xlab="Mean annual water temperature, ?C", ylab="TH>CH")+ stat_cor(
             aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
             label.x = 3
           )
@@ -185,7 +185,7 @@ ggscatter(allparameters, x = "Temperature", y = "TCdivAG",
           add = "reg.line",  # Add regressin line
           add.params = list(color = "black", fill = "lightgray"), # Customize reg. line
           conf.int = TRUE, # Add confidence interval
-          yscale = "log2", xlab="Mean annual water temperature, °C", ylab="log2 A_GdivT_C")+ stat_cor(
+          yscale = "log2", xlab="Mean annual water temperature, ?C", ylab="log2 A_GdivT_C")+ stat_cor(
   aes(label = paste(..rr.label.., ..p.label.., samplesize, sep = "~`,`~")), 
   label.x = 3
 )
@@ -288,44 +288,20 @@ summary(lm(pic(data$TCdivAG, tree_pruned) ~ pic(data$Temperature, tree_pruned) +
 
 
 
+####### MAMMALS
+GT = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', sep = '\t', header = TRUE)
+GT$Species = gsub(' ','_',GT$Scientific_name)
+ALL = merge(MUT, GT)
 
+ALL$TCAG = ALL$T_C / ALL$A_G
+ALL = ALL[ALL$TCAG != Inf,]
+ALL = ALL[!is.na(ALL$TCAG),]
 
+summary(ALL$TCAG)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cor.test(ALL$TCAG, ALL$GenerationLength_d, method = "spearman")
+cor.test(ALL$T_C, ALL$GenerationLength_d, method = "spearman")
+cor.test(ALL$A_G, ALL$GenerationLength_d, method = "spearman")
 
 
 

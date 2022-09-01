@@ -424,3 +424,25 @@ table(onedata$Ectothermy)
 summary(lm(formula = AC_TGSkew ~ Temperature + Longevity + Ectothermy, data = onedata))
 nrow(onedata[!is.na(onedata$Temperature) & !is.na(onedata$AC_TGSkew),])
 
+
+#######Mammals with GL
+GT = read.table('../../Body/1Raw/GenerationLenghtforMammals.xlsx.txt', sep = '\t', header = TRUE)
+GT$Species = gsub(' ','_',GT$Scientific_name)
+ALL = merge(SynNuc, GT)
+ALL$TG = ALL$FrT+ALL$FrG
+ALL$AC = ALL$FrA+ALL$FrC
+
+ALL$AC_TG = (ALL$AC-ALL$TG)/(ALL$TG+ALL$AC); summary(ALL$AC_TG)
+cor.test(ALL$AC_TG, ALL$GenerationLength_d, method = "spearman")
+ALL$CTSkew = (ALL$FrC - ALL$FrT)/(ALL$FrC + ALL$FrT)
+summary(ALL$CTSkew)
+cor.test(ALL$CTSkew, ALL$GenerationLength_d, method = "spearman")
+
+ALL$GASkew = (ALL$FrG - ALL$FrA)/(ALL$FrG + ALL$FrA)
+summary(ALL$GASkew)
+cor.test(ALL$GASkew, ALL$GenerationLength_d, method = "spearman")
+
+
+
+
+
