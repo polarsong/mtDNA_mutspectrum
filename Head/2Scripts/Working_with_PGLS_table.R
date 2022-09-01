@@ -111,3 +111,18 @@ df_disc2 = df_disc[df_disc$p_value < 0.01,] #save table
 write.csv(df_disc, 'PGLS_005_lesser.csv')
 write.csv(df_disc1, 'PGLS_0001_lesser.csv')
 write.csv(df_disc2, 'PGLS_001_lesser.csv')
+
+
+#drawing volcano plot
+install.packages("manhattanly")
+library(manhattanly)
+vol_df = df[,c(1,2,3,5)]
+vol_df$log = log10(vol_df$p_value)
+vol_df[vol_df$Ecology1 == 'Mass',] = NA
+vol_df = vol_df[is.na(vol_df$p_value) == FALSE,]
+vol_df[vol_df$Ecology2 == 'Mass',] = NA
+vol_df = vol_df[is.na(vol_df$p_value) == FALSE,]
+names(vol_df) = c('Ecology1', 'Ecology2', 'P', 'EFFECTSIZE', 'LOG10P')
+volcanoly(vol_df, Ecology1 = 'Eco1', Ecology2 = 'Eco2')
+volcanorObj = volcanor(vol_df, snp = 'Ecology1', gene = 'Ecology2') 
+volcanoly(volcanorObj)
