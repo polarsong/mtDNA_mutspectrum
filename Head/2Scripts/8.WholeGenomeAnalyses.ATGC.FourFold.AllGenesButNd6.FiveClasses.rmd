@@ -1,0 +1,66 @@
+---
+title: "Nucleotide content in Four-fold degenerate  sites of mtDNA RefSeqs of vertebrates"
+author: "Konstantin Popadin"
+date: "2 Sept 2022"
+output:
+html_document: default
+pdf_document: default
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+```
+
+## Background: we suspect that nucleotide content is shaped by temperature-associated MutSpec
+<br>
+<br><br>
+  
+## 1. Read whole mtDNA genomes database and derive frequencies of Ah Th Gh Ch as well as GhAhSkew and ThGh_AhChSkew for each species. Use CytB gene only (because the same gene was used for polymorphic analyses)
+***
+```{r}
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) {file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")}
+
+table(SynNuc$Gene)
+SynNuc = SynNuc[SynNuc$Gene == 'CytB',]
+#SynNuc = SynNuc[SynNuc$Gene != 'ND6',]
+
+####### obtaining neutral nucleotide fractions in whole genomes
+SynNuc = aggregate(list(SynNuc$NeutralA,SynNuc$NeutralT,SynNuc$NeutralG,SynNuc$NeutralC), by = list(SynNuc$Species,SynNuc$Class), FUN = sum)
+names(SynNuc) = c('Species','Class','NeutralA','NeutralT','NeutralG','NeutralC')
+SynNuc$FrTh = SynNuc$NeutralA / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC)
+SynNuc$FrAh = SynNuc$NeutralT / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrCh = SynNuc$NeutralG / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+SynNuc$FrGh = SynNuc$NeutralC / (SynNuc$NeutralA + SynNuc$NeutralT + SynNuc$NeutralG + SynNuc$NeutralC) 
+
+SynNuc$GhAhSkew = (SynNuc$NeutralC-SynNuc$NeutralT)/(SynNuc$NeutralC+SynNuc$NeutralT)  # GHAH nucleotide skew (GH-AH)/(GH+AH)
+SynNuc$ThGh_AhChSkew = ((SynNuc$NeutralA + SynNuc$NeutralC) - (SynNuc$NeutralT + SynNuc$NeutralG))/(SynNuc$NeutralA + SynNuc$NeutralC + SynNuc$NeutralT + SynNuc$NeutralG)
+```
+<br>
+We suspect that nucleotide content is shaped by temperature-associated MutSpec
+<br>
+<br><br>
+  
+## 2. draw boxplots for five classes
+***
+```{r}
+
+######## boxplots of nucleotide frequencies for five classes
+table(SynNuc$Class)
+
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$FrTh,SynNuc[SynNuc$Class == 'Amphibia',]$FrTh,SynNuc[SynNuc$Class == 'Reptilia',]$FrTh,SynNuc[SynNuc$Class == 'Mammalia',]$FrTh,SynNuc[SynNuc$Class == 'Aves',]$FrTh, outline = FALSE, notch = TRUE, main = 'Th in fourfold', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$FrCh,SynNuc[SynNuc$Class == 'Amphibia',]$FrCh,SynNuc[SynNuc$Class == 'Reptilia',]$FrCh,SynNuc[SynNuc$Class == 'Mammalia',]$FrCh,SynNuc[SynNuc$Class == 'Aves',]$FrCh, outline = FALSE, notch = TRUE, main = 'Ch in fourfold', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$FrAh,SynNuc[SynNuc$Class == 'Amphibia',]$FrAh,SynNuc[SynNuc$Class == 'Reptilia',]$FrAh,SynNuc[SynNuc$Class == 'Mammalia',]$FrAh,SynNuc[SynNuc$Class == 'Aves',]$FrAh, outline = FALSE, notch = TRUE, main = 'Ah in fourfold', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$FrGh,SynNuc[SynNuc$Class == 'Amphibia',]$FrGh,SynNuc[SynNuc$Class == 'Reptilia',]$FrGh,SynNuc[SynNuc$Class == 'Mammalia',]$FrGh,SynNuc[SynNuc$Class == 'Aves',]$FrGh, outline = FALSE, notch = TRUE, main = 'Gh in fourfold', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$GhAhSkew,SynNuc[SynNuc$Class == 'Amphibia',]$GhAhSkew,SynNuc[SynNuc$Class == 'Reptilia',]$GhAhSkew,SynNuc[SynNuc$Class == 'Mammalia',]$GhAhSkew,SynNuc[SynNuc$Class == 'Aves',]$GhAhSkew, outline = FALSE, notch = TRUE, main = 'GhAhSkew', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+boxplot(SynNuc[SynNuc$Class == 'Actinopterygii',]$ThGh_AhChSkew,SynNuc[SynNuc$Class == 'Amphibia',]$ThGh_AhChSkew,SynNuc[SynNuc$Class == 'Reptilia',]$ThGh_AhChSkew,SynNuc[SynNuc$Class == 'Mammalia',]$ThGh_AhChSkew,SynNuc[SynNuc$Class == 'Aves',]$ThGh_AhChSkew, outline = FALSE, notch = TRUE, main = 'ThGh_AhChSkew', names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'))
+
+```
+
+

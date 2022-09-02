@@ -1,0 +1,108 @@
+---
+title: "Nucleotide content in Four-fold degenerate  sites of mtDNA RefSeqs of vertebrates"
+author: "Konstantin Popadin"
+date: "2 Sept 2022"
+output:
+html_document: default
+pdf_document: default
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+```
+## Background: we suspect that nucleotide content is shaped by temperature-associated MutSpec
+<br>
+<br>
+  
+## 1. Read "VertebratePolymorphisms.MutSpecData.with.AbsoluteNumbers.txt" and normalize these absolute numbers on ancestal nucleotide frequencies (derived from polymorphic sequences) and do not perform the last step of normalization (do not convert to percents)
+***
+```{r}
+MutSpecAbsolute = read.table("../../Body/3Results/VertebratePolymorphisms.MutSpecData.with.AbsoluteNumbers.txt", header = TRUE, sep = ' ')
+
+NucFreq = read.table("../../Body/3Results/VertebratePolymorphisms.Normalization.NeutralATGC.txt", header = TRUE, sep = ' ')
+NucFreq = NucFreq[NucFreq$Gene == 'CytB',]
+NucFreq = NucFreq[names(NucFreq) %in% c('Species','A','T','G','C')]
+
+dim(MutSpecAbsolute)
+MutSpecAbsolute = merge(MutSpecAbsolute,NucFreq, by = 'Species')
+dim(MutSpecAbsolute) # loosing a lot! 
+```
+<br>
+<br>
+  
+## 2. derive key components of MutSpec (four transitions) without transformation to percents and compare with percents, derived befroe (all are well correlated with each other)
+***
+```{r}
+MutSpecAbsolute$AhGh = MutSpecAbsolute$T_C.y/MutSpecAbsolute$T
+MutSpecAbsolute$ChTh = MutSpecAbsolute$G_A.y/MutSpecAbsolute$G
+MutSpecAbsolute$ThCh = MutSpecAbsolute$A_G.y/MutSpecAbsolute$A
+MutSpecAbsolute$GhAh = MutSpecAbsolute$C_T.y/MutSpecAbsolute$C
+
+cor.test(MutSpecAbsolute$AhGh,MutSpecAbsolute$T_C.x, method = 'spearman') # positive
+cor.test(MutSpecAbsolute$ChTh,MutSpecAbsolute$G_A.x, method = 'spearman') # positive
+cor.test(MutSpecAbsolute$ThCh,MutSpecAbsolute$A_G.x, method = 'spearman') # positive
+cor.test(MutSpecAbsolute$GhAh,MutSpecAbsolute$C_T.x, method = 'spearman') # positive
+```
+<br>
+<br>
+
+## 3. make boxplots with key substitutions (without  percentaging) of different classes
+***
+```{r}
+table(MutSpecAbsolute$Class)
+boxplot(MutSpecAbsolute[MutSpecAbsolute$Class == 'Actinopterygii',]$AhGh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Amphibia',]$AhGh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Reptilia',]$AhGh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Mammalia',]$AhGh,        
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Aves',]$AhGh, 
+names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), notch = TRUE, outline = FALSE, main = 'AhGh')
+
+boxplot(MutSpecAbsolute[MutSpecAbsolute$Class == 'Actinopterygii',]$ThCh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Amphibia',]$ThCh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Reptilia',]$ThCh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Mammalia',]$ThCh,        
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Aves',]$ThCh, 
+names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), notch = TRUE, outline = FALSE, main = 'ThCh')
+
+boxplot(MutSpecAbsolute[MutSpecAbsolute$Class == 'Actinopterygii',]$ChTh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Amphibia',]$ChTh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Reptilia',]$ChTh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Mammalia',]$ChTh,        
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Aves',]$ChTh, 
+names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), notch = TRUE, outline = FALSE, main = 'ChTh')
+
+boxplot(MutSpecAbsolute[MutSpecAbsolute$Class == 'Actinopterygii',]$GhAh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Amphibia',]$GhAh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Reptilia',]$GhAh,
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Mammalia',]$GhAh,        
+MutSpecAbsolute[MutSpecAbsolute$Class == 'Aves',]$GhAh, 
+names = c('Actinopterygii','Amphibia','Reptilia','Mammalia','Aves'), notch = TRUE, outline = FALSE, main = 'GhAh')
+
+```
+<br>
+<br>
+
+## 4. keep only Fishes, merge them with temperature and run cor.test of substitutions with temperature
+***
+```{r}
+MutSpecAbsoluteFish = MutSpecAbsolute[MutSpecAbsolute$Class == 'Actinopterygii',]
+
+Temper = read.table("../../Body/1Raw/FishBaseTemperature.txt", header = TRUE)
+TemperAgg = aggregate(Temper$Temperature, by = list(Temper$Species), FUN = median)
+names(TemperAgg)=c('Species','MedianTemper')
+
+dim(MutSpecAbsoluteFish)
+MutSpecAbsoluteFish = merge(MutSpecAbsoluteFish,TemperAgg, by = 'Species')
+dim(MutSpecAbsoluteFish)  # just 110... not a lot
+
+cor.test(MutSpecAbsoluteFish$AhGh,MutSpecAbsoluteFish$MedianTemper, method = 'spearman') # positive
+cor.test(MutSpecAbsoluteFish$ThCh,MutSpecAbsoluteFish$MedianTemper, method = 'spearman') # nothing
+cor.test(MutSpecAbsoluteFish$ChTh,MutSpecAbsoluteFish$MedianTemper, method = 'spearman') # a bit positive
+cor.test(MutSpecAbsoluteFish$GhAh,MutSpecAbsoluteFish$MedianTemper, method = 'spearman') # a bit positive
+
+```
+
