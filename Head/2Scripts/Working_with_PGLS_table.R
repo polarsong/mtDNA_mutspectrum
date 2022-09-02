@@ -114,7 +114,7 @@ write.csv(df_disc2, 'PGLS_001_lesser.csv')
 
 
 #drawing volcano plot
-install.packages("manhattanly")
+#install.packages("manhattanly")
 library(manhattanly)
 vol_df = df[,c(1,2,3,5)]
 vol_df$log = log10(vol_df$p_value)
@@ -122,7 +122,9 @@ vol_df[vol_df$Ecology1 == 'Mass',] = NA
 vol_df = vol_df[is.na(vol_df$p_value) == FALSE,]
 vol_df[vol_df$Ecology2 == 'Mass',] = NA
 vol_df = vol_df[is.na(vol_df$p_value) == FALSE,]
-names(vol_df) = c('Ecology1', 'Ecology2', 'P', 'EFFECTSIZE', 'LOG10P')
+vol_df$eff_normalize = (sign(vol_df$effect_size))*(log2((abs(vol_df$effect_size)+1)))
+vol_df_norm = vol_df[,c(1,2,3,5,6)]
+names(vol_df_norm) = c('Ecology1', 'Ecology2', 'P', 'LOG10P', 'EFFECTSIZE')
 volcanoly(vol_df, Ecology1 = 'Eco1', Ecology2 = 'Eco2')
-volcanorObj = volcanor(vol_df, snp = 'Ecology1', gene = 'Ecology2') 
+volcanorObj = volcanor(vol_df_norm, snp = 'Ecology1', gene = 'Ecology2') 
 volcanoly(volcanorObj)
