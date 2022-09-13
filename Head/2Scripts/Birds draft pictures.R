@@ -231,3 +231,25 @@ summary(stats_pca)
 
 bipl = ggbiplot(stats_pca)
 bipl
+
+
+df_pca1 = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn')]
+df_pca1 = df_pca1[df_pca1$gene_name != 'ND6',]
+gene_vector1 = c('fAn', 'fGn', 'fCn', 'fTn')
+gene_stats1 = data.frame(unique(df_pca1$species_name))
+for ( char in gene_vector1){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca1$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats1 = cbind(gene_stats1, stats1)
+  
+}
+names(gene_stats1) = c('species_name', gene_vector1)
+row.names(gene_stats1) = gene_stats1$species_name
+gene_stats1$species_name = NA
+gene_stats1 = gene_stats1[, colSums(is.na(gene_stats1)) < nrow(gene_stats1)]
+stats_pca1 = prcomp(gene_stats1[c(1,2,3,4)], center = TRUE, scale. = TRUE)
+summary(stats_pca1)
+
+bipl = ggbiplot(stats_pca1)
+bipl
