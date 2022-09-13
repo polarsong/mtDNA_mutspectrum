@@ -147,6 +147,13 @@ skew_eco = skew_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay'
 skew_eco = skew_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_eco
 
+skew_eco1 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = ghahSkew))+
+  geom_boxplot()+
+  xlab('Trophic level')+
+  ylab('GhAhSkew')
+skew_eco1 = skew_eco1 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+skew_eco1
+
 stg_all = ggplot(data = df_mtdna, aes(x = gene_name, y = Stg_Sac))+
   geom_boxplot()+
   xlab('Gene names')+
@@ -162,3 +169,65 @@ stg_eco = stg_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 
 stg_eco = stg_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 stg_eco
 
+stg_eco1 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = Stg_Sac))+
+  geom_boxplot()+
+  xlab('Birds realms')+
+  ylab('GhAhSkew')
+stg_eco1 = stg_eco1 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+stg_eco1
+
+
+
+medG_tl = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_G))+
+  geom_boxplot()+
+  xlab('Trophic level')+
+  ylab('Guanine asymmetry')
+medG_tl = medG_tl + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+medG_tl
+
+
+medG_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_G))+
+  geom_boxplot()+
+  xlab('Birds realm')+
+  ylab('Guanine asymmetry')
+medG_realm = medG_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medG_realm = medG_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medG_realm
+
+medT_tl = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_T))+
+  geom_boxplot()+
+  xlab('Trophic level')+
+  ylab('Thymine asymmetry')
+medT_tl = medT_tl + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+medT_tl
+
+
+medT_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_T))+
+  geom_boxplot()+
+  xlab('Birds realm')+
+  ylab('Thymine asymmetry')
+medT_realm = medT_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medT_realm = medT_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medT_realm
+
+
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'med_T', 'med_G')]
+df_pca = df_pca[df_pca$gene_name != 'ND6',]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'med_T', 'med_G')
+gene_stats = data.frame(unique(df_pca$species_name))
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+row.names(gene_stats) = gene_stats$species_name
+gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+
+bipl = ggbiplot(stats_pca)
+bipl
