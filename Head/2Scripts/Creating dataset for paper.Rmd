@@ -1,0 +1,119 @@
+---
+title: "Creating golden dataset"
+author: 'Yury Gusarov'
+date: '16-09-2022'
+output: 
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls(all=TRUE))
+```
+
+ 
+```{r}
+df_mtdna = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
+df_mtdna$trophic_level = NA
+df_mtdna$trophic_niche = NA
+df_mtdna$foraging_niche = NA
+df_mtdna = df_mtdna[, colSums(is.na(df_mtdna)) < nrow(df_mtdna)]
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+df_mtdna = df_mtdna[, colSums(is.na(df_mtdna)) < nrow(df_mtdna)]
+df_mtdna  = df_mtdna[df_mtdna$gene_name != 'ND6',]
+df_mtdna$ghahSkew = (df_mtdna$neutral_c - df_mtdna$neutral_T)/(df_mtdna$neutral_c + df_mtdna$neutral_T)
+df_mtdna$chthSkew = (df_mtdna$neutral_A - df_mtdna$neutral_g)/(df_mtdna$neutral_A + df_mtdna$neutral_g)
+df_mtdna$fAn = df_mtdna$neutral_T/df_mtdna$neutral_amount
+df_mtdna$fGn = df_mtdna$neutral_c/df_mtdna$neutral_amount
+df_mtdna$fCn = df_mtdna$neutral_g/df_mtdna$neutral_amount
+df_mtdna$fTn = df_mtdna$neutral_A/df_mtdna$neutral_amount
+df_mtdna$Stg = df_mtdna$fTn + df_mtdna$fGn 
+df_mtdna$Sac = df_mtdna$fAn + df_mtdna$fCn
+df_mtdna$Stg_Sac = df_mtdna$Stg - df_mtdna$Sac
+```
+
+```{r, include=FALSE}
+library(dplyr)
+```
+
+```{r}
+df_norm = df_mtdna[df_mtdna$gene_name != 'ND6',] #deleting ND6
+vec_all = c('TTC','TTT','TCC','TCT','TAC','TAT','TGC','TGT',
+            'TTA','TTG','TCA','TCG','TAA','TAG','TGA','TGG',
+            'CTC','CTT','CCC','CCT','CAC','CAT','CGC','CGT',
+            'CTA','CTG','CCA','CCG','CAA','CAG','CGA','CGG',
+            'ATC','ATT','ACC','ACT','AAC','AAT','AGC','AGT',
+            'ATA','ATG','ACA','ACG','AAA','AAG','AGA','AGG',
+            'GTC','GTT','GCC','GCT','GAC','GAT','GGC','GGT',
+            'GTA','GTG','GCA','GCG','GAA','GAG','GGA','GGG')
+
+needed_codons = c('TTC','TCC','TAC','TGC',
+                  'TTA','TCA','TAA','TGA',
+                  'CTC','CCC','CAC','CGC',
+                  'CTA','CCA','CAA','CGA',
+                  'ATC','ACC','AAC','AGC',
+                  'ATA','ACA','AAA','AGA',
+                  'GTC','GCC','GAC','GGC',
+                  'GTA','GCA','GAA','GGA')
+dfn = c(names(df_norm))
+sp_sum_gen = data.frame(unique(df_norm$species_name))
+
+for ( codon in vec_all){
+  
+  sum_of_codon = aggregate(df_norm[ ,codon], by = list(df_norm$species_name), FUN = 'sum')[2]
+  sp_sum_gen = cbind(sp_sum_gen, sum_of_codon)
+  
+}
+names(sp_sum_gen) = c('Species', vec_all)
+
+codon_norm = data.frame()
+
+for (i in 1:nrow(sp_sum_gen)){
+  org_gen = sp_sum_gen[i,]
+  org_gen = as.vector(org_gen)
+  df_out= data.frame(sp_sum_gen[i,]$Species) 
+  for (codon in seq(from = 2, to = 65, by = 2)){
+    if (org_gen[1,codon] == 0) {df_out = cbind(df_out, 0)}
+    else {
+      norm_cod = org_gen[1,codon] / (org_gen[1,codon+1] + org_gen[1,codon])
+      df_out = cbind(df_out, norm_cod)
+    }
+  }
+  names(df_out) = c('Species', needed_codons)
+  codon_norm = rbind(codon_norm,df_out)
+}
+names(codon_norm) = c('species_name', needed_codons)
+codon_norm = codon_norm %>% select(-c('TAA','AGA'))
+
+
+
+final = data.frame()
+for (org in 1:nrow(codon_norm)){
+  sp_r = codon_norm[org,]
+  
+  vec_of_c = sp_r %>% select(TTC, TCC, TAC, TGC, CTC, CCC, CAC, CGC,
+                             ATC, ACC, AAC, AGC, GTC, GCC, GAC, GGC)
+  vec_of_a = sp_r %>% select(TTA, TCA, TGA, CTA, CCA, CAA, CGA,
+                             ATA, ACA, AAA, GTA, GCA, GAA, GGA)
+  
+  med_c = median(as.numeric(vec_of_c), na.rm = TRUE)
+  med_a = median(as.numeric(vec_of_a), na.rm = TRUE)
+  sp_out = data.frame(sp_r$species_name, med_c, med_a) 
+  final = rbind(final,sp_out)
+}
+names(final) = c('species_name', 'med_G', 'med_T')
+df_mtdna = merge(df_mtdna, final, by = 'species_name')
+df_eco = read.csv('../../Body/1Raw/Avonet_data.csv')
+df_eco = df_eco[c(1,9,10,11,12,13,14,15,17,18,19,25,28,29,30)]
+names(df_eco) = c('species_name','Beak_length_Culmen', 'Beak_length_Nares', 'Beak_width', 'Beak_depth', 'Tarsus_length', 'Wing_length','Kipps_distance', 'Hand_wing_index', 'Tail_length', 'Mass', 'Habitat', 'Trophic_level', 'Trophic_niche', 'Primary_lifestyle')
+df_mtdna = merge(df_mtdna, df_eco, by = 'species_name')
+write.csv(df_mtdna, file = 'Birds_dataset_paper.csv')
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
