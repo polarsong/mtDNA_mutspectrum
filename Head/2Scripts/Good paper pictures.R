@@ -1,0 +1,198 @@
+rm(list = ls(all=TRUE))
+library(ggbiplot)
+library(ggplot2)
+library(ggpubr)
+df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
+f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Thymine frequence')
+f1 = f1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f1 = f1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Cytosine frequence')
+f2 = f2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f2 = f2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Guanine frequence')
+f3 = f3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f3 = f3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Adenine frequence')
+f4 = f4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f4 = f4 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f5 = ggarrange(f1, f3, f2, f4, 
+               ncol = 2, nrow = 2)
+f5
+f51 = ggarrange(f1,f2,
+                 ncol = 1, nrow = 2)
+f51
+f52 = ggarrange(f3,f4,
+                ncol = 1, nrow = 2)
+f52
+
+
+skew_all = ggplot(data = df_mtdna, aes(x = gene_name, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Gene names')+
+  ylab('GhAhSkew')
+skew_all = skew_all + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+skew_all
+
+skew_all1 = ggplot(data = df_mtdna, aes(x = gene_name, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Gene names')+
+  ylab('ThChSkew')
+skew_all1 = skew_all1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+skew_all1
+
+stg_all = ggplot(data = df_mtdna, aes(x = gene_name, y = Stg_Sac))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Gene names')+
+  ylab('Stg-Sac')
+stg_all = stg_all + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+stg_all
+
+skew_eco = ggplot(data = df_mtdna, aes(x = realm, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realms')+
+  ylab('GhAhSkew')
+skew_eco = skew_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco = skew_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco
+
+skew_eco1 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic level')+
+  ylab('GhAhSkew')
+skew_eco1 = skew_eco1 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+skew_eco1
+
+skew_eco12 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('GhAhSkew')
+skew_eco12 = skew_eco12 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco12 = skew_eco12 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+skew_eco12
+
+skew_eco2 = ggplot(data = df_mtdna, aes(x = realm, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realms')+
+  ylab('ThChSkew')
+skew_eco2 = skew_eco2 + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco2 = skew_eco2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco2
+
+skew_eco3 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic level')+
+  ylab('ThChSkew')
+skew_eco3 = skew_eco3 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+skew_eco3
+
+skew_eco31 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('ThChSkew')
+skew_eco31 = skew_eco31 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco31 = skew_eco31 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+skew_eco31
+
+stg_eco = ggplot(data = df_mtdna, aes(x = realm, y = Stg_Sac))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realm')+
+  ylab('Stg-Sac')
+stg_eco = stg_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+stg_eco = stg_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+stg_eco
+
+stg_eco1 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = Stg_Sac))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic level')+
+  ylab('Stg-Sac')
+stg_eco1 = stg_eco1 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+stg_eco1
+
+stg_eco2 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = Stg_Sac))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('Stg-Sac')
+stg_eco2 = stg_eco2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+stg_eco2 = stg_eco2 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+stg_eco2
+
+medT_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realm')+
+  ylab('Thymine asymmetry')
+medT_realm = medT_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medT_realm = medT_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medT_realm
+
+medG_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realm')+
+  ylab('Guanine asymmetry')
+medG_realm = medG_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medG_realm = medG_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medG_realm
+
+medG_tl = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic level')+
+  ylab('Guanine asymmetry')
+medG_tl = medG_tl + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+medG_tl
+
+medT_tl = ggplot(data = df_mtdna, aes(x = Trophic_level, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic level')+
+  ylab('Thymine asymmetry')
+medT_tl = medT_tl + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
+medT_tl
+
+medG_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('Guanine asymmetry')
+medG_tn = medG_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medG_tn = medG_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+medG_tn
+
+medT_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('Thymine asymmetry')
+medT_tn = medT_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medT_tn = medT_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+medT_tn
+
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
+gene_stats = data.frame(unique(df_pca$species_name))
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+df_realm = df_mtdna[c('species_name', 'realm')]
+gene_stats = merge(gene_stats, df_realm, by = 'species_name')
+gene_stats = unique(gene_stats)
+row.names(gene_stats) = gene_stats$species_name
+gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+
+bipl = ggbiplot(stats_pca, groups = gene_stats[gene_stats$realm == 'Antarctic',])
+bipl

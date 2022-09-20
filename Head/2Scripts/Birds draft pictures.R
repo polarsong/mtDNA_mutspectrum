@@ -172,7 +172,7 @@ stg_eco
 stg_eco1 = ggplot(data = df_mtdna, aes(x = Trophic_level, y = Stg_Sac))+
   geom_boxplot()+
   xlab('Birds realms')+
-  ylab('GhAhSkew')
+  ylab('Stg-Sac')
 stg_eco1 = stg_eco1 + xlim(c('Carnivore', 'Omnivore', 'Herbivore', 'Scavenger'))
 stg_eco1
 
