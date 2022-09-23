@@ -196,3 +196,12 @@ summary(stats_pca)
 
 bipl = ggbiplot(stats_pca, groups = gene_stats[gene_stats$realm == 'Antarctic',])
 bipl
+
+#Doing statistics
+df_antarctic = df_mtdna[df_mtdna$realm == 'Antarctic',]
+df_else = df_mtdna[df_mtdna$realm != 'Antarctic',]
+df_oceania = df_mtdna[df_mtdna$realm == 'Oceania',]
+wilcox.test(df_antarctic$ghahSkew, df_else$ghahSkew)
+wilcox.test(df_antarctic$ghahSkew, df_oceania$ghahSkew)
+wilcox.test(df_antarctic$chthSkew, df_else$chthSkew)
+wilcox.test(df_antarctic$chthSkew, df_oceania$chthSkew)
