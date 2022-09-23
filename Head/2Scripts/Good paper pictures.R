@@ -205,3 +205,28 @@ wilcox.test(df_antarctic$ghahSkew, df_else$ghahSkew)
 wilcox.test(df_antarctic$ghahSkew, df_oceania$ghahSkew)
 wilcox.test(df_antarctic$chthSkew, df_else$chthSkew)
 wilcox.test(df_antarctic$chthSkew, df_oceania$chthSkew)
+
+#PCA coloring 
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
+gene_stats = data.frame(unique(df_pca$species_name))
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+df_realm = df_mtdna[c('species_name', 'realm')]
+gene_stats = merge(gene_stats, df_realm, by = 'species_name')
+gene_stats = unique(gene_stats)
+row.names(gene_stats) = gene_stats$species_name
+gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+
+bipl = ggbiplot(stats_pca, groups = gene_stats$realm)+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
+bipl
