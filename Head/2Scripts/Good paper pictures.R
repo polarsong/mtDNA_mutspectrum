@@ -205,8 +205,16 @@ wilcox.test(df_antarctic$ghahSkew, df_else$ghahSkew)
 wilcox.test(df_antarctic$ghahSkew, df_oceania$ghahSkew)
 wilcox.test(df_antarctic$chthSkew, df_else$chthSkew)
 wilcox.test(df_antarctic$chthSkew, df_oceania$chthSkew)
+wilcox.test(df_antarctic$Stg_Sac, df_else$Stg_Sac)
+wilcox.test(df_antarctic$Stg_Sac, df_oceania$Stg_Sac)
+df_ha = df_mtdna[df_mtdna$Trophic_niche == 'Herbivore aquatic',]
+df_noha = df_mtdna[df_mtdna$Trophic_niche != 'Herbivore aquatic',]
+wilcox.test(df_ha$ghahSkew, df_noha$ghahSkew)
+wilcox.test(df_ha$chthSkew, df_noha$chthSkew)
 
 #PCA coloring 
+install.packages("directlabels")
+library(directlabels)
 df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
 gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
 gene_stats = data.frame(unique(df_pca$species_name))
@@ -230,3 +238,7 @@ summary(stats_pca)
 bipl = ggbiplot(stats_pca, groups = gene_stats$realm)+
   scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
 bipl
+direct.label(bipl)
+birds_pca = data.frame(stats_pca$x)
+birds_pca = birds_pca[,c(1,2)]
+gene_stats1 = merge(gene_stats, birds_pca)
