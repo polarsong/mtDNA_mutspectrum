@@ -241,4 +241,33 @@ bipl
 direct.label(bipl)
 birds_pca = data.frame(stats_pca$x)
 birds_pca = birds_pca[,c(1,2)]
-gene_stats1 = merge(gene_stats, birds_pca)
+birds_pca$species_name = row.names(birds_pca)
+gene_stats$species_name = row.names(gene_stats)
+gene_stats = merge(gene_stats, birds_pca, by = 'species_name')
+row.names(gene_stats) = gene_stats$species_name
+gene_stats = gene_stats[,c(2:13)]
+
+#Lera's plot
+library(ggfortify)
+library(dabestr)
+library(ggrepel)
+pca_plot = autoplot(stats_pca, data = gene_stats, colour = 'gray', loadings = TRUE, loadings.label = TRUE, loadings.label.size = 5, scale = 0, 
+                    loadings.colour = 'black', loadings.label.colour = 'black')+
+  geom_point(data = gene_stats, aes(PC1, PC2, color = realm, alpha = 0.5),size = 3)
+pca_plot
+
+g1 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (44.02%)')
+
+g1
+g2 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (35.28%)')
+  
+
+g2
