@@ -271,3 +271,51 @@ g2 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
   
 
 g2
+
+
+#Phylo PCA
+install.packages("phytools")
+library(ape)
+library(geiger)
+library(caper)
+library(phytools)
+tree = read.tree("../../Body/3Results/phylo.treefile")
+df_tree = read.csv('../../Head/2Scripts/Table_for_PGLS.csv')
+row.names(df_tree) = df_tree$species_name
+phy=multi2di(tree)
+name.check(phy, df_tree)
+df_tree = df_tree[df_tree$species_name != "Agapornis_pullarius",]
+df_tree = df_tree[df_tree$species_name != "Mergus_squamatus",]
+name.check(phy, df_tree)
+df_gene_realms = df_tree[,c(1:3,53:58)]
+df_realms = unique(as.data.frame(df_mtdna[,c('species_name', 'realm')]))
+df_realms = df_realms[df_realms$species_name != "Agapornis pullarius",]
+df_realms = df_realms[df_realms$species_name != "Mergus squamatus",]
+df_realms$species_name = gsub(" ", "_", df_realms$species_name)
+df_gene_realms = merge(df_realms, df_gene_realms, by = 'species_name')
+row.names(df_gene_realms) = df_gene_realms$species_name
+name.check(df_gene_realms, phy)
+
+
+df_try_pca = df_gene_realms[,c(3:10)]
+phylo_pca = phyl.pca(phy, df_try_pca)
+phylo_pca
+par(mar = c(4.1,4.1,2.1,1.1),las=1)
+plot(phylo_pca, main="")
+
+par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
+phylomorphospace(phy,
+                 scores(phylo_pca)[,1:2],
+                 ftype="off",node.size=c(0,1),bty="n",las=1,
+                 xlab="PC1 ()",
+                 ylab=expression(paste("PC2 ("%up%"lamellae number, "
+                                       %down%"tail length)")))
+row.names(df_realms) = df_realms$species_name
+df_realms1 = df_realms[,c(2)]
+
+eco<-setNames(df_realms[,2],rownames(df_realms))
+levels(eco)
+ECO=to.matrix(eco)
+tiplabels(pie=ECO[phy$tip.label,],cex=0.5)
+legend(x="bottomright",legend=levels(eco),cex=0.8,pch=21,
+       pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
