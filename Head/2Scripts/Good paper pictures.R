@@ -1,4 +1,7 @@
 rm(list = ls(all=TRUE))
+install.packages("ggbiplot")
+install.packages("ggplot2")
+install.packages("ggpubr")
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
@@ -188,8 +191,8 @@ names(gene_stats) = c('species_name', gene_vector)
 df_realm = df_mtdna[c('species_name', 'realm')]
 gene_stats = merge(gene_stats, df_realm, by = 'species_name')
 gene_stats = unique(gene_stats)
-row.names(gene_stats) = gene_stats$species_name
-gene_stats$species_name = NA
+#row.names(gene_stats) = gene_stats$species_name
+#gene_stats$species_name = NA
 gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
@@ -213,8 +216,7 @@ wilcox.test(df_ha$ghahSkew, df_noha$ghahSkew)
 wilcox.test(df_ha$chthSkew, df_noha$chthSkew)
 
 #PCA coloring 
-install.packages("directlabels")
-library(directlabels)
+library('ggbiplot')
 df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
 gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
 gene_stats = data.frame(unique(df_pca$species_name))
@@ -235,25 +237,36 @@ gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
 
-bipl = ggbiplot(stats_pca, groups = gene_stats$realm)+
-  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
+bipl = ggbiplot(stats_pca, groups = gene_stats$realm, labels = gene_stats$species_name, labels.size = 2)+
+  scale_colour_manual(name="Origin", values= c("black", "green", "black", "black", "black", "black", "black", "red", "black"))
 bipl
+ggplotly(bipl)
 
 bipl1 = ggbiplot(stats_pca, groups = gene_stats$species_name, labels = FALSE, var.axes = FALSE)
 bipl1
 
-install.packages("car")
+bipl2 = ggbiplot(stats_pca, choices = 2:3, var.axes = TRUE, varname.size = 4, varname.adjust = 1.5,)
+bipl2
+
+bipl3 = ggbiplot(stats_pca, choices = 3:4)
+bipl3
+
+install.packages('plotly')
+install.packages('dplyr')
+#install.packages("car")
 install.packages("babynames")
 install.packages("gapminder")
 
 library(plotly)
 library(dplyr)
-library(carData)
+#library(carData)
 library(gapminder)
 library(babynames)
 
 ggplotly(bipl)
-ggplotly(bipl1)
+ggplotly(bipl2)
+ggplotly(bipl3)
+spec_pca = ggplotly(bipl1)
 
 direct.label(bipl)
 birds_pca = data.frame(stats_pca$x)
