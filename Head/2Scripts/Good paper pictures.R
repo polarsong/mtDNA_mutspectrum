@@ -358,8 +358,12 @@ legend(x="bottomright",legend=levels(eco),cex=0.8,pch=21,
 unique(unique(df_mtdna[df_mtdna$realm == 'Antarctic',])$species_name)
 unique(unique(df_mtdna[df_mtdna$Trophic_niche == 'Herbivore aquatic',])$species_name)
 
-#Dima's data
+#Dima's dat
 df_all = read.table('../../Head/2Scripts/VertebratePolymorphisms.MutSpecData.txt')
+unique(df_all$Class)
 df_mammals = filter(df_all, df_all$Class == 'Mammalia')
+unique(df_mammals$Species)
 df_what = filter(df_all, df_all$Species == 'Abrothrix_longipilis')
 unique(df_mammals$Class)
+library(plyr)
+a = (count(df_mammals, 'Species') >= 12)
