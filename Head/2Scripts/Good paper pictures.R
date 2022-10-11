@@ -242,14 +242,16 @@ bipl = ggbiplot(stats_pca, groups = gene_stats$realm, labels = gene_stats$specie
 bipl
 ggplotly(bipl)
 
-bipl1 = ggbiplot(stats_pca, groups = gene_stats$species_name, labels = FALSE, var.axes = FALSE)
+bipl1 = ggbiplot(stats_pca, choices = 2:3, groups = gene_stats$realm, labels = gene_stats$species_name, labels.size = 2)+
+  scale_colour_manual(name="Origin", values= c("black", "green", "black", "black", "black", "black", "black", "red", "black"))
 bipl1
+ggplotly(bipl1)
 
-bipl2 = ggbiplot(stats_pca, choices = 2:3, var.axes = TRUE, varname.size = 4, varname.adjust = 1.5,)
-bipl2
 
-bipl3 = ggbiplot(stats_pca, choices = 3:4)
+bipl3 = ggbiplot(stats_pca, choices = 3:4, groups = gene_stats$realm, labels = gene_stats$species_name, labels.size = 2)+
+  scale_colour_manual(name="Origin", values= c("black", "green", "black", "black", "black", "black", "black", "red", "black"))
 bipl3
+ggplotly(bipl3)
 
 install.packages('plotly')
 install.packages('dplyr')
@@ -355,3 +357,9 @@ legend(x="bottomright",legend=levels(eco),cex=0.8,pch=21,
 #What birds are in realms?
 unique(unique(df_mtdna[df_mtdna$realm == 'Antarctic',])$species_name)
 unique(unique(df_mtdna[df_mtdna$Trophic_niche == 'Herbivore aquatic',])$species_name)
+
+#Dima's data
+df_all = read.table('../../Head/2Scripts/VertebratePolymorphisms.MutSpecData.txt')
+df_mammals = filter(df_all, df_all$Class == 'Mammalia')
+df_what = filter(df_all, df_all$Species == 'Abrothrix_longipilis')
+unique(df_mammals$Class)
