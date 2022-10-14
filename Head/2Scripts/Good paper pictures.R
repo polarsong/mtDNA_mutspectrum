@@ -365,5 +365,34 @@ df_mammals = filter(df_all, df_all$Class == 'Mammalia')
 unique(df_mammals$Species)
 df_what = filter(df_all, df_all$Species == 'Abrothrix_longipilis')
 unique(df_mammals$Class)
+install.packages('plyr')
 library(plyr)
 a = (count(df_mammals, 'Species') >= 12)
+df_mammals$ghahSkew = ((df_mammals$FrC - df_mammals$FrT))/((df_mammals$FrC + df_mammals$FrT))
+mam_box = ggplot(df_mammals, aes(x = Gene, y = ghahSkew))+
+  geom_boxplot()
+mam_box = mam_box + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","CytB","ND1","ND2"))
+mam_box
+bird_only = df_mtdna[c('species_name', 'gene_name', 'ghahSkew')]
+bird_only$class = 'Aves'
+mam_only = df_mammals[c('Species', 'Gene', 'ghahSkew')]
+names(mam_only) = c('species_name', 'gene_name', 'ghahSkew')
+mam_only$class = 'Mammalia'
+bird_only = bird_only[bird_only$gene_name != 'ND5',]
+bird_only$gene_name[bird_only$gene_name == 'CYTB'] = 'CytB'
+unique(bird_only$gene_name)
+mam_and_birds = rbind(bird_only, mam_only)
+b_and_m = ggplot(mam_and_birds, aes(x = gene_name, y = ghahSkew, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
+b_and_m = b_and_m + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","CytB","ND1","ND2"))
+b_and_m
+df_stats = data.frame()
+for (i in c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","CytB","ND1","ND2"))
+{
+  a = wilcox.test(bird_only[bird_only$gene_name == i,]$ghahSkew, mam_only[mam_only$gene_name == i,]$ghahSkew)
+  b = c(i, a$p.value)
+  df_stats = rbind(df_stats, b)
+}
+names(df_stats) = c('gene_name', 'p_value')
+#a = wilcox.test(bird_only[bird_only$gene_name == 'CytB',]$ghahSkew, mam_only[mam_only$gene_name == 'CytB',]$ghahSkew)
+write.csv(df_stats, file = 'ghahSkew_Aves_against_Mammalia_p_values.csv')
