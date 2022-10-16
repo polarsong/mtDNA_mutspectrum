@@ -194,10 +194,10 @@ gene_stats = unique(gene_stats)
 #row.names(gene_stats) = gene_stats$species_name
 #gene_stats$species_name = NA
 gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
-stats_pca = prcomp(gene_stats[c(1,2,3,4,5,6,7,8)], center = TRUE, scale. = TRUE)
+stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
 
-bipl = ggbiplot(stats_pca, groups = gene_stats[gene_stats$realm == 'Antarctic',])
+bipl = ggbiplot(stats_pca)
 bipl
 
 #Doing statistics
