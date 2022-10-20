@@ -228,7 +228,7 @@ for ( char in gene_vector){
   
 }
 names(gene_stats) = c('species_name', gene_vector)
-df_realm = df_mtdna[c('species_name', 'realm')]
+df_realm = df_mtdna[c('species_name', 'realm', 'Trophic_niche')]
 gene_stats = merge(gene_stats, df_realm, by = 'species_name')
 gene_stats = unique(gene_stats)
 row.names(gene_stats) = gene_stats$species_name
@@ -264,6 +264,11 @@ library(dplyr)
 #library(carData)
 library(gapminder)
 library(babynames)
+
+bipl_niche = ggbiplot(stats_pca, groups = gene_stats$Trophic_niche, labels = gene_stats$species_name, labels.size = 2)+
+  scale_colour_manual(name='Origin', values = c('black', 'black', 'black', 'red', 'black','black', 'black', 'black', 'black', 'black'))
+bipl_niche
+ggplotly(bipl_niche)
 
 ggplotly(bipl)
 ggplotly(bipl2)
@@ -396,3 +401,24 @@ for (i in c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","CytB","ND1"
 names(df_stats) = c('gene_name', 'p_value')
 #a = wilcox.test(bird_only[bird_only$gene_name == 'CytB',]$ghahSkew, mam_only[mam_only$gene_name == 'CytB',]$ghahSkew)
 write.csv(df_stats, file = 'ghahSkew_Aves_against_Mammalia_p_values.csv')
+
+
+
+
+#Birds sizes + 3D
+install.packages("plot3D")
+library("plot3D")
+bm = unique(df_mtdna[c(2,108,109,110,111,112,113,114,115,116,117)])
+b_3d = merge(bm, gene_stats, by = 'species_name')
+x = b_3d$Mass
+y = b_3d$fAn
+z = b_3d$fGn
+scatter3D(x, y, z, colvar = y, theta = 15, phi = 20)
+stats_pca_big = prcomp(b_3d[c(2:11)], center = TRUE, scale. = TRUE)
+summary(stats_pca_big)
+
+b_3d_bipl = ggbiplot(stats_pca_big, groups = b_3d$Trophic_niche, labels = b_3d$species_name, labels.size = 2)
+b_3d_bipl
+b_3d_bipl2 = ggbiplot(stats_pca_big, groups = b_3d$realm, labels = b_3d$species_name, labels.size = 2)
+ggplotly(b_3d_bipl)
+ggplotly(b_3d_bipl2)
