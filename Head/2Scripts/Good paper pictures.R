@@ -422,3 +422,30 @@ b_3d_bipl
 b_3d_bipl2 = ggbiplot(stats_pca_big, groups = b_3d$realm, labels = b_3d$species_name, labels.size = 2)
 ggplotly(b_3d_bipl)
 ggplotly(b_3d_bipl2)
+
+#Alya's dataset
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+names(SynNuc)
+SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
+SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
+new_mam = SynNuc[, c(1, 2, 79, 81)]
+new_mam = new_mam[new_mam$Gene != 'ND6',]
+new_mam$class = 'Mammalia'
+new_bird = df_mtdna[, c('species_name', 'gene_name', 'ghahSkew','chthSkew')]
+new_bird$class = 'Aves'
+new_bird$species_name = gsub(' ', '_', new_bird$species_name)
+new_bird$gene_name[new_bird$gene_name == 'CYTB'] = 'CytB'
+names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'class')
+
+new_big = rbind(new_mam, new_bird)
+new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
+new_b_and_m = new_b_and_m + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m
+
+new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
+new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m_one
