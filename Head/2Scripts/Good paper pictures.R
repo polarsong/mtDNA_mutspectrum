@@ -449,3 +449,35 @@ new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class)
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
 new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m_one
+
+#Work with Valya's data
+valya_data = na.omit(valya_data)
+gene_data = df_mtdna[,c('species_name', 'ghahSkew', 'chthSkew', 'fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac', 'med_G', 'med_T')]
+gene_data$species_name = gsub(' ', '_', gene_data$species_name)
+valya_gene = merge(gene_data, valya_data, by = 'species_name')
+
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
+gene_stats = data.frame(unique(df_pca$species_name))
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+df_realm = df_mtdna[c('species_name', 'realm', 'Trophic_niche')]
+gene_stats = merge(gene_stats, df_realm, by = 'species_name')
+gene_stats = unique(gene_stats)
+row.names(gene_stats) = gene_stats$species_name
+gene_stats$species_name = gsub(' ', '_', gene_stats$species_name)
+gene_stats = merge(gene_stats, valya_data, by = 'species_name')
+#gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+bipl = ggbiplot(stats_pca, groups = gene_stats$flying, labels = gene_stats$species_name, labels.size = 2)
+bipl
+unique(gene_stats$flying)
+ggplotly(bipl)
