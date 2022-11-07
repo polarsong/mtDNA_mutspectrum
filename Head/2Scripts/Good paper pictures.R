@@ -253,11 +253,11 @@ bipl3 = ggbiplot(stats_pca, choices = 3:4, groups = gene_stats$realm, labels = g
 bipl3
 ggplotly(bipl3)
 
-install.packages('plotly')
-install.packages('dplyr')
+#install.packages('plotly')
+#install.packages('dplyr')
 #install.packages("car")
-install.packages("babynames")
-install.packages("gapminder")
+#install.packages("babynames")
+#install.packages("gapminder")
 
 library(plotly)
 library(dplyr)
@@ -451,9 +451,11 @@ new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "
 new_b_and_m_one
 
 #Work with Valya's data
+valya_data = read.csv('../../Head/2Scripts/Valyadata.csv')
 valya_data = na.omit(valya_data)
 gene_data = df_mtdna[,c('species_name', 'ghahSkew', 'chthSkew', 'fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac', 'med_G', 'med_T')]
 gene_data$species_name = gsub(' ', '_', gene_data$species_name)
+valya_data["species_name"][valya_data["species_name"] == "Strigops_habroptilus"] = "Strigops_habroptila"
 valya_gene = merge(gene_data, valya_data, by = 'species_name')
 
 df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
