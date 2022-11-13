@@ -451,7 +451,7 @@ new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "
 new_b_and_m_one
 
 #Work with Valya's data
-valya_data = read.csv('../../Head/2Scripts/Valyadata2.csv')
+valya_data = read.csv('../../Head/2Scripts/valyadata_final.csv')
 valya_data = na.omit(valya_data)
 gene_data = df_mtdna[,c('species_name', 'ghahSkew', 'chthSkew', 'fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac', 'med_G', 'med_T')]
 gene_data$species_name = gsub(' ', '_', gene_data$species_name)
@@ -479,6 +479,6 @@ gene_stats = merge(gene_stats, valya_data, by = 'species_name')
 gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
-bipl = ggbiplot(stats_pca, groups = gene_stats$only_forest, labels = gene_stats$species_name, labels.size = 2)
+bipl = ggbiplot(stats_pca, groups = gene_stats$reference2, labels = gene_stats$species_name, labels.size = 2)
 bipl
 ggplotly(bipl)
