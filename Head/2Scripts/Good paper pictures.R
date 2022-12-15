@@ -482,3 +482,54 @@ summary(stats_pca)
 bipl = ggbiplot(stats_pca, groups = gene_stats$reference2, labels = gene_stats$species_name, labels.size = 2)
 bipl
 ggplotly(bipl)
+
+
+#Valya's data boxplots
+fly_box1 = ggplot(valya_gene, aes(x = flying, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Ability to fly')+
+  ylab('GhAhSkew')
+fly_box1
+
+fly_box2 = ggplot(valya_gene, aes(x = wintering, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Wintering')+
+  ylab('GhAhSkew')
+fly_box2
+
+fly_box3 = ggplot(valya_gene, aes(x = diving, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Diving')+
+  ylab('GhAhSkew')
+fly_box3
+
+fly_box4 = ggplot(valya_gene, aes(x = far_migration, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Far_migration')+
+  ylab('GhAhSkew')
+fly_box4
+
+fly_box5 = ggplot(valya_gene, aes(x = flying, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Ability to fly')+
+  ylab('ChThSkew')
+fly_box5
+
+fly_box6 = ggplot(valya_gene, aes(x = wintering, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Wintering')+
+  ylab('ChThSkew')
+fly_box6
+
+fly_box7 = ggplot(valya_gene, aes(x = diving, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Diving')+
+  ylab('ChThSkew')
+fly_box7
+
+fly_box8 = ggplot(valya_gene, aes(x = far_migration, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Far_migration')+
+  ylab('ChThSkew')
+fly_box8
+
