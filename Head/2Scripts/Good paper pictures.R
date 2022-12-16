@@ -533,3 +533,51 @@ fly_box8 = ggplot(valya_gene, aes(x = far_migration, y = chthSkew))+
   ylab('ChThSkew')
 fly_box8
 
+med1 = ggplot(valya_gene, aes(x = flying, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Ability to fly')+
+  ylab('med_G')
+med1
+
+med2 = ggplot(valya_gene, aes(x = wintering, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Wintering')+
+  ylab('med_G')
+med2
+
+med3 = ggplot(valya_gene, aes(x = diving, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Divers')+
+  ylab('med_G')
+med3
+
+med4 = ggplot(valya_gene, aes(x = far_migration, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Far migration')+
+  ylab('med_G')
+med4
+
+med5 = ggplot(valya_gene, aes(x = flying, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Ability to fly')+
+  ylab('med_T')
+med5
+
+med6 = ggplot(valya_gene, aes(x = wintering, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Wintering')+
+  ylab('med_T')
+med6
+
+med7 = ggplot(valya_gene, aes(x = diving, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Divers')+
+  ylab('med_T')
+med7
+
+med8 = ggplot(valya_gene, aes(x = far_migration, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Far migration')+
+  ylab('med_T')
+med8
+
