@@ -581,3 +581,50 @@ med8 = ggplot(valya_gene, aes(x = far_migration, y = med_T))+
   ylab('med_T')
 med8
 
+#Aminoacids shift
+
+df_sgc = df_mtdna[,c(2, 6, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
+               54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,
+               78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95)] #getting codon usage
+
+
+anti_vec_all = c('TTC','TTT','TCC','TCT','TAC','TAT','TGC','TGT',
+            'TTA','TTG','TCA','TCG','TAA','TAG','TGA','TGG',
+            'CTC','CTT','CCC','CCT','CAC','CAT','CGC','CGT',
+            'CTA','CTG','CCA','CCG','CAA','CAG','CGA','CGG',
+            'ATC','ATT','ACC','ACT','AAC','AAT','AGC','AGT',
+            'ATA','ATG','ACA','ACG','AAA','AAG','AGA','AGG',
+            'GTC','GTT','GCC','GCT','GAC','GAT','GGC','GGT',
+            'GTA','GTG','GCA','GCG','GAA','GAG','GGA','GGG')
+
+vec_all = c('TTT','TTC','TCT','TCC','TAT','TAC','TGT','TGC',
+            'TTG','TTA','TCG','TCA','TAG','TAA','TGG','TGA',
+            'CTT','CTC','CCT','CCC','CAT','CAC','CGT','CGC',
+            'CTG','CTA','CCG','CCA','CAG','CAA','CGG','CGA',
+            'ATT','ATC','ACT','ACC','AAT','AAC','AGT','AGC',
+            'ATG','ATA','ACG','ACA','AAG','AAA','AGG','AGA',
+            'GTT','GTC','GCT','GCC','GAT','GAC','GGT','GGC',
+            'GTG','GTA','GCG','GCA','GAG','GAA','GGG','GGA')
+
+df_aa = data.frame()
+
+for (i in 1:nrow(df_sgc)){
+  org_gen = df_sgc[i,]
+  org_gen = as.vector(org_gen)
+  df_out= data.frame(df_sgc[i,]$species_name, df_sgc[i,]$gene_name) 
+  for (codon in seq(from = 1, to = 64)){
+    if (as.numeric(as.character(unlist(org_gen[vec_all[codon]]))) + as.numeric(as.character(unlist(org_gen[anti_vec_all[codon]]))) == 0)
+    {
+      norm_cod = 0
+      df_out = cbind(df_out, norm_cod)
+    }
+    else
+    {
+      norm_cod = (as.numeric(as.character(unlist(org_gen[vec_all[codon]]))))/(as.numeric(as.character(unlist(org_gen[vec_all[codon]]))) + as.numeric(as.character(unlist(org_gen[anti_vec_all[codon]]))))
+      df_out = cbind(df_out, norm_cod)
+    }
+  }
+  df_aa = rbind(df_aa, df_out)
+}
+
+write.csv(df_aa, file = 'Aminoacids_shift_birds')
