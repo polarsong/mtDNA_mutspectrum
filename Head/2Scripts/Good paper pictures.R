@@ -627,4 +627,6 @@ for (i in 1:nrow(df_sgc)){
   df_aa = rbind(df_aa, df_out)
 }
 
-write.csv(df_aa, file = 'Aminoacids_shift_birds')
+names(df_aa) = c('species_name', 'gene_name', vec_all)
+
+write.csv(df_aa, file = 'Aminoacids_shift_birds.csv')
