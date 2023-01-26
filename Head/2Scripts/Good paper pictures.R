@@ -9,25 +9,29 @@ df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
 f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Mitochondrial genes')+
-  ylab('Thymine frequence')
+  ylab('Thymine frequence')+
+  ylim(0, 0.7)
 f1 = f1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
 f1 = f1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 f2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Mitochondrial genes')+
-  ylab('Cytosine frequence')
+  ylab('Cytosine frequence')+
+  ylim(0, 0.7)
 f2 = f2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
 f2 = f2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 f3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Mitochondrial genes')+
-  ylab('Guanine frequence')
+  ylab('Guanine frequence')+
+  ylim(0, 0.7)
 f3 = f3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
 f3 = f3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 f4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Mitochondrial genes')+
-  ylab('Adenine frequence')
+  ylab('Adenine frequence')+
+  ylim(0, 0.7)
 f4 = f4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
 f4 = f4 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 f5 = ggarrange(f1, f3, f2, f4, 
@@ -430,7 +434,7 @@ if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.rem
 names(SynNuc)
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
-new_mam = SynNuc[, c(1, 2, 79, 81)]
+new_mam = SynNuc[, c(1, 2, 79, 80)]
 new_mam = new_mam[new_mam$Gene != 'ND6',]
 new_mam$class = 'Mammalia'
 new_bird = df_mtdna[, c('species_name', 'gene_name', 'ghahSkew','chthSkew')]
@@ -449,6 +453,56 @@ new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class)
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
 new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m_one
+
+for_article = SynNuc[, c(1, 2, 73, 74, 75, 76)]
+for_article = for_article[for_article$Gene != 'ND6',]
+for_article$class = 'Mammalia'
+new_bird1 = df_mtdna[, c('species_name', 'gene_name', 'neutral_A','neutral_g', 'neutral_c', 'neutral_T')]
+new_bird1$class = 'Aves'
+new_bird1$species_name = gsub(' ', '_', new_bird1$species_name)
+new_bird1$gene_name[new_bird1$gene_name == 'CYTB'] = 'CytB'
+names(for_article) = c('species_name', 'gene_name', 'neutral_A', 'neutral_T', 'neutral_g', 'neutral_c', 'class')
+
+new_big1 = rbind(for_article, new_bird1)
+new_b_and_m1 = ggplot(new_big1, aes(x = gene_name, y = neutral_A, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral T')+
+  ylim(0, 200)
+new_b_and_m1 = new_b_and_m1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m1 = new_b_and_m1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+new_b_and_m1
+
+new_b_and_m2 = ggplot(new_big1, aes(x = gene_name, y = neutral_g, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral C')+
+  ylim(0, 200)
+new_b_and_m2 = new_b_and_m2 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m2 = new_b_and_m2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+new_b_and_m2
+
+new_b_and_m3 = ggplot(new_big1, aes(x = gene_name, y = neutral_c, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral G')+
+  ylim(0, 200)
+new_b_and_m3 = new_b_and_m3 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m3 = new_b_and_m3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+new_b_and_m3
+
+new_b_and_m4 = ggplot(new_big1, aes(x = gene_name, y = neutral_T, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral A')+
+  ylim(0, 200)
+new_b_and_m4 = new_b_and_m4 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
+new_b_and_m4 = new_b_and_m4 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+new_b_and_m4
+
+f10 = ggarrange(new_b_and_m1, new_b_and_m3, new_b_and_m2, new_b_and_m4, 
+               ncol = 2, nrow = 2)
+f10
 
 #Work with Valya's data
 valya_data = read.csv('../../Head/2Scripts/valyadata_final.csv')
