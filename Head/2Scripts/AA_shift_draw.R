@@ -253,3 +253,55 @@ plot_ly(
   color = ~gene_name,
   showlegend = FALSE
 )
+
+
+#draw lines
+cool = ggplot(df_shift3, aes(x = gene_name, y = value, group = 1))+ 
+  geom_line()+
+  geom_point()
+cool
+
+plot_ly(
+  data = df_shift3,
+  x = ~gene_name, 
+  y = ~value,
+  type = "scatter",
+  mode = "lines"
+)
+
+
+#preparing df for drawing
+gene_vector = c('ND1', 'ND2', 'ND3', 'ND4', 'ND4L', 'ND5', 'ATP6', 'ATP8', 'COX1', 'COX2', 'COX3', 'CYTB')
+codons_for_graph = data.frame()
+
+for (i in gene_vector)
+{
+  df = df_shift2[df_shift2$gene_name == i,]
+  df = data.frame((colSums(df[,-1]))/766)
+  names(df) = c('value')
+  df$codon = rownames(df)
+  df$gene_name = i
+  codons_for_graph = rbind(codons_for_graph, df)
+  df = data.frame()
+}
+
+nd1 = df_shift2[df_shift2$gene_name == 'ND1',]
+nd1 = data.frame((colSums(nd1[,-1]))/766)
+names(nd1) = c('value')
+nd1$codon = rownames(nd1)
+nd1$gene_name = 'ND1'
+nd2 = df_shift2[df_shift2$gene_name == 'ND2',]
+nd3 = df_shift2[df_shift2$gene_name == 'ND3',]
+nd4 = df_shift2[df_shift2$gene_name == 'ND4',]
+nd4l = df_shift2[df_shift2$gene_name == 'ND4L',]
+nd5 = df_shift2[df_shift2$gene_name == 'ND5',]
+atp6 = df_shift2[df_shift2$gene_name == 'ATP6',]
+atp8 = df_shift2[df_shift2$gene_name == 'ATP8',]
+cox1 = df_shift2[df_shift2$gene_name == 'COX1',]
+cox2 = df_shift2[df_shift2$gene_name == 'COX2',]
+cox3 = df_shift2[df_shift2$gene_name == 'COX3',]
+cytb = df_shift2[df_shift2$gene_name == 'CYTB',]
+try1 =  data.frame(c((colSums(nd1[,-1]))/766))
+try1$codon = rownames(try1)
+names(try1) = c('value', 'codon')
+
