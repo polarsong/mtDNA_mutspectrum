@@ -285,6 +285,11 @@ for (i in gene_vector)
   df = data.frame()
 }
 
+ggplot(codons_for_graph, aes(x = gene_name, y = value, group = codon))+
+  geom_line(aes(linetype = codon))+
+  geom_point()
+
+
 nd1 = df_shift2[df_shift2$gene_name == 'ND1',]
 nd1 = data.frame((colSums(nd1[,-1]))/766)
 names(nd1) = c('value')
@@ -305,3 +310,6 @@ try1 =  data.frame(c((colSums(nd1[,-1]))/766))
 try1$codon = rownames(try1)
 names(try1) = c('value', 'codon')
 
+#trying 3d
+library(plotly)
+plot_ly(data = codons_for_graph, x = ~gene_name, y = ~codon, z = ~value)
