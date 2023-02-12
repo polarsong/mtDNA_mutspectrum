@@ -92,3 +92,18 @@ library(ggbiplot)
 pca_data = mut_data_ff1[,c(1,5,7,8,9)]
 stats_pca = prcomp(pca_data[c(2, 5)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
+
+
+#192 mutspec
+mut_data_192 = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec192.tsv", header = TRUE, fill = TRUE)
+mut_data_192_ff = mut_data_192[mut_data_192$Label == 'ff',]
+mut_data_192_ff = mut_data_192_ff[,c(1,2,3,4,5,7,8)]
+
+mut_data_192_ff = mut_data_192_ff[!grepl('Node', mut_data_192_ff$AltNode),]
+names(mut_data_192_ff) = c('Mut', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'species_name', 'Label') 
+mut_data_192_ff = merge(mut_data_192_ff, ecozone_data, by = 'species_name')
+mut_data_192_ff$MutSpec =  as.numeric(mut_data_192_ff$MutSpec)
+fig <- plot_ly(mut_data_192_ff, x = ~Mut, y = ~MutSpec, color = ~realm, type = "box")
+fig <- fig %>% layout(boxmode = "group")
+
+fig
