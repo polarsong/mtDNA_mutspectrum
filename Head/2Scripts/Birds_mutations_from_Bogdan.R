@@ -78,7 +78,6 @@ names(TA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Labe
 
 mut_data_ff1 = rbind(AC, AG, AT, GC, GT, GA, CT, CA, CG, TA, TG, TC)
 
-
 ggplot(data = mut_data_ff, aes(x = Mut, y = MutSpec, fill = Trophic_niche))+
   geom_boxplot()
 
@@ -87,11 +86,45 @@ fig <- fig %>% layout(boxmode = "group")
 
 fig
 
+
 #PCA work
 library(ggbiplot)
+library(data.table)
 pca_data = mut_data_ff1[,c(1,5,7,8,9)]
-stats_pca = prcomp(pca_data[c(2, 5)], center = TRUE, scale. = TRUE)
+
+pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_niche~Mut,
+                 value.var='MutSpec')
+pca_data_shaped$`A>C` = as.numeric(pca_data_shaped$`A>C`)
+pca_data_shaped$`A>G` = as.numeric(pca_data_shaped$`A>G`)
+pca_data_shaped$`A>T` = as.numeric(pca_data_shaped$`A>T`)
+pca_data_shaped$`C>A` = as.numeric(pca_data_shaped$`C>A`)
+pca_data_shaped$`C>G` = as.numeric(pca_data_shaped$`C>G`)
+pca_data_shaped$`C>T` = as.numeric(pca_data_shaped$`C>T`)
+pca_data_shaped$`G>A` = as.numeric(pca_data_shaped$`G>A`)
+pca_data_shaped$`G>C` = as.numeric(pca_data_shaped$`G>C`)
+pca_data_shaped$`G>T` = as.numeric(pca_data_shaped$`G>T`)
+pca_data_shaped$`T>A` = as.numeric(pca_data_shaped$`T>A`)
+pca_data_shaped$`T>C` = as.numeric(pca_data_shaped$`T>C`)
+pca_data_shaped$`T>G` = as.numeric(pca_data_shaped$`T>G`)
+
+stats_pca = prcomp(pca_data_shaped[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
+
+bipl = ggbiplot(stats_pca, groups = pca_data_shaped$realm, labels = pca_data_shaped$species_name, labels.size = 2)
+bipl
+ggplotly(bipl)
+
+bipl1 = ggbiplot(stats_pca, groups = pca_data_shaped$Trophic_niche, labels = pca_data_shaped$species_name, labels.size = 2)
+bipl1
+ggplotly(bipl1)
+
+bipl2 = ggbiplot(stats_pca, groups = pca_data_shaped$realm, labels.size = 2)
+bipl2
+ggplotly(bipl2)
+
+bipl3 = ggbiplot(stats_pca, groups = pca_data_shaped$Trophic_niche, labels.size = 2)
+bipl3
+ggplotly(bipl3)
 
 
 #192 mutspec
