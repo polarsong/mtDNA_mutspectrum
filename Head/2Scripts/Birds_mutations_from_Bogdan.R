@@ -127,16 +127,42 @@ bipl3
 ggplotly(bipl3)
 
 
-#192 mutspec
-mut_data_192 = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec192.tsv", header = TRUE, fill = TRUE)
-mut_data_192_ff = mut_data_192[mut_data_192$Label == 'ff',]
-mut_data_192_ff = mut_data_192_ff[,c(1,2,3,4,5,7,8)]
+#Valya's data
+valya_data = read.csv('../../Head/2Scripts/valyadata_final.csv')
+valya_data = na.omit(valya_data)
+valya_data = valya_data[,c(1,3,4,5,6)]
+valya_data["species_name"][valya_data["species_name"] == "Strigops_habroptilus"] = "Strigops_habroptila"
+valya_gene = merge(pca_data_shaped, valya_data, by = 'species_name')
+stats_pca1 = prcomp(valya_gene[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
+summary(stats_pca1)
+bipl_valya1 = ggbiplot(stats_pca1, groups = valya_gene$far_migration, labels = valya_gene$species_name, labels.size = 2)
+bipl_valya1
+ggplotly(bipl_valya1)
 
-mut_data_192_ff = mut_data_192_ff[!grepl('Node', mut_data_192_ff$AltNode),]
-names(mut_data_192_ff) = c('Mut', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'species_name', 'Label') 
-mut_data_192_ff = merge(mut_data_192_ff, ecozone_data, by = 'species_name')
-mut_data_192_ff$MutSpec =  as.numeric(mut_data_192_ff$MutSpec)
-fig <- plot_ly(mut_data_192_ff, x = ~Mut, y = ~MutSpec, color = ~realm, type = "box")
-fig <- fig %>% layout(boxmode = "group")
+bipl_valya2 = ggbiplot(stats_pca1, groups = valya_gene$far_migration, labels.size = 2)
+bipl_valya2
+ggplotly(bipl_valya2)
 
-fig
+bipl_valya3 = ggbiplot(stats_pca1, groups = valya_gene$wintering, labels = valya_gene$species_name, labels.size = 2)
+bipl_valya3
+ggplotly(bipl_valya3)
+
+bipl_valya4 = ggbiplot(stats_pca1, groups = valya_gene$wintering, labels.size = 2)
+bipl_valya4
+ggplotly(bipl_valya4)
+
+bipl_valya5 = ggbiplot(stats_pca1, groups = valya_gene$diving, labels = valya_gene$species_name, labels.size = 2)
+bipl_valya5
+ggplotly(bipl_valya5)
+
+bipl_valya6 = ggbiplot(stats_pca1, groups = valya_gene$diving, labels.size = 2)
+bipl_valya6
+ggplotly(bipl_valya6)
+
+bipl_valya7 = ggbiplot(stats_pca1, groups = valya_gene$flying, labels = valya_gene$species_name, labels.size = 2)
+bipl_valya7
+ggplotly(bipl_valya7)
+
+bipl_valya8 = ggbiplot(stats_pca1, groups = valya_gene$flying, labels.size = 2)
+bipl_valya8
+ggplotly(bipl_valya8)
