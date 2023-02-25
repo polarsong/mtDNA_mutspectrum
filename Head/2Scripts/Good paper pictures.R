@@ -292,10 +292,7 @@ gene_stats = gene_stats[,c(2:13)]
 library(ggfortify)
 library(dabestr)
 library(ggrepel)
-pca_plot = autoplot(stats_pca, data = gene_stats, colour = 'gray', loadings = TRUE, loadings.label = TRUE, loadings.label.size = 5, scale = 0, 
-                    loadings.colour = 'black', loadings.label.colour = 'black')+
-  geom_point(data = gene_stats, aes(PC1, PC2, color = realm, alpha = 0.5),size = 3)
-pca_plot
+
 
 g1 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
   geom_density(size = 1)+
