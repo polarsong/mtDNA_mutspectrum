@@ -184,23 +184,25 @@ names(TA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Labe
 
 mut_data_ff1 = rbind(AC, AG, AT, GC, GT, GA, CT, CA, CG, TA, TG, TC)
 
+library(tidyr)
 library(data.table)
-rm(pca_data, pca_data_shaped)
-pca_data = mut_data_ff1[,c(1,5,7,8,9)]
 
-pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_niche~Mut,
-                                   value.var='MutSpec')
-row.names(pca_data_shaped) = pca_data_shaped$species_name
-row.names(pca_data_shaped)
+pca_data = mut_data_ff1[,c(1,5,9)]
+ex = reshape(data = pca_data, idvar = 'species_name',
+             timevar = 'Mut',
+             direction = 'wide')
+names(ex) = c('species_name', 'T>G', 'T>C', 'T>A', 'C>G', 'C>A', 'C>T', 'G>A','G>T','G>C', 'A>T', 'A>C', 'A>G')
+ex = merge(ex, ecozone_data, by = 'species_name')
+ex = ex[,c(1,14,15,12,13,11,6,5,7,8,10,9,4,3,2)]
+row.names(ex) = ex$species_name
 
 
-
-stats_pca1 = prcomp(pca_data_shaped[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
+stats_pca1 = prcomp(ex[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
 summary(stats_pca1)
 
 
 
-bipl = ggbiplot(stats_pca1, groups = pca_data_shaped$realm, labels.size = 2)
+bipl = ggbiplot(stats_pca1, groups = ex$realm, labels.size = 2)
 bipl
 
 bipl1 = ggbiplot(stats_pca1, groups = pca_data_shaped$Trophic_niche, labels.size = 2)
@@ -210,81 +212,71 @@ bipl1
 birds_ms_pca = data.frame(stats_pca1$x)
 birds_ms_pca = birds_ms_pca[,c(1,2)]
 birds_ms_pca$species_name = row.names(birds_ms_pca)
-i = merge(pca_data_shaped, birds_ms_pca, by = 'species_name')
-row.names(gene_stats) = gene_stats$species_name
-gene_stats = gene_stats[,c(2:14)]
-b_bipl = ggbiplot(stats_pca, groups = gene_stats$Trophic_niche, labels = gene_stats$species_name,labels.size = 2)
-b_bipl
-b_bipl1 = ggbiplot(stats_pca, groups = gene_stats$realm, labels = gene_stats$species_name,labels.size = 2)
-b_bipl1
+ex2 = merge(ex, birds_ms_pca, by = 'species_name')
 
-
-
-g11 = ggplot(gene_stats1, aes(x=PC1, color=realm)) +
+g11 = ggplot(ex2, aes(x=PC1, color=realm)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC1 (48.0%)')
+  xlab('PC1 (37.9%)')
 
 g11
-g2 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
+g12 = ggplot(ex2, aes(x=PC2, color=realm)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC2 (32.2%)')
+  xlab('PC1 (10.0%)')
 
+g12
 
-g2
-
-g3 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
+g13 = ggplot(ex2, aes(x=PC1, color=Trophic_niche)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC1 (48.0%)')
+  xlab('PC1 (37.9%)')
 
-g3
-g4 = ggplot(gene_stats, aes(x=PC2, color=Trophic_niche)) +
+g13
+g14 = ggplot(ex2, aes(x=PC2, color=Trophic_niche)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC2 (32.2%)')
+  xlab('PC1 (10.0%)')
 
+g14
 
-g4
-
-g5 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
+g15 = ggplot(ex2, aes(x=PC1, color=realm)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC1 (48.0%)')+
-  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
-
-g5
-
-g6 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
-  geom_density(size = 1)+
-  theme_bw()+
-  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC2 (32.2%)')+
+  xlab('PC1 (37.9%)')+
   scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
 
 
-g6
-
-g7 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
+g15
+g16 = ggplot(ex2, aes(x=PC2, color=realm)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC1 (48.0%)')+
-  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
+  xlab('PC1 (10.0%)')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
 
-g7
-g8 = ggplot(gene_stats, aes(x=PC2, color=Trophic_niche)) +
+
+g16
+
+g17 = ggplot(ex2, aes(x=PC1, color=Trophic_niche)) +
   geom_density(size = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
-  xlab('PC2 (32.2%)')+
+  xlab('PC1 (37.9%)')+
   scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
 
+g17
+g18 = ggplot(ex2, aes(x=PC2, color=Trophic_niche)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (10.0%)')+
+  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
 
-g8
+g18
+
