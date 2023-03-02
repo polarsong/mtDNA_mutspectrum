@@ -1,10 +1,21 @@
 rm(list = ls(all=TRUE))
 install.packages("ggbiplot")
+remove.packages('rlang')
+remove.packages('ggplot2')
+remove.packages('ggbiplot')
+install.packages("rlang")
 install.packages("ggplot2")
 install.packages("ggpubr")
+remove.packages('devtools')
+install.packages('devtools')
+install_github("vqv/ggbiplot")
+remove.packages('plotly')
+install.packages('plotly')
+library(plotly)
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
+library(devtools)
 df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
 f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA)+
@@ -257,6 +268,9 @@ bipl3 = ggbiplot(stats_pca, choices = 3:4, groups = gene_stats$realm, labels = g
 bipl3
 ggplotly(bipl3)
 
+bipl_pres = ggbiplot(stats_pca, groups = gene_stats$realm, labels = gene_stats$species_name, labels.size = 2)+
+  scale_colour_manual(name="Origin", values= c("black", "green", "black", "black", "black", "black", "black", "red", "black"))
+
 remove.packages('devtools')
 install.packages('devtools')
 remove.packages('plotly')
@@ -272,7 +286,7 @@ library(dplyr)
 library(gapminder)
 library(babynames)
 library(devtools)
-plotl
+
 
 bipl_niche = ggbiplot(stats_pca, groups = gene_stats$Trophic_niche, labels = gene_stats$species_name, labels.size = 2)+
   scale_colour_manual(name='Origin', values = c('black', 'black', 'black', 'red', 'black','black', 'black', 'black', 'black', 'black'))
