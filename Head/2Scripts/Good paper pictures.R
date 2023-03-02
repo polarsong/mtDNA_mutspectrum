@@ -257,17 +257,22 @@ bipl3 = ggbiplot(stats_pca, choices = 3:4, groups = gene_stats$realm, labels = g
 bipl3
 ggplotly(bipl3)
 
-#install.packages('plotly')
+remove.packages('devtools')
+install.packages('devtools')
+remove.packages('plotly')
+install.packages('plotly')
 #install.packages('dplyr')
 #install.packages("car")
 #install.packages("babynames")
 #install.packages("gapminder")
-
+devtools::install_github("ropensci/plotly")
 library(plotly)
 library(dplyr)
 #library(carData)
 library(gapminder)
 library(babynames)
+library(devtools)
+plotl
 
 bipl_niche = ggbiplot(stats_pca, groups = gene_stats$Trophic_niche, labels = gene_stats$species_name, labels.size = 2)+
   scale_colour_manual(name='Origin', values = c('black', 'black', 'black', 'red', 'black','black', 'black', 'black', 'black', 'black'))
