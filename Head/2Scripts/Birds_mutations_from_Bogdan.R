@@ -89,6 +89,8 @@ fig
 
 #PCA work
 library(ggbiplot)
+remove.packages('data.table')
+install.packages('data.table')
 library(data.table)
 pca_data = mut_data_ff1[,c(1,5,7,8,9)]
 
@@ -126,12 +128,23 @@ bipl3 = ggbiplot(stats_pca, groups = pca_data_shaped$Trophic_niche, labels.size 
 bipl3
 ggplotly(bipl3)
 
+#A>G/T>C
+pca_data_shaped$AG_TC = pca_data_shaped$`A>G`/pca_data_shaped$`T>C`
+pca_data_shaped$GA_CT = pca_data_shaped$`G>A`/pca_data_shaped$`C>T`
+pca_data_shaped$AG_TC
+ggplot(pca_data_shaped, aes(x = realm, y = AG_TC))+
+  geom_boxplot(outlier.shape = NA)
+
 
 #Valya's data
 valya_data = read.csv('../../Head/2Scripts/valyadata_final.csv')
 valya_data = na.omit(valya_data)
 valya_data = valya_data[,c(1,3,4,5,6)]
 valya_data["species_name"][valya_data["species_name"] == "Strigops_habroptilus"] = "Strigops_habroptila"
+pca_data_shaped$far_migration = 'U'
+pca_data_shaped$wintering = 'U'
+pca_data_shaped$diving = 'U'
+pca_data_shaped$flying = 'U'
 valya_gene = merge(pca_data_shaped, valya_data, by = 'species_name')
 stats_pca1 = prcomp(valya_gene[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
 summary(stats_pca1)
