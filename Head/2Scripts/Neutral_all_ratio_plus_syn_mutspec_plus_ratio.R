@@ -45,6 +45,35 @@ f5 = ggarrange(f1, f3, f4, f2,
                ncol = 2, nrow = 2)
 f5
 
+f6 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = T_ratio_3_position))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Thymine ratio in third positions')
+f6 = f6 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f6 = f6 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f7 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = A_ratio_3_position))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Adenine ratio in third positions')
+f7 = f7+ xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f7 = f7 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f8 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = G_ratio_3_position))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Guanine ratio in third positions')
+f8 = f8 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f8 = f8 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f9 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = C_ratio_3_position))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Cytosine ratio in third positions')
+f9 = f9 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f9 = f9 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+f10 = ggarrange(f6, f8, f9, f7, 
+               ncol = 2, nrow = 2)
+f10
+
 df_look = df_mtdna[df_mtdna$realm == 'Antarctic',]
 #Syn_mutations
 mut_data_syn = mut_data[mut_data$Label == 'syn',]
@@ -142,6 +171,13 @@ realm_tr_ts = ggplot(data = pca_data_shaped, aes(x = realm, y = TR_TS))+
 realm_tr_ts = realm_tr_ts + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
 realm_tr_ts = realm_tr_ts + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 realm_tr_ts
+
+niche_tr_ts = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = TR_TS))+
+  geom_boxplot()+
+  ylim(0,75)
+niche_tr_ts = niche_tr_ts + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+niche_tr_ts = niche_tr_ts + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts
 
 fig <- plot_ly(mut_data_syn1, x = ~realm, y = ~MutSpec, color = ~Trophic_niche, type = "box")
 fig <- fig %>% layout(boxmode = "group")
