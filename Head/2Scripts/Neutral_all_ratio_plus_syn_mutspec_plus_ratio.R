@@ -248,6 +248,9 @@ pca_data = mut_data_syn1[,c(1,5,7,8,9)]
 pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_niche~Mut,
                                    value.var='MutSpec')
 pca_data_shaped$TR_TS = (pca_data_shaped$`A>G`+pca_data_shaped$`C>T`+pca_data_shaped$`G>A`+pca_data_shaped$`T>C`)/(pca_data_shaped$`A>C`+pca_data_shaped$`A>T`+pca_data_shaped$`C>A`+pca_data_shaped$`C>G`+pca_data_shaped$`G>C`+pca_data_shaped$`G>T`+pca_data_shaped$`T>A`+pca_data_shaped$`T>G`)
+pca_data_shaped$CT_GA = (pca_data_shaped$`C>T`/pca_data_shaped$`G>A`)
+pca_data_shaped$AG_TC = (pca_data_shaped$`A>G`/pca_data_shaped$`T>C`)
+
 
 realm_tr_ts = ggplot(data = pca_data_shaped, aes(x = realm, y = TR_TS))+
   geom_boxplot()+
@@ -262,6 +265,34 @@ niche_tr_ts = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = TR_TS))+
 niche_tr_ts = niche_tr_ts + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
 niche_tr_ts = niche_tr_ts + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 niche_tr_ts
+
+realm_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = realm, y = CT_GA))+
+  geom_boxplot()+
+  ylim(0,5)
+realm_tr_ts1 = realm_tr_ts1 + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+realm_tr_ts1 = realm_tr_ts1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+realm_tr_ts1
+
+niche_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = CT_GA))+
+  geom_boxplot()+
+  ylim(0,5)
+niche_tr_ts1 = niche_tr_ts1 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+niche_tr_ts1 = niche_tr_ts1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts1
+
+realm_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = realm, y = AG_TC))+
+  geom_boxplot()+
+  ylim(0,5)
+realm_tr_ts2 = realm_tr_ts2 + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+realm_tr_ts2 = realm_tr_ts2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+realm_tr_ts2
+
+niche_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = AG_TC))+
+  geom_boxplot()+
+  ylim(0,5)
+niche_tr_ts2 = niche_tr_ts2 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+niche_tr_ts2 = niche_tr_ts2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts2
 
 fig <- plot_ly(mut_data_syn1, x = ~realm, y = ~MutSpec, color = ~Trophic_niche, type = "box")
 fig <- fig %>% layout(boxmode = "group")
