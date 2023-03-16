@@ -1,7 +1,10 @@
 rm(list=ls(all=TRUE))
+install.packages("tidyverse")
+library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(ggpubr)
+library(forcats)
 df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
 mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec12.tsv", header = TRUE, fill = TRUE)
 #3 nucleotide against four-fold
@@ -15,6 +18,13 @@ df_mtdna$G_ratio_3_position = df_mtdna$neutral_c/df_mtdna$all_G_position_3
 df_mtdna$C_ratio_3_position = df_mtdna$neutral_g/df_mtdna$all_C_position_3
 df_mtdna$A_ratio_3_position = df_mtdna$neutral_T/df_mtdna$all_A_position_3
 df_mtdna$T_ratio_3_position = df_mtdna$neutral_A/df_mtdna$all_T_position_3
+
+
+#neutreal divided by all
+df_mtdna$G_ratio_neutal_all = df_mtdna$neutral_c/(df_mtdna$all_A_position_3 + df_mtdna$all_C_position_3 + df_mtdna$all_G_position_3 + df_mtdna$all_T_position_3)
+df_mtdna$C_ratio_neutal_all = df_mtdna$neutral_g/(df_mtdna$all_A_position_3 + df_mtdna$all_C_position_3 + df_mtdna$all_G_position_3 + df_mtdna$all_T_position_3)
+df_mtdna$A_ratio_neutal_all = df_mtdna$neutral_T/(df_mtdna$all_A_position_3 + df_mtdna$all_C_position_3 + df_mtdna$all_G_position_3 + df_mtdna$all_T_position_3)
+df_mtdna$T_ratio_neutal_all = df_mtdna$neutral_A/(df_mtdna$all_A_position_3 + df_mtdna$all_C_position_3 + df_mtdna$all_G_position_3 + df_mtdna$all_T_position_3)
 
 f1 = ggplot(data = df_mtdna, aes(x = realm, y = T_ratio_3_position))+
   geom_boxplot(outlier.shape = NA)+
@@ -73,6 +83,64 @@ f9 = f9 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 f10 = ggarrange(f6, f8, f9, f7, 
                ncol = 2, nrow = 2)
 f10
+
+f11 = ggplot(data = df_mtdna, aes(x = realm, y = T_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('realms')+
+  ylab('Thymine ratio in third positions')
+f11 = f11 +xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+f11 = f11 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f12 = ggplot(data = df_mtdna, aes(x = realm, y = A_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('realms')+
+  ylab('Adenine ratio in third positions')
+f12 = f12 +xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+f12 = f12 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f13 = ggplot(data = df_mtdna, aes(x = realm, y = G_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('realms')+
+  ylab('Guanine ratio in third positions')
+f13 = f13 +xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+f13 = f13 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f14 = ggplot(data = df_mtdna, aes(x = realm, y = C_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('realms')+
+  ylab('Cytosine ratio in third positions')
+f14 = f14 +xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+f14 = f14 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+f15 = ggarrange(f11, f13, f14, f12, 
+               ncol = 2, nrow = 2)
+f15
+
+f16 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = T_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Thymine ratio in third positions')
+f16 = f16 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f16 = f16 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f17 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = A_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Adenine ratio in third positions')
+f17 = f17+ xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f17 = f17 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f18 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = G_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Guanine ratio in third positions')
+f18 = f18 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f18 = f18 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f19 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = C_ratio_neutal_all))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('trophic niche')+
+  ylab('Cytosine ratio in third positions')
+f19 = f19 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+f19 = f19 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+f20 = ggarrange(f16, f18, f19, f17, 
+                ncol = 2, nrow = 2)
+f20
 
 df_look = df_mtdna[df_mtdna$realm == 'Antarctic',]
 #Syn_mutations
@@ -149,12 +217,28 @@ names(TA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Labe
 
 mut_data_syn1 = rbind(AC, AG, AT, GC, GT, GA, CT, CA, CG, TA, TG, TC)
 
-ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = Trophic_niche))+
+ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
+  geom_boxplot()+
+  scale_fill_manual(values = c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+
+ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
   geom_boxplot()
 
-fig <- plot_ly(mut_data_syn1, x = ~Mut, y = ~MutSpec, color = ~Trophic_niche, type = "box")
-fig <- fig %>% layout(boxmode = "group")
+a
+order
 
+extra_mut = mut_data_syn1
+extra_mut$realm <- factor(extra_mut$realm, levels = c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+
+ggplot(data = extra_mut, aes(x = Mut, y = MutSpec, fill = realm)) +
+  geom_boxplot()
+
+
+
+
+
+fig <- plot_ly(extra_mut, x = ~Mut, y = ~MutSpec, color = ~realm, type = "box")
+fig <- fig %>% layout(boxmode = "group")
 fig
 
 #TR/TS
