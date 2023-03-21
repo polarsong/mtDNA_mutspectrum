@@ -1,0 +1,118 @@
+---
+title: "Avian Mitochondrial Mutational Spectrum"
+author: 'Yury Gusarov'
+date: '2023-03-21'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls(all=TRUE))
+library(ggbiplot)
+library(ggplot2)
+library(ggpubr)
+```
+#### RES0. Avian genomic and life-history dataset
+```{r}
+df_mtdna = read.csv('../../Paper_materials/Birds_dataset_paper.csv')
+```
+
+<br> 
+
+#### RES1. Avian mtDNA is Th-rich Ch-poor and Gh-rich Ah-poor; this asymmetry is increasing with the TBSS gradient
+```{r, include=FALSE}
+f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Thymine frequence')+
+  ylim(0, 0.7)
+f1 = f1 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f1 = f1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Cytosine frequence')+
+  ylim(0, 0.7)
+f2 = f2 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f2 = f2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Guanine frequence')+
+  ylim(0, 0.7)
+f3 = f3 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f3 = f3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
+  geom_boxplot(outlier.shape = NA)+
+  xlab('Mitochondrial genes')+
+  ylab('Adenine frequence')+
+  ylim(0, 0.7)
+f4 = f4 +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
+f4 = f4 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+f5 = ggarrange(f1, f3, f2, f4, 
+               ncol = 2, nrow = 2)
+f5
+f51 = ggarrange(f1,f2,
+                 ncol = 1, nrow = 2)
+f51
+f52 = ggarrange(f3,f4,
+                ncol = 1, nrow = 2)
+```
+
+```{r}
+f52
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

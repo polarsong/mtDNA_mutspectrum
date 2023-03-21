@@ -7,7 +7,7 @@ mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/m
 an_age = read.table('anage_data.txt', header = TRUE, fill = TRUE)
 an_age_birds = an_age[an_age$Class == 'Aves',]
 an_age_birds$species_name = paste(an_age_birds$Genus,'_',an_age_birds$Species)
-an_age_birds$species_name = gsub(' _ ', '_', an_age_birds$species_name)
+an_age_birds$species_name = gsub(' _ ', ' ', an_age_birds$species_name)
 an_age_big = merge(df_mtdna, an_age_birds, by='species_name')
 
 a = c(1,3,5)
