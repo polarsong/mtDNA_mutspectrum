@@ -475,6 +475,10 @@ new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class)
 new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m_one = new_b_and_m_one + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m_one
+two_big = ggarrange(new_b_and_m, new_b_and_m_one,
+                    ncol = 2,
+                    nrow = 1)
+two_big
 
 for_article = SynNuc[, c(1, 2, 73, 74, 75, 76)]
 for_article = for_article[for_article$Gene != 'ND6',]

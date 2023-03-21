@@ -177,47 +177,86 @@ f10 = ggarrange(new_b_and_m1, new_b_and_m3, new_b_and_m2, new_b_and_m4,
 ```{r}
 f10
 ```
+```{r, include=FALSE}
+skew_eco = ggplot(data = df_mtdna, aes(x = realm, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realms')+
+  ylab('GhAhSkew')
+skew_eco = skew_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco = skew_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+skew_eco2 = ggplot(data = df_mtdna, aes(x = realm, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realms')+
+  ylab('ThChSkew')
+skew_eco2 = skew_eco2 + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco2 = skew_eco2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+medT_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realm')+
+  ylab('Thymine asymmetry')
+medT_realm = medT_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medT_realm = medT_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+medG_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Birds realm')+
+  ylab('Guanine asymmetry')
+medG_realm = medG_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medG_realm = medG_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+skew_eco
+```
+```{r}
+skew_eco2
+```
+```{r}
+medT_realm
+```
+```{r}
+medG_realm
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+#### Nucleotide content is associated with the trophic niche of birds
+```{r, include=FALSE}
+skew_eco12 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('GhAhSkew')
+skew_eco12 = skew_eco12 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco12 = skew_eco12 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+```
+skew_eco12
+```{r, include=FALSE}
+skew_eco31 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('ThChSkew')
+skew_eco31 = skew_eco31 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+skew_eco31 = skew_eco31 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+```
+skew_eco31
+```{r, include=FALSE}
+medG_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_G))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('Guanine asymmetry')
+medG_tn = medG_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medG_tn = medG_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+```
+medG_tn
+
+```{r, include=FALSE}
+medT_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_T))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Trophic niche')+
+  ylab('Thymine asymmetry')
+medT_tn = medT_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+medT_tn = medT_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+medT_tn
+```
