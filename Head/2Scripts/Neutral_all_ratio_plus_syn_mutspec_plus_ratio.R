@@ -224,16 +224,16 @@ ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
 ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
   geom_boxplot()
 
-a
-order
 
 extra_mut = mut_data_syn1
 extra_mut$realm <- factor(extra_mut$realm, levels = c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
 
 ggplot(data = extra_mut, aes(x = Mut, y = MutSpec, fill = realm)) +
   geom_boxplot()
-
-
+ggplot(data = extra_mut, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
+  geom_boxplot()
+ggplot(data = extra_mut, aes(x = Mut, y = MutSpec)) +
+  geom_boxplot()
 
 
 

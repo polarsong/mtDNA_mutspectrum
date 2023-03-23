@@ -43,7 +43,7 @@ library(dplyr)
 ```
 
 ```{r}
-df_norm = df_mtdna[df_mtdna$gene_name != 'ND6',] #deleting ND6
+df_norm = df_mtdna
 vec_all = c('TTC','TTT','TCC','TCT','TAC','TAT','TGC','TGT',
             'TTA','TTG','TCA','TCG','TAA','TAG','TGA','TGG',
             'CTC','CTT','CCC','CCT','CAC','CAT','CGC','CGT',

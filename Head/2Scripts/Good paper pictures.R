@@ -16,7 +16,65 @@ library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
 library(devtools)
-df_mtdna = read.csv('../Head/2Scripts/Birds_dataset_paper.csv')
+#ND6 for paper
+df_nd6 = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
+df_nd6$GhAhSkew = (df_nd6$neutral_c - df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
+df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
+df_nd6$fTn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_g/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
+
+nd61 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
+  geom_boxplot(outlier.shape = NA)+
+  ylim(0,0.7)+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
+nd61 = nd61 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd61 = nd61 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+nd61 = nd61 + theme(legend.position="none")
+nd61
+
+nd62 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
+  geom_boxplot(outlier.shape = NA)+
+  ylim(0,0.7)+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
+nd62 = nd62 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd62 = nd62 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+nd62
+
+nd63 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
+  geom_boxplot(outlier.shape = NA)+
+  ylim(0,0.7)+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
+nd63 = nd63 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd63 = nd63 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+nd63
+
+nd64 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
+  geom_boxplot(outlier.shape = NA)+
+  ylim(0,0.7)+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
+nd64 = nd64 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd64 = nd64 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+nd64
+
+nd6fr= ggarrange(nd61, nd63, nd62, nd64, 
+            ncol = 1, nrow = 4)
+nd6fr
+
+
+nd6gh= ggplot(data=df_nd6, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA, notch = TRUE)
+nd6gh = nd6gh +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd6gh
+
+
+
+df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
 f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Mitochondrial genes')+
@@ -251,6 +309,9 @@ row.names(gene_stats) = gene_stats$species_name
 gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
+
+bipl_or = ggbiplot(stats_pca, labels.size = 2)
+bipl_or
 
 bipl = ggbiplot(stats_pca, groups = gene_stats$realm, labels = gene_stats$species_name, labels.size = 2)+
   scale_colour_manual(name="Origin", values= c("black", "green", "black", "black", "black", "black", "black", "red", "black"))
