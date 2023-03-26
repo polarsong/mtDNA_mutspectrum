@@ -26,52 +26,55 @@ df_nd6$fCn = df_nd6$neutral_g/df_nd6$neutral_amount
 df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
 
 nd61 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, fill = 'blue', color = 'black')+
   ylim(0,0.7)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
-nd61 = nd61 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
-nd61 = nd61 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-nd61 = nd61 + theme(legend.position="none")
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
 nd61
 
 nd62 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, fill = 'yellow', color = 'black')+
   ylim(0,0.7)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
-nd62 = nd62 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
-nd62 = nd62 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 nd62
 
 nd63 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, fill = 'green', color = 'black')+
   ylim(0,0.7)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
-nd63 = nd63 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
-nd63 = nd63 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 nd63
 
 nd64 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, fill = 'red', color = 'black')+
   ylim(0,0.7)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank())
-nd64 = nd64 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
-nd64 = nd64 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 nd64
-
-nd6fr= ggarrange(nd61, nd63, nd62, nd64, 
-            ncol = 1, nrow = 4)
-nd6fr
 
 
 nd6gh= ggplot(data=df_nd6, aes(x = gene_name, y = GhAhSkew))+
-  geom_boxplot(outlier.shape = NA, notch = TRUE)
-nd6gh = nd6gh +xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(outlier.shape = NA, notch = TRUE, fill = 'orange')+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
 nd6gh
 
+nd6ch= ggplot(data=df_nd6, aes(x = gene_name, y = ThChSkew))+
+  geom_boxplot(outlier.shape = NA, notch = TRUE, fill = 'cyan')+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+nd6ch
+
+nd6fr= ggarrange(nd61, nd64, nd63, nd62, nd6ch, nd6gh,
+                 ncol = 2, nrow = 3)
+nd6fr
 
 
 df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
