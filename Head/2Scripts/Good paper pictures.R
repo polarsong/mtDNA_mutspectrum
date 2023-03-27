@@ -18,6 +18,7 @@ library(ggpubr)
 library(devtools)
 #ND6 for paper
 df_nd6 = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
+nd6_look = df_nd6[df_nd6$gene_name == 'ND6',]
 df_nd6$GhAhSkew = (df_nd6$neutral_c - df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
 df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
 df_nd6$fTn = df_nd6$neutral_A/df_nd6$neutral_amount
