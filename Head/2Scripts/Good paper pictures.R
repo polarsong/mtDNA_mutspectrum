@@ -19,12 +19,54 @@ library(devtools)
 #ND6 for paper
 df_nd6 = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
 nd6_look = df_nd6[df_nd6$gene_name == 'ND6',]
-df_nd6$GhAhSkew = (df_nd6$neutral_c - df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
-df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
-df_nd6$fTn = df_nd6$neutral_A/df_nd6$neutral_amount
-df_nd6$fAn = df_nd6$neutral_T/df_nd6$neutral_amount
-df_nd6$fCn = df_nd6$neutral_g/df_nd6$neutral_amount
-df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
+nd6_nolook = df_nd6[df_nd6$gene_name != 'ND6',]
+df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
+df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
+df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_c/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_g/df_nd6$neutral_amount
+
+nd6_nolook$GhAhSkew = (nd6_nolook$neutral_c- nd6_nolook$neutral_T)/(nd6_nolook$neutral_c + nd6_nolook$neutral_T)
+nd6_nolook$ThChSkew = (nd6_nolook$neutral_A - nd6_nolook$neutral_g)/(nd6_nolook$neutral_A + nd6_nolook$neutral_g)
+nd6_nolook$fTn = nd6_nolook$neutral_A/nd6_nolook$neutral_amount
+nd6_nolook$fAn = nd6_nolook$neutral_T/nd6_nolook$neutral_amount
+nd6_nolook$fCn = nd6_nolook$neutral_g/nd6_nolook$neutral_amount
+nd6_nolook$fGn = nd6_nolook$neutral_c/nd6_nolook$neutral_amount
+
+nd6_correct = rbind(nd6_look, nd6_nolook)
+
+
+graph1 = ggplot(data = nd6_correct, aes(x = gene_name, y = fTn))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+graph1
+
+graph2 = ggplot(data = nd6_correct, aes(x = gene_name, y = fCn))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(0,0.7)
+graph2
+
+graph3 = ggplot(data = nd6_correct, aes(x = gene_name, y = fAn))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+graph3
+
+graph4 = ggplot(data = nd6_correct, aes(x = gene_name, y = fGn))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+graph4
+
+graph5 = ggplot(data = nd6_correct, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+graph5
+
+graph6 = ggplot(data = nd6_correct, aes(x = gene_name, y = ThChSkew))+
+  geom_boxplot()+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+graph6
 
 nd61 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA, fill = 'blue', color = 'black')+
