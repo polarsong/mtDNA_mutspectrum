@@ -91,7 +91,7 @@ graph6 = ggplot(data = nd6_correct, aes(x = gene_name, y = ThChSkew))+
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 graph6
 
-nd6fr= ggarrange(graph1, graph3, graph2, graph4, graph6, graph5,
+nd6fr= ggarrange(graph1, graph4, graph2, graph3, graph6, graph5,
                  ncol = 2, nrow = 3)
 
 nd6fr
