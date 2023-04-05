@@ -20,12 +20,12 @@ library(devtools)
 df_nd6 = read.csv('../../Body/3Results/Birds_mtDNA_data.csv')
 nd6_look = df_nd6[df_nd6$gene_name == 'ND6',]
 nd6_nolook = df_nd6[df_nd6$gene_name != 'ND6',]
-df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
-df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
-df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
-df_nd6$fAn = df_nd6$neutral_A/df_nd6$neutral_amount
-df_nd6$fCn = df_nd6$neutral_c/df_nd6$neutral_amount
-df_nd6$fGn = df_nd6$neutral_g/df_nd6$neutral_amount
+nd6_look$GhAhSkew = (nd6_look$neutral_g - nd6_look$neutral_A)/(nd6_look$neutral_g + nd6_look$neutral_A)
+nd6_look$ThChSkew = (nd6_look$neutral_T - nd6_look$neutral_c)/(nd6_look$neutral_T + nd6_look$neutral_c)
+nd6_look$fTn = nd6_look$neutral_T/nd6_look$neutral_amount
+nd6_look$fAn = nd6_look$neutral_A/nd6_look$neutral_amount
+nd6_look$fCn = nd6_look$neutral_c/nd6_look$neutral_amount
+nd6_look$fGn = nd6_look$neutral_g/nd6_look$neutral_amount
 
 nd6_nolook$GhAhSkew = (nd6_nolook$neutral_c- nd6_nolook$neutral_T)/(nd6_nolook$neutral_c + nd6_nolook$neutral_T)
 nd6_nolook$ThChSkew = (nd6_nolook$neutral_A - nd6_nolook$neutral_g)/(nd6_nolook$neutral_A + nd6_nolook$neutral_g)
@@ -38,35 +38,64 @@ nd6_correct = rbind(nd6_look, nd6_nolook)
 
 
 graph1 = ggplot(data = nd6_correct, aes(x = gene_name, y = fTn))+
-  geom_boxplot()+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(fill = 'blue')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=10, y=0.78, label= "Thymine frequancies")+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph1
 
 graph2 = ggplot(data = nd6_correct, aes(x = gene_name, y = fCn))+
-  geom_boxplot()+
+  geom_boxplot(fill = 'green')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
-  ylim(0,0.7)
+  ylim(0, 0.8)+
+  annotate("text", x=10, y=0.78, label= "Cytosine frequancies")+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph2
 
 graph3 = ggplot(data = nd6_correct, aes(x = gene_name, y = fAn))+
-  geom_boxplot()+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(fill = 'yellow')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=10, y=0.78, label= "Adenine frequancies")+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph3
 
 graph4 = ggplot(data = nd6_correct, aes(x = gene_name, y = fGn))+
-  geom_boxplot()+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(fill = 'red')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=10, y=0.78, label= "Guanine frequancies")+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph4
 
 graph5 = ggplot(data = nd6_correct, aes(x = gene_name, y = GhAhSkew))+
-  geom_boxplot()+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(fill = 'orange')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(-0.5,1)+
+  annotate("text", x=10, y=-0.3, label= "GhAhSkew")+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 graph5
 
 graph6 = ggplot(data = nd6_correct, aes(x = gene_name, y = ThChSkew))+
-  geom_boxplot()+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))
+  geom_boxplot(fill = 'cyan')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
+  ylim(-0.5,1)+
+  annotate("text", x=10, y=-0.3, label= "ThChSkew")+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 graph6
+
+nd6fr= ggarrange(graph1, graph3, graph2, graph4, graph6, graph5,
+                 ncol = 2, nrow = 3)
+
+nd6fr
+
 
 nd61 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA, fill = 'blue', color = 'black')+
