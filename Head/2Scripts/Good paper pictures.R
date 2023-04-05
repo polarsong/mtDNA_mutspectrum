@@ -41,7 +41,7 @@ graph1 = ggplot(data = nd6_correct, aes(x = gene_name, y = fTn))+
   geom_boxplot(fill = 'blue')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=10, y=0.78, label= "Thymine frequancies")+
+  annotate("text", x=11, y=0.78, label= "Th")+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph1
@@ -50,7 +50,7 @@ graph2 = ggplot(data = nd6_correct, aes(x = gene_name, y = fCn))+
   geom_boxplot(fill = 'green')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=10, y=0.78, label= "Cytosine frequancies")+
+  annotate("text", x=11, y=0.78, label= "Ch")+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph2
@@ -59,7 +59,7 @@ graph3 = ggplot(data = nd6_correct, aes(x = gene_name, y = fAn))+
   geom_boxplot(fill = 'yellow')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=10, y=0.78, label= "Adenine frequancies")+
+  annotate("text", x=11, y=0.78, label= "Ah")+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph3
@@ -68,7 +68,7 @@ graph4 = ggplot(data = nd6_correct, aes(x = gene_name, y = fGn))+
   geom_boxplot(fill = 'red')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=10, y=0.78, label= "Guanine frequancies")+
+  annotate("text", x=11, y=0.78, label= "Gh")+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),axis.ticks.y=element_blank())
 graph4
@@ -77,7 +77,7 @@ graph5 = ggplot(data = nd6_correct, aes(x = gene_name, y = GhAhSkew))+
   geom_boxplot(fill = 'orange')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(-0.5,1)+
-  annotate("text", x=10, y=-0.3, label= "GhAhSkew")+
+  annotate("text", x=11, y=-0.3, label= "GhAhSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 graph5
@@ -86,7 +86,7 @@ graph6 = ggplot(data = nd6_correct, aes(x = gene_name, y = ThChSkew))+
   geom_boxplot(fill = 'cyan')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND6", "ND1","ND2"))+
   ylim(-0.5,1)+
-  annotate("text", x=10, y=-0.3, label= "ThChSkew")+
+  annotate("text", x=11, y=-0.3, label= "ThChSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 graph6
