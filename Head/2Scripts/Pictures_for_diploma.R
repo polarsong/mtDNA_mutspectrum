@@ -61,88 +61,139 @@ stg_all = stg_all + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND
 stg_all
 
 #Экология
-skew_eco = ggplot(data = df_mtdna, aes(x = realm, y = ghahSkew))+
+df_for_diploma = df_mtdna
+df_for_diploma$russian_eco = ''
+df_for_diploma$russian_tn = ''
+dfr1 = df_for_diploma[df_for_diploma$realm == 'Antarctic',]
+dfr2 = df_for_diploma[df_for_diploma$realm == 'Nearctic',]
+dfr3 = df_for_diploma[df_for_diploma$realm == 'Palearctic',]
+dfr4 = df_for_diploma[df_for_diploma$realm == 'Indo_Malay',]
+dfr5 = df_for_diploma[df_for_diploma$realm == 'Afrotropic',]
+dfr6 = df_for_diploma[df_for_diploma$realm == 'Neotropic',]
+dfr7 = df_for_diploma[df_for_diploma$realm == 'Madagascar',]
+dfr8 = df_for_diploma[df_for_diploma$realm == 'Australian',]
+dfr9 = df_for_diploma[df_for_diploma$realm == 'Oceania',]
+
+dfr1$russian_eco = 'Антарктика'
+dfr2$russian_eco = 'Неарктика'
+dfr3$russian_eco = 'Палеарктика'
+dfr4$russian_eco = 'Индо-Малайзия'
+dfr5$russian_eco = 'Афротропики'
+dfr6$russian_eco = 'Неотропики'
+dfr7$russian_eco = 'Мадагаскар'
+dfr8$russian_eco = 'Австралия'
+dfr9$russian_eco = 'Океания'
+
+df_for_diploma = rbind(dfr1, dfr2, dfr3, dfr4, dfr5, dfr6, dfr7, dfr8, dfr9)
+
+dfr1 = df_for_diploma[df_for_diploma$Trophic_niche == 'Herbivore aquatic',]
+dfr2 = df_for_diploma[df_for_diploma$Trophic_niche == 'Scavenger',]
+dfr3 = df_for_diploma[df_for_diploma$Trophic_niche == 'Vertivore',]
+dfr4 = df_for_diploma[df_for_diploma$Trophic_niche == 'Granivore',]
+dfr5 = df_for_diploma[df_for_diploma$Trophic_niche == 'Herbivore terrestrial',]
+dfr6 = df_for_diploma[df_for_diploma$Trophic_niche == 'Invertivore',]
+dfr7 = df_for_diploma[df_for_diploma$Trophic_niche == 'Aquatic predator',]
+dfr8 = df_for_diploma[df_for_diploma$Trophic_niche == 'Nectarivore',]
+dfr9 = df_for_diploma[df_for_diploma$Trophic_niche == 'Omnivore',]
+dfr10 = df_for_diploma[df_for_diploma$Trophic_niche == 'Frugivore',]
+
+
+dfr1$russian_tn = 'Водные травоядные'
+dfr2$russian_tn = 'Падальщики'
+dfr3$russian_tn = 'Позвоночные'
+dfr4$russian_tn = 'Зерноядные'
+dfr5$russian_tn = 'Наземные травоядные'
+dfr6$russian_tn = 'Беспозвоночные'
+dfr7$russian_tn = 'Водные хищники'
+dfr8$russian_tn = 'Нектароядные'
+dfr9$russian_tn = 'Всеядные'
+dfr10$russian_tn = 'Плодоядные'
+
+df_for_diploma = rbind(dfr1, dfr2, dfr3, dfr4, dfr5, dfr6, dfr7, dfr8, dfr9, dfr10)
+
+
+skew_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = ghahSkew))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Экозоны')+
   ylab('GhAhSkew')
-skew_eco = skew_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco = skew_eco + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 skew_eco = skew_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_eco
 
 
-skew_eco12 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = ghahSkew))+
+skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Трофические ниши')+
   ylab('GhAhSkew')
 skew_eco12 = skew_eco12 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-skew_eco12 = skew_eco12 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+skew_eco12 = skew_eco12 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 skew_eco12
 
 
-skew_eco2 = ggplot(data = df_mtdna, aes(x = realm, y = chthSkew))+
+skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Экозоны')+
   ylab('ThChSkew')
-skew_eco2 = skew_eco2 + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+skew_eco2 = skew_eco2 + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 skew_eco2 = skew_eco2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_eco2
 
-skew_eco31 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSkew))+
+skew_eco31 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = chthSkew))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Трофические ниши')+
   ylab('ThChSkew')
 skew_eco31 = skew_eco31 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-skew_eco31 = skew_eco31 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+skew_eco31 = skew_eco31 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 skew_eco31
 
-stg_eco = ggplot(data = df_mtdna, aes(x = realm, y = Stg_Sac))+
+stg_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = Stg_Sac))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Экозоны')+
   ylab('Stg-Sac')
-stg_eco = stg_eco + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+stg_eco = stg_eco + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 stg_eco = stg_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 stg_eco
 
 
-stg_eco2 = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = Stg_Sac))+
+stg_eco2 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = Stg_Sac))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Трофические ниши')+
   ylab('Stg-Sac')
 stg_eco2 = stg_eco2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-stg_eco2 = stg_eco2 + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+stg_eco2 = stg_eco2 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 stg_eco2
 
 
-medT_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_T))+
+medT_realm = ggplot(data = df_for_diploma, aes(x = russian_eco, y = med_T))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Экозоны')+
   ylab('Асимметрия тимина')
-medT_realm = medT_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medT_realm = medT_realm + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 medT_realm = medT_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 medT_realm
 
-medG_realm = ggplot(data = df_mtdna, aes(x = realm, y = med_G))+
+medG_realm = ggplot(data = df_for_diploma, aes(x = russian_eco, y = med_G))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Экозоны')+
   ylab('Асимметрия гуанина')
-medG_realm = medG_realm + xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+medG_realm = medG_realm + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 medG_realm = medG_realm + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 medG_realm
 
-medG_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_G))+
+medG_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_G))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Трофические ниши')+
   ylab('Асимметрия гуанина')
 medG_tn = medG_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-medG_tn = medG_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+medG_tn = medG_tn + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 medG_tn
 
-medT_tn = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = med_T))+
+medT_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_T))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Трофические ниши')+
   ylab('Асимметрия тимина')
 medT_tn = medT_tn + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-medT_tn = medT_tn + xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))
+medT_tn = medT_tn + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 medT_tn
 
 df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
@@ -165,11 +216,10 @@ gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
 
-bipl = ggbiplot(stats_pca, x)
-bipl
+
 
 #Млеки и птицы
-unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
 names(SynNuc)
@@ -187,16 +237,18 @@ names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'class')
 new_big = rbind(new_mam, new_bird)
 new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Mitochondrial genes')+
-  ylab('GhAhSkew')
+  xlab('Митохондриальные гены')+
+  ylab('GhAhSkew')+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m = new_b_and_m + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m = new_b_and_m + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m
 
 new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Mitochondrial genes')+
-  ylab('ThChSkew')
+  xlab('Митохондриальные гены')+
+  ylab('ThChSkew')+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m_one = new_b_and_m_one + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m_one = new_b_and_m_one + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m_one
@@ -217,36 +269,40 @@ names(for_article) = c('species_name', 'gene_name', 'neutral_A', 'neutral_T', 'n
 new_big1 = rbind(for_article, new_bird1)
 new_b_and_m1 = ggplot(new_big1, aes(x = gene_name, y = neutral_A, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Gene name')+
-  ylab('Neutral T')+
-  ylim(0, 200)
+  xlab('Митохондриальные гены')+
+  ylab('Тимин')+
+  ylim(0, 200)+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m1 = new_b_and_m1 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m1 = new_b_and_m1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m1
 
 new_b_and_m2 = ggplot(new_big1, aes(x = gene_name, y = neutral_g, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Gene name')+
-  ylab('Neutral C')+
-  ylim(0, 200)
+  xlab('Митохондриальные гены')+
+  ylab('Цитозин')+
+  ylim(0, 200)+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m2 = new_b_and_m2 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m2 = new_b_and_m2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m2
 
 new_b_and_m3 = ggplot(new_big1, aes(x = gene_name, y = neutral_c, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Gene name')+
-  ylab('Neutral G')+
-  ylim(0, 200)
+  xlab('Митохондриальные гены')+
+  ylab('Гуанин')+
+  ylim(0, 200)+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m3 = new_b_and_m3 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m3 = new_b_and_m3 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m3
 
 new_b_and_m4 = ggplot(new_big1, aes(x = gene_name, y = neutral_T, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Gene name')+
-  ylab('Neutral A')+
-  ylim(0, 200)
+  xlab('Митохондриальные гены')+
+  ylab('Аденин')+
+  ylim(0, 200)+
+  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m4 = new_b_and_m4 + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m4 = new_b_and_m4 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m4
@@ -254,3 +310,71 @@ new_b_and_m4
 f10 = ggarrange(new_b_and_m1, new_b_and_m3, new_b_and_m2, new_b_and_m4, 
                 ncol = 2, nrow = 2)
 f10
+
+
+#Density для первого PCA
+df_pca = df_mtdna[c('species_name','gene_name','fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')]
+gene_vector = c('fAn', 'fGn', 'fCn', 'fTn', 'Stg_Sac','ghahSkew', 'chthSkew', 'med_T', 'med_G')
+gene_stats = data.frame(unique(df_pca$species_name))
+for ( char in gene_vector){
+  
+  stats1 = aggregate(df_pca[,char], by = list(df_pca$species_name), FUN = 'sum')[2]
+  stats1 = stats1/12
+  gene_stats = cbind(gene_stats, stats1)
+  
+}
+names(gene_stats) = c('species_name', gene_vector)
+df_realm = df_mtdna[c('species_name', 'realm', 'Trophic_niche')]
+gene_stats = merge(gene_stats, df_realm, by = 'species_name')
+gene_stats = unique(gene_stats)
+row.names(gene_stats) = gene_stats$species_name
+#gene_stats$species_name = NA
+gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
+stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
+summary(stats_pca)
+
+birds_pca = data.frame(stats_pca$x)
+birds_pca = birds_pca[,c(1,2)]
+birds_pca$species_name = row.names(birds_pca)
+gene_stats$species_name = row.names(gene_stats)
+gene_stats = merge(gene_stats, birds_pca, by = 'species_name')
+row.names(gene_stats) = gene_stats$species_name
+gene_stats = gene_stats[,c(2:14)]
+
+g5 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (48.0%)')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
+  scale_color_hue(labels = c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
+
+g5
+
+g6 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (32.2%)')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
+  scale_fill_hue(labels = c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
+
+g6
+
+g7 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (48.0%)')+
+  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
+
+g7
+g8 = ggplot(gene_stats, aes(x=PC2, color=Trophic_niche)) +
+  geom_density(size = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (32.2%)')+
+  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
+
+
+g8
