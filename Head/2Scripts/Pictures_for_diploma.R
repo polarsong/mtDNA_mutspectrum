@@ -3,6 +3,7 @@ rm(list = ls(all=TRUE))
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
+library(plotly)
 #Частоты
 df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
 f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
@@ -324,7 +325,7 @@ for ( char in gene_vector){
   
 }
 names(gene_stats) = c('species_name', gene_vector)
-df_realm = df_mtdna[c('species_name', 'realm', 'Trophic_niche')]
+df_realm = df_for_diploma[c('species_name', 'russian_eco', 'russian_tn')]
 gene_stats = merge(gene_stats, df_realm, by = 'species_name')
 gene_stats = unique(gene_stats)
 row.names(gene_stats) = gene_stats$species_name
@@ -341,40 +342,132 @@ gene_stats = merge(gene_stats, birds_pca, by = 'species_name')
 row.names(gene_stats) = gene_stats$species_name
 gene_stats = gene_stats[,c(2:14)]
 
-g5 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
-  geom_density(size = 1)+
+g5 = ggplot(gene_stats, aes(x=PC1, color=russian_eco)) +
+  geom_density()+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC1 (48.0%)')+
   scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
-  scale_color_hue(labels = c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
+  ylab('Плотность')
+
 
 g5
 
-g6 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
-  geom_density(size = 1)+
+g6 = ggplot(gene_stats, aes(x=PC2, color=russian_eco)) +
+  geom_density()+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC2 (32.2%)')+
   scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
-  scale_fill_hue(labels = c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
+  ylab('Плотность')
 
 g6
 
-g7 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
-  geom_density(size = 1)+
+g7 = ggplot(gene_stats, aes(x=PC1, color=russian_tn)) +
+  geom_density()+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC1 (48.0%)')+
-  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black", 'black'))+
+  ylab('Плотность')
 
 g7
-g8 = ggplot(gene_stats, aes(x=PC2, color=Trophic_niche)) +
-  geom_density(size = 1)+
+g8 = ggplot(gene_stats, aes(x=PC2, color=russian_tn)) +
+  geom_density()+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC2 (32.2%)')+
-  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black", 'black'))
 
 
 g8
+
+
+
+#MutSpec
+mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec12.tsv", header = TRUE, fill = TRUE)
+mut_data_syn = mut_data[mut_data$Label == 'syn',]
+mut_data_syn = mut_data_syn[,c(1,2,3,4,5,7,8)]
+ecozone_data = df_for_diploma[,c('species_name', 'russian_eco', 'russian_tn')]
+ecozone_data = unique(ecozone_data)
+ecozone_data$species_name = gsub(' ', '_', ecozone_data$species_name)
+mut_data_syn = mut_data_syn[!grepl('Node', mut_data_syn$AltNode),]
+names(mut_data_syn) = c('Mut', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'species_name', 'Label') 
+mut_data_syn = merge(mut_data_syn, ecozone_data, by = 'species_name')
+mut_data_syn$MutSpec =  as.numeric(mut_data_syn$MutSpec)
+
+AC = mut_data_syn[mut_data_syn$Mut == 'A>C',] 
+AG = mut_data_syn[mut_data_syn$Mut == 'A>G',]
+AT = mut_data_syn[mut_data_syn$Mut == 'A>T',]
+GC = mut_data_syn[mut_data_syn$Mut == 'G>C',]
+GT = mut_data_syn[mut_data_syn$Mut == 'G>T',]
+GA = mut_data_syn[mut_data_syn$Mut == 'G>A',]
+CG = mut_data_syn[mut_data_syn$Mut == 'C>G',]
+CT = mut_data_syn[mut_data_syn$Mut == 'C>T',]
+CA = mut_data_syn[mut_data_syn$Mut == 'C>A',]
+TG = mut_data_syn[mut_data_syn$Mut == 'T>G',]
+TC = mut_data_syn[mut_data_syn$Mut == 'T>C',]
+TA = mut_data_syn[mut_data_syn$Mut == 'T>A',]
+
+AC = replace(AC, 'A>C', 'T>G')
+AC = AC[,c(1,3,4,5,6,7,8,9,10)]
+names(AC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+AG = replace(AG, 'A>G', 'T>C')
+AG = AG[,c(1,3,4,5,6,7,8,9,10)]
+names(AG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+AT = replace(AT, 'A>T', 'T>A')
+AT = AT[,c(1,3,4,5,6,7,8,9,10)]
+names(AT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GC = replace(GC, 'G>C', 'C>G')
+GC = GC[,c(1,3,4,5,6,7,8,9,10)]
+names(GC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GT = replace(GT, 'G>T', 'C>A')
+GT = GT[,c(1,3,4,5,6,7,8,9,10)]
+names(GT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GA = replace(GA, 'G>A', 'C>T')
+GA = GA[,c(1,3,4,5,6,7,8,9,10)]
+names(GA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CG = replace(CG, 'C>G', 'G>C')
+CG = CG[,c(1,3,4,5,6,7,8,9,10)]
+names(CG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CT = replace(CT, 'C>T', 'G>A')
+CT = CT[,c(1,3,4,5,6,7,8,9,10)]
+names(CT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CA = replace(CA, 'C>A', 'G>T')
+CA = CA[,c(1,3,4,5,6,7,8,9,10)]
+names(CA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TG = replace(TG, 'T>G', 'A>C')
+TG = TG[,c(1,3,4,5,6,7,8,9,10)]
+names(TG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TC = replace(TC, 'T>C', 'A>G')
+TC = TC[,c(1,3,4,5,6,7,8,9,10)]
+names(TC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TA = replace(TA, 'T>A', 'A>T')
+TA = TA[,c(1,3,4,5,6,7,8,9,10)]
+names(TA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+mut_data_syn1 = rbind(AC, AG, AT, GC, GT, GA, CT, CA, CG, TA, TG, TC)
+
+ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec)) +
+  geom_boxplot()+
+  ylab('Мутационный спектр')
+
+ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
+  geom_boxplot()+
+  ylab('Мутационный спектр')
+
+ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
+  geom_boxplot()+
+  ylab('Мутационный спектр')
+
