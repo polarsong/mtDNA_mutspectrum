@@ -471,3 +471,128 @@ ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
   geom_boxplot()+
   ylab('Мутационный спектр')
 
+
+
+
+pca_data = mut_data_syn1[,c(1,5,9)]
+ex = reshape(data = pca_data, idvar = 'species_name',
+             timevar = 'Mut',
+             direction = 'wide')
+names(ex) = c('species_name', 'T>G', 'T>C', 'T>A', 'C>G', 'C>A', 'C>T', 'G>A','G>T','G>C', 'A>T', 'A>C', 'A>G')
+ex = merge(ex, ecozone_data, by = 'species_name')
+ex = ex[,c(1,14,15,12,13,11,6,5,7,8,10,9,4,3,2)]
+row.names(ex) = ex$species_name
+
+
+stats_pca1 = prcomp(ex[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
+summary(stats_pca1)
+
+bipl = ggbiplot(stats_pca1, labels.size = 2)
+bipl
+
+
+birds_ms_pca = data.frame(stats_pca1$x)
+birds_ms_pca = birds_ms_pca[,c(1,2)]
+birds_ms_pca$species_name = row.names(birds_ms_pca)
+ex2 = merge(ex, birds_ms_pca, by = 'species_name')
+
+
+g15 = ggplot(ex2, aes(x=PC1, color=russian_eco)) +
+  geom_density()+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (38.2%)')+
+  ylab('Плотность')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
+
+
+g15
+g16 = ggplot(ex2, aes(x=PC2, color=russian_eco)) +
+  geom_density()+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (10.4%)')+
+  ylab('Плотность')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))
+
+
+g16
+
+g17 = ggplot(ex2, aes(x=PC1, color=russian_tn)) +
+  geom_density()+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (38.2%)')+
+  ylab('Плотность')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black", 'black'))
+
+g17
+g18 = ggplot(ex2, aes(x=PC2, color=russian_tn)) +
+  geom_density()+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (10.4%)')+
+  ylab('Плотность')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black", 'black'))
+
+g18
+
+library(data.table)
+pca_data = mut_data_syn1[,c(1,5,7,8,9)]
+
+pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_niche~Mut,
+                                   value.var='MutSpec')
+pca_data_shaped$TR_TS = (pca_data_shaped$`A>G`+pca_data_shaped$`C>T`+pca_data_shaped$`G>A`+pca_data_shaped$`T>C`)/(pca_data_shaped$`A>C`+pca_data_shaped$`A>T`+pca_data_shaped$`C>A`+pca_data_shaped$`C>G`+pca_data_shaped$`G>C`+pca_data_shaped$`G>T`+pca_data_shaped$`T>A`+pca_data_shaped$`T>G`)
+pca_data_shaped$CT_GA = (pca_data_shaped$`C>T`/pca_data_shaped$`G>A`)
+pca_data_shaped$AG_TC = (pca_data_shaped$`A>G`/pca_data_shaped$`T>C`)
+
+
+realm_tr_ts = ggplot(data = pca_data_shaped, aes(x = realm, y = TR_TS))+
+  geom_boxplot()+
+  ylim(0,75)
+realm_tr_ts = realm_tr_ts + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
+realm_tr_ts = realm_tr_ts + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+realm_tr_ts
+
+niche_tr_ts = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = TR_TS))+
+  geom_boxplot()+
+  ylim(0,75)
+niche_tr_ts = niche_tr_ts + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
+niche_tr_ts = niche_tr_ts + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts
+
+realm_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = realm, y = CT_GA))+
+  geom_boxplot()+
+  ylim(0,5)+
+  xlab('Экозоны')+
+  ylab('Отношение мутаций С->T и G->A')
+realm_tr_ts1 = realm_tr_ts1 + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
+realm_tr_ts1 = realm_tr_ts1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+realm_tr_ts1
+
+niche_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = CT_GA))+
+  geom_boxplot()+
+  ylim(0,5)+
+  xlab('Трофические ниши')+
+  ylab('Отношение мутаций С->T и G->A')
+niche_tr_ts1 = niche_tr_ts1 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
+niche_tr_ts1 = niche_tr_ts1 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts1
+
+realm_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = realm, y = AG_TC))+
+  geom_boxplot()+
+  ylim(0,5)+
+  xlab('Экозоны')+
+  ylab('Отношение мутаций A->G и T->C')
+realm_tr_ts2 = realm_tr_ts2 + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
+realm_tr_ts2 = realm_tr_ts2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+realm_tr_ts2
+
+niche_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = AG_TC))+
+  geom_boxplot()+
+  ylim(0,5)+
+  xlab('Трофические ниши')+
+  ylab('Отношение мутаций A->G и T->C')
+niche_tr_ts2 = niche_tr_ts2 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
+niche_tr_ts2 = niche_tr_ts2 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+niche_tr_ts2
