@@ -303,7 +303,7 @@ b_bipl1
 
 #PCA density
 g5 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
-  geom_density(size = 1)+
+  geom_density(linewidth = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC1 (48.0%)')+
@@ -313,7 +313,7 @@ g5 = ggplot(gene_stats, aes(x=PC1, color=realm)) +
 g5
 
 g6 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
-  geom_density(size = 1)+
+  geom_density(linewidth = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC2 (32.2%)')+
@@ -323,7 +323,7 @@ g6 = ggplot(gene_stats, aes(x=PC2, color=realm)) +
 g6
 
 g7 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
-  geom_density(size = 1)+
+  geom_density(linewidth = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC1 (48.0%)')+
@@ -332,7 +332,7 @@ g7 = ggplot(gene_stats, aes(x=PC1, color=Trophic_niche)) +
 
 g7
 g8 = ggplot(gene_stats, aes(x=PC2, color=Trophic_niche)) +
-  geom_density(size = 1)+
+  geom_density(linewidth = 1)+
   theme_bw()+
   theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
   xlab('PC2 (32.2%)')+
@@ -347,3 +347,241 @@ f_den_stats1
 f_den_stats2 = ggarrange(g7, g8,
                          ncol = 2, nrow = 1)
 f_den_stats2
+
+#MutSpec graphs
+#Boxplots
+df_mtdna = read.csv('../Head/2Scripts/Birds_dataset_paper.csv')
+mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec12.tsv", header = TRUE, fill = TRUE)
+mut_data_ff = mut_data[mut_data$Label == 'syn',]
+mut_data_ff = mut_data_ff[,c(1,2,3,4,5,7,8)]
+ecozone_data = df_mtdna[,c('species_name', 'realm', 'Trophic_niche')]
+ecozone_data = unique(ecozone_data)
+ecozone_data$species_name = gsub(' ', '_', ecozone_data$species_name)
+mut_data_ff = mut_data_ff[!grepl('Node', mut_data_ff$AltNode),]
+names(mut_data_ff) = c('Mut', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'species_name', 'Label') 
+mut_data_ff = merge(mut_data_ff, ecozone_data, by = 'species_name')
+mut_data_ff$MutSpec =  as.numeric(mut_data_ff$MutSpec)
+
+AC = mut_data_ff[mut_data_ff$Mut == 'A>C',] 
+AG = mut_data_ff[mut_data_ff$Mut == 'A>G',]
+AT = mut_data_ff[mut_data_ff$Mut == 'A>T',]
+GC = mut_data_ff[mut_data_ff$Mut == 'G>C',]
+GT = mut_data_ff[mut_data_ff$Mut == 'G>T',]
+GA = mut_data_ff[mut_data_ff$Mut == 'G>A',]
+CG = mut_data_ff[mut_data_ff$Mut == 'C>G',]
+CT = mut_data_ff[mut_data_ff$Mut == 'C>T',]
+CA = mut_data_ff[mut_data_ff$Mut == 'C>A',]
+TG = mut_data_ff[mut_data_ff$Mut == 'T>G',]
+TC = mut_data_ff[mut_data_ff$Mut == 'T>C',]
+TA = mut_data_ff[mut_data_ff$Mut == 'T>A',]
+
+AC = replace(AC, 'A>C', 'T>G')
+AC = AC[,c(1,3,4,5,6,7,8,9,10)]
+names(AC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+AG = replace(AG, 'A>G', 'T>C')
+AG = AG[,c(1,3,4,5,6,7,8,9,10)]
+names(AG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+AT = replace(AT, 'A>T', 'T>A')
+AT = AT[,c(1,3,4,5,6,7,8,9,10)]
+names(AT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GC = replace(GC, 'G>C', 'C>G')
+GC = GC[,c(1,3,4,5,6,7,8,9,10)]
+names(GC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GT = replace(GT, 'G>T', 'C>A')
+GT = GT[,c(1,3,4,5,6,7,8,9,10)]
+names(GT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+GA = replace(GA, 'G>A', 'C>T')
+GA = GA[,c(1,3,4,5,6,7,8,9,10)]
+names(GA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CG = replace(CG, 'C>G', 'G>C')
+CG = CG[,c(1,3,4,5,6,7,8,9,10)]
+names(CG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CT = replace(CT, 'C>T', 'G>A')
+CT = CT[,c(1,3,4,5,6,7,8,9,10)]
+names(CT) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+CA = replace(CA, 'C>A', 'G>T')
+CA = CA[,c(1,3,4,5,6,7,8,9,10)]
+names(CA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TG = replace(TG, 'T>G', 'A>C')
+TG = TG[,c(1,3,4,5,6,7,8,9,10)]
+names(TG) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TC = replace(TC, 'T>C', 'A>G')
+TC = TC[,c(1,3,4,5,6,7,8,9,10)]
+names(TC) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+TA = replace(TA, 'T>A', 'A>T')
+TA = TA[,c(1,3,4,5,6,7,8,9,10)]
+names(TA) = c('species_name', 'ObsNum', 'ExpNum', 'RawMutSpec', 'MutSpec', 'Label', 'realm', 'Trophic_niche', 'Mut')
+
+mut_data_ff1 = rbind(AC, AG, AT, GC, GT, GA, CT, CA, CG, TA, TG, TC)
+
+ggplot(mut_data_ff1, aes(x = Mut, y = MutSpec))+
+  geom_boxplot(notch = TRUE)+
+  xlab('Mutations')+
+  ylab('Mutational spectrum')
+
+extra_mut = mut_data_ff1
+extra_mut$realm <- factor(extra_mut$realm, levels = c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))
+
+ggplot(data = extra_mut, aes(x = Mut, y = MutSpec, fill = realm)) +
+  geom_boxplot(notch = TRUE)+
+  guides(fill = guide_legend(title = "Ecozone"))+
+  xlab('Mutations')+
+  ylab('Mutational spectrum')
+
+
+ggplot(data = extra_mut, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
+  geom_boxplot(notch = TRUE)+
+  guides(fill = guide_legend(title = "Trophic niche"))+
+  xlab('Mutations')+
+  ylab('Mutational spectrum')
+
+#PCA biplot and density
+library(tidyr)
+library(data.table)
+
+pca_data = mut_data_ff1[,c(1,5,9)]
+ex = reshape(data = pca_data, idvar = 'species_name',
+             timevar = 'Mut',
+             direction = 'wide')
+names(ex) = c('species_name', 'T>G', 'T>C', 'T>A', 'C>G', 'C>A', 'C>T', 'G>A','G>T','G>C', 'A>T', 'A>C', 'A>G')
+ex = merge(ex, ecozone_data, by = 'species_name')
+ex = ex[,c(1,14,15,12,13,11,6,5,7,8,10,9,4,3,2)]
+row.names(ex) = ex$species_name
+
+
+stats_pca1 = prcomp(ex[,c(4,5,6,7,8,9,10,11,12,13,14,15)], center = TRUE, scale. = TRUE)
+summary(stats_pca1)
+
+bipl = ggbiplot(stats_pca1, varname.size = 4, varname.adjust = 6)
+bipl
+
+birds_ms_pca = data.frame(stats_pca1$x)
+birds_ms_pca = birds_ms_pca[,c(1,2)]
+birds_ms_pca$species_name = row.names(birds_ms_pca)
+ex2 = merge(ex, birds_ms_pca, by = 'species_name')
+
+d1 = ggplot(ex2, aes(x=PC1, color=realm)) +
+  geom_density(linewidth = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (38.2%)')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
+  theme(legend.position="none")
+
+d1
+
+d2 = ggplot(ex2, aes(x=PC2, color=realm)) +
+  geom_density(linewidth = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (10.4%)')+
+  scale_colour_manual(name="Origin", values= c("black", "red", "black", "black", "black", "black", "black", "black", "black"))+
+  theme(axis.title.y=element_blank(), axis.ticks.y=element_blank())
+
+d2
+
+d3 = ggplot(ex2, aes(x=PC1, color=Trophic_niche)) +
+  geom_density(linewidth = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC1 (38.2%)')+
+  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))+
+  theme(legend.position="none")
+
+d3
+
+d4 = ggplot(ex2, aes(x=PC2, color=Trophic_niche)) +
+  geom_density(linewidth = 1)+
+  theme_bw()+
+  theme(axis.title = element_text(size = 29), axis.text = element_text(size = 25))+
+  xlab('PC2 (10.4%)')+
+  scale_colour_manual(name="Origin", values= c("black", "black", "black", "red", "black", "black", "black", "black", "black", 'black'))+
+  theme(axis.title.y=element_blank(), axis.ticks.y=element_blank())
+d4
+
+d5 = ggarrange(d1, d2,
+                 ncol = 2, nrow = 1)
+d5
+
+d6 = ggarrange(d3, d4,
+               ncol = 2, nrow = 1)
+d6
+
+#Transitions/Transversions
+pca_data = mut_data_ff1[,c(1,5,7,8,9)]
+
+pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_niche~Mut,
+                                   value.var='MutSpec')
+pca_data_shaped$TR_TS = (pca_data_shaped$`A>G`+pca_data_shaped$`C>T`+pca_data_shaped$`G>A`+pca_data_shaped$`T>C`)/(pca_data_shaped$`A>C`+pca_data_shaped$`A>T`+pca_data_shaped$`C>A`+pca_data_shaped$`C>G`+pca_data_shaped$`G>C`+pca_data_shaped$`G>T`+pca_data_shaped$`T>A`+pca_data_shaped$`T>G`)
+pca_data_shaped$CT_GA = (pca_data_shaped$`C>T`/pca_data_shaped$`G>A`)
+pca_data_shaped$AG_TC = (pca_data_shaped$`A>G`/pca_data_shaped$`T>C`)
+
+realm_tr_ts = ggplot(data = pca_data_shaped, aes(x = realm, y = TR_TS))+
+  geom_boxplot(fill = 'cyan', notch = TRUE)+
+  ylim(0,75)+
+  annotate("text", x=6, y=50, label= "Tr/Ts")+
+  xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
+realm_tr_ts
+
+niche_tr_ts = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = TR_TS))+
+  geom_boxplot(fill = 'orange', notch = TRUE)+
+  ylim(0,75)+
+  annotate("text", x=6, y=50, label= "Tr/Ts")+
+  xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
+niche_tr_ts
+
+realm_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = realm, y = CT_GA))+
+  geom_boxplot(fill = 'green', notch = TRUE)+
+  ylim(0,5)+
+  annotate("text", x=6, y=3, label= "CT/GA")+
+  xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+realm_tr_ts1
+
+niche_tr_ts1 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = CT_GA))+
+  geom_boxplot(fill = 'yellow', notch = TRUE)+
+  ylim(0,5)+
+  annotate("text", x=2, y=1, label= "CT/GA")+
+  xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+niche_tr_ts1
+
+realm_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = realm, y = AG_TC))+
+  geom_boxplot(fill = 'blue', notch = TRUE)+
+  ylim(0,5)+
+  annotate("text", x=6, y=1, label= "AG/TC")+
+  xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+realm_tr_ts2
+
+niche_tr_ts2 = ggplot(data = pca_data_shaped, aes(x = Trophic_niche, y = AG_TC))+
+  geom_boxplot(fill = 'red', notch = TRUE)+
+  ylim(0,5)+
+  annotate("text", x=2, y=1, label= "AG/TC")+
+  xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+niche_tr_ts2
+
+tr_ts_graph= ggarrange(realm_tr_ts2, niche_tr_ts2, realm_tr_ts1, niche_tr_ts1, realm_tr_ts, niche_tr_ts,
+                 ncol = 2, nrow = 3)
+
+tr_ts_graph
