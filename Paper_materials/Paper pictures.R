@@ -86,6 +86,34 @@ nd6fr= ggarrange(graph1, graph4, graph2, graph3, graph6, graph5,
 
 nd6fr
 
+#Stats for TBST
+nd6_correct$tbst = ''
+gene1 = nd6_correct[nd6_correct$gene_name == 'COX1',]
+gene1$tbst = 1
+gene2 = nd6_correct[nd6_correct$gene_name == 'COX2',]
+gene2$tbst = 2
+gene3 = nd6_correct[nd6_correct$gene_name == 'ATP8',]
+gene3$tbst = 3
+gene4 = nd6_correct[nd6_correct$gene_name == 'ATP6',]
+gene4$tbst = 4
+gene5 = nd6_correct[nd6_correct$gene_name == 'COX3',]
+gene5$tbst = 5
+gene6 = nd6_correct[nd6_correct$gene_name == 'ND3',]
+gene6$tbst = 6
+gene7 = nd6_correct[nd6_correct$gene_name == 'ND4L',]
+gene7$tbst = 7
+gene8 = nd6_correct[nd6_correct$gene_name == 'ND4',]
+gene8$tbst = 8
+gene9 = nd6_correct[nd6_correct$gene_name == 'ND5',]
+gene9$tbst = 9
+gene10 = nd6_correct[nd6_correct$gene_name == 'CYTB',]
+gene10$tbst = 10
+
+gene_tbst = rbind(gene1, gene2, gene3, gene4, gene5, gene6, gene7, gene8, gene9, gene10)
+wilcox.test(gene_tbst$GhAhSkew, gene_tbst$tbst)
+wilcox.test(gene_tbst$ThChSkew, gene_tbst$tbst)
+
+
 #Mammalia against birds
 unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
