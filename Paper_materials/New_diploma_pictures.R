@@ -2,7 +2,6 @@ rm(list = ls(all=TRUE))
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
-library(ggbiplot)
 df_mtdna = read.csv('../Paper_materials/Birds_dataset_paper_extra.csv')
 df_nd6 = read.csv('../Body/3Results/Birds_mtDNA_data.csv')
 nd6_look = df_nd6[df_nd6$gene_name == 'ND6',]
@@ -309,7 +308,7 @@ medG_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_G))+
   xlab('Trophic niche')+
   ylab('Guanine asymmetry')+
   xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))+
-  annotate("text", x=7, y=0.6, label= "G asymmetry")+
+  annotate("text", x=7, y=0.6, label= "Асимметрия Г")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 medG_tn
@@ -319,7 +318,7 @@ medT_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_T))+
   xlab('Trophic niche')+
   ylab('Thymine asymmetry')+
   xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))+
-  annotate("text", x=7, y=0.825, label= "T asymmetry")+
+  annotate("text", x=7, y=0.825, label= "Асимметрия Т")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 medT_tn
