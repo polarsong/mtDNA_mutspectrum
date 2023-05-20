@@ -90,8 +90,8 @@ nd6fr= ggarrange(graph1, graph4, graph5, graph2, graph3, graph6,
 
 nd6fr
 
-nd6fr1 = ggarrange(graph5, graph6,
-                    ncol = 1, nrow = 2)
+nd6fr1 = ggarrange(graph1, graph4, graph2, graph3,
+                    ncol = 2, nrow = 2)
 nd6fr1
 
 unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
@@ -102,9 +102,9 @@ SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynN
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
 new_mam = SynNuc[, c(1, 2, 79, 80)]
 new_mam = new_mam[new_mam$Gene != 'ND6',]
-new_mam$class = 'Mammalia'
+new_mam$class = 'Млекопитающие'
 new_bird = df_mtdna[, c('species_name', 'gene_name', 'ghahSkew','chthSkew')]
-new_bird$class = 'Aves'
+new_bird$class = 'Птицы'
 new_bird$species_name = gsub(' ', '_', new_bird$species_name)
 new_bird$gene_name[new_bird$gene_name == 'CYTB'] = 'CytB'
 names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'class')
@@ -116,8 +116,8 @@ new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
   ylab('GhAhSkew')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
   annotate("text", x=8, y=-0.5, label= "GhAhSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(),axis.ticks.y=element_blank(),
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank(),
         legend.position = "none")
 new_b_and_m
 
@@ -128,9 +128,14 @@ new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class)
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
   annotate("text", x=8, y=0, label= "ThChSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        axis.title.y=element_blank(), axis.ticks.y=element_blank(),
-        legend.position = "none")
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())+
+  guides(fill = guide_legend(title = "Класс позвоночных"))
 new_b_and_m_one
+
+etr = ggarrange(new_b_and_m, new_b_and_m_one,
+                nrow = 1, ncol = 2)
+
+etr
 
 for_article = SynNuc[, c(1, 2, 73, 74, 75, 76)]
 for_article = for_article[for_article$Gene != 'ND6',]
@@ -248,8 +253,8 @@ skew_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = ghahSkew))+
   xlab('Birds realms')+
   xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))+
   annotate("text", x=7, y=-0.25, label= "GhAhSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco
 
 skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
@@ -257,8 +262,8 @@ skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
   xlab('Birds realms')+
   xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))+
   annotate("text", x=7, y=0.35, label= "ThChSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco2
 
 medT_realm = ggplot(data = df_for_diploma, aes(x = russian_eco, y = med_T))+
@@ -279,8 +284,8 @@ medG_realm = ggplot(data = df_for_diploma, aes(x = russian_eco, y = med_G))+
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 medG_realm
 
-f_eco = ggarrange(skew_eco, skew_eco2, medG_realm, medT_realm,
-                  ncol = 2, nrow = 2)
+f_eco = ggarrange(skew_eco, skew_eco2,
+                  ncol = 2, nrow = 1)
 f_eco
 
 skew_eco31 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = chthSkew))+
@@ -289,8 +294,8 @@ skew_eco31 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = chthSkew))+
   ylab('ThChSkew')+
   xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))+
   annotate("text", x=7, y=0.32, label= "ThChSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco31
 
 skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
@@ -299,8 +304,8 @@ skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
   ylab('GhAhSkew')+
   xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))+
   annotate("text", x=7, y=-0.25, label= "GhAhSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
-        axis.title.y=element_blank(),axis.ticks.y=element_blank())
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco12
 
 medG_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_G))+
@@ -323,8 +328,8 @@ medT_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_T))+
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 medT_tn
 
-f_tn = ggarrange(skew_eco12, skew_eco31, medG_tn, medT_tn,
-                 ncol = 2, nrow = 2)
+f_tn = ggarrange(skew_eco12, skew_eco31,
+                 ncol = 2, nrow = 1)
 f_tn
 
 
@@ -491,20 +496,75 @@ ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec)) +
   ylab('Мутационный спектр')+
   xlab('Мутации')
 
-ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = realm)) +
+MutSpecAG = mut_data_syn1[mut_data_syn1$Mut == 'A>G' | mut_data_syn1$Mut == 'C>T',]
+ggplot(data = MutSpecAG, aes(x = Mut, y = MutSpec, fill = realm)) +
   geom_boxplot()+
   ylab('Мутационный спектр')+
   xlab('Мутации')+
   guides(fill = guide_legend(title = "Экозона"))
 
 
-ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
+ggplot(data = MutSpecAG, aes(x = Mut, y = MutSpec, fill = Trophic_niche)) +
   geom_boxplot()+
   ylab('Мутационный спектр')+
   xlab('Мутации')+
   guides(fill = guide_legend(title = "Трофическая ниша"))
 
+MutSpecAGR = MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]
 
+MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]$RawMutSpec
+
+for (i in unique(MutSpecAG$realm))
+{
+  if (i != 'Антарктика')
+  {
+    print(i)
+    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
+               MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'A>G',]$RawMutSpec))
+  }
+}
+
+for (i in unique(MutSpecAG$realm))
+{
+  if (i != 'Антарктика')
+  {
+    print(i)
+    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
+                      MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'C>T',]$RawMutSpec))
+  }
+}
+
+for (i in unique(MutSpecAG$Trophic_niche))
+{
+  if (i != 'Водные травоядные')
+  {
+    print(i)
+    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
+                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'A>G',]$RawMutSpec))
+  }
+}
+
+for (i in unique(MutSpecAG$Trophic_niche))
+{
+  if (i != 'Водные травоядные' & i != 'Падальщики')
+  {
+    print(i)
+    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
+                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'C>T',]$RawMutSpec))
+  }
+}
+
+wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
+            MutSpecAG[MutSpecAG$realm != 'Антарктика' & MutSpecAG$Mut == 'A>G',]$RawMutSpec)
+
+wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
+            MutSpecAG[MutSpecAG$realm != 'Антарктика' & MutSpecAG$Mut == 'C>T',]$RawMutSpec)
+
+wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
+            MutSpecAG[MutSpecAG$Trophic_niche != 'Водные травоядные' & MutSpecAG$Mut == 'A>G',]$RawMutSpec)
+
+wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
+            MutSpecAG[MutSpecAG$Trophic_niche != 'Водные травоядные' & MutSpecAG$Mut == 'C>T',]$RawMutSpec)
 
 
 
