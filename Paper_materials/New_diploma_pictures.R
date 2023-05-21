@@ -132,6 +132,23 @@ new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class)
   guides(fill = guide_legend(title = "Класс позвоночных"))
 new_b_and_m_one
 
+for (i in unique(new_big$gene_name))
+{
+  print(i)
+  print(wilcox.test(new_big[new_big$gene_name == i & new_big$class == 'Птицы',]$ghahSkew, 
+                      new_big[new_big$gene_name == i & new_big$class == 'Млекопитающие',]$ghahSkew))
+}
+
+for (i in unique(new_big$gene_name))
+{
+  print(i)
+  print(wilcox.test(new_big[new_big$gene_name == i & new_big$class == 'Птицы',]$chthSkew, 
+                    new_big[new_big$gene_name == i & new_big$class == 'Млекопитающие',]$chthSkew))
+}
+
+
+
+
 etr = ggarrange(new_b_and_m, new_b_and_m_one,
                 nrow = 1, ncol = 2)
 
@@ -266,6 +283,27 @@ skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco2
 
+for (i in unique(df_for_diploma$russian_eco))
+{
+  if (i != 'Антарктика')
+  {
+    print(i)
+    print(wilcox.test(df_for_diploma[df_for_diploma$russian_eco == 'Антарктика',]$ghahSkew, 
+                      df_for_diploma[df_for_diploma$russian_eco == i,]$ghahSkew))
+  }
+}
+
+for (i in unique(df_for_diploma$russian_eco))
+{
+  if (i != 'Антарктика')
+  {
+    print(i)
+    print(wilcox.test(df_for_diploma[df_for_diploma$russian_eco == 'Антарктика',]$chthSkew, 
+                      df_for_diploma[df_for_diploma$russian_eco == i,]$chthSkew))
+  }
+}
+
+
 medT_realm = ggplot(data = df_for_diploma, aes(x = russian_eco, y = med_T))+
   geom_boxplot(outlier.shape = NA, notch = T, fill = 'yellow')+
   xlab('Birds realm')+
@@ -307,6 +345,27 @@ skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
 skew_eco12
+
+for (i in unique(df_for_diploma$russian_tn))
+{
+  if (i != 'Водные травоядные')
+  {
+    print(i)
+    print(wilcox.test(df_for_diploma[df_for_diploma$russian_tn == 'Водные травоядные',]$ghahSkew, 
+                      df_for_diploma[df_for_diploma$russian_tn == i,]$ghahSkew))
+  }
+}
+
+for (i in unique(df_for_diploma$russian_tn))
+{
+  if (i != 'Водные травоядные')
+  {
+    print(i)
+    print(wilcox.test(df_for_diploma[df_for_diploma$russian_tn == 'Водные травоядные',]$chthSkew, 
+                      df_for_diploma[df_for_diploma$russian_tn == i,]$chthSkew))
+  }
+}
+check1 = df_for_diploma[df_for_diploma$russian_tn == 'Падальщики',]
 
 medG_tn = ggplot(data = df_for_diploma, aes(x = russian_tn, y = med_G))+
   geom_boxplot(outlier.shape = NA, notch = T, fill = 'green')+
@@ -496,6 +555,10 @@ ggplot(data = mut_data_syn1, aes(x = Mut, y = MutSpec)) +
   ylab('Мутационный спектр')+
   xlab('Мутации')
 
+wilcox.test(mut_data_syn1[mut_data_syn1$Mut == 'C>T',]$MutSpec, mut_data_syn1[mut_data_syn1$Mut == 'G>A',]$MutSpec)
+
+wilcox.test(mut_data_syn1[mut_data_syn1$Mut == 'A>G',]$MutSpec ,mut_data_syn1[mut_data_syn1$Mut == 'T>C',]$MutSpec)
+
 MutSpecAG = mut_data_syn1[mut_data_syn1$Mut == 'A>G' | mut_data_syn1$Mut == 'C>T',]
 ggplot(data = MutSpecAG, aes(x = Mut, y = MutSpec, fill = realm)) +
   geom_boxplot()+
@@ -519,8 +582,8 @@ for (i in unique(MutSpecAG$realm))
   if (i != 'Антарктика')
   {
     print(i)
-    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
-               MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'A>G',]$RawMutSpec))
+    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'A>G',]$MutSpec, 
+               MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'A>G',]$MutSpec))
   }
 }
 
@@ -529,8 +592,8 @@ for (i in unique(MutSpecAG$realm))
   if (i != 'Антарктика')
   {
     print(i)
-    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
-                      MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'C>T',]$RawMutSpec))
+    print(wilcox.test(MutSpecAG[MutSpecAG$realm == 'Антарктика' & MutSpecAG$Mut == 'C>T',]$MutSpec, 
+                      MutSpecAG[MutSpecAG$realm == i & MutSpecAG$Mut == 'C>T',]$MutSpec))
   }
 }
 
@@ -539,8 +602,8 @@ for (i in unique(MutSpecAG$Trophic_niche))
   if (i != 'Водные травоядные')
   {
     print(i)
-    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'A>G',]$RawMutSpec, 
-                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'A>G',]$RawMutSpec))
+    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'A>G',]$MutSpec, 
+                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'A>G',]$MutSpec))
   }
 }
 
@@ -549,8 +612,8 @@ for (i in unique(MutSpecAG$Trophic_niche))
   if (i != 'Водные травоядные' & i != 'Падальщики')
   {
     print(i)
-    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'C>T',]$RawMutSpec, 
-                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'C>T',]$RawMutSpec))
+    print(wilcox.test(MutSpecAG[MutSpecAG$Trophic_niche == 'Водные травоядные' & MutSpecAG$Mut == 'C>T',]$MutSpec, 
+                      MutSpecAG[MutSpecAG$Trophic_niche == i & MutSpecAG$Mut == 'C>T',]$MutSpec))
   }
 }
 
