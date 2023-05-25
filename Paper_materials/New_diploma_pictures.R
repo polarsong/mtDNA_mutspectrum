@@ -777,3 +777,30 @@ tr_ts_graph1= ggarrange(niche_tr_ts2, niche_tr_ts1,
                        ncol = 1, nrow = 2)
 
 tr_ts_graph1
+
+
+#Valya's ideas
+ggplot(df_mtdna, aes(x = ghahSkew, y = Mass, color = gene_name))+
+  geom_point()
+ggplot(df_mtdna, aes(x = chthSkew, y = Mass, color = gene_name))+
+  geom_point()
+df_lowmass = df_mtdna[df_mtdna$Mass < 15000,]
+ggplot(df_lowmass, aes(x = ghahSkew, y = Mass, color = gene_name))+
+  geom_point()
+ggplot(df_lowmass, aes(x = chthSkew, y = Mass, color = gene_name))+
+  geom_point()
+names_v = unique(df_mtdna$species_name)
+df_short = data.frame()
+for (i in names_v)
+{
+  df1 = df_mtdna[df_mtdna$species_name == i,]
+  a = sum(df1$ghahSkew)/12
+  b = sum(df1$chthSkew)/12
+  v = sum(df1$Mass)/12
+  ab = c(i, a, b, v)
+  df_short = rbind(df_short, ab)
+}
+names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
+
+ggplot(df_short, aes(x = GhAhSkew, y = Mass))+
+  geom_point()
