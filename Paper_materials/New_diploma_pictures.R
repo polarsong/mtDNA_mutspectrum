@@ -780,6 +780,7 @@ tr_ts_graph1
 
 
 #Valya's ideas
+library(plotly)
 ggplot(df_mtdna, aes(x = ghahSkew, y = Mass, color = gene_name))+
   geom_point()
 ggplot(df_mtdna, aes(x = chthSkew, y = Mass, color = gene_name))+
@@ -801,6 +802,35 @@ for (i in names_v)
   df_short = rbind(df_short, ab)
 }
 names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
+df_short$Mass = as.numeric(df_short$Mass)
 
-ggplot(df_short, aes(x = GhAhSkew, y = Mass))+
+ggplot(df_short, aes(x = Mass, y = GhAhSkew))+
   geom_point()
+
+
+ggplot(df_short, aes(x = Mass, y = ThChSkew))+
+  geom_point()+
+  ylim(0.0,3.0)+
+  xlim(0,3000)
+
+df_short$log_mass = log10(df_short$Mass)
+df_short$log_ghskew = log10(df_short$GhAhSkew)
+
+f1 = ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
+  geom_point()+
+  geom_smooth(method=lm)
+
+f1
+fig1 = ggplotly(f1)
+fig1
+
+f2 = ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method=lm)
+fig2 = ggplotly(f2)
+fig2
+lm1 = lm(GhAhSkew ~ Mass, data = df_short)
+summary(lm1)
+
+lm2 = lm(ThChSkew ~ Mass, data = df_short)
+summary(lm2)
