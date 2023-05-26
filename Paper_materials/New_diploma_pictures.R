@@ -827,16 +827,19 @@ ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
   geom_smooth(method=lm)
 
+lm1 = lm(log_mass ~ GhAhSkew, data = df_short)
+summary(lm1)
+lm12 = lm(GhAhSkew ~ log_mass, data = df_short)
+summary(lm12)
+
 ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
   geom_point()+
   geom_smooth(method=lm)
 
-lm1 = lm(GhAhSkew ~ Mass, data = df_short)
-summary(lm1)
-
-lm2 = lm(ThChSkew ~ Mass, data = df_short)
+lm2 = lm(ThChSkew ~ log_mass, data = df_short)
 summary(lm2)
-
+lm22 = lm(log_mass ~ ThChSkew, data = df_short)
+summary(lm22)
 
 df_short_cytb = df_mtdna[df_mtdna$gene_name == 'CYTB',]
 df_short_cytb$log_mass = log10(df_short_cytb$Mass)
