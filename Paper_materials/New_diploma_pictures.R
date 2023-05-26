@@ -841,15 +841,19 @@ summary(lm2)
 df_short_cytb = df_mtdna[df_mtdna$gene_name == 'CYTB',]
 df_short_cytb$log_mass = log10(df_short_cytb$Mass)
 ggplot(df_short_cytb, aes(x = log_mass, y = ghahSkew))+
-  geom_point()
+  geom_point()+
+  geom_smooth(method = lm)
 
 ggplot(df_short_cytb, aes(x = log_mass, y = chthSkew))+
-  geom_point()
+  geom_point()+
+  geom_smooth(method = lm)
 
 df_short_cox1 = df_mtdna[df_mtdna$gene_name == 'COX1',]
 df_short_cox1$log_mass = log10(df_short_cox1$Mass)
 ggplot(df_short_cox1, aes(x = log_mass, y = ghahSkew))+
-  geom_point()
+  geom_point()+
+  geom_smooth(method = lm)
 ggplot(df_short_cox1, aes(x = log_mass, y = chthSkew))+
-  geom_point()
+  geom_point()+
+  geom_smooth(method = lm)
 
