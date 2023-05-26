@@ -805,7 +805,8 @@ names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
 df_short$Mass = as.numeric(df_short$Mass)
 
 ggplot(df_short, aes(x = Mass, y = GhAhSkew))+
-  geom_point()
+  geom_point()+
+  geom_smooth(method = lm)
 
 
 ggplot(df_short, aes(x = Mass, y = ThChSkew))+
