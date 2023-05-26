@@ -803,6 +803,8 @@ for (i in names_v)
 }
 names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
 df_short$Mass = as.numeric(df_short$Mass)
+df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
+df_short$ThChSkew = as.numeric(df_short$ThChSkew)
 
 ggplot(df_short, aes(x = Mass, y = GhAhSkew))+
   geom_point()+
@@ -817,21 +819,37 @@ ggplot(df_short, aes(x = Mass, y = ThChSkew))+
 df_short$log_mass = log10(df_short$Mass)
 df_short$log_ghskew = log10(df_short$GhAhSkew)
 
-f1 = ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
+ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
   geom_point()+
   geom_smooth(method=lm)
 
-f1
-fig1 = ggplotly(f1)
-fig1
-
-f2 = ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
+ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
   geom_smooth(method=lm)
-fig2 = ggplotly(f2)
-fig2
+
+ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
+  geom_point()+
+  geom_smooth(method=lm)
+
 lm1 = lm(GhAhSkew ~ Mass, data = df_short)
 summary(lm1)
 
 lm2 = lm(ThChSkew ~ Mass, data = df_short)
 summary(lm2)
+
+
+df_short_cytb = df_mtdna[df_mtdna$gene_name == 'CYTB',]
+df_short_cytb$log_mass = log10(df_short_cytb$Mass)
+ggplot(df_short_cytb, aes(x = log_mass, y = ghahSkew))+
+  geom_point()
+
+ggplot(df_short_cytb, aes(x = log_mass, y = chthSkew))+
+  geom_point()
+
+df_short_cox1 = df_mtdna[df_mtdna$gene_name == 'COX1',]
+df_short_cox1$log_mass = log10(df_short_cox1$Mass)
+ggplot(df_short_cox1, aes(x = log_mass, y = ghahSkew))+
+  geom_point()
+ggplot(df_short_cox1, aes(x = log_mass, y = chthSkew))+
+  geom_point()
+
