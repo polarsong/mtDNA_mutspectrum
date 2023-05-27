@@ -4,6 +4,8 @@ library(ggplot2)
 library(ggpubr)
 df_mtdna = read.csv('../Paper_materials/Birds_dataset_paper_extra.csv')
 df_nd6 = read.csv('../Body/3Results/Birds_mtDNA_data.csv')
+df_int = read.csv('../Body/1Raw/Avonet_data.csv')
+unique(df_int$Primary.Lifestyle)
 nd6_look = df_nd6[df_nd6$gene_name == 'ND6',]
 nd6_nolook = df_nd6[df_nd6$gene_name != 'ND6',]
 nd6_look$GhAhSkew = (nd6_look$neutral_g - nd6_look$neutral_A)/(nd6_look$neutral_g + nd6_look$neutral_A)
