@@ -862,3 +862,34 @@ ggplot(df_short_cox1, aes(x = log_mass, y = chthSkew))+
   geom_point()+
   geom_smooth(method = lm)
 
+#Valya's new data
+df_fly = read.csv('../Paper_materials/flying_birds.csv')
+df_fly = df_fly[,c(2,3,4)]
+names(df_fly) = c('species_name', 'flightless', 'diving')
+df_fly_mtdna = merge(df_mtdna, df_fly, by = 'species_name')
+
+ggplot(df_fly_mtdna, aes(x = flightless, y = ghahSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+df_peng = df_fly_mtdna[df_fly_mtdna$flightless == 'Sphenisciformes',]
+df_flying = df_fly_mtdna[df_fly_mtdna$flightless == '0',]
+wilcox.test(df_peng$ghahSkew, df_flying$ghahSkew)
+t.test(df_peng$ghahSkew, df_flying$ghahSkew)
+
+
+ggplot(df_fly_mtdna, aes(x = flightless, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(df_fly_mtdna, aes(x = diving, y = ghahSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+df_peng = df_fly_mtdna[df_fly_mtdna$diving == 'Sphenisciformes',]
+df_flying = df_fly_mtdna[df_fly_mtdna$diving == '0',]
+wilcox.test(df_peng$ghahSkew, df_flying$ghahSkew)
+t.test(df_peng$ghahSkew, df_flying$ghahSkew)
+
+ggplot(df_fly_mtdna, aes(x = diving, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
