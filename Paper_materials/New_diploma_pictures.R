@@ -863,11 +863,6 @@ ggplot(df_short_cox1, aes(x = log_mass, y = chthSkew))+
   geom_smooth(method = lm)
 
 #Valya's new data
-df_fly = read.csv('../Paper_materials/flying_birds.csv')
-df_fly = df_fly[,c(2,3,4)]
-names(df_fly) = c('species_name', 'flightless', 'diving')
-df_fly_mtdna = merge(df_mtdna, df_fly, by = 'species_name')
-
 
 ggplot(df_fly_mtdna, aes(x = flightless, y = ghahSkew))+
   geom_point()+
@@ -952,18 +947,32 @@ ggplot(df_t2, aes(x = diving, y = GhAhSkew, color = Trophic_niche))+
 
 #cleaning df_fly
 rm(df_fly_clean)
+df_fly = read.csv('../Paper_materials/flying_birds.csv')
+df_fly = df_fly[,c(2,3,4)]
+names(df_fly) = c('species_name', 'flightless', 'diving')
 df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
 df_fly_clean= df_fly[df_fly$flightless == 'Almost_flightless',]
 df_fly_clean = na.omit(df_fly_clean)
 df_fly_clean1 = na.omit(df_fly_clean1)
+df_dive = df_fly
 df_fly = df_fly[df_fly$flightless != 'Flightless',]
 df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
 df_fly_clean$flightless = 'Tinamiformes'
 df_fly_clean1$flightless = 'Tinamiformes'
-df_fly = rbind(df_fly, df_fly_clean, df_fly_clean1)
-ggplot(df_fly, aes(x = flightless, y = chthSkew))+
-  geom_boxplot()+
+df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
+df_fly_big1 = merge(df_fly, df_eco)
+df_fly_final = merge(df_fly_big1, df_short)
+ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_fly_final, aes(x = flightless, y = ThChSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
+  geom_jitter()
+ggplot(df_fly_final, aes(x = flightless, y = ThChSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
+  geom_jitter()
 df_eco = unique(df_eco)
 df_fly = merge(df_fly, df_eco, by = 'species_name')
 rm(df_for_graph)
@@ -971,3 +980,39 @@ df_for_graph = merge(df_fly, df_short, by = 'species_name')
 ggplot(df_for_graph, aes(x = flightless, y = GhAhSkew, color=realm))+
   geom_point()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+df_dive_final = merge(df_dive, df_short, by = 'species_name')
+df_dive_final = df_dive_final[df_dive_final$diving != 'waterbird',]
+
+ggplot(df_dive_final, aes(x = diving, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_dive_final, aes(x = diving, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
+  geom_jitter()
+ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
+  geom_jitter()
+ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#stats
+df_fly_zero = df_fly_final[df_fly_final$flightless == '0',]
+df_fly_no_zer0 = df_fly_final[df_fly_final$flightless != '0',]
+t.test(df_fly_zero$GhAhSkew, df_fly_no_zer0$GhAhSkew)
+
+df_fly_final$straus = '0'
+unique(df_fly_final$diving)
+unique(df_fly_final$flightless)
+df_fly_straus = df_fly_final[(df_fly_final$flightless == 'Tinamiformes') | (df_fly_final$flightless == '"Casuariiformes') | (df_fly_final$flightless == 'Rheiformes') | (df_fly_final$flightless == 'Struthioniformes') | (df_fly_final$flightless == 'Apterygiformes'),]
+df_fly_straus$straus = '1'
+rm(df_fly_straus1)
+df_fly_no_straus = df_fly_final[(df_fly_final$flightless != 'Tinamiformes') & (df_fly_final$flightless != '"Casuariiformes') & (df_fly_final$flightless != 'Rheiformes') & (df_fly_final$flightless != 'Struthioniformes') & (df_fly_final$flightless != 'Apterygiformes') & (df_fly_final$flightless != '0'),]
+t.test(df_fly_straus$GhAhSkew, df_fly_no_straus$GhAhSkew)
+
+t.test(df_dive_final[df_dive_final$diving =='Sphenisciformes',]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
+t.test(df_dive_final[df_dive_final$diving =='Anseriformes',]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
+t.test(df_dive_final[(df_dive_final$diving !='Anseriformes') & (df_dive_final$diving !='Sphenisciformes') & (df_dive_final$diving !='0'),]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
