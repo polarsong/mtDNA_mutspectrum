@@ -868,6 +868,7 @@ df_fly = df_fly[,c(2,3,4)]
 names(df_fly) = c('species_name', 'flightless', 'diving')
 df_fly_mtdna = merge(df_mtdna, df_fly, by = 'species_name')
 
+
 ggplot(df_fly_mtdna, aes(x = flightless, y = ghahSkew))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -893,3 +894,27 @@ t.test(df_peng$ghahSkew, df_flying$ghahSkew)
 ggplot(df_fly_mtdna, aes(x = diving, y = chthSkew))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+df_fly$diving_num = 0
+df_fly_check = df_fly[df_fly$diving == 0,] 
+df_fly_check1 = df_fly[df_fly$diving != 0,]
+df_fly_check1$diving_num = 1
+df_fly_check = rbind(df_fly_check, df_fly_check1)
+df_median = merge(df_fly_check, df_short)
+df_median$GhAhSkew = as.numeric(df_median$GhAhSkew)
+df_median$ThChSkew = as.numeric(df_median$ThChSkew)
+df_median$diving_num = as.character(df_median$diving_num)
+ggplot(df_median, aes(x = diving_num, y = GhAhSkew))+
+  geom_boxplot()
+df_t1 = df_median[df_median$diving == '0',]
+df_t2 = df_median[df_median$diving_num != '0',]
+t.test(df_t1$GhAhSkew, df_t2$GhAhSkew)
+ggplot(df_median, aes(x = diving_num, y = ThChSkew))+
+  geom_boxplot()
+t.test(df_t1$ThChSkew, df_t2$ThChSkew)
+ggplot(df_median, aes(x = diving, y = GhAhSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+a = df_mtdna[df_mtdna$taxonomy == 'Neognathae Charadriiformes Alcidae Aethia',]
+b = unique(a$taxonomy)
+c1 = strsplit(b, split = ' ')
+c1[1][1]
