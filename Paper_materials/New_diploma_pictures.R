@@ -870,7 +870,7 @@ df_fly_mtdna = merge(df_mtdna, df_fly, by = 'species_name')
 
 
 ggplot(df_fly_mtdna, aes(x = flightless, y = ghahSkew))+
-  geom_boxplot()+
+  geom_point()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 df_peng = df_fly_mtdna[df_fly_mtdna$flightless == 'Sphenisciformes',]
 df_flying = df_fly_mtdna[df_fly_mtdna$flightless == '0',]
@@ -895,8 +895,10 @@ ggplot(df_fly_mtdna, aes(x = diving, y = chthSkew))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 df_fly$diving_num = 0
-df_fly_check = df_fly[df_fly$diving == 0,] 
-df_fly_check1 = df_fly[df_fly$diving != 0,]
+df_fly1 = df_fly
+df_fly1 = df_fly[df_fly$diving != 'waterbird',]
+df_fly_check = df_fly1[df_fly1$diving == 0,] 
+df_fly_check1 = df_fly1[df_fly1$diving != 0,]
 df_fly_check1$diving_num = 1
 df_fly_check = rbind(df_fly_check, df_fly_check1)
 df_median = merge(df_fly_check, df_short)
@@ -905,11 +907,24 @@ df_median$ThChSkew = as.numeric(df_median$ThChSkew)
 df_median$diving_num = as.character(df_median$diving_num)
 ggplot(df_median, aes(x = diving_num, y = GhAhSkew))+
   geom_boxplot()
-df_t1 = df_median[df_median$diving == '0',]
+ggplot(df_median, aes(x = diving_num, y = GhAhSkew))+
+  geom_point()
+df_no_pengduck = df_median[df_median$diving != 'Anseriformes' & df_median$diving != 'Sphenisciformes',]
+ggplot(df_no_pengduck, aes(x = diving_num, y = GhAhSkew))+
+  geom_boxplot()
+ggplot(df_no_pengduck, aes(x = diving_num, y = GhAhSkew))+
+  geom_point()
+df_t11 = df_no_pengduck[df_no_pengduck$diving_num == '0',]
+df_t22 = df_no_pengduck[df_no_pengduck$diving_num != '0',]
+t.test(df_t11$GhAhSkew, df_t22$GhAhSkew)
+
+df_t1 = df_median[df_median$diving_num == '0',]
 df_t2 = df_median[df_median$diving_num != '0',]
 t.test(df_t1$GhAhSkew, df_t2$GhAhSkew)
 ggplot(df_median, aes(x = diving_num, y = ThChSkew))+
   geom_boxplot()
+ggplot(df_median, aes(x = diving_num, y = ThChSkew))+
+  geom_point()
 t.test(df_t1$ThChSkew, df_t2$ThChSkew)
 ggplot(df_median, aes(x = diving, y = GhAhSkew))+
   geom_boxplot()+
@@ -918,3 +933,41 @@ a = df_mtdna[df_mtdna$taxonomy == 'Neognathae Charadriiformes Alcidae Aethia',]
 b = unique(a$taxonomy)
 c1 = strsplit(b, split = ' ')
 c1[1][1]
+
+df_eco = df_mtdna[,c('species_name','realm','Trophic_niche')]
+df_median = merge(df_median, df_eco)
+df_median = unique(df_median)
+df_t2 = merge(df_t2, df_eco)
+df_t2 = unique(df_t2)
+ggplot(df_median, aes(x = Mass, y = GhAhSkew, color = diving))+
+  geom_point()
+ggplot(df_t2, aes(x = Mass, y = GhAhSkew, labels = diving))+
+  geom_point()
+ggplot(df_t2, aes(x = diving, y = GhAhSkew, color = realm))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_t2, aes(x = diving, y = GhAhSkew, color = Trophic_niche))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#cleaning df_fly
+rm(df_fly_clean)
+df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
+df_fly_clean= df_fly[df_fly$flightless == 'Almost_flightless',]
+df_fly_clean = na.omit(df_fly_clean)
+df_fly_clean1 = na.omit(df_fly_clean1)
+df_fly = df_fly[df_fly$flightless != 'Flightless',]
+df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
+df_fly_clean$flightless = 'Tinamiformes'
+df_fly_clean1$flightless = 'Tinamiformes'
+df_fly = rbind(df_fly, df_fly_clean, df_fly_clean1)
+ggplot(df_fly, aes(x = flightless, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+df_eco = unique(df_eco)
+df_fly = merge(df_fly, df_eco, by = 'species_name')
+rm(df_for_graph)
+df_for_graph = merge(df_fly, df_short, by = 'species_name')
+ggplot(df_for_graph, aes(x = flightless, y = GhAhSkew, color=realm))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
