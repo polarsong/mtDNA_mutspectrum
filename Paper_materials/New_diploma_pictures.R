@@ -25,6 +25,49 @@ nd6_nolook$fGn = nd6_nolook$neutral_c/nd6_nolook$neutral_amount
 nd6_correct = rbind(nd6_look, nd6_nolook)
 
 graph1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "А")+
+  xlab('Митохондриальные гены')+
+  ylab('Частоты тимина')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())        
+graph1
+
+graph2 = ggplot(data = df_mtdna, aes(x = gene_name, y = fCn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "В")+
+  xlab('Митохондриальные гены')+
+  ylab('Частоты цитозина')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+graph2
+
+graph3 = ggplot(data = df_mtdna, aes(x = gene_name, y = fAn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "Г")+
+  xlab('Митохондриальные гены')+
+  ylab('Частоты аденина')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+graph3
+
+graph4 = ggplot(data = df_mtdna, aes(x = gene_name, y = fGn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "Б")+
+  xlab('Митохондриальные гены')+
+  ylab('Частоты гуанина')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+nd6fr= ggarrange(graph1, graph4, graph2, graph3,
+                 ncol = 2, nrow = 2)
+nd6fr
+
+graph1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot(notch = TRUE, fill = 'blue')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB", "ND1","ND2"))+
   ylim(0, 0.8)+
@@ -962,9 +1005,16 @@ df_fly_clean1$flightless = 'Tinamiformes'
 df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
 df_fly_big1 = merge(df_fly, df_eco)
 df_fly_final = merge(df_fly_big1, df_short)
+df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
+df_fly_final = unique(df_fly_final)
 ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
+  geom_jitter()+
+  xlab('Неспособность к полету')
 ggplot(df_fly_final, aes(x = flightless, y = ThChSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
@@ -990,7 +1040,8 @@ ggplot(df_dive_final, aes(x = diving, y = GhAhSkew))+
 ggplot(df_dive_final, aes(x = diving, y = GhAhSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
-  geom_jitter()
+  geom_jitter()+
+  xlab('Способность к дайвингу')
 ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
