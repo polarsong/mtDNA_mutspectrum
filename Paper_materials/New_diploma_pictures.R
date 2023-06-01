@@ -317,6 +317,14 @@ skew_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = ghahSkew))+
   annotate("text", x=7, y=-0.25, label= "GhAhSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
+skew_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Экозоны')+
+  ylab('GhAhSkew')+
+  xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))+
+  ylim(0,1)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        
 skew_eco
 
 skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
@@ -326,6 +334,8 @@ skew_eco2 = ggplot(data = df_for_diploma, aes(x = russian_eco, y = chthSkew))+
   annotate("text", x=7, y=0.35, label= "ThChSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
+
+
 skew_eco2
 
 for (i in unique(df_for_diploma$russian_eco))
@@ -389,6 +399,15 @@ skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
   annotate("text", x=7, y=-0.25, label= "GhAhSkew")+
   theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         axis.title.y=element_blank(), axis.ticks.y=element_blank())
+
+skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
+  geom_boxplot(outlier.shape = NA, notch = T)+
+  xlab('Трофическая ниша')+
+  ylab('GhAhSkew')+
+  ylim(-0.1,1)+
+  xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        
 skew_eco12
 
 for (i in unique(df_for_diploma$russian_tn))
@@ -871,7 +890,7 @@ ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
 ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
   geom_smooth(method=lm)+
-  xlab('Десятичный логарифм массы')
+  xlab('Десятичный логарифм массы (измерялась в граммах)')
 
 lm1 = lm(log_mass ~ GhAhSkew, data = df_short)
 summary(lm1)
@@ -1005,7 +1024,23 @@ df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
 df_fly_clean$flightless = 'Tinamiformes'
 df_fly_clean1$flightless = 'Tinamiformes'
 df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
+df_eco = df_mtdna[,c('species_name','realm','Trophic_niche')]
 df_fly_big1 = merge(df_fly, df_eco)
+names_v = unique(df_mtdna$species_name)
+df_short = data.frame()
+for (i in names_v)
+{
+  df1 = df_mtdna[df_mtdna$species_name == i,]
+  a = sum(df1$ghahSkew)/12
+  b = sum(df1$chthSkew)/12
+  v = sum(df1$Mass)/12
+  ab = c(i, a, b, v)
+  df_short = rbind(df_short, ab)
+}
+names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
+df_short$Mass = as.numeric(df_short$Mass)
+df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
+df_short$ThChSkew = as.numeric(df_short$ThChSkew)
 df_fly_final = merge(df_fly_big1, df_short)
 df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
 df_fly_final = unique(df_fly_final)
@@ -1054,12 +1089,11 @@ df11$russian_fly = 'Страусообразные'
 rm(df_russian_fly)
 df_russian_fly = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11)
 ggplot(df_russian_fly, aes(x = russian_fly, y = GhAhSkew))+
-  geom_boxplot(outlier.shape = NA)+
-  geom_jitter()+
+  geom_point()+
   xlim(c('Летающие птицы', "Тинамуобразные", "Кивиобразные", "Казуарообразные", "Страусообразные", "Нандуобразные",
          "Попугаеобразные", "Голубеобразные", "Отряд Кагу и солнечной цапли", "Журавлеобразные", "Пингвинообразные"))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlab("Летающие птиц и отряды нелетающих птиц")
+  xlab("Летающие птицы и отряды нелетающих птиц")
 
 
 df_eco = unique(df_eco)
@@ -1117,8 +1151,7 @@ df11$russian_dive = 'Поганкообразные'
 rm(df_russian_dive)
 df_russian_dive = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11)
 ggplot(df_russian_dive, aes(x = russian_dive, y = GhAhSkew))+
-  geom_boxplot(outlier.shape = NA)+
-  geom_jitter()+
+  geom_point()+
   xlim(c('Птицы, не способные к дайвингу', "Гусеобразные", "Пингвинообразные", "Поганкообразные", "Гагарообразные", "Олушеобразные",
          "Ракшеобразные", "Воробьинообразные", "Журавлеобразные", "Ржанкообразные", "Буревестникообразные"))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
@@ -1132,6 +1165,7 @@ df5 = df_russian_fly[df_russian_fly$flightless == "Struthioniformes",]
 df6 = rbind(df1, df2, df3, df4, df5)
 df7 = df_russian_fly[df_russian_fly$flightless == "0",]
 t.test(df6$GhAhSkew, df7$GhAhSkew)
+wilcox.test(df6$GhAhSkew, df7$GhAhSkew)
 
 df1 = df_russian_fly[df_russian_fly$flightless == "Gruiformes",]
 df2 = df_russian_fly[df_russian_fly$flightless == "Columbiformes",]
@@ -1140,6 +1174,8 @@ df4 = df_russian_fly[df_russian_fly$flightless == "Psittaciformes",]
 df6 = rbind(df1, df2, df3, df4)
 df7 = df_russian_fly[df_russian_fly$flightless == "0",]
 t.test(df6$GhAhSkew, df7$GhAhSkew)
+wilcox.test(df6$GhAhSkew, df7$GhAhSkew)
+
 
 df6 = df_russian_fly[df_russian_fly$flightless == "Sphenisciformes",]
 t.test(df6$GhAhSkew, df7$GhAhSkew)
