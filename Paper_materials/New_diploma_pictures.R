@@ -870,7 +870,8 @@ ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
 
 ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
-  geom_smooth(method=lm)
+  geom_smooth(method=lm)+
+  xlab('Десятичный логарифм массы')
 
 lm1 = lm(log_mass ~ GhAhSkew, data = df_short)
 summary(lm1)
@@ -879,7 +880,8 @@ summary(lm12)
 
 ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
   geom_point()+
-  geom_smooth(method=lm)
+  geom_smooth(method=lm)+
+  xlab('Десятичный логарифм массы')
 
 lm2 = lm(ThChSkew ~ log_mass, data = df_short)
 summary(lm2)
