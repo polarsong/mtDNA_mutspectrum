@@ -1023,6 +1023,43 @@ ggplot(df_fly_final, aes(x = flightless, y = ThChSkew))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
   geom_jitter()
+df_fly_final$russian_fly = ''
+df_fly_final$russian_dive = ''
+unique(df_fly_final$flightless)
+df1 = df_fly_final[df_fly_final$flightless == "0",]
+df2 = df_fly_final[df_fly_final$flightless == "Sphenisciformes",]
+df3 = df_fly_final[df_fly_final$flightless == "Apterygiformes",]
+df4 = df_fly_final[df_fly_final$flightless == "Gruiformes",]
+df5 = df_fly_final[df_fly_final$flightless == "Casuariiformes",]
+df6 = df_fly_final[df_fly_final$flightless == "Tinamiformes",]
+df7 = df_fly_final[df_fly_final$flightless == "Columbiformes",]
+df8 = df_fly_final[df_fly_final$flightless == "Rheiformes",]
+df9 = df_fly_final[df_fly_final$flightless == "Eurypygiformes",]
+df10 = df_fly_final[df_fly_final$flightless == "Psittaciformes",]
+df11 = df_fly_final[df_fly_final$flightless == "Struthioniformes",]
+
+df1$russian_fly = 'Летающие птицы'
+df2$russian_fly = 'Пингвинообразные'
+df3$russian_fly = 'Кивиобразные'
+df4$russian_fly = 'Журавлеобразные'
+df5$russian_fly = 'Казуарообразные'
+df6$russian_fly = 'Тинамуобразные'
+df7$russian_fly = 'Голубеобразные'
+df8$russian_fly = 'Нандуобразные'
+df9$russian_fly = 'Отряд Кагу и солнечной цапли'
+df10$russian_fly = 'Попугаеобразные'
+df11$russian_fly = 'Страусообразные'
+rm(df_russian_fly)
+df_russian_fly = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11)
+ggplot(df_russian_fly, aes(x = russian_fly, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter()+
+  xlim(c('Летающие птицы', "Тинамуобразные", "Кивиобразные", "Казуарообразные", "Страусообразные", "Нандуобразные",
+         "Попугаеобразные", "Голубеобразные", "Отряд Кагу и солнечной цапли", "Журавлеобразные", "Пингвинообразные"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab("Летающие птиц и отряды нелетающих птиц")
+
+
 df_eco = unique(df_eco)
 df_fly = merge(df_fly, df_eco, by = 'species_name')
 rm(df_for_graph)
@@ -1049,6 +1086,61 @@ ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
 ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+df_dive_final$russian_dive = ''
+unique(df_dive_final$diving)
+df1 = df_dive_final[df_dive_final$diving == "0",]
+df2 = df_dive_final[df_dive_final$diving == "Charadriiformes",]
+df3 = df_dive_final[df_dive_final$diving == "Anseriformes",]
+df4 = df_dive_final[df_dive_final$diving == "Coraciiformes",]
+df5 = df_dive_final[df_dive_final$diving == "Suliformes",]
+df6 = df_dive_final[df_dive_final$diving == "Sphenisciformes",]
+df7 = df_dive_final[df_dive_final$diving == "Passeriformes",]
+df8 = df_dive_final[df_dive_final$diving == "Procellariiformes",]
+df9 = df_dive_final[df_dive_final$diving == "Gruiformes",]
+df10 = df_dive_final[df_dive_final$diving == "Gaviiformes",]
+df11 = df_dive_final[df_dive_final$diving == "Podicipediformes",]
+
+df1$russian_dive = 'Птицы, не способные к дайвингу'
+df2$russian_dive = 'Ржанкообразные'
+df3$russian_dive = 'Гусеобразные'
+df4$russian_dive = 'Ракшеобразные'
+df5$russian_dive = 'Олушеобразные'
+df6$russian_dive = 'Пингвинообразные'
+df7$russian_dive = 'Воробьинообразные'
+df8$russian_dive = 'Буревестникообразные'
+df9$russian_dive = 'Журавлеобразные'
+df10$russian_dive = 'Гагарообразные'
+df11$russian_dive = 'Поганкообразные'
+rm(df_russian_dive)
+df_russian_dive = rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11)
+ggplot(df_russian_dive, aes(x = russian_dive, y = GhAhSkew))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter()+
+  xlim(c('Птицы, не способные к дайвингу', "Гусеобразные", "Пингвинообразные", "Поганкообразные", "Гагарообразные", "Олушеобразные",
+         "Ракшеобразные", "Воробьинообразные", "Журавлеобразные", "Ржанкообразные", "Буревестникообразные"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab("Птицы, не способные к дайвингу, и отряды птиц - дайверов")
+
+df1 = df_russian_fly[df_russian_fly$flightless == "Apterygiformes",]
+df2 = df_russian_fly[df_russian_fly$flightless == "Casuariiformes",]
+df3 = df_russian_fly[df_russian_fly$flightless == "Tinamiformes",]
+df4 = df_russian_fly[df_russian_fly$flightless == "Rheiformes",]
+df5 = df_russian_fly[df_russian_fly$flightless == "Struthioniformes",]
+df6 = rbind(df1, df2, df3, df4, df5)
+df7 = df_russian_fly[df_russian_fly$flightless == "0",]
+t.test(df6$GhAhSkew, df7$GhAhSkew)
+
+df1 = df_russian_fly[df_russian_fly$flightless == "Gruiformes",]
+df2 = df_russian_fly[df_russian_fly$flightless == "Columbiformes",]
+df3 = df_russian_fly[df_russian_fly$flightless == "Eurypygiformes",]
+df4 = df_russian_fly[df_russian_fly$flightless == "Psittaciformes",]
+df6 = rbind(df1, df2, df3, df4)
+df7 = df_russian_fly[df_russian_fly$flightless == "0",]
+t.test(df6$GhAhSkew, df7$GhAhSkew)
+
+df6 = df_russian_fly[df_russian_fly$flightless == "Sphenisciformes",]
+t.test(df6$GhAhSkew, df7$GhAhSkew)
 
 #stats
 df_fly_zero = df_fly_final[df_fly_final$flightless == '0',]
