@@ -201,9 +201,9 @@ etr
 
 for_article = SynNuc[, c(1, 2, 73, 74, 75, 76)]
 for_article = for_article[for_article$Gene != 'ND6',]
-for_article$class = 'Mammalia'
+for_article$class = 'Млекопитающие'
 new_bird1 = df_mtdna[, c('species_name', 'gene_name', 'neutral_A','neutral_g', 'neutral_c', 'neutral_T')]
-new_bird1$class = 'Aves'
+new_bird1$class = 'Птицы'
 new_bird1$species_name = gsub(' ', '_', new_bird1$species_name)
 new_bird1$gene_name[new_bird1$gene_name == 'CYTB'] = 'CytB'
 names(for_article) = c('species_name', 'gene_name', 'neutral_A', 'neutral_T', 'neutral_g', 'neutral_c', 'class')
@@ -257,6 +257,50 @@ f10 = ggarrange(new_b_and_m1, new_b_and_m3, new_b_and_m, new_b_and_m2, new_b_and
                 ncol = 3, nrow = 2)
 f10
 
+
+new_b_and_m1 = ggplot(new_big1, aes(x = gene_name, y = neutral_A, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Митохондриальные гены')+
+  ylab('Количество тимина')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  guides(fill = guide_legend(title = "Класс животных"))
+new_b_and_m1
+
+new_b_and_m2 = ggplot(new_big1, aes(x = gene_name, y = neutral_g, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Митохондриальные гены')+
+  ylab('Количество цитозина')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  guides(fill = guide_legend(title = "Класс животных"))
+new_b_and_m2
+
+new_b_and_m3 = ggplot(new_big1, aes(x = gene_name, y = neutral_c, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Количество гуанина')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  guides(fill = guide_legend(title = "Класс животных"))
+new_b_and_m3
+
+new_b_and_m4 = ggplot(new_big1, aes(x = gene_name, y = neutral_T, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Митохондриальные гены')+
+  ylab('Количество аденина')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  guides(fill = guide_legend(title = "Класс животных"))
+new_b_and_m4
+
+f10 = ggarrange(new_b_and_m1, new_b_and_m3, new_b_and_m2, new_b_and_m4,
+                ncol = 2, nrow = 2)
+f10
 
 #ecology
 df_for_diploma = df_mtdna
@@ -476,6 +520,13 @@ row.names(gene_stats) = gene_stats$species_name
 gene_stats = gene_stats[, colSums(is.na(gene_stats)) < nrow(gene_stats)]
 stats_pca = prcomp(gene_stats[c(2,3,4,5,6,7,8,9,10)], center = TRUE, scale. = TRUE)
 summary(stats_pca)
+biplot(stats_pca)
+ggbiplot(stats_pca)
+install.packages('ggfortify')
+library(ggfortify)
+autoplot(stats_pca,
+         loadings = TRUE,
+         loadings.label = TRUE)
 
 birds_pca = data.frame(stats_pca$x)
 birds_pca = birds_pca[,c(1,2)]
