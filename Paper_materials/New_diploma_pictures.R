@@ -1248,3 +1248,101 @@ t.test(df_fly_straus$GhAhSkew, df_fly_no_straus$GhAhSkew)
 t.test(df_dive_final[df_dive_final$diving =='Sphenisciformes',]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
 t.test(df_dive_final[df_dive_final$diving =='Anseriformes',]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
 t.test(df_dive_final[(df_dive_final$diving !='Anseriformes') & (df_dive_final$diving !='Sphenisciformes') & (df_dive_final$diving !='0'),]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
+
+
+#Midory mutspec data
+mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/internal_12_syn_mutspec_all.csv", header = TRUE, fill = TRUE, sep = ',')
+library(stringr)
+mut_data[c('gene_name', 'species_name')] = str_split_fixed(mut_data$gene_and_species, '__', 2)
+mut_data = mut_data[,c(2,3,4,5,7,8)]
+mut_data_no_gene = mut_data[,c(1,4,6)]
+know = mut_data[mut_data$species_name == 'Adelomyia_melanogenys',]
+rm(know)
+ex = reshape(data = mut_data_no_gene, idvar = 'species_name',
+             timevar = 'Mut',
+             direction = 'wide')
+names(ex) = c('species_name', 'A>G', 'A>T', 'C>A', 'C>G', 'C>T', 'G>A', 'G>C','G>T','T>A', 'T>C', 'T>G', 'A>C')
+ex1 = ex
+eco_data = unique(df_mtdna[,c('species_name', 'realm', 'Trophic_niche')])
+eco_data$species_name = gsub(' ', '_', eco_data$species_name)
+midori_birds = merge(ex, eco_data, by = 'species_name')
+midori_birds_extra = merge(mut_data, eco_data, by = 'species_name')
+ggplot(midori_birds_extra, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+
+
+names(ex1) = c('species_name', 'T>C', 'T>A', 'G>T', 'G>C', 'G>A', 'C>T', 'C>G','C>A','A>T', 'A>G', 'A>C', 'T>G')
+eco_data = unique(df_mtdna[,c('species_name', 'realm', 'Trophic_niche')])
+eco_data$species_name = gsub(' ', '_', eco_data$species_name)
+midori_birds1 = merge(ex1, eco_data, by = 'species_name')
+
+AC = mut_data[mut_data$Mut == 'A>C',] 
+AG = mut_data[mut_data$Mut == 'A>G',]
+AT = mut_data[mut_data$Mut == 'A>T',]
+GC = mut_data[mut_data$Mut == 'G>C',]
+GT = mut_data[mut_data$Mut == 'G>T',]
+GA = mut_data[mut_data$Mut == 'G>A',]
+CG = mut_data[mut_data$Mut == 'C>G',]
+CT = mut_data[mut_data$Mut == 'C>T',]
+CA = mut_data[mut_data$Mut == 'C>A',]
+TG = mut_data[mut_data$Mut == 'T>G',]
+TC = mut_data[mut_data$Mut == 'T>C',]
+TA = mut_data[mut_data$Mut == 'T>A',]
+
+AC = replace(AC, 'A>C', 'T>G')
+AC = AC[,c(2,3,4,5,6,7)]
+names(AC) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+AG = replace(AG, 'A>G', 'T>C')
+AG = AG[,c(2,3,4,5,6,7)]
+names(AG) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+AT = replace(AT, 'A>T', 'T>A')
+AT = AT[,c(2,3,4,5,6,7)]
+names(AT) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+GC = replace(GC, 'G>C', 'C>G')
+GC = GC[c(2,3,4,5,6,7)]
+names(GC) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+GT = replace(GT, 'G>T', 'C>A')
+GT = GT[,c(2,3,4,5,6,7)]
+names(GT) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+GA = replace(GA, 'G>A', 'C>T')
+GA = GA[,c(2,3,4,5,6,7)]
+names(GA) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+CG = replace(CG, 'C>G', 'G>C')
+CG = CG[,c(2,3,4,5,6,7)]
+names(CG) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+CT = replace(CT, 'C>T', 'G>A')
+CT = CT[,c(2,3,4,5,6,7)]
+names(CT) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+CA = replace(CA, 'C>A', 'G>T')
+CA = CA[,c(2,3,4,5,6,7)]
+names(CA) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+TG = replace(TG, 'T>G', 'A>C')
+TG = TG[,c(2,3,4,5,6,7)]
+names(TG) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+TC = replace(TC, 'T>C', 'A>G')
+TC = TC[,c(2,3,4,5,6,7)]
+names(TC) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+
+TA = replace(TA, 'T>A', 'A>T')
+TA = TA[,c(2,3,4,5,6,7)]
+names(TA) = c('ObsNum', 'ExpNum', 'MutSpec', 'gene_name', 'species_name', 'Mut')
+mut_data_reverse = rbind(AC, AG, AT, GC, GT, GA, CT, CG, CA, TA, TC, TG)
+midori_birds_extra1 = merge(mut_data_reverse, eco_data, by = 'species_name')
+ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec, fill = realm))+
+  geom_boxplot()
+ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec, fill = Trophic_niche))+
+  geom_boxplot()
