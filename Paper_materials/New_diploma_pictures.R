@@ -1346,3 +1346,21 @@ ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec, fill = realm))+
   geom_boxplot()
 ggplot(midori_birds_extra1, aes(x = Mut, y = MutSpec, fill = Trophic_niche))+
   geom_boxplot()
+
+df_dive_ms = df_dive_final[,c(1,3)]
+df_dive_ms$species_name = gsub(' ', '_', df_dive_ms$species_name)
+df_dive_ms_big = merge(midori_birds_extra1, df_dive_ms, by = 'species_name')
+
+df_fly_ms = df_fly_final[,c(1,2)]
+df_fly_ms$species_name = gsub(' ', '_', df_fly_ms$species_name)
+df_fly_ms_big = merge(midori_birds_extra1, df_fly_ms, by = 'species_name')
+
+ggplot(df_dive_ms_big, aes(x = Mut, y = MutSpec, fill = diving))+
+  geom_boxplot()
+ggplot(df_fly_ms_big, aes(x = Mut, y = MutSpec, fill = flightless))+
+  geom_boxplot()
+
+ggplot(df_dive_ms_big, aes(x = Mut, y = MutSpec, color = diving))+
+  geom_point()
+ggplot(df_fly_ms_big, aes(x = Mut, y = MutSpec, fill = flightless))+
+  geom_boxplot()
