@@ -1364,3 +1364,29 @@ ggplot(df_dive_ms_big, aes(x = Mut, y = MutSpec, color = diving))+
   geom_point()
 ggplot(df_fly_ms_big, aes(x = Mut, y = MutSpec, fill = flightless))+
   geom_boxplot()
+
+#new phenotypes from AVONET
+ggplot(df_mtdna, aes(x = Habitat, y = ghahSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_mtdna, aes(x = Habitat, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(df_mtdna, aes(x = Primary_lifestyle, y = ghahSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_mtdna, aes(x = Primary_lifestyle, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+df_migr = df_int[,c('Species3', 'Migration')]
+names(df_migr) = c('species_name', 'migration')
+df_migr_mtdna = merge(df_mtdna, df_migr, by = 'species_name')
+df_migr_mtdna$migration = as.character(df_migr_mtdna$migration)
+ggplot(df_migr_mtdna, aes(x = migration, y = ghahSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplot(df_migr_mtdna, aes(x = migration, y = chthSkew))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
