@@ -941,7 +941,8 @@ ggplot(df_short, aes(x = GhAhSkew, y = log_mass))+
 ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
   geom_smooth(method=lm)+
-  xlab('Десятичный логарифм массы (измерялась в граммах)')
+  xlab('Десятичный логарифм массы (измерялась в граммах)')+
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 
 lm1 = lm(log_mass ~ GhAhSkew, data = df_short)
 summary(lm1)
@@ -1144,7 +1145,8 @@ ggplot(df_russian_fly, aes(x = russian_fly, y = GhAhSkew))+
   xlim(c('Летающие птицы', "Тинамуобразные", "Кивиобразные", "Казуарообразные", "Страусообразные", "Нандуобразные",
          "Попугаеобразные", "Голубеобразные", "Отряд Кагу и солнечной цапли", "Журавлеобразные", "Пингвинообразные"))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlab("Летающие птицы и отряды нелетающих птиц")
+  xlab("Летающие птицы и отряды нелетающих птиц")+
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 
 
 df_eco = unique(df_eco)
@@ -1206,7 +1208,8 @@ ggplot(df_russian_dive, aes(x = russian_dive, y = GhAhSkew))+
   xlim(c('Птицы, не способные к дайвингу', "Гусеобразные", "Пингвинообразные", "Поганкообразные", "Гагарообразные", "Олушеобразные",
          "Ракшеобразные", "Воробьинообразные", "Журавлеобразные", "Ржанкообразные", "Буревестникообразные"))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlab("Птицы, не способные к дайвингу, и отряды птиц - дайверов")
+  xlab("Птицы, не способные к дайвингу, и отряды птиц - дайверов")+
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 
 df1 = df_russian_fly[df_russian_fly$flightless == "Apterygiformes",]
 df2 = df_russian_fly[df_russian_fly$flightless == "Casuariiformes",]

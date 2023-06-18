@@ -43,7 +43,7 @@ f5
 skew_all = ggplot(data = df_mtdna, aes(x = gene_name, y = ghahSkew))+
   geom_boxplot(outlier.shape = NA, notch = T)+
   xlab('Митохондриальные гены')+
-  ylab('GhAhSkew')
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 skew_all = skew_all + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND1","ND2"))
 skew_all
 
@@ -114,18 +114,18 @@ df_for_diploma = rbind(dfr1, dfr2, dfr3, dfr4, dfr5, dfr6, dfr7, dfr8, dfr9, dfr
 
 
 skew_eco = ggplot(data = df_for_diploma, aes(x = russian_eco, y = ghahSkew))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, notch = TRUE)+
   xlab('Экозоны')+
-  ylab('GhAhSkew')
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 skew_eco = skew_eco + xlim(c('Антарктика', 'Неарктика', 'Палеарктика', 'Индо-Малайзия', 'Афротропики', 'Мадагаскар', 'Неотропики', 'Австралия', 'Океания'))
 skew_eco = skew_eco + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_eco
 
 
 skew_eco12 = ggplot(data = df_for_diploma, aes(x = russian_tn, y = ghahSkew))+
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, notch = TRUE)+
   xlab('Трофические ниши')+
-  ylab('GhAhSkew')
+  ylab('Метрика окислительного стресса (GhAhSkew)')
 skew_eco12 = skew_eco12 + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_eco12 = skew_eco12 + xlim(c('Водные травоядные', 'Падальщики', 'Позвоночные', 'Зерноядные', 'Наземные травоядные', 'Беспозвоночные', 'Водные хищники', 'Нектароядные', 'Всеядные', 'Плодоядные'))
 skew_eco12
@@ -220,9 +220,9 @@ summary(stats_pca)
 
 
 #Млеки и птицы
-unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../Body/3Results/")
+SynNuc = read.table("../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
 names(SynNuc)
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
@@ -239,7 +239,7 @@ new_big = rbind(new_mam, new_bird)
 new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
   xlab('Митохондриальные гены')+
-  ylab('GhAhSkew')+
+  ylab('Метрика окислительного стресса (GhAhSkew)')+
   scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
 new_b_and_m = new_b_and_m + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m = new_b_and_m + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
