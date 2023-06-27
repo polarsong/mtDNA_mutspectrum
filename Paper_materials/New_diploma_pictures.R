@@ -1252,6 +1252,49 @@ t.test(df_dive_final[df_dive_final$diving =='Sphenisciformes',]$GhAhSkew, df_div
 t.test(df_dive_final[df_dive_final$diving =='Anseriformes',]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
 t.test(df_dive_final[(df_dive_final$diving !='Anseriformes') & (df_dive_final$diving !='Sphenisciformes') & (df_dive_final$diving !='0'),]$GhAhSkew, df_dive_final[df_dive_final$diving =='0',]$GhAhSkew)
 
+df_russian_dive$species_name = gsub(' ', '_', df_russian_dive$species_name)
+df_russian_fly$species_name = gsub(' ', '_', df_russian_fly$species_name)
+df_fly_mut = merge(df_russian_fly, mut_data_syn1, by = 'species_name')
+ggplot(df_fly_mut, aes(x = Mut, y = MutSpec, color = flightless))+
+  geom_point()
+df_fly_mut_zero = df_fly_mut[df_fly_mut$flightless != 0,]
+df_fly_mut_nozero = df_fly_mut[df_fly_mut$flightless == 0,]
+ggplot(df_fly_mut_zero, aes(x = Mut, y = MutSpec, color = flightless))+
+  geom_point()
+ggplot(df_fly_mut_nozero, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+check = df_fly_mut_zero[df_fly_mut_zero$flightless == 'Sphenisciformes',]
+ggplot(check, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+ggplot(check, aes(x = Mut, y = MutSpec, color = realm.x))+
+  geom_point()
+t.test(df_fly_mut_nozero$GhAhSkew, df_fly_mut_zero[df_fly_mut_zero$flightless == 'Sphenisciformes',]$GhAhSkew)
+df_antarcit = mut_data_syn1[mut_data_syn1$realm == 'Антарктика',]
+ggplot(mut_data_syn1, aes(x = Mut, y = MutSpec, color = realm))+
+  geom_point()
+ggplot(mut_data_syn1, aes(x = Mut, y = MutSpec, color = realm))+
+  geom_boxplot()+
+  geom_jitter()
+ggplot(df_antarcit, aes(x = Mut, y = MutSpec, color = species_name))+
+  geom_point()
+ggplot(df_antarcit, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()+
+  geom_jitter()
+df_dive_mut = merge(df_russian_dive, mut_data_syn1, by = 'species_name')
+df_dive_mut_zero = df_dive_mut[df_dive_mut$diving != 0,]
+df_dive_mut_nozero = df_dive_mut[df_dive_mut$diving == 0,]
+ggplot(df_dive_mut_zero, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+ggplot(df_dive_mut_nozero, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+except1 = df_dive_mut_zero[df_dive_mut_zero$diving == 'Anseriformes',]
+except2 = df_dive_mut_zero[df_dive_mut_zero$diving == 'Anseriformes' | df_dive_mut_zero$diving == 'Sphenisciformes' | df_dive_mut_zero$diving == 'Suliformes' | df_dive_mut_zero$diving == 'Gaviiformes' | df_dive_mut_zero$diving == 'Podicipediformes',]
+ggplot(except1, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
+ggplot(except1, aes(x = Mut, y = MutSpec, color = Trophic_niche))+
+  geom_point()
+ggplot(except2, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()
 
 #Midory mutspec data
 mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/internal_12_syn_mutspec_all.csv", header = TRUE, fill = TRUE, sep = ',')
