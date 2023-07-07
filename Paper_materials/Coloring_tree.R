@@ -27,26 +27,25 @@ my_tree = read.tree("../paper_materials/anc_kg.treefile")
 
 plot_sbs_on_tree <- function(label, indir='../paper_materials', outdir='../paper_materials') {
   grad_val = read.table('../paper_materials/color_file.csv', sep=",", header = T)
-  names(grad_val) = c('label', 'MutSpec', 'RefNode')  # this label is not the label in input args
+  names(grad_val) = c('RefNode', 'label', 'MutSpec')  # this label is not the label in input args
   
-  test = full_join(as_tibble(my_tree), tibble(grad_val[,c(1,2)]), by = 'label')
+  test = full_join(as_tibble(my_tree), tibble(grad_val[,c(2,3)]), by = 'label')
   der = as.treedata(test)
   
   ext <- 'pdf'
-  out_image_file <- paste(outdir, label, 'bird_colored_tree', ext, sep = '')
+  out_image_file <- paste('bird_colored_tree', sep = '')
   der <- groupOTU(der, c("Aptenodytes_forsteri", "Pygoscelis_adeliae"))
-  ggtree(der, aes(color = der@data$MutSpec)) + geom_tiplab(size = 3, colour = "darkgray") +
+  colored_tree = ggtree(der, aes(color = der@data$MutSpec)) + geom_tiplab(size = 3, colour = "darkgray") +
     scale_color_continuous(low="green", high="red") +
     theme(legend.position="bottom") +
     labs(col=label) +
     geom_tippoint(aes(alpha = group), col = "red") +
     scale_color_manual(values = c(0,1), aesthetics = "alpha")
-  
-  ggsave(out_image_file,  width = 2000, height = 2000, units = 'px', scale=2.2)
+  return(colored_tree)
 }
 label <- 'A>G'
 plot_sbs_on_tree(label)
-
+ggsave(out_image_file,  width = 2000, height = 2000, units = 'px', scale=2.2)
 paste
 for (n1 in c('A', 'C', 'G', 'T')) {
   for (n2 in c('A', 'C', 'G', 'T')) {
