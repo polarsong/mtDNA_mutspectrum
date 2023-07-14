@@ -1100,10 +1100,10 @@ ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
-  geom_jitter()+
-  xlab('Неспособность к полету')
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('0', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
 ggplot(df_fly_final, aes(x = flightless, y = ThChSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ 
@@ -1175,6 +1175,12 @@ ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
 ggplot(df_dive_final, aes(x = diving, y = ThChSkew))+
   geom_boxplot(outlier.shape = NA)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(df_dive_final, aes(x = diving, y = GhAhSkew))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('0', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
 
 df_dive_final$russian_dive = ''
 unique(df_dive_final$diving)
