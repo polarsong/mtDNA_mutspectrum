@@ -152,18 +152,23 @@ new_bird = df_mtdna[, c('species_name', 'gene_name', 'ghahSkew','chthSkew')]
 new_bird$class = 'Птицы'
 new_bird$species_name = gsub(' ', '_', new_bird$species_name)
 new_bird$gene_name[new_bird$gene_name == 'CYTB'] = 'CytB'
-names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'class')
+names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'Class')
 
+new_mam = SynNuc[, c(1, 2, 79, 80)]
+new_mam = new_mam[new_mam$Gene != 'ND6',]
+new_mam$Class = 'Mammals'
+new_bird = df_mtdna[, c('species_name', 'gene_name', 'ghahSkew','chthSkew')]
+new_bird$Class = 'Birds'
+new_bird$species_name = gsub(' ', '_', new_bird$species_name)
+new_bird$gene_name[new_bird$gene_name == 'CYTB'] = 'CytB'
+names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'Class')
 new_big = rbind(new_mam, new_bird)
-new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
+new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = Class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
   xlab('Mitochondrial genes')+
   ylab('GhAhSkew')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))+
-  annotate("text", x=8, y=-0.5, label= "GhAhSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        axis.title.y=element_blank(), axis.ticks.y=element_blank(),
-        legend.position = "none")
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m
 
 new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = chthSkew, fill = class))+
