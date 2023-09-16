@@ -26,7 +26,7 @@ labelnodes(1:(Ntip(vert.tree)+vert.tree$Nnode),
            1:(Ntip(vert.tree)+vert.tree$Nnode),
            interactive=FALSE,cex=0.8)
 #reading tree files
-anolis.tree<-read.tree(file="Anolis.tre.txt")
+anolis.tree<-read.tree(file="../../2Scripts/PCM_in_R_materials/Anolis.tre.txt")
 anolis.tree
 plotTree(anolis.tree,ftype="i",fsize=0.4,lwd=1)
 Ntip(anolis.tree)
@@ -79,9 +79,9 @@ anolis.trees<-c(anolis.tree,anolis.noPR,pr.clade,
                 pr.tree)
 print(anolis.trees,details=TRUE)
 #csv tree
-anole.data<-read.csv(file="anole.data.csv",row.names=1,
+anole.data<-read.csv(file="../../2Scripts/PCM_in_R_materials/anole.data.csv",row.names=1,
                      header=TRUE)
-ecomorph<-read.csv(file="ecomorph.csv",row.names=1,
+ecomorph<-read.csv(file="../../2Scripts/PCM_in_R_materials/ecomorph.csv",row.names=1,
                    header=TRUE,stringsAsFactors=TRUE)
 #comparing files then pruning
 library(geiger)
