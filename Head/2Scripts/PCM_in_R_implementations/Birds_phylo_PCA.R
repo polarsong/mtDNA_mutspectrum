@@ -47,7 +47,7 @@ df_eco7 = df_eco[df_eco$Flight == "Rheiformes",]
 df_eco8 = df_eco[df_eco$Flight == "Eurypygiformes",]
 df_eco9 = df_eco[df_eco$Flight == "Psittaciformes",]
 df_eco10 = df_eco[df_eco$Flight == "Struthioniformes",]
-
+df_flight_names = rbind(df_eco0, df_eco1, df_eco2, df_eco3, df_eco4, df_eco5, df_eco6, df_eco7, df_eco8, df_eco9, df_eco10)
 df_eco1$Flight = 1
 df_eco2$Flight = 1
 df_eco3$Flight = 1
@@ -74,6 +74,8 @@ df_eco7 = df_eco_cooler[df_eco_cooler$Diving == "Gruiformes",]
 df_eco8 = df_eco_cooler[df_eco_cooler$Diving == "Gaviiformes",]
 df_eco9 = df_eco_cooler[df_eco_cooler$Diving == "Podicipediformes",]
 df_eco10 = df_eco_cooler[df_eco_cooler$Diving == "Sphenisciformes",]
+
+df_dive_names = rbind(df_eco0, df_eco1, df_eco2, df_eco3, df_eco4, df_eco5, df_eco6, df_eco7, df_eco8, df_eco9, df_eco10)
 
 df_eco1$Diving = 1
 df_eco2$Diving = 1
@@ -122,27 +124,112 @@ flying_birds_pca<-phyl.pca(flight_tree,df_flight_pca)
 flying_birds_pca
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(flying_birds_pca,main="")
-flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
-flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
-flying_birds_pca$S<-scores(flying_birds_pca,
-                       newdata=df_flight_pca)
+#flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
+#flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
+#flying_birds_pca$S<-scores(flying_birds_pca,
+                       #newdata=df_flight_pca)
 
 par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
-#everything works until here
+
 phylomorphospace(flight_tree,
                  scores(flying_birds_pca)[,1:2],
                  ftype="off",node.size=c(0,1),bty="n",las=1,
                  xlab="PC1",
                  ylab="PC2")
 #color legend!!!! do later
-eco<-setNames(df_flight_pca[,2],rownames(df_flight_pca))
+
+df_flight_names[df_flight_names$Flight == '0',]$Flight = 'Flying'
+df_flight_names$Flight = as.factor(df_flight_names$Flight)
+eco<-setNames(df_flight_names[,3],rownames(df_flight_names))
+
 ECO<-to.matrix(eco,levels(eco))
-tiplabels(pie=eco[flight_tree$tip.label,],cex=0.5)
-legend(x="bottomright",legend=levels(eco),cex=0.8,pch=21,
+tiplabels(pie=ECO[flight_tree$tip.label,],cex=0.5)
+legend(x="center",legend=levels(eco),cex=0.8,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
 
+#Correct PCA
 
-tiplabels(pie=ECO[ecomorph.tree$tip.label,],cex=0.5)
-legend(x="bottomright",legend=levels(eco),cex=0.8,pch=21,
+df_metrics_AG = df_mtdna[,c('species_name','ghahSkew', 'fAn', 'fGn')]
+df_metrics_AG_clean = data.frame()
+for (i in unique(df_metrics_AG$species_name))
+{
+  a = df_metrics_AG[df_metrics_AG$species_name == i,]
+  b = sum(a$ghahSkew)/12
+  c = sum(a$fAn)/12
+  d = sum(a$fGn)/12
+  ab = c(i,b,c,d)
+  df_metrics_AG_clean = rbind(df_metrics_AG_clean, ab)
+}
+names(df_metrics_AG_clean) =c('species_name', 'GhAhSkew', 'fAn', 'fGn')
+df_metrics_AG_clean$species_name = gsub(' ', '_', df_metrics_AG_clean$species_name)
+df_correct_flight_pca = merge(df_eco_cooler, df_metrics_AG_clean)
+rownames(df_correct_flight_pca) = df_correct_flight_pca$species_name
+
+name.check(flight_tree, df_correct_flight_pca)
+df_correct_flight_pca = df_correct_flight_pca[,c(2,5,6)]
+df_correct_flight_pca$GhAhSkew = as.numeric(as.character(df_correct_flight_pca$GhAhSkew))
+df_correct_flight_pca$fAn= as.numeric(as.character(df_correct_flight_pca$fAn))
+df_correct_flight_pca$fGn = as.numeric(as.character(df_correct_flight_pca$fGn))
+flying_birds_pca<-phyl.pca(flight_tree,df_correct_flight_pca)
+flying_birds_pca
+par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
+plot(flying_birds_pca,main="")
+#flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
+#flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
+#flying_birds_pca$S<-scores(flying_birds_pca,
+#newdata=df_flight_pca)
+
+par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
+
+phylomorphospace(flight_tree,
+                 scores(flying_birds_pca)[,1:2],
+                 ftype="off",node.size=c(0,1),bty="n",las=1,
+                 xlab="PC1",
+                 ylab="PC2")
+#color legend!!!! do later
+
+df_flight_names[df_flight_names$Flight == '0',]$Flight = 'Flying'
+df_flight_names$Flight = as.factor(df_flight_names$Flight)
+eco<-setNames(df_flight_names[,3],rownames(df_flight_names))
+
+ECO<-to.matrix(eco,levels(eco))
+tiplabels(pie=ECO[flight_tree$tip.label,],cex=0.3)
+legend(x="center",legend=levels(eco),cex=0.8,pch=21,
+       pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
+
+#diving PCA
+df_correct_dive_pca = merge(df_metrics_AG_clean,  df_dive_names)
+df_dive_names[df_dive_names$Diving == '0',]$Diving = 'Non-diving'
+df_dive_names$Diving = as.factor(df_dive_names$Diving)
+rownames(df_correct_dive_pca) = df_correct_dive_pca$species_name
+df_correct_dive_pca = df_correct_dive_pca[,c(2,3,4)]
+
+name.check(dive_tree, df_correct_dive_pca)
+df_correct_dive_pca$GhAhSkew = as.numeric(as.character(df_correct_dive_pca$GhAhSkew))
+df_correct_dive_pca$fAn= as.numeric(as.character(df_correct_dive_pca$fAn))
+df_correct_dive_pca$fGn = as.numeric(as.character(df_correct_dive_pca$fGn))
+diving_birds_pca<-phyl.pca(dive_tree,df_correct_dive_pca)
+diving_birds_pca
+par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
+plot(diving_birds_pca,main="")
+#flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
+#flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
+#flying_birds_pca$S<-scores(flying_birds_pca,
+#newdata=df_flight_pca)
+
+par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
+
+phylomorphospace(dive_tree,
+                 scores(diving_birds_pca)[,1:2],
+                 ftype="off",node.size=c(0,1),bty="n",las=1,
+                 xlab="PC1",
+                 ylab="PC2")
+#color legend!!!! do later
+
+eco<-setNames(df_dive_names[,4],rownames(df_dive_names))
+
+ECO<-to.matrix(eco,levels(eco))
+tiplabels(pie=ECO[dive_tree$tip.label,],cex=0.3)
+legend(x="center",legend=levels(eco),cex=0.8,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
