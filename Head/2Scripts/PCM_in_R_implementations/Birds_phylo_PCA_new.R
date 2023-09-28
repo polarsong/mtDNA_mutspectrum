@@ -23,8 +23,16 @@ library(geiger)
 #write.csv(df_char3, 'birds_metrics.csv')
 df_temp_fly = read.csv('birds_metrics.csv')
 rownames(df_temp_fly) = df_temp_fly$species_name
-df_temp_fly = df_temp_fly[,c(3:17)]
-temp_tree = read.tree('temperature_birds_tree.tre')
+df_flight_names = read.csv('flight_and_gene.csv')
+rownames(df_flight_names) = df_flight_names$species_name
+df_flight_names = df_flight_names[,c(2,3)]
+df_temp_fly = df_temp_fly[,c(2:17)]
+df_temp_fly = merge(df_temp_fly, df_flight_names)
+rownames(df_temp_fly) = df_temp_fly$species_name
+df_temp_fly = df_temp_fly[,c(2:17)]
+
+
+temp_tree = read.tree('flight_and_temp.tre')
 df_temp_fly$Latitude = gsub(',', '.', df_temp_fly$Latitude)
 df_temp_fly$AnnualTemp = gsub(',', '.', df_temp_fly$AnnualTemp)
 df_temp_fly$TempRange = gsub(',', '.', df_temp_fly$TempRange)
@@ -47,13 +55,25 @@ df_temp_fly$TempRange = as.numeric(as.character(df_temp_fly$TempRange))
 df_temp_fly$AnnualPrecip = as.numeric(as.character(df_temp_fly$AnnualPrecip))
 df_temp_fly$PrecipRange = as.numeric(as.character(df_temp_fly$PrecipRange))
 
-
+df_temp_fly$Beak_length_Culmen = log10(df_temp_fly$Beak_length_Culmen)
+df_temp_fly$Beak_length_Naresn = log10(df_temp_fly$Beak_length_Nares)
+df_temp_fly$Beak_width = log10(df_temp_fly$Beak_width)
+df_temp_fly$Beak_depth = log10(df_temp_fly$Beak_depth)
+df_temp_fly$Tarsus_length = log10(df_temp_fly$Tarsus_length)
+df_temp_fly$Wing_length = log10(df_temp_fly$Wing_length)
+df_temp_fly$Kipps_distance = log10(df_temp_fly$Kipps_distance)
+df_temp_fly$Hand_wing_index = log10(df_temp_fly$Hand_wing_index)
+df_temp_fly$Tail_length = log10(df_temp_fly$Tail_length)
+df_temp_fly$Mass = log10(df_temp_fly$Mass)
+df_temp_fly$TempRange = log10(df_temp_fly$TempRange)
+df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
+df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly)
+temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(1:10,17)])
 temp_birds_pca
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
-plot(flying_birds_pca,main="")
+plot(temp_birds_pca,main="")
 #flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
 #flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
 #flying_birds_pca$S<-scores(flying_birds_pca,
@@ -67,12 +87,10 @@ phylomorphospace(temp_tree,
                  xlab="PC1",
                  ylab="PC2")
 #color legend!!!! do later
-
-df_flight_names[df_flight_names$Flight == '0',]$Flight = 'Flying'
-df_flight_names$Flight = as.factor(df_flight_names$Flight)
-eco<-setNames(df_flight_names[,3],rownames(df_flight_names))
+df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
+eco<-setNames(df_temp_fly[,16],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
-tiplabels(pie=ECO[flight_tree$tip.label,],cex=0.3)
-legend(x="center",legend=levels(eco),cex=0.8,pch=21,
+tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
+legend(x="bottomleft",legend=levels(eco),cex=0.7,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
