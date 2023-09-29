@@ -29,7 +29,7 @@ df_flight_names = df_flight_names[,c(2,3)]
 df_temp_fly = df_temp_fly[,c(2:17)]
 df_temp_fly = merge(df_temp_fly, df_flight_names)
 rownames(df_temp_fly) = df_temp_fly$species_name
-df_temp_fly = df_temp_fly[,c(2:17)]
+#df_temp_fly = df_temp_fly[,c(2:17)]
 
 
 temp_tree = read.tree('flight_and_temp.tre')
@@ -65,12 +65,14 @@ df_temp_fly$Kipps_distance = log10(df_temp_fly$Kipps_distance)
 df_temp_fly$Hand_wing_index = log10(df_temp_fly$Hand_wing_index)
 df_temp_fly$Tail_length = log10(df_temp_fly$Tail_length)
 df_temp_fly$Mass = log10(df_temp_fly$Mass)
+
+
 df_temp_fly$TempRange = log10(df_temp_fly$TempRange)
 df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(11:15)])
+temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(12:16)])
 temp_birds_pca
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(temp_birds_pca,main="")
@@ -88,9 +90,14 @@ phylomorphospace(temp_tree,
                  ylab="PC2")
 #color legend!!!! do later
 df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
-eco<-setNames(df_temp_fly[,16],rownames(df_temp_fly))
+df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
+eco<-setNames(df_temp_fly[,17],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
 tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
 legend(x="bottomleft",legend=levels(eco),cex=0.6,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
+
+a = as.data.frame(temp_birds_pca$S)
+temp_birds_pca$
+df_temp_fly[df_temp_fly$ability_to_fly == 'Sphenisciformes',]$species_name
