@@ -72,7 +72,7 @@ df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(12:16)])
+temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(13:14)])
 temp_birds_pca
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(temp_birds_pca,main="")
@@ -95,9 +95,9 @@ eco<-setNames(df_temp_fly[,17],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
 tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
-legend(x="bottomleft",legend=levels(eco),cex=0.6,pch=21,
+legend(x="topright",legend=levels(eco),cex=0.6,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
 a = as.data.frame(temp_birds_pca$S)
-temp_birds_pca$
+
 df_temp_fly[df_temp_fly$ability_to_fly == 'Sphenisciformes',]$species_name
