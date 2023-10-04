@@ -4,7 +4,9 @@ library(phangorn)
 library(phytools)
 library(geiger)
 #birds_tree<-read.tree(file="../../2Scripts/PCM_in_R_implementations/anc_kg.treefile")
-#df_mtdna = read.csv('Birds_dataset_paper.csv')
+df_mtdna = read.csv('Birds_dataset_paper.csv')
+df_realms = unique(df_mtdna[,c('species_name', 'realm')])
+df_realms$species_name = gsub(' ', '_', df_realms$species_name)
 #df_temp = read.csv('Birds_temperature_table.csv')
 #df_char1= unique(df_mtdna[,c('species_name',"Beak_length_Culmen", "Beak_length_Nares", "Beak_width", "Beak_depth", "Tarsus_length", "Wing_length", "Kipps_distance", "Hand_wing_index", "Tail_length", "Mass" )])
 #df_char2 = df_temp[,c('Species.name', "Latitude", "AnnualTemp", "TempRange", "AnnualPrecip", "PrecipRange")]
@@ -24,8 +26,9 @@ library(geiger)
 df_temp_fly = read.csv('birds_metrics.csv')
 rownames(df_temp_fly) = df_temp_fly$species_name
 df_flight_names = read.csv('flight_and_gene.csv')
+df_flight_names = df_flight_names[,c(2:3)]
+df_flight_names = merge(df_flight_names, df_realms)
 rownames(df_flight_names) = df_flight_names$species_name
-df_flight_names = df_flight_names[,c(2,3)]
 df_temp_fly = df_temp_fly[,c(2:17)]
 df_temp_fly = merge(df_temp_fly, df_flight_names)
 rownames(df_temp_fly) = df_temp_fly$species_name
@@ -72,7 +75,7 @@ df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(2:11)])
+temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(13,14)])
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(temp_birds_pca,main="")
 #flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
@@ -83,10 +86,49 @@ plot(temp_birds_pca,main="")
 par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
 
 phylomorphospace(temp_tree,
-                 scores(temp_birds_pca)[,3:4],
+                 scores(temp_birds_pca)[,1:2],
                  ftype="off",node.size=c(0,1),bty="n",las=1,
                  xlab="PC1",
                  ylab="PC2")
+#color legend!!!! do later
+df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
+df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
+df_temp_fly$realm = as.factor(df_temp_fly$realm)
+eco<-setNames(df_temp_fly[,18],rownames(df_temp_fly))
+
+ECO<-to.matrix(eco,levels(eco))
+tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
+legend(x="topright",legend=levels(eco),cex=0.5,pch=21,
+       pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
+
+a = as.data.frame(temp_birds_pca$S)
+a$PC1 = a$PC1 - min(a$PC1) + 1
+a$PC2 = a$PC2 - min(a$PC2) + 1
+a$PC3 = a$PC3 - min(a$PC3) + 1
+a$PC4 = a$PC4 - min(a$PC4) + 1
+a$PC5 = a$PC5 - min(a$PC5) + 1
+a$PC6 = a$PC6 - min(a$PC6) + 1
+a$PC7 = a$PC7 - min(a$PC7) + 1
+a$PC8 = a$PC8 - min(a$PC8) + 1
+a$PC9 = a$PC9 - min(a$PC9) + 1
+a$PC10 = a$PC10 - min(a$PC10) + 1
+
+a$PC1 = log10(a$PC1)
+a$PC2 = log10(a$PC2)
+a$PC3 = log10(a$PC3)
+a$PC4 = log10(a$PC4)
+a$PC5 = log10(a$PC5)
+a$PC6 = log10(a$PC6)
+a$PC7 = log10(a$PC7)
+a$PC8 = log10(a$PC8)
+a$PC9 = log10(a$PC9)
+a$PC10 = log10(a$PC10)
+
+phylomorphospace(temp_tree,
+                 a[,7:8],
+                 ftype="off",node.size=c(0,1),bty="n",las=1,
+                 xlab="PC3",
+                 ylab="PC4")
 #color legend!!!! do later
 df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
 df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
@@ -94,9 +136,8 @@ eco<-setNames(df_temp_fly[,17],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
 tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
-legend(x="bottomright",legend=levels(eco),cex=0.6,pch=21,
+legend(x="topleft",legend=levels(eco),cex=0.6,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
-a = as.data.frame(temp_birds_pca$S)
 
-df_temp_fly[df_temp_fly$ability_to_fly == 'Sphenisciformes',]$species_name
+
