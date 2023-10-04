@@ -98,7 +98,7 @@ eco<-setNames(df_temp_fly[,18],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
 tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
-legend(x="topright",legend=levels(eco),cex=0.5,pch=21,
+legend(x="topright",legend=levels(eco),cex=0.6,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
 a = as.data.frame(temp_birds_pca$S)
