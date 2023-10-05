@@ -43,7 +43,7 @@ df_temp_fly$AnnualPrecip = gsub(',', '.', df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange= gsub(',', '.', df_temp_fly$PrecipRange)
 
 df_temp_fly$Beak_length_Culmen = as.numeric(as.character(df_temp_fly$Beak_length_Culmen))
-df_temp_fly$Beak_length_Naresn = as.numeric(as.character(df_temp_fly$Beak_length_Nares))
+df_temp_fly$Beak_length_Nares = as.numeric(as.character(df_temp_fly$Beak_length_Nares))
 df_temp_fly$Beak_width = as.numeric(as.character(df_temp_fly$Beak_width))
 df_temp_fly$Beak_depth = as.numeric(as.character(df_temp_fly$Beak_depth))
 df_temp_fly$Tarsus_length = as.numeric(as.character(df_temp_fly$Tarsus_length))
@@ -59,7 +59,7 @@ df_temp_fly$AnnualPrecip = as.numeric(as.character(df_temp_fly$AnnualPrecip))
 df_temp_fly$PrecipRange = as.numeric(as.character(df_temp_fly$PrecipRange))
 
 df_temp_fly$Beak_length_Culmen = log10(df_temp_fly$Beak_length_Culmen)
-df_temp_fly$Beak_length_Naresn = log10(df_temp_fly$Beak_length_Nares)
+df_temp_fly$Beak_length_Nares = log10(df_temp_fly$Beak_length_Nares)
 df_temp_fly$Beak_width = log10(df_temp_fly$Beak_width)
 df_temp_fly$Beak_depth = log10(df_temp_fly$Beak_depth)
 df_temp_fly$Tarsus_length = log10(df_temp_fly$Tarsus_length)
@@ -75,7 +75,7 @@ df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(13,14)])
+temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(2:11)])
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(temp_birds_pca,main="")
 #flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
@@ -94,7 +94,7 @@ phylomorphospace(temp_tree,
 df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
 df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
 df_temp_fly$realm = as.factor(df_temp_fly$realm)
-eco<-setNames(df_temp_fly[,18],rownames(df_temp_fly))
+eco<-setNames(df_temp_fly[,17],rownames(df_temp_fly))
 
 ECO<-to.matrix(eco,levels(eco))
 tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
@@ -125,10 +125,10 @@ a$PC9 = log10(a$PC9)
 a$PC10 = log10(a$PC10)
 
 phylomorphospace(temp_tree,
-                 a[,7:8],
+                 a[,9:10],
                  ftype="off",node.size=c(0,1),bty="n",las=1,
-                 xlab="PC3",
-                 ylab="PC4")
+                 xlab="PC9",
+                 ylab="PC10")
 #color legend!!!! do later
 df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
 df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
@@ -139,5 +139,37 @@ tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
 legend(x="topleft",legend=levels(eco),cex=0.6,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
+#only non-flying
+df_nf = df_temp_fly[df_temp_fly$ability_to_fly != 'Flying',]
+#not_fly_species = setdiff(df_temp_fly$species_name, df_nf$species_name)
+#correct_not_fly_species = setdiff(df_temp_fly$species_name, not_fly_species)
+#not_fly_tree<-keep.tip(temp_tree,correct_not_fly_species)
+#not_fly_tree
+write.tree(not_fly_tree ,file="non_flying_birds_tree.tre")
 
+nf_tree = read.tree('non_flying_birds_tree.tre')
+nf_birds_pca<-phyl.pca(nf_tree,df_nf[,c(2:16)])
+par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
+plot(nf_birds_pca,main="")
+#flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
+#flying_birds_pca$L[,1]<--flying_birds_pca$L[,1]
+#flying_birds_pca$S<-scores(flying_birds_pca,
+#newdata=df_flight_pca)
 
+par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
+
+phylomorphospace(nf_tree,
+                 scores(nf_birds_pca)[,1:2],
+                 ftype="off",node.size=c(0,1),bty="n",las=1,
+                 xlab="PC1",
+                 ylab="PC2")
+#color legend!!!! do later
+df_nf$ability_to_fly = as.factor(df_nf$ability_to_fly)
+df_nf$species_name = as.factor(df_nf$species_name)
+df_nf$realm = as.factor(df_nf$realm)
+eco<-setNames(df_nf[,17],rownames(df_nf))
+
+ECO<-to.matrix(eco,levels(eco))
+tiplabels(pie=ECO[nf_tree$tip.label,],cex=0.3)
+legend(x="bottomright",legend=levels(eco),cex=0.6,pch=21,
+       pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
