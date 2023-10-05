@@ -18,7 +18,7 @@ df_flight$fGn = as.numeric(as.character(df_flight$fGn))
 df_flight$flight_num = as.numeric(as.character(df_flight$flight_num))
 spp = rownames(df_flight)
 corBM = corBrownian(phy=flying_tree,form=~spp)
-corBM
+
 pgls_flying = gls(GhAhSkew~ability_to_fly,
                   data=df_flight,correlation=corBM)
 summary(pgls_flying)
@@ -119,3 +119,29 @@ summary(pgls_dive_4)
 
 
 anova(pgls_dive_4)
+
+#add temp
+df_mtdna = read.csv('Birds_dataset_paper.csv')
+df_realms = unique(df_mtdna[,c('species_name', 'realm')])
+df_realms$species_name = gsub(' ', '_', df_realms$species_name)
+df_temp_fly = read.csv('birds_metrics.csv')
+rownames(df_temp_fly) = df_temp_fly$species_name
+df_flight_names = read.csv('flight_and_gene.csv')
+df_flight_names = df_flight_names[,c(2:3)]
+df_flight_names = merge(df_flight_names, df_realms)
+rownames(df_flight_names) = df_flight_names$species_name
+df_temp_fly = df_temp_fly[,c(2:17)]
+df_temp_fly = merge(df_temp_fly, df_flight_names)
+rownames(df_temp_fly) = df_temp_fly$species_name
+
+
+temp_tree = read.tree('flight_and_temp.tre')
+name.check(temp_tree, df_temp_fly)
+spp = rownames(df_temp_fly)
+corBM = corBrownian(phy=temp_tree,form=~spp)
+
+pgls_temp = gls(GhAhSkew~ability_to_fly,
+                  data=df_flight,correlation=corBM)
+summary(pgls_temp)
+
+anova(pgls_temp)
