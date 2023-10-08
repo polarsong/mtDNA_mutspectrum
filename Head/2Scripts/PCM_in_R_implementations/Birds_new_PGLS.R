@@ -38,8 +38,12 @@ pgls_flying = gls(GhAhSkew~ability_to_fly,
 summary(pgls_flying)
 anova(pgls_flying)
 
+
+
+
+
 #mutspec PGLS
-df_mutspec = read.table('C:/Users/User/Desktop/mutspec12.tsv', header = TRUE, fill = TRUE)
+df_mutspec = read.table('C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec12.tsv', header = TRUE, fill = TRUE)
 df_ff = df_mutspec[df_mutspec$Label == 'ff',]
 df_syn = df_mutspec[df_mutspec$Label == 'syn',]
 df_ff = df_ff[!grepl('Node', df_ff$AltNode),]
@@ -47,6 +51,19 @@ df_ff = df_ff[,c(1,5,7)]
 df_ff1 = reshape(data = df_ff, idvar = 'AltNode',
              timevar = 'Mut',
              direction = 'wide')
-names(df_ff1) = c('species_name', 'T>G', 'T>C', 'T>A', 'G>T', 'G>C', 'G>A', 'C>T', 'C>G', 'C>A', 'A>T', 'A>G', 'A>C')
-df_fly_peng = merge(df_fly_peng, df_ff1)
-#do pgls later
+names(df_ff1) = c('species_name', 'Mutation_TG', 'Mutation_TC', 'Mutation_TA', 'Mutation_GT', 'Mutation_GC', 
+                  'Mutation_GA', 'Mutation_CT', 'Mutation_CG', 'Mutation_CA', 'Mutation_AT', 'Mutation_AG', 'Mutation_AC')
+df_fly_peng1 = merge(df_fly_peng, df_ff1)
+need_species = setdiff(df_fly_peng$species_name, df_fly_peng1$species_name)
+correct_need_species = setdiff(df_fly_peng$species_name, need_species)
+peng_fly_tree1<-keep.tip(peng_fly_tree,correct_need_species)
+df_fly_peng1$Mutation_AG = as.numeric(df_fly_peng1$Mutation_AG)
+typeof(df_fly_peng1$Mutation_AG)
+spp = rownames(df_fly_peng1)
+corBM = corBrownian(phy=peng_fly_tree1,form=~spp)
+
+
+pgls_mt_peng = gls(Mutation_AG~ability_to_fly,
+                  data=df_fly_peng1,correlation=corBM)
+summary(pgls_flying)
+anova(pgls_flying)
