@@ -74,8 +74,67 @@ df_temp_fly$TempRange = log10(df_temp_fly$TempRange)
 df_temp_fly$AnnualPrecip = log10(df_temp_fly$AnnualPrecip)
 df_temp_fly$PrecipRange = log10(df_temp_fly$PrecipRange)
 
+#adding everything to PCA
+df_flight = read.csv('flight_and_gene.csv')
+df_flight = df_flight[,c(2,4,5,6)]
+df_temp_fly = merge(df_temp_fly, df_flight)
+
+df_mutspec = read.table('C:/Users/User/Desktop/mutspec12.tsv', header = TRUE, fill = TRUE)
+df_ff = df_mutspec[df_mutspec$Label == 'ff',]
+df_syn = df_mutspec[df_mutspec$Label == 'syn',]
+df_ff = df_ff[!grepl('Node', df_ff$AltNode),]
+df_ff = df_ff[,c(1,5,7)]
+df_ff1 = reshape(data = df_ff, idvar = 'AltNode',
+                 timevar = 'Mut',
+                 direction = 'wide')
+names(df_ff1) = c('species_name', 'Mutation_TG', 'Mutation_TC', 'Mutation_TA', 'Mutation_GT', 'Mutation_GC', 
+                  'Mutation_GA', 'Mutation_CT', 'Mutation_CG', 'Mutation_CA', 'Mutation_AT', 'Mutation_AG', 'Mutation_AC')
+df_syn = df_syn[!grepl('Node', df_syn$AltNode),]
+df_syn = df_syn[,c(1,5,7)]
+df_syn1 = reshape(data = df_syn, idvar = 'AltNode',
+                  timevar = 'Mut',
+                  direction = 'wide')
+names(df_syn1) = c('species_name', 'Mutation_TG_syn', 'Mutation_TC_syn', 'Mutation_TA_syn', 'Mutation_GT_syn', 'Mutation_GC_syn', 
+                   'Mutation_GA_syn', 'Mutation_CT_syn', 'Mutation_CG_syn', 'Mutation_CA_syn', 'Mutation_AT_syn', 'Mutation_AG_syn', 'Mutation_AC_syn')
+
+df_temp_fly1 = merge(df_temp_fly, df_ff1)
+df_temp_fly1 = merge(df_temp_fly1, df_syn1)
+
+need_species = setdiff(df_temp_fly$species_name, df_temp_fly1$species_name)
+correct_need_species = setdiff(df_temp_fly$species_name, need_species)
+big_data_tree1<-keep.tip(temp_tree,correct_need_species)
+
+df_temp_fly1$GhAhSkew = as.numeric(as.character(df_temp_fly1$GhAhSkew))
+df_temp_fly1$fAn = as.numeric(as.character(df_temp_fly1$fAn))
+df_temp_fly1$fGn = as.numeric(as.character(df_temp_fly1$fGn))
+df_temp_fly1$Mutation_TG = as.numeric(as.character(df_temp_fly1$Mutation_TG))
+df_temp_fly1$Mutation_TC = as.numeric(as.character(df_temp_fly1$Mutation_TC))
+df_temp_fly1$Mutation_TA = as.numeric(as.character(df_temp_fly1$Mutation_TA))
+df_temp_fly1$Mutation_GT = as.numeric(as.character(df_temp_fly1$Mutation_GT))
+df_temp_fly1$Mutation_GA = as.numeric(as.character(df_temp_fly1$Mutation_GA))
+df_temp_fly1$Mutation_GC = as.numeric(as.character(df_temp_fly1$Mutation_GC))
+df_temp_fly1$Mutation_CT = as.numeric(as.character(df_temp_fly1$Mutation_CT))
+df_temp_fly1$Mutation_CG = as.numeric(as.character(df_temp_fly1$Mutation_CG))
+df_temp_fly1$Mutation_CA = as.numeric(as.character(df_temp_fly1$Mutation_CA))
+df_temp_fly1$Mutation_AT = as.numeric(as.character(df_temp_fly1$Mutation_AT))
+df_temp_fly1$Mutation_AG = as.numeric(as.character(df_temp_fly1$Mutation_AG))
+df_temp_fly1$Mutation_AC = as.numeric(as.character(df_temp_fly1$Mutation_AC))
+
+df_temp_fly1$Mutation_TG_syn = as.numeric(as.character(df_temp_fly1$Mutation_TG_syn))
+df_temp_fly1$Mutation_TC_syn = as.numeric(as.character(df_temp_fly1$Mutation_TC_syn))
+df_temp_fly1$Mutation_TA_syn = as.numeric(as.character(df_temp_fly1$Mutation_TA_syn))
+df_temp_fly1$Mutation_GT_syn = as.numeric(as.character(df_temp_fly1$Mutation_GT_syn))
+df_temp_fly1$Mutation_GA_syn = as.numeric(as.character(df_temp_fly1$Mutation_GA_syn))
+df_temp_fly1$Mutation_GC_syn = as.numeric(as.character(df_temp_fly1$Mutation_GC_syn))
+df_temp_fly1$Mutation_CT_syn = as.numeric(as.character(df_temp_fly1$Mutation_CT_syn))
+df_temp_fly1$Mutation_CG_syn = as.numeric(as.character(df_temp_fly1$Mutation_CG_syn))
+df_temp_fly1$Mutation_CA_syn = as.numeric(as.character(df_temp_fly1$Mutation_CA_syn))
+df_temp_fly1$Mutation_AT_syn = as.numeric(as.character(df_temp_fly1$Mutation_AT_syn))
+df_temp_fly1$Mutation_AG_syn = as.numeric(as.character(df_temp_fly1$Mutation_AG_syn))
+df_temp_fly1$Mutation_AC_syn = as.numeric(as.character(df_temp_fly1$Mutation_AC_syn))
+row.names(df_temp_fly1) = df_temp_fly1$species_name
 #SET ALMOST EVERYTHING TO LOG10
-temp_birds_pca<-phyl.pca(temp_tree,df_temp_fly[,c(2:11)])
+temp_birds_pca<-phyl.pca(big_data_tree1,df_temp_fly1[,c(2:11, 13:16, 19:45)])
 par(mar=c(4.1,4.1,2.1,1.1),las=1) ## set margins
 plot(temp_birds_pca,main="")
 #flying_birds_pca$Evec[,1]<--flying_birds_pca$Evec[,1]
@@ -85,20 +144,20 @@ plot(temp_birds_pca,main="")
 
 par(cex.axis=0.8,mar=c(5.1,5.1,1.1,1.1))
 
-phylomorphospace(temp_tree,
+phylomorphospace(big_data_tree1,
                  scores(temp_birds_pca)[,1:2],
                  ftype="off",node.size=c(0,1),bty="n",las=1,
                  xlab="PC1",
                  ylab="PC2")
 #color legend!!!! do later
-df_temp_fly$ability_to_fly = as.factor(df_temp_fly$ability_to_fly)
-df_temp_fly$species_name = as.factor(df_temp_fly$species_name)
-df_temp_fly$realm = as.factor(df_temp_fly$realm)
-eco<-setNames(df_temp_fly[,17],rownames(df_temp_fly))
+df_temp_fly1$ability_to_fly = as.factor(df_temp_fly1$ability_to_fly)
+df_temp_fly1$species_name = as.factor(df_temp_fly1$species_name)
+df_temp_fly1$realm = as.factor(df_temp_fly1$realm)
+eco<-setNames(df_temp_fly1[,17],rownames(df_temp_fly1))
 
 ECO<-to.matrix(eco,levels(eco))
-tiplabels(pie=ECO[temp_tree$tip.label,],cex=0.3)
-legend(x="topright",legend=levels(eco),cex=0.6,pch=21,
+tiplabels(pie=ECO[big_data_tree1$tip.label,],cex=0.3)
+legend(x="topleft",legend=levels(eco),cex=0.5,pch=21,
        pt.bg=rainbow(n=length(levels(eco))),pt.cex=1.5)
 
 a = as.data.frame(temp_birds_pca$S)
