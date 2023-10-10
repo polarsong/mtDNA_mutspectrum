@@ -74,7 +74,7 @@ spp1 = rownames(df_fly_peng1)
 corBM1 = corBrownian(phy=peng_fly_tree1,form=~spp1)
 
 
-pgls_mt_peng = gls(Mutation_CT~ability_to_fly,
+pgls_mt_peng = gls(Mutation_AG~ability_to_fly,
                   data=df_fly_peng1,correlation=corBM1)
 summary(pgls_mt_peng)
 
@@ -89,11 +89,15 @@ df_fly_not1$Mutation_AG = as.numeric(df_fly_not1$Mutation_AG)
 df_fly_not1$Mutation_AG_syn = as.numeric(df_fly_not1$Mutation_AG_syn)
 df_fly_not1$Mutation_CT = as.numeric(df_fly_not1$Mutation_CT)
 df_fly_not1$Mutation_CT_syn = as.numeric(df_fly_not1$Mutation_CT_syn)
+df_fly_not2 = df_fly_not1
+df_fly_not2[df_fly_not2$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
 row.names(df_fly_not1) = df_fly_not1$species_name
 spp2 = rownames(df_fly_not1)
 corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
 
-
-pgls_mt_not_fly = gls(Mutation_CT_syn~ability_to_fly,
-                   data=df_fly_not1,correlation=corBM2)
+row.names(df_fly_not2) = df_fly_not2$species_name
+spp3 = rownames(df_fly_not2)
+corBM3 = corBrownian(phy=not_fly_tree1,form=~spp3)
+pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly,
+                   data=df_fly_not2,correlation=corBM2)
 summary(pgls_mt_not_fly)
