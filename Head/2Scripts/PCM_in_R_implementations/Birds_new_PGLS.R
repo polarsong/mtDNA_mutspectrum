@@ -101,3 +101,5 @@ corBM3 = corBrownian(phy=not_fly_tree1,form=~spp3)
 pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly,
                    data=df_fly_not2,correlation=corBM2)
 summary(pgls_mt_not_fly)
+#write.tree(peng_fly_tree1,'peng_and_fly_all_data.tre')
+#write.tree(not_fly_tree1,'no_peng_and_fly_all_data.tre')
