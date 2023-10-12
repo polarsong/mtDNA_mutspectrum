@@ -49,26 +49,35 @@ df_flight1$Mutation_AG_syn = as.numeric(df_flight1$Mutation_AG_syn)
 df_flight1$Mutation_CT = as.numeric(df_flight1$Mutation_CT)
 df_flight1$Mutation_CT_syn = as.numeric(df_flight1$Mutation_CT_syn)
 rownames(df_flight1)= df_flight1$species_name
-
+df_flight1$double_fly = 0
+df_flight1[df_flight1$ability_to_fly == 'Flying',]$double_fly = 1
+df_temp_fly = read.csv('birds_metrics.csv')
+df_temp_fly = df_temp_fly[,c(2:17)]
+df_flight2 = merge(df_flight1, df_temp_fly)
+need_species = setdiff(df_flight1$species_name, df_flight2$species_name)
+correct_need_species = setdiff(df_flight1$species_name, need_species)
+birds_ms_and_temp_tree<-keep.tip(birds_ms_tree,correct_need_species)
+row.names(df_flight2) = df_flight2$species_name
+df_flight2$AnnualTemp = gsub(',', '.', df_flight2$AnnualTemp)
+df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
 
 #Starting coloring tree
 ## extract total body length and log-transform
-lnTL<-setNames(df_flight1$GhAhSkew,rownames(df_flight1))
+lnTL<-setNames(df_flight2$AnnualTemp,rownames(df_flight2))
 head(lnTL)
 ## estimate ancestral states using fastAnc
-fit.lnTL<-fastAnc(birds_ms_tree,lnTL,vars=TRUE,CI=TRUE)
+fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
 print(fit.lnTL,printlen=10)
-## plot eel phylogeny using plotTree
-plotTree(birds_ms_tree,ftype="i",fsize=0.5,lwd=1)
 ## compute "contMap" object
-birds_contMap<-contMap(birds_ms_tree,lnTL,
+birds_contMap<-contMap(birds_ms_and_temp_tree,lnTL,
                      plot=FALSE)
 ## plot "contMap" object
-plot(birds_contMap,sig=2,fsize=c(0.4,0.7),
-     lwd=c(2,3),leg.txt="GhAhSkew")
+plot(birds_contMap,sig=2,fsize=c(0.4,0.9),
+     lwd=c(2,3), leg.txt="GhAhSkew")
+
 ## identify the tips descended from node 102
 #write.tree(birds_ms_tree, 'flying_mt_data.tre')
-tips<-extract.clade(birds_ms_tree,'Node699')$tip.label #699 - peng, 690 peng + ant
+tips<-extract.clade(birds_ms_tree,'Node690')$tip.label #699 - peng, 690 peng + ant
 tips
 ## prune "contMap" object to retain only these tips
 pruned.contMap<-keep.tip.contMap(birds_contMap,tips)
