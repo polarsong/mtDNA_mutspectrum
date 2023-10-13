@@ -115,7 +115,7 @@ df_flight2$ChThSkew = as.numeric(as.character(df_flight2$ChThSkew))
 row.names(df_flight2) = df_flight2$species_name
 #Starting coloring tree
 ## extract total body length and log-transform
-lnTL<-setNames(df_flight2$fGn,rownames(df_flight2))
+lnTL<-setNames(df_flight2$Tail_length,rownames(df_flight2))
 head(lnTL)
 ## estimate ancestral states using fastAnc
 fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
