@@ -124,7 +124,7 @@ print(fit.lnTL,printlen=10)
 birds_contMap<-contMap(birds_ms_and_temp_tree,lnTL,
                      plot=FALSE)
 ## plot "contMap" object
-plot(birds_contMap,sig=2,fsize=c(0.4,0.9),
+plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
      lwd=c(2,3))
 
 ## identify the tips descended from node 102
