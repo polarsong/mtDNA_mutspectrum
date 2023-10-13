@@ -113,6 +113,22 @@ df_flight2$Mass = log10(df_flight2$Mass)
 df_flight2 = merge(df_flight2, df_need)
 df_flight2$ChThSkew = as.numeric(as.character(df_flight2$ChThSkew))
 row.names(df_flight2) = df_flight2$species_name
+df_midori = read.csv('C:/Users/User/Desktop/internal_12_syn_mutspec_all.csv')
+df_midori = df_midori[,c(2,5,6)]
+df_midori1 = reshape(data = df_midori, idvar = 'gene_and_species',
+                 timevar = 'Mut',
+                 direction = 'wide')
+library(stringr)
+df_midori1[,c('gene', 'species_name')] = str_split_fixed(df_midori1$gene_and_species, "_", 2)
+df_midori1 = df_midori1[,c(2:15)]
+names(df_midori1) = c('Mutation_TC_midori', 'Mutation_TA_midori', 'Mutation_GT_midori', 'Mutation_GC_midori',
+                      'Mutation_GA_midori', 'Mutation_CT_midori', 'Mutation_CG_midori', 'Mutation_CA_midori',
+                      'Mutation_AT_midori', 'Mutation_AG_midori', 'Mutation_AC_midori', 'Mutation_TG_midori',
+                      'gene', 'species_name')
+library(dplyr)
+df_midori2 <- df_midori1 %>% mutate(across(c('species_name'), substr, 2, nchar(species_name)))
+df_midori_cytb = df_midori2[df_midori2$gene == "Cytb",]
+df_flight3 = merge(df_flight2, df_midori_cytb)
 #Starting coloring tree
 ## extract total body length and log-transform
 lnTL<-setNames(df_flight2$Tail_length,rownames(df_flight2))
