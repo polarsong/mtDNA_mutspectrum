@@ -5,6 +5,19 @@ library(geiger)
 library(ggtree)
 peng_data_tree = read.tree('peng_and_fly_all_data.tre')
 birds_tree = read.tree('anc_kg.treefile')
+df_mtdna = read.csv('Birds_dataset_paper.csv')
+
+df_need = data.frame()
+for (i in unique(df_mtdna$species_name))
+{
+  a = df_mtdna[df_mtdna$species_name == i,]
+  b = sum(a$chthSkew)/12
+  ab = c(i,b)
+  df_need = rbind(df_need, ab)
+}
+
+names(df_need) = c('species_name', 'ChThSkew')
+df_need$species_name = gsub(' ', '_', df_need$species_name)
 
 df_flight = read.csv('flight_and_gene.csv')
 df_flight = df_flight[,c(2,3,4,5,6)]
@@ -58,12 +71,51 @@ need_species = setdiff(df_flight1$species_name, df_flight2$species_name)
 correct_need_species = setdiff(df_flight1$species_name, need_species)
 birds_ms_and_temp_tree<-keep.tip(birds_ms_tree,correct_need_species)
 row.names(df_flight2) = df_flight2$species_name
-df_flight2$AnnualTemp = gsub(',', '.', df_flight2$AnnualTemp)
-df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
+df_flight2$Latitude = gsub(',', '.', df_flight2$Latitude)
+df_flight2$TempRange = gsub(',', '.', df_flight2$TempRange)
+df_flight2$AnnualPrecip = gsub(',', '.', df_flight2$AnnualPrecip)
+df_flight2$PrecipRange= gsub(',', '.', df_flight2$PrecipRange)
+df_flight2$AnnualTemp= gsub(',', '.', df_flight2$AnnualTemp)
 
+df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
+df_flight2$Beak_length_Culmen = as.numeric(as.character(df_flight2$Beak_length_Culmen))
+df_flight2$Beak_length_Nares = as.numeric(as.character(df_flight2$Beak_length_Nares))
+df_flight2$Beak_width = as.numeric(as.character(df_flight2$Beak_width))
+df_flight2$Beak_depth = as.numeric(as.character(df_flight2$Beak_depth))
+df_flight2$Tarsus_length = as.numeric(as.character(df_flight2$Tarsus_length))
+df_flight2$Wing_length = as.numeric(as.character(df_flight2$Wing_length))
+df_flight2$Kipps_distance = as.numeric(as.character(df_flight2$Kipps_distance))
+df_flight2$Hand_wing_index = as.numeric(as.character(df_flight2$Hand_wing_index))
+df_flight2$Tail_length = as.numeric(as.character(df_flight2$Tail_length))
+df_flight2$Mass = as.numeric(as.character(df_flight2$Mass))
+df_flight2$Latitude = as.numeric(as.character(df_flight2$Latitude))
+df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
+df_flight2$TempRange = as.numeric(as.character(df_flight2$TempRange))
+df_flight2$AnnualPrecip = as.numeric(as.character(df_flight2$AnnualPrecip))
+df_flight2$PrecipRange = as.numeric(as.character(df_flight2$PrecipRange))
+
+df_flight2$Mass = log10(df_flight2$Mass)
+df_flight2$Beak_length_Culmen = log10(df_flight2$Beak_length_Culmen)
+df_flight2$Beak_length_Nares = log10(df_flight2$Beak_length_Nares)
+df_flight2$Beak_width = log10(df_flight2$Beak_width)
+df_flight2$Beak_depth = log10(df_flight2$Beak_depth)
+df_flight2$Tarsus_length = log10(df_flight2$Tarsus_length)
+df_flight2$Wing_length = log10(df_flight2$Wing_length)
+df_flight2$Kipps_distance = log10(df_flight2$Kipps_distance)
+df_flight2$Hand_wing_index = log10(df_flight2$Hand_wing_index)
+df_flight2$Tail_length = log10(df_flight2$Tail_length)
+
+
+df_flight2$TempRange = log10(df_flight2$TempRange)
+df_flight2$AnnualPrecip = log10(df_flight2$AnnualPrecip)
+df_flight2$PrecipRange = log10(df_flight2$PrecipRange)
+df_flight2$Mass = log10(df_flight2$Mass)
+df_flight2 = merge(df_flight2, df_need)
+df_flight2$ChThSkew = as.numeric(as.character(df_flight2$ChThSkew))
+row.names(df_flight2) = df_flight2$species_name
 #Starting coloring tree
 ## extract total body length and log-transform
-lnTL<-setNames(df_flight2$AnnualTemp,rownames(df_flight2))
+lnTL<-setNames(df_flight2$fGn,rownames(df_flight2))
 head(lnTL)
 ## estimate ancestral states using fastAnc
 fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
@@ -73,7 +125,7 @@ birds_contMap<-contMap(birds_ms_and_temp_tree,lnTL,
                      plot=FALSE)
 ## plot "contMap" object
 plot(birds_contMap,sig=2,fsize=c(0.4,0.9),
-     lwd=c(2,3), leg.txt="GhAhSkew")
+     lwd=c(2,3))
 
 ## identify the tips descended from node 102
 #write.tree(birds_ms_tree, 'flying_mt_data.tre')
