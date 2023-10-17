@@ -131,7 +131,7 @@ df_midori_cytb = df_midori2[df_midori2$gene == "Cytb",]
 df_flight3 = merge(df_flight2, df_midori_cytb)
 #Starting coloring tree
 ## extract total body length and log-transform
-lnTL<-setNames(df_flight2$Tail_length,rownames(df_flight2))
+lnTL<-setNames(df_flight2$ChThSkew,rownames(df_flight2))
 head(lnTL)
 ## estimate ancestral states using fastAnc
 fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
@@ -145,7 +145,7 @@ plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
 
 ## identify the tips descended from node 102
 #write.tree(birds_ms_tree, 'flying_mt_data.tre')
-tips<-extract.clade(birds_ms_tree,'Node690')$tip.label #699 - peng, 690 peng + ant
+tips<-extract.clade(birds_ms_tree,'Node582')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
 tips
 ## prune "contMap" object to retain only these tips
 pruned.contMap<-keep.tip.contMap(birds_contMap,tips)
