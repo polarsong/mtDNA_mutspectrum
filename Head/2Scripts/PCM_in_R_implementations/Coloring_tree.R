@@ -127,11 +127,23 @@ names(df_midori1) = c('Mutation_TC_midori', 'Mutation_TA_midori', 'Mutation_GT_m
                       'gene', 'species_name')
 library(dplyr)
 df_midori2 <- df_midori1 %>% mutate(across(c('species_name'), substr, 2, nchar(species_name)))
-df_midori_cytb = df_midori2[df_midori2$gene == "Cytb",]
-df_flight3 = merge(df_flight2, df_midori_cytb)
+df_midori_cytb = df_midori2[df_midori2$gene == "ND6",] #  "A6"   "A8"   "CO1"  "CO2"  "CO3"  "Cytb" "ND1"  "ND2"  "ND3"  "ND4"  "ND4L" "ND5"  "ND6" 
+df_flight3 = merge(df_flight2, df_midori_cytb) #big cox1 cytb nd2
+
+df_need1 = data.frame()
+for (k in unique(df_midori2$species_name))
+{
+  a1 = df_midori2[df_midori2$species_name == k,]
+  b1 = nrow(a1)
+  ab1 = sum(a1$Mutation_AG_midori)/b1
+  f = c(k, ab1)
+  df_need1 = rbind(df_need1, f)
+}
+names(df_need1) = c('species_name', 'Midori_AG_mutspec') 
+df_flight4 = merge(df_flight2, df_need1)
 #Starting coloring tree
 ## extract total body length and log-transform
-lnTL<-setNames(df_flight2$ChThSkew,rownames(df_flight2))
+lnTL<-setNames(df_flight2$GhAhSkew,rownames(df_flight2))
 head(lnTL)
 ## estimate ancestral states using fastAnc
 fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
@@ -145,10 +157,42 @@ plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
 
 ## identify the tips descended from node 102
 #write.tree(birds_ms_tree, 'flying_mt_data.tre')
-tips<-extract.clade(birds_ms_tree,'Node582')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
+tips<-extract.clade(birds_ms_and_temp_tree,'Node690')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
 tips
 ## prune "contMap" object to retain only these tips
 pruned.contMap<-keep.tip.contMap(birds_contMap,tips)
 ## plot object
 plot(pruned.contMap)
 ## add error bars
+
+
+#Midori plots states
+need_species = setdiff(df_flight2$species_name, df_flight4$species_name)
+correct_need_species = setdiff(df_flight2$species_name, need_species)
+midori_data_tree<-keep.tip(birds_ms_and_temp_tree,correct_need_species)
+df_avonet = read.csv('../../../Body/1Raw/Avonet_data.csv')
+df_birds_names = df_avonet[,c(1,2)]
+names(df_birds_names) = c('species_name', 'x')
+df_birds_names$species_name = gsub(' ', '_', df_birds_names$species_name)
+df_birds_names1 = merge(df_birds_names, df_need1)
+
+row.names(df_flight4) = df_flight4$species_name
+df_flight4$Midori_AG_mutspec = as.numeric(as.character(df_flight4$Midori_AG_mutspec))
+df_flight4$GhAhSkew = as.numeric(as.character(df_flight4$GhAhSkew))
+lnTL<-setNames(df_flight4$GhAhSkew,rownames(df_flight4))
+head(lnTL)
+## estimate ancestral states using fastAnc
+fit.lnTL<-fastAnc(midori_data_tree,lnTL,vars=TRUE,CI=TRUE)
+print(fit.lnTL,printlen=10)
+## compute "contMap" object
+birds_contMap<-contMap(midori_data_tree,lnTL,
+                       plot=FALSE)
+## plot "contMap" object
+plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
+     lwd=c(2,3))
+tips<-extract.clade(midori_data_tree,'Node690')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
+tips
+## prune "contMap" object to retain only these tips
+pruned.contMap<-keep.tip.contMap(birds_contMap,tips)
+## plot object
+plot(pruned.contMap)
