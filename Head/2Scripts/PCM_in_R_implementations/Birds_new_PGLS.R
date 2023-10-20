@@ -29,7 +29,7 @@ pgls_flying = gls(GhAhSkew~ability_to_fly,
 summary(pgls_flying)
 anova(pgls_flying)
 
-
+df_fly_not[df_fly_not$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
 spp = rownames(df_fly_not)
 corBM = corBrownian(phy=no_peng_fly_tree,form=~spp)
 
@@ -74,7 +74,7 @@ spp1 = rownames(df_fly_peng1)
 corBM1 = corBrownian(phy=peng_fly_tree1,form=~spp1)
 
 
-pgls_mt_peng = gls(Mutation_AG~ability_to_fly,
+pgls_mt_peng = gls(Mutation_AG_syn~ability_to_fly,
                   data=df_fly_peng1,correlation=corBM1)
 summary(pgls_mt_peng)
 
@@ -103,3 +103,8 @@ pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly,
 summary(pgls_mt_not_fly)
 #write.tree(peng_fly_tree1,'peng_and_fly_all_data.tre')
 #write.tree(not_fly_tree1,'no_peng_and_fly_all_data.tre')
+
+
+#dive pgls
+
+
