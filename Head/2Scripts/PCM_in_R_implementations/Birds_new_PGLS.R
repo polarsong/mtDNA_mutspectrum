@@ -95,16 +95,45 @@ row.names(df_fly_not1) = df_fly_not1$species_name
 spp2 = rownames(df_fly_not1)
 corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
 
+
 row.names(df_fly_not2) = df_fly_not2$species_name
 spp3 = rownames(df_fly_not2)
 corBM3 = corBrownian(phy=not_fly_tree1,form=~spp3)
-pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly,
-                   data=df_fly_not2,correlation=corBM2)
+pgls_mt_not_fly = gls(GhAhSkew~ability_to_fly,
+                   data=df_fly_not2,correlation=corBM3)
 summary(pgls_mt_not_fly)
 #write.tree(peng_fly_tree1,'peng_and_fly_all_data.tre')
 #write.tree(not_fly_tree1,'no_peng_and_fly_all_data.tre')
 
 
 #dive pgls
+df_dive = read.csv('dive_and_gene.csv')
+df_dive = df_dive[,c(2:6)]
+dive_tree = read.tree('diving_birds_tree.tre')
+row.names(df_dive) = df_dive$species_name
+df_dive1 = merge(df_dive, df_syn1)
+unique(df_dive1$ability_to_dive)
+df_dive2 = df_dive1
+df_dive1[df_dive1$ability_to_dive == 'Anseriformes',]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Sphenisciformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Podicipediformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Gaviiformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Suliformes",]$ability_to_dive = 'Diving_all_species'
 
+df_dive1[df_dive1$ability_to_dive == "Charadriiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Coraciiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Passeriformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Procellariiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Gruiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1$GhAhSkew = as.numeric(as.character(df_dive1$GhAhSkew))
+df_dive1$Mutation_AG_syn = as.numeric(as.character(df_dive1$Mutation_AG_syn))
+row.names(df_dive1) = df_dive1$species_name
+need_species = setdiff(df_dive$species_name, df_dive1$species_name)
+correct_need_species = setdiff(df_dive$species_name, need_species)
+dive_tree1 = keep.tip(dive_tree,correct_need_species)
 
+spp4 = rownames(df_dive1)
+corBM4 = corBrownian(phy=dive_tree1,form=~spp4)
+pgls_dive = gls(Mutation_AG_syn~ability_to_dive,
+                      data=df_dive1,correlation=corBM4)
+summary(pgls_dive)
