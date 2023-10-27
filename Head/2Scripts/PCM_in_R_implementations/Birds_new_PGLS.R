@@ -141,9 +141,42 @@ row.names(df_dive1) = df_dive1$species_name
 need_species = setdiff(df_dive$species_name, df_dive1$species_name)
 correct_need_species = setdiff(df_dive$species_name, need_species)
 dive_tree1 = keep.tip(dive_tree,correct_need_species)
+df_dive1$ability_to_dive_binar = 0
+df_dive1[df_dive1$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
 
 spp4 = rownames(df_dive1)
 corBM4 = corBrownian(phy=dive_tree1,form=~spp4)
-pgls_dive = gls(Mutation_AG_syn~ability_to_dive,
+pgls_dive = gls(GhAhSkew~ability_to_dive_binar,
                       data=df_dive1,correlation=corBM4)
 summary(pgls_dive)
+
+
+
+df_dive11 = df_dive1[df_dive1$ability_to_dive != 'Diving_some_species',]
+row.names(df_dive11) = df_dive11$species_name
+need_species = setdiff(df_dive1$species_name, df_dive11$species_name)
+correct_need_species = setdiff(df_dive1$species_name, need_species)
+dive_tree11 = keep.tip(dive_tree1,correct_need_species)
+
+spp5 = rownames(df_dive11)
+corBM5 = corBrownian(phy=dive_tree11,form=~spp5)
+pgls_dive1 = gls(GhAhSkew~ability_to_dive_binar,
+                data=df_dive11,correlation=corBM5)
+summary(pgls_dive1)
+
+df_dive12 = df_dive1[df_dive1$ability_to_dive != 'Diving_all_species',]
+row.names(df_dive12) = df_dive12$species_name
+need_species = setdiff(df_dive1$species_name, df_dive12$species_name)
+correct_need_species = setdiff(df_dive1$species_name, need_species)
+dive_tree12 = keep.tip(dive_tree1,correct_need_species)
+
+spp6 = rownames(df_dive12)
+corBM6 = corBrownian(phy=dive_tree12,form=~spp6)
+pgls_dive2 = gls(GhAhSkew~ability_to_dive_binar,
+                 data=df_dive12,correlation=corBM6)
+summary(pgls_dive2)
+
+#TR_TS
+df_tr_ts = read.csv('TR_TS_dataset.csv')
+df_tr_ts = df_tr_ts[,c(2:19)]
+df_tr_ts = df_tr_ts[,c(1,16:18)]

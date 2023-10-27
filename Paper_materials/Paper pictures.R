@@ -379,7 +379,7 @@ f_den_stats2
 #MutSpec graphs
 #Boxplots
 df_mtdna = read.csv('../Head/2Scripts/Birds_dataset_paper.csv')
-mut_data = read.table("C:/Users/User/Desktop/Birds mutspec results from Bogdan/mutspec12.tsv", header = TRUE, fill = TRUE)
+mut_data = read.table("C:/Users/User/Desktop/mutspec12.tsv", header = TRUE, fill = TRUE)
 mut_data_ff = mut_data[mut_data$Label == 'syn',]
 mut_data_ff = mut_data_ff[,c(1,2,3,4,5,7,8)]
 ecozone_data = df_mtdna[,c('species_name', 'realm', 'Trophic_niche')]
@@ -554,7 +554,7 @@ pca_data_shaped = dcast.data.table(setDT(pca_data), species_name+realm+Trophic_n
 pca_data_shaped$TR_TS = (pca_data_shaped$`A>G`+pca_data_shaped$`C>T`+pca_data_shaped$`G>A`+pca_data_shaped$`T>C`)/(pca_data_shaped$`A>C`+pca_data_shaped$`A>T`+pca_data_shaped$`C>A`+pca_data_shaped$`C>G`+pca_data_shaped$`G>C`+pca_data_shaped$`G>T`+pca_data_shaped$`T>A`+pca_data_shaped$`T>G`)
 pca_data_shaped$CT_GA = (pca_data_shaped$`C>T`/pca_data_shaped$`G>A`)
 pca_data_shaped$AG_TC = (pca_data_shaped$`A>G`/pca_data_shaped$`T>C`)
-
+write.csv(pca_data_shaped, 'TR_TS_dataset.csv')
 realm_tr_ts = ggplot(data = pca_data_shaped, aes(x = realm, y = TR_TS))+
   geom_boxplot(fill = 'cyan', notch = TRUE)+
   ylim(0,75)+
