@@ -180,3 +180,13 @@ summary(pgls_dive2)
 df_tr_ts = read.csv('TR_TS_dataset.csv')
 df_tr_ts = df_tr_ts[,c(2:19)]
 df_tr_ts = df_tr_ts[,c(1,16:18)]
+
+df_fly_peng1_tr = merge(df_fly_peng1, df_tr_ts)
+df_fly_peng1_tr$TR_TS = as.numeric(df_fly_peng1_tr$TR_TS)
+row.names(df_fly_peng1_tr) = df_fly_peng1_tr$species_name
+spp1 = rownames(df_fly_peng1_tr)
+corBM1 = corBrownian(phy=peng_fly_tree1,form=~spp1)
+
+
+pgls_mt_peng = gls(TR_TS~ability_to_fly_binar,
+                   data=df_fly_peng1_tr,correlation=corBM1)
