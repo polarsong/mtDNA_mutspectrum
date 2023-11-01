@@ -35,7 +35,7 @@ df_temp_fly = df_temp_fly[,c(2:17)]
 df_peng_mass = merge(df_fly_peng, df_temp_fly)
 df_peng_mass$Mass = as.numeric(df_peng_mass$Mass)
 df_peng_mass$logMass = log10(df_peng_mass$Mass)
-ggplot(df_peng_mass, aes(x = GhAhSkew, y = logMass, color = ability_to_fly))+
+ggplot(df_peng_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
   geom_point()
 
 df_fly_not[df_fly_not$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
@@ -49,7 +49,7 @@ anova(pgls_flying)
 df_paly_mass = merge(df_fly_not, df_temp_fly)
 df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
 df_paly_mass$logMass = log10(df_paly_mass$Mass)
-ggplot(df_paly_mass, aes(x = GhAhSkew, y = logMass, color = ability_to_fly))+
+ggplot(df_paly_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
   geom_point()
 
 
@@ -134,6 +134,25 @@ df_dive = read.csv('dive_and_gene.csv')
 df_dive = df_dive[,c(2:6)]
 dive_tree = read.tree('diving_birds_tree.tre')
 row.names(df_dive) = df_dive$species_name
+
+df_dive_mass = merge(df_dive, df_temp_fly)
+df_dive_mass$Mass = as.numeric(df_dive_mass$Mass)
+df_dive_mass$logMass = log10(df_dive_mass$Mass)
+ggplot(df_dive_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
+  geom_point()
+
+df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
+df_paly_mass$logMass = log10(df_paly_mass$Mass)
+ggplot(df_paly_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
+  geom_point()
+
+df_dive_mass1 = df_dive_mass[df_dive_mass$ability_to_dive != "Charadriiformes" & df_dive_mass$ability_to_dive != "Coraciiformes" & df_dive_mass$ability_to_dive != "Passeriformes" & df_dive_mass$ability_to_dive != "Procellariiformes" & df_dive_mass$ability_to_dive != "Gruiformes",]
+df_dive_mass2 = df_dive_mass[df_dive_mass$ability_to_dive != 'Anseriformes' & df_dive_mass$ability_to_dive != "Sphenisciformes" & df_dive_mass$ability_to_dive != "Podicipediformes" & df_dive_mass$ability_to_dive != "Gaviiformes" & df_dive_mass$ability_to_dive != "Suliformes",]
+ggplot(df_dive_mass1, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
+  geom_point()
+ggplot(df_dive_mass2, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
+  geom_point()
+
 df_dive1 = merge(df_dive, df_syn1)
 unique(df_dive1$ability_to_dive)
 df_dive2 = df_dive1
