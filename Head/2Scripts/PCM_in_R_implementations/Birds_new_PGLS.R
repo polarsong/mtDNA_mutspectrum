@@ -3,6 +3,7 @@ rm(list = ls(all=TRUE))
 library(phytools)
 library(nlme)
 library(geiger)
+library(ggplot2)
 #flying birds
 df_flight = read.csv('flight_and_gene.csv')
 df_flight = df_flight[,c(2,3,4,5,6)]
@@ -29,6 +30,14 @@ pgls_flying = gls(GhAhSkew~ability_to_fly,
 summary(pgls_flying)
 anova(pgls_flying)
 
+df_temp_fly = read.csv('birds_metrics.csv')
+df_temp_fly = df_temp_fly[,c(2:17)]
+df_peng_mass = merge(df_fly_peng, df_temp_fly)
+df_peng_mass$Mass = as.numeric(df_peng_mass$Mass)
+df_peng_mass$logMass = log10(df_peng_mass$Mass)
+ggplot(df_peng_mass, aes(x = GhAhSkew, y = logMass, color = ability_to_fly))+
+  geom_point()
+
 df_fly_not[df_fly_not$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
 spp = rownames(df_fly_not)
 corBM = corBrownian(phy=no_peng_fly_tree,form=~spp)
@@ -37,7 +46,11 @@ pgls_flying = gls(GhAhSkew~ability_to_fly,
                   data=df_fly_not,correlation=corBM)
 summary(pgls_flying)
 anova(pgls_flying)
-
+df_paly_mass = merge(df_fly_not, df_temp_fly)
+df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
+df_paly_mass$logMass = log10(df_paly_mass$Mass)
+ggplot(df_paly_mass, aes(x = GhAhSkew, y = logMass, color = ability_to_fly))+
+  geom_point()
 
 
 
