@@ -52,8 +52,32 @@ df_paly_mass$logMass = log10(df_paly_mass$Mass)
 ggplot(df_paly_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
   geom_point()
 
+#nuclear work
+data = read.csv('Chord_CU.csv')
+data$NeutralA = as.numeric(data$GCA..Ala.) + as.numeric(data$CGA..Arg.) + as.numeric(data$GGA..Gly.) + as.numeric(data$CTA..Leu.)  + as.numeric(data$CTA..Leu.)  + as.numeric(data$CCA..Pro.)  + as.numeric(data$TCA..Ser.)  + as.numeric(data$ACA..Thr.) + as.numeric(data$GTA..Val.)
+data$NeutralT = as.numeric(data$GCT..Ala.) + as.numeric(data$CGT..Arg.) + as.numeric(data$GGT..Gly.) + as.numeric(data$CTT..Leu.)  + as.numeric(data$CTT..Leu.)  + as.numeric(data$CCT..Pro.)  + as.numeric(data$TCT..Ser.)  + as.numeric(data$ACT..Thr.) + as.numeric(data$GTT..Val.)
+data$NeutralG = as.numeric(data$GCG..Ala.) + as.numeric(data$CGG..Arg.) + as.numeric(data$GGG..Gly.) + as.numeric(data$CTG..Leu.)  + as.numeric(data$CTG..Leu.)  + as.numeric(data$CCG..Pro.)  + as.numeric(data$TCG..Ser.)  + as.numeric(data$ACG..Thr.) + as.numeric(data$GTG..Val.)
+data$NeutralC = as.numeric(data$GCC..Ala.) + as.numeric(data$CGC..Arg.) + as.numeric(data$GGC..Gly.) + as.numeric(data$CTC..Leu.)  + as.numeric(data$CTC..Leu.)  + as.numeric(data$CCC..Pro.)  + as.numeric(data$TCC..Ser.)  + as.numeric(data$ACC..Thr.) + as.numeric(data$GTC..Val.)
+sinnuccontentn = aggregate(list(data$NeutralA,data$NeutralT,data$NeutralG,data$NeutralC), by = list(data$Species, data$Class), FUN = sum)
+names(sinnuccontentn) = c('Species', 'Class', 'NeutralA','NeutralT','NeutralG','NeutralC')
+sinnuccontentn$FrA = sinnuccontentn$NeutralA / (sinnuccontentn$NeutralA + sinnuccontentn$NeutralT + sinnuccontentn$NeutralG + sinnuccontentn$NeutralC)
+sinnuccontentn$FrT = sinnuccontentn$NeutralT / (sinnuccontentn$NeutralA + sinnuccontentn$NeutralT + sinnuccontentn$NeutralG + sinnuccontentn$NeutralC) 
+sinnuccontentn$FrG = sinnuccontentn$NeutralG / (sinnuccontentn$NeutralA + sinnuccontentn$NeutralT + sinnuccontentn$NeutralG + sinnuccontentn$NeutralC) 
+sinnuccontentn$FrC = sinnuccontentn$NeutralC / (sinnuccontentn$NeutralA + sinnuccontentn$NeutralT + sinnuccontentn$NeutralG + sinnuccontentn$NeutralC) 
+sinnuccontentn$TGskew = (sinnuccontentn$FrT-sinnuccontentn$FrG)/(sinnuccontentn$FrG+sinnuccontentn$FrT)
+sinnuccontentn$Species = gsub(" ", "_", sinnuccontentn$Species)
+table(sinnuccontentn$Class)
 
 
+sinnuccontentn = sinnuccontentn[sinnuccontentn$Class == 'Aves',]
+colnames(sinnuccontentn)[colnames(sinnuccontentn) == "Species"] = "species_name"
+df_peng_nucl = merge(df_fly_peng, sinnuccontentn)
+df_paleo_nucl = merge(df_fly_not, sinnuccontentn)
+typeof(df_peng_nucl$FrT)
+ggplot(df_peng_nucl, aes(x = ability_to_fly, y = FrT))+
+  geom_violin()
+ggplot(df_paleo_nucl, aes(x = ability_to_fly, y = FrT))+
+  geom_violin()
 
 #mutspec PGLS
 df_mutspec = read.table('C:/Users/User/Desktop/mutspec12.tsv', header = TRUE, fill = TRUE)
