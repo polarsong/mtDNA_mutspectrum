@@ -239,10 +239,34 @@ df_tr_ts = df_tr_ts[,c(1,16:18)]
 
 df_fly_peng1_tr = merge(df_fly_peng1, df_tr_ts)
 df_fly_peng1_tr$TR_TS = as.numeric(df_fly_peng1_tr$TR_TS)
+df_fly_peng1_tr = df_fly_peng1_tr[df_fly_peng1_tr$TR_TS != 'Inf',]
 row.names(df_fly_peng1_tr) = df_fly_peng1_tr$species_name
+need_species = setdiff(df_fly_peng1$species_name, df_fly_peng1_tr$species_name)
+correct_need_species = setdiff(df_fly_peng1$species_name, need_species)
+peng_fly_tree1_tr<-keep.tip(peng_fly_tree1,correct_need_species)
+
+
+
 spp1 = rownames(df_fly_peng1_tr)
-corBM1 = corBrownian(phy=peng_fly_tree1,form=~spp1)
+corBM1 = corBrownian(phy=peng_fly_tree1_tr,form=~spp1)
 
 
 pgls_mt_peng = gls(TR_TS~ability_to_fly_binar,
                    data=df_fly_peng1_tr,correlation=corBM1)
+summary(pgls_mt_peng)
+
+df_fly_not1_tr = merge(df_fly_not1, df_tr_ts)
+df_fly_not1_tr$TR_TS = as.numeric(df_fly_not1_tr$TR_TS)
+df_fly_not1_tr = df_fly_not1_tr[df_fly_not1_tr$TR_TS != 'Inf',]
+row.names(df_fly_not1_tr) = df_fly_not1_tr$species_name
+
+need_species = setdiff(df_fly_not1$species_name, df_fly_not1_tr$species_name)
+correct_need_species = setdiff(df_fly_not1$species_name, need_species)
+not_fly_tree1_tr<-keep.tip(not_fly_tree1,correct_need_species)
+spp1 = rownames(df_fly_not1_tr)
+corBM1 = corBrownian(phy=not_fly_tree1_tr,form=~spp1)
+
+
+pgls_mt_peng_not = gls(TR_TS~ability_to_fly_binar,
+                   data=df_fly_not1_tr,correlation=corBM1)
+summary(pgls_mt_peng_not)
