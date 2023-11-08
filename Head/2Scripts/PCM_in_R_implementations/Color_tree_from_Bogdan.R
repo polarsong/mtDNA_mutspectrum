@@ -57,7 +57,9 @@ test = full_join(as_tibble(birds_tree), tibble(df_syn1[,c(1,2)]), by = 'label')
 der = as.treedata(test)
 label = 'Mutspec'
 pdf('Birds.pdf',         
-    width = 40,height = 300)         
-ggtree(der, aes(color = der@data$MutSpec)) + geom_tiplab(size = 2, colour = "darkgray") +
-  scale_color_continuous(low="green", high="red")
+    width = 30,height = 100)         
+ggtree(der, aes(color = der@data$MutSpec)) + geom_tiplab(size = 4, colour = "darkgray") +
+  scale_color_continuous(low="yellow", high="blue")+
+  theme(legend.position="bottom")+
+  labs(col=label)
 dev.off()

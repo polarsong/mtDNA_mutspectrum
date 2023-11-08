@@ -35,8 +35,18 @@ df_temp_fly = df_temp_fly[,c(2:17)]
 df_peng_mass = merge(df_fly_peng, df_temp_fly)
 df_peng_mass$Mass = as.numeric(df_peng_mass$Mass)
 df_peng_mass$logMass = log10(df_peng_mass$Mass)
+df_peng_mass$ability_to_fly_binar = 0
+df_peng_mass[df_peng_mass$ability_to_fly == 'Sphenisciformes',]$ability_to_fly_binar = 1
 ggplot(df_peng_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
   geom_point()
+df_peng_mass1 = df_peng_mass[df_peng_mass$ability_to_fly == 'Sphenisciformes',]
+ggplot(df_peng_mass1, aes(x = logMass, y = GhAhSkew))+
+  geom_point()
+fit <- lm(GhAhSkew ~ logMass + ability_to_fly_binar, data=df_peng_mass)
+summary(fit)
+fit <- lm(GhAhSkew ~ logMass, data=df_peng_mass1)
+summary(fit)
+
 
 df_fly_not[df_fly_not$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
 spp = rownames(df_fly_not)
@@ -49,8 +59,20 @@ anova(pgls_flying)
 df_paly_mass = merge(df_fly_not, df_temp_fly)
 df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
 df_paly_mass$logMass = log10(df_paly_mass$Mass)
+df_paly_mass$ability_to_fly_binar = 0
+df_paly_mass[df_paly_mass$ability_to_fly == 'Non-flying',]$ability_to_fly_binar = 1
 ggplot(df_paly_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
   geom_point()
+df_paly_mass1 = df_paly_mass[df_paly_mass$ability_to_fly == 'Non-flying',]
+ggplot(df_paly_mass1, aes(x = logMass, y = GhAhSkew))+
+  geom_point()
+fit <- lm(GhAhSkew ~ logMass + ability_to_fly_binar, data=df_paly_mass)
+summary(fit)
+fit <- lm(GhAhSkew ~ logMass, data=df_paly_mass1)
+summary(fit)
+
+
+
 
 #nuclear work
 data = read.csv('Chord_CU.csv')
@@ -164,18 +186,26 @@ df_dive_mass$Mass = as.numeric(df_dive_mass$Mass)
 df_dive_mass$logMass = log10(df_dive_mass$Mass)
 ggplot(df_dive_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
   geom_point()
-
-df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
-df_paly_mass$logMass = log10(df_paly_mass$Mass)
-ggplot(df_paly_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_fly))+
-  geom_point()
-
+df_dive_mass$ability_to_dive_binar = 0
+df_dive_mass[df_dive_mass$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
 df_dive_mass1 = df_dive_mass[df_dive_mass$ability_to_dive != "Charadriiformes" & df_dive_mass$ability_to_dive != "Coraciiformes" & df_dive_mass$ability_to_dive != "Passeriformes" & df_dive_mass$ability_to_dive != "Procellariiformes" & df_dive_mass$ability_to_dive != "Gruiformes",]
 df_dive_mass2 = df_dive_mass[df_dive_mass$ability_to_dive != 'Anseriformes' & df_dive_mass$ability_to_dive != "Sphenisciformes" & df_dive_mass$ability_to_dive != "Podicipediformes" & df_dive_mass$ability_to_dive != "Gaviiformes" & df_dive_mass$ability_to_dive != "Suliformes",]
 ggplot(df_dive_mass1, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
   geom_point()
+df_dive_mass11 = df_dive_mass1[df_dive_mass1$ability_to_dive == 'Anseriformes',]
+ggplot(df_dive_mass11, aes(x = logMass, y = GhAhSkew))+
+  geom_point()
+fit <- lm(GhAhSkew ~ logMass + ability_to_dive_binar, data=df_dive_mass)
+summary(fit)
+fit <- lm(GhAhSkew ~ logMass + ability_to_dive_binar, data=df_dive_mass1)
+summary(fit)
+fit <- lm(GhAhSkew ~ logMass, data=df_dive_mass11)
+summary(fit)
 ggplot(df_dive_mass2, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
   geom_point()
+fit <- lm(GhAhSkew ~ logMass + ability_to_dive_binar, data=df_dive_mass2)
+summary(fit)
+
 
 df_dive1 = merge(df_dive, df_syn1)
 unique(df_dive1$ability_to_dive)
