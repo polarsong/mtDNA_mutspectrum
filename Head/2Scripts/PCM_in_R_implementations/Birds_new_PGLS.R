@@ -46,7 +46,48 @@ fit <- lm(GhAhSkew ~ logMass + ability_to_fly_binar, data=df_peng_mass)
 summary(fit)
 fit <- lm(GhAhSkew ~ logMass, data=df_peng_mass1)
 summary(fit)
+unique(df_fly_not$ability_to_fly)
 
+df_paly_mass = merge(df_fly_not, df_temp_fly)
+df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
+df_paly_mass$logMass = log10(df_paly_mass$Mass)
+
+df_fly_not1 = df_paly_mass[df_paly_mass$ability_to_fly == "Apterygiformes",]
+ggplot(df_fly_not1, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not2 = df_paly_mass[df_paly_mass$ability_to_fly == "Gruiformes",]
+ggplot(df_fly_not2, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not3 = df_paly_mass[df_paly_mass$ability_to_fly == "Casuariiformes",]
+ggplot(df_fly_not3, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not4 = df_paly_mass[df_paly_mass$ability_to_fly == "Tinamiformes",]
+ggplot(df_fly_not4, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not5 = df_paly_mass[df_paly_mass$ability_to_fly == "Columbiformes",]
+ggplot(df_fly_not5, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not6 = df_paly_mass[df_paly_mass$ability_to_fly == "Rheiformes",]
+ggplot(df_fly_not6, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not7 = df_paly_mass[df_paly_mass$ability_to_fly == "Eurypygiformes",]
+ggplot(df_fly_not7, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not8 = df_paly_mass[df_paly_mass$ability_to_fly == "Psittaciformes",]
+ggplot(df_fly_not8, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_fly_not9 = df_paly_mass[df_paly_mass$ability_to_fly == "Struthioniformes",]
+ggplot(df_fly_not9, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
 
 df_fly_not[df_fly_not$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
 spp = rownames(df_fly_not)
@@ -186,6 +227,49 @@ df_dive_mass$Mass = as.numeric(df_dive_mass$Mass)
 df_dive_mass$logMass = log10(df_dive_mass$Mass)
 ggplot(df_dive_mass, aes(x = logMass, y = GhAhSkew, color = ability_to_dive))+
   geom_point()
+
+unique(df_dive_mass$ability_to_dive)
+df_dive_mass1 = df_dive_mass[df_dive_mass$ability_to_dive == "Charadriiformes",]
+ggplot(df_dive_mass1, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass2 = df_dive_mass[df_dive_mass$ability_to_dive == "Anseriformes",]
+ggplot(df_dive_mass2, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass3 = df_dive_mass[df_dive_mass$ability_to_dive == "Coraciiformes",]
+ggplot(df_dive_mass3, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass4 = df_dive_mass[df_dive_mass$ability_to_dive == "Suliformes",]
+ggplot(df_dive_mass4, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass5 = df_dive_mass[df_dive_mass$ability_to_dive == "Sphenisciformes",]
+ggplot(df_dive_mass5, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass6 = df_dive_mass[df_dive_mass$ability_to_dive == "Passeriformes",]
+ggplot(df_dive_mass6, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass7 = df_dive_mass[df_dive_mass$ability_to_dive == "Procellariiformes",]
+ggplot(df_dive_mass7, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass8 = df_dive_mass[df_dive_mass$ability_to_dive == "Gruiformes",]
+ggplot(df_dive_mass8, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass9 = df_dive_mass[df_dive_mass$ability_to_dive == "Gaviiformes",]
+ggplot(df_dive_mass9, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+df_dive_mass10 = df_dive_mass[df_dive_mass$ability_to_dive == "Podicipediformes",]
+ggplot(df_dive_mass10, aes(x = logMass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method = 'lm', formula = y~x)
+
 df_dive_mass$ability_to_dive_binar = 0
 df_dive_mass[df_dive_mass$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
 df_dive_mass1 = df_dive_mass[df_dive_mass$ability_to_dive != "Charadriiformes" & df_dive_mass$ability_to_dive != "Coraciiformes" & df_dive_mass$ability_to_dive != "Passeriformes" & df_dive_mass$ability_to_dive != "Procellariiformes" & df_dive_mass$ability_to_dive != "Gruiformes",]
