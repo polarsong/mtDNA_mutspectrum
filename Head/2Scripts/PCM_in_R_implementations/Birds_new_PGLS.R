@@ -30,6 +30,11 @@ pgls_flying = gls(GhAhSkew~ability_to_fly,
 summary(pgls_flying)
 anova(pgls_flying)
 
+corLambda<-corPagel(value=1,phy=peng_fly_tree,form=~spp)
+pgls_flying = gls(GhAhSkew~ability_to_fly,
+                  data=df_fly_peng,correlation=corLambda)
+summary(pgls_flying)
+
 df_temp_fly = read.csv('birds_metrics.csv')
 df_temp_fly = df_temp_fly[,c(2:17)]
 df_peng_mass = merge(df_fly_peng, df_temp_fly)
@@ -96,7 +101,14 @@ corBM = corBrownian(phy=no_peng_fly_tree,form=~spp)
 pgls_flying = gls(GhAhSkew~ability_to_fly,
                   data=df_fly_not,correlation=corBM)
 summary(pgls_flying)
-anova(pgls_flying)
+
+corLambda<-corPagel(value = 0, phy=no_peng_fly_tree,form=~spp)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_flying = gls(GhAhSkew~ability_to_fly,
+                  data=df_fly_not,correlation=corLambda, control = control)
+summary(pgls_flying)
+
+
 df_paly_mass = merge(df_fly_not, df_temp_fly)
 df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
 df_paly_mass$logMass = log10(df_paly_mass$Mass)
@@ -182,6 +194,12 @@ pgls_mt_peng = gls(GhAhSkew~ability_to_fly_binar_extra,
                   data=df_fly_peng1,correlation=corBM1)
 summary(pgls_mt_peng)
 
+corLambda1<-corPagel(value = 0, phy=peng_fly_tree1,form=~spp1)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_mt_peng1 = gls(Mutation_AG_syn~ability_to_fly_binar,
+                    data=df_fly_peng1,correlation=corLambda1, control = control)
+summary(pgls_mt_peng1)
+
 
 df_fly_not1 = merge(df_fly_not, df_ff1)
 df_fly_not1 = merge(df_fly_not1, df_syn1)
@@ -202,10 +220,16 @@ df_fly_not1[df_fly_not1$ability_to_fly != 'Flying',]$ability_to_fly_binar_extra 
 row.names(df_fly_not1) = df_fly_not1$species_name
 spp2 = rownames(df_fly_not1)
 corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
-pgls_mt_not_fly = gls(GhAhSkew~ability_to_fly_binar_extra,
+pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly_binar_extra,
                       data=df_fly_not1,correlation=corBM2)
 summary(pgls_mt_not_fly)
 
+corLambda2<-corPagel(value = 0, phy=not_fly_tree1,form=~spp2)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_mt_not_fly1 = gls(Mutation_AG_syn~ability_to_fly_binar,
+                    data=df_fly_not1,correlation=corLambda2, control = control)
+
+summary(pgls_mt_not_fly1)
 row.names(df_fly_not2) = df_fly_not2$species_name
 spp3 = rownames(df_fly_not2)
 corBM3 = corBrownian(phy=not_fly_tree1,form=~spp3)
@@ -320,7 +344,12 @@ pgls_dive = gls(GhAhSkew~ability_to_dive_binar,
                       data=df_dive1,correlation=corBM4)
 summary(pgls_dive)
 
+corLambda4<-corPagel(value = 0, phy=dive_tree1,form=~spp4)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive1 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                       data=df_dive1,correlation=corLambda4, control = control)
 
+summary(pgls_dive1)
 
 df_dive11 = df_dive1[df_dive1$ability_to_dive != 'Diving_some_species',]
 row.names(df_dive11) = df_dive11$species_name
@@ -334,6 +363,13 @@ pgls_dive1 = gls(GhAhSkew~ability_to_dive_binar,
                 data=df_dive11,correlation=corBM5)
 summary(pgls_dive1)
 
+corLambda5<-corPagel(value = 0, phy=dive_tree11,form=~spp5)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive11 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                 data=df_dive11,correlation=corLambda5, control = control)
+
+summary(pgls_dive11)
+
 df_dive12 = df_dive1[df_dive1$ability_to_dive != 'Diving_all_species',]
 row.names(df_dive12) = df_dive12$species_name
 need_species = setdiff(df_dive1$species_name, df_dive12$species_name)
@@ -345,6 +381,13 @@ corBM6 = corBrownian(phy=dive_tree12,form=~spp6)
 pgls_dive2 = gls(GhAhSkew~ability_to_dive_binar,
                  data=df_dive12,correlation=corBM6)
 summary(pgls_dive2)
+
+corLambda6<-corPagel(value = 0, phy=dive_tree12,form=~spp6)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive12 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                  data=df_dive12,correlation=corLambda6, control = control)
+
+summary(pgls_dive12)
 
 #TR_TS
 df_tr_ts = read.csv('TR_TS_dataset.csv')
