@@ -41,3 +41,21 @@ ggplot(df_need1, aes(x = AA, y=number))+
   xlim('Ile','Val_Ile','Met','Val_Met','Thr','Ala','Asn','Asp','Lys',
            'Glu','Ser','Gly_Ser','stop','Gly_stop')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
+
+
+#Multiple model
+df_flight = read.csv('flight_and_gene.csv')
+df_flight = df_flight[,c(2,3,4,5,6)]
+df_flight$ability_to_fly_binar = 0
+df_flight[df_flight$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
+df_flight[df_flight$ability_to_fly != 'Flying',]$ability_to_fly_binar = 1
+df_dive = read.csv('dive_and_gene.csv')
+df_dive = df_dive[,c(2:6)]
+df_dive$ability_to_dive_binar = 0
+df_dive[df_dive$ability_to_dive != 'Non-diving',]$ability_to_dive = 'Diving'
+df_dive[df_dive$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
+df_dive_flight = merge(df_flight, df_dive)
+fit = lm(GhAhSkew ~ ability_to_fly_binar + ability_to_dive_binar + ability_to_fly_binar*ability_to_dive_binar, data = df_dive_flight)
+summary(fit)
