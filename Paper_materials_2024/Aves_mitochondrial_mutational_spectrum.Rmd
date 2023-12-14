@@ -80,26 +80,120 @@ freq_graph= ggarrange(graph1, graph4, graph2, graph3,
 ```{r}
 freq_graph
 ```
+<br>
+
+#### RES3. Amount of G and T increases with birds mtDNA gene-specific TBSS
 ```{r, include=FALSE}
 graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = GhAhSkew))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(-0.5,1)+
-  annotate("text", x=8, y=-0.3, label= "GhAhSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        axis.title.y=element_blank(), axis.ticks.y=element_blank())
-
+  ylim(-1,1)+
+  xlab('Mitochondrial genes')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(-0.5,1)+
-  annotate("text", x=8, y=-0.3, label= "ThChSkew")+
-  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        axis.title.y=element_blank(), axis.ticks.y=element_blank())
+  ylim(-1,1)+
+  xlab('Mitochondrial genes')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 skew_graph= ggarrange(graph1, graph2,
                  ncol = 2, nrow = 1)
 ```
 ```{r}
 skew_graph
+```
+<br>
+
+#### RES4. Birds mutations rate is much quicker than in mammals
+```{r, include=FALSE}
+unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
+SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
+new_mam = SynNuc[, c(1, 2, 79, 80)]
+new_mam$Сlass = 'Mammalia'
+new_bird = df_nd6[, c('species_name', 'gene_name', 'GhAhSkew','ThChSkew')]
+new_bird$Сlass = 'Aves'
+new_bird$species_name = gsub(' ', '_', new_bird$species_name)
+new_mam$Gene[new_mam$Gene == 'CytB'] = 'CYTB'
+names(new_mam) = c('species_name', 'gene_name', 'GhAhSkew', 'ThChSkew', 'Class')
+names(new_bird) = c('species_name', 'gene_name', 'GhAhSkew', 'ThChSkew', 'Class')
+
+new_big = rbind(new_mam, new_bird)
+new_b_and_m = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Mitochondrial genes')+
+  ylab('GhAhSkew')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")
+
+new_b_and_m_one = ggplot(new_big, aes(x = gene_name, y = ThChSkew, fill = Class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Mitochondrial genes')+
+  ylab('ThChSkew')+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")
+
+for_article = SynNuc[, c(1, 2, 73, 74, 75, 76)]
+for_article$class = 'Mammalia'
+new_bird1 = df_nd6[, c('species_name', 'gene_name', 'neutral_A','neutral_g', 'neutral_c', 'neutral_T')]
+new_bird1$class = 'Aves'
+new_bird1$species_name = gsub(' ', '_', new_bird1$species_name)
+for_article$Gene[for_article$Gene == 'CytB'] = 'CYTB'
+names(for_article) = c('species_name', 'gene_name', 'neutral_A', 'neutral_T', 'neutral_g', 'neutral_c', 'class')
+
+new_big1 = rbind(for_article, new_bird1)
+new_b_and_m1 = ggplot(new_big1, aes(x = gene_name, y = neutral_A, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral T')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        legend.position = "none")
+
+new_b_and_m2 = ggplot(new_big1, aes(x = gene_name, y = neutral_g, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  ylab('Neutral C')+
+  xlab('Mitochondrial genes')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")
+
+new_b_and_m3 = ggplot(new_big1, aes(x = gene_name, y = neutral_c, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Gene name')+
+  ylab('Neutral G')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+        legend.position = "none")
+
+
+new_b_and_m4 = ggplot(new_big1, aes(x = gene_name, y = neutral_T, fill = class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Mitochondrial genes')+
+  ylab('Neutral A')+
+  ylim(0, 200)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")
+mam_vs_aves_fr = ggarrange(new_b_and_m3, new_b_and_m1, new_b_and_m4, new_b_and_m2,
+                ncol = 2, nrow = 2)
+
+mam_vs_aves_skew = ggarrange(new_b_and_m, new_b_and_m_one,
+                ncol = 2, nrow = 1)
+```
+
+```{r}
+mam_vs_aves_fr
+```
+
+```{r}
+mam_vs_aves_skew
 ```
