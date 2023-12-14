@@ -1,0 +1,105 @@
+---
+title: "Aves Mitochondrial Mutational Spectrum"
+author: "Yury Gusarov"
+date: "2023-12-14"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls(all=TRUE))
+library(ggplot2)
+library(ggpubr)
+library(ggbiplot)
+```
+#### RES1. Avian genomic and life-history dataset
+```{r, include=FALSE}
+df_mtdna = read.csv('Birds_dataset_paper.csv')
+```
+```{r}
+head(df_mtdna)
+```
+<br>
+
+```{r, include=FALSE}
+df_nd6 = read.csv('Birds_mtDNA_data.csv')
+df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
+df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
+df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_c/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_g/df_nd6$neutral_amount
+
+df_nd6$GhAhSkew = (df_nd6$neutral_c- df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
+df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
+df_nd6$fTn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_g/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
+
+graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "A")+
+  xlab('Mitochondrial genes')+
+  ylab('Thymine frequency')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())        
+graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "C")+
+  xlab('Mitochondrial genes')+
+  ylab('Cytosine frequency')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+graph3 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "D")+
+  xlab('Mitochondrial genes')+
+  ylab('Adenine frequency')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+graph4 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(0, 0.8)+
+  annotate("text", x=11, y=0.78, label= "B")+
+  xlab('Mitochondrial genes')+
+  ylab('Guanine frequency')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+freq_graph= ggarrange(graph1, graph4, graph2, graph3,
+                 ncol = 2, nrow = 2)
+```
+#### RES2. Birds have more G and T and low A and C in four-fold neutral positions
+```{r}
+freq_graph
+```
+```{r, include=FALSE}
+graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = GhAhSkew))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(-0.5,1)+
+  annotate("text", x=8, y=-0.3, label= "GhAhSkew")+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
+
+
+graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
+  geom_boxplot(notch = TRUE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
+  ylim(-0.5,1)+
+  annotate("text", x=8, y=-0.3, label= "ThChSkew")+
+  theme(axis.title.x=element_blank(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        axis.title.y=element_blank(), axis.ticks.y=element_blank())
+skew_graph= ggarrange(graph1, graph2,
+                 ncol = 2, nrow = 1)
+```
+```{r}
+skew_graph
+```
