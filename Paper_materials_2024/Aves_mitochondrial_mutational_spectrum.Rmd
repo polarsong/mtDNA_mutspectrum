@@ -18,6 +18,9 @@ library(ggbiplot)
 library(phytools)
 library(nlme)
 library(geiger)
+library(ggtree)
+library(stringr)
+library(dplyr)
 ```
 #### RES1. Avian genomic and life-history dataset
 ```{r, include=FALSE}
@@ -496,8 +499,9 @@ summary(pgls_flying)
 df_paly_mass = merge(df_fly_not, df_temp_fly)
 df_paly_mass$Mass = as.numeric(df_paly_mass$Mass)
 df_paly_mass$logMass = log10(df_paly_mass$Mass)
-df_paly_mass$ability_to_fly_binar = 0
-df_paly_mass[df_paly_mass$ability_to_fly == 'Non-flying',]$ability_to_fly_binar = 1
+df_paly_mass$fly_zero_non_fly_one = 0
+df_paly_mass[df_paly_mass$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
+df_paly_mass[df_paly_mass$ability_to_fly == 'Non-flying',]$fly_zero_non_fly_one = 1
 
 
 df_mutspec = read.table('mutspec12.tsv', header = TRUE, fill = TRUE)
@@ -526,54 +530,292 @@ df_fly_peng1$Mutation_AG = as.numeric(df_fly_peng1$Mutation_AG)
 df_fly_peng1$Mutation_AG_syn = as.numeric(df_fly_peng1$Mutation_AG_syn)
 df_fly_peng1$Mutation_CT = as.numeric(df_fly_peng1$Mutation_CT)
 df_fly_peng1$Mutation_CT_syn = as.numeric(df_fly_peng1$Mutation_CT_syn)
-df_fly_peng1$ability_to_fly_binar = 0
-df_fly_peng1[df_fly_peng1$ability_to_fly == 'Sphenisciformes',]$ability_to_fly_binar = 1
+df_fly_peng1$fly_zero_non_fly_one = 0
+df_fly_peng1[df_fly_peng1$ability_to_fly == 'Sphenisciformes',]$fly_zero_non_fly_one = 1
 df_fly_peng1$ability_to_fly_binar_extra = 1
 df_fly_peng1[df_fly_peng1$ability_to_fly == 'Sphenisciformes',]$ability_to_fly_binar_extra = 0
 row.names(df_fly_peng1) = df_fly_peng1$species_name
 spp1 = rownames(df_fly_peng1)
 corLambda1<-corPagel(value = 0, phy=peng_fly_tree1,form=~spp1)
 control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
-pgls_mt_peng1 = gls(GhAhSkew~ability_to_fly_binar,
+pgls_mt_peng1 = gls(GhAhSkew~fly_zero_non_fly_one,
                     data=df_fly_peng1,correlation=corLambda1, control = control)
+```
+```{r}
 summary(pgls_mt_peng1) #peng PGLS start work here
+```
+```{r, include=FALSE}
+pgls_mt_peng2 = gls(Mutation_AG_syn~fly_zero_non_fly_one,
+                    data=df_fly_peng1,correlation=corLambda1, control = control)
+```
+```{r}
+summary(pgls_mt_peng2) 
+```
+```{r, include=FALSE}
+df_fly_not1 = merge(df_fly_not, df_ff1)
+df_fly_not1 = merge(df_fly_not1, df_syn1)
+need_species = setdiff(df_fly_not$species_name, df_fly_not1$species_name)
+correct_need_species = setdiff(df_fly_not$species_name, need_species)
+not_fly_tree = read.tree('flying_and_no_peng.tre')
+not_fly_tree1<-keep.tip(not_fly_tree,correct_need_species)
+df_fly_not1$Mutation_AG = as.numeric(df_fly_not1$Mutation_AG)
+df_fly_not1$Mutation_AG_syn = as.numeric(df_fly_not1$Mutation_AG_syn)
+df_fly_not1$Mutation_CT = as.numeric(df_fly_not1$Mutation_CT)
+df_fly_not1$Mutation_CT_syn = as.numeric(df_fly_not1$Mutation_CT_syn)
+df_fly_not2 = df_fly_not1
+df_fly_not2[df_fly_not2$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
+df_fly_not1$fly_zero_non_fly_one = 0
+df_fly_not1[df_fly_not1$ability_to_fly != 'Flying',]$fly_zero_non_fly_one = 1
+row.names(df_fly_not1) = df_fly_not1$species_name
+spp2 = rownames(df_fly_not1)
+corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
+pgls_mt_not_fly = gls(GhAhSkew~fly_zero_non_fly_one,
+                      data=df_fly_not1,correlation=corBM2)
+#PGLS Paleognathae vs flying
+```
+```{r}
+summary(pgls_mt_not_fly)
+```
+
+```{r,include=FALSE}
+corLambda2<-corPagel(value = 0, phy=not_fly_tree1,form=~spp2)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_mt_not_fly1 = gls(Mutation_AG_syn~fly_zero_non_fly_one,
+                    data=df_fly_not1,correlation=corLambda2, control = control)
+```
+```{r}
+summary(pgls_mt_not_fly1)
+```
+```{r, include=FALSE}
+df_dive = read.csv('dive_and_gene.csv')
+df_dive = df_dive[,c(2:6)]
+dive_tree = read.tree('diving_birds_tree.tre')
+row.names(df_dive) = df_dive$species_name
+df_dive1 = merge(df_dive, df_syn1)
+unique(df_dive1$ability_to_dive)
+df_dive1[df_dive1$ability_to_dive == 'Anseriformes',]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Sphenisciformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Podicipediformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Gaviiformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Suliformes",]$ability_to_dive = 'Diving_all_species'
+
+df_dive1[df_dive1$ability_to_dive == "Charadriiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Coraciiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Passeriformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Procellariiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Gruiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1$GhAhSkew = as.numeric(as.character(df_dive1$GhAhSkew))
+df_dive1$Mutation_AG_syn = as.numeric(as.character(df_dive1$Mutation_AG_syn))
+row.names(df_dive1) = df_dive1$species_name
+need_species = setdiff(df_dive$species_name, df_dive1$species_name)
+correct_need_species = setdiff(df_dive$species_name, need_species)
+dive_tree1 = keep.tip(dive_tree,correct_need_species)
+df_dive1$ability_to_dive_binar = 0
+df_dive1[df_dive1$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
+
+spp4 = rownames(df_dive1)
+corBM4 = corBrownian(phy=dive_tree1,form=~spp4)
+pgls_dive = gls(GhAhSkew~ability_to_dive_binar,
+                      data=df_dive1,correlation=corBM4)
+summary(pgls_dive)
+
+corLambda4<-corPagel(value = 0, phy=dive_tree1,form=~spp4)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive1 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                       data=df_dive1,correlation=corLambda4, control = control)
+
+summary(pgls_dive1)
+
+df_dive11 = df_dive1[df_dive1$ability_to_dive != 'Diving_some_species',]
+row.names(df_dive11) = df_dive11$species_name
+need_species = setdiff(df_dive1$species_name, df_dive11$species_name)
+correct_need_species = setdiff(df_dive1$species_name, need_species)
+dive_tree11 = keep.tip(dive_tree1,correct_need_species)
+
+spp5 = rownames(df_dive11)
+corBM5 = corBrownian(phy=dive_tree11,form=~spp5)
+pgls_dive1 = gls(GhAhSkew~ability_to_dive_binar,
+                data=df_dive11,correlation=corBM5)
+```
+```{r}
+summary(pgls_dive1)
+```
+```{r, include=FALSE}
+corLambda5<-corPagel(value = 0, phy=dive_tree11,form=~spp5)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive11 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                 data=df_dive11,correlation=corLambda5, control = control)
+```
+```{r}
+summary(pgls_dive11)
+```
+```{r, include=FALSE}
+df_dive12 = df_dive1[df_dive1$ability_to_dive != 'Diving_all_species',]
+row.names(df_dive12) = df_dive12$species_name
+need_species = setdiff(df_dive1$species_name, df_dive12$species_name)
+correct_need_species = setdiff(df_dive1$species_name, need_species)
+dive_tree12 = keep.tip(dive_tree1,correct_need_species)
+
+spp6 = rownames(df_dive12)
+corBM6 = corBrownian(phy=dive_tree12,form=~spp6)
+pgls_dive2 = gls(GhAhSkew~ability_to_dive_binar,
+                 data=df_dive12,correlation=corBM6)
+summary(pgls_dive2)
+
+corLambda6<-corPagel(value = 0, phy=dive_tree12,form=~spp6)
+control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
+pgls_dive12 = gls(Mutation_AG_syn~ability_to_dive_binar,
+                  data=df_dive12,correlation=corLambda6, control = control)
+
+summary(pgls_dive12)
+```
+
+<br>
+
+#### RES11. Penguins and ducks ancestors had high GhAhSkew, Paleoghnathae ancestros had low one
+```{r, include=FALSE}
+peng_data_tree = read.tree('peng_and_fly_all_data.tre')
+birds_tree = read.tree('anc_kg.treefile')
+df_mtdna = read.csv('Birds_dataset_paper.csv')
+
+df_need = data.frame()
+for (i in unique(df_mtdna$species_name))
+{
+  a = df_mtdna[df_mtdna$species_name == i,]
+  b = sum(a$chthSkew)/12
+  ab = c(i,b)
+  df_need = rbind(df_need, ab)
+}
+
+names(df_need) = c('species_name', 'ChThSkew')
+df_need$species_name = gsub(' ', '_', df_need$species_name)
+
+df_flight = read.csv('flight_and_gene.csv')
+df_flight = df_flight[,c(2,3,4,5,6)]
+df_flight$flight_num = 0
+df_flight[df_flight$ability_to_fly != 'Flying',]$flight_num = 1
+rownames(df_flight) = df_flight$species_name
+flying_tree = read.tree('flying_birds_tree.tre')
+name.check(flying_tree, df_flight)
+df_flight$ability_to_fly = as.character(df_flight$ability_to_fly)
+df_flight$GhAhSkew = as.numeric(as.character(df_flight$GhAhSkew))
+df_flight$fAn = as.numeric(as.character(df_flight$fAn))
+df_flight$fGn = as.numeric(as.character(df_flight$fGn))
+df_flight$flight_num = as.numeric(as.character(df_flight$flight_num))
+
+df_mutspec = read.table('mutspec12.tsv', header = TRUE, fill = TRUE)
+df_ff = df_mutspec[df_mutspec$Label == 'ff',]
+df_syn = df_mutspec[df_mutspec$Label == 'syn',]
+df_ff = df_ff[!grepl('Node', df_ff$AltNode),]
+df_ff = df_ff[,c(1,5,7)]
+df_ff1 = reshape(data = df_ff, idvar = 'AltNode',
+                 timevar = 'Mut',
+                 direction = 'wide')
+names(df_ff1) = c('species_name', 'Mutation_TG', 'Mutation_TC', 'Mutation_TA', 'Mutation_GT', 'Mutation_GC', 
+                  'Mutation_GA', 'Mutation_CT', 'Mutation_CG', 'Mutation_CA', 'Mutation_AT', 'Mutation_AG', 'Mutation_AC')
+df_syn = df_syn[!grepl('Node', df_syn$AltNode),]
+df_syn = df_syn[,c(1,5,7)]
+df_syn1 = reshape(data = df_syn, idvar = 'AltNode',
+                  timevar = 'Mut',
+                  direction = 'wide')
+names(df_syn1) = c('species_name', 'Mutation_TG_syn', 'Mutation_TC_syn', 'Mutation_TA_syn', 'Mutation_GT_syn', 'Mutation_GC_syn', 
+                   'Mutation_GA_syn', 'Mutation_CT_syn', 'Mutation_CG_syn', 'Mutation_CA_syn', 'Mutation_AT_syn', 'Mutation_AG_syn', 'Mutation_AC_syn')
+df_flight1 = merge(df_flight, df_ff1)
+df_flight1 = merge(df_flight1, df_syn1)
+
+need_species = setdiff(df_flight$species_name, df_flight1$species_name)
+correct_need_species = setdiff(df_flight$species_name, need_species)
+birds_ms_tree<-keep.tip(flying_tree,correct_need_species)
+
+df_flight1$GhAhSkew = as.numeric(df_flight1$GhAhSkew)
+df_flight1$Mutation_AG = as.numeric(df_flight1$Mutation_AG)
+df_flight1$Mutation_AG_syn = as.numeric(df_flight1$Mutation_AG_syn)
+df_flight1$Mutation_CT = as.numeric(df_flight1$Mutation_CT)
+df_flight1$Mutation_CT_syn = as.numeric(df_flight1$Mutation_CT_syn)
+rownames(df_flight1)= df_flight1$species_name
+df_flight1$double_fly = 0
+df_flight1[df_flight1$ability_to_fly == 'Flying',]$double_fly = 1
+df_temp_fly = read.csv('birds_metrics.csv')
+df_temp_fly = df_temp_fly[,c(2:17)]
+df_flight2 = merge(df_flight1, df_temp_fly)
+need_species = setdiff(df_flight1$species_name, df_flight2$species_name)
+correct_need_species = setdiff(df_flight1$species_name, need_species)
+birds_ms_and_temp_tree<-keep.tip(birds_ms_tree,correct_need_species)
+row.names(df_flight2) = df_flight2$species_name
+df_flight2$Latitude = gsub(',', '.', df_flight2$Latitude)
+df_flight2$TempRange = gsub(',', '.', df_flight2$TempRange)
+df_flight2$AnnualPrecip = gsub(',', '.', df_flight2$AnnualPrecip)
+df_flight2$PrecipRange= gsub(',', '.', df_flight2$PrecipRange)
+df_flight2$AnnualTemp= gsub(',', '.', df_flight2$AnnualTemp)
+
+df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
+df_flight2$Beak_length_Culmen = as.numeric(as.character(df_flight2$Beak_length_Culmen))
+df_flight2$Beak_length_Nares = as.numeric(as.character(df_flight2$Beak_length_Nares))
+df_flight2$Beak_width = as.numeric(as.character(df_flight2$Beak_width))
+df_flight2$Beak_depth = as.numeric(as.character(df_flight2$Beak_depth))
+df_flight2$Tarsus_length = as.numeric(as.character(df_flight2$Tarsus_length))
+df_flight2$Wing_length = as.numeric(as.character(df_flight2$Wing_length))
+df_flight2$Kipps_distance = as.numeric(as.character(df_flight2$Kipps_distance))
+df_flight2$Hand_wing_index = as.numeric(as.character(df_flight2$Hand_wing_index))
+df_flight2$Tail_length = as.numeric(as.character(df_flight2$Tail_length))
+df_flight2$Mass = as.numeric(as.character(df_flight2$Mass))
+df_flight2$Latitude = as.numeric(as.character(df_flight2$Latitude))
+df_flight2$AnnualTemp = as.numeric(as.character(df_flight2$AnnualTemp))
+df_flight2$TempRange = as.numeric(as.character(df_flight2$TempRange))
+df_flight2$AnnualPrecip = as.numeric(as.character(df_flight2$AnnualPrecip))
+df_flight2$PrecipRange = as.numeric(as.character(df_flight2$PrecipRange))
+
+df_flight2$Mass = log10(df_flight2$Mass)
+df_flight2$Beak_length_Culmen = log10(df_flight2$Beak_length_Culmen)
+df_flight2$Beak_length_Nares = log10(df_flight2$Beak_length_Nares)
+df_flight2$Beak_width = log10(df_flight2$Beak_width)
+df_flight2$Beak_depth = log10(df_flight2$Beak_depth)
+df_flight2$Tarsus_length = log10(df_flight2$Tarsus_length)
+df_flight2$Wing_length = log10(df_flight2$Wing_length)
+df_flight2$Kipps_distance = log10(df_flight2$Kipps_distance)
+df_flight2$Hand_wing_index = log10(df_flight2$Hand_wing_index)
+df_flight2$Tail_length = log10(df_flight2$Tail_length)
 
 
-#df_fly_not1 = merge(df_fly_not, df_ff1)
-#df_fly_not1 = merge(df_fly_not1, df_syn1)
-#need_species = setdiff(df_fly_not$species_name, df_fly_not1$species_name)
-#correct_need_species = setdiff(df_fly_not$species_name, need_species)
-#not_fly_tree = read.tree('flying_and_no_peng.tre')
-#not_fly_tree1<-keep.tip(not_fly_tree,correct_need_species)
-#df_fly_not1$Mutation_AG = as.numeric(df_fly_not1$Mutation_AG)
-#df_fly_not1$Mutation_AG_syn = as.numeric(df_fly_not1$Mutation_AG_syn)
-#df_fly_not1$Mutation_CT = as.numeric(df_fly_not1$Mutation_CT)
-#df_fly_not1$Mutation_CT_syn = as.numeric(df_fly_not1$Mutation_CT_syn)
-#df_fly_not2 = df_fly_not1
-#df_fly_not2[df_fly_not2$ability_to_fly != 'Flying',]$ability_to_fly = 'Non-flying'
-#df_fly_not1$ability_to_fly_binar = 0
-#df_fly_not1[df_fly_not1$ability_to_fly != 'Flying',]$ability_to_fly_binar = 1
-#df_fly_not1$ability_to_fly_binar_extra = 1
-#df_fly_not1[df_fly_not1$ability_to_fly != 'Flying',]$ability_to_fly_binar_extra = 0
-#row.names(df_fly_not1) = df_fly_not1$species_name
-#spp2 = rownames(df_fly_not1)
-#corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
-#pgls_mt_not_fly = gls(Mutation_AG_syn~ability_to_fly_binar_extra,
-#                      data=df_fly_not1,correlation=corBM2)
-#summary(pgls_mt_not_fly)#
+df_flight2$TempRange = log10(df_flight2$TempRange)
+df_flight2$AnnualPrecip = log10(df_flight2$AnnualPrecip)
+df_flight2$PrecipRange = log10(df_flight2$PrecipRange)
+df_flight2$Mass = log10(df_flight2$Mass)
+df_flight2 = merge(df_flight2, df_need)
+df_flight2$ChThSkew = as.numeric(as.character(df_flight2$ChThSkew))
+row.names(df_flight2) = df_flight2$species_name
 
-#corLambda2<-corPagel(value = 0, phy=not_fly_tree1,form=~spp2)
-#control <- glsControl(maxIter = 1000, msMaxIter=4000, returnObject = TRUE)
-#pgls_mt_not_fly1 = gls(Mutation_AG_syn~ability_to_fly_binar,
-#                    data=df_fly_not1,correlation=corLambda2, control = control)#
+#Starting coloring tree
+## extract total body length and log-transform
+lnTL<-setNames(df_flight2$GhAhSkew,rownames(df_flight2))
+head(lnTL)
+## estimate ancestral states using fastAnc
+fit.lnTL<-fastAnc(birds_ms_and_temp_tree,lnTL,vars=TRUE,CI=TRUE)
+print(fit.lnTL,printlen=10)
+## compute "contMap" object
+birds_contMap<-contMap(birds_ms_and_temp_tree,lnTL,
+                     plot=FALSE)
+## plot "contMap" object
+#plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
+#     lwd=c(2,3))
 
-#summary(pgls_mt_not_fly1)
-#row.names(df_fly_not2) = df_fly_not2$species_name
-#spp3 = rownames(df_fly_not2)
-#corBM3 = corBrownian(phy=not_fly_tree1,form=~spp3)
-#pgls_mt_not_fly = gls(GhAhSkew~ability_to_fly,
-#                   data=df_fly_not2,correlation=corBM3)
-#summary(pgls_mt_not_fly)
-
-
+## identify the tips descended from node 102
+#write.tree(birds_ms_tree, 'flying_mt_data.tre')
+tips<-extract.clade(birds_ms_and_temp_tree,'Node690')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
+tips
+## prune "contMap" object to retain only these tips
+pruned.contMap_peng<-keep.tip.contMap(birds_contMap,tips)
+tips<-extract.clade(birds_ms_and_temp_tree,'Node582')$tip.label #699 - peng, 690 peng + ant 582 non-flying
+pruned.contMap_paleo<-keep.tip.contMap(birds_contMap,tips)
+tips<-extract.clade(birds_ms_and_temp_tree,'Node496')$tip.label #699 - peng, 690 peng + ant 582 non-flying
+pruned.contMap_ducks<-keep.tip.contMap(birds_contMap,tips)
+```
+```{r}
+plot(pruned.contMap_peng)
+```
+```{r}
+plot(pruned.contMap_paleo)
+```
+```{r}
+plot(pruned.contMap_ducks)
 ```
