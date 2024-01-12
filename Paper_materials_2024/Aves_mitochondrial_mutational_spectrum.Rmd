@@ -51,7 +51,6 @@ graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=11, y=0.78, label= "A")+
   xlab('Mitochondrial genes')+
   ylab('Thymine frequency')+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())        
@@ -59,7 +58,6 @@ graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=11, y=0.78, label= "C")+
   xlab('Mitochondrial genes')+
   ylab('Cytosine frequency')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -67,7 +65,6 @@ graph3 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=11, y=0.78, label= "D")+
   xlab('Mitochondrial genes')+
   ylab('Adenine frequency')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -75,7 +72,6 @@ graph4 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
   ylim(0, 0.8)+
-  annotate("text", x=11, y=0.78, label= "B")+
   xlab('Mitochondrial genes')+
   ylab('Guanine frequency')+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
