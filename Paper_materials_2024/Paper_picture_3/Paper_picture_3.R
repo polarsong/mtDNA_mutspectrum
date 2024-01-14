@@ -1,0 +1,81 @@
+rm(list = ls(all=TRUE))
+library(ggfortify)
+library(ggplot2)
+library(ggpubr)
+library(ggbiplot)
+library(phytools)
+library(nlme)
+library(geiger)
+library(ggtree)
+library(stringr)
+library(dplyr)
+
+df_mtdna = read.csv('../Paper_materials_2024/Birds_dataset_paper.csv')
+
+df_nd6 = read.csv('../Paper_materials_2024/Birds_mtDNA_data.csv')
+df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
+df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
+df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_c/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_g/df_nd6$neutral_amount
+
+df_nd6$GhAhSkew = (df_nd6$neutral_c- df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
+df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
+df_nd6$fTn = df_nd6$neutral_A/df_nd6$neutral_amount
+df_nd6$fAn = df_nd6$neutral_T/df_nd6$neutral_amount
+df_nd6$fCn = df_nd6$neutral_g/df_nd6$neutral_amount
+df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
+
+names_v = unique(df_mtdna$species_name)
+df_short = data.frame()
+for (i in names_v)
+{
+  df1 = df_mtdna[df_mtdna$species_name == i,]
+  a = sum(df1$ghahSkew)/12
+  b = sum(df1$chthSkew)/12
+  v = sum(df1$Mass)/12
+  ab = c(i, a, b, v)
+  df_short = rbind(df_short, ab)
+}
+names(df_short) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
+df_short$Mass = as.numeric(df_short$Mass)
+df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
+df_short$ThChSkew = as.numeric(df_short$ThChSkew)
+df_short$log_mass = log10(df_short$Mass)
+
+df_fly = read.csv('flying_birds.csv')
+df_fly = df_fly[,c(2,3,4)]
+names(df_fly) = c('species_name', 'flightless', 'diving')
+df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
+df_fly_clean= df_fly[df_fly$flightless == 'Almost_flightless',]
+df_fly_clean = na.omit(df_fly_clean)
+df_fly_clean1 = na.omit(df_fly_clean1)
+df_dive = df_fly
+df_fly = df_fly[df_fly$flightless != 'Flightless',]
+df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
+df_fly_clean$flightless = 'Tinamiformes'
+df_fly_clean1$flightless = 'Tinamiformes'
+df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
+df_fly_final = merge(df_fly_big, df_short)
+df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
+df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
+df_fly_final$flightless1 = factor(df_fly_final$flightless, levels = c('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes"))
+fly_skew = ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flightless1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+fly_skew
+
+
+df_dive_final = merge(df_dive, df_short, by = 'species_name')
+df_dive_final = df_dive_final[df_dive_final$diving != 'waterbird',]
+df_dive_final[df_dive_final$diving == '0',]$diving = 'Non-diving birds'
+df_dive_final$diving1 = factor(df_dive_final$diving, levels = c('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes"))
+diving_skew = ggplot(df_dive_final, aes(x = diving, y = GhAhSkew, color = diving1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+diving_skew
