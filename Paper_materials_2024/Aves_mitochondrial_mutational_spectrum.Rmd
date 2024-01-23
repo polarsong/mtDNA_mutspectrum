@@ -564,7 +564,7 @@ df_fly_not1$fly_zero_non_fly_one = 0
 df_fly_not1[df_fly_not1$ability_to_fly != 'Flying',]$fly_zero_non_fly_one = 1
 row.names(df_fly_not1) = df_fly_not1$species_name
 spp2 = rownames(df_fly_not1)
-corBM2 = corBrownian(phy=not_fly_tree1,form=~spp2)
+corBM2 = corPagel(value = 0, phy=not_fly_tree1,form=~spp2)
 pgls_mt_not_fly = gls(GhAhSkew~fly_zero_non_fly_one,
                       data=df_fly_not1,correlation=corBM2)
 #PGLS Paleognathae vs flying
@@ -629,7 +629,7 @@ correct_need_species = setdiff(df_dive1$species_name, need_species)
 dive_tree11 = keep.tip(dive_tree1,correct_need_species)
 
 spp5 = rownames(df_dive11)
-corBM5 = corBrownian(phy=dive_tree11,form=~spp5)
+corBM5 = corPagel(value = 0, phy=dive_tree11,form=~spp5)
 pgls_dive1 = gls(GhAhSkew~ability_to_dive_binar,
                 data=df_dive11,correlation=corBM5)
 ```
