@@ -10,9 +10,9 @@ library(ggtree)
 library(stringr)
 library(dplyr)
 
-df_mtdna = read.csv('../Paper_materials_2024/Birds_dataset_paper.csv')
+df_mtdna = read.csv('../../Paper_materials_2024/Birds_dataset_paper.csv')
 
-df_nd6 = read.csv('../Paper_materials_2024/Birds_mtDNA_data.csv')
+df_nd6 = read.csv('../../Paper_materials_2024/Birds_mtDNA_data.csv')
 df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
 df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
 df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
