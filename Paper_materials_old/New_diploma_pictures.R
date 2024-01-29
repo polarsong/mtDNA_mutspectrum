@@ -2,7 +2,7 @@ rm(list = ls(all=TRUE))
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
-df_mtdna = read.csv('../../Paper_materials/Birds_dataset_paper_extra.csv')
+df_mtdna = read.csv('Birds_dataset_paper_extra.csv')
 df_nd6 = read.csv('../Body/3Results/Birds_mtDNA_data.csv')
 df_int = read.csv('../Body/1Raw/Avonet_data.csv')
 unique(df_int$Primary.Lifestyle)
@@ -1068,7 +1068,7 @@ ggplot(df_t2, aes(x = diving, y = GhAhSkew, color = Trophic_niche))+
 
 #cleaning df_fly
 rm(df_fly_clean)
-df_fly = read.csv('../Paper_materials/flying_birds.csv')
+df_fly = read.csv('flying_birds.csv')
 df_fly = df_fly[,c(2,3,4)]
 names(df_fly) = c('species_name', 'flightless', 'diving')
 df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
