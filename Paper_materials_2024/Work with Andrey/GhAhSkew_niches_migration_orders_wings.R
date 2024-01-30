@@ -51,10 +51,11 @@ for (i in names_v)
   df1 = df_mtdna[df_mtdna$species_name == i,]
   a = sum(df1$ghahSkew)/12
   b = sum(df1$chthSkew)/12
-  ab = c(i, a, b)
+  c = sum(df1$Mass)/12
+  ab = c(i, a, b,c)
   df_short1 = rbind(df_short1, ab)
 }
-names(df_short1) = c('species_name', 'GhAhSkew', 'ThChSkew')
+names(df_short1) = c('species_name', 'GhAhSkew', 'ThChSkew', 'Mass')
 df_short1$GhAhSkew = as.numeric(df_short1$GhAhSkew)
 
 df_short1 = merge(df_short1, df_migr)
@@ -89,3 +90,67 @@ ggplot(df_short2, aes(x = Hand_wing_index, y = GhAhSkew))+
 ggplot(df_short2, aes(x = taxonomy, y = GhAhSkew))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+counter = 0
+for (i in unique(df_short2$taxonomy))
+{
+  a = df_short2[df_short2$taxonomy == i,]
+  linearMod <- lm(Hand_wing_index~GhAhSkew, data=a)
+  modelSummary = summary(linearMod)
+  c = modelSummary$coefficients[,4][2]
+  b = ggplot(a, aes(x = Hand_wing_index, y = GhAhSkew))+
+    geom_point()+
+    ggtitle(i)+
+    geom_smooth(method = 'lm', formula = y~x)+                            
+    annotate('text', x = (min(a$Hand_wing_index)+1), y = min(a$GhAhSkew), label = round(c, digits = 4))
+  assign(paste0("Order_", i), b)
+  counter = counter + 1
+}
+pdf('Birds_HWI.pdf',         
+    width = 30,height = 100)
+ggarrange(Order_Accipitriformes, Order_Anseriformes, Order_Apodiformes, Order_Apterygiformes, Order_Bucerotiformes, Order_Caprimulgiformes, Order_Casuariiformes, Order_Charadriiformes, Order_Ciconiiformes, Order_Coliiformes, Order_Columbiformes, Order_Coraciiformes, Order_Cuculiformes, Order_Falconiformes, Order_Galbuliformes, Order_Galliformes, Order_Gaviiformes, Order_Gruiformes, Order_Musophagiformes, Order_Passeriformes, Order_Pelecaniformes, Order_Phoenicopteriformes, Order_Piciformes, Order_Podicipediformes, Order_Procellariiformes, Order_Psittaciformes, Order_Rheiformes, Order_Sphenisciformes, Order_Strigiformes, Order_Struthioniformes, Order_Tinamiformes, Order_Trogoniformes, Order_Upupiformes, 
+          ncol = 3, nrow = 11)
+dev.off()
+ 
+df_short2$Mass = as.numeric(df_short2$Mass)
+counter = 0
+for (i in unique(df_short2$taxonomy))
+{
+  a = df_short2[df_short2$taxonomy == i,]
+  linearMod <- lm(Mass~GhAhSkew, data=a)
+  modelSummary = summary(linearMod)
+  c = modelSummary$coefficients[,4][2]
+  b = ggplot(a, aes(x = Mass, y = GhAhSkew))+
+    geom_point()+
+    ggtitle(i)+
+    geom_smooth(method = 'lm', formula = y~x)+                            
+    annotate('text', x = (min(a$Mass)+1), y = min(a$GhAhSkew), label = round(c, digits = 4))
+  assign(paste0("Order_", i), b)
+  counter = counter + 1
+}
+pdf('Birds_mass.pdf',         
+    width = 30,height = 100)
+ggarrange(Order_Accipitriformes, Order_Anseriformes, Order_Apodiformes, Order_Apterygiformes, Order_Bucerotiformes, Order_Caprimulgiformes, Order_Casuariiformes, Order_Charadriiformes, Order_Ciconiiformes, Order_Coliiformes, Order_Columbiformes, Order_Coraciiformes, Order_Cuculiformes, Order_Falconiformes, Order_Galbuliformes, Order_Galliformes, Order_Gaviiformes, Order_Gruiformes, Order_Musophagiformes, Order_Passeriformes, Order_Pelecaniformes, Order_Phoenicopteriformes, Order_Piciformes, Order_Podicipediformes, Order_Procellariiformes, Order_Psittaciformes, Order_Rheiformes, Order_Sphenisciformes, Order_Strigiformes, Order_Struthioniformes, Order_Tinamiformes, Order_Trogoniformes, Order_Upupiformes, 
+          ncol = 3, nrow = 11)
+dev.off()
+
+counter = 0
+for (i in unique(df_short2$taxonomy))
+{
+  a = df_short2[df_short2$taxonomy == i,]
+  linearMod <- lm(Kipps_distance~GhAhSkew, data=a)
+  modelSummary = summary(linearMod)
+  c = modelSummary$coefficients[,4][2]
+  b = ggplot(a, aes(x = Kipps_distance, y = GhAhSkew))+
+    geom_point()+
+    ggtitle(i)+
+    geom_smooth(method = 'lm', formula = y~x)+                            
+    annotate('text', x = (min(a$Kipps_distance)+1), y = min(a$GhAhSkew), label = round(c, digits = 4))
+  assign(paste0("Order_", i), b)
+  counter = counter + 1
+}
+pdf('Birds_Kipps_distance.pdf',         
+    width = 30,height = 100)
+ggarrange(Order_Accipitriformes, Order_Anseriformes, Order_Apodiformes, Order_Apterygiformes, Order_Bucerotiformes, Order_Caprimulgiformes, Order_Casuariiformes, Order_Charadriiformes, Order_Ciconiiformes, Order_Coliiformes, Order_Columbiformes, Order_Coraciiformes, Order_Cuculiformes, Order_Falconiformes, Order_Galbuliformes, Order_Galliformes, Order_Gaviiformes, Order_Gruiformes, Order_Musophagiformes, Order_Passeriformes, Order_Pelecaniformes, Order_Phoenicopteriformes, Order_Piciformes, Order_Podicipediformes, Order_Procellariiformes, Order_Psittaciformes, Order_Rheiformes, Order_Sphenisciformes, Order_Strigiformes, Order_Struthioniformes, Order_Tinamiformes, Order_Trogoniformes, Order_Upupiformes, 
+          ncol = 3, nrow = 11)
+dev.off()
