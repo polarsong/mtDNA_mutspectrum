@@ -120,11 +120,13 @@ for (i in unique(df_short2$taxonomy))
   linearMod <- lm(Mass~GhAhSkew, data=a)
   modelSummary = summary(linearMod)
   c = modelSummary$coefficients[,4][2]
-  b = ggplot(a, aes(x = Mass, y = GhAhSkew))+
+  b = ggplot(a, aes(x = log10(Mass), y = GhAhSkew))+
     geom_point()+
     ggtitle(i)+
     geom_smooth(method = 'lm', formula = y~x)+                            
-    annotate('text', x = (min(a$Mass)+1), y = min(a$GhAhSkew), label = round(c, digits = 4))
+    annotate('text', x = (min(log10(df_short2$Mass))+1), y = min(df_short2$GhAhSkew), label = round(c, digits = 4))+
+    xlim(min(log10(df_short2$Mass)), max(log10(df_short2$Mass)))+
+    ylim(min(df_short2$GhAhSkew), max(df_short2$GhAhSkew))
   assign(paste0("Order_", i), b)
   counter = counter + 1
 }
