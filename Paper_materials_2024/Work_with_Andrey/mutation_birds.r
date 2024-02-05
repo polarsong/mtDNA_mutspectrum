@@ -93,7 +93,7 @@ is.binary(feathertree)
 is.rooted(feathertree)
 
 feathertree <- root(feathertree, outgroup = "Struthio_camelus", resolve.root = TRUE)
-
+feathertree = FullTree
 mycalibration <- makeChronosCalib(feathertree, node="root", age.max=94)
 feathertree <- chronos(feathertree, lambda=0, model = 'correlated', calibration = mycalibration)
 
