@@ -26,10 +26,11 @@ names(df_short) = c('Species', 'GhAhSkew', 'ThChSkew', 'Mass')
 df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
 df_temp = read.csv('temp_new_data.csv')
 df_big = merge(df_short, df_temp, by = 'Species')
-
-lm_temp = lm(GhAhSkew~TNZ, data=df_big)
+df_big$Mass.x = as.numeric(df_big$Mass.x)
+df_big$logmass = log10(df_big$Mass.x)
+lm_temp = lm(GhAhSkew~TNZ+logmass, data=df_big)
 modelSummary = summary(lm_temp)
-
+modelSummary
 ggplot(df_big, aes(x = TNZ, y = GhAhSkew))+
   geom_point()+
   geom_smooth(method = 'lm', formula = y~x)+                            

@@ -165,6 +165,7 @@ summary(m1)
 
 library(caper)
 CompBMR <- comparative.data(BMRTree, BMR, 'Species', na.omit=FALSE, vcv=TRUE, vcv.dim=3) #vcv.dim=2 is default
+str(BMRTree)
 m2 <- pgls(log_BMR~log_Mass, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
 summary(m2)
 
