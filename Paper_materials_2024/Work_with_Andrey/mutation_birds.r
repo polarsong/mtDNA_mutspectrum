@@ -157,8 +157,8 @@ names(log_BMR) <- rownames(BMR)
 names(chthSkew) <- rownames(BMR)
 names(ghahSkew) <- rownames(BMR)
 name.check(BMRTree, BMR)
-
-
+BMRTree
+feathertree
 library(nlme)
 m1 <- gls(log_BMR~log_Mass, data=BMR, correlation=corPagel(value = 1, BMRTree, form = ~Species, fixed=FALSE), method="ML") # ML estimation
 summary(m1)
