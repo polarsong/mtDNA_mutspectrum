@@ -86,27 +86,28 @@ abline(lm(residuals(lm(log_BMR~log_Mass, data=BMR)) ~ log10(chthSkew), data=BMR)
 
 ###########################################################
 library(ape); library(phytools);  library(geiger)
-feathertree <- read.tree("anc_kg.tre")
+feathertree <- read.nexus("Ultrametric_feathertree.nex")
 feathertree$node.label <- NULL # Remove internal node labels (if any)
 is.ultrametric(feathertree)
 is.binary(feathertree)
 is.rooted(feathertree)
 
-feathertree <- root(feathertree, outgroup = "Struthio_camelus", resolve.root = TRUE)
-feathertree = FullTree
-mycalibration <- makeChronosCalib(feathertree, node="root", age.max=94)
-feathertree <- chronos(feathertree, lambda=0, model = 'correlated', calibration = mycalibration)
+#feathertree <- root(feathertree, outgroup = "Struthio_camelus", resolve.root = TRUE)
+#feathertree = FullTree
+#mycalibration <- makeChronosCalib(feathertree, node="root", age.max=94)
+#feathertree <- chronos(feathertree, lambda=0, model = 'correlated', calibration = mycalibration)
 
-is.ultrametric(feathertree)
-is.binary(feathertree)
-is.rooted(feathertree)
+#is.ultrametric(feathertree)
+#is.binary(feathertree)
+#is.rooted(feathertree)
 
-writeNexus(feathertree, file="Ultrametric_feathertree.nex")
+#writeNexus(feathertree, file="Ultrametric_feathertree.nex")
 
 BMR$Species <- gsub(" ", "_", fixed = TRUE, BMR$Species) # Replaces spaces with _
 listBMR <- BMR$Species
-listTree <- feathertree$tip.label
+
 #PGLS  for binar metrics
+#flying only paleognathae
 df_flight = read.csv('../../Paper_materials_2024/flight_and_gene.csv')
 df_flight = df_flight[,c(2,3,4,5,6)]
 df_flight$flight_num = 0
@@ -114,6 +115,7 @@ df_flight[df_flight$ability_to_fly != 'Flying',]$flight_num = 1
 df_flight = df_flight[df_flight$ability_to_fly !='Sphenisciformes',]
 rownames(df_flight) = df_flight$species_name
 listSkew = df_flight$species_name
+listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
 rownames(df_flight) <- df_flight[,1] 
@@ -127,7 +129,7 @@ m1 <- gls(GhAhSkew~flight_num, data=df_flight, correlation=corPagel(value = 1, F
 summary(m1)
 library(caper)
 CompBMR <- comparative.data(Fly_skew_tree, df_flight, 'species_name', na.omit=FALSE, vcv=TRUE, vcv.dim=3) #vcv.dim=2 is default
-m2 <- pgls(log_BMR~log_Mass, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
+m2 <- pgls(GhAhSkew~flight_num, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
 summary(m2)
 
 model_1phy <- pgls(ghahSkew ~ log_Mass + log_BMR, data=CompBMR, lambda='ML')
@@ -137,12 +139,60 @@ AICctab (model_1phy, model_2phy, weights=T)
 
 summary(model_1phy)
 
+#diving
+df_dive1 = read.csv('../../Paper_materials_2024/dive_and_gene.csv')
+df_dive1 = df_dive1[,c(2:6)]
+df_dive1[df_dive1$ability_to_dive == 'Anseriformes',]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Sphenisciformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Podicipediformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Gaviiformes",]$ability_to_dive = 'Diving_all_species'
+df_dive1[df_dive1$ability_to_dive == "Suliformes",]$ability_to_dive = 'Diving_all_species'
 
+df_dive1[df_dive1$ability_to_dive == "Charadriiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Coraciiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Passeriformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Procellariiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1[df_dive1$ability_to_dive == "Gruiformes",]$ability_to_dive = 'Diving_some_species'
+df_dive1$GhAhSkew = as.numeric(as.character(df_dive1$GhAhSkew))
+df_dive1$ability_to_dive_binar = 0
+df_dive1[df_dive1$ability_to_dive != 'Non-diving',]$ability_to_dive_binar = 1
+df_dive2 = df_dive1[df_dive1$ability_to_dive != 'Diving_some_species',]
+df_dive3 = df_dive1[df_dive1$ability_to_dive != 'Diving_all_species',]
 
+#all divers
+listSkew = df_dive1$species_name
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Dive_skew_tree
+rownames(df_dive1) <- df_dive1[,1] 
+df_dive1 <- df_dive1[match(Dive_skew_tree$tip.label,rownames(df_dive1)),]
+attach(df_dive1)
+names(GhAhSkew) = rownames(df_dive1)
+names(ability_to_dive_binar) = rownames(df_dive1)
+name.check(Dive_skew_tree, df_dive1)
+m3 <- gls(GhAhSkew~ability_to_dive_binar, data=df_dive1, correlation=corPagel(value = 1, Dive_skew_tree, form = ~species_name, fixed=FALSE), method="ML") # ML estimation
+summary(m3)
+library(caper)
+CompBMR <- comparative.data(Fly_skew_tree, df_flight, 'species_name', na.omit=FALSE, vcv=TRUE, vcv.dim=3) #vcv.dim=2 is default
+m2 <- pgls(GhAhSkew~flight_num, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
+summary(m2)
 
-
-
-
+#all species divers
+listSkew = df_dive2$species_name
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Dive_skew_tree
+rownames(df_dive2) <- df_dive2[,1] 
+df_dive2 <- df_dive2[match(Dive_skew_tree$tip.label,rownames(df_dive2)),]
+attach(df_dive2)
+names(GhAhSkew) = rownames(df_dive2)
+names(ability_to_dive_binar) = rownames(df_dive2)
+name.check(Dive_skew_tree, df_dive2)
+m3 <- gls(GhAhSkew~ability_to_dive_binar, data=df_dive2, correlation=corPagel(value = 1, Dive_skew_tree, form = ~species_name, fixed=FALSE), method="ML") # ML estimation
+summary(m3)
+CompBMR <- comparative.data(Dive_skew_tree, df_dive2, 'species_name', na.omit=FALSE, vcv=TRUE, vcv.dim=3) #vcv.dim=2 is default
+m4 <- pgls(GhAhSkew~ability_to_dive_binar, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
+summary(m4)
 
 
 SpeciesToDrop <- setdiff(listTree, listBMR) #Вычисляет, какие виды убрать из общего дерева
