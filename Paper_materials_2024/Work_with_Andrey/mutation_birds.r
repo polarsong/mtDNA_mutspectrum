@@ -106,7 +106,39 @@ is.rooted(feathertree)
 BMR$Species <- gsub(" ", "_", fixed = TRUE, BMR$Species) # Replaces spaces with _
 listBMR <- BMR$Species
 
+
 #PGLS  for binar metrics
+#flying all
+df_fly = read.csv('../../Paper_materials_2024/flying_birds.csv')
+df_fly = df_fly[,c(2,3)]
+names(df_fly) = c('species_name', 'flightless')
+df_fly = na.omit(df_fly)
+df_fly$flightless_binar = 0
+df_fly[df_fly$flightless != '0',]$flightless_binar = 1
+names(DNA) = c('species_name', 'GhAhSkew', 'ThChSkew')
+df_fly_dna = merge(df_fly, DNA)
+df_fly_dna$species_name = gsub(' ', '_', df_fly_dna$species_name)
+rownames(df_fly_dna) = df_fly_dna$species_name
+listSkew = df_fly_dna$species_name
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
+rownames(df_fly_dna) <- df_fly_dna[,1] 
+df_fly_dna <- df_fly_dna[match(Fly_skew_tree$tip.label,rownames(df_fly_dna)),]
+attach(df_fly_dna)
+names(GhAhSkew) = rownames(df_fly_dna)
+names(flightless_binar) = rownames(df_fly_dna)
+name.check(Fly_skew_tree, df_fly_dna)
+library(nlme)
+m <- gls(GhAhSkew~flightless_binar, data=df_fly_dna, correlation=corPagel(value = 1, Fly_skew_tree, form = ~species_name, fixed=FALSE), method="ML") # ML estimation
+summary(m)
+library(caper)
+CompBMR <- comparative.data(Fly_skew_tree, df_fly_dna, 'species_name', na.omit=FALSE, vcv=TRUE, vcv.dim=3) #vcv.dim=2 is default
+m_extra <- pgls(GhAhSkew~flightless_binar, data=CompBMR, lambda='ML') #The branch length transformations can be optimised between bounds using maximum likelihood by setting the value for a transformation to 'ML'
+summary(m_extra)
+
+
+
 #flying only paleognathae
 df_flight = read.csv('../../Paper_materials_2024/flight_and_gene.csv')
 df_flight = df_flight[,c(2,3,4,5,6)]
