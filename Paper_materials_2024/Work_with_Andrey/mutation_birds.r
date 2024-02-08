@@ -116,6 +116,7 @@ df_fly = na.omit(df_fly)
 df_fly$flightless_binar = 0
 df_fly[df_fly$flightless != '0',]$flightless_binar = 1
 names(DNA) = c('species_name', 'GhAhSkew', 'ThChSkew')
+df_fly = df_fly[df_fly$flightless != 'Sphenisciformes',]
 df_fly_dna = merge(df_fly, DNA)
 df_fly_dna$species_name = gsub(' ', '_', df_fly_dna$species_name)
 rownames(df_fly_dna) = df_fly_dna$species_name
