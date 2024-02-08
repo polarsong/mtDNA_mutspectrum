@@ -10,7 +10,7 @@ library(ggtree)
 library(stringr)
 library(dplyr)
 df11 = read.csv ('Species_life-histories.csv')
-df12 = read.csv('GlobalBMRbase.csv')
+df12 = read.csv('GlobalBMRbase.csv', sep = ';')
 df_mtdna = read.csv('../../Paper_materials_2024/Birds_dataset_paper.csv')
 df_mtdna_orders = unique(df_mtdna[,c(2,5)])
 df_mtdna_orders$taxonomy = sub('formes.*', '', df_mtdna_orders$taxonomy)
@@ -30,14 +30,16 @@ for (i in names_v)
   df_short = rbind(df_short, ab)
 }
 names(df_short) = c('Species', 'GhAhSkew', 'ThChSkew', 'Mass')
-df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
+df_short$GhAhSkew = suppressWarnings(as.numeric(df_short$GhAhSkew))
 
 df12_bmr = df12[df12$Trait == 'BMR',]
-names_v = unique(df12_bmr$Original_Name)
+names_v = unique(df12_bmr$Species)
 df_short1 = data.frame()
+df12_bmr$TraitValue = gsub(',', '.', df12_bmr$TraitValue)
+df12_bmr$TraitValue = suppressWarnings(as.numeric(df12_bmr$TraitValue))
 for (i in names_v)
 {
-  df1 = df12_bmr[df12_bmr$Original_Name == i,]
+  df1 = df12_bmr[df12_bmr$Species == i,]
   a1 = sum(df1$TraitValue)
   a2 = nrow(df1)
   a = a1/a2
