@@ -52,3 +52,10 @@ names(df_fly) = c('species_name', 'flightless')
 df_fly$species_name = gsub(' ', '_', df_fly$species_name)
 df_check1 = merge(df_b_cytb, df_fly, by = 'species_name')
 df_check2 = merge(df_b_all, df_fly, by = 'species_name')
+
+avo_data = read.csv('../../Body/1Raw/Avonet_data.csv')
+avo_data_check = avo_data[,c(1,3)]
+names(avo_data_check) = c('species_name', 'order')
+avo_data_check$species_name = gsub(' ','_', avo_data_check$species_name)
+df_check_b = merge(df_midori1, avo_data_check, by = 'species_name')
+unique(df_check_b$species_name)
