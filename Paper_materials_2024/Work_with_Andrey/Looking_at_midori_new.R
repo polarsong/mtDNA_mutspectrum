@@ -59,3 +59,6 @@ names(avo_data_check) = c('species_name', 'order')
 avo_data_check$species_name = gsub(' ','_', avo_data_check$species_name)
 df_check_b = merge(df_midori1, avo_data_check, by = 'species_name')
 unique(df_check_b$species_name)
+df_for_orn = df_check_b[,c(1,15)]
+df_for_orn = unique(df_for_orn)
+write.csv(df_for_orn, file = 'Midori_birds.csv')
