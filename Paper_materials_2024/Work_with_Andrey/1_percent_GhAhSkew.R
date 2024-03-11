@@ -52,3 +52,15 @@ write.csv(df_cytb1_percent_max, file = 'Start_seq_max.csv')
 write.csv(df_cytb2_percent_max, file = 'Start_codon_max.csv')
 write.csv(df_cytb1_1_percent_max, file = 'Start_seq_min.csv')
 write.csv(df_cytb2_2_percent_max, file = 'Start_codon_min.csv')
+
+#comparison
+df_cox1 = read.csv('Midori2_birds_cox1_ghahskew_better.csv')
+df_cox1 = df_cox1[,c(2,3,4)]
+df_cytb$gene = 'CytB'
+df_cox1$gene = 'COX1'
+ggplot(NULL, aes(gene, GhAhSkew_seq_begining)) +    # Draw ggplot2 plot based on two data frames
+  geom_boxplot(data = df_cytb) +
+  geom_boxplot(data = df_cox1)
+ggplot(NULL, aes(gene, GhAhSkew_start_codon)) +    # Draw ggplot2 plot based on two data frames
+  geom_boxplot(data = df_cytb) +
+  geom_boxplot(data = df_cox1)
