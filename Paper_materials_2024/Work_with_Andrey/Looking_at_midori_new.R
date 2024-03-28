@@ -1,5 +1,6 @@
 rm(list = ls(all=TRUE))
 library(ggplot2)
+df_midori_new = read.csv('spectra12.csv')
 df_midori = read.csv('Midori2_new_mutspec.csv')
 df_midori = df_midori[,c(2,5,6,7)]
 df_midori$gene_and_species = paste(df_midori$Gene, df_midori$Species)
@@ -61,4 +62,18 @@ df_check_b = merge(df_midori1, avo_data_check, by = 'species_name')
 unique(df_check_b$species_name)
 df_for_orn = df_check_b[,c(1,15)]
 df_for_orn = unique(df_for_orn)
+
+#new_data
+df_midori_new = read.csv('spectra12.csv')
+df_midori_new[,c('gene', 'species_name')] = str_split_fixed(df_midori_new$gene__species, "__", 2)
+unique(df_midori_new$species_name)
+df_midori_new = df_midori_new[,c(1,15)]
+names(df_midori_new) = c('garbage','species_name')
+df_check_extra = merge(df_midori_new, df_for_orn, by = 'species_name')
+df_check_extra1 = merge(df_midori_new, avo_data_check)
+unique(df_check_extra1$species_name)
+df_1 = df_check_extra1[,c(1,3)]
+df_1 = unique(df_1)
+df_2 = merge(df_1, df_for_orn)
 write.csv(df_for_orn, file = 'Midori_birds.csv')
+write.csv(df_2, file = 'New_midori_birds.csv')
