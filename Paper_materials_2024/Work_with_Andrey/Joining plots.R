@@ -77,3 +77,10 @@ df_venn = df_venn[,c(2:11)]
 ggvenn(
   df_venn
 )
+install.packages("VennDiagram")                       # Install VennDiagram package
+library("VennDiagram") 
+venn.diagram(
+  x = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, avo_data$species_name), col=c("red", 'blue', 'yellow', 'orange', 'pink'),
+  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 'Avonet_species'), fill = c("red", 'blue', 'yellow', 'orange', 'pink'),
+  filename = '#Ven_Test.tiff',
+  output=TRUE, cat.pos = 1)
