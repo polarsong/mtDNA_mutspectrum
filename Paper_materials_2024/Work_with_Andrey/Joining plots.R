@@ -58,29 +58,125 @@ names(df_syst)[names(df_syst) == 'species_name'] <- 'species_name_IOC'
 names(df_syst) = c('order', 'family', 'genus', 'species_name_IOC')
 df_syst = df_syst[,c(1,4)]
 library(dplyr)
-df_big = full_join(df_short, df_fly)
 df_cytb = df_cytb[,c(2,3,4)]
 names(df_cytb) = c('species_name', 'GhAhSkew_seq_beg', 'GhAhSkew_start_codon')
+df_long = read.csv('AVES_longevity.csv')
+firstup <- function(x) {
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
+df_long$scinam = firstup(df_long$scinam)
+df_long = df_long[,c(1,2)]
+names(df_long) = c('species_name', 'longevity')
+df_lf = read.csv ('Species_life-histories.csv')
+df_lf = df_lf[,c(1,5:16)]
+names(df_lf)  = c('species_name',"oscine", 'migration_andrey', 'habitat_andrey', 'foraging_environment_andrey',
+                  'daily_activity_andrey', 'diet_andrey', 'clutch_abdrey', 'clutch_min_andrey', 'clutch_max_andrey',
+                  'nesting_period_andrey', 'after_fledging_period_andrey', 'lifespan_andrey')
+df_bmr = read.csv('GlobalBMRbase.csv', sep = ';')
+df_bmr = df_bmr[,c(1,7,8)]
+names(df_bmr) = c('species_name', 'trait', 'trait_value')
+df_bmr$trait_value =gsub(',','.', df_bmr$trait_value)
+df_bmr$trait_value = as.numeric(df_bmr$trait_value)
+df_bmr1 = df_bmr[df_bmr$trait == 'BMR',]
+names_v1 = unique(df_bmr1$species_name)
+df_bmr11 = data.frame()
+for (i in names_v1)
+{
+  df_1 = df_bmr1[df_bmr1$species_name == i,]
+  a = (sum(df_1$trait_value))/(nrow(df1))
+  b = unique(df_1$trait)
+  ab = c(i, b, a)
+  df_bmr11 = rbind(df_bmr11, ab)
+}
+names(df_bmr11) = c('species_name', 'trait_bmr', 'trait_value_bmr')
+df_bmr2 = df_bmr[df_bmr$trait == 'SMR',]
+names_v1 = unique(df_bmr2$species_name)
+df_bmr21 = data.frame()
+for (i in names_v1)
+{
+  df_1 = df_bmr2[df_bmr2$species_name == i,]
+  a = (sum(df_1$trait_value))/(nrow(df1))
+  b = unique(df_1$trait)
+  ab = c(i, b, a)
+  df_bmr21 = rbind(df_bmr21, ab)
+}
+names(df_bmr21) = c('species_name', 'trait_smr', 'trait_value_smr')
+df_bmr3 = df_bmr[df_bmr$trait == 'RMR',]
+names_v1 = unique(df_bmr3$species_name)
+df_bmr31 = data.frame()
+for (i in names_v1)
+{
+  df_1 = df_bmr3[df_bmr3$species_name == i,]
+  a = (sum(df_1$trait_value))/(nrow(df1))
+  b = unique(df_1$trait)
+  ab = c(i, b, a)
+  df_bmr31 = rbind(df_bmr31, ab)
+}
+names(df_bmr31) = c('species_name', 'trait_rmr', 'trait_value_rmr')
+
+df_temp = read.csv('temp_new_data.csv')
+df_temp = df_temp[,c(11, 4:8)]
+names(df_temp) = c('species_name', 'LTNZ', 'UTNZ', 'TNZ', 'latitude', 'longitude')
+
+df_extra = read.csv('mcnab_2009_data.csv')
+df_extra = df_extra[,c(2, 6, 11, 14)]
+names(df_extra) = c('species_name', 'bmr_kj_h', 'torpor', 'mountains')
+df_vhi = read.table('Valya_high_alt.txt', header = TRUE, sep = ',')
+names(df_vhi) = c('species_name', 'high_alt_value')
+df_vhi$species_name = gsub('_',' ',df_vhi$species_name)
 #df_midori_birds = merge(df_midori1, avo_data, by = 'Species3')
+df_big = full_join(df_short, df_fly)
 df_big1 = full_join(df_big, df_short1)
 df_big11 = full_join(df_big1, df_cytb)
 df_big2 = full_join(df_big11, avo_data)
 df_big3 = full_join(df_big2, df_midori_eco)
-write.csv(df_big3, file = 'big_birds_new_data.csv')
+df_big4 = full_join(df_big3, df_long)
+df_big5 = full_join(df_big4, df_lf)
+df_big6 = full_join(df_big5, df_bmr11)
+df_big7 = full_join(df_big6, df_bmr21)
+df_big8 = full_join(df_big7, df_bmr31)
+df_big9 = full_join(df_big8, df_temp)
+df_big10 = full_join(df_big9, df_extra)
+df_big12 = full_join(df_big10, df_vhi)
+write.csv(df_big12, file = 'big_birds_new_data.csv')
 
 #Vienn diagram
-library(devtools)
-devtools::install_github("yanlinlin82/ggvenn")
-library(ggvenn)
-df_venn = df_big3[,c(1,2,3,4,5,6,7,8,9,45,46)]
-df_venn = df_venn[,c(2:11)]
-ggvenn(
-  df_venn
-)
-install.packages("VennDiagram")                       # Install VennDiagram package
+install.packages('ggvenn')
+library(ggvenn) 
+species = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
+               avo_data$species_name, df_long$species_name, df_lf$species_name, df_bmr11$species_name,
+               df_bmr21$species_name, df_bmr31$species_name, df_temp$species_name, df_extra$species_name,
+               df_vhi$species_name)
+species_check = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
+                     avo_data$species_name, df_long$species_name)
 library("VennDiagram") 
+colors = c('#E333FF', '#FFE333', '#BEFF33', '#33FF3F', '#33FFBE', '#33FFFC', '#3390FF', '#3933FF', '#7133FF',
+           '#B233FF', '#FF3333', '#5D6A67', '#49A59F')
 venn.diagram(
-  x = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, avo_data$species_name), col=c("red", 'blue', 'yellow', 'orange', 'pink'),
-  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 'Avonet_species'), fill = c("red", 'blue', 'yellow', 'orange', 'pink'),
+  x = species_check,
+  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 
+                     'Avonet_species', 'Longevity'),
+  filename = '#Ven_Test.png',
+  scaled = FALSE,
+  col = 'black',
+  fill = colors,
+  cat.col = colors,
+  output=TRUE
+)
+
+venn.diagram(
+  x = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
+           avo_data$species_name, df_long$species_name, df_lf$species_name, df_bmr11$species_name,
+           df_bmr21$species_name, df_bmr31$species_name, df_temp$species_name, df_extra$species_name,
+           df_vhi$species_name), 
+  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 
+                     'Avonet_species', 'Longevity', 'Andrey_ecodata', 'BMR_Andrey', 'SMR_Andrey',
+                     'RMR_Andrey', 'Temperature','Mountains_from_Andrey', 'Mountains_from_Valya'),
   filename = '#Ven_Test.tiff',
   output=TRUE, cat.pos = 1)
+
+
+install.packages("UpSetR")
+library(UpSetR)
+upset(fromList(species))
