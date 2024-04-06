@@ -48,6 +48,7 @@ for (i in names_v1)
   df_short1 = rbind(df_short1, ab)
 }
 names(df_short1) = c('species_name', 'Mutation_AG_midori', 'Mutation_CT_midori')
+write.csv(df_short1, file = 'New_midori_mutations_birds_only.csv')
 df_cytb = read.csv('Midori2_birds_cytb_ghahskew_better.csv')
 df_syst = read.csv('TaxonomyIOC14_1.csv', sep = ';')
 df_midori_eco = read.csv('Midori_birds_eco.csv')
