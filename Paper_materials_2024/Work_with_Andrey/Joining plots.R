@@ -48,7 +48,7 @@ for (i in names_v1)
   df_short1 = rbind(df_short1, ab)
 }
 names(df_short1) = c('species_name', 'Mutation_AG_midori', 'Mutation_CT_midori')
-write.csv(df_short1, file = 'New_midori_mutations_birds_only.csv')
+#write.csv(df_short1, file = 'New_midori_mutations_birds_only.csv')
 df_cytb = read.csv('Midori2_birds_cytb_ghahskew_better.csv')
 df_syst = read.csv('TaxonomyIOC14_1.csv', sep = ';')
 df_midori_eco = read.csv('Midori_birds_eco.csv')
@@ -143,41 +143,24 @@ df_big12 = full_join(df_big10, df_vhi)
 write.csv(df_big12, file = 'big_birds_new_data.csv')
 
 #Vienn diagram
-install.packages('ggvenn')
 library(ggvenn) 
-species = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
-               avo_data$species_name, df_long$species_name, df_lf$species_name, df_bmr11$species_name,
-               df_bmr21$species_name, df_bmr31$species_name, df_temp$species_name, df_extra$species_name,
-               df_vhi$species_name)
-species_check = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
-                     avo_data$species_name, df_long$species_name)
+#species = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
+#               avo_data$species_name, df_long$species_name, df_lf$species_name, df_bmr11$species_name,
+#               df_bmr21$species_name, df_bmr31$species_name, df_temp$species_name, df_extra$species_name,
+#               df_vhi$species_name)
+#species_check = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
+#                     avo_data$species_name, df_long$species_name)
 library("VennDiagram") 
 colors = c('#E333FF', '#FFE333', '#BEFF33', '#33FF3F', '#33FFBE', '#33FFFC', '#3390FF', '#3933FF', '#7133FF',
            '#B233FF', '#FF3333', '#5D6A67', '#49A59F')
 venn.diagram(
-  x = species_check,
-  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 
-                     'Avonet_species', 'Longevity'),
+  x = list(df_short$species_name, df_short1$species_name, df_cytb$species_name, df_vhi$species_name),
+  category.names = c("Genetic_RefSeq" ,'Midori_mutations', 'Genetic_CytB', 'Mountains_Valya'),
   filename = '#Ven_Test.png',
   scaled = FALSE,
-  col = 'black',
-  fill = colors,
-  cat.col = colors,
+  fill = c('#E333FF', '#33FF3F', '#3933FF', '#FF3333'),
+  cat.col = c('#E333FF', '#33FF3F', '#3933FF', '#FF3333'),
   output=TRUE
 )
 
-venn.diagram(
-  x = list(df_short$species_name, df_fly$species_name, df_short1$species_name, df_cytb$species_name, 
-           avo_data$species_name, df_long$species_name, df_lf$species_name, df_bmr11$species_name,
-           df_bmr21$species_name, df_bmr31$species_name, df_temp$species_name, df_extra$species_name,
-           df_vhi$species_name), 
-  category.names = c("Genetic_RefSeq" , "Flight/dive_from_Valya", 'Midori_mutations', 'Genetic_CytB', 
-                     'Avonet_species', 'Longevity', 'Andrey_ecodata', 'BMR_Andrey', 'SMR_Andrey',
-                     'RMR_Andrey', 'Temperature','Mountains_from_Andrey', 'Mountains_from_Valya'),
-  filename = '#Ven_Test.tiff',
-  output=TRUE, cat.pos = 1)
 
-
-install.packages("UpSetR")
-library(UpSetR)
-upset(fromList(species))
