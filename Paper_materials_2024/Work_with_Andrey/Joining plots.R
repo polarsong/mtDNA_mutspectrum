@@ -21,20 +21,16 @@ df_fly = read.csv('../../Paper_materials_2024/flying_birds.csv')
 df_fly = df_fly[,c(2,3,4)]
 names(df_fly) = c('species_name', 'ability_to_fly', 'ability_to_dive')
 avo_data = read.csv('../../Body/1Raw/Avonet_data.csv')
-names_v = unique(df_mtdna$species_name)
-df_short = data.frame()
-for (i in names_v)
-{
-  df1 = df_mtdna[df_mtdna$species_name == i,]
-  a = sum(df1$ghahSkew)/12
-  b = sum(df1$chthSkew)/12
-    ab = c(i, a, b)
-  df_short = rbind(df_short, ab)
-}
+df_ex = df_mtdna[,c(2,17:95,97:102,105:107)]
+df_ex1 = aggregate(. ~ species_name, FUN = mean, data = df_ex)
+df_ex2 = unique(df_mtdna[,c(2,4)])
+df_ex1 = merge(df_ex1, df_ex2)
+df_short = df_ex1
+colnames(df_short) <- paste(colnames(df_short),"refseq",sep="_")
+names(df_short)[names(df_short) == 'species_name_refseq'] <- 'species_name'
 names(avo_data)[names(avo_data) == 'Species3'] <- 'species_name'
 names(avo_data)[names(avo_data) == 'Family3'] <- 'family'
 names(avo_data)[names(avo_data) == 'Order3'] <- 'order'
-names(df_short) = c('species_name', 'GhAhSkew_refseq', 'ThChSkew_refseq')
 df_fly = na.omit(df_fly)
 df_midori_birds = merge(df_midori1, avo_data)
 names_v1 = unique(df_midori_birds$species_name)
