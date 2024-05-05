@@ -43,6 +43,9 @@ for (i in names_v1)
   ab = c(i, a, b)
   df_short1 = rbind(df_short1, ab)
 }
+df_short1$Mutation_AG_midori = as.numeric(as.character(df_short1$Mutation_AG_midori))
+df_short1$Mutation_CT_midori = as.numeric(as.character(df_short1$Mutation_CT_midori))
+df_short1$AGdivCT = df_short1$Mutation_AG_midori/df_short1$Mutation_CT_midori
 names(df_short1) = c('species_name', 'Mutation_AG_midori', 'Mutation_CT_midori')
 #write.csv(df_short1, file = 'New_midori_mutations_birds_only.csv')
 df_cytb = read.csv('Midori2_birds_cytb_ghahskew_better.csv')
