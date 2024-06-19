@@ -2,7 +2,124 @@ rm(list = ls(all=TRUE))
 library(ggplot2)
 df_mtdna = read.csv('../../Paper_materials_2024/Birds_dataset_paper.csv')
 df_codons = df_mtdna[,c(2,32:95)]
+df_fly = read.csv('../../Paper_materials_2024/flying_birds.csv')
 df_codons1 = aggregate(. ~ species_name, FUN = mean, data = df_codons)
+
+df_fly = df_fly[,c(2,3,4)]
+names(df_fly) = c('species_name', 'flightless', 'diving')
+df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
+df_fly_clean= df_fly[df_fly$flightless == 'Almost_flightless',]
+df_fly_clean = na.omit(df_fly_clean)
+df_fly_clean1 = na.omit(df_fly_clean1)
+df_dive = df_fly
+df_fly = df_fly[df_fly$flightless != 'Flightless',]
+df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
+df_fly_clean$flightless = 'Tinamiformes'
+df_fly_clean1$flightless = 'Tinamiformes'
+df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
+
+
+beasts = df_codons1$species_name
+df_data = data.frame()
+for (i in beasts)
+{ 
+  a = data.frame(df_codons1[df_codons1$species_name == i,])
+  a$mega_gain_gly = sum(a$CCT + a$CCA + a$CCG + a$CCC) #mega_gain_gly
+  a$gain_serg_arg = sum(a$TCT + a$TCA + a$TCG + a$TCC) #gain_serg_arg
+  a$gain_asp_glu = sum(a$CTT + a$CTA + a$CTG + a$CTC) #gain_asp_glu
+  a$lose_asn_lys = sum(a$TTT + a$TTA + a$TTG + a$TTC) #lose_asn_lys
+  
+  a$mega_gain_cys_stop_trp = sum(a$ACT + a$ACA + a$ACG + a$ACC) #mega_gain_cys_stop_trp
+  a$gain_arg = sum(a$GCT + a$GCA + a$GCG + a$GCC) #gain_arg
+  a$gain_tyr_stop = sum(a$ATT + a$ATA + a$ATG + a$ATC) #gain_tyr_stop
+  a$lose_his_gln = sum(a$GTT + a$GTA + a$GTG + a$GTC) #lose_gis_gln
+  
+  a$mega_gain_val = sum(a$CAT + a$CAA + a$CAG + a$CAC) #mega_gain_val
+  a$gain_ile_met = sum(a$TAT + a$TAA + a$TAG + a$TAC) #gain_ile_met
+  a$gain_ala = sum(a$CGT + a$CGA + a$CGG + a$CGC) #gain ala
+  a$lose_thr = sum(a$TGT + a$TGA + a$TGG + a$TGC) #lose_thr
+  
+  a$mega_gain_leu_phe = sum(a$AAT + a$AAA + a$AAG + a$AAC) #mega_gain_leu_phe
+  a$gain_ser = sum(a$AGT + a$AGA + a$AGG + a$AGC) #gain_ser
+  a$gain_leu = sum(a$GAT + a$GAA + a$GAG + a$GAC) #gain_leu
+  a$lose_pro = sum(a$GGT + a$GGA + a$GGG + a$GGC)#lose pro
+  df_data = rbind(df_data, a)
+}
+
+df_fly_final = merge(df_fly_big, df_data)
+df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
+df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
+ggplot(df_fly_final, aes(x = flightless, y = mega_gain_gly))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_serg_arg))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_asp_glu))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = lose_asn_lys))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = mega_gain_cys_stop_trp))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_arg))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_tyr_stop))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = lose_his_gln))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = mega_gain_val))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_ile_met))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_ala))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = lose_thr))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = mega_gain_leu_phe))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_ser))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = gain_leu))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+ggplot(df_fly_final, aes(x = flightless, y = lose_pro))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+
+
+
+
+
+
+df_codons1$mega_gain_gly = sum(df_codons1$CCT + df_codons1$CCA + df_codons1$CCG + df_codons1$CCC)
 mega_gain_gly = sum(df_codons1$CCT + df_codons1$CCA + df_codons1$CCG + df_codons1$CCC) #mega_gain_gly
 gain_serg_arg = sum(df_codons1$TCT + df_codons1$TCA + df_codons1$TCG + df_codons1$TCC) #gain_serg_arg
 gain_asp_glu = sum(df_codons1$CTT + df_codons1$CTA + df_codons1$CTG + df_codons1$CTC) #gain_asp_glu
@@ -22,6 +139,15 @@ mega_gain_leu_phe = sum(df_codons1$AAT + df_codons1$AAA + df_codons1$AAG + df_co
 gain_ser = sum(df_codons1$AGT + df_codons1$AGA + df_codons1$AGG + df_codons1$AGC) #gain_ser
 gain_leu = sum(df_codons1$GAT + df_codons1$GAA + df_codons1$GAG + df_codons1$GAC) #gain_leu
 lose_pro = sum(df_codons1$GGT + df_codons1$GGA + df_codons1$GGG + df_codons1$GGC)#lose pro
+df_data = merge(df_data, df_fly)
+
+df_fly_final = merge(df_fly_big, df_short)
+df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
+df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
+ggplot(df_data, aes(x = flightless, y = mega_gain_gly))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
 
 #first_sector = data.frame(mega_gain_cys_stop_trp, gain_arg, gain_tyr_stop , lose_his_gln)
 first_sector = data.frame()
