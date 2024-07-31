@@ -5,7 +5,7 @@ library(ggplot2)
 library(ggpubr)
 library(plotly)
 #Частоты
-df_mtdna = read.csv('../../Head/2Scripts/Birds_dataset_paper.csv')
+df_mtdna = read.csv('../Head/2Scripts/Birds_dataset_paper.csv')
 f1 = ggplot(data = df_mtdna, aes(x = gene_name, y = fTn))+
   geom_boxplot(outlier.shape = NA)+
   xlab('Митохондриальные гены')+
@@ -238,9 +238,9 @@ names(new_mam) = c('species_name', 'gene_name', 'ghahSkew', 'chthSkew', 'class')
 new_big = rbind(new_mam, new_bird)
 new_b_and_m = ggplot(new_big, aes(x = gene_name, y = ghahSkew, fill = class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Митохондриальные гены')+
-  ylab('Метрика окислительного стресса (GhAhSkew)')+
-  scale_fill_hue(labels = c("Птицы", "Млекопитающие"))
+  xlab('Mitochondrial genes')+
+  ylab('GhAhSkew')+
+  scale_fill_hue(labels = c("Birds", "Mammals"))
 new_b_and_m = new_b_and_m + xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CytB","ND1","ND2"))
 new_b_and_m = new_b_and_m + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 new_b_and_m
