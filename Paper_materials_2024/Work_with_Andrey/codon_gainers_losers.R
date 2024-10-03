@@ -1,5 +1,6 @@
 rm(list = ls(all=TRUE))
 library(ggplot2)
+library(ggpubr)
 df_mtdna = read.csv('../../Paper_materials_2024/Birds_dataset_paper.csv')
 df_codons = df_mtdna[,c(2,32:95)]
 df_fly = read.csv('../../Paper_materials_2024/flying_birds.csv')
@@ -49,141 +50,234 @@ for (i in beasts)
 df_fly_final = merge(df_fly_big, df_data)
 df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
 df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
-ggplot(df_fly_final, aes(x = flightless, y = mega_gain_gly))+
+a = ggplot(df_fly_final, aes(x = flightless, y = mega_gain_gly))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Flightless birds groups')+
+  ylab('Gly')+
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_serg_arg))+
+b = ggplot(df_fly_final, aes(x = flightless, y = gain_serg_arg))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Flightless birds groups')+
+  ylab('Ser and stop')+
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_asp_glu))+
+c = ggplot(df_fly_final, aes(x = flightless, y = gain_asp_glu))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Flightless birds groups')+
+  ylab('Asp and glu')+
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = lose_asn_lys))+
+d = ggplot(df_fly_final, aes(x = flightless, y = lose_asn_lys))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Flightless birds groups')+
+  ylab('Asn and lys')+
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = mega_gain_cys_stop_trp))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_arg))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_tyr_stop))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = lose_his_gln))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = mega_gain_val))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_ile_met))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_ala))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = lose_thr))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = mega_gain_leu_phe))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_ser))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = gain_leu))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
-ggplot(df_fly_final, aes(x = flightless, y = lose_pro))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+first_graph = ggarrange(d, b, c, a,
+                        ncol = 2, nrow = 2)
+first_graph
 
+a1 =ggplot(df_fly_final, aes(x = flightless, y = mega_gain_cys_stop_trp))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Flightless birds groups')+
+  ylab('Cys and Trp')+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+b1 = ggplot(df_fly_final, aes(x = flightless, y = gain_arg))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Arg')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+c1 = ggplot(df_fly_final, aes(x = flightless, y = gain_tyr_stop))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Tyr and stop')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+d1 = ggplot(df_fly_final, aes(x = flightless, y = lose_his_gln))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('His and gln')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+second_graph = ggarrange(c1,a1,d1,b1,
+                         ncol = 2, nrow = 2)
+second_graph
+
+a2 = ggplot(df_fly_final, aes(x = flightless, y = mega_gain_val))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Val')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+b2 = ggplot(df_fly_final, aes(x = flightless, y = gain_ile_met))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Ile and met')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+c2 = ggplot(df_fly_final, aes(x = flightless, y = gain_ala))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Ala')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+d2 = ggplot(df_fly_final, aes(x = flightless, y = lose_thr))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Thr')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+third_graph = ggarrange(b2, d2, a2, c2,
+                         ncol = 2, nrow = 2)
+third_graph
+
+a3 = ggplot(df_fly_final, aes(x = flightless, y = mega_gain_leu_phe))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Phe and leu')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+b3 = ggplot(df_fly_final, aes(x = flightless, y = gain_ser))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Ser')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+c3 = ggplot(df_fly_final, aes(x = flightless, y = gain_leu))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Leu')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+d3 = ggplot(df_fly_final, aes(x = flightless, y = lose_pro))+
+  geom_boxplot()+
+  xlab('Flightless birds groups')+
+  ylab('Pro')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+fourth_graph = ggarrange(a3, b3, c3, d3,
+                         nrow = 2, ncol = 2)
+fourth_graph
 
 df_dive_final = merge(df_dive, df_data, by = 'species_name')
 df_dive_final = df_dive_final[df_dive_final$diving != 'waterbird',]
 df_dive_final[df_dive_final$diving == '0',]$diving = 'Non-diving birds'
-ggplot(df_dive_final, aes(x = diving, y = mega_gain_gly))+
+
+a = ggplot(df_dive_final, aes(x = diving, y = mega_gain_gly))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Gly')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_serg_arg))+
+b = ggplot(df_dive_final, aes(x = diving, y = gain_serg_arg))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Ser and stop')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_asp_glu))+
+c = ggplot(df_dive_final, aes(x = diving, y = gain_asp_glu))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Asp and glu')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = lose_asn_lys))+
+d = ggplot(df_dive_final, aes(x = diving, y = lose_asn_lys))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Asn and lys')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = mega_gain_cys_stop_trp))+
+fifth_graph = ggarrange(d,b,c,a,
+                        nrow = 2, ncol = 2)
+fifth_graph
+
+a1 = ggplot(df_dive_final, aes(x = diving, y = mega_gain_cys_stop_trp))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Cys and Trp')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_arg))+
+b1 = ggplot(df_dive_final, aes(x = diving, y = gain_arg))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Arg')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_tyr_stop))+
+c1 = ggplot(df_dive_final, aes(x = diving, y = gain_tyr_stop))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Tyr and stop')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = lose_his_gln))+
+d1 = ggplot(df_dive_final, aes(x = diving, y = lose_his_gln))+
   geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('His and gln')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = mega_gain_val))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_ile_met))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_ala))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = lose_thr))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = mega_gain_leu_phe))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_ser))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = gain_leu))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
-ggplot(df_dive_final, aes(x = diving, y = lose_pro))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+sixth_graph = ggarrange(c1, a1, d1, b1,
+                        nrow = 2, ncol = 2)
+sixth_graph
 
 
+a2 = ggplot(df_dive_final, aes(x = diving, y = mega_gain_val))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Val')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+b2 = ggplot(df_dive_final, aes(x = diving, y = gain_ile_met))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Ile and met')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+c2 = ggplot(df_dive_final, aes(x = diving, y = gain_ala))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Ala')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+d2 = ggplot(df_dive_final, aes(x = diving, y = lose_thr))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Thr')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+seventh_graph = ggarrange(b2,d2,a2,c2,
+                          ncol = 2, nrow = 2)
+seventh_graph
+
+a3 = ggplot(df_dive_final, aes(x = diving, y = mega_gain_leu_phe))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Leu and phe')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+b3 = ggplot(df_dive_final, aes(x = diving, y = gain_ser))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Ser')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+c3 = ggplot(df_dive_final, aes(x = diving, y = gain_leu))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Leu')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+d3 = ggplot(df_dive_final, aes(x = diving, y = lose_pro))+
+  geom_boxplot()+
+  xlab('Diving birds groups')+
+  ylab('Pro')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+eighth_graph = ggarrange(a3,b3,c3,d3,
+                         ncol = 2, nrow = 2)
+eighth_graph
 
 df_codons1$mega_gain_gly = sum(df_codons1$CCT + df_codons1$CCA + df_codons1$CCG + df_codons1$CCC)
 mega_gain_gly = sum(df_codons1$CCT + df_codons1$CCA + df_codons1$CCG + df_codons1$CCC) #mega_gain_gly
