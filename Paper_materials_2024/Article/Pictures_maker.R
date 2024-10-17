@@ -192,6 +192,7 @@ df_mtdna$ghahSkew = gsub(',', '.', df_mtdna$ghahSkew)
 df_mtdna$chthSkew = gsub(',', '.', df_mtdna$chthSkew)
 df_mtdna$ghahSkew = as.numeric(as.character(df_mtdna$ghahSkew))
 df_mtdna$chthSkew = as.numeric(as.character(df_mtdna$chthSkew))
+df_mtdna[df_mtdna$Species == "Drepanis coccinea",]$Species = "Vestiaria coccinea"
 df_mtdna_cut = df_mtdna[df_mtdna$gene_name != 'ND1',]
 df_mtdna_cut = df_mtdna_cut[df_mtdna_cut$gene_name != 'ND2',]
 df_mtdna_cut[df_mtdna_cut$Species == "Drepanis coccinea",]$Species = "Vestiaria coccinea"  
@@ -212,3 +213,87 @@ for (i in b_names)
   speart = cor.test(df_bird$chthSkew, tbss)
   spearman_rhos_thchskew = rbind(spearman_rhos, c(i, speart$p.value))
 }
+
+#Supp materials
+
+#Mass
+df_mtdna$Mass = gsub(',', '.', df_mtdna$Mass)
+df_mtdna$Mass = as.numeric(as.character(df_mtdna$Mass))
+names_v = unique(df_mtdna$Species)
+df_short = data.frame()
+for (i in names_v)
+{
+  df1 = df_mtdna[df_mtdna$Species == i,]
+  a = sum(df1$ghahSkew)/12
+  b = sum(df1$chthSkew)/12
+  v = sum(df1$Mass)/12
+  ab = c(i, a, b, v)
+  df_short = rbind(df_short, ab)
+}
+names(df_short) = c('Species', 'GhAhSkew', 'ThChSkew', 'Mass','log_mass')
+df_short$Mass = as.numeric(df_short$Mass)
+df_short$GhAhSkew = as.numeric(df_short$GhAhSkew)
+df_short$ThChSkew = as.numeric(df_short$ThChSkew)
+df_short$log_mass = log10(df_short$Mass)
+mass_ghskew = ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
+  geom_point()+
+  geom_smooth(method=lm)+
+  xlab('Decimal logarithm of mass')
+
+mass_thskew = ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
+  geom_point()+
+  geom_smooth(method=lm)+
+  xlab('Decimal logarithm of mass')
+
+#Clutch
+df_par = read.csv('../Work_with_Andrey/Species_life-histories.csv')
+df_mtdna_par = merge(df_short, df_par, by = 'Species')
+clutch_ghskew = ggplot(df_mtdna_par, aes(x = Clutch, y = GhAhSkew))+
+  geom_point()
+
+clutch_thskew = ggplot(df_mtdna_par, aes(x = Clutch, y = ThChSkew))+
+  geom_point()
+
+
+#BMR
+df_bmr = read.csv('../Work_with_Andrey/GlobalBMRbase.csv', sep = ';')
+df_bmr_e = df_bmr[df_bmr$Trait == 'BMR',]
+names_v = unique(df_bmr_e$Species)
+df_short_1 = data.frame()
+df_bmr_e$TraitValue = gsub(',', '.', df_bmr_e$TraitValue)
+df_bmr_e$TraitValue = suppressWarnings(as.numeric(df_bmr_e$TraitValue))
+for (i in names_v)
+{
+  df1 = df_bmr_e[df_bmr_e$Species == i,]
+  a1 = sum(df1$TraitValue)
+  a2 = nrow(df1)
+  a = a1/a2
+  b = 'BMR'
+  ab = c(i, b, a)
+  df_short_1 = rbind(df_short_1, ab)
+}
+names(df_short_1) = c('Species', 'Trait', 'BMR_value')
+df_mtdna_bmr = merge(df_short, df_short_1)
+df_mtdna_bmr$BMR_value = as.numeric(df_mtdna_bmr$BMR_value)
+bmr_ghskew = ggplot(df_mtdna_bmr, aes(x = BMR_value, y = GhAhSkew))+
+  geom_point()
+
+bmr_thskew = ggplot(df_mtdna_bmr, aes(x = BMR_value, y = ThChSkew))+
+  geom_point()
+
+#Longevity
+
+df_long = read.csv('../Work_with_Andrey/AVES_longevity.csv')
+firstup <- function(x) {
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
+df_long$scinam = firstup(df_long$scinam)
+names(df_long) = c('Species', 'Longevity', 'Origin', 'Data')
+df_long_mtdna = merge(df_long, df_short)
+long_ghskew = ggplot(df_long_mtdna, aes(x = Longevity, y = GhAhSkew))+
+  geom_point()
+
+long_thskew = ggplot(df_long_mtdna, aes(x = Longevity, y = ThChSkew))+
+  geom_point()
+
