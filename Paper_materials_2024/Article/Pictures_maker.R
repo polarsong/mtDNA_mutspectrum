@@ -75,7 +75,7 @@ graph6 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
   xlab('Mitochondrial genes')+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
-unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.zip", exdir = "../../Body/3Results/")
 SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
@@ -374,3 +374,17 @@ ggarrange(skew_eco_ghahskew, skew_niche_ghahscew, skew_migr_ghahskew, skew_act_g
 ggarrange(skew_eco_ghahskew, skew_eco_thchskew, skew_niche_ghahscew, skew_niche_thchskew, skew_migr_ghahskew, skew_migr_thchskew,
           skew_act_ghahskew, skew_act_thchskew, skew_tnz_ghahskew, skew_tnz_thchskew,
           ncol = 2, nrow = 5)
+
+#trying regression
+all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
+all_data = merge(all_data, df_short, by = 'Species')
+all_data = merge(all_data, df_mtdna_par, by = 'Species')
+all_data$BMR_value = as.numeric(as.character(all_data$BMR_value))
+all_data_with_temp = merge(all_data,  df_mtdna_temp, by = 'Species')
+all_data = all_data[,c(2, 10, 15,16,17,23, 28)] #add 1 if needed
+all_data$Migration_value = factor(all_data$Migration,
+                       levels = c('resident', 'short-distance migrant', 'long-distance migrant'),
+                       labels = c(1, 2, 3))
+birds_model = lm(GhAhSkew ~ Longevity + BMR_value + Mass + Clutch + Migration_value, data = all_data)
+summary(birds_model)
+plot(all_data, col="navy", main="Matrix Scatterplot")
