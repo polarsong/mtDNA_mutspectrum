@@ -205,6 +205,24 @@ for (i in b_names)
   speart = cor.test(df_bird$ghahSkew, tbss)
   spearman_rhos_ghahskew = rbind(spearman_rhos_ghahskew, c(i, speart$p.value))
 }
+tbss_sampl = sample(tbss, 10, replace = TRUE)
+spearman_rhos_ghahskew_sample = data.frame()
+for (i in b_names)
+{
+  df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
+  speart = cor.test(df_bird$ghahSkew, tbss_sampl)
+  spearman_rhos_ghahskew_sample = rbind(spearman_rhos_ghahskew_sample, c(i, speart$p.value))
+}
+
+names(spearman_rhos_ghahskew) = c('species_name', 'rho_value')
+names(spearman_rhos_ghahskew_sample) = c('species_name', 'rho_value')
+spearman_rhos_ghahskew$rho_log = log10(spearman_rhos_ghahskew$rho_value)
+spearman_rhos_ghahskew$rho_value = as.numeric(as.character(spearman_rhos_ghahskew$rho_value))
+spearman_rhos_ghahskew_sample$rho_value = as.numeric(as.character(spearman_rhos_ghahskew_sample$rho_value))
+
+ggplot(spearman_rhos_ghahskew, aes(x = 'rho_log'))+
+  geom_histogram()
+typeof(spearman_rhos_ghahskew$rho_value)
 
 for (i in b_names)
 {
@@ -388,3 +406,28 @@ all_data$Migration_value = factor(all_data$Migration,
 birds_model = lm(GhAhSkew ~ Longevity + BMR_value + Mass + Clutch + Migration_value, data = all_data)
 summary(birds_model)
 plot(all_data, col="navy", main="Matrix Scatterplot")
+
+
+#PGLS for sup and picture 2
+
+library(ape); library(phytools);  library(geiger)
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+feathertree$node.label <- NULL # Remove internal node labels (if any)
+is.ultrametric(feathertree)
+is.binary(feathertree)
+is.rooted(feathertree)
+df_short$Species = gsub(' ', '_', df_short$Species)
+listSkew = df_short$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
+rownames(df_short) <- df_short[,1] 
+df_short <- df_short[match(Fly_skew_tree$tip.label,rownames(df_short)),]
+attach(df_short)
+names(GhAhSkew) = rownames(df_short)
+names(log_mass) = rownames(df_short)
+name.check(Fly_skew_tree, df_short)
+spp = rownames(df_short)
+corLambda<-corPagel(value=1,phy=Fly_skew_tree,form=~spp)
+pgls_flying = gls(GhAhSkew~ability_to_fly,
+                  data=df_fly_peng,correlation=corLambda)
