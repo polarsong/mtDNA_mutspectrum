@@ -193,6 +193,7 @@ df_mtdna$chthSkew = gsub(',', '.', df_mtdna$chthSkew)
 df_mtdna$ghahSkew = as.numeric(as.character(df_mtdna$ghahSkew))
 df_mtdna$chthSkew = as.numeric(as.character(df_mtdna$chthSkew))
 df_mtdna[df_mtdna$Species == "Drepanis coccinea",]$Species = "Vestiaria coccinea"
+df_mtdna[df_mtdna$Species == "Vestiaria coccinea",]$Species = "Drepanis coccinea"
 df_mtdna_cut = df_mtdna[df_mtdna$gene_name != 'ND1',]
 df_mtdna_cut = df_mtdna_cut[df_mtdna_cut$gene_name != 'ND2',]
 b_names = unique(df_mtdna_cut$Species)
@@ -216,13 +217,17 @@ for (i in b_names)
 
 names(spearman_rhos_ghahskew) = c('species_name', 'rho_value')
 names(spearman_rhos_ghahskew_sample) = c('species_name', 'rho_value')
-spearman_rhos_ghahskew$rho_log = log10(spearman_rhos_ghahskew$rho_value)
 spearman_rhos_ghahskew$rho_value = as.numeric(as.character(spearman_rhos_ghahskew$rho_value))
 spearman_rhos_ghahskew_sample$rho_value = as.numeric(as.character(spearman_rhos_ghahskew_sample$rho_value))
+spearman_rhos_ghahskew$rho_log = log10(spearman_rhos_ghahskew$rho_value)
 
-ggplot(spearman_rhos_ghahskew, aes(x = 'rho_log'))+
-  geom_histogram()
-typeof(spearman_rhos_ghahskew$rho_value)
+
+ggplot(spearman_rhos_ghahskew, aes(x = rho_value))+
+  geom_histogram()+
+  xlab("Rho value TBSS")
+ggplot(spearman_rhos_ghahskew_sample, aes(x = rho_value))+
+  geom_histogram()+
+  xlab("Rho value TBSS sample")
 
 for (i in b_names)
 {
@@ -420,14 +425,17 @@ df_short$Species = gsub(' ', '_', df_short$Species)
 listSkew = df_short$Species
 listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
-drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
+#drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
 rownames(df_short) <- df_short[,1] 
-df_short <- df_short[match(Fly_skew_tree$tip.label,rownames(df_short)),]
-attach(df_short)
-names(GhAhSkew) = rownames(df_short)
-names(log_mass) = rownames(df_short)
-name.check(Fly_skew_tree, df_short)
+name.check(feathertree, df_short)
+df_short[df_short$Species == "Agapornis_pullarius",] = NA
+df_short = na.omit(df_short)
+df_short[df_short$Species == "Mergus_squamatus",] = NA
+df_short = na.omit(df_short)
+name.check(feathertree, df_short)
+
 spp = rownames(df_short)
-corLambda<-corPagel(value=1,phy=Fly_skew_tree,form=~spp)
-pgls_flying = gls(GhAhSkew~ability_to_fly,
-                  data=df_fly_peng,correlation=corLambda)
+corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
+pgls_flying = gls(GhAhSkew~Mass,
+                  data=df_short,correlation=corLambda)
+summary(pgls_flying)
