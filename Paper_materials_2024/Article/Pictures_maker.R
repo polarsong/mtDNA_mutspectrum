@@ -310,10 +310,19 @@ firstup <- function(x) {
 }
 df_long$scinam = firstup(df_long$scinam)
 names(df_long) = c('Species', 'Longevity', 'Origin', 'Data')
-df_long_mtdna = merge(df_long, df_short)
+df_long_correct = data.frame()
+long_birds = unique(df_long$Species)
+for (i in long_birds)
+{
+  bird = df_long[df_long$Species == i,]
+  a = sum(bird$Longevity)/nrow(bird)
+  df_long_correct = rbind(df_long_correct, c(i,a))
+}
+names(df_long_correct) = c('Species', 'Longevity')
+df_long_mtdna = merge(df_long_correct, df_short)
+df_long_mtdna$Longevity = as.numeric(as.character(df_long_mtdna$Longevity))
 long_ghskew = ggplot(df_long_mtdna, aes(x = Longevity, y = GhAhSkew))+
   geom_point()
-
 long_thskew = ggplot(df_long_mtdna, aes(x = Longevity, y = ThChSkew))+
   geom_point()
 
@@ -415,6 +424,8 @@ plot(all_data, col="navy", main="Matrix Scatterplot")
 
 #PGLS for sup and picture 2
 
+#Sup
+
 library(ape); library(phytools);  library(geiger)
 feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
 feathertree$node.label <- NULL # Remove internal node labels (if any)
@@ -426,6 +437,8 @@ listSkew = df_short$Species
 listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 #drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
+
+#Mass
 rownames(df_short) <- df_short[,1] 
 name.check(feathertree, df_short)
 df_short[df_short$Species == "Agapornis_pullarius",] = NA
@@ -436,6 +449,61 @@ name.check(feathertree, df_short)
 
 spp = rownames(df_short)
 corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
-pgls_flying = gls(GhAhSkew~Mass,
+pgls_mass = gls(GhAhSkew~Mass,
                   data=df_short,correlation=corLambda)
-summary(pgls_flying)
+summary(pgls_mass)
+
+#Ecozone+niche
+df_econiche = df_mtdna[,c('Species', 'realm', 'Trophic_niche')]
+df_econiche = unique(df_econiche)
+df_econiche$ant_1_other_0 = 0
+df_econiche[df_econiche$realm == 'Antarctic',]$ant_1_other_0 = 1
+df_econiche$ha_1_other_0 = 0
+df_econiche[df_econiche$Trophic_niche == 'Herbivore aquatic',]$ha_1_other_0 = 1
+df_econiche$Species = gsub(' ', '_', df_econiche$Species)
+df_econiche_analyse = merge(df_econiche, df_short, by = 'Species')
+rownames(df_econiche_analyse) <- df_econiche_analyse[,1] 
+name.check(feathertree, df_econiche_analyse)
+spp = rownames(df_econiche_analyse)
+corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
+pgls_ecozone = gls(GhAhSkew~ant_1_other_0,
+                  data=df_econiche_analyse,correlation=corLambda)
+summary(pgls_ecozone)
+
+pgls_niche = gls(GhAhSkew~ha_1_other_0,
+                   data=df_econiche_analyse,correlation=corLambda)
+summary(pgls_niche)
+
+#longevity
+df_long_pgls = df_long_mtdna[,c(1,2,3,4)]
+df_long_pgls$Species = gsub(' ', '_', df_long_pgls$Species)
+listSkew = df_long_pgls$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Long_skew_tree
+rownames(df_long_pgls) = df_long_pgls[,1]
+name.check(Long_skew_tree, df_long_pgls)
+df_long_pgls[df_long_pgls$Species == "Agapornis_pullarius",] = NA
+df_long_pgls = na.omit(df_long_pgls)
+name.check(Long_skew_tree, df_long_pgls)
+
+spp = rownames(df_long_pgls)
+corLambda<-corPagel(value=1,phy=Long_skew_tree,form=~spp)
+pgls_long = gls(GhAhSkew~Longevity,
+                   data=df_long_pgls,correlation=corLambda)
+summary(pgls_long)
+
+#BMR
+df_mtdna_bmr$Species = gsub(' ', '_', df_mtdna_bmr$Species)
+listSkew = df_mtdna_bmr$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Bmr_skew_tree
+rownames(df_mtdna_bmr) = df_mtdna_bmr[,1]
+name.check(Bmr_skew_tree, df_mtdna_bmr)
+
+spp = rownames(df_mtdna_bmr)
+corLambda<-corPagel(value=1,phy=Bmr_skew_tree,form=~spp)
+pgls_bmr = gls(GhAhSkew~BMR_value,
+                data=df_mtdna_bmr,correlation=corLambda)
+summary(pgls_bmr)
