@@ -369,7 +369,6 @@ skew_niche_thchskew = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSke
 df_int = read.csv('../../Body/1Raw/Avonet_data.csv')
 df_migr = df_int[,c('Species3', 'Migration')]
 names(df_migr) = c('Species', 'migration')
-df_migr$Species = gsub(' ', '_', df_migr$Species)
 df_migr_mtdna = merge(df_short, df_migr, by = 'Species')
 df_migr_mtdna$migration = as.character(df_migr_mtdna$migration)
 df_migr_mtdna[df_migr_mtdna$migration == "1",]$migration = "Resident"
@@ -546,4 +545,111 @@ a$lambda_value = summary(pgls_niche)$modelStruct
 pgls_res_table = rbind(pgls_res_table, a)
 
 #Migration
+df_migr_pgls = df_migr_mtdna[,c(1,2,6)]
+df_migr_pgls$Species = gsub(' ', '_', df_migr_pgls$Species)
+df_migr_pgls$res_1_oth_0 = 0
+df_migr_pgls[df_migr_pgls$migration == 'Resident',]$res_1_oth_0 = 1 
+df_migr_pgls$sd_1_oth_0 = 0
+df_migr_pgls[df_migr_pgls$migration == 'Short-distance migration',]$sd_1_oth_0 = 1 
+df_migr_pgls$ld_1_oth_0 = 0
+df_migr_pgls[df_migr_pgls$migration == 'Long-distance migration',]$ld_1_oth_0 = 1 
 
+rownames(df_migr_pgls) <- df_migr_pgls[,1] 
+listSkew = df_migr_pgls$Species
+listTree <- feathertree$tip.label
+name.check(feathertree, df_migr_pgls)
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Migr_skew_tree
+name.check(Migr_skew_tree, df_migr_pgls)
+spp = rownames(df_migr_pgls)
+corLambda<-corPagel(value=1,phy=Migr_skew_tree, form=~spp)
+pgls_migration_res = gls(GhAhSkew~res_1_oth_0,
+                   data=df_migr_pgls, correlation=corLambda)
+a = as.data.frame(summary(pgls_migration_res)$tTable)
+a$lambda_value = summary(pgls_migration_res)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+spp = rownames(df_migr_pgls)
+corLambda<-corPagel(value=1,phy=Migr_skew_tree, form=~spp)
+pgls_migration_sd = gls(GhAhSkew~sd_1_oth_0,
+                         data=df_migr_pgls, correlation=corLambda)
+a = as.data.frame(summary(pgls_migration_sd)$tTable)
+a$lambda_value = summary(pgls_migration_sd)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+spp = rownames(df_migr_pgls)
+corLambda<-corPagel(value=1,phy=Migr_skew_tree, form=~spp)
+pgls_migration_ld = gls(GhAhSkew~ld_1_oth_0,
+                        data=df_migr_pgls, correlation=corLambda)
+a = as.data.frame(summary(pgls_migration_ld)$tTable)
+a$lambda_value = summary(pgls_migration_ld)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+df_temp_pgls = df_mtdna_temp[,c(1,2,11)]
+df_temp_pgls$Species = gsub(' ', '_', df_temp_pgls$Species)
+rownames(df_temp_pgls) <- df_temp_pgls[,1] 
+listSkew = df_temp_pgls$Species
+listTree <- feathertree$tip.label
+name.check(feathertree, df_temp_pgls)
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Temp_skew_tree
+name.check(Temp_skew_tree, df_temp_pgls)
+spp = rownames(df_temp_pgls)
+corLambda<-corPagel(value=1,phy=Temp_skew_tree, form=~spp)
+pgls_temp = gls(GhAhSkew~TNZ,
+                        data=df_temp_pgls, correlation=corLambda)
+a = as.data.frame(summary(pgls_temp)$tTable)
+a$lambda_value = summary(pgls_temp)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+#daily act
+df_da_pgls = df_mtdna_par[,c(1,2,3,13)]
+df_da_pgls$Species = gsub(' ', '_', df_da_pgls$Species)
+df_da_pgls = na.omit(df_da_pgls)
+listSkew = df_da_pgls$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Da_skew_tree
+rownames(df_da_pgls) = df_da_pgls[,1]
+name.check(Da_skew_tree, df_da_pgls)
+df_da_pgls$cath_1_other_0 = 0
+df_da_pgls[df_da_pgls$Daily_activity == 'cathemeral',]$cath_1_other_0 = 1
+df_da_pgls$crep_1_other_0 = 0
+df_da_pgls[df_da_pgls$Daily_activity == 'crepuscular',]$crep_1_other_0 = 1
+df_da_pgls$diu_1_other_0 = 0
+df_da_pgls[df_da_pgls$Daily_activity == 'diurnal',]$diu_1_other_0 = 1
+df_da_pgls$noc_1_other_0 = 0
+df_da_pgls[df_da_pgls$Daily_activity == 'nocturnal',]$noc_1_other_0 = 1
+
+spp = rownames(df_da_pgls)
+corLambda<-corPagel(value=1,phy=Da_skew_tree,form=~spp)
+pgls_da_cath = gls(GhAhSkew~cath_1_other_0,
+                  data=df_da_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_da_cath)$tTable)
+a$lambda_value = summary(pgls_da_cath)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+spp = rownames(df_da_pgls)
+corLambda<-corPagel(value=1,phy=Da_skew_tree,form=~spp)
+pgls_da_crep = gls(GhAhSkew~crep_1_other_0,
+                   data=df_da_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_da_crep)$tTable)
+a$lambda_value = summary(pgls_da_crep)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+spp = rownames(df_da_pgls)
+corLambda<-corPagel(value=1,phy=Da_skew_tree,form=~spp)
+pgls_da_diu = gls(GhAhSkew~diu_1_other_0,
+                   data=df_da_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_da_diu)$tTable)
+a$lambda_value = summary(pgls_da_diu)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+spp = rownames(df_da_pgls)
+corLambda<-corPagel(value=1,phy=Da_skew_tree,form=~spp)
+pgls_da_noc = gls(GhAhSkew~noc_1_other_0,
+                   data=df_da_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_da_noc)$tTable)
+a$lambda_value = summary(pgls_da_noc)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+pgls_pict2_res_table = pgls_res_table[-c(1,3,5,7,9,11,13,15,17,19),]
+pgls_pict2_res_table$lambda_value = as.numeric(as.character(pgls_pict2_res_table$lambda_value))
+write.csv(pgls_pict2_res_table, 'Pict2_pgls_results.csv')
