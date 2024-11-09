@@ -369,6 +369,7 @@ skew_niche_thchskew = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSke
 df_int = read.csv('../../Body/1Raw/Avonet_data.csv')
 df_migr = df_int[,c('Species3', 'Migration')]
 names(df_migr) = c('Species', 'migration')
+df_migr$Species = gsub(' ', '_', df_migr$Species)
 df_migr_mtdna = merge(df_short, df_migr, by = 'Species')
 df_migr_mtdna$migration = as.character(df_migr_mtdna$migration)
 df_migr_mtdna[df_migr_mtdna$migration == "1",]$migration = "Resident"
@@ -427,6 +428,7 @@ plot(all_data, col="navy", main="Matrix Scatterplot")
 #Sup
 
 library(ape); library(phytools);  library(geiger)
+pgls_res_table = data.frame()
 feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
 feathertree$node.label <- NULL # Remove internal node labels (if any)
 is.ultrametric(feathertree)
@@ -451,28 +453,44 @@ spp = rownames(df_short)
 corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
 pgls_mass = gls(GhAhSkew~Mass,
                   data=df_short,correlation=corLambda)
-summary(pgls_mass)
+a = as.data.frame(summary(pgls_mass)$tTable)
+a$lambda_value = summary(pgls_mass)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
 
-#Ecozone+niche
-df_econiche = df_mtdna[,c('Species', 'realm', 'Trophic_niche')]
-df_econiche = unique(df_econiche)
-df_econiche$ant_1_other_0 = 0
-df_econiche[df_econiche$realm == 'Antarctic',]$ant_1_other_0 = 1
-df_econiche$ha_1_other_0 = 0
-df_econiche[df_econiche$Trophic_niche == 'Herbivore aquatic',]$ha_1_other_0 = 1
-df_econiche$Species = gsub(' ', '_', df_econiche$Species)
-df_econiche_analyse = merge(df_econiche, df_short, by = 'Species')
-rownames(df_econiche_analyse) <- df_econiche_analyse[,1] 
-name.check(feathertree, df_econiche_analyse)
-spp = rownames(df_econiche_analyse)
-corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
-pgls_ecozone = gls(GhAhSkew~ant_1_other_0,
-                  data=df_econiche_analyse,correlation=corLambda)
-summary(pgls_ecozone)
+#Clutch
+df_clutch_pgls = df_mtdna_par[,c(1,2,3,14)]
+df_clutch_pgls$Species = gsub(' ', '_', df_clutch_pgls$Species)
+df_clutch_pgls = na.omit(df_clutch_pgls)
+listSkew = df_clutch_pgls$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Clutch_skew_tree
+rownames(df_clutch_pgls) = df_clutch_pgls[,1]
+name.check(Clutch_skew_tree, df_clutch_pgls)
+spp = rownames(df_clutch_pgls)
+corLambda<-corPagel(value=1,phy=Clutch_skew_tree,form=~spp)
+pgls_clutch = gls(GhAhSkew~Clutch,
+                data=df_clutch_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_clutch)$tTable)
+a$lambda_value = summary(pgls_clutch)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
 
-pgls_niche = gls(GhAhSkew~ha_1_other_0,
-                   data=df_econiche_analyse,correlation=corLambda)
-summary(pgls_niche)
+#BMR
+df_mtdna_bmr$Species = gsub(' ', '_', df_mtdna_bmr$Species)
+listSkew = df_mtdna_bmr$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Bmr_skew_tree
+rownames(df_mtdna_bmr) = df_mtdna_bmr[,1]
+name.check(Bmr_skew_tree, df_mtdna_bmr)
+
+spp = rownames(df_mtdna_bmr)
+corLambda<-corPagel(value=1,phy=Bmr_skew_tree,form=~spp)
+pgls_bmr = gls(GhAhSkew~BMR_value,
+               data=df_mtdna_bmr,correlation=corLambda)
+a = as.data.frame(summary(pgls_bmr)$tTable)
+a$lambda_value = summary(pgls_bmr)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
 
 #longevity
 df_long_pgls = df_long_mtdna[,c(1,2,3,4)]
@@ -490,20 +508,42 @@ name.check(Long_skew_tree, df_long_pgls)
 spp = rownames(df_long_pgls)
 corLambda<-corPagel(value=1,phy=Long_skew_tree,form=~spp)
 pgls_long = gls(GhAhSkew~Longevity,
-                   data=df_long_pgls,correlation=corLambda)
-summary(pgls_long)
+                data=df_long_pgls,correlation=corLambda)
+a = as.data.frame(summary(pgls_long)$tTable)
+a$lambda_value = summary(pgls_long)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
 
-#BMR
-df_mtdna_bmr$Species = gsub(' ', '_', df_mtdna_bmr$Species)
-listSkew = df_mtdna_bmr$Species
-listTree <- feathertree$tip.label
-SpeciesToDrop <- setdiff(listTree, listSkew)
-drop.tip(feathertree, SpeciesToDrop) -> Bmr_skew_tree
-rownames(df_mtdna_bmr) = df_mtdna_bmr[,1]
-name.check(Bmr_skew_tree, df_mtdna_bmr)
+pgls_sup_res_table = pgls_res_table[-c(1,3,5,7),]
+pgls_sup_res_table$lambda_value = as.numeric(as.character(pgls_sup_res_table$lambda_value))
+write.csv(pgls_sup_res_table, 'Sup_pgls_results.csv')
 
-spp = rownames(df_mtdna_bmr)
-corLambda<-corPagel(value=1,phy=Bmr_skew_tree,form=~spp)
-pgls_bmr = gls(GhAhSkew~BMR_value,
-                data=df_mtdna_bmr,correlation=corLambda)
-summary(pgls_bmr)
+#Picture 2
+
+#Ecozone+niche
+pgls_res_table = data.frame()
+df_econiche = df_mtdna[,c('Species', 'realm', 'Trophic_niche')]
+df_econiche = unique(df_econiche)
+df_econiche$ant_1_other_0 = 0
+df_econiche[df_econiche$realm == 'Antarctic',]$ant_1_other_0 = 1
+df_econiche$ha_1_other_0 = 0
+df_econiche[df_econiche$Trophic_niche == 'Herbivore aquatic',]$ha_1_other_0 = 1
+df_econiche$Species = gsub(' ', '_', df_econiche$Species)
+df_econiche_analyse = merge(df_econiche, df_short, by = 'Species')
+rownames(df_econiche_analyse) <- df_econiche_analyse[,1] 
+name.check(feathertree, df_econiche_analyse)
+spp = rownames(df_econiche_analyse)
+corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
+pgls_ecozone = gls(GhAhSkew~ant_1_other_0,
+                  data=df_econiche_analyse,correlation=corLambda)
+a = as.data.frame(summary(pgls_ecozone)$tTable)
+a$lambda_value = summary(pgls_ecozone)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+pgls_niche = gls(GhAhSkew~ha_1_other_0,
+                   data=df_econiche_analyse,correlation=corLambda)
+a = as.data.frame(summary(pgls_niche)$tTable)
+a$lambda_value = summary(pgls_niche)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+#Migration
+
