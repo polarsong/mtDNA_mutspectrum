@@ -34,7 +34,8 @@ graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
   ylim(0, 0.8)+
   xlab('Mitochondrial genes')+
   ylab('Thymine frequency')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank()) 
+  annotate('text', x = 11, y = 0.75, label = 'N = 766')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 
 graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
@@ -43,6 +44,7 @@ graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
   ylim(0, 0.8)+
   xlab('Mitochondrial genes')+
   ylab('Cytosine frequency')+
+  annotate('text', x = 11, y = 0.75, label = 'N = 766')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 graph3 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
@@ -51,7 +53,8 @@ graph3 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
   ylim(0, 0.8)+
   xlab('Mitochondrial genes')+
   ylab('Adenine frequency')+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  annotate('text', x = 11, y = 0.75, label = 'N = 766')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
 graph4 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
   geom_boxplot(notch = TRUE)+
@@ -59,8 +62,13 @@ graph4 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
   ylim(0, 0.8)+
   xlab('Mitochondrial genes')+
   ylab('Guanine frequency')+
+  annotate('text', x = 11, y = 0.75, label = 'N = 766')+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
+graph1_1 = ggarrange(graph3, graph4, graph2, graph1,
+                     ncol = 2, nrow = 2)
+
+graph1_1
 graph5 = ggplot(data = df_nd6, aes(x = gene_name, y = GhAhSkew))+
   geom_boxplot(notch = TRUE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
@@ -75,9 +83,10 @@ graph6 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
   xlab('Mitochondrial genes')+
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
-unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.zip", exdir = "../../Body/3Results/")
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+#unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.zip", exdir = "../../Body/3Results/")
+#SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+#if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+SynNuc = read.table('AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep = '\t')
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
 new_mam = SynNuc[, c(1, 2, 79, 80)]
@@ -95,6 +104,8 @@ graph7 = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
   xlab('Mitochondrial genes')+
   ylab('GhAhSkew')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  ylim(-1,1)+
+  annotate('text', x = 4.5, y = -0.75, label = 'N birds = 766')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         legend.position = "none")
 
@@ -103,12 +114,14 @@ graph8 = ggplot(new_big, aes(x = gene_name, y = ThChSkew, fill = Class))+
   xlab('Mitochondrial genes')+
   ylab('ThChSkew')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  ylim(-1,1)+
+  annotate('text', x = 4.5, y = -0.75, label = 'N mammals = 4356')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
         legend.position = "none")
 
-ggarrange(graph1, graph4,graph5, graph6, graph2, graph3, graph7, graph8,
-          ncol = 4, nrow = 2)
-
+graph1_2 = ggarrange(graph5, graph6, graph7, graph8,
+          ncol = 2, nrow = 2)
+graph1_2
 #picture one variant 2
 
 graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
