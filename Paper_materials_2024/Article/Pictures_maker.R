@@ -124,71 +124,6 @@ graph1_2 = ggarrange(graph5, graph6, graph7, graph8,
 graph1_2
 #picture one variant 2
 
-graph1 = ggplot(data = df_nd6, aes(x = gene_name, y = fTn))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(0, 0.8)+
-  xlab('Mitochondrial genes')+
-  ylab('Thymine frequency')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank()) 
-
-
-graph2 = ggplot(data = df_nd6, aes(x = gene_name, y = fCn))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(0, 0.8)+
-  xlab('Mitochondrial genes')+
-  ylab('Cytosine frequency')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
-
-graph3 = ggplot(data = df_nd6, aes(x = gene_name, y = fAn))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(0, 0.8)+
-  xlab('Mitochondrial genes')+
-  ylab('Adenine frequency')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
-
-graph4 = ggplot(data = df_nd6, aes(x = gene_name, y = fGn))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(0, 0.8)+
-  xlab('Mitochondrial genes')+
-  ylab('Guanine frequency')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
-
-graph5 = ggplot(data = df_nd6, aes(x = gene_name, y = GhAhSkew))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(-1,1)+
-  xlab('Mitochondrial genes')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
-
-graph6 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
-  geom_boxplot(notch = TRUE)+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5","CYTB","ND6","ND1","ND2"))+
-  ylim(-1,1)+
-  xlab('Mitochondrial genes')+
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
-
-graph7 = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
-  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Mitochondrial genes')+
-  ylab('GhAhSkew')+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        legend.position = "none")
-
-graph8 = ggplot(new_big, aes(x = gene_name, y = ThChSkew, fill = Class))+
-  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  xlab('Mitochondrial genes')+
-  ylab('ThChSkew')+
-  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
-        legend.position = "none")
-
-ggarrange(graph1, graph4, graph2, graph3, graph5, graph6, graph7, graph8,
-          ncol = 2, nrow = 4)
 
 #TBSS statistics
 col1 = df_nd6[df_nd6$gene_name == 'COX1',]
@@ -235,12 +170,16 @@ spearman_rhos_ghahskew_sample$rho_value = as.numeric(as.character(spearman_rhos_
 spearman_rhos_ghahskew$rho_log = log10(spearman_rhos_ghahskew$rho_value)
 
 
-ggplot(spearman_rhos_ghahskew, aes(x = rho_value))+
+rhogh1 = ggplot(spearman_rhos_ghahskew, aes(x = rho_value))+
   geom_histogram()+
-  xlab("Rho value TBSS")
-ggplot(spearman_rhos_ghahskew_sample, aes(x = rho_value))+
+  xlab("Rho value TBSS for GhAhSkew")
+rhogh2 =ggplot(spearman_rhos_ghahskew_sample, aes(x = rho_value))+
   geom_histogram()+
-  xlab("Rho value TBSS sample")
+  theme(axis.title.y=element_blank())+
+  xlab("Rho value TBSS sample for GhAhSkew")
+sup1 = ggarrange(rhogh1, rhogh2,
+                 nrow = 1, ncol = 2)
+sup1  
 
 for (i in b_names)
 {
@@ -248,6 +187,32 @@ for (i in b_names)
   speart = cor.test(df_bird$chthSkew, tbss)
   spearman_rhos_thchskew = rbind(spearman_rhos_thchskew, c(i, speart$p.value))
 }
+tbss_sampl = sample(tbss, 10, replace = TRUE)
+spearman_rhos_thchskew_sample = data.frame()
+for (i in b_names)
+{
+  df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
+  speart = cor.test(df_bird$chthSkew, tbss_sampl)
+  spearman_rhos_thchskew_sample = rbind(spearman_rhos_thchskew_sample, c(i, speart$p.value))
+}
+
+names(spearman_rhos_thchskew) = c('species_name', 'rho_value')
+names(spearman_rhos_thchskew_sample) = c('species_name', 'rho_value')
+spearman_rhos_thchskew$rho_value = as.numeric(as.character(spearman_rhos_thchskew$rho_value))
+spearman_rhos_thchskew_sample$rho_value = as.numeric(as.character(spearman_rhos_thchskew_sample$rho_value))
+spearman_rhos_thchskew$rho_log = log10(spearman_rhos_thchskew$rho_value)
+
+
+rhogh3 = ggplot(spearman_rhos_thchskew, aes(x = rho_value))+
+  geom_histogram()+
+  xlab("Rho value TBSS for ThChSkew")
+rhogh4 = ggplot(spearman_rhos_thchskew_sample, aes(x = rho_value))+
+  geom_histogram()+
+  theme(axis.title.y=element_blank())+
+  xlab("Rho value TBSS sample for ThChSkew")
+sup2 = ggarrange(rhogh3, rhogh4,
+                 nrow = 1, ncol = 2)
+sup2
 
 #Supp materials
 
@@ -272,7 +237,9 @@ df_short$ThChSkew = as.numeric(df_short$ThChSkew)
 df_short$log_mass = log10(df_short$Mass)
 mass_ghskew = ggplot(df_short, aes(x = log_mass, y = GhAhSkew))+
   geom_point()+
-  xlab('Decimal logarithm of mass')
+  annotate('text', x = 4, y = 0.1, label = 'N = 766')+
+  xlab('Decimal logarithm of mass')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
 mass_thskew = ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
   geom_point()+
@@ -281,11 +248,18 @@ mass_thskew = ggplot(df_short, aes(x = log_mass, y = ThChSkew))+
 #Clutch
 df_par = read.csv('../Work_with_Andrey/Species_life-histories.csv')
 df_mtdna_par = merge(df_short, df_par, by = 'Species')
+df_clutch = df_mtdna_par[,c(1,2,3,15)]
+df_clutch = na.omit(df_clutch)
+
 clutch_ghskew = ggplot(df_mtdna_par, aes(x = Clutch, y = GhAhSkew))+
-  geom_point()
+  geom_point()+
+  annotate('text', x = 4, y = 0.1, label = 'N = 203')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())
 
 clutch_thskew = ggplot(df_mtdna_par, aes(x = Clutch, y = ThChSkew))+
-  geom_point()
+  geom_point()+
+  theme(axis.title.y=element_blank())
 
 
 #BMR
@@ -309,10 +283,15 @@ names(df_short_1) = c('Species', 'Trait', 'BMR_value')
 df_mtdna_bmr = merge(df_short, df_short_1)
 df_mtdna_bmr$BMR_value = as.numeric(df_mtdna_bmr$BMR_value)
 bmr_ghskew = ggplot(df_mtdna_bmr, aes(x = BMR_value, y = GhAhSkew))+
-  geom_point()
+  geom_point()+
+  annotate('text', x = 2500, y = 0.1, label = 'N = 186')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())
 
 bmr_thskew = ggplot(df_mtdna_bmr, aes(x = BMR_value, y = ThChSkew))+
-  geom_point()
+  geom_point()+
+  xlab('BMR value')+
+  theme(axis.title.y=element_blank())
 
 #Longevity
 
@@ -335,16 +314,18 @@ names(df_long_correct) = c('Species', 'Longevity')
 df_long_mtdna = merge(df_long_correct, df_short)
 df_long_mtdna$Longevity = as.numeric(as.character(df_long_mtdna$Longevity))
 long_ghskew = ggplot(df_long_mtdna, aes(x = Longevity, y = GhAhSkew))+
-  geom_point()
+  geom_point()+
+  annotate('text', x = 10, y = 0.1, label = 'N = 264')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())
 long_thskew = ggplot(df_long_mtdna, aes(x = Longevity, y = ThChSkew))+
-  geom_point()
+  geom_point()+
+  theme(axis.title.y=element_blank())
 
 #var 1
-ggarrange(mass_ghskew, clutch_ghskew, bmr_ghskew, long_ghskew, mass_thskew, clutch_thskew, bmr_thskew, long_thskew,
+sup3 = ggarrange(mass_ghskew, clutch_ghskew, bmr_ghskew, long_ghskew, mass_thskew, clutch_thskew, bmr_thskew, long_thskew,
           ncol = 4, nrow = 2)
-#var 2
-ggarrange(mass_ghskew, mass_thskew, clutch_ghskew, clutch_thskew, bmr_ghskew, bmr_thskew, long_ghskew,long_thskew,
-          ncol = 2, nrow = 4)
+
 
 #picture 2
 #ecozone
@@ -353,30 +334,38 @@ skew_eco_ghahskew = ggplot(data = df_mtdna, aes(x = realm, y = ghahSkew))+
   xlab('Birds realms')+
   ylab('GhAhSkew')+
   xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  annotate('text', x = 2, y = -0.25, label = 'N = 766')
 
 skew_eco_thchskew = ggplot(data = df_mtdna, aes(x = realm, y = chthSkew))+
   geom_boxplot(outlier.shape = NA, notch = T)+
   xlab('Birds realms')+
-  ylab('GhAhSkew')+
+  ylab('ThChSkew')+
   xlim(c('Antarctic', 'Nearctic', 'Palearctic', 'Indo_Malay', 'Afrotropic', 'Madagascar', 'Neotropic', 'Australian', 'Oceania'))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 #trophic niche
 
-skew_niche_ghahscew = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = ghahSkew))+
+skew_niche_ghahskew = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = ghahSkew))+
   geom_boxplot(outlier.shape = NA, notch = T)+
   xlab('Trophic niche')+
   ylab('GhAhSkew')+
   xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())+
+  annotate('text', x = 2, y = -0.25, label = 'N = 766')
 
 skew_niche_thchskew = ggplot(data = df_mtdna, aes(x = Trophic_niche, y = chthSkew))+
   geom_boxplot(outlier.shape = NA, notch = T)+
   xlab('Trophic niche')+
   ylab('ThChSkew')+
   xlim(c('Herbivore aquatic', 'Scavenger', 'Vertivore', 'Granivore', 'Herbivore terrestrial', 'Invertivore', 'Aquatic predator', 'Nectarivore', 'Omnivore', 'Frugivore'))+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  theme(axis.title.y=element_blank())
+
+ggarrange(skew_eco_ghahskew, skew_niche_ghahskew, skew_eco_thchskew, skew_niche_thchskew,
+          ncol = 2, nrow = 2)
+
 
 #migration
 df_int = read.csv('../../Body/1Raw/Avonet_data.csv')
@@ -390,35 +379,43 @@ df_migr_mtdna[df_migr_mtdna$migration == "3",]$migration = "Long-distance migrat
 
 skew_migr_ghahskew = ggplot(df_migr_mtdna, aes(x = migration, y = GhAhSkew))+
   geom_boxplot()+
-  xlim('Resident','Short-distance migration', 'Long-distance migration')
+  xlim('Resident','Short-distance migration', 'Long-distance migration')+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  annotate('text', x = 3, y = 0, label = 'N = 763')
 skew_migr_thchskew = ggplot(df_migr_mtdna, aes(x = migration, y = ThChSkew))+
   geom_boxplot()+
-  xlim('Resident','Short-distance migration', 'Long-distance migration')
+  xlim('Resident','Short-distance migration', 'Long-distance migration')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Migration')
 
 #daily_activity
 skew_act_ghahskew = ggplot(df_mtdna_par, aes(x = Daily_activity, y = GhAhSkew))+
-  geom_boxplot()
+  geom_boxplot()+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())+
+  annotate('text', x = 1.5, y = 0, label = 'N = 210')
 skew_act_thchskew = ggplot(df_mtdna_par, aes(x = Daily_activity, y = ThChSkew))+
-  geom_boxplot()
+  geom_boxplot()+
+  theme(axis.title.y=element_blank())+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Daily activity')
 
 #TNZ
 df_temp = read.csv('../Work_with_Andrey/temp_new_data.csv')
 df_mtdna_temp = merge(df_short, df_temp, by = 'Species')
 
 skew_tnz_ghahskew = ggplot(df_mtdna_temp, aes(x = TNZ, y = GhAhSkew))+
-  geom_point()
+  geom_point()+
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  theme(axis.title.y=element_blank())+
+  annotate('text', x = 25, y = 0.1, label = 'N = 32')
 skew_tnz_thchskew = ggplot(df_mtdna_temp, aes(x = TNZ, y = ThChSkew))+
-  geom_point()
+  geom_point()+
+  theme(axis.title.y=element_blank())
 
-#second picture var 1
-ggarrange(skew_eco_ghahskew, skew_niche_ghahscew, skew_migr_ghahskew, skew_act_ghahskew, skew_tnz_ghahskew,
-          skew_eco_thchskew, skew_niche_thchskew, skew_migr_thchskew, skew_act_thchskew, skew_tnz_thchskew,
-          ncol = 5, nrow = 2)
-
-#second picture var 2
-ggarrange(skew_eco_ghahskew, skew_eco_thchskew, skew_niche_ghahscew, skew_niche_thchskew, skew_migr_ghahskew, skew_migr_thchskew,
-          skew_act_ghahskew, skew_act_thchskew, skew_tnz_ghahskew, skew_tnz_thchskew,
-          ncol = 2, nrow = 5)
+ggarrange(skew_migr_ghahskew, skew_act_ghahskew, skew_tnz_ghahskew, 
+          skew_migr_thchskew, skew_act_thchskew, skew_tnz_thchskew,
+          ncol = 3, nrow = 2)
 
 #trying regression
 all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
