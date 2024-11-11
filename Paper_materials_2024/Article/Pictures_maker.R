@@ -423,11 +423,19 @@ all_data = merge(all_data, df_short, by = 'Species')
 all_data = merge(all_data, df_mtdna_par, by = 'Species')
 all_data$BMR_value = as.numeric(as.character(all_data$BMR_value))
 all_data_with_temp = merge(all_data,  df_mtdna_temp, by = 'Species')
-all_data = all_data[,c(2, 10, 15,16,17,23, 28)] #add 1 if needed
+all_data = all_data[,c('Longevity', 'BMR_value', 'Mass', 'Migration', 'Clutch', 'GhAhSkew')] #add 1 if needed
 all_data$Migration_value = factor(all_data$Migration,
                        levels = c('resident', 'short-distance migrant', 'long-distance migrant'),
                        labels = c(1, 2, 3))
 birds_model = lm(GhAhSkew ~ Longevity + BMR_value + Mass + Clutch + Migration_value, data = all_data)
+summary(birds_model)
+birds_model = lm(GhAhSkew ~ BMR_value + Mass + Clutch + Migration_value, data = all_data)
+summary(birds_model)
+birds_model = lm(GhAhSkew ~ BMR_value + Mass + Migration_value, data = all_data)
+summary(birds_model)
+birds_model = lm(GhAhSkew ~ BMR_value + Mass, data = all_data)
+summary(birds_model)
+birds_model = lm(GhAhSkew ~ Mass, data = all_data)
 summary(birds_model)
 plot(all_data, col="navy", main="Matrix Scatterplot")
 
