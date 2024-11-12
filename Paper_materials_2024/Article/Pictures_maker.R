@@ -417,6 +417,34 @@ ggarrange(skew_migr_ghahskew, skew_act_ghahskew, skew_tnz_ghahskew,
           skew_migr_thchskew, skew_act_thchskew, skew_tnz_thchskew,
           ncol = 3, nrow = 2)
 
+#fly and dive
+df_fly = read.csv('../flying_birds.csv')
+df_fly = df_fly[,c(2,3,4)]
+names(df_fly) = c('species_name', 'flightless', 'diving')
+df_fly_clean1 = df_fly[df_fly$flightless =='Flightless',]
+df_fly_clean= df_fly[df_fly$flightless == 'Almost_flightless',]
+df_fly_clean = na.omit(df_fly_clean)
+df_fly_clean1 = na.omit(df_fly_clean1)
+df_dive = df_fly
+df_fly = df_fly[df_fly$flightless != 'Flightless',]
+df_fly = df_fly[df_fly$flightless != 'Almost_flightless',]
+df_fly_clean$flightless = 'Tinamiformes'
+df_fly_clean1$flightless = 'Tinamiformes'
+df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
+names(df_fly_big) = c("Species", 'flightless', 'diving')
+df_fly_final = merge(df_fly_big, df_short)
+df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
+df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
+df_fly_final$flightless1 = factor(df_fly_final$flightless, levels = c('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes"))
+fly_skew = ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flightless1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+
+
+
+
 #trying regression
 all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
 all_data = merge(all_data, df_short, by = 'Species')
@@ -671,3 +699,45 @@ pgls_res_table = rbind(pgls_res_table, a)
 pgls_pict2_res_table = pgls_res_table[-c(1,3,5,7,9,11,13,15,17,19),]
 pgls_pict2_res_table$lambda_value = as.numeric(as.character(pgls_pict2_res_table$lambda_value))
 write.csv(pgls_pict2_res_table, 'Pict2_pgls_results.csv')
+
+
+#MutSpec easy
+df_mut = read.csv('MutSpecVertebrates12.csv')
+df_ac = df_mut[df_mut$Mut == 'A>C',]
+df_ac[df_ac$Mut == 'A>C',]$Mut = 'T>G'
+df_ag = df_mut[df_mut$Mut == 'A>G',]
+df_ag[df_ag$Mut == 'A>G',]$Mut = 'T>C'
+df_at = df_mut[df_mut$Mut == 'A>T',]
+df_at[df_at$Mut == 'A>T',]$Mut = 'T>A'
+df_ca = df_mut[df_mut$Mut == 'C>A',]
+df_ca[df_ca$Mut == 'C>A',]$Mut = 'G>T'
+df_cg = df_mut[df_mut$Mut == 'C>G',]
+df_cg[df_cg$Mut == 'C>G',]$Mut = 'G>C'
+df_ct = df_mut[df_mut$Mut == 'C>T',]
+df_ct[df_ct$Mut == 'C>T',]$Mut = 'G>A'
+df_ga = df_mut[df_mut$Mut == 'G>A',]
+df_ga[df_ga$Mut == 'G>A',]$Mut = 'C>T'
+df_gc = df_mut[df_mut$Mut == 'G>C',]
+df_gc[df_gc$Mut == 'G>C',]$Mut = 'C>G'
+df_gt = df_mut[df_mut$Mut == 'G>T',]
+df_gt[df_gt$Mut == 'G>T',]$Mut = 'C>A'
+df_ta = df_mut[df_mut$Mut == 'T>A',]
+df_ta[df_ta$Mut == 'T>A',]$Mut = 'A>T'
+df_tc = df_mut[df_mut$Mut == 'T>C',]
+df_tc[df_tc$Mut == 'T>C',]$Mut = 'A>G'
+df_tg = df_mut[df_mut$Mut == 'T>G',]
+df_tg[df_tg$Mut == 'T>G',]$Mut = 'A>C'
+
+df_mut_cor = rbind(df_ac, df_ag, df_at, df_ca, df_cg, df_ct, df_ga, df_gc, df_gt, df_ta, df_tc, df_ag)
+
+df_mut_aves = df_mut_cor[df_mut_cor$Class == 'Aves',]
+df_cytb = df_mut_aves[df_mut_aves$Gene == 'Cytb',]
+
+ggplot(df_cytb, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec for CytB')
+
+df_cox1 = df_mut_aves[df_mut_aves$Gene == 'CO1',] 
+ggplot(df_cox1, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec for COX1')
