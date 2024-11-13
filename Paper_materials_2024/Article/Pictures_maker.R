@@ -741,3 +741,76 @@ df_cox1 = df_mut_aves[df_mut_aves$Gene == 'CO1',]
 ggplot(df_cox1, aes(x = Mut, y = MutSpec))+
   geom_boxplot()+
   ylab('Mutspec for COX1')
+
+df_cytb_ag = df_cytb[df_cytb$Mut == 'A>G',]
+
+#Mutspec mass
+df_short$Species = gsub(' ', '_', df_short$Species)
+df_ag_mass = merge(df_cytb_ag, df_short)
+ggplot(df_ag_mass, aes(x = log_mass, y = MutSpec))+
+  geom_point()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Decimal logarithm of mass')+
+  annotate('text', x = 3, y = 0.55, label = 'N = 37')
+wilcox.test(df_ag_mass$MutSpec,df_ag_mass$log_mass)
+
+#Mutspec clutch
+df_mtdna_par$Species = gsub(' ', '_', df_mtdna_par$Species)
+df_ag_clutch = merge(df_cytb_ag, df_mtdna_temp)
+
+#Mutspec bmr
+df_mtdna_bmr$Species = gsub(' ', '_', df_mtdna_bmr$Species)
+df_ag_bmr = merge(df_cytb_ag, df_mtdna_bmr)
+ggplot(df_ag_bmr, aes(x = BMR_value, y = MutSpec))+
+  geom_point()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('BMR value')+
+  annotate('text', x = 1050, y = 0.55, label = 'N = 20')
+wilcox.test(df_ag_bmr$MutSpec,df_ag_bmr$BMR_value)
+
+#Mutspec longevity
+df_long_mtdna$Species = gsub(' ', '_', df_long_mtdna$Species)
+df_ag_long = merge(df_cytb_ag, df_long_mtdna)
+ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
+  geom_point()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Longevity')+
+  annotate('text', x = 25, y = 0.55, label = 'N = 20')
+wilcox.test(df_ag_long$MutSpec,df_ag_long$Longevity)
+
+#Mutspec niche and ecozone
+df_econiche$Species = gsub(' ', '_', df_econiche$Species)
+df_ag_econiche = merge(df_econiche, df_cytb_ag)
+ggplot(df_ag_econiche, aes(x = realm, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Ecozones')+
+  annotate('text', x = 5, y = 0.55, label = 'N = 37')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(df_ag_econiche, aes(x = Trophic_niche, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Trophic niche')+
+  annotate('text', x = 3, y = 0.55, label = 'N = 37')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#Migration
+df_migr_mtdna$Species = gsub(' ', '_', df_migr_mtdna$Species)
+df_ag_migr = merge(df_migr_mtdna, df_cytb_ag)
+ggplot(df_ag_migr, aes(x = migration, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Migration')+
+  annotate('text', x = 3, y = 0.55, label = 'N = 37')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#Daily activity
+df_fly_final$Species = gsub(' ', '_', df_fly_final$Species)
+df_ag_fly = merge(df_fly_final, df_cytb_ag)
+ggplot(df_ag_fly, aes(x = flightless1, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Ability to fly')+
+  annotate('text', x = 1, y = 0.55, label = 'N = 33')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
