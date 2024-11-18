@@ -731,6 +731,9 @@ df_tg[df_tg$Mut == 'T>G',]$Mut = 'A>C'
 df_mut_cor = rbind(df_ac, df_ag, df_at, df_ca, df_cg, df_ct, df_ga, df_gc, df_gt, df_ta, df_tc, df_ag)
 
 df_mut_aves = df_mut_cor[df_mut_cor$Class == 'Aves',]
+ggplot(df_mut_aves, aes(x = Mut, y = MutSpec))+
+  geom_boxplot()+
+  ylab('Mutspec for birds')
 df_cytb = df_mut_aves[df_mut_aves$Gene == 'Cytb',]
 
 ggplot(df_cytb, aes(x = Mut, y = MutSpec))+
