@@ -152,7 +152,7 @@ for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
   speart = cor.test(df_bird$ghahSkew, tbss)
-  spearman_rhos_ghahskew = rbind(spearman_rhos_ghahskew, c(i, speart$p.value))
+  spearman_rhos_ghahskew = rbind(spearman_rhos_ghahskew, c(i, speart$estimate))
 }
 tbss_sampl = sample(tbss, 10, replace = TRUE)
 spearman_rhos_ghahskew_sample = data.frame()
@@ -160,7 +160,7 @@ for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
   speart = cor.test(df_bird$ghahSkew, tbss_sampl)
-  spearman_rhos_ghahskew_sample = rbind(spearman_rhos_ghahskew_sample, c(i, speart$p.value))
+  spearman_rhos_ghahskew_sample = rbind(spearman_rhos_ghahskew_sample, c(i, speart$estimate))
 }
 
 names(spearman_rhos_ghahskew) = c('species_name', 'rho_value')
