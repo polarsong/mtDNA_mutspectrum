@@ -817,3 +817,17 @@ ggplot(df_ag_fly, aes(x = flightless1, y = MutSpec))+
   xlab('Ability to fly')+
   annotate('text', x = 1, y = 0.55, label = 'N = 33')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#Bigger mass
+df_bigmass = df_int[,c(1,19)]
+df_bigmass$logmass = log10(df_bigmass$Mass)
+names(df_bigmass) = c('Species', 'Mass', 'Logmass') 
+df_bigmass$Species = gsub(' ', '_', df_bigmass$Species)
+df_bmut = merge(df_bigmass, df_mut_aves, by = 'Species')
+df_bmut_cytb = df_bmut[df_bmut$Gene == 'Cytb',]
+df_bmut_cytb_ag = df_bmut_cytb[df_bmut_cytb$Mut == 'A>G',]
+ggplot(df_bmut_cytb_ag, aes(x = Logmass, y = MutSpec))+
+  geom_point()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Decimal logarithm of mass')+
+  annotate('text', x = 3, y = 0.56, label = 'N = 106')
