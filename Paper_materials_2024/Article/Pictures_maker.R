@@ -831,3 +831,15 @@ ggplot(df_bmut_cytb_ag, aes(x = Logmass, y = MutSpec))+
   ylab('Mutspec A>G for CytB')+
   xlab('Decimal logarithm of mass')+
   annotate('text', x = 3, y = 0.56, label = 'N = 106')
+
+#New mutspec
+ms_new = read.csv('MutSpecAves12.csv')
+df_short$Species = gsub(' ', '_', df_short$Species)
+a = merge(df_short, ms_new)
+ae = a[a$Mut == 'T>C',]
+ggplot(ae, aes(x = log_mass, y = MutSpec))+
+  geom_point()
+df_flight = read.csv('../flight_and_gene.csv')
+df_flight = df_flight[,c(2,3)]
+names(df_flight) = c('Species', 'Flight')
+aef = merge(ae, df_flight)
