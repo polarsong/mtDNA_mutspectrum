@@ -151,15 +151,15 @@ tbss = c(1,2,3,4,5,6,7,8,9,10)
 for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
-  speart = cor.test(df_bird$ghahSkew, tbss)
+  speart = cor.test(df_bird$ghahSkew, tbss, method = "spearman", conf.level = 0.95)
   spearman_rhos_ghahskew = rbind(spearman_rhos_ghahskew, c(i, speart$estimate))
 }
-tbss_sampl = sample(tbss, 10, replace = TRUE)
+tbss_sampl = sample(tbss, 10, replace = FALSE)
 spearman_rhos_ghahskew_sample = data.frame()
 for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
-  speart = cor.test(df_bird$ghahSkew, tbss_sampl)
+  speart = cor.test(df_bird$ghahSkew, tbss_sampl, method = "spearman", conf.level = 0.95)
   spearman_rhos_ghahskew_sample = rbind(spearman_rhos_ghahskew_sample, c(i, speart$estimate))
 }
 
@@ -184,16 +184,16 @@ sup1
 for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
-  speart = cor.test(df_bird$chthSkew, tbss)
-  spearman_rhos_thchskew = rbind(spearman_rhos_thchskew, c(i, speart$estimate))
+  speart = cor.test(df_bird$chthSkew, tbss, method = "spearman", conf.level = 0.95)
+  spearman_rhos_thchskew = rbind(spearman_rhos_thchskew, c(i, speart$p.value))
 }
-tbss_sampl = sample(tbss, 10, replace = TRUE)
+tbss_sampl = sample(tbss, 10)
 spearman_rhos_thchskew_sample = data.frame()
 for (i in b_names)
 {
   df_bird = df_mtdna_cut[df_mtdna_cut$Species == i,]
-  speart = cor.test(df_bird$chthSkew, tbss_sampl)
-  spearman_rhos_thchskew_sample = rbind(spearman_rhos_thchskew_sample, c(i, speart$estimate))
+  speart = cor.test(df_bird$chthSkew, tbss_sampl, method = "spearman", conf.level = 0.95)
+  spearman_rhos_thchskew_sample = rbind(spearman_rhos_thchskew_sample, c(i, speart$p.value))
 }
 
 names(spearman_rhos_thchskew) = c('species_name', 'rho_value')
