@@ -311,6 +311,7 @@ for (i in long_birds)
   df_long_correct = rbind(df_long_correct, c(i,a))
 }
 names(df_long_correct) = c('Species', 'Longevity')
+df_long_correct$Species = gsub(' ','_',df_long_correct$Species)
 df_long_mtdna = merge(df_long_correct, df_short)
 df_long_mtdna$Longevity = as.numeric(as.character(df_long_mtdna$Longevity))
 long_ghskew = ggplot(df_long_mtdna, aes(x = Longevity, y = GhAhSkew))+
@@ -757,6 +758,20 @@ ggplot(df_ag_mass, aes(x = log_mass, y = MutSpec))+
   annotate('text', x = 3, y = 0.55, label = 'N = 37')
 wilcox.test(df_ag_mass$MutSpec,df_ag_mass$log_mass)
 
+#PGLS work
+old_tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
+flying_tree = read.tree('../../Paper_materials_2024/flying_birds_tree.tre')
+row.names(df_ag_mass) = df_ag_mass$Species
+name.check(old_tree, df_ag_mass)
+listSkew = df_ag_mass$Species
+listTree <- old_tree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree
+spp = rownames(df_ag_mass)
+corLambda = corPagel(value = 1, phy = Old_cut_tree, form=~spp)
+pgls_mutmass = gls(MutSpec~log_mass,
+                data=df_ag_mass, correlation=corLambda)
+summary(pgls_mutmass)
 #Mutspec clutch
 df_mtdna_par$Species = gsub(' ', '_', df_mtdna_par$Species)
 df_ag_clutch = merge(df_cytb_ag, df_mtdna_temp)
@@ -774,6 +789,19 @@ wilcox.test(df_ag_bmr$MutSpec,df_ag_bmr$BMR_value)
 #Mutspec longevity
 df_long_mtdna$Species = gsub(' ', '_', df_long_mtdna$Species)
 df_ag_long = merge(df_cytb_ag, df_long_mtdna)
+rownames(df_ag_long) = df_ag_long$Species
+name.check(old_tree, df_ag_long)
+listSkew = df_ag_long$Species
+listTree <- old_tree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_long
+spp = rownames(df_ag_long)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_long, form=~spp)
+pgls_mutlong = gls(MutSpec~Longevity,
+                   data=df_ag_long, correlation=corLambda)
+summary(pgls_mutlong)
+
+
 ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   geom_point()+
   ylab('Mutspec A>G for CytB')+
