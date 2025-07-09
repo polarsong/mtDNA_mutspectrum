@@ -809,6 +809,59 @@ ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   annotate('text', x = 25, y = 0.55, label = 'N = 20')
 wilcox.test(df_ag_long$MutSpec,df_ag_long$Longevity)
 
+#new temperature
+temp_data = read.csv('Birds_temperature.csv')
+temp_data = temp_data[temp_data$Class == 'Aves',]
+temp_data = temp_data[,c(4,5)]
+temp_data$Species = gsub(' ', '_', temp_data$Species)
+temp_data_mutspec = merge(temp_data, df_cytb_ag)
+ggplot(temp_data_mutspec, aes(x = Tb, y = MutSpec))+
+  geom_point()+
+  ylab('Mutspec A>G for CytB')+
+  xlab('Temperature')+
+  annotate('text', x = 4, y = 0.55, label = 'N = 35')+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+wilcox.test(df_ag_bmr$MutSpec,df_ag_bmr$BMR_value)
+rownames(temp_data_mutspec) = temp_data_mutspec$Species
+name.check(old_tree, temp_data_mutspec)
+temp_data_mutspec_check = temp_data_mutspec
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Catharus_guttatus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Catharus_ustulatus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Chamaea_fasciata", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Collocalia_esculenta", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Empidonax_flaviventris", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Empidonax_minimus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Empidonax_traillii", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Geothlypis_philadelphia", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Hirundo_rustica", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Larus_canus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Leiothlypis_peregrina", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Melospiza_melodia", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Phylloscopus_collybita", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Polioptila_plumbea", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Pyrocephalus_rubinus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Setophaga_coronata", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Setophaga_fusca", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Setophaga_magnolia", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Setophaga_tigrina", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Setophaga_virens", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Vireo_gilvus", temp_data_mutspec_check$Species),]
+temp_data_mutspec_check = temp_data_mutspec_check[!grepl("Vireo_solitarius", temp_data_mutspec_check$Species),]
+name.check(old_tree, temp_data_mutspec_check)
+listSkew = temp_data_mutspec_check$Species
+listTree <- old_tree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_temp
+temp_data_mutspec_check$Tb = gsub(',', '.', temp_data_mutspec_check$Tb)
+temp_data_mutspec_check$Tb = as.numeric(as.character(temp_data_mutspec_check$Tb))
+spp = rownames(temp_data_mutspec_check)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_temp, form=~spp)
+pgls_muttemp = gls(MutSpec~Tb,
+                   data=temp_data_mutspec_check, correlation=corLambda)
+summary(pgls_muttemp)
+
+
+
 #Mutspec niche and ecozone
 df_econiche$Species = gsub(' ', '_', df_econiche$Species)
 df_ag_econiche = merge(df_econiche, df_cytb_ag)
