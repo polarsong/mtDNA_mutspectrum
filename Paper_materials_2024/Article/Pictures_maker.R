@@ -443,7 +443,24 @@ fly_skew = ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flight
   xlab('Birds groups')+
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
 
-
+library(ape); library(phytools);  library(geiger)
+df_fly_final$abtf = 0
+df_fly_final[df_fly_final$flightless1 != 'Flying birds',]$abtf = 1
+old_tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
+df_fly_final$Species = gsub(' ', '_', df_fly_final$Species)
+row.names(df_fly_final) = df_fly_final$Species
+name.check(old_tree, df_fly_final)
+df_fly_final[df_fly_final$Species == "Agapornis_pullarius" | df_fly_final$Species == "Mergus_squamatus",] = NA
+df_fly_final = na.omit(df_fly_final)
+listSkew = df_fly_final$Species
+listTree <- old_tree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_abtf
+spp = rownames(df_fly_final)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+pgls_abtf = gls(GhAhSkew~abtf,
+                   data=df_fly_final, correlation=corLambda)
+summary(pgls_abtf) #show today 1 #PIC + tolerance + Markov's chain
 
 
 #trying regression
@@ -758,7 +775,7 @@ ggplot(df_ag_mass, aes(x = log_mass, y = MutSpec))+
   annotate('text', x = 3, y = 0.55, label = 'N = 37')
 wilcox.test(df_ag_mass$MutSpec,df_ag_mass$log_mass)
 
-#PGLS work
+#PGLS work #show today 2
 old_tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
 flying_tree = read.tree('../../Paper_materials_2024/flying_birds_tree.tre')
 row.names(df_ag_mass) = df_ag_mass$Species
@@ -815,13 +832,15 @@ temp_data = temp_data[temp_data$Class == 'Aves',]
 temp_data = temp_data[,c(4,5)]
 temp_data$Species = gsub(' ', '_', temp_data$Species)
 temp_data_mutspec = merge(temp_data, df_cytb_ag)
+temp_data_mutspec$Tb = gsub(',', '.', temp_data_mutspec$Tb)
+temp_data_mutspec$Tb = as.numeric(as.character(temp_data_mutspec$Tb))
 ggplot(temp_data_mutspec, aes(x = Tb, y = MutSpec))+
   geom_point()+
   ylab('Mutspec A>G for CytB')+
   xlab('Temperature')+
-  annotate('text', x = 4, y = 0.55, label = 'N = 35')+
+  annotate('text', x = 40, y = 0.55, label = 'N = 35')+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-wilcox.test(df_ag_bmr$MutSpec,df_ag_bmr$BMR_value)
+wilcox.test(temp_data_mutspec$MutSpec,temp_data_mutspec$Tb)
 rownames(temp_data_mutspec) = temp_data_mutspec$Species
 name.check(old_tree, temp_data_mutspec)
 temp_data_mutspec_check = temp_data_mutspec
@@ -852,8 +871,6 @@ listSkew = temp_data_mutspec_check$Species
 listTree <- old_tree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_temp
-temp_data_mutspec_check$Tb = gsub(',', '.', temp_data_mutspec_check$Tb)
-temp_data_mutspec_check$Tb = as.numeric(as.character(temp_data_mutspec_check$Tb))
 spp = rownames(temp_data_mutspec_check)
 corLambda = corPagel(value = 1, phy = Old_cut_tree_temp, form=~spp)
 pgls_muttemp = gls(MutSpec~Tb,
