@@ -462,7 +462,25 @@ pgls_abtf = gls(GhAhSkew~abtf,
                    data=df_fly_final, correlation=corLambda)
 summary(pgls_abtf) #show today 1 #PIC + tolerance + Markov's chain
 
-
+#pic
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+feathertree$node.label <- NULL # Remove internal node labels (if any)
+is.ultrametric(feathertree)
+is.binary(feathertree)
+is.rooted(feathertree)
+listSkew = df_fly_final$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtf
+name.check(Old_cut_tree_abtf, df_fly_final)
+ABTF = setNames(df_fly_final[,"abtf"], rownames(df_fly_final))
+Gh = setNames(df_fly_final[,"GhAhSkew"], rownames(df_fly_final))
+ABTFPIC = pic(ABTF, Old_cut_tree_abtf)
+GhPIC = pic(Gh, Old_cut_tree_abtf)
+fit_pic = lm(ABTF~Gh+0)
+fit_pic
+summary(fit_pic)
+plot(ABTFPIC~GhPIC)
 #trying regression
 all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
 all_data = merge(all_data, df_short, by = 'Species')
@@ -775,20 +793,30 @@ ggplot(df_ag_mass, aes(x = log_mass, y = MutSpec))+
   annotate('text', x = 3, y = 0.55, label = 'N = 37')
 wilcox.test(df_ag_mass$MutSpec,df_ag_mass$log_mass)
 
-#PGLS work #show today 2
+#PGLS work 
 old_tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
 flying_tree = read.tree('../../Paper_materials_2024/flying_birds_tree.tre')
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+feathertree$node.label <- NULL # Remove internal node labels (if any)
 row.names(df_ag_mass) = df_ag_mass$Species
-name.check(old_tree, df_ag_mass)
+name.check(feathertree, df_ag_mass)
 listSkew = df_ag_mass$Species
-listTree <- old_tree$tip.label
+listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
-drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree
 spp = rownames(df_ag_mass)
 corLambda = corPagel(value = 1, phy = Old_cut_tree, form=~spp)
 pgls_mutmass = gls(MutSpec~log_mass,
                 data=df_ag_mass, correlation=corLambda)
 summary(pgls_mutmass)
+massrange = setNames(df_ag_mass[,"Mass"],rownames(df_ag_mass))
+agrange = setNames(df_ag_mass[,"MutSpec"],rownames(df_ag_mass))
+picmass = pic(log(massrange), Old_cut_tree)
+picag = pic(agrange, Old_cut_tree)
+fitagmass = lm(picmass~picag+0)
+fitagmass
+summary(fitagmass)
+plot(picmass~picag)
 #Mutspec clutch
 df_mtdna_par$Species = gsub(' ', '_', df_mtdna_par$Species)
 df_ag_clutch = merge(df_cytb_ag, df_mtdna_temp)
@@ -807,17 +835,24 @@ wilcox.test(df_ag_bmr$MutSpec,df_ag_bmr$BMR_value)
 df_long_mtdna$Species = gsub(' ', '_', df_long_mtdna$Species)
 df_ag_long = merge(df_cytb_ag, df_long_mtdna)
 rownames(df_ag_long) = df_ag_long$Species
-name.check(old_tree, df_ag_long)
+name.check(feathertree, df_ag_long)
 listSkew = df_ag_long$Species
-listTree <- old_tree$tip.label
+listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
-drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_long
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_long
 spp = rownames(df_ag_long)
 corLambda = corPagel(value = 1, phy = Old_cut_tree_long, form=~spp)
 pgls_mutlong = gls(MutSpec~Longevity,
                    data=df_ag_long, correlation=corLambda)
 summary(pgls_mutlong)
-
+longrange = setNames(df_ag_long[,"Longevity"],rownames(df_ag_long))
+aglrange = setNames(df_ag_long[,"MutSpec"],rownames(df_ag_long))
+piclong = pic(longrange, Old_cut_tree_long)
+picagl = pic(aglrange, Old_cut_tree_long)
+fitaglong = lm(piclong~picagl+0)
+fitaglong
+summary(fitaglong)
+plot(picagl~piclong)
 
 ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   geom_point()+
