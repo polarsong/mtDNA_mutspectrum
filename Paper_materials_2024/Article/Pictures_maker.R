@@ -461,6 +461,7 @@ corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
 pgls_abtf = gls(GhAhSkew~abtf,
                    data=df_fly_final, correlation=corLambda)
 summary(pgls_abtf) #show today 1 #PIC + tolerance + Markov's chain
+#pgls with Andrey tree
 
 #pic
 feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
@@ -473,6 +474,13 @@ listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtf
 name.check(Old_cut_tree_abtf, df_fly_final)
+#pgls with Andrey tree
+spp = rownames(df_fly_final)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+pgls_abtf = gls(GhAhSkew~abtf,
+                data=df_fly_final, correlation=corLambda)
+summary(pgls_abtf)
+#pic continue
 ABTF = setNames(df_fly_final[,"abtf"], rownames(df_fly_final))
 Gh = setNames(df_fly_final[,"GhAhSkew"], rownames(df_fly_final))
 ABTFPIC = pic(ABTF, Old_cut_tree_abtf)
@@ -480,7 +488,7 @@ GhPIC = pic(Gh, Old_cut_tree_abtf)
 fit_pic = lm(ABTF~Gh+0)
 fit_pic
 summary(fit_pic)
-plot(ABTFPIC~GhPIC)
+plot(GhPIC~ABTFPIC)
 #trying regression
 all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
 all_data = merge(all_data, df_short, by = 'Species')
@@ -519,7 +527,7 @@ df_short$Species = gsub(' ', '_', df_short$Species)
 listSkew = df_short$Species
 listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
-#drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
+drop.tip(feathertree, SpeciesToDrop) -> Fly_skew_tree
 
 #Mass
 rownames(df_short) <- df_short[,1] 
@@ -590,6 +598,7 @@ spp = rownames(df_long_pgls)
 corLambda<-corPagel(value=1,phy=Long_skew_tree,form=~spp)
 pgls_long = gls(GhAhSkew~Longevity,
                 data=df_long_pgls,correlation=corLambda)
+summary(pgls_long)
 a = as.data.frame(summary(pgls_long)$tTable)
 a$lambda_value = summary(pgls_long)$modelStruct
 pgls_res_table = rbind(pgls_res_table, a)
@@ -736,6 +745,47 @@ pgls_pict2_res_table = pgls_res_table[-c(1,3,5,7,9,11,13,15,17,19),]
 pgls_pict2_res_table$lambda_value = as.numeric(as.character(pgls_pict2_res_table$lambda_value))
 write.csv(pgls_pict2_res_table, 'Pict2_pgls_results.csv')
 
+#dive_new_pgls 
+df_check = df_fly_big
+df_dive = df_fly_big
+df_dive = df_dive[df_dive$diving != 'waterbird',]
+df_dive = na.omit(df_dive)
+df_divers = df_dive[df_dive$diving == '0' | df_dive$diving == "Anseriformes" | df_dive$diving == "Sphenisciformes" | df_dive$diving == "Podicipediformes" | df_dive$diving == "Gaviiformes" | df_dive$diving == "Suliformes",]
+df_divers$abtd = 0
+df_divers[df_divers$diving != '0',]$abtd = 1
+df_divers$Species = gsub(' ', '_', df_divers$Species)
+row.names(df_divers) = df_divers$Species
+df_divers[df_divers$Species == "Agapornis_pullarius"   | df_divers$Species ==  "Coturnix_chinensis"  |  df_divers$Species ==  "Mergus_squamatus"  |  df_divers$Species ==  "Paradoxornis_heudei" | df_divers$Species ==  "Podiceps_cristatus"   | df_divers$Species ==  "Prioniturus_luconensis" | df_divers$Species ==  "Psittacus_erithacus"  | df_divers$Species ==   "Sarothrura_ayresi"  | df_divers$Species ==   "Serinus_albogularis"  | df_divers$Species ==  "Vestiaria_coccinea",] = NA 
+df_divers = na.omit(df_divers)
+df_divers_big = merge(df_divers, df_short)
+row.names(df_divers_big) = df_divers_big$Species
+
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+feathertree$node.label <- NULL # Remove internal node labels (if any)
+is.ultrametric(feathertree)
+is.binary(feathertree)
+is.rooted(feathertree)
+listSkew = df_divers_big$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtd
+name.check(Old_cut_tree_abtd, df_divers_big)
+#pgls with Andrey tree
+spp = rownames(df_divers_big)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtd, form=~spp)
+pgls_abtd = gls(GhAhSkew~abtd,
+                data=df_divers_big, correlation=corLambda)
+summary(pgls_abtd)
+#PIC divers
+ABTD = setNames(df_divers_big[,"abtd"], rownames(df_divers_big))
+Ghd = setNames(df_divers_big[,"GhAhSkew"], rownames(df_divers_big))
+ABTDPIC = pic(ABTD, Old_cut_tree_abtd)
+GhdPIC = pic(Ghd, Old_cut_tree_abtd)
+fit_pic_d = lm(ABTD~Ghd+0)
+fit_pic_d
+summary(fit_pic_d)
+plot(ABTDPIC~GhdPIC)
+
 
 #MutSpec easy
 df_mut = read.csv('MutSpecVertebrates12.csv')
@@ -852,7 +902,7 @@ picagl = pic(aglrange, Old_cut_tree_long)
 fitaglong = lm(piclong~picagl+0)
 fitaglong
 summary(fitaglong)
-plot(picagl~piclong)
+plot(piclong~picagl)
 
 ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   geom_point()+
