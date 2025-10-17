@@ -489,6 +489,17 @@ fit_pic = lm(ABTF~Gh+0)
 fit_pic
 summary(fit_pic)
 plot(GhPIC~ABTFPIC)
+
+#coloring Andrey tree
+lnTL<-setNames(df_fly_final$GhAhSkew,rownames(df_fly_final))
+head(lnTL)
+fit.lnTL<-fastAnc(Old_cut_tree_abtf,lnTL,vars=TRUE,CI=TRUE)
+print(fit.lnTL,printlen=10)
+birds_contMap<-contMap(Old_cut_tree_abtf,lnTL,
+                       plot=FALSE)
+plot(birds_contMap,sig=2,fsize=c(0.45,0.9),
+          lwd=c(2,3))
+
 #trying regression
 all_data = merge(df_long_mtdna, df_short_1,  by = 'Species')
 all_data = merge(all_data, df_short, by = 'Species')
@@ -867,6 +878,9 @@ fitagmass = lm(picmass~picag+0)
 fitagmass
 summary(fitagmass)
 plot(picmass~picag)
+text(picmass, picag,
+     labels = row.names(df_ag_mass),
+     cex = 0.4, pos = 4, col = "red")
 #Mutspec clutch
 df_mtdna_par$Species = gsub(' ', '_', df_mtdna_par$Species)
 df_ag_clutch = merge(df_cytb_ag, df_mtdna_temp)
@@ -902,7 +916,17 @@ picagl = pic(aglrange, Old_cut_tree_long)
 fitaglong = lm(piclong~picagl+0)
 fitaglong
 summary(fitaglong)
-plot(piclong~picagl)
+plot(picagl,piclong)
+text(picagl, piclong,
+     labels = row.names(df_ag_long),
+     cex = 0.5, pos = 4, col = "red")
+collong<-setNames(df_ag_long$MutSpec,rownames(df_ag_long))
+head(collong)
+fit.collong<-fastAnc(Old_cut_tree_long,collong,vars=TRUE,CI=TRUE)
+collong_contMap<-contMap(Old_cut_tree_long,collong,
+                       plot=FALSE)
+plot(collong_contMap,sig=2,fsize=c(0.45,0.9),
+     lwd=c(2,3))
 
 ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   geom_point()+
