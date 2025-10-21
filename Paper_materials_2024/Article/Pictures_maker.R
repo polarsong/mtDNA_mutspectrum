@@ -311,6 +311,7 @@ for (i in long_birds)
   df_long_correct = rbind(df_long_correct, c(i,a))
 }
 names(df_long_correct) = c('Species', 'Longevity')
+df_short$Species = gsub(' ','_', df_short$Species)
 df_long_correct$Species = gsub(' ','_',df_long_correct$Species)
 df_long_mtdna = merge(df_long_correct, df_short)
 df_long_mtdna$Longevity = as.numeric(as.character(df_long_mtdna$Longevity))
@@ -433,6 +434,7 @@ df_fly_clean$flightless = 'Tinamiformes'
 df_fly_clean1$flightless = 'Tinamiformes'
 df_fly_big = rbind(df_fly, df_fly_clean, df_fly_clean1)
 names(df_fly_big) = c("Species", 'flightless', 'diving')
+df_fly_big$Species = gsub(' ', '_', df_fly_big$Species)
 df_fly_final = merge(df_fly_big, df_short)
 df_fly_final = df_fly_final[df_fly_final$flightless != 'Galliformes',]
 df_fly_final[df_fly_final$flightless == '0',]$flightless = 'Flying birds'
@@ -444,8 +446,8 @@ fly_skew = ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flight
   xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
 
 library(ape); library(phytools);  library(geiger)
-df_fly_final$abtf = 0
-df_fly_final[df_fly_final$flightless1 != 'Flying birds',]$abtf = 1
+df_fly_final$abtf = 1
+df_fly_final[df_fly_final$flightless1 != 'Flying birds',]$abtf = 0
 old_tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
 df_fly_final$Species = gsub(' ', '_', df_fly_final$Species)
 row.names(df_fly_final) = df_fly_final$Species
@@ -462,7 +464,33 @@ pgls_abtf = gls(GhAhSkew~abtf,
                    data=df_fly_final, correlation=corLambda)
 summary(pgls_abtf) #show today 1 #PIC + tolerance + Markov's chain
 #pgls with Andrey tree
-
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+feathertree$node.label <- NULL # Remove internal node labels (if any)
+is.ultrametric(feathertree)
+is.binary(feathertree)
+is.rooted(feathertree)
+df_nonf = df_fly_final[df_fly_final$flightless != 'Sphenisciformes',]
+listSkew = df_nonf$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtf_nop
+name.check(Old_cut_tree_abtf_nop, df_nonf)
+spp = rownames(df_nonf)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+pgls_abtf = gls(GhAhSkew~abtf,
+                data=df_nonf, correlation=corLambda)
+summary(pgls_abtf)
+df_paleo = df_nonf[df_nonf$flightless != "Psittaciformes" & df_nonf$flightless != "Columbiformes" & df_nonf$flightless != "Eurypygiformes" & df_nonf$flightless != "Gruiformes",]
+listSkew = df_paleo$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtf
+name.check(Old_cut_tree_abtf, df_paleo)
+spp = rownames(df_paleo)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+pgls_abtf = gls(GhAhSkew~abtf,
+                data=df_paleo, correlation=corLambda)
+summary(pgls_abtf)
 #pic
 feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
 feathertree$node.label <- NULL # Remove internal node labels (if any)
@@ -489,6 +517,19 @@ fit_pic = lm(ABTF~Gh+0)
 fit_pic
 summary(fit_pic)
 plot(GhPIC~ABTFPIC)
+
+#PIC ABTF no penguins
+ABTF = setNames(df_nonf[,"abtf"], rownames(df_nonf))
+Gh = setNames(df_nonf[,"GhAhSkew"], rownames(df_nonf))
+ABTFPIC = pic(ABTF, Old_cut_tree_abtf_nop)
+GhPIC = pic(Gh, Old_cut_tree_abtf_nop)
+fit_pic = lm(ABTFPIC~GhPIC+0)
+fit_pic
+summary(fit_pic)
+plot(ABTFPIC~GhPIC)
+text(ABTFPIC, GhPIC,
+     labels = row.names(df_nonf),
+     cex = 0.4, pos = 4, col = "red")
 
 #coloring Andrey tree
 lnTL<-setNames(df_fly_final$GhAhSkew,rownames(df_fly_final))
@@ -553,6 +594,18 @@ spp = rownames(df_short)
 corLambda<-corPagel(value=1,phy=feathertree,form=~spp)
 pgls_mass = gls(GhAhSkew~Mass,
                   data=df_short,correlation=corLambda)
+#find
+Mass = setNames(log10(df_short[,"Mass"]), rownames(df_short))
+Gh = setNames(df_short[,"GhAhSkew"], rownames(df_short))
+MassPIC = pic(Mass, feathertree)
+GhPIC = pic(Gh, feathertree)
+fit_pic = lm(MassPIC~GhPIC+0)
+fit_pic
+summary(fit_pic)
+plot(MassPIC~GhPIC)
+text(MassPIC, GhPIC,
+     labels = row.names(df_short),
+     cex = 0.4, pos = 2, col = "red")
 a = as.data.frame(summary(pgls_mass)$tTable)
 a$lambda_value = summary(pgls_mass)$modelStruct
 pgls_res_table = rbind(pgls_res_table, a)
@@ -610,6 +663,22 @@ corLambda<-corPagel(value=1,phy=Long_skew_tree,form=~spp)
 pgls_long = gls(GhAhSkew~Longevity,
                 data=df_long_pgls,correlation=corLambda)
 summary(pgls_long)
+Long = setNames(log10(df_long_pgls[,"Longevity"]), rownames(df_long_pgls))
+Gh = setNames(df_long_pgls[,"GhAhSkew"], rownames(df_long_pgls))
+LongPIC = pic(Long, Long_skew_tree)
+GhPIC = pic(Gh, Long_skew_tree)
+fit_pic = lm(LongPIC~GhPIC+0)
+fit_pic
+summary(fit_pic)
+plot(LongPIC~GhPIC)
+text(MassPIC, GhPIC,
+     labels = row.names(df_short),
+     cex = 0.4, pos = 2, col = "red")
+a = as.data.frame(summary(pgls_mass)$tTable)
+a$lambda_value = summary(pgls_mass)$modelStruct
+pgls_res_table = rbind(pgls_res_table, a)
+
+
 a = as.data.frame(summary(pgls_long)$tTable)
 a$lambda_value = summary(pgls_long)$modelStruct
 pgls_res_table = rbind(pgls_res_table, a)
@@ -792,7 +861,7 @@ ABTD = setNames(df_divers_big[,"abtd"], rownames(df_divers_big))
 Ghd = setNames(df_divers_big[,"GhAhSkew"], rownames(df_divers_big))
 ABTDPIC = pic(ABTD, Old_cut_tree_abtd)
 GhdPIC = pic(Ghd, Old_cut_tree_abtd)
-fit_pic_d = lm(ABTD~Ghd+0)
+fit_pic_d = lm(ABTDPIC~GhdPIC+0)
 fit_pic_d
 summary(fit_pic_d)
 plot(ABTDPIC~GhdPIC)
@@ -878,6 +947,7 @@ fitagmass = lm(picmass~picag+0)
 fitagmass
 summary(fitagmass)
 plot(picmass~picag)
+abline(fitagmass)
 text(picmass, picag,
      labels = row.names(df_ag_mass),
      cex = 0.4, pos = 4, col = "red")
@@ -917,6 +987,9 @@ fitaglong = lm(piclong~picagl+0)
 fitaglong
 summary(fitaglong)
 plot(picagl,piclong)
+abline(fitaglong)
+plotTree(Old_cut_tree_long)
+nodelabels(bg="white",cex=0.5,frame="circle")
 text(picagl, piclong,
      labels = row.names(df_ag_long),
      cex = 0.5, pos = 4, col = "red")
