@@ -1000,6 +1000,105 @@ collong_contMap<-contMap(Old_cut_tree_long,collong,
                        plot=FALSE)
 plot(collong_contMap,sig=2,fsize=c(0.45,0.9),
      lwd=c(2,3))
+#try1
+try1 = df_ag_long
+try1 = try1[try1$Species != 'Garrulus_glandarius',]
+name.check(Old_cut_tree_long, try1)
+listSkew = try1$Species
+listTree <- Old_cut_tree_long$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(Old_cut_tree_long, SpeciesToDrop) -> Old_cut_tree_long_cutted
+spp = rownames(try1)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_long_cutted, form=~spp)
+pgls_mutlong = gls(MutSpec~Longevity,
+                   data=try1, correlation=corLambda)
+summary(pgls_mutlong)
+longrange = setNames(try1[,"Longevity"],rownames(try1))
+aglrange = setNames(try1[,"MutSpec"],rownames(try1))
+piclong = pic(longrange, Old_cut_tree_long_cutted)
+picagl = pic(aglrange, Old_cut_tree_long_cutted)
+fitaglong = lm(piclong~picagl+0)
+fitaglong
+summary(fitaglong)
+plot(picagl,piclong)
+abline(fitaglong)
+plotTree(Old_cut_tree_long_cutted)
+nodelabels(bg="white",cex=0.5,frame="circle")
+
+#try2
+try2 = try1
+try2 = try2[try2$Species != 'Corvus_corax',]
+name.check(Old_cut_tree_long_cutted, try2)
+listSkew = try2$Species
+listTree <- Old_cut_tree_long_cutted$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(Old_cut_tree_long_cutted, SpeciesToDrop) -> Old_cut_tree_long_cutted_m
+spp = rownames(try2)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_long_cutted_m, form=~spp)
+pgls_mutlong = gls(MutSpec~Longevity,
+                   data=try2, correlation=corLambda)
+summary(pgls_mutlong)
+longrange = setNames(try2[,"Longevity"],rownames(try2))
+aglrange = setNames(try2[,"MutSpec"],rownames(try2))
+piclong = pic(longrange, Old_cut_tree_long_cutted_m)
+picagl = pic(aglrange, Old_cut_tree_long_cutted_m)
+fitaglong = lm(piclong~picagl+0)
+fitaglong
+summary(fitaglong)
+plot(picagl,piclong)
+abline(fitaglong)
+plotTree(Old_cut_tree_long_cutted_m)
+nodelabels(bg="white",cex=0.5,frame="circle")
+
+#try3
+try3 = df_ag_long
+try3 = try3[try3$Species != 'Corvus_corax',]
+name.check(Old_cut_tree_long, try3)
+listSkew = try3$Species
+listTree <- Old_cut_tree_long$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(Old_cut_tree_long, SpeciesToDrop) -> Old_cut_tree_long_cutted
+spp = rownames(try3)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_long_cutted, form=~spp)
+pgls_mutlong = gls(MutSpec~Longevity,
+                   data=try3, correlation=corLambda)
+summary(pgls_mutlong)
+longrange = setNames(try3[,"Longevity"],rownames(try3))
+aglrange = setNames(try3[,"MutSpec"],rownames(try3))
+piclong = pic(longrange, Old_cut_tree_long_cutted)
+picagl = pic(aglrange, Old_cut_tree_long_cutted)
+fitaglong = lm(piclong~picagl+0)
+fitaglong
+summary(fitaglong)
+plot(picagl,piclong)
+abline(fitaglong)
+plotTree(Old_cut_tree_long_cutted)
+nodelabels(bg="white",cex=0.5,frame="circle")
+
+#try4
+try4 = try1
+try4 = try4[try4$Species != 'Pica_pica',]
+name.check(Old_cut_tree_long_cutted, try4)
+listSkew = try4$Species
+listTree <- Old_cut_tree_long_cutted$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(Old_cut_tree_long_cutted, SpeciesToDrop) -> Old_cut_tree_long_cutted_m
+spp = rownames(try4)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_long_cutted_m, form=~spp)
+pgls_mutlong = gls(MutSpec~Longevity,
+                   data=try4, correlation=corLambda)
+summary(pgls_mutlong)
+longrange = setNames(try4[,"Longevity"],rownames(try4))
+aglrange = setNames(try4[,"MutSpec"],rownames(try4))
+piclong = pic(longrange, Old_cut_tree_long_cutted_m)
+picagl = pic(aglrange, Old_cut_tree_long_cutted_m)
+fitaglong = lm(piclong~picagl+0)
+fitaglong
+summary(fitaglong)
+plot(picagl,piclong)
+abline(fitaglong)
+plotTree(Old_cut_tree_long_cutted_m)
+nodelabels(bg="white",cex=0.5,frame="circle")
 
 ggplot(df_ag_long, aes(x = Longevity, y = MutSpec))+
   geom_point()+
