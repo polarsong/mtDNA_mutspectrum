@@ -974,6 +974,7 @@ listSkew = df_ag_long$Species
 listTree <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_long
+write.csv(df_ag_long, file = 'Longevity_AG_table.csv')
 spp = rownames(df_ag_long)
 corLambda = corPagel(value = 1, phy = Old_cut_tree_long, form=~spp)
 pgls_mutlong = gls(MutSpec~Longevity,
