@@ -1,5 +1,7 @@
 #Картинки для дипома/практики
 rm(list = ls(all=TRUE))
+install.packages("Rtools")
+install.packages('plotly')
 library(ggbiplot)
 library(ggplot2)
 library(ggpubr)
