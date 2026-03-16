@@ -1,6 +1,7 @@
 rm(list = ls(all=TRUE))
 library(ggplot2)
 library(ggpubr)
+library(dplyr)
 df_mtdna = read.csv('../Work_with_Andrey/Birds_dataset_paper.csv', header = TRUE, sep = ';')
 df_nd6 = read.csv('../Birds_mtDNA_data.csv')
 df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
@@ -95,3 +96,30 @@ graph3
 graph_final = ggarrange(graph3, graph3, graph1, graph2,
                      ncol = 2, nrow = 2)
 graph_final
+
+#lm
+new_big$classbinar = 0
+new_big[new_big$Class == 'Aves',]$classbinar = 1
+new_big$TBSS = 1
+new_big[new_big$gene_name == 'COX2',]$TBSS = 2
+new_big[new_big$gene_name == 'ATP8',]$TBSS = 3
+new_big[new_big$gene_name == 'ATP6',]$TBSS = 4
+new_big[new_big$gene_name == 'COX3',]$TBSS = 5
+new_big[new_big$gene_name == 'ND3',]$TBSS = 6
+new_big[new_big$gene_name == 'ND4L',]$TBSS = 7
+new_big[new_big$gene_name == 'ND4',]$TBSS = 8
+new_big[new_big$gene_name == 'ND5',]$TBSS = 9
+new_big[new_big$gene_name == 'CYTB',]$TBSS = 10
+new_big[new_big$gene_name == 'ND6',]$TBSS = 11
+new_big[new_big$gene_name == 'ND1',]$TBSS = 12
+new_big[new_big$gene_name == 'ND2',]$TBSS = 13
+new_big$GhAhSkew_abs = new_big$GhAhSkew
+absgh = new_big[new_big$gene_name == 'ND6',]
+absgh$GhAhSkew_abs = abs(absgh$GhAhSkew_abs)
+new_big_cut = new_big[new_big$gene_name != 'ND6',]
+new_big_lm = rbind(absgh, new_big_cut)
+new_big[new_big$gene_name == 'ND6',]$GhAhSkew_abs
+TBSS_lm = lm(GhAhSkew_abs ~ classbinar + TBSS, data = new_big_lm)
+summary(TBSS_lm)
+summary(TBSS_lm)$coefficient
+sigma(TBSS_lm)/mean(new_big_lm$GhAhSkew_abs)
