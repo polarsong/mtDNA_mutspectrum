@@ -21,14 +21,15 @@ df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
 SynNuc = read.table('AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep = '\t')
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
-new_mam = SynNuc[, c(1, 2, 79, 80)]
+new_mam = SynNuc[, c(1, 2, 29,30,31,32,69, 70, 71, 72, 79, 80)]
 new_mam$Сlass = 'Mammalia'
-new_bird = df_nd6[, c('species_name', 'gene_name', 'GhAhSkew','ThChSkew')]
+new_bird = df_nd6[, c('species_name', 'gene_name', "CCA",
+                      "CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'GhAhSkew','ThChSkew')]
 new_bird$Сlass = 'Aves'
 new_bird$species_name = gsub(' ', '_', new_bird$species_name)
 new_mam$Gene[new_mam$Gene == 'CytB'] = 'CYTB'
-names(new_mam) = c('species_name', 'gene_name', 'GhAhSkew', 'ThChSkew', 'Class')
-names(new_bird) = c('species_name', 'gene_name', 'GhAhSkew', 'ThChSkew', 'Class')
+names(new_mam) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT",'GhAhSkew', 'ThChSkew', 'Class')
+names(new_bird) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT",'GhAhSkew', 'ThChSkew', 'Class')
 
 new_big = rbind(new_mam, new_bird)
 graph1 = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
@@ -118,8 +119,16 @@ absgh = new_big[new_big$gene_name == 'ND6',]
 absgh$GhAhSkew_abs = abs(absgh$GhAhSkew_abs)
 new_big_cut = new_big[new_big$gene_name != 'ND6',]
 new_big_lm = rbind(absgh, new_big_cut)
-new_big[new_big$gene_name == 'ND6',]$GhAhSkew_abs
-TBSS_lm = lm(GhAhSkew_abs ~ classbinar + TBSS, data = new_big_lm)
+TBSS_lm = lm(GhAhSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
 summary(TBSS_lm)
 summary(TBSS_lm)$coefficient
 sigma(TBSS_lm)/mean(new_big_lm$GhAhSkew_abs)
+
+new_big$Pro_Phe = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC)
+new_big$Pro_PheLeu = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC+new_big$TTA+new_big$TTG)
+ggplot(new_big, aes(x = Class, y = Pro_Phe))+
+  geom_boxplot(outlier.alpha = FALSE)+
+  ylim(0,3)
+ggplot(new_big, aes(x = Class, y = Pro_PheLeu))+
+  geom_boxplot(outlier.alpha = FALSE)+
+  ylim(0,1.8)
