@@ -4,12 +4,7 @@ library(ggpubr)
 library(dplyr)
 df_mtdna = read.csv('../Work_with_Andrey/Birds_dataset_paper.csv', header = TRUE, sep = ';')
 df_nd6 = read.csv('../Birds_mtDNA_data.csv')
-df_nd6$GhAhSkew = (df_nd6$neutral_g - df_nd6$neutral_A)/(df_nd6$neutral_g + df_nd6$neutral_A)
-df_nd6$ThChSkew = (df_nd6$neutral_T - df_nd6$neutral_c)/(df_nd6$neutral_T + df_nd6$neutral_c)
-df_nd6$fTn = df_nd6$neutral_T/df_nd6$neutral_amount
-df_nd6$fAn = df_nd6$neutral_A/df_nd6$neutral_amount
-df_nd6$fCn = df_nd6$neutral_c/df_nd6$neutral_amount
-df_nd6$fGn = df_nd6$neutral_g/df_nd6$neutral_amount
+
 
 df_nd6$GhAhSkew = (df_nd6$neutral_c- df_nd6$neutral_T)/(df_nd6$neutral_c + df_nd6$neutral_T)
 df_nd6$ThChSkew = (df_nd6$neutral_A - df_nd6$neutral_g)/(df_nd6$neutral_A + df_nd6$neutral_g)
@@ -115,20 +110,32 @@ new_big[new_big$gene_name == 'ND6',]$TBSS = 11
 new_big[new_big$gene_name == 'ND1',]$TBSS = 12
 new_big[new_big$gene_name == 'ND2',]$TBSS = 13
 new_big$GhAhSkew_abs = new_big$GhAhSkew
+new_big$ThChSkew_abs = new_big$ThChSkew
 absgh = new_big[new_big$gene_name == 'ND6',]
 absgh$GhAhSkew_abs = abs(absgh$GhAhSkew_abs)
+absgh$ThChSkew_abs = abs(absgh$ThChSkew_abs)
 new_big_cut = new_big[new_big$gene_name != 'ND6',]
 new_big_lm = rbind(absgh, new_big_cut)
-TBSS_lm = lm(GhAhSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
-summary(TBSS_lm)
+TBSS_lmGh = lm(GhAhSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
+summary(TBSS_lmGh)
+summary(TBSS_lmGh)$coefficient
+TBSS_lmTh = lm(ThChSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
+summary(TBSS_lmTh)
 summary(TBSS_lm)$coefficient
 sigma(TBSS_lm)/mean(new_big_lm$GhAhSkew_abs)
 
 new_big$Pro_Phe = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC)
 new_big$Pro_PheLeu = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC+new_big$TTA+new_big$TTG)
+new_big12g = new_big[new_big$gene_name != 'ND6',]
 ggplot(new_big, aes(x = Class, y = Pro_Phe))+
   geom_boxplot(outlier.alpha = FALSE)+
   ylim(0,3)
 ggplot(new_big, aes(x = Class, y = Pro_PheLeu))+
+  geom_boxplot(outlier.alpha = FALSE)+
+  ylim(0,1.8)
+ggplot(new_big12g, aes(x = Class, y = Pro_Phe))+
+  geom_boxplot(outlier.alpha = FALSE)+
+  ylim(0,3)
+ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
   geom_boxplot(outlier.alpha = FALSE)+
   ylim(0,1.8)
