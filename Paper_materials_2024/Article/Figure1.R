@@ -131,6 +131,7 @@ summary(TBSS_lmTh_1)
 
 sigma(TBSS_lm)/mean(new_big_lm$GhAhSkew_abs)
 
+#AA shift
 new_big$Pro_Phe = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC)
 new_big$Pro_PheLeu = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC+new_big$TTA+new_big$TTG)
 new_big12g = new_big[new_big$gene_name != 'ND6',]
@@ -143,8 +144,28 @@ ggplot(new_big, aes(x = Class, y = Pro_PheLeu))+
 ggplot(new_big12g, aes(x = Class, y = Pro_Phe))+
   geom_boxplot(outlier.alpha = FALSE)+
   ylim(0,3)
-ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
+graph_3 = ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
   geom_boxplot(outlier.alpha = FALSE, notch = TRUE)+
   ylim(0,1.8)
 #stats
 wilcox.test(new_big12g[new_big12g$Class == 'Mammalia',]$Pro_PheLeu,new_big12g[new_big12g$Class == 'Aves',]$Pro_PheLeu)
+
+
+#mutspec 
+mutspec = read.csv("MutSups.csv")
+mutspec = mutspec[,c(1,4,6)]
+names(mutspec) = mutspec[c(1),]
+mutspec = mutspec[c(2:193),]
+mutspec$Mut = substr(mutspec$Mut, 3,5)
+mutspec$Aves = as.numeric(as.character(mutspec$Aves))
+mutspec$Mammalia = as.numeric(as.character(mutspec$Mammalia))
+ggplot(mutspec, aes(x = Mut, y = Aves))+
+  geom_boxplot()
+ggplot(mutspec, aes(x = Mut, y = Mammalia))+
+  geom_boxplot()
+graph_4 = ggplot(mutspec, aes(x = Mut, y = Aves))+
+  geom_bar(stat = 'identity')
+graph_5 = ggplot(mutspec, aes(x = Mut, y = Mammalia))+
+  geom_bar(stat = 'identity')
+graph_final = ggarrange(graph_4, graph_5, graph1, graph2,
+                        ncol = 2, nrow = 2)
