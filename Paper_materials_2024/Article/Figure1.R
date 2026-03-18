@@ -119,9 +119,16 @@ new_big_lm = rbind(absgh, new_big_cut)
 TBSS_lmGh = lm(GhAhSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
 summary(TBSS_lmGh)
 summary(TBSS_lmGh)$coefficient
+TBSS_lmGh_1 = lm(GhAhSkew_abs ~ scale(classbinar) * scale(TBSS), data = new_big_lm)
+summary(TBSS_lmGh_1)
+
+
 TBSS_lmTh = lm(ThChSkew_abs ~ scale(classbinar) + scale(TBSS), data = new_big_lm)
 summary(TBSS_lmTh)
-summary(TBSS_lm)$coefficient
+TBSS_lmTh_1 = lm(ThChSkew_abs ~ scale(classbinar) * scale(TBSS), data = new_big_lm)
+summary(TBSS_lmTh_1)
+
+
 sigma(TBSS_lm)/mean(new_big_lm$GhAhSkew_abs)
 
 new_big$Pro_Phe = (new_big$CCT+new_big$CCA+new_big$CCG+new_big$CCC)/(new_big$TTT+new_big$TTC)
@@ -137,5 +144,7 @@ ggplot(new_big12g, aes(x = Class, y = Pro_Phe))+
   geom_boxplot(outlier.alpha = FALSE)+
   ylim(0,3)
 ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
-  geom_boxplot(outlier.alpha = FALSE)+
+  geom_boxplot(outlier.alpha = FALSE, notch = TRUE)+
   ylim(0,1.8)
+#stats
+wilcox.test(new_big12g[new_big12g$Class == 'Mammalia',]$Pro_PheLeu,new_big12g[new_big12g$Class == 'Aves',]$Pro_PheLeu)
