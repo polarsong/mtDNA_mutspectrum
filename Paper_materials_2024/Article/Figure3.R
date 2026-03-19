@@ -21,6 +21,7 @@ df_fly1 = df_fly1[,c(2,3,4)]
 names(df_fly1) = c('species_name', 'ability to fly', 'ability to dive')
 df_tree = merge(df_fly1, df_need)
 #merge data, grab tree and go
+#old KG tree
 tree = read.tree('../../Paper_materials_2024/anc_kg.treefile')
 df_tree$species_name = gsub(' ', '_', df_tree$species_name)
 row.names(df_tree) = df_tree$species_name
@@ -44,3 +45,27 @@ tips
 pruned.contMap<-keep.tip.contMap(nonf_birds_contMap,tips)
 plot(pruned.contMap)
 
+#Andrey tree
+feathertree <- read.nexus("../Work_with_Andrey/Ultrametric_feathertree.nex")
+df_need$species_name = gsub(' ', '_', df_need$species_name)
+rownames(df_need) = df_need$species_name
+name.check(feathertree, df_need)
+df_need[df_need$species_name == "Agapornis_pullarius" | df_need$species_name == "Mergus_squamatus" | df_need$species_name == "Coturnix_chinensis" | df_need$species_name == "Serinus_albogularis" | df_need$species_name == "Vestiaria_coccinea",] = NA
+df_need = na.omit(df_need)
+listSkew = df_need$species_name
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> big_tree
+
+df_need$GhAhSkew = as.numeric(as.character(df_need$GhAhSkew))
+lnTL_big<-setNames(df_need$GhAhSkew,rownames(df_need))
+fit.lnTL_big<-fastAnc(big_tree,lnTL_big,vars=TRUE,CI=TRUE)
+print(fit.lnTL_big,printlen=10)
+big_birds_contMap<-contMap(big_tree,lnTL_big,
+                            plot=FALSE)
+plot(big_birds_contMap,sig=2,fsize=c(0.45,0.9),
+     lwd=c(2,3))
+tips<-extract.clade(big_tree,'I1497')$tip.label #699 - peng, 690 peng + ant 582 non-flying 496 ducks
+tips
+pruned.contMap<-keep.tip.contMap(nonf_birds_contMap,tips)
+plot(pruned.contMap)
