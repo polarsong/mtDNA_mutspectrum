@@ -18,10 +18,12 @@ for (i in names_v)
   a = sum(df1$ghahSkew)/12
   b = sum(df1$chthSkew)/12
   v = sum(df1$Mass)/12
-  ab = c(i, a, b, v)
+  pro = sum(df1$CCT) + sum(df1$CCA) + sum(df1$CCG) + sum(df1$CCC) 
+  pheleu = sum(df1$TTT) + sum(df1$TTC) + sum(df1$TTG) + sum(df1$TTA) 
+  ab = c(i, a, b, v, pro, pheleu)
   df_short = rbind(df_short, ab)
 }
-names(df_short) = c('Species', 'GhAhSkew', 'ThChSkew', 'Mass')
+names(df_short) = c('Species', 'GhAhSkew', 'ThChSkew', 'Mass', 'Pro', 'PheLeu')
 df_short$Species = gsub(' ', '_', df_short$Species)
 
 #fly data
@@ -96,3 +98,11 @@ fit_pic_paleo
 summary(fit_pic_paleo)
 plot(Gh_paleoPIC~paleopic)
 
+#AA shift
+df_fly_final$Pro = as.numeric(as.character(df_fly_final$Pro))
+df_fly_final$PheLeu = as.numeric(as.character(df_fly_final$PheLeu))
+df_fly_final$propheleu = df_fly_final$Pro/df_fly_final$PheLeu
+ggplot(df_fly_final, aes(x = flightless, y = propheleu))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
