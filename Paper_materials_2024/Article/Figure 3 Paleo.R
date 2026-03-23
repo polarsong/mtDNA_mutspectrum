@@ -69,7 +69,7 @@ listSkew_fly = df_fly_final$Species
 listTree_fly <- feathertree$tip.label
 SpeciesToDrop <- setdiff(listTree_fly, listSkew_fly)
 drop.tip(feathertree, SpeciesToDrop) -> fly_tree
-name.check(feathertree, df_short)
+name.check(fly_tree, df_fly_final)
 #with penguins
 spp_1 = rownames(df_fly_final)
 corLambda_1 = corPagel(value = 1, phy = fly_tree, form=~spp_1)
@@ -83,11 +83,26 @@ listSkew_paleo = df_paleo$Species
 listTree_paleo <- fly_tree$tip.label
 SpeciesToDrop <- setdiff(listTree_paleo, listSkew_paleo)
 drop.tip(fly_tree, SpeciesToDrop) -> paleo_tree
+name.check(paleo_tree, df_paleo)
 spp_2 = rownames(df_paleo)
 corLambda_2 = corPagel(value = 1, phy = paleo_tree, form=~spp_2)
 pgls_2 = gls(GhAhSkew~abtf,
              data=df_paleo, correlation=corLambda_2)
 summary(pgls_2)
+df_paleo$Pro = as.numeric(as.character(df_paleo$Pro))
+df_paleo$PheLeu = as.numeric(as.character(df_paleo$PheLeu))
+df_paleo$propheleu = df_paleo$Pro/df_paleo$PheLeu
+df_paleo$loggh = log10(df_paleo$GhAhSkew + 0.3)
+df_paleo$logaa = log10(df_paleo$propheleu)
+pgls_3 = gls(loggh~abtf,
+             data=df_paleo, correlation=corLambda_2)
+summary(pgls_3)
+pgls_4 = gls(propheleu~abtf,
+             data=df_paleo, correlation=corLambda_2)
+summary(pgls_4)
+pgls_5 = gls(logaa~abtf,
+             data=df_paleo, correlation=corLambda_2)
+summary(pgls_5)
 
 paleo = setNames(df_paleo[,"abtf"], rownames(df_paleo))
 Gh_paleo = setNames(df_paleo[,"GhAhSkew"], rownames(df_paleo))

@@ -64,6 +64,17 @@ pgls_1 = gls(GhAhSkew~abtd,
              data=df_dive_final, correlation=corLambda_1)
 summary(pgls_1)
 
+df_dive_final$loggh = log10(df_dive_final$GhAhSkew + 0.3)
+pgls_1_2 = gls(loggh~abtd,
+             data=df_dive_final, correlation=corLambda_1)
+summary(pgls_1_2)
+df_dive_final$Pro = as.numeric(as.character(df_dive_final$Pro))
+df_dive_final$PheLeu = as.numeric(as.character(df_dive_final$PheLeu))
+df_dive_final$propheleu = df_dive_final$Pro/df_dive_final$PheLeu
+pgls_1_3 = gls(propheleu~abtd,
+               data=df_dive_final, correlation=corLambda_1)
+summary(pgls_1_3)
+
 #cut some divers
 df_dive_cut = df_dive_final[df_dive_final$diving != "Coraciiformes" & df_dive_final$diving != "Passeriformes" & df_dive_final$diving != "Gruiformes" & df_dive_final$diving != "Charadriiformes" & df_dive_final$diving != "Procellariiformes",]
 name.check(dive_tree, df_dive_cut)
@@ -77,7 +88,16 @@ corLambda_2 = corPagel(value = 1, phy = dive_tree_cut, form=~spp_2)
 pgls_2 = gls(GhAhSkew~abtd,
              data=df_dive_cut, correlation=corLambda_2)
 summary(pgls_2)
-
+pgls_2_1 = gls(loggh~abtd,
+             data=df_dive_cut, correlation=corLambda_2)
+summary(pgls_2_1)
+pgls_2_2 = gls(propheleu~abtd,
+               data=df_dive_cut, correlation=corLambda_2)
+summary(pgls_2_2)
+df_dive_cut$logaa = log10(df_dive_cut$propheleu)
+pgls_2_3 = gls(logaa~abtd,
+               data=df_dive_cut, correlation=corLambda_2)
+summary(pgls_2_3)
 #AA shift
 #AA shift
 df_dive_cut$Pro = as.numeric(as.character(df_dive_cut$Pro))

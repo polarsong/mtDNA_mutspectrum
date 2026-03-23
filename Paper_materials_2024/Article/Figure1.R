@@ -150,6 +150,12 @@ graph_3 = ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
 #stats
 wilcox.test(new_big12g[new_big12g$Class == 'Mammalia',]$Pro_PheLeu,new_big12g[new_big12g$Class == 'Aves',]$Pro_PheLeu)
 
+#ND6
+new_nd6 = new_big[new_big$gene_name == 'ND6',]
+ggplot(new_nd6, aes(x = Class, y = Pro_PheLeu))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  ylim(0.025,0.25)
+wilcox.test(new_nd6[new_nd6$Class == 'Aves',]$Pro_PheLeu, new_nd6[new_nd6$Class == 'Mammalia',]$Pro_PheLeu)
 
 #mutspec 
 mutspec = read.csv("MutSups.csv")
