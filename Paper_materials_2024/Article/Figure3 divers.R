@@ -107,3 +107,50 @@ ggplot(df_dive_cut, aes(x = diving, y = propheleu))+
   geom_boxplot()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes")
+
+#big pgls
+df_dive_clean = df_dive_final[df_dive_final$flightless =='Flightless',]
+df_dive_clean1= df_dive_final[df_dive_final$flightless == 'Almost_flightless',]
+df_dive_clean = na.omit(df_dive_clean)
+df_dive_clean1 = na.omit(df_dive_clean1)
+df_divegls = df_dive_final[df_dive_final$flightless != 'Flightless',]
+df_divegls = df_divegls[df_divegls$flightless != 'Almost_flightless',]
+df_dive_clean$flightless = 'Tinamiformes'
+df_dive_clean1$flightless = 'Casuariiformes'
+df_divegls = rbind(df_divegls, df_dive_clean, df_dive_clean1)
+df_divegls = df_divegls[df_divegls$flightless != 'Galliformes',]
+df_divegls[df_divegls$flightless == '0',]$flightless = 'Flying birds'
+df_divegls$abtf = 1
+df_divegls[df_divegls$flightless != 'Flying birds',]$abtf = 0
+df_divegls$Pro = as.numeric(as.character(df_divegls$Pro))
+df_divegls$PheLeu = as.numeric(as.character(df_divegls$PheLeu))
+df_divegls$propheleu = df_divegls$Pro/df_divegls$PheLeu
+df_divegls$Mass = as.numeric(as.character(df_divegls$Mass))
+name.check(df_divegls, dive_tree)
+#listSkew_dive = df_dive_final$Species
+#listTree_dive <- feathertree$tip.label
+#SpeciesToDrop <- setdiff(listTree_dive, listSkew_dive)
+#drop.tip(feathertree, SpeciesToDrop) -> dive_tree
+spp_3 = rownames(df_divegls)
+corLambda_3 = corPagel(value = 1, phy = dive_tree, form=~spp_3)
+corBM<-corBrownian(phy=dive_tree,form=~spp_3)
+pgls_3 = gls(GhAhSkew~abtd+abtf+Mass+propheleu,
+             data=df_divegls, correlation=corBM)
+summary(pgls_3)
+anova(pgls_3)
+pgls_3_1 = gls(GhAhSkew~abtd+abtf+Mass+propheleu,
+             data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_1)
+anova(pgls_3_1)
+
+df_divegls$loggh = log10(df_divegls$GhAhSkew + 0.3)
+df_divegls$logmass = log10(df_divegls$Mass)
+df_divegls$logppl = log10(df_divegls$propheleu)
+pgls_3_2 = gls(loggh~abtd+abtf+logmass+logppl,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_2)
+anova(pgls_3_2)
+pgls_3_3 = gls(loggh~abtd+abtf+logmass+logppl,
+               data=df_divegls, correlation=corBM)
+summary(pgls_3_3)
+anova(pgls_3_3)
