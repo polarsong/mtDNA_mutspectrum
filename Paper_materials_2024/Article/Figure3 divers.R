@@ -134,11 +134,11 @@ name.check(df_divegls, dive_tree)
 spp_3 = rownames(df_divegls)
 corLambda_3 = corPagel(value = 1, phy = dive_tree, form=~spp_3)
 corBM<-corBrownian(phy=dive_tree,form=~spp_3)
-pgls_3 = gls(GhAhSkew~abtd+abtf+Mass+propheleu,
+pgls_3 = gls(GhAhSkew~abtd+abtf+Mass,
              data=df_divegls, correlation=corBM)
 summary(pgls_3)
 anova(pgls_3)
-pgls_3_1 = gls(GhAhSkew~abtd+abtf+Mass+propheleu,
+pgls_3_1 = gls(GhAhSkew~abtd+abtf+Mass,
              data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_1)
 anova(pgls_3_1)
@@ -146,11 +146,56 @@ anova(pgls_3_1)
 df_divegls$loggh = log10(df_divegls$GhAhSkew + 0.3)
 df_divegls$logmass = log10(df_divegls$Mass)
 df_divegls$logppl = log10(df_divegls$propheleu)
-pgls_3_2 = gls(loggh~abtd+abtf+logmass+logppl,
+pgls_3_2 = gls(loggh~abtd+abtf+logmass,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_2)
 anova(pgls_3_2)
-pgls_3_3 = gls(loggh~abtd+abtf+logmass+logppl,
+pgls_3_3 = gls(loggh~abtd+abtf+logmass,
                data=df_divegls, correlation=corBM)
 summary(pgls_3_3)
 anova(pgls_3_3)
+
+pgls_3_4 = gls(GhAhSkew~abtd*abtf+Mass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_4)
+anova(pgls_3_4)
+
+pgls_3_5 = gls(loggh~abtd*abtf+logmass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_5)
+anova(pgls_3_5)
+
+pgls_3_6 = gls(GhAhSkew~abtd*abtf,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_6)
+anova(pgls_3_6)
+
+pgls_3_7 = gls(loggh~abtd*abtf,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_7)
+anova(pgls_3_7)
+
+#cut sphe - doesn't work
+df_divegls_exp = df_divegls[df_divegls$diving != 'Sphenisciformes',]
+name.check(df_divegls_exp, dive_tree)
+spp_exp = rownames(df_divegls_exp)
+corLambda_exp = corPagel(value = 1, phy = dive_tree, form=~spp_exp)
+pgls_exp = gls(GhAhSkew~abtf*abtd+Mass,
+             data=df_divegls_exp, correlation=corLambda_exp)
+summary(pgls_exp)
+anova(pgls_exp)
+
+#propheleu 
+pgls_4 = gls(propheleu~abtf*abtd+Mass,
+             data = df_divegls, correlation = corLambda_3)
+summary(pgls_4)
+anova(pgls_4)
+pgls_4_1 = gls(logppl~abtf*abtd+logmass,
+             data = df_divegls, correlation = corLambda_3)
+summary(pgls_4_1)
+anova(pgls_4_1)
+
+pgls_4_2 = gls(logppl~abtf*abtd,
+               data = df_divegls, correlation = corLambda_3)
+summary(pgls_4_2)
+anova(pgls_4_2)

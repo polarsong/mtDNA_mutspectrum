@@ -149,6 +149,14 @@ graph_3 = ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
   ylim(0,1.8)
 #stats
 wilcox.test(new_big12g[new_big12g$Class == 'Mammalia',]$Pro_PheLeu,new_big12g[new_big12g$Class == 'Aves',]$Pro_PheLeu)
+#propheleu
+ggplot(new_big, aes(x = gene_name, y = Pro_PheLeu, fill = Class))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
+  ylim(0,4.1)
+new_big_exp = new_big[new_big$Pro_PheLeu != 'Inf',]
+TBSS_ppl = lm(Pro_PheLeu ~ scale(classbinar) + scale(TBSS), data = new_big_exp)
+summary(TBSS_ppl)
 
 #ND6
 new_nd6 = new_big[new_big$gene_name == 'ND6',]
