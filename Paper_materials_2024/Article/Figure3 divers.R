@@ -58,16 +58,25 @@ drop.tip(feathertree, SpeciesToDrop) -> dive_tree
 name.check(dive_tree, df_dive_final)
 df_dive_final$abtd = 0
 df_dive_final[df_dive_final$diving != 'Non-diving birds',]$abtd = 1
+df_dive_final$exp_div = factor(df_dive_final$abtd, levels = c(1, 0))
 spp_1 = rownames(df_dive_final)
 corLambda_1 = corPagel(value = 1, phy = dive_tree, form=~spp_1)
 pgls_1 = gls(GhAhSkew~abtd,
              data=df_dive_final, correlation=corLambda_1)
 summary(pgls_1)
+pgls_1_1 = gls(GhAhSkew~exp_div,
+             data=df_dive_final, correlation=corLambda_1)
+summary(pgls_1_1)
 
 df_dive_final$loggh = log10(df_dive_final$GhAhSkew + 0.3)
 pgls_1_2 = gls(loggh~abtd,
              data=df_dive_final, correlation=corLambda_1)
 summary(pgls_1_2)
+
+pgls_1_2_1 = gls(loggh~exp_div,
+               data=df_dive_final, correlation=corLambda_1)
+summary(pgls_1_2_1)
+
 df_dive_final$Pro = as.numeric(as.character(df_dive_final$Pro))
 df_dive_final$PheLeu = as.numeric(as.character(df_dive_final$PheLeu))
 df_dive_final$propheleu = df_dive_final$Pro/df_dive_final$PheLeu
@@ -98,6 +107,12 @@ df_dive_cut$logaa = log10(df_dive_cut$propheleu)
 pgls_2_3 = gls(logaa~abtd,
                data=df_dive_cut, correlation=corLambda_2)
 summary(pgls_2_3)
+pgls_2_4 = gls(GhAhSkew~exp_div,
+               data=df_dive_cut, correlation=corLambda_2)
+summary(pgls_2_4)
+pgls_2_5 = gls(loggh~exp_div,
+               data=df_dive_cut, correlation=corLambda_2)
+summary(pgls_2_5)
 #AA shift
 #AA shift
 df_dive_cut$Pro = as.numeric(as.character(df_dive_cut$Pro))
@@ -122,6 +137,7 @@ df_divegls = df_divegls[df_divegls$flightless != 'Galliformes',]
 df_divegls[df_divegls$flightless == '0',]$flightless = 'Flying birds'
 df_divegls$abtf = 1
 df_divegls[df_divegls$flightless != 'Flying birds',]$abtf = 0
+df_divegls$exp_flight = factor(df_divegls$abtf, levels = c(1, 0))
 df_divegls$Pro = as.numeric(as.character(df_divegls$Pro))
 df_divegls$PheLeu = as.numeric(as.character(df_divegls$PheLeu))
 df_divegls$propheleu = df_divegls$Pro/df_divegls$PheLeu
@@ -141,6 +157,9 @@ anova(pgls_3)
 pgls_3_1 = gls(GhAhSkew~abtd+abtf+Mass,
              data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_1)
+pgls_3_1_1 = gls(GhAhSkew~exp_div+exp_flight+Mass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_1_1)
 anova(pgls_3_1)
 
 df_divegls$loggh = log10(df_divegls$GhAhSkew + 0.3)
@@ -149,6 +168,9 @@ df_divegls$logppl = log10(df_divegls$propheleu)
 pgls_3_2 = gls(loggh~abtd+abtf+logmass,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_2)
+pgls_3_2_1 = gls(loggh~exp_div+exp_flight+logmass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_2_1)
 anova(pgls_3_2)
 pgls_3_3 = gls(loggh~abtd+abtf+logmass,
                data=df_divegls, correlation=corBM)
@@ -165,15 +187,62 @@ pgls_3_5 = gls(loggh~abtd*abtf+logmass,
 summary(pgls_3_5)
 anova(pgls_3_5)
 
+pgls_3_5_1 = gls(loggh~exp_div*exp_flight+logmass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_5_1)
+
+
+
 pgls_3_6 = gls(GhAhSkew~abtd*abtf,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_6)
-anova(pgls_3_6)
+pgls_3_6_1 = gls(GhAhSkew~exp_div*exp_flight,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_6_1)
+
 
 pgls_3_7 = gls(loggh~abtd*abtf,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_7)
 anova(pgls_3_7)
+
+pgls_3_7_1 = gls(loggh~exp_div*exp_flight,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_7_1)
+
+#cut again
+dfglscut = df_divegls[df_divegls$diving != "Coraciiformes" & df_divegls$diving != "Passeriformes" & df_divegls$diving != "Gruiformes" & df_divegls$diving != "Charadriiformes" & df_divegls$diving != "Procellariiformes",]
+name.check(dfglscut, dive_tree)
+spp_4 = rownames(dfglscut)
+corLambda_4 = corPagel(value = 1, phy = dive_tree, form=~spp_4)
+pgls_4 = gls(GhAhSkew~abtd*abtf,
+             data=dfglscut, correlation=corLambda_4)
+summary(pgls_4)
+pgls_4_1 = gls(GhAhSkew~exp_div*exp_flight,
+             data=dfglscut, correlation=corLambda_4)
+summary(pgls_4_1)
+#Andrey graph
+library(sjPlot)
+plot_model(pgls_3_7, type = "int", terms = c("abtd", "abtf"))
+plot_model(pgls_3_7, type = "int", terms = c("abtf", "abtd"))
+
+df_divegls$exp_div = factor(df_divegls$abtd, levels = c(1, 0))
+df_divegls$exp_flight = factor(df_divegls$abtf, levels = c(1, 0))
+pgls_3_8 = gls(GhAhSkew~exp_div*exp_flight,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_8)
+plot_model(pgls_3_8, type = "int", terms = c("exp_div", "exp_flight"))
+plot_model(pgls_3_8, type = "int", terms = c("exp_flight", "exp_div"))
+plot(pgls_3_8)
+
+pgls_3_9 = gls(GhAhSkew~exp_div*exp_flight+logmass,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_9)
+anova(pgls_3_9)
+
+#FD shenanigans
+df_divegls$FD = 1
+
 
 #cut sphe - doesn't work
 df_divegls_exp = df_divegls[df_divegls$diving != 'Sphenisciformes',]

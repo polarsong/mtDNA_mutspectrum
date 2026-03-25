@@ -16,15 +16,16 @@ df_nd6$fGn = df_nd6$neutral_c/df_nd6$neutral_amount
 SynNuc = read.table('AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep = '\t')
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
-new_mam = SynNuc[, c(1, 2, 29,30,31,32,69, 70, 71, 72, 79, 80)]
+new_mam = SynNuc[, c('Species', 'Gene', "CCA",
+                     "CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'AAA', 'GAA', 'TAA', 'CAA', 'AGG', 'GGG', 'TGG', 'CGG', 'ghahSkew','chthSkew')]
 new_mam$Сlass = 'Mammalia'
 new_bird = df_nd6[, c('species_name', 'gene_name', "CCA",
-                      "CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'GhAhSkew','ThChSkew')]
+                      "CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'AAA', 'GAA', 'TAA', 'CAA', 'AGG', 'GGG', 'TGG', 'CGG', 'GhAhSkew','ThChSkew')]
 new_bird$Сlass = 'Aves'
 new_bird$species_name = gsub(' ', '_', new_bird$species_name)
 new_mam$Gene[new_mam$Gene == 'CytB'] = 'CYTB'
-names(new_mam) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT",'GhAhSkew', 'ThChSkew', 'Class')
-names(new_bird) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT",'GhAhSkew', 'ThChSkew', 'Class')
+names(new_mam) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'AAA', 'GAA', 'TAA', 'CAA', 'AGG', 'GGG', 'TGG', 'CGG','GhAhSkew', 'ThChSkew', 'Class')
+names(new_bird) = c('species_name', 'gene_name', "CCA","CCC", "CCG", "CCT", "TTA", "TTC", "TTG", "TTT", 'AAA', 'GAA', 'TAA', 'CAA', 'AGG', 'GGG', 'TGG', 'CGG','GhAhSkew', 'ThChSkew', 'Class')
 
 new_big = rbind(new_mam, new_bird)
 graph1 = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
@@ -149,8 +150,24 @@ graph_3 = ggplot(new_big12g, aes(x = Class, y = Pro_PheLeu))+
   ylim(0,1.8)
 #stats
 wilcox.test(new_big12g[new_big12g$Class == 'Mammalia',]$Pro_PheLeu,new_big12g[new_big12g$Class == 'Aves',]$Pro_PheLeu)
+
+#ND6
+new_nd6 = new_big[new_big$gene_name == 'ND6',]
+new_nd6$nd6ppl = (new_nd6$AGG+new_nd6$GGG+new_nd6$TGG+new_nd6$CGG)/(new_nd6$AAA+new_nd6$GAA+new_nd6$TAA+new_nd6$CAA)
+new_nd6$nd6ppl_1 = (new_nd6$AAA+new_nd6$GAA+new_nd6$TAA+new_nd6$CAA)/(new_nd6$AGG+new_nd6$GGG+new_nd6$TGG+new_nd6$CGG)
+ggplot(new_nd6, aes(x = Class, y = nd6ppl))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)
+ggplot(new_nd6, aes(x = Class, y = nd6ppl_1))+
+  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  ylim(0,0.45)
+wilcox.test(new_nd6[new_nd6$Class == 'Aves',]$nd6ppl_1, new_nd6[new_nd6$Class == 'Mammalia',]$nd6ppl_1)
+
 #propheleu
-ggplot(new_big, aes(x = gene_name, y = Pro_PheLeu, fill = Class))+
+df1 = new_big12g[,c('species_name', 'gene_name', 'Class', 'Pro_PheLeu')]
+df2 = new_nd6[,c('species_name','gene_name', 'Class', 'nd6ppl_1')]
+names(df2) = c('species_name', 'gene_name','Class', 'Pro_PheLeu')
+df_3 = rbind(df1, df2)
+ggplot(df_3, aes(x = gene_name, y = Pro_PheLeu, fill = Class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
   ylim(0,4.1)
@@ -158,12 +175,6 @@ new_big_exp = new_big[new_big$Pro_PheLeu != 'Inf',]
 TBSS_ppl = lm(Pro_PheLeu ~ scale(classbinar) + scale(TBSS), data = new_big_exp)
 summary(TBSS_ppl)
 
-#ND6
-new_nd6 = new_big[new_big$gene_name == 'ND6',]
-ggplot(new_nd6, aes(x = Class, y = Pro_PheLeu))+
-  geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
-  ylim(0.025,0.25)
-wilcox.test(new_nd6[new_nd6$Class == 'Aves',]$Pro_PheLeu, new_nd6[new_nd6$Class == 'Mammalia',]$Pro_PheLeu)
 
 #mutspec 
 mutspec = read.csv("MutSups.csv")
