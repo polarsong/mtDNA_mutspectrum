@@ -58,7 +58,7 @@ drop.tip(feathertree, SpeciesToDrop) -> dive_tree
 name.check(dive_tree, df_dive_final)
 df_dive_final$abtd = 0
 df_dive_final[df_dive_final$diving != 'Non-diving birds',]$abtd = 1
-df_dive_final$exp_div = factor(df_dive_final$abtd, levels = c(1, 0))
+df_dive_final$exp_div = as.factor(df_dive_final$abtd)
 spp_1 = rownames(df_dive_final)
 corLambda_1 = corPagel(value = 1, phy = dive_tree, form=~spp_1)
 pgls_1 = gls(GhAhSkew~abtd,
@@ -137,12 +137,15 @@ df_divegls = df_divegls[df_divegls$flightless != 'Galliformes',]
 df_divegls[df_divegls$flightless == '0',]$flightless = 'Flying birds'
 df_divegls$abtf = 1
 df_divegls[df_divegls$flightless != 'Flying birds',]$abtf = 0
-df_divegls$exp_flight = factor(df_divegls$abtf, levels = c(1, 0))
+df_divegls$exp_flight = as.factor(df_divegls$abtf)
 df_divegls$Pro = as.numeric(as.character(df_divegls$Pro))
 df_divegls$PheLeu = as.numeric(as.character(df_divegls$PheLeu))
 df_divegls$propheleu = df_divegls$Pro/df_divegls$PheLeu
 df_divegls$Mass = as.numeric(as.character(df_divegls$Mass))
 name.check(df_divegls, dive_tree)
+df_divegls$loggh = log10(df_divegls$GhAhSkew + 0.3)
+df_divegls$logmass = log10(df_divegls$Mass)
+df_divegls$logppl = log10(df_divegls$propheleu)
 #listSkew_dive = df_dive_final$Species
 #listTree_dive <- feathertree$tip.label
 #SpeciesToDrop <- setdiff(listTree_dive, listSkew_dive)
@@ -162,9 +165,7 @@ pgls_3_1_1 = gls(GhAhSkew~exp_div+exp_flight+Mass,
 summary(pgls_3_1_1)
 anova(pgls_3_1)
 
-df_divegls$loggh = log10(df_divegls$GhAhSkew + 0.3)
-df_divegls$logmass = log10(df_divegls$Mass)
-df_divegls$logppl = log10(df_divegls$propheleu)
+
 pgls_3_2 = gls(loggh~abtd+abtf+logmass,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_2)
