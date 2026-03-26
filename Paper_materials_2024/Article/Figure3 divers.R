@@ -242,8 +242,18 @@ summary(pgls_3_9)
 anova(pgls_3_9)
 
 #FD shenanigans
-df_divegls$FD = 1
+df_divegls$FD = 0
+df_divegls$Fd = 0
+df_divegls$fD = 0
+df_divegls$fd = 0
+df_divegls[df_divegls$abtd == 1 & df_divegls$abtf == 1,]$FD = 1
+df_divegls[df_divegls$abtd == 0 & df_divegls$abtf == 1,]$Fd = 1
+df_divegls[df_divegls$abtd == 1 & df_divegls$abtf == 0,]$fD = 1
+df_divegls[df_divegls$abtd == 0 & df_divegls$abtf == 0,]$fd = 1
 
+pgls_5 = gls(GhAhSkew~FD+Fd+fD,
+             data = df_divegls, correlation = corLambda_3)
+summary(pgls_5)
 
 #cut sphe - doesn't work
 df_divegls_exp = df_divegls[df_divegls$diving != 'Sphenisciformes',]
