@@ -35,7 +35,7 @@ graph1 = ggplot(new_big, aes(x = gene_name, y = GhAhSkew, fill = Class))+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
   ylim(-1,1)+
   annotate('text', x = 4.5, y = -0.75, label = 'N birds = 766')+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         legend.position = "none")
 
 graph2 = ggplot(new_big, aes(x = gene_name, y = ThChSkew, fill = Class))+
@@ -45,7 +45,7 @@ graph2 = ggplot(new_big, aes(x = gene_name, y = ThChSkew, fill = Class))+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
   ylim(-1,1)+
   annotate('text', x = 4.5, y = -0.75, label = 'N mammals = 4356')+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank(),
         legend.position = "none")
 
 df_mut = read.csv('MutSpecVertebrates12.csv')
@@ -167,12 +167,18 @@ df1 = new_big12g[,c('species_name', 'gene_name', 'Class', 'Pro_PheLeu')]
 df2 = new_nd6[,c('species_name','gene_name', 'Class', 'nd6ppl_1')]
 names(df2) = c('species_name', 'gene_name','Class', 'Pro_PheLeu')
 df_3 = rbind(df1, df2)
-ggplot(df_3, aes(x = gene_name, y = Pro_PheLeu, fill = Class))+
+graph6 =ggplot(df_3, aes(x = gene_name, y = Pro_PheLeu, fill = Class))+
   geom_boxplot(notch = TRUE, outlier.alpha = FALSE)+
+  xlab('Mitochondrial genes')+
+  ylab('ProPheLeu')+
   xlim(c("COX1","COX2","ATP8","ATP6","COX3", "ND3", "ND4L","ND4","ND5",'CYTB',"ND6","ND1","ND2"))+
-  ylim(0,4.1)
+  ylim(0,4.1)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")
 new_big_exp = new_big[new_big$Pro_PheLeu != 'Inf',]
-TBSS_ppl = lm(Pro_PheLeu ~ scale(classbinar) + scale(TBSS), data = new_big_exp)
+new_big_exp$trand = 1
+new_big_exp[new_big_exp$gene_name == 'ND6',]$trand = 0
+TBSS_ppl = lm(Pro_PheLeu ~ scale(classbinar) + scale(trand), data = new_big_exp)
 summary(TBSS_ppl)
 
 
@@ -192,5 +198,5 @@ graph_4 = ggplot(mutspec, aes(x = Mut, y = Aves))+
   geom_bar(stat = 'identity')
 graph_5 = ggplot(mutspec, aes(x = Mut, y = Mammalia))+
   geom_bar(stat = 'identity')
-graph_final = ggarrange(graph_4, graph_5, graph1, graph2,
-                        ncol = 2, nrow = 2)
+graph_final = ggarrange(graph_4, graph_5, graph1, graph2, graph6, graph6,
+                        ncol = 2, nrow = 3)
