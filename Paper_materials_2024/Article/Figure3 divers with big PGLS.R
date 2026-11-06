@@ -39,7 +39,15 @@ ggplot(df_dive_final, aes(x = diving, y = GhAhSkew, colour = diving1))+
   geom_point(position = position_jitter(width = 0.2))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlab('Birds groups')+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")+
+  scale_color_discrete(name = "Birds orders")
+df_dive_final$ThChSkew = as.numeric(as.character(df_dive_final$ThChSkew))
+ggplot(df_dive_final, aes(x = diving, y = ThChSkew, colour = diving1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")+
+  scale_color_discrete(name = "Birds orders")
 t.test(df_dive_final[df_dive_final$diving == "Non-diving birds",]$GhAhSkew, df_dive_final[df_dive_final$flightless == "Anseriformes" | df_dive_final$flightless == "Sphenisciformes" | df_dive_final$flightless == "Podicipediformes" | df_dive_final$flightless == "Gaviiformes" | df_dive_final$flightless == "Suliformes" | df_dive_final$flightless == "Coraciiformes" | df_dive_final$flightless == "Passeriformes" | df_dive_final$flightless == "Gruiformes" | df_dive_final$flightless == "Charadriiformes" | df_dive_final$flightless == "Procellariiformes",]$GhAhSkew)
 t.test(df_dive_final[df_dive_final$diving == "Non-diving birds",]$GhAhSkew, df_dive_final[df_dive_final$flightless == "Anseriformes" | df_dive_final$flightless == "Sphenisciformes" | df_dive_final$flightless == "Podicipediformes" | df_dive_final$flightless == "Gaviiformes" | df_dive_final$flightless == "Suliformes",]$GhAhSkew)
 t.test(df_dive_final[df_dive_final$diving == "Non-diving birds",]$GhAhSkew, df_dive_final[df_dive_final$flightless == "Coraciiformes" | df_dive_final$flightless == "Passeriformes" | df_dive_final$flightless == "Gruiformes" | df_dive_final$flightless == "Charadriiformes" | df_dive_final$flightless == "Procellariiformes",]$GhAhSkew)

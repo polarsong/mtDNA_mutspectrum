@@ -50,7 +50,15 @@ ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flightless1))+
   geom_point(position = position_jitter(width = 0.2))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlab('Birds groups')+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")+
+  scale_color_discrete(name = "Birds orders")
+df_fly_final$ThChSkew = as.numeric(as.character(df_fly_final$ThChSkew))
+ggplot(df_fly_final, aes(x = flightless, y = ThChSkew, color = flightless1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")+
+  scale_color_discrete(name = "Birds orders")
 t.test(df_fly_final[df_fly_final$flightless == 'Flying birds',]$GhAhSkew, df_fly_final[df_fly_final$flightless == "Tinamiformes" | df_fly_final$flightless == "Apterygiformes" | df_fly_final$flightless == "Casuariiformes" | df_fly_final$flightless == "Struthioniformes" | df_fly_final$flightless == "Rheiformes",]$GhAhSkew)
 t.test(df_fly_final[df_fly_final$flightless == 'Flying birds',]$GhAhSkew, df_fly_final[df_fly_final$flightless == "Psittaciformes" | df_fly_final$flightless == "Columbiformes" | df_fly_final$flightless == "Eurypygiformes" | df_fly_final$flightless == "Gruiformes" | df_fly_final$flightless == "Sphenisciformes",]$GhAhSkew)
 t.test(df_fly_final[df_fly_final$flightless == 'Flying birds',]$GhAhSkew, df_fly_final[df_fly_final$flightless == "Psittaciformes" | df_fly_final$flightless == "Columbiformes" | df_fly_final$flightless == "Eurypygiformes" | df_fly_final$flightless == "Gruiformes",]$GhAhSkew)
