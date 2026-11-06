@@ -197,6 +197,11 @@ summary(pgls_3_5_1)
 pgls_3_6 = gls(GhAhSkew~abtd*abtf,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_6)
+df_divegls$ThChSkew = as.numeric(as.character(df_divegls$ThChSkew))
+pgls_3_6_1_5 = gls(ThChSkew~abtd*abtf,
+               data=df_divegls, correlation=corLambda_3)
+summary(pgls_3_6_1_5)
+
 pgls_3_6_1 = gls(GhAhSkew~exp_div*exp_flight,
                data=df_divegls, correlation=corLambda_3)
 summary(pgls_3_6_1)

@@ -86,7 +86,7 @@ graph6 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
 #unzip("../Body/3Results/AllGenesCodonUsageNoOverlap.zip", exdir = "../../Body/3Results/")
 #SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
 #if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
-SynNuc = read.table('AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep = '\t')
+SynNuc = read.table('../Article/AllGenesCodonUsageNoOverlap.txt', header = TRUE, sep = '\t')
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
 new_mam = SynNuc[, c(1, 2, 79, 80)]
@@ -373,6 +373,7 @@ ggarrange(skew_eco_ghahskew, skew_niche_ghahskew, skew_eco_thchskew, skew_niche_
 df_int = read.csv('../../Body/1Raw/Avonet_data.csv')
 df_migr = df_int[,c('Species3', 'Migration')]
 names(df_migr) = c('Species', 'migration')
+df_migr$Species = gsub(' ', '_', df_migr$Species)
 df_migr_mtdna = merge(df_short, df_migr, by = 'Species')
 df_migr_mtdna$migration = as.character(df_migr_mtdna$migration)
 df_migr_mtdna[df_migr_mtdna$migration == "1",]$migration = "Resident"
@@ -458,8 +459,10 @@ listSkew = df_fly_final$Species
 listTree <- old_tree$tip.label
 SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(old_tree, SpeciesToDrop) -> Old_cut_tree_abtf
+name.check(Old_cut_tree_abtf, df_fly_final)
 spp = rownames(df_fly_final)
 corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+glsControl(maxIter = 500, msMaxIter=2000, returnObject = TRUE)
 pgls_abtf = gls(GhAhSkew~abtf,
                    data=df_fly_final, correlation=corLambda)
 summary(pgls_abtf) #show today 1 #PIC + tolerance + Markov's chain
@@ -469,6 +472,24 @@ feathertree$node.label <- NULL # Remove internal node labels (if any)
 is.ultrametric(feathertree)
 is.binary(feathertree)
 is.rooted(feathertree)
+row.names(df_fly_final) = df_fly_final$Species
+name.check(feathertree, df_fly_final)
+listSkew = df_fly_final$Species
+listTree <- feathertree$tip.label
+SpeciesToDrop <- setdiff(listTree, listSkew)
+drop.tip(feathertree, SpeciesToDrop) -> Andrey_cut_tree_abtf
+name.check(Andrey_cut_tree_abtf, df_fly_final)
+spp = rownames(df_fly_final)
+corLambda = corPagel(value = 1, phy = Andrey_cut_tree_abtf, form=~spp)
+#glsControl(maxIter = 500, msMaxIter=2000, returnObject = TRUE)
+pgls_abtf = gls(GhAhSkew~abtf,
+                data=df_fly_final, correlation=corLambda)
+summary(pgls_abtf)
+pgls_abtf1 = gls(ThChSkew~abtf,
+                 data=df_fly_final, correlation=corLambda)
+summary(pgls_abtf1)
+
+
 df_nonf = df_fly_final[df_fly_final$flightless != 'Sphenisciformes',]
 listSkew = df_nonf$Species
 listTree <- feathertree$tip.label
@@ -476,7 +497,7 @@ SpeciesToDrop <- setdiff(listTree, listSkew)
 drop.tip(feathertree, SpeciesToDrop) -> Old_cut_tree_abtf_nop
 name.check(Old_cut_tree_abtf_nop, df_nonf)
 spp = rownames(df_nonf)
-corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf, form=~spp)
+corLambda = corPagel(value = 1, phy = Old_cut_tree_abtf_nop, form=~spp)
 pgls_abtf = gls(GhAhSkew~abtf,
                 data=df_nonf, correlation=corLambda)
 summary(pgls_abtf)

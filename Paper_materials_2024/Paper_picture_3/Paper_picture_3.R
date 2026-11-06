@@ -65,9 +65,21 @@ fly_skew = ggplot(df_fly_final, aes(x = flightless, y = GhAhSkew, color = flight
   geom_point(position = position_jitter(width = 0.2))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlab('Birds groups')+
-  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")+
+  guides(color = guide_legend(title = "Birds orders"))
+fly_skew
+fly_skew1 = ggplot(df_fly_final, aes(x = flightless, y = ThChSkew, color = flightless1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Flying birds', 'Tinamiformes', 'Apterygiformes', 'Casuariiformes', 'Struthioniformes', 'Rheiformes', "Psittaciformes", "Columbiformes", "Eurypygiformes", "Gruiformes", "Sphenisciformes")+
+  guides(color = guide_legend(title = "Birds orders"))
+fly_skew1
+t.test(df_fly_final[df_fly_final$flightless1 == 'Flying birds',]$GhAhSkew, df_fly_final[df_fly_final$flightless1 == 'Tinamiformes' | df_fly_final$flightless1 == 'Apterygiformes' | df_fly_final$flightless1 == 'Casuariiformes' | df_fly_final$flightless1 == 'Struthioniformes' | df_fly_final$flightless1 == 'Rheiformes',]$GhAhSkew)
+t.test(df_fly_final[df_fly_final$flightless1 == 'Flying birds',]$GhAhSkew, df_fly_final[df_fly_final$flightless1 == "Psittaciformes" | df_fly_final$flightless1 == "Columbiformes" | df_fly_final$flightless1 == "Eurypygiformes" | df_fly_final$flightless1 == "Gruiformes" | df_fly_final$flightless1 == "Sphenisciformes",]$GhAhSkew)
 
-
+t.test(df_fly_final[df_fly_final$flightless1 == 'Flying birds',]$ThChSkew, df_fly_final[df_fly_final$flightless1 == 'Tinamiformes' | df_fly_final$flightless1 == 'Apterygiformes' | df_fly_final$flightless1 == 'Casuariiformes' | df_fly_final$flightless1 == 'Struthioniformes' | df_fly_final$flightless1 == 'Rheiformes',]$ThChSkew)
+t.test(df_fly_final[df_fly_final$flightless1 == 'Flying birds',]$ThChSkew, df_fly_final[df_fly_final$flightless1 == "Psittaciformes" | df_fly_final$flightless1 == "Columbiformes" | df_fly_final$flightless1 == "Eurypygiformes" | df_fly_final$flightless1 == "Gruiformes" | df_fly_final$flightless1 == "Sphenisciformes",]$ThChSkew)
 
 df_dive_final = merge(df_dive, df_short, by = 'species_name')
 df_dive_final = df_dive_final[df_dive_final$diving != 'waterbird',]
@@ -77,8 +89,17 @@ diving_skew = ggplot(df_dive_final, aes(x = diving, y = GhAhSkew, color = diving
   geom_point(position = position_jitter(width = 0.2))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   xlab('Birds groups')+
-  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")+
+  guides(color = guide_legend(title = "Birds orders"))
+diving_skew
 
+diving_skew1 = ggplot(df_dive_final, aes(x = diving, y = ThChSkew, color = diving1))+
+  geom_point(position = position_jitter(width = 0.2))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab('Birds groups')+
+  xlim('Non-diving birds', "Anseriformes", "Sphenisciformes", "Podicipediformes", "Gaviiformes", "Suliformes", "Coraciiformes", "Passeriformes", "Gruiformes", "Charadriiformes", "Procellariiformes")+
+  guides(color = guide_legend(title = "Birds orders"))
+diving_skew1
 
 df_fly_final$flightless_short = 'Flying birds'
 df_fly_final[df_fly_final$flightless == 'Tinamiformes' | df_fly_final$flightless == 'Apterygiformes' | df_fly_final$flightless == 'Casuariiformes' | df_fly_final$flightless == 'Struthioniformes' | df_fly_final$flightless == 'Rheiformes',]$flightless_short = 'Palaeognathae'

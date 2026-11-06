@@ -76,6 +76,10 @@ corLambda_1 = corPagel(value = 1, phy = fly_tree, form=~spp_1)
 pgls_1 = gls(GhAhSkew~abtf,
                 data=df_fly_final, correlation=corLambda_1)
 summary(pgls_1)
+df_fly_final$ThChSkew = as.numeric(as.character(df_fly_final$ThChSkew))
+pgls_15 = gls(ThChSkew~abtf,
+             data=df_fly_final, correlation=corLambda_1)
+summary(pgls_15)
 #drop penguins
 df_paleo = df_fly_final[df_fly_final$flightless != 'Sphenisciformes',]
 name.check(fly_tree, df_paleo)

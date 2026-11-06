@@ -73,9 +73,9 @@ graph6 = ggplot(data = df_nd6, aes(x = gene_name, y = ThChSkew))+
 skew_graph= ggarrange(graph5, graph6,
                       ncol = 2, nrow = 1)
 
-unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
-SynNuc = read.table("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
-if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
+#unzip("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt.zip", exdir = "../../Body/3Results/")
+SynNuc = read.table("AllGenesCodonUsageNoOverlap.txt", header = TRUE, sep = '\t')
+#if (file.exists("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")) file.remove("../../Body/3Results/AllGenesCodonUsageNoOverlap.txt")
 SynNuc$ghahSkew = ((SynNuc$NeutralC - SynNuc$NeutralT))/((SynNuc$NeutralC + SynNuc$NeutralT))
 SynNuc$chthSkew = ((SynNuc$NeutralA - SynNuc$NeutralG))/((SynNuc$NeutralA + SynNuc$NeutralG))
 new_mam = SynNuc[, c(1, 2, 79, 80)]
@@ -165,3 +165,4 @@ mam_vs_aves_fr
 mam_vs_aves_skew = ggarrange(new_b_and_m, new_b_and_m_one,
                              ncol = 2, nrow = 1)
 mam_vs_aves_skew
+new_b_and_m
